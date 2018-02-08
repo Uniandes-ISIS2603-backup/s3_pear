@@ -1,5 +1,5 @@
-C:\Users\ja.gomez1\Documents\NetBeansProjects\s3_pear-back\s3_pear-back\src\main\java\co\edu\uniandes\csw\watchdogs\exceptions\BusinessLogicException.java
-C:\Users\ja.gomez1\Documents\NetBeansProjects\s3_pear-back\s3_pear-back\src\main\java\co\edu\uniandes\csw\watchdogs\entities\CityEntity.java
-C:\Users\ja.gomez1\Documents\NetBeansProjects\s3_pear-back\s3_pear-back\src\main\java\co\edu\uniandes\csw\watchdogs\entities\BaseEntity.java
-C:\Users\ja.gomez1\Documents\NetBeansProjects\s3_pear-back\s3_pear-back\src\main\java\co\edu\uniandes\csw\watchdogs\persistence\CityPersistence.java
-C:\Users\ja.gomez1\Documents\NetBeansProjects\s3_pear-back\s3_pear-back\src\main\java\co\edu\uniandes\csw\watchdogs\ejb\CityLogic.java
+C:\Users\ja.gomez1\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\persistence\CityPersistence.java
+C:\Users\ja.gomez1\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\CityEntity.java
+C:\Users\ja.gomez1\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\BaseEntity.java
+C:\Users\ja.gomez1\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\ejb\CityLogic.java
+C:\Users\ja.gomez1\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\exceptions\BusinessLogicException.java
