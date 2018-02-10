@@ -1,4 +1,6 @@
+co\edu\uniandes\csw\pear\entities\QuejasyReclamosEntity.class
 co\edu\uniandes\csw\pear\exceptions\BusinessLogicException.class
+co\edu\uniandes\csw\pear\entities\CalificacionEntity.class
 co\edu\uniandes\csw\pear\ejb\CityLogic.class
 co\edu\uniandes\csw\pear\entities\CityEntity.class
 co\edu\uniandes\csw\pear\entities\BaseEntity.class

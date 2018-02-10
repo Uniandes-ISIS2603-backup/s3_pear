@@ -1,5 +1,7 @@
-co\edu\uniandes\csw\pear\dtos\CityDetailDTO.class
 co\edu\uniandes\csw\pear\dtos\CityDTO.class
+co\edu\uniandes\csw\pear\dtos\QuejasyReclamosDTO.class
+co\edu\uniandes\csw\pear\mappers\BusinessLogicExceptionMapper.class
+co\edu\uniandes\csw\pear\dtos\CityDetailDTO.class
 co\edu\uniandes\csw\pear\resources\CityResource.class
 co\edu\uniandes\csw\pear\resources\RestConfig.class
-co\edu\uniandes\csw\pear\mappers\BusinessLogicExceptionMapper.class
+co\edu\uniandes\csw\pear\dtos\CalificacionDTO.class

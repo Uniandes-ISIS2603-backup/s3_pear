@@ -33,6 +33,7 @@ import javax.persistence.Entity;
 @Entity
 public class CityEntity extends BaseEntity implements Serializable {
   private String zipcode;
+  private String pais;
 
     /**
      * @return the zipcode
@@ -46,5 +47,14 @@ public class CityEntity extends BaseEntity implements Serializable {
      */
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
+    }
+    
+    public String getPais()
+    {
+        return pais;
+    }
+    public void setPais(String pais)
+    {
+        this.pais= pais;
     }
 }

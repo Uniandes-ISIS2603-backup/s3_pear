@@ -56,6 +56,7 @@ public class CityDTO {
     private Long id;
     private String name;
     private String zipcode;
+    private String pais;
 
     /**
      * Constructor por defecto
@@ -73,9 +74,26 @@ public class CityDTO {
         this.id = city.getId();
         this.name = city.getName();
         this.zipcode = city.getZipcode();
+        this.pais = city.getPais();
+     
 
     }
-
+    /**
+     * 
+     * @return pais de la ciudad.
+     */
+    public String getPais()
+    {
+        return pais;
+    }
+    /**
+     * 
+     * @param el nuevo pais.
+     */
+    public void setPais(String pais)
+    {
+        this.pais= pais;
+    }
     /**
      * @return El ID de la ciudad
      */

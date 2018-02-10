@@ -169,6 +169,9 @@
                 "name": {
                     "type": "string"
                 },
+                "pais": {
+                    "type": "string"
+                },
                 "zipcode": {
                     "type": "string"
                 }
