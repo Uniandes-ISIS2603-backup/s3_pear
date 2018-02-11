@@ -69,7 +69,7 @@ public class CocinaEntity extends BaseEntity implements Serializable {
      * Cambia la lsita de dietas de la cocina
      * @param dietas 
      */
-    public void setDieta(List<DietaTipoEntity> dietas) {
+    public void setDietas(List<DietaTipoEntity> dietas) {
         this.dietas = dietas;
     } 
     

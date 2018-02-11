@@ -91,14 +91,5 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
 //    public void setSemanas(List<Semana> semanas) {
 //        this.semanas = semanas;
 //    }
-    
-    
-    public static void main(String [] args)
-	{
-            System.out.println("AXBAJS");
-            
-            
-	}
-    
-    
+   
 }

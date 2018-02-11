@@ -40,7 +40,7 @@ public class CocinaDTO {
     
     private String capacidad;
     
-    private List<DietaTipoDTO> dietas;
+    private List<DietaTipoDTO> dietas; // falta inicializar esto bien
     
     
     //-----------------------------------------------------------
@@ -55,7 +55,7 @@ public class CocinaDTO {
     public CocinaDTO( CocinaEntity entidad ) {
         this.ubicacion = entidad.getUbicacion();
         this.capacidad = entidad.getCapacidad();
-        this.dietas = new LinkedList<>();
+        this.dietas = new LinkedList<>(); // <<<<<<<<<
     }
 
     public String getUbicacion() {
@@ -80,6 +80,15 @@ public class CocinaDTO {
 
     public void setDietas(List<DietaTipoDTO> dietas) {
         this.dietas = dietas;
+    }
+    
+    
+    public CocinaEntity toEntity() {
+        CocinaEntity en = new CocinaEntity();
+        en.setCapacidad(this.capacidad);
+        //en.setDietas(this.dietas);  // <<<<<<<<<<<<
+        en.setUbicacion(this.ubicacion);
+        return en;
     }
     
 }
