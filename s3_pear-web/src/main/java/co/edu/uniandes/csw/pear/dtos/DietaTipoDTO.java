@@ -16,8 +16,8 @@ import java.util.List;
  * {
  *  "objetivo": String,
  *  "descripcion": String,
- *  "cuentadecobro": {
- *                    "valorapagar": double
+ *  "cuentaDeCobro": {
+ *                    "valorAPagar": double
  *                  }
  * }
  * @author js.garcial1
@@ -84,6 +84,6 @@ public class DietaTipoDTO {
 //    }
     
     
-    
+
     
 }

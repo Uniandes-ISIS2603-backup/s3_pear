@@ -32,6 +32,8 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     
     private CalificacionEntity calificacion;
     
+    private DietaTipoEntity dieta;
+    
     
     //-----------------------------------------------------------
     //Metodos
@@ -147,5 +149,19 @@ public class PersonaEntity extends BaseEntity implements Serializable{
      */
     public void setCalificacion(CalificacionEntity pCalificacion){
         calificacion = pCalificacion;
+    }
+    
+    /**
+     * @return dieta asignada para la persona
+     */
+    public DietaTipoEntity getDieta(){
+        return dieta;
+    }
+    
+    /**
+     * @param pDieta nueva dieta asignada a la persona
+     */
+    public void setDieta(DietaTipoEntity pDieta){
+        dieta = pDieta;
     }
 }

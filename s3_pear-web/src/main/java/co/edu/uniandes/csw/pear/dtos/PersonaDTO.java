@@ -22,8 +22,16 @@ import co.edu.uniandes.csw.pear.entities.PersonaEntity;
  *  "identificacion": String
  *  "calificacion": {
  *                    "puntuacion": double
- *                  }
+ *                  },
+ *  "dieta": {
+ *              "objetivo": String,
+ *              "descripcion": String,
+ *              "cuentaDeCobro": {
+ *                                  "valorAPagar": double
+ *                               }
+ *           }
  * }
+ *  //TODO *******ACTUALIZAR A MEDIDA QUE ESTEN HECHAS LAS DEMAS CLASES********
  * @author pa.suarezm
  */
 public class PersonaDTO {
@@ -46,8 +54,9 @@ public class PersonaDTO {
     
     private String identificacion;
     
-    private CalificacionDTO calificacion;
+    private CalificacionDetailDTO calificacion;
     
+    private DietaTipoDetailDTO dieta;
     
     //-----------------------------------------------------------
     //Constructor
@@ -69,7 +78,9 @@ public class PersonaDTO {
         
         identificacion = entidad.getIdentificacion();
         
-        calificacion = new CalificacionDTO(entidad.getCalificacion());
+        calificacion = new CalificacionDetailDTO(entidad.getCalificacion());
+        
+        dieta = new DietaTipoDetailDTO(entidad.getDieta());
     }
     
     
@@ -185,7 +196,7 @@ public class PersonaDTO {
     /**
      * @param pCalificacion nueva calificacion otorgada por la persona
      */
-    public void setCalificacion(CalificacionDTO pCalificacion){
+    public void setCalificacion(CalificacionDetailDTO pCalificacion){
         calificacion = pCalificacion;
     }
     
@@ -204,6 +215,10 @@ public class PersonaDTO {
         entidad.setIdentificacion(identificacion);
         entidad.setSubscrito(subscrito);
         entidad.setCalificacion(calificacion.toEntity());
+        entidad.setDieta(dieta.toEntity());
+        
+        //TODO Falta que quien sea responsable de DietaTipo implemente el
+        //     método toEntity()
         
         return entidad;
     }
