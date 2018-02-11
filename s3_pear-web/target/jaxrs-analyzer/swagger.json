@@ -158,6 +158,469 @@
                     }
                 }
             }
+        },
+        "/cuentaCobro": {
+            "get": {
+                "description": "<h1>GET /api/cuentas : Obtener todas las cuentas.</h1>\n \n <pre>Busca y devuelve todas las cuentas que existen en la aplicacion.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todas las cuentas de la aplicacion.</code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/CuentaCobroDetailDTO"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "<h1>POST /api/cities : Crea una cuenta de cobro.</h1>\n \n <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.\n \n Crea una nueva cuenta con la informacion que se recibe en el cuerpo \n de la petición y se regresa un objeto identico con un id auto-generado \n por la base de datos.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó la nueva cuenta .\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe la cuenta.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CuentaCobroDetailDTO"
+                        },
+                        "description": "{@link CuentaCobroDetailDTO} - La cuenta que se desea guardar."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/CuentaCobroDetailDTO"
+                        }
+                    }
+                }
+            }
+        },
+        "/cuentaCobro/pago": {
+            "get": {
+                "description": "<h1>GET /api/pagos : Obtener todas las pagos.</h1>\n \n <pre>Busca y devulave todas las pagos que existen en la aplicacion.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devulave todas las pagos de la aplicacion.</code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/PagoDetailDTO"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "<h1>POST /api/cities : Crea una pago de cobro.</h1>\n \n <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.\n \n Crea una nueva pago con la informacion que se recibe en la cuerpo \n de la petición y se regresa un objeto identico con un id auto-generado \n por la base de datos.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó la nueva pago .\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe la pago.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PagoDetailDTO"
+                        },
+                        "description": "{@link pagoCobroDetailDTO} - la pago que se desea guardar."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/PagoDetailDTO"
+                        }
+                    }
+                }
+            }
+        },
+        "/cuentaCobro/pago/medioPago": {
+            "get": {
+                "description": "<h1>GET /api/pagos : Obtener todas las pagos.</h1>\n \n <pre>Busca y devulave todas las pagos que existen en la aplicacion.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devulave todas las pagos de la aplicacion.</code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/MedioPagoDTO"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "<h1>POST /api/cuentaCobro : Crea una pago.</h1>\n \n <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.\n \n Crea una nueva pago con la informacion que se recibe en la cuerpo \n de la petición y se regresa un objeto identico con un id auto-generado \n por la base de datos.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó la nueva pago .\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe la pago.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/MedioPagoDTO"
+                        },
+                        "description": "{@link pagoCobroDetailDTO} - la pago que se desea guardar."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/MedioPagoDTO"
+                        }
+                    }
+                }
+            }
+        },
+        "/cuentaCobro/pago/medioPago/{id}": {
+            "get": {
+                "description": "<h1>GET /api/pagos/{id} : Obtener pago por id.</h1>\n \n <pre>Busca la pago con la id asociado recibido en la URL y la devulave.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devulave la pago correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe una pago con la id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la pago que se esta buscando. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/MedioPagoDTO"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "<h1>PUT /api/cities/{id} : Actualizar pago con la id dado.</h1>\n <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.\n \n Actualiza la pago con la id recibido en la URL con la informacion que se recibe en la cuerpo de la petición.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Actualiza la pago con la id dado con la información enviada como parámetro. Retorna un objeto identico.</code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una pago con la id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la pago que se desea actualizar.Este debe ser una cadena de dígitos."
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/MedioPagoDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/MedioPagoDTO"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "<h1>DELETE /api/pagos/{id} : Borrar pago por id.</h1>\n \n <pre>Borra la pago con la id asociado recibido en la URL.\n \n Códigos de respuesta:<br>\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK elimina  pago correspondiente al id dado.</code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe un medio de pago con la id dado.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador del medio de pago que se desea borrar. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {
+                        }
+                    }
+                }
+            }
+        },
+        "/cuentaCobro/pago/{id}": {
+            "get": {
+                "description": "<h1>GET /api/pagos/{id} : Obtener pago por id.</h1>\n \n <pre>Busca la pago con la id asociado recibido en la URL y la devulave.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devulave la pago correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe una pago con la id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la pago que se esta buscando. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/PagoDetailDTO"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "<h1>PUT /api/cities/{id} : Actualizar pago con la id dado.</h1>\n <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.\n \n Actualiza la pago con la id recibido en la URL con la informacion que se recibe en la cuerpo de la petición.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Actualiza la pago con la id dado con la información enviada como parámetro. Retorna un objeto identico.</code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una pago con la id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la pago que se desea actualizar.Este debe ser una cadena de dígitos."
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PagoDetailDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/PagoDetailDTO"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "<h1>DlaETE /api/pagos/{id} : Borrar pago por id.</h1>\n \n <pre>Borra la pago con la id asociado recibido en la URL.\n \n Códigos de respuesta:<br>\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK laimina la pago correspondiente al id dado.</code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una pago con la id dado.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la pago que se desea borrar. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {
+                        }
+                    }
+                }
+            }
+        },
+        "/cuentaCobro/{id}": {
+            "get": {
+                "description": "<h1>GET /api/cuentas/{id} : Obtener cuenta por id.</h1>\n \n <pre>Busca la cuenta con el id asociado recibido en la URL y la devuelve.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve la cuenta correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe una cuenta con el id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la cuenta que se esta buscando. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/CuentaCobroDetailDTO"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "<h1>PUT /api/cities/{id} : Actualizar cuenta con el id dado.</h1>\n <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.\n \n Actualiza la cuenta con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Actualiza la cuenta con el id dado con la información enviada como parámetro. Retorna un objeto identico.</code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una cuenta con el id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la cuenta que se desea actualizar.Este debe ser una cadena de dígitos."
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CuentaCobroDetailDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/CuentaCobroDetailDTO"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "<h1>DELETE /api/cuentas/{id} : Borrar cuenta por id.</h1>\n \n <pre>Borra la cuenta con el id asociado recibido en la URL.\n \n Códigos de respuesta:<br>\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Elimina la cuenta correspondiente al id dado.</code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una cuenta con el id dado.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la cuenta que se desea borrar. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {
+                        }
+                    }
+                }
+            }
+        },
+        "/dietas": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -174,6 +637,61 @@
                 },
                 "zipcode": {
                     "type": "string"
+                }
+            }
+        },
+        "CuentaCobroDetailDTO": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "pago": {
+                    "$ref": "#/definitions/PagoDTO"
+                },
+                "valorAPagar": {
+                    "type": "number"
+                }
+            }
+        },
+        "MedioPagoDTO": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "medioPagoActual": {
+                    "type": "string"
+                }
+            }
+        },
+        "PagoDTO": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "medioPago": {
+                    "$ref": "#/definitions/MedioPagoDTO"
+                },
+                "montoFinal": {
+                    "type": "number"
+                },
+                "montoIncial": {
+                    "type": "number"
+                }
+            }
+        },
+        "PagoDetailDTO": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "medioPago": {
+                    "$ref": "#/definitions/MedioPagoDTO"
+                },
+                "montoFinal": {
+                    "type": "number"
+                },
+                "montoIncial": {
+                    "type": "number"
                 }
             }
         }
