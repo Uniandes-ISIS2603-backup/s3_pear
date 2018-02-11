@@ -28,8 +28,7 @@ public class DietaTipoDTO {
     
     private String descripcion;
     
-    // QUITAR COMENTARIO CUANDO SE CREEN LAS CLASES SEMANA Y CUENTADECOBRO
-    //private CuentaDeCobroDetailDTO cuentaCobro;
+    private CuentaCobroDetailDTO cuentaCobro;
     
     //private List<SemanaDetailDTO> semanas;
     
@@ -47,7 +46,7 @@ public class DietaTipoDTO {
     public DietaTipoDTO( DietaTipoEntity entidad ) {
         this.objetivo = entidad.getObjetivo();
         this.descripcion = entidad.getDescripcion();
-        //this.cuentaCobro = entidad.getCuentaCobro();
+        this.cuentaCobro = new CuentaCobroDetailDTO(entidad.getCuentaCobro());
         //this.semanas = entidad.semanas();
     }
 
@@ -67,14 +66,14 @@ public class DietaTipoDTO {
         this.descripcion = descripcion;
     }
 
-//    public CuentaDeCobroDetailDTO getCuentaCobro() {
-//        return cuentaCobro;
-//    }
-//
-//    public void setCuentaCobro(CuentaDeCobroDetailDTO cuentaCobro) {
-//        this.cuentaCobro = cuentaCobro;
-//    }
-//
+    public CuentaCobroDetailDTO getCuentaCobro() {
+        return cuentaCobro;
+    }
+
+    public void setCuentaCobro(CuentaCobroDetailDTO cuentaCobro) {
+        this.cuentaCobro = cuentaCobro;
+    }
+
 //    public List<SemanaDetailDTO> getSemanas() {
 //        return semanas;
 //    }
@@ -88,7 +87,8 @@ public class DietaTipoDTO {
         DietaTipoEntity en = new DietaTipoEntity();
         en.setDescripcion(this.descripcion);
         en.setObjetivo(this.objetivo);
-        // FALTA SEMANA Y CUENTACOBRO   <<<<<<<<<<<<<
+        en.setCuentaCobro(this.cuentaCobro.toEntity());
+        // FALTA SEMANA    <<<<<<<<<<<<<
         return en;
     }
 
