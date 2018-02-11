@@ -15,7 +15,7 @@ import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
  * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
  * <pre>
  *   {
- *      "puntuacion": double,
+ *      "puntuacion": double
  *   }
  * @author ga.bejarano10
  */
