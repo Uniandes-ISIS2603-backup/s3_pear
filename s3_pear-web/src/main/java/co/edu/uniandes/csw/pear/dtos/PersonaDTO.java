@@ -201,6 +201,20 @@ public class PersonaDTO {
     }
     
     /**
+     * @return dieta asignada a la persona
+     */
+    public DietaTipoDetailDTO getDieta(){
+        return dieta;
+    }
+    
+    /**
+     * @param pDieta nueva dieta asignada para la persona
+     */
+    public void setDieta(DietaTipoDetailDTO pDieta){
+        dieta = pDieta;
+    }
+    
+    /**
      * Convierte este objeto DTO a una entidad
      * @return Un nuevo entity con los valores del DTO
      */
