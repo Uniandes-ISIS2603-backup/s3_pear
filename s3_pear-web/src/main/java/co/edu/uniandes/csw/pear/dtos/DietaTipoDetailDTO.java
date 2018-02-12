@@ -29,7 +29,7 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
     
     public DietaTipoDetailDTO( DietaTipoEntity entity ) {
         super(entity);
-        this.cuentaCobro = new CuentaCobroDTO(entity.getCuentaCobro());
+        //this.cuentaCobro = new CuentaCobroDTO(entity.getCuentaCobro());
     }
     
   
