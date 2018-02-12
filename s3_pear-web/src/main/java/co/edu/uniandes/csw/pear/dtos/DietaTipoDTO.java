@@ -28,12 +28,6 @@ public class DietaTipoDTO {
     
     private String descripcion;
     
-    private CuentaCobroDTO cuentaCobro;
-    
-    private List<SemanaDTO> semanas;
-    
-    
-    
     //-----------------------------------------------------------
     //Metodos
     //-----------------------------------------------------------
@@ -43,13 +37,22 @@ public class DietaTipoDTO {
      * Contructor de DietaTipoDTO
      * @param entidad DietaTipoEntity
      */
-    public DietaTipoDTO( DietaTipoEntity entidad ) {
-        this.objetivo = entidad.getObjetivo();
-        this.descripcion = entidad.getDescripcion();
-        this.cuentaCobro = new CuentaCobroDetailDTO(entidad.getCuentaCobro());
-        //this.semanas = entidad.semanas();
+    public DietaTipoDTO(   ) {
+        
+    }
+    
+    /**
+     * Constructor a partir de una Entity
+     * @param entity 
+     */
+    public DietaTipoDTO( DietaTipoEntity entity ) {
+        this.objetivo = entity.getObjetivo();
+        this.descripcion = entity.getDescripcion();
     }
 
+    
+    
+    
     public String getObjetivo() {
         return objetivo;
     }
@@ -66,29 +69,10 @@ public class DietaTipoDTO {
         this.descripcion = descripcion;
     }
 
-    public CuentaCobroDTO getCuentaCobro() {
-        return cuentaCobro;
-    }
-
-    public void setCuentaCobro(CuentaCobroDTO cuentaCobro) {
-        this.cuentaCobro = cuentaCobro;
-    }
-
-    public List<SemanaDTO> getSemanas() {
-        return semanas;
-    }
-
-    public void setSemanas(List<SemanaDTO> semanas) {
-        this.semanas = semanas;
-    }
-    
-
     public DietaTipoEntity toEntity() {
         DietaTipoEntity en = new DietaTipoEntity();
         en.setDescripcion(this.descripcion);
         en.setObjetivo(this.objetivo);
-        en.setCuentaCobro(this.cuentaCobro.toEntity());
-        // FALTA SEMANA    <<<<<<<<<<<<<
         return en;
     }
 

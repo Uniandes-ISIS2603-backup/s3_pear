@@ -30,6 +30,7 @@ co\edu\uniandes\csw\pear\dtos\EnvioDTO.class
 co\edu\uniandes\csw\pear\dtos\DiaDetailDTO.class
 co\edu\uniandes\csw\pear\dtos\DietaTipoDetailDTO.class
 co\edu\uniandes\csw\pear\resources\MedioPagoResource.class
+co\edu\uniandes\csw\pear\resources\QuejasyReclamosResource.class
 co\edu\uniandes\csw\pear\resources\EnvioResource.class
 co\edu\uniandes\csw\pear\dtos\CocinaDTO.class
 co\edu\uniandes\csw\pear\dtos\DietaTipoDTO.class

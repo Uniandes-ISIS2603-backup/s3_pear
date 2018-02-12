@@ -648,7 +648,7 @@
                 }
             },
             "post": {
-                "description": "<h1>POST /api/cities : Crear una dieta.</h1>\n \n <pre>Cuerpo de petición: JSON {@link DietaTipoDetailDTO}.\n \n Crea una nueva dieta con la informacion que se recibe en el cuerpo \n de la petición y se regresa un objeto identico con un id auto-generado \n por la base de datos.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó la nueva ciudad .\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe la ciudad.\n </code>\n </pre>",
+                "description": "<h1>POST /api/cocinas : Crear una cocina.</h1>\n \n <pre>Cuerpo de petición: JSON {@link DietaTipoDetailDTO}.\n \n Crea una nueva cocina con la informacion que se recibe en el cuerpo \n de la petición y se regresa un objeto identico con un id auto-generado \n por la base de datos.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó la nueva cocina .\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe la cocina.\n </code>\n </pre>",
                 "consumes": [
                     "application/json"
                 ],
@@ -661,9 +661,9 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/DietaTipoDetailDTO"
+                            "$ref": "#/definitions/CocinaDetailDTO"
                         },
-                        "description": "{@link DietaTipoDetailDTO} - La dieta que se desea guardar."
+                        "description": "{@link DietaTipoDetailDTO} - La cocina que se desea guardar."
                     }
                 ],
                 "responses": {
@@ -672,7 +672,7 @@
                         "headers": {
                         },
                         "schema": {
-                            "$ref": "#/definitions/DietaTipoDetailDTO"
+                            "$ref": "#/definitions/CocinaDetailDTO"
                         }
                     }
                 }
@@ -708,7 +708,7 @@
                 }
             },
             "put": {
-                "description": "<h1>PUT /api/cocinas/{id} : Actualizar cocinas con el id dado.</h1>\n <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.\n \n Actualiza la cocina con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Actualiza la cocina con el id dado con la información enviada como parámetro. Retorna un objeto identico.</code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una cocina con el id dado.\n </code> \n </pre>",
+                "description": "<h1>PUT /api/dietas/{id} : Actualizar dieta con el id dado.</h1>\n <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.\n \n Actualiza la dieta con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Actualiza la dieta con el id dado con la información enviada como parámetro. Retorna un objeto identico.</code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una ciudad con el id dado.\n </code> \n </pre>",
                 "consumes": [
                     "application/json"
                 ],
@@ -721,14 +721,14 @@
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "description": "Identificador de la cocina que se desea actualizar.Este debe ser una cadena de dígitos."
+                        "description": "Identificador de la dieta que se desea actualizar.Este debe ser una cadena de dígitos."
                     },
                     {
                         "name": "body",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/CocinaDetailDTO"
+                            "$ref": "#/definitions/DietaTipoDetailDTO"
                         },
                         "description": "{@link CityDetailDTO} La dieta que se desea guardar."
                     }
@@ -739,13 +739,13 @@
                         "headers": {
                         },
                         "schema": {
-                            "$ref": "#/definitions/CocinaDetailDTO"
+                            "$ref": "#/definitions/DietaTipoDetailDTO"
                         }
                     }
                 }
             },
             "delete": {
-                "description": "<h1>DELETE /api/cocinas/{id} : Borrar cocina por id.</h1>\n \n <pre>Borra la cocina con el id asociado recibido en la URL.\n \n Códigos de respuesta:<br>\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Elimina la cocina correspondiente al id dado.</code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una cocina con el id dado.\n </code>\n </pre>",
+                "description": "<h1>DELETE /api/dietas/{id} : Borrar dieta por id.</h1>\n \n <pre>Borra la dieta con el id asociado recibido en la URL.\n \n Códigos de respuesta:<br>\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Elimina la dieta correspondiente al id dado.</code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una dieta con el id dado.\n </code>\n </pre>",
                 "consumes": [
                     "application/json"
                 ],
@@ -758,7 +758,7 @@
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "description": "Identificador de la cocina que se desea borrar. Este debe ser una cadena de dígitos."
+                        "description": "Identificador de la dieta que se desea borrar. Este debe ser una cadena de dígitos."
                     }
                 ],
                 "responses": {
@@ -787,6 +787,154 @@
                         },
                         "schema": {
                             "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/quejasyreclamos": {
+            "get": {
+                "description": "<h1>GET /api/quejasyreclamaos : Obtener todas las quejas y reclamos.</h1>\n \n <pre>Busca y devuelve todas las quejas y reclamos que existen en la aplicacion.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todas las quejas y reclamos de la aplicacion.</code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/QuejasyReclamosDetailDTO"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "<h1>POST /api/quejasyreclamos : Crear una queja y reclamo.</h1>\n \n <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.\n \n Crea una nueva calificacion con la informacion que se recibe en el cuerpo \n de la petición y se regresa un objeto identico.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó la nueva queja y reclamo .\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe la queja y reclammo.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/QuejasyReclamosDetailDTO"
+                        },
+                        "description": "{@link quejayreclamoDetailDTO} - La queja y reclamo que se desea guardar."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/QuejasyReclamosDetailDTO"
+                        }
+                    }
+                }
+            }
+        },
+        "/quejasyreclamos/{id}": {
+            "get": {
+                "description": "<h1>GET /api/quejasyreclamos/{id} : Obtener queja y reclamo por id.</h1>\n \n <pre>Busca la queja y reclamo con el id asociado recibido en la URL y la devuelve.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve la queja y reclamo correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe una queja y reclamo con el id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la queja y reclamo que se esta buscando. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/QuejasyReclamosDetailDTO"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "<h1>PUT /api/quejasyreclamos/{id} : Actualizar queja y reclamo con el id dado.</h1>\n <pre>Cuerpo de petición: JSON {@link QuejasyReclamosDetailDTO}.\n \n Actualiza la queja con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Actualiza la queja con el id dado con la información enviada como parámetro. Retorna un objeto identico.</code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una queja con el id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la queja que se desea actualizar.Este debe ser una cadena de dígitos."
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/QuejasyReclamosDetailDTO"
+                        },
+                        "description": "{@link QuejassyReclamosDetailDTO} La queja que se desea guardar."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/QuejasyReclamosDetailDTO"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "<h1>DELETE /api/quejasyreclamos/{id} : Borrar ciudad por id.</h1>\n \n <pre>Borra la queja con el id asociado recibido en la URL.\n \n Códigos de respuesta:<br>\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Elimina la queja correspondiente al id dado.</code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una queja con el id dado.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la queja que se desea borrar. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {
                         }
                     }
                 }
@@ -929,6 +1077,16 @@
                 },
                 "montoIncial": {
                     "type": "number"
+                }
+            }
+        },
+        "QuejasyReclamosDetailDTO": {
+            "properties": {
+                "asunto": {
+                    "type": "string"
+                },
+                "comentario": {
+                    "type": "string"
                 }
             }
         },

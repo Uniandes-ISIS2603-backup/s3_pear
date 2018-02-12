@@ -5,7 +5,9 @@
  */
 package co.edu.uniandes.csw.pear.dtos;
 
+import co.edu.uniandes.csw.pear.entities.CocinaEntity;
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
+import java.util.List;
 
 /**
  *
@@ -13,12 +15,22 @@ import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
  */
 public class DietaTipoDetailDTO extends DietaTipoDTO {
     
+    private CuentaCobroDTO cuentaCobro;
+    
+    private List<SemanaDTO> semanas;
+    
+    
     /**
-     * Constructo de DietaTipoDetailDTO
-     * @param entidad 
+     * Constructo de DietaTipoDetailDTO 
      */
-    public DietaTipoDetailDTO(DietaTipoEntity entidad) {
-        super(entidad);
+    public DietaTipoDetailDTO( ) {
+        super();
     }
     
+    public DietaTipoDetailDTO( DietaTipoEntity entity ) {
+        super(entity);
+        this.cuentaCobro = new CuentaCobroDTO(entity.getCuentaCobro());
+    }
+    
+  
 }

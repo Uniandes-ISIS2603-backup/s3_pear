@@ -38,25 +38,30 @@ public class CocinaDTO {
     
     private String ubicacion;
     
-    private String capacidad;
-    
-    private List<DietaTipoDTO> dietas; // falta inicializar esto bien
-    
+    private String capacidad;    
     
     //-----------------------------------------------------------
     //Metodos
     //-----------------------------------------------------------
     
-    
     /**
      * Constructor de tipo CocinaDTO
      * @param entidad 
      */
-    public CocinaDTO( CocinaEntity entidad ) {
-        this.ubicacion = entidad.getUbicacion();
-        this.capacidad = entidad.getCapacidad();
-        //this.dietas = entidad.getDietas(); // <<<<<<<<<
+    public CocinaDTO( ) {
+        
     }
+    
+    /**
+     * Constructor CocinaDTO a partir de la Entity
+     * @param entity 
+     */
+    public CocinaDTO( CocinaEntity entity ) {
+        this.capacidad = entity.getCapacidad();
+        this.ubicacion = entity.getUbicacion();
+    }
+    
+    
 
     public String getUbicacion() {
         return ubicacion;
@@ -73,20 +78,10 @@ public class CocinaDTO {
     public void setCapacidad(String capacidad) {
         this.capacidad = capacidad;
     }
-
-    public List<DietaTipoDTO> getDietas() {
-        return dietas;
-    }
-
-    public void setDietas(List<DietaTipoDTO> dietas) {
-        this.dietas = dietas;
-    }
-    
     
     public CocinaEntity toEntity() {
         CocinaEntity en = new CocinaEntity();
         en.setCapacidad(this.capacidad);
-        //en.setDietas(this.dietas);  // <<<<<<<<<<<<
         en.setUbicacion(this.ubicacion);
         return en;
     }
