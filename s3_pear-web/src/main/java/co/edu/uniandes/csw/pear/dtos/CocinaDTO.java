@@ -55,7 +55,7 @@ public class CocinaDTO {
     public CocinaDTO( CocinaEntity entidad ) {
         this.ubicacion = entidad.getUbicacion();
         this.capacidad = entidad.getCapacidad();
-        this.dietas = new LinkedList<>(); // <<<<<<<<<
+        //this.dietas = entidad.getDietas(); // <<<<<<<<<
     }
 
     public String getUbicacion() {

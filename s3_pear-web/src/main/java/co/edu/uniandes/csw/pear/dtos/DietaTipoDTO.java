@@ -28,9 +28,9 @@ public class DietaTipoDTO {
     
     private String descripcion;
     
-    private CuentaCobroDetailDTO cuentaCobro;
+    private CuentaCobroDTO cuentaCobro;
     
-    //private List<SemanaDetailDTO> semanas;
+    private List<SemanaDTO> semanas;
     
     
     
@@ -66,21 +66,21 @@ public class DietaTipoDTO {
         this.descripcion = descripcion;
     }
 
-    public CuentaCobroDetailDTO getCuentaCobro() {
+    public CuentaCobroDTO getCuentaCobro() {
         return cuentaCobro;
     }
 
-    public void setCuentaCobro(CuentaCobroDetailDTO cuentaCobro) {
+    public void setCuentaCobro(CuentaCobroDTO cuentaCobro) {
         this.cuentaCobro = cuentaCobro;
     }
 
-//    public List<SemanaDetailDTO> getSemanas() {
-//        return semanas;
-//    }
-//
-//    public void setSemanas(List<SemanaDetailDTO> semanas) {
-//        this.semanas = semanas;
-//    }
+    public List<SemanaDTO> getSemanas() {
+        return semanas;
+    }
+
+    public void setSemanas(List<SemanaDTO> semanas) {
+        this.semanas = semanas;
+    }
     
 
     public DietaTipoEntity toEntity() {

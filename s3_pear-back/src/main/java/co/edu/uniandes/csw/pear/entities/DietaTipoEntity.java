@@ -18,10 +18,9 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     
     private String descripcion;
     
-    // QUITAR COMENTARIO CUANDO SE CREEN LAS CLASES SEMANA Y CUENTADECOBRO
-    //private CuentaDeCobro cuentaCobro;
+    private CuentaCobroEntity cuentaCobro;
     
-    //private List<Semana> semanas;
+    private List<SemanaEntity> semanas;
     
     
     //-----------------------------------------------------------
@@ -64,32 +63,32 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
      * Cueta de cobro asociada a la dieta. Cotiene la informacion sobre el costo total de la dieta.
      * @return cuenta de cobro
      */
-//    public CuentaDeCobro getCuentaCobro() {
-//        return cuentaCobro;
-//    }
-//
-//    /**
-//     * Cambia la cuenta de cobro
-//     * @param cuentaCobro 
-//     */
-//    public void setCuentaCobro(CuentaDeCobro cuentaCobro) {
-//        this.cuentaCobro = cuentaCobro;
-//    }
-//
-//    /**
-//     * Semanas, duracion de la dieta
-//     * @return lista de tipo Semana
-//     */
-//    public List<Semana> getSemanas() {
-//        return semanas;
-//    }
-//
-//    /**
-//     * Cambia la lista de semanas
-//     * @param semanas 
-//     */
-//    public void setSemanas(List<Semana> semanas) {
-//        this.semanas = semanas;
-//    }
+    public CuentaCobroEntity getCuentaCobro() {
+        return cuentaCobro;
+    }
+
+    /**
+     * Cambia la cuenta de cobro
+     * @param cuentaCobro 
+     */
+    public void setCuentaCobro(CuentaCobroEntity cuentaCobro) {
+        this.cuentaCobro = cuentaCobro;
+    }
+
+    /**
+     * Semanas, duracion de la dieta
+     * @return lista de tipo Semana
+     */
+    public List<SemanaEntity> getSemanas() {
+        return semanas;
+    }
+
+    /**
+     * Cambia la lista de semanas
+     * @param semanas 
+     */
+    public void setSemanas(List<SemanaEntity> semanas) {
+        this.semanas = semanas;
+    }
    
 }
