@@ -38,7 +38,7 @@ public class CuentaCobroResource {
     /**
      * <h1>POST /api/cities : Crea una cuenta de cobro.</h1>
      * 
-     * <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.
+     * <pre>Cuerpo de petición: JSON {@link CuentaCobroDetailDTO}.
      * 
      * Crea una nueva cuenta con la informacion que se recibe en el cuerpo 
      * de la petición y se regresa un objeto identico con un id auto-generado 
@@ -57,7 +57,7 @@ public class CuentaCobroResource {
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la cuenta.
      */
     @POST
-    public CuentaCobroDetailDTO createCity(CuentaCobroDetailDTO cuenta) throws BusinessLogicException {
+    public CuentaCobroDetailDTO createCuentaDeCobro(CuentaCobroDetailDTO cuenta) throws BusinessLogicException {
         return cuenta;
     }
 
@@ -71,7 +71,7 @@ public class CuentaCobroResource {
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Devuelve todas las cuentas de la aplicacion.</code> 
      * </pre>
-     * @return JSONArray {@link CityDetailDTO} - Las cuentas encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
+     * @return JSONArray {@link CuentaDeCobroDetailDTO} - Las cuentas encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
     public List<CuentaCobroDetailDTO> getCuentas() {
@@ -93,18 +93,18 @@ public class CuentaCobroResource {
      * </code> 
      * </pre>
      * @param id Identificador de la cuenta que se esta buscando. Este debe ser una cadena de dígitos.
-     * @return JSON {@link CityDetailDTO} - La cuenta buscada
+     * @return JSON {@link CuentaCobroDetailDTO} - La cuenta buscada
      */
     @GET
     @Path("{id: \\d+}")
-    public CuentaCobroDetailDTO getCity(@PathParam("id") Long id) {
+    public CuentaCobroDetailDTO getCuentaCobro(@PathParam("id") Long id) {
         return null;
     }
     
     
     /**
-     * <h1>PUT /api/cities/{id} : Actualizar cuenta con el id dado.</h1>
-     * <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.
+     * <h1>PUT /api/cuentas/{id} : Actualizar cuenta con el id dado.</h1>
+     * <pre>Cuerpo de petición: JSON {@link CuentaCobroDetailDTO}.
      * 
      * Actualiza la cuenta con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.
      * 
@@ -116,13 +116,13 @@ public class CuentaCobroResource {
      * </code> 
      * </pre>
      * @param id Identificador de la cuenta que se desea actualizar.Este debe ser una cadena de dígitos.
-     * @param city {@link CityDetailDTO} La cuenta que se desea guardar.
-     * @return JSON {@link CityDetailDTO} - La cuenta guardada.
+     * @param cuentaCobro( {@link CuentaCobro(DetailDTO} La cuenta que se desea guardar.
+     * @return JSON {@link CuentaCobroDetailDTO} - La cuenta guardada.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar la ciudad porque ya existe una con ese nombre.
      */
     @PUT
     @Path("{id: \\d+}")
-    public CuentaCobroDetailDTO updateCity(@PathParam("id") Long id, CuentaCobroDetailDTO cuenta) throws BusinessLogicException {
+    public CuentaCobroDetailDTO updateCuentaCobro(@PathParam("id") Long id, CuentaCobroDetailDTO cuenta) throws BusinessLogicException {
         return cuenta;
     }
     

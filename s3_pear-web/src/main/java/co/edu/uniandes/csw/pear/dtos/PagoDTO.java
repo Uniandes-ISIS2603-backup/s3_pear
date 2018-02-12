@@ -25,7 +25,7 @@ public class PagoDTO {
     private double montoInicial; 
     private double montoFinal; 
     private Long id; 
-    private MedioPagoDTO medioPago; 
+ 
     
     /**
      * Contructor por defecto
@@ -38,7 +38,7 @@ public class PagoDTO {
         
         montoInicial = entity.getMontoInicial(); 
         montoFinal = entity.getMontoFinal(); 
-        medioPago = new MedioPagoDTO(entity.getMedioPagoEntity());
+       
     }
     
         /**
@@ -89,23 +89,7 @@ public class PagoDTO {
        montoFinal = pMonto; 
    }
    
-   /**
-    * 
-    * @return medioPago
-    */
-   public MedioPagoDTO getMedioPago()
-   {
-       return medioPago; 
-   }
-   
-   /**
-    * Cambia el medio de pago
-    * @param pMedioPago 
-    */
-   public void setMedioPago(MedioPagoDTO pMedioPago)
-   {
-       medioPago = pMedioPago; 
-   }
+
    
       /**
      * Convierte este objeto DTO a una entidad
@@ -116,7 +100,7 @@ public class PagoDTO {
         entidad.setId(this.id);
         
         MedioPagoEntity medioPagoEntity = new MedioPagoEntity(); 
-        medioPagoEntity.setMedioActual(getMedioPago().getMedioPagoActual());
+       
         
         
         entidad.setMedioPagoEntity(medioPagoEntity);

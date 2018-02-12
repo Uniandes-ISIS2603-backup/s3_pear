@@ -12,12 +12,34 @@ import co.edu.uniandes.csw.pear.entities.CuentaCobroEntity;
  */
 public class CuentaCobroDetailDTO extends CuentaCobroDTO {
     
+    
+       private PagoDTO pago; 
+    
       /**
      * Constructor de CuentaCobroailDTO
      * @param entidad 
      */
     public CuentaCobroDetailDTO(CuentaCobroEntity entidad) {
-        super(entidad);
+        super();
+    }
+    
+    
+       /**
+     * 
+     * @return pagpDTO
+     */
+    public PagoDTO getPago()
+    {
+        return pago;
+    }
+    
+    /**
+     * Cambia el valor de pago
+     * @param pPago 
+     */
+    public void setPago(PagoDTO pPago)
+    {
+        pago = pPago;
     }
     
     /**
@@ -27,8 +49,8 @@ public class CuentaCobroDetailDTO extends CuentaCobroDTO {
      */
     @Override
     public CuentaCobroEntity toEntity() {
-        CuentaCobroEntity cityE = super.toEntity();
-        return cityE;
+        CuentaCobroEntity entidad = super.toEntity();
+        return entidad;
     }
 
 }

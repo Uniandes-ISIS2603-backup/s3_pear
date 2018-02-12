@@ -32,11 +32,11 @@ public class MedioPagoResource {
 
 
     /**
-     * <h1>POST /api/cuentaCobro : Crea una pago.</h1>
+     * <h1>POST /api/cuentaCobro/pago/medioPago : Crea una pago.</h1>
      * 
-     * <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.
+     * <pre>Cuerpo de petición: JSON {@link MedioPagoDetailDTO}.
      * 
-     * Crea una nueva pago con la informacion que se recibe en la cuerpo 
+     * Crea un nuevo medio de pago con la informacion que se recibe en la cuerpo 
      * de la petición y se regresa un objeto identico con un id auto-generado 
      * por la base de datos.
      * 
@@ -45,11 +45,11 @@ public class MedioPagoResource {
      * 200 OK Creó la nueva pago .
      * </code>
      * <code style="color: #c7254e; background-color: #f9f2f4;">
-     * 412 Precodition Failed: Ya existe la pago.
+     * 412 Precodition Failed: Ya existe el medio de pago.
      * </code>
      * </pre>
-     * @param pago {@link pagoCobroDetailDTO} - la pago que se desea guardar.
-     * @return JSON {@link pagoCobroetailDTO}  - la pago guardada con la atributo id autogenerado.
+     * @param pago {@link MedioPagoDetailDTO} - el medio de pago que se desea guardar.
+     * @return JSON {@link MedioPagoDetailDTO}  - el medio de pago con el atributo id autogenerado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la pago.
      */
     @POST
@@ -59,15 +59,15 @@ public class MedioPagoResource {
 
     
     /**
-     * <h1>GET /api/pagos : Obtener todas las pagos.</h1>
+     * <h1>GET /api/pagos : Obtener todas los medios de pago.</h1>
      * 
-     * <pre>Busca y devulave todas las pagos que existen en la aplicacion.
+     * <pre>Busca y devuelve todos los medios de pago que existen en la aplicacion.
      * 
      * Codigos de respuesta:
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
-     * 200 OK Devulave todas las pagos de la aplicacion.</code> 
+     * 200 OK Devuelve todos los medios de pago de la aplicacion.</code> 
      * </pre>
-     * @return JSONArray {@link CityDetailDTO} - las pagos encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
+     * @return JSONArray {@link MedioPagoDetailDTO} - las pagos encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
     public List<MedioPagoDTO> getMedioDePagos() {
@@ -99,27 +99,27 @@ public class MedioPagoResource {
     
     
     /**
-     * <h1>PUT /api/cities/{id} : Actualizar pago con la id dado.</h1>
+     * <h1>PUT /api/medioPago/{id} : Actualizar el medio de pago con la id dado.</h1>
      * <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.
      * 
      * Actualiza la pago con la id recibido en la URL con la informacion que se recibe en la cuerpo de la petición.
      * 
      * Codigos de respuesta:
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
-     * 200 OK Actualiza la pago con la id dado con la información enviada como parámetro. Retorna un objeto identico.</code> 
+     * 200 OK Actualiza el medio de pago con la id dado con la información enviada como parámetro. Retorna un objeto identico.</code> 
      * <code style="color: #c7254e; background-color: #f9f2f4;">
      * 404 Not Found. No existe una pago con la id dado.
      * </code> 
      * </pre>
      * @param id Identificador de la pago que se desea actualizar.Este debe ser una cadena de dígitos.
-     * @param city {@link CityDetailDTO} la pago que se desea guardar.
-     * @return JSON {@link CityDetailDTO} - la pago guardada.
+     * @param medioPago {@link MedioPagoDetailDTO} el medio de pago que se desea guardar.
+     * @return JSON {@link MedioPagoDetailDTO} - el medio de pago guardado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar la ciudad porque ya existe una con ese nombre.
      */
     @PUT
     @Path("{id: \\d+}")
-    public MedioPagoDTO updateMedioPago(@PathParam("id") Long id, MedioPagoDTO pago) throws BusinessLogicException {
-        return pago;
+    public MedioPagoDTO updateMedioPago(@PathParam("id") Long id, MedioPagoDTO medioPago) throws BusinessLogicException {
+        return medioPago;
     }
     
     
