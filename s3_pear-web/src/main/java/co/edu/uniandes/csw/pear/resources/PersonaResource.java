@@ -18,9 +18,9 @@ import java.util.*;
 public class PersonaResource {
     
     /**
-     * <h1>POST TODOLaRuta : Crear una dieta.</h1>
+     * <h1>POST TODOLaRuta : Crear una persona.</h1>
      * 
-     * <pre>Cuerpo de petición: JSON {@link DietaTipoDetailDTO}.
+     * <pre>Cuerpo de petición: JSON {@link PersonaDetailDTO}.
      * 
      * Crea una nueva persona (cliente/paciente) con la información que
      * se recibe en el cuerpo de la petición y se devuelve un objeto
@@ -47,7 +47,7 @@ public class PersonaResource {
     /**
      * <h1>GET /api/personas : Obtener todas las personas</h1>
      * 
-     * <pre>Busca y devuelve todas las dietas que existen en la
+     * <pre>Busca y devuelve todas las personas que existen en la
      * aplicación.
      * 
      * Códigos de respuesta:<br>
@@ -63,14 +63,14 @@ public class PersonaResource {
     }
     
     /**
-     * <h1>GET /api/dietas/{id} _ Obtener persona por id.</h1>
+     * <h1>GET /api/personas/{id} _ Obtener persona por id.</h1>
      * 
      * <pre>Busca la persona con el id asociado recibido en la URL y la
      * devuelve.
      * 
      * Códigos de respuesta:<br>
      * <code style="color:mediumseagreen; background-color: #eaffe0;">
-     * 200 OK Devuelve la dieta correspondiente al id.
+     * 200 OK Devuelve la persona correspondiente al id.
      * </code>
      * </pre>
      * @param id Identificador de la persona que se está buscando. Este
@@ -84,7 +84,7 @@ public class PersonaResource {
     }
     
     /**
-     * <h1>PUT /api/dietas/{id} : Actualizar persona con el id dado.</h1>
+     * <h1>PUT /api/personas/{id} : Actualizar persona con el id dado.</h1>
      * <pre> Cuerpo de petición: JSON {@link PersonaDetailDTO}.
      * 
      * Actualiza la persona con el id recibido en la URL con la
@@ -95,7 +95,7 @@ public class PersonaResource {
      * 200 OK Actualiza la persona con el id dado con la información
      * enviada como parámetro. Devuelve un objeto idéntico.</code>
      * <code style="color: #c7254e; background-color: #f9f2f4;">
-     * 404 Not Found. No existe una ciudad con el id dado.
+     * 404 Not Found. No existe una persona con el id dado.
      * </code>
      * </pre>
      * @param id Identificador de la persona que se desea actualizar.
@@ -119,10 +119,10 @@ public class PersonaResource {
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Elimina la persona con el id dado. </code>
      * <code style="color: #c7254e; background-color: #f9f2f4;">
-     * 404 Not Found. No existe una dieta con el id dado.
+     * 404 Not Found. No existe una persona con el id dado.
      * </code>
      * </pre>
-     * @param id Identificador de la dieta que se desea borrar. Este
+     * @param id Identificador de la persona que se desea borrar. Este
      * debe ser una cadena de dígitos.
      */
     @DELETE
