@@ -11,4 +11,35 @@ package co.edu.uniandes.csw.pear.dtos;
  */
 public class CasoExitoDetailDTO {
     
+    //----------------------------------------
+    //Atributos
+    //----------------------------------------
+    
+    private DietaTipoDetailDTO dieta;
+    
+    //----------------------------------------
+    //Constructor
+    //----------------------------------------
+    
+    public CasoExitoDetailDTO(){
+        
+    }
+    
+    //----------------------------------------
+    //Metodos
+    //----------------------------------------
+    
+     /**
+     * @return Dieta para la cual el caso fue exitoso 
+     */
+    public DietaTipoDetailDTO getDieta(){
+        return dieta;
+    }
+    
+    /**
+     * @param pDieta Nueva dieta asociada al caso exitoso
+     */
+    public void setDieta(DietaTipoDetailDTO pDieta){
+        dieta = pDieta;
+    }
 }
