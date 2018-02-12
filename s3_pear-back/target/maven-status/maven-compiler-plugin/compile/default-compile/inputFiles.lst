@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\pa.suarezm\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\CocinaEntity.java
 C:\Users\pa.suarezm\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\ejb\CityLogic.java
 C:\Users\pa.suarezm\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\persistence\CityPersistence.java
@@ -17,3 +18,24 @@ C:\Users\pa.suarezm\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\jav
 C:\Users\pa.suarezm\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\CuentaCobroEntity.java
 C:\Users\pa.suarezm\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\EnvioEntity.java
 C:\Users\pa.suarezm\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\ComidaEntity.java
+=======
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\ejb\CityLogic.java
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\persistence\CityPersistence.java
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\DietaTipoEntity.java
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\CocinaEntity.java
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\MedioPagoEntity.java
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\SemanaEntity.java
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\ComidaEntity.java
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\CuentaCobroEntity.java
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\PagoEntity.java
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\exceptions\BusinessLogicException.java
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\EnvioEntity.java
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\BaseEntity.java
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\FacturaEntity.java
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\PersonaEntity.java
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\CasoExitoEntity.java
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\CalificacionEntity.java
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\CityEntity.java
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\DiaEntity.java
+C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back\src\main\java\co\edu\uniandes\csw\pear\entities\QuejasyReclamosEntity.java
+>>>>>>> git.ignore
