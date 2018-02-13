@@ -11,6 +11,153 @@
         "http"
     ],
     "paths": {
+        "/calificaciones": {
+            "get": {
+                "description": "<h1>GET /api/calificaciones : Obtener todas las calificaciones.</h1>\n \n <pre>Busca y devuelve todas las calificaciones que existen en la aplicacion.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todas las calificaciones de la aplicacion.</code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/CalificacionDetailDTO"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "<h1>POST /api/calificaciones : crear una calificacion.</h1>\n \n <pre>Cuerpo de petición: JSON {@link CalificaciobDitaillDTO}.\n \n Crea una nueva calificacion con la informacion que se recibe en el cuerpo \n de la petición y se regresa un objeto identico.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó la nueva calificacion .\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe la calificacion.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CalificacionDetailDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/CalificacionDetailDTO"
+                        }
+                    }
+                }
+            }
+        },
+        "/calificaciones/{id}": {
+            "get": {
+                "description": "<h1>GET /api/calificaciones/{id} : Obtener queja y reclamo por id.</h1>\n \n <pre>Busca la calificacion con el id asociado recibido en la URL y la devuelve.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve la calificacion correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe una calificacion con el id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la queja y reclamo que se esta buscando. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/CalificacionDetailDTO"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "<h1>PUT /api/calificaciones/{id} : Actualizar calificacion con el id dado.</h1>\n <pre>Cuerpo de petición: JSON {@link CalificacionDetailDTO}.\n \n Actualiza la calificacion con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Actualiza la calificacion con el id dado con la información enviada como parámetro. Retorna un objeto identico.</code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una queja con el id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la calificacion que se desea actualizar.Este debe ser una cadena de dígitos."
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CalificacionDetailDTO"
+                        },
+                        "description": "{@link CalificacionDetailDTO} La queja que se desea guardar."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/CalificacionDetailDTO"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "<h1>DELETE /api/calificacion/{id} : Borrar calificacion por id.</h1>\n \n <pre>Borra la calificacion con el id asociado recibido en la URL.\n \n Códigos de respuesta:<br>\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Elimina la calificacion correspondiente al id dado.</code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una calificacion con el id dado.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la calificacion que se desea borrar. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {
+                        }
+                    }
+                }
+            }
+        },
         "/casos": {
             "get": {
                 "description": "<h1>GET /api/casos : Obtener todos los casos</h1>\n \n <pre>Busca y devuelve todos los casos que existen en la\n aplicación.\n \n Códigos de respuesta:<br>\n <code style=\"color:mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todos los casos registrados.</code>\n </pre>",
@@ -307,6 +454,152 @@
                 }
             }
         },
+        "/cocinas": {
+            "get": {
+                "description": "<h1>GET /api/cocinas : Obtener todas las cocinas.</h1>\n \n <pre>Busca y devuelve todas las cocinas que existen en la aplicacion.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todas las ciudades de la aplicacion.</code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/CocinaDetailDTO"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "<h1>POST /api/cocinas : Crear una cocina.</h1>\n \n <pre>Cuerpo de petición: JSON {@link DietaTipoDetailDTO}.\n \n Crea una nueva cocina con la informacion que se recibe en el cuerpo \n de la petición y se regresa un objeto identico con un id auto-generado \n por la base de datos.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó la nueva cocina .\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe la cocina.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CocinaDetailDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/CocinaDetailDTO"
+                        }
+                    }
+                }
+            }
+        },
+        "/cocinas/{id}": {
+            "get": {
+                "description": "<h1>GET /api/cocinas/{id} : Obtener cocina por id.</h1>\n \n <pre>Busca la cocina con el id asociado recibido en la URL y la devuelve.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve la cocina correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe una cocina con el id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la cocina que se esta buscando. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/CocinaDetailDTO"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "<h1>PUT /api/cocinas/{id} : Actualizar cocinas con el id dado.</h1>\n <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.\n \n Actualiza la cocina con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Actualiza la cocina con el id dado con la información enviada como parámetro. Retorna un objeto identico.</code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una cocina con el id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la cocina que se desea actualizar.Este debe ser una cadena de dígitos."
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CocinaDetailDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/CocinaDetailDTO"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "<h1>DELETE /api/cocinas/{id} : Borrar cocina por id.</h1>\n \n <pre>Borra la cocina con el id asociado recibido en la URL.\n \n Códigos de respuesta:<br>\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Elimina la cocina correspondiente al id dado.</code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una cocina con el id dado.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la cocina que se desea borrar. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {
+                        }
+                    }
+                }
+            }
+        },
         "/comidas": {
             "get": {
                 "consumes": [
@@ -324,62 +617,6 @@
                         },
                         "schema": {
                             "type": "string"
-                        }
-                    }
-                }
-            }
-        },
-        "/cuentaCobro": {
-            "get": {
-                "description": "<h1>GET /api/cuentas : Obtener todas las cuentas.</h1>\n \n <pre>Busca y devuelve todas las cuentas que existen en la aplicacion.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todas las cuentas de la aplicacion.</code> \n </pre>",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                        },
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/CuentaCobroDetailDTO"
-                            }
-                        }
-                    }
-                }
-            },
-            "post": {
-                "description": "<h1>POST /api/cities : Crea una cuenta de cobro.</h1>\n \n <pre>Cuerpo de petición: JSON {@link CuentaCobroDetailDTO}.\n \n Crea una nueva cuenta con la informacion que se recibe en el cuerpo \n de la petición y se regresa un objeto identico con un id auto-generado \n por la base de datos.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó la nueva cuenta .\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe la cuenta.\n </code>\n </pre>",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/CuentaCobroDetailDTO"
-                        },
-                        "description": "{@link CuentaCobroDetailDTO} - La cuenta que se desea guardar."
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/CuentaCobroDetailDTO"
                         }
                     }
                 }
@@ -681,7 +918,63 @@
                 }
             }
         },
-        "/cuentaCobro/{id}": {
+        "/cuentascobro": {
+            "get": {
+                "description": "<h1>GET /api/cuentas : Obtener todas las cuentas.</h1>\n \n <pre>Busca y devuelve todas las cuentas que existen en la aplicacion.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todas las cuentas de la aplicacion.</code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/CuentaCobroDetailDTO"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "<h1>POST /api/cities : Crea una cuenta de cobro.</h1>\n \n <pre>Cuerpo de petición: JSON {@link CuentaCobroDetailDTO}.\n \n Crea una nueva cuenta con la informacion que se recibe en el cuerpo \n de la petición y se regresa un objeto identico con un id auto-generado \n por la base de datos.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó la nueva cuenta .\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe la cuenta.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CuentaCobroDetailDTO"
+                        },
+                        "description": "{@link CuentaCobroDetailDTO} - La cuenta que se desea guardar."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/CuentaCobroDetailDTO"
+                        }
+                    }
+                }
+            }
+        },
+        "/cuentascobro/{id}": {
             "get": {
                 "description": "<h1>GET /api/cuentas/{id} : Obtener cuenta por id.</h1>\n \n <pre>Busca la cuenta con el id asociado recibido en la URL y la devuelve.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve la cuenta correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe una cuenta con el id dado.\n </code> \n </pre>",
                 "consumes": [
@@ -922,7 +1215,7 @@
         },
         "/dietas": {
             "get": {
-                "description": "<h1>GET /api/cocinas : Obtener todas las cocinas.</h1>\n \n <pre>Busca y devuelve todas las cocinas que existen en la aplicacion.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todas las ciudades de la aplicacion.</code> \n </pre>",
+                "description": "<h1>GET /api/dietas : Obtener todas las dietas.</h1>\n \n <pre>Busca y devuelve todas las dietas que existen en la\n aplicacion.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todas las ciudades de la aplicacion.</code> \n </pre>",
                 "consumes": [
                     "application/json"
                 ],
@@ -939,14 +1232,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/CocinaDetailDTO"
+                                "$ref": "#/definitions/DietaTipoDetailDTO"
                             }
                         }
                     }
                 }
             },
             "post": {
-                "description": "<h1>POST /api/cocinas : Crear una cocina.</h1>\n \n <pre>Cuerpo de petición: JSON {@link DietaTipoDetailDTO}.\n \n Crea una nueva cocina con la informacion que se recibe en el cuerpo \n de la petición y se regresa un objeto identico con un id auto-generado \n por la base de datos.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó la nueva cocina .\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe la cocina.\n </code>\n </pre>",
+                "description": "<h1>POST /api/cities : Crear una dieta.</h1>\n \n <pre>Cuerpo de petición: JSON {@link DietaTipoDetailDTO}.\n \n Crea una nueva dieta con la informacion que se recibe en el\n cuerpo de la petición y se regresa un objeto identico con un\n id auto-generado por la base de datos.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó la nueva dieta.\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe la ciudad.\n </code>\n </pre>",
                 "consumes": [
                     "application/json"
                 ],
@@ -959,8 +1252,9 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/CocinaDetailDTO"
-                        }
+                            "$ref": "#/definitions/DietaTipoDetailDTO"
+                        },
+                        "description": "{@link DietaTipoDetailDTO} - La dieta que se \n desea guardar."
                     }
                 ],
                 "responses": {
@@ -969,7 +1263,7 @@
                         "headers": {
                         },
                         "schema": {
-                            "$ref": "#/definitions/CocinaDetailDTO"
+                            "$ref": "#/definitions/DietaTipoDetailDTO"
                         }
                     }
                 }
@@ -1042,7 +1336,7 @@
                 }
             },
             "delete": {
-                "description": "<h1>DELETE /api/cocinas/{id} : Borrar cocina por id.</h1>\n \n <pre>Borra la cocina con el id asociado recibido en la URL.\n \n Códigos de respuesta:<br>\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Elimina la cocina correspondiente al id dado.</code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una cocina con el id dado.\n </code>\n </pre>",
+                "description": "<h1>DELETE /api/dietas/{id} : Borrar dieta por id.</h1>\n \n <pre>Borra la dieta con el id asociado recibido en la URL.\n \n Códigos de respuesta:<br>\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Elimina la dieta correspondiente al id dado.</code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una dieta con el id dado.\n </code>\n </pre>",
                 "consumes": [
                     "application/json"
                 ],
@@ -1055,7 +1349,7 @@
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "description": "Identificador de la cocina que se desea borrar. Este debe ser una cadena de dígitos."
+                        "description": "Identificador de la dieta que se desea borrar. Este\n debe ser una cadena de dígitos."
                     }
                 ],
                 "responses": {
@@ -1684,6 +1978,13 @@
     },
     "definitions": {
         "CalificacionDTO": {
+            "properties": {
+                "puntuacion": {
+                    "type": "number"
+                }
+            }
+        },
+        "CalificacionDetailDTO": {
             "properties": {
                 "puntuacion": {
                     "type": "number"

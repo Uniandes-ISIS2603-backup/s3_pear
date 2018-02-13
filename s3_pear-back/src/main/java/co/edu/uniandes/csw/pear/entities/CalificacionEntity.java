@@ -25,7 +25,7 @@ public class CalificacionEntity extends BaseEntity implements Serializable
 
     /**
      * 
-     * @param nueva puntuacion 
+     * @param puntuacion 
      */
     public void setPuntuacion(double puntuacion)
     {
