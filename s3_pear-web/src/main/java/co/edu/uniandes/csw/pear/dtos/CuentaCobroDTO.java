@@ -25,7 +25,7 @@ public class CuentaCobroDTO {
     
     private double valorAPagar;
     
-    private PagoDTO pago; 
+ 
     
     private Long id; 
     
@@ -37,17 +37,7 @@ public class CuentaCobroDTO {
         
     }
     
-      /**
-     * Conviertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
-     * la entidad que viene de argumento.
-     *
-     * @param entidad: Es la entidad que se va a convertir a DTO
-     */
-    public CuentaCobroDTO(CuentaCobroEntity entidad)
-    {
-        this.valorAPagar = entidad.getValorAPagar();
-        pago = new PagoDTO(entidad.getPagoEntity());
-    }
+ 
     
          /**
      * @return El ID del pago
@@ -76,23 +66,7 @@ public class CuentaCobroDTO {
         valorAPagar = pValorAPagar;
     }
     
-    /**
-     * 
-     * @return pagpDTO
-     */
-    public PagoDTO getPago()
-    {
-        return pago;
-    }
-    
-    /**
-     * Cambia el valor de pago
-     * @param pPago 
-     */
-    public void setPago(PagoDTO pPago)
-    {
-        pago = pPago;
-    }
+ 
     
       /**
      * Convierte este objeto DTO a una entidad
@@ -104,9 +78,7 @@ public class CuentaCobroDTO {
         
         PagoEntity pagoEntity = new PagoEntity();
         
-        pagoEntity.setMontoFinal(getPago().getMontoFinal());
-        pagoEntity.setMontoInicial(getPago().getMontoIncial());
-        pagoEntity.setId(getPago().getId());
+      
         
         entidad.setPagoEntity(pagoEntity);
         entidad.setValorAPagar(this.valorAPagar);

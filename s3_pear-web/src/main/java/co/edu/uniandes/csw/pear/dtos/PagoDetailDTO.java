@@ -14,13 +14,32 @@ import co.edu.uniandes.csw.pear.entities.PagoEntity;
  */
 public class PagoDetailDTO extends PagoDTO{
     
-      
+      private MedioPagoDTO medioPago;   
+    
      /**
      * Constructor por defecto
      */
     public PagoDetailDTO() {
     }
 
+    
+       /**
+    * 
+    * @return medioPago
+    */
+   public MedioPagoDTO getMedioPago()
+   {
+       return medioPago; 
+   }
+   
+   /**
+    * Cambia el medio de pago
+    * @param pMedioPago 
+    */
+   public void setMedioPago(MedioPagoDTO pMedioPago)
+   {
+       medioPago = pMedioPago; 
+   }
     /**
      * Constructor para transformar un Entity a un DTO
      *

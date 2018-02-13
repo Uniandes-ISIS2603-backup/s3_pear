@@ -12,10 +12,50 @@ import co.edu.uniandes.csw.pear.entities.PersonaEntity;
 public class PersonaDetailDTO extends PersonaDTO{
     
     //-----------------------------------------------------------
+    //Atributos
+    //-----------------------------------------------------------
+    
+    private CalificacionDTO calificacion;
+    
+    private DietaTipoDTO dieta;
+    
+    //-----------------------------------------------------------
     //Constructor
     //-----------------------------------------------------------
     
     public PersonaDetailDTO(PersonaEntity entidad){
         super(entidad);
-    }    
+    }
+    
+    //-----------------------------------------------------------
+    //Metodos
+    //-----------------------------------------------------------
+    
+    /**
+     * @return calificacion que otorga la persona
+     */
+    public CalificacionDTO getCalificacion(){
+        return calificacion;
+    }
+    
+    /**
+     * @param pCalificacion nueva calificacion otorgada por la persona
+     */
+    public void setCalificacion(CalificacionDTO pCalificacion){
+        calificacion = pCalificacion;
+    }
+    
+    /**
+     * @return dieta asignada a la persona
+     */
+    public DietaTipoDTO getDieta(){
+        return dieta;
+    }
+    
+    /**
+     * @param pDieta nueva dieta asignada para la persona
+     */
+    public void setDieta(DietaTipoDTO pDieta){
+        dieta = pDieta;
+    }
 }

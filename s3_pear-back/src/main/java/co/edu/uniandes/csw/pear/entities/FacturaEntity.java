@@ -20,9 +20,8 @@ public class FacturaEntity extends BaseEntity implements Serializable{
      
     private SemanaEntity semana;
     
-   // private CuentaDeCobroEntity cuenta;
+    private CuentaCobroEntity cuenta;
 
-    
     private int cantidadProductos;
     
     private int numeroFacturaDeVenta;
@@ -52,16 +51,16 @@ public class FacturaEntity extends BaseEntity implements Serializable{
      * Determina el costo total de la transaccion
      * @param pCuenta cuenta de cobro
      */
-//    public void setCuentaDeCobro(CuentaDeCobroEntity pCuenta){
-//        cuenta  = pCuenta;
-//    }
-//    
+    public void setCuentaDeCobro(CuentaCobroEntity pCuenta){
+        cuenta  = pCuenta;
+    }
+    
     /**
      * @return costo total de la transaccion
      */
-//    public CuentaDeCobroEntity geCuentaDeCobro(){
-//        return cuenta;
-//    }
+    public CuentaCobroEntity geCuentaDeCobro(){
+        return cuenta;
+    }
     
     /**
      * Determina la semana por la cual se esta facturando

@@ -54,10 +54,6 @@ public class PersonaDTO {
     
     private String identificacion;
     
-    private CalificacionDetailDTO calificacion;
-    
-    private DietaTipoDetailDTO dieta;
-    
     //-----------------------------------------------------------
     //Constructor
     //-----------------------------------------------------------
@@ -77,10 +73,6 @@ public class PersonaDTO {
         subscrito = entidad.isSubscrito();
         
         identificacion = entidad.getIdentificacion();
-        
-        calificacion = new CalificacionDetailDTO(entidad.getCalificacion());
-        
-        dieta = new DietaTipoDetailDTO(entidad.getDieta());
     }
     
     
@@ -186,33 +178,7 @@ public class PersonaDTO {
         identificacion = pIdentificacion;
     }
     
-    /**
-     * @return calificacion que otorga la persona
-     */
-    public CalificacionDTO getCalificacion(){
-        return calificacion;
-    }
     
-    /**
-     * @param pCalificacion nueva calificacion otorgada por la persona
-     */
-    public void setCalificacion(CalificacionDetailDTO pCalificacion){
-        calificacion = pCalificacion;
-    }
-    
-    /**
-     * @return dieta asignada a la persona
-     */
-    public DietaTipoDetailDTO getDieta(){
-        return dieta;
-    }
-    
-    /**
-     * @param pDieta nueva dieta asignada para la persona
-     */
-    public void setDieta(DietaTipoDetailDTO pDieta){
-        dieta = pDieta;
-    }
     
     /**
      * Convierte este objeto DTO a una entidad
@@ -228,8 +194,6 @@ public class PersonaDTO {
         entidad.setEdad(edad);
         entidad.setIdentificacion(identificacion);
         entidad.setSubscrito(subscrito);
-        entidad.setCalificacion(calificacion.toEntity());
-        entidad.setDieta(dieta.toEntity());
         
         //TODO Falta que quien sea responsable de DietaTipo implemente el
         //     método toEntity()

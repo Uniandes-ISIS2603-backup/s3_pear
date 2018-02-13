@@ -34,9 +34,9 @@ public class PagoResource {
 
 
     /**
-     * <h1>POST /api/cities : Crea una pago de cobro.</h1>
+     * <h1>POST /api/cuentaCobro/pago : Crea un pagoh1>
      * 
-     * <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.
+     * <pre>Cuerpo de petición: JSON {@link PagoDetailDTO}.
      * 
      * Crea una nueva pago con la informacion que se recibe en la cuerpo 
      * de la petición y se regresa un objeto identico con un id auto-generado 
@@ -50,18 +50,18 @@ public class PagoResource {
      * 412 Precodition Failed: Ya existe la pago.
      * </code>
      * </pre>
-     * @param pago {@link pagoCobroDetailDTO} - la pago que se desea guardar.
-     * @return JSON {@link pagoCobroetailDTO}  - la pago guardada con la atributo id autogenerado.
+     * @param pago {@link pagoCobroDetailDTO} - el pago que se desea guardar.
+     * @return JSON {@link pagoCobroetailDTO}  - el pago guardada con la atributo id autogenerado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la pago.
      */
     @POST
-    public PagoDetailDTO createCity(PagoDetailDTO pago) throws BusinessLogicException {
+    public PagoDetailDTO createPago(PagoDetailDTO pago) throws BusinessLogicException {
         return pago;
     }
 
     
     /**
-     * <h1>GET /api/pagos : Obtener todas las pagos.</h1>
+     * <h1>GET /api/cuentaDeCobro/pagos : Obtener todos los pagos.</h1>
      * 
      * <pre>Busca y devulave todas las pagos que existen en la aplicacion.
      * 
@@ -69,7 +69,7 @@ public class PagoResource {
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Devulave todas las pagos de la aplicacion.</code> 
      * </pre>
-     * @return JSONArray {@link CityDetailDTO} - las pagos encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
+     * @return JSONArray {@link MedioPagoDetailDTO} - las pagos encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
     public List<PagoDetailDTO> getPagos() {
@@ -80,47 +80,47 @@ public class PagoResource {
     /**
      * <h1>GET /api/pagos/{id} : Obtener pago por id.</h1>
      * 
-     * <pre>Busca la pago con la id asociado recibido en la URL y la devulave.
+     * <pre>Busca el pago con la id asociado recibido en la URL y la devulave.
      * 
      * Codigos de respuesta:
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
-     * 200 OK Devulave la pago correspondiente al id.
+     * 200 OK Devuelve la pago correspondiente al id.
      * </code> 
      * <code style="color: #c7254e; background-color: #f9f2f4;">
      * 404 Not Found No existe una pago con la id dado.
      * </code> 
      * </pre>
      * @param id Identificador de la pago que se esta buscando. Este debe ser una cadena de dígitos.
-     * @return JSON {@link CityDetailDTO} - la pago buscada
+     * @return JSON {@link PagoDetailDTO} - la pago buscada
      */
     @GET
     @Path("{id: \\d+}")
-    public PagoDetailDTO getCity(@PathParam("id") Long id) {
+    public PagoDetailDTO getPago(@PathParam("id") Long id) {
         return null;
     }
     
     
     /**
      * <h1>PUT /api/cities/{id} : Actualizar pago con la id dado.</h1>
-     * <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.
+     * <pre>Cuerpo de petición: JSON {@link PagoDetailDTO}.
      * 
-     * Actualiza la pago con la id recibido en la URL con la informacion que se recibe en la cuerpo de la petición.
+     * Actualiza el pago con la id recibido en la URL con la informacion que se recibe en la cuerpo de la petición.
      * 
      * Codigos de respuesta:
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Actualiza la pago con la id dado con la información enviada como parámetro. Retorna un objeto identico.</code> 
      * <code style="color: #c7254e; background-color: #f9f2f4;">
-     * 404 Not Found. No existe una pago con la id dado.
+     * 404 Not Found. No existe un pago con la id dado.
      * </code> 
      * </pre>
      * @param id Identificador de la pago que se desea actualizar.Este debe ser una cadena de dígitos.
-     * @param city {@link CityDetailDTO} la pago que se desea guardar.
-     * @return JSON {@link CityDetailDTO} - la pago guardada.
+     * @param pago {@link PagoDetailDTO} la pago que se desea guardar.
+     * @return JSON {@link PagoDetailDTO} - la pago guardada.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar la ciudad porque ya existe una con ese nombre.
      */
     @PUT
     @Path("{id: \\d+}")
-    public PagoDetailDTO updateCity(@PathParam("id") Long id, PagoDetailDTO pago) throws BusinessLogicException {
+    public PagoDetailDTO updatePago(@PathParam("id") Long id, PagoDetailDTO pago) throws BusinessLogicException {
         return pago;
     }
     
@@ -128,20 +128,20 @@ public class PagoResource {
      /**
      * <h1>DlaETE /api/pagos/{id} : Borrar pago por id.</h1>
      * 
-     * <pre>Borra la pago con la id asociado recibido en la URL.
+     * <pre>Borra el pago con la id asociado recibido en la URL.
      * 
      * Códigos de respuesta:<br>
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
-     * 200 OK laimina la pago correspondiente al id dado.</code>
+     * 200 OK laimina el pago correspondiente al id dado.</code>
      * <code style="color: #c7254e; background-color: #f9f2f4;">
-     * 404 Not Found. No existe una pago con la id dado.
+     * 404 Not Found. No existe un pago con la id dado.
      * </code>
      * </pre>
      * @param id Identificador de la pago que se desea borrar. Este debe ser una cadena de dígitos.
      */
     @DELETE
     @Path("{id: \\d+}")
-     public void dlaetePago(@PathParam("id") Long id) {
+     public void deletePago(@PathParam("id") Long id) {
         // Void
     }
     

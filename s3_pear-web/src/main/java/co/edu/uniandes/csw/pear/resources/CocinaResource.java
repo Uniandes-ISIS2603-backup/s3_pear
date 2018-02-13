@@ -38,8 +38,8 @@ public class CocinaResource {
      * @return JSON {@link DietaTipoDetailDTO}  - La cocina guardada con el atributo id autogenerado.
      */
     @POST
-    public CocinaDetailDTO createCocina(CocinaDetailDTO dietaTipo) {
-        return dietaTipo;
+    public CocinaDetailDTO createCocina(CocinaDetailDTO cocina) {
+        return cocina;
     }
 
     /**
@@ -99,8 +99,8 @@ public class CocinaResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public CocinaDetailDTO updateCocina(@PathParam("id") Long id, CocinaDetailDTO city) {
-        return city;
+    public CocinaDetailDTO updateCocina(@PathParam("id") Long id, CocinaDetailDTO cocina) {
+        return cocina;
     }
     
     

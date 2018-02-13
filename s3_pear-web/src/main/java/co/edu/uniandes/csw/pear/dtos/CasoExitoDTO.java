@@ -39,8 +39,6 @@ public class CasoExitoDTO {
     
     private String testimonio;
     
-    private DietaTipoDetailDTO dieta;
-    
     //-----------------------------------------------------------
     //Constructor
     //-----------------------------------------------------------
@@ -51,10 +49,7 @@ public class CasoExitoDTO {
         
         fotos = entidad.getFotos();
         
-        testimonio = entidad.getTestimonio();
-        
-        dieta = new DietaTipoDetailDTO(entidad.getDieta());
-        
+        testimonio = entidad.getTestimonio();        
     }
     
     //-----------------------------------------------------------
@@ -103,19 +98,7 @@ public class CasoExitoDTO {
         testimonio = pTestimonio;
     }
     
-    /**
-     * @return Dieta para la cual el caso fue exitoso 
-     */
-    public DietaTipoDetailDTO getDieta(){
-        return dieta;
-    }
-    
-    /**
-     * @param pDieta Nueva dieta asociada al caso exitoso
-     */
-    public void setDieta(DietaTipoDetailDTO pDieta){
-        dieta = pDieta;
-    }
+   
     
     /**
      * Convierte este objeto DTO a una entidad
@@ -125,7 +108,6 @@ public class CasoExitoDTO {
         CasoExitoEntity entidad = new CasoExitoEntity();
         
         entidad.setComentario(comentario);
-        entidad.setDieta(dieta.toEntity());
         entidad.setFotos(fotos);
         entidad.setTestimonio(testimonio);
         
