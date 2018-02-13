@@ -772,6 +772,154 @@
                 }
             }
         },
+        "/dias": {
+            "get": {
+                "description": "<h1>GET /api/dias : Obtener todos los dias.</h1>\n \n <pre>Busca y devuelve todos los dias que existen en la aplicacion.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todos los dias de la aplicacion.</code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/DiaDetailDTO"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "<h1>POST /api/dias : Crear un dia.</h1>\n \n <pre>Cuerpo de petición: JSON {@link DiaDetailDTO}.\n \n Crea un nuevo dia con la informacion que se recibe en el cuerpo \n de la petición y se regresa un objeto identico con un id auto-generado \n por la base de datos.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó el nuevo dia .\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe el dia.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DiaDetailDTO"
+                        },
+                        "description": "{@link DiaDetailDTO} - El dia que se desea guardar."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/DiaDetailDTO"
+                        }
+                    }
+                }
+            }
+        },
+        "/dias/{id}": {
+            "get": {
+                "description": "<h1>GET /api/dias/{id} : Obtener dia por id.</h1>\n \n <pre>Busca el dia con el id asociado recibido en la URL y la devuelve.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve el dia correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe un dia con el id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador del dia que se esta buscando. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/DiaDetailDTO"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "<h1>PUT /api/dias/{id} : Actualizar dia con el id dado.</h1>\n <pre>Cuerpo de petición: JSON {@link DiaDetailDTO}.\n \n Actualiza el dia con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Actualiza el dia con el id dado con la información enviada como parámetro. Retorna un objeto identico.</code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe un dia con el id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador del dia que se desea actualizar.Este debe ser una cadena de dígitos."
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DiaDetailDTO"
+                        },
+                        "description": "{@link DiaDetailDTO} El dia que se desea guardar."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/DiaDetailDTO"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "<h1>DELETE /api/dias/{id} : Borrar dia por id.</h1>\n \n <pre>Borra el dia con el id asociado recibido en la URL.\n \n Códigos de respuesta:<br>\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Elimina el dia correspondiente al id dado.</code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe un dia con el id dado.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador del dia que se desea borrar. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {
+                        }
+                    }
+                }
+            }
+        },
         "/dietas": {
             "get": {
                 "description": "<h1>GET /api/cocinas : Obtener todas las cocinas.</h1>\n \n <pre>Busca y devuelve todas las cocinas que existen en la aplicacion.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todas las ciudades de la aplicacion.</code> \n </pre>",
@@ -798,7 +946,7 @@
                 }
             },
             "post": {
-                "description": "<h1>POST /api/cities : Crear una dieta.</h1>\n \n <pre>Cuerpo de petición: JSON {@link DietaTipoDetailDTO}.\n \n Crea una nueva dieta con la informacion que se recibe en el\n cuerpo de la petición y se regresa un objeto identico con un\n id auto-generado por la base de datos.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó la nueva dieta.\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe la ciudad.\n </code>\n </pre>",
+                "description": "<h1>POST /api/cocinas : Crear una cocina.</h1>\n \n <pre>Cuerpo de petición: JSON {@link DietaTipoDetailDTO}.\n \n Crea una nueva cocina con la informacion que se recibe en el cuerpo \n de la petición y se regresa un objeto identico con un id auto-generado \n por la base de datos.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó la nueva cocina .\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe la cocina.\n </code>\n </pre>",
                 "consumes": [
                     "application/json"
                 ],
@@ -811,9 +959,8 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/DietaTipoDetailDTO"
-                        },
-                        "description": "{@link DietaTipoDetailDTO} - La dieta que se \n desea guardar."
+                            "$ref": "#/definitions/CocinaDetailDTO"
+                        }
                     }
                 ],
                 "responses": {
@@ -822,7 +969,7 @@
                         "headers": {
                         },
                         "schema": {
-                            "$ref": "#/definitions/DietaTipoDetailDTO"
+                            "$ref": "#/definitions/CocinaDetailDTO"
                         }
                     }
                 }
@@ -830,7 +977,7 @@
         },
         "/dietas/{id}": {
             "get": {
-                "description": "<h1>GET /api/cocinas/{id} : Obtener cocina por id.</h1>\n \n <pre>Busca la cocina con el id asociado recibido en la URL y la devuelve.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve la cocina correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe una cocina con el id dado.\n </code> \n </pre>",
+                "description": "<h1>GET /api/dietas/{id} : Obtener dieta por id.</h1>\n \n <pre>Busca la dieta con el id asociado recibido en la URL y la\n devuelve.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve la dieta correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe una dieta con el id dado.\n </code> \n </pre>",
                 "consumes": [
                     "application/json"
                 ],
@@ -843,7 +990,7 @@
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "description": "Identificador de la cocina que se esta buscando. Este debe ser una cadena de dígitos."
+                        "description": "Identificador de la dieta que se esta buscando. Este\n debe ser una cadena de dígitos."
                     }
                 ],
                 "responses": {
@@ -852,7 +999,7 @@
                         "headers": {
                         },
                         "schema": {
-                            "$ref": "#/definitions/CocinaDetailDTO"
+                            "$ref": "#/definitions/DietaTipoDetailDTO"
                         }
                     }
                 }
@@ -937,6 +1084,154 @@
                         },
                         "schema": {
                             "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/facturas": {
+            "get": {
+                "description": "<h1>GET /api/facturas : Obtener todas las facturas.</h1>\n \n <pre>Busca y devuelve todas las facturas que existen en la aplicacion.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todas las facturas de la aplicacion.</code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/FacturaDetailDTO"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "<h1>POST /api/facturas : Crear una factura.</h1>\n \n <pre>Cuerpo de petición: JSON {@link FacturaDetailDTO}.\n \n Crea una nueva factura con la informacion que se recibe en el cuerpo \n de la petición y se regresa un objeto identico con un id auto-generado \n por la base de datos.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó la nueva factura .\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe la factura.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/FacturaDetailDTO"
+                        },
+                        "description": "{@link FacturaDetailDTO} - La factura que se desea guardar."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/FacturaDetailDTO"
+                        }
+                    }
+                }
+            }
+        },
+        "/facturas/{id}": {
+            "get": {
+                "description": "<h1>GET /api/facturas/{id} : Obtener factura por id.</h1>\n \n <pre>Busca la factura con el id asociado recibido en la URL y la devuelve.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve la factura correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe una factura con el id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la factura que se esta buscando. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/FacturaDetailDTO"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "<h1>PUT /api/facturas/{id} : Actualizar factura con el id dado.</h1>\n <pre>Cuerpo de petición: JSON {@link FacturaDetailDTO}.\n \n Actualiza la factura con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Actualiza la factura con el id dado con la información enviada como parámetro. Retorna un objeto identico.</code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una factura con el id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la factura que se desea actualizar.Este debe ser una cadena de dígitos."
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/FacturaDetailDTO"
+                        },
+                        "description": "{@link FacturaDetailDTO} La factura que se desea guardar."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/FacturaDetailDTO"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "<h1>DELETE /api/facturas/{id} : Borrar factura por id.</h1>\n \n <pre>Borra la factura con el id asociado recibido en la URL.\n \n Códigos de respuesta:<br>\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Elimina la factura correspondiente al id dado.</code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una factura con el id dado.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la factura que se desea borrar. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {
                         }
                     }
                 }
@@ -1237,6 +1532,154 @@
                     }
                 }
             }
+        },
+        "/semanas": {
+            "get": {
+                "description": "<h1>GET /api/semanas : Obtener todas las semanas.</h1>\n \n <pre>Busca y devuelve todas las semanas que existen en la aplicacion.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todas las semanas de la aplicacion.</code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/SemanaDetailDTO"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "<h1>POST /api/semanas : Crear una semana.</h1>\n \n <pre>Cuerpo de petición: JSON {@link SemanaDetailDTO}.\n \n Crea una nueva semana con la informacion que se recibe en el cuerpo \n de la petición y se regresa un objeto identico con un id auto-generado \n por la base de datos.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó la nueva semana .\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe la semana.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SemanaDetailDTO"
+                        },
+                        "description": "{@link SemanaDetailDTO} - La semana que se desea guardar."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/SemanaDetailDTO"
+                        }
+                    }
+                }
+            }
+        },
+        "/semanas/{id}": {
+            "get": {
+                "description": "<h1>GET /api/semanas/{id} : Obtener semana por id.</h1>\n \n <pre>Busca la semana con el id asociado recibido en la URL y la devuelve.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve la semana correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe una semana con el id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la semana que se esta buscando. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/SemanaDetailDTO"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "<h1>PUT /api/semanas/{id} : Actualizar semana con el id dado.</h1>\n <pre>Cuerpo de petición: JSON {@link SemanaDetailDTO}.\n \n Actualiza la semana con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Actualiza la semana con el id dado con la información enviada como parámetro. Retorna un objeto identico.</code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una semana con el id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la semana que se desea actualizar.Este debe ser una cadena de dígitos."
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SemanaDetailDTO"
+                        },
+                        "description": "{@link SemanaDetailDTO} La semana que se desea guardar."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/SemanaDetailDTO"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "<h1>DELETE /api/semanas/{id} : Borrar semana por id.</h1>\n \n <pre>Borra la semana con el id asociado recibido en la URL.\n \n Códigos de respuesta:<br>\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Elimina la semana correspondiente al id dado.</code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe una semana con el id dado.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador de la semana que se desea borrar. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -1250,7 +1693,7 @@
         "CasoExitoDetailDTO": {
             "properties": {
                 "dieta": {
-                    "$ref": "#/definitions/DietaTipoDetailDTO"
+                    "$ref": "#/definitions/DietaTipoDTO"
                 }
             }
         },
@@ -1286,6 +1729,25 @@
                 }
             }
         },
+        "ComidaDTO": {
+            "properties": {
+                "TIPO": {
+                    "type": "string"
+                },
+                "alimentos": {
+                    "type": "string"
+                },
+                "cantidad": {
+                    "type": "integer"
+                },
+                "direccion": {
+                    "type": "string"
+                },
+                "tipo": {
+                    "type": "string"
+                }
+            }
+        },
         "CuentaCobroDetailDTO": {
             "properties": {
                 "id": {
@@ -1296,6 +1758,38 @@
                 },
                 "valorAPagar": {
                     "type": "number"
+                }
+            }
+        },
+        "DiaDTO": {
+            "properties": {
+                "fecha": {
+                    "type": "string"
+                },
+                "recomendacion": {
+                    "type": "string"
+                },
+                "senEnvia": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "DiaDetailDTO": {
+            "properties": {
+                "comidas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ComidaDTO"
+                    }
+                },
+                "fecha": {
+                    "type": "string"
+                },
+                "recomendacion": {
+                    "type": "string"
+                },
+                "senEnvia": {
+                    "type": "boolean"
                 }
             }
         },
@@ -1316,6 +1810,22 @@
                 },
                 "objetivo": {
                     "type": "string"
+                }
+            }
+        },
+        "FacturaDetailDTO": {
+            "properties": {
+                "cantidadDeProductos": {
+                    "type": "integer"
+                },
+                "numeroFactura": {
+                    "type": "integer"
+                },
+                "persona": {
+                    "$ref": "#/definitions/PersonaDTO"
+                },
+                "semana": {
+                    "$ref": "#/definitions/SemanaDTO"
                 }
             }
         },
@@ -1358,6 +1868,31 @@
                 }
             }
         },
+        "PersonaDTO": {
+            "properties": {
+                "apellido": {
+                    "type": "string"
+                },
+                "correo": {
+                    "type": "string"
+                },
+                "direccion": {
+                    "type": "string"
+                },
+                "edad": {
+                    "type": "integer"
+                },
+                "identificacion": {
+                    "type": "string"
+                },
+                "nombre": {
+                    "type": "string"
+                },
+                "subscrito": {
+                    "type": "boolean"
+                }
+            }
+        },
         "PersonaDetailDTO": {
             "properties": {
                 "apellido": {
@@ -1370,7 +1905,7 @@
                     "type": "string"
                 },
                 "dieta": {
-                    "$ref": "#/definitions/DietaTipoDetailDTO"
+                    "$ref": "#/definitions/DietaTipoDTO"
                 },
                 "direccion": {
                     "type": "string"
@@ -1396,6 +1931,26 @@
                 },
                 "comentario": {
                     "type": "string"
+                }
+            }
+        },
+        "SemanaDTO": {
+            "properties": {
+                "fechaLunes": {
+                    "type": "string"
+                }
+            }
+        },
+        "SemanaDetailDTO": {
+            "properties": {
+                "fechaLunes": {
+                    "type": "string"
+                },
+                "listaDias": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/DiaDTO"
+                    }
                 }
             }
         }

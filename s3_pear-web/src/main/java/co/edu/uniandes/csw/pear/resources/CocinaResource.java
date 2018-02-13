@@ -12,7 +12,7 @@ import javax.ws.rs.*;
  *
  * @author js.garcial1
  */
-@Path("dietas")
+@Path("cocinas")
 @Produces("application/json")
 @Consumes("application/json")
 public class CocinaResource {

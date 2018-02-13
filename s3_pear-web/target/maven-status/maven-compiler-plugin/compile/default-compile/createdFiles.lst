@@ -1,7 +1,9 @@
 co\edu\uniandes\csw\pear\dtos\CuentaCobroDTO.class
 co\edu\uniandes\csw\pear\dtos\QuejasyReclamosDTO.class
 co\edu\uniandes\csw\pear\dtos\PersonaDetailDTO.class
+co\edu\uniandes\csw\pear\resources\FacturaResource.class
 co\edu\uniandes\csw\pear\resources\CuentaCobroResource.class
+co\edu\uniandes\csw\pear\resources\SemanaResource.class
 co\edu\uniandes\csw\pear\dtos\PersonaDTO.class
 co\edu\uniandes\csw\pear\resources\CocinaResource.class
 co\edu\uniandes\csw\pear\resources\ComidaResource.class
@@ -40,5 +42,6 @@ co\edu\uniandes\csw\pear\dtos\DiaDTO.class
 co\edu\uniandes\csw\pear\dtos\EnvioDetailDTO.class
 co\edu\uniandes\csw\pear\dtos\CityDetailDTO.class
 co\edu\uniandes\csw\pear\dtos\FacturaDTO.class
+co\edu\uniandes\csw\pear\resources\DiaResource.class
 co\edu\uniandes\csw\pear\dtos\CalificacionDetailDTO.class
 co\edu\uniandes\csw\pear\dtos\MedioPagoDTO.class
