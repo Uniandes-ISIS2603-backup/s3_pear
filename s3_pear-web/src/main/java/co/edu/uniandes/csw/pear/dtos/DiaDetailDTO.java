@@ -6,12 +6,18 @@
 package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.DiaEntity;
+import java.util.List;
 /**
  *
  * @author v.chacon
  */
 public class DiaDetailDTO extends DiaDTO{
     
+    //-----------------------------------------------------------
+    //Atributos
+    //-----------------------------------------------------------
+    
+    private List<ComidaDetailDTO> comidas;
     //-----------------------------------------------------------
     //Constructor
     //-----------------------------------------------------------
@@ -20,4 +26,24 @@ public class DiaDetailDTO extends DiaDTO{
         super(entity);
     }
     
+    //-----------------------------------------------------------
+    //Metodos
+    //-----------------------------------------------------------
+    
+    /**
+     * Determina las comidas programadas para ese dia
+     * @param pComidas comidas programadas
+     */
+    public void setComidas(List<ComidaDetailDTO> pComidas){
+        comidas = pComidas;
+    }
+    
+    /**
+     * @return las comidas programadas ese dia para el cliente
+     */
+    public List<ComidaDetailDTO> getComidas(){
+        return comidas;
+    }
+    
+    //Es detail o no????????????????!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }

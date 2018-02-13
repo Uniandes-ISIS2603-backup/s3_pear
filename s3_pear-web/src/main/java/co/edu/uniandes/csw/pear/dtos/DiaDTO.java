@@ -35,8 +35,6 @@ public class DiaDTO {
     
     private String fecha;
     
-    //Se utilizara cuando la clase ComidaEntity este lista
-   // private ComidaDTO [] comidas;
     
     //-----------------------------------------------------------
     // Constructor
@@ -46,7 +44,6 @@ public class DiaDTO {
         seEnvia = entity.getSenEnvia();
         recomendacion = entity.getRecomendacion();
         fecha = entity.getRecomendacion();
-        //comidas = new ComidaDTO(entity.getComidas());
     }
     //-----------------------------------------------------------
     // Metodos
@@ -81,22 +78,8 @@ public class DiaDTO {
         return recomendacion;
     }
     
+
     /**
-     * Determina las comidas programadas para ese dia
-     * @param pComidas comidas programadas
-     */
-//    public void setComidas(ComidaDTO [] pComidas){
-//        comidas = pComidas;
-//    }
-    
-    /**
-     * @return las comidas programadas ese dia para el cliente
-     */
-//    public ComidaDTO[] getComidas(){
-//        return comidas;
-//    } 
-    
-        /**
      * Determina la fecha de este dia
      * @param pFecha 
      */
@@ -110,8 +93,7 @@ public class DiaDTO {
     public String getFecha(){
         return fecha;
     }
-    
-    
+     
     /**
      * Convierte este objeto DTO a una entidad
      * @return Un nuevo entity con los valores del DTO
@@ -121,7 +103,6 @@ public class DiaDTO {
         DiaEntity entity  = new DiaEntity();
         entity.setSeEnvia(seEnvia);
         entity.setRecomendacion(recomendacion);
-        //entity.setComidas(comidas);
         entity.setFecha(fecha);
         
         return entity;

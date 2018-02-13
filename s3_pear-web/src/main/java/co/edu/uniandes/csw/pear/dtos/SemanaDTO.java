@@ -30,21 +30,18 @@ public class SemanaDTO {
     //-----------------------------------------------------------
      private String fechaLunes;
     
-    private List<DiaDTO> dias;
-    
     //-----------------------------------------------------------
     // Constructor
     //-----------------------------------------------------------
     public SemanaDTO(SemanaEntity entity){
         fechaLunes = entity.getFechaLunes();
-        //dias = entity.getListaDias();
     }
     
     //-----------------------------------------------------------
     // Metodos
     //-----------------------------------------------------------
     
-      /**
+    /**
      * Determina la fecha inicial de la semana
      * @param date fecha inicial
      */
@@ -59,26 +56,17 @@ public class SemanaDTO {
         return fechaLunes;
     }
    
+  
     /**
-     * Determina los dias que contiene la semana, esta lista siempre tiene que tener 7 elementos. 
-     * @param lista de los dias
+     * Convierte este objeto DTO a una entidad
+     * @return Un nuevo entity con los valores del DTO
      */
-    public void setListaDias(List<DiaDTO> lista){
-       // dias = lista;
-    }
-    
-    /**
-     * @return lista de los dias que componen la semana
-     */
-//    public List<DiaDTO> getListaDias(){
-//        return dias;
-//    }
     
     public SemanaEntity toEntity(){
         SemanaEntity entity = new SemanaEntity();
         
         entity.setFechaLunes(fechaLunes);
-        //entity.setListaDias(dias);
+
         
         return entity;
     }

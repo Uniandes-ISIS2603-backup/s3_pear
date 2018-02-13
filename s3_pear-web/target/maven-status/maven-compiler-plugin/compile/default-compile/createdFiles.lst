@@ -12,6 +12,7 @@ co\edu\uniandes\csw\pear\resources\DietaTipoResource.class
 co\edu\uniandes\csw\pear\dtos\CalificacionDTO.class
 co\edu\uniandes\csw\pear\dtos\CasoExitoDetailDTO.class
 co\edu\uniandes\csw\pear\resources\PersonaResource.class
+co\edu\uniandes\csw\pear\resources\CasoExitoResource.class
 co\edu\uniandes\csw\pear\dtos\FacturaDetailDTO.class
 co\edu\uniandes\csw\pear\dtos\PagoDetailDTO.class
 co\edu\uniandes\csw\pear\mappers\BusinessLogicExceptionMapper.class

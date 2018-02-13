@@ -6,7 +6,7 @@
 package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
-
+import java.util.List;
 /**
  * Clase que representa la entidad de un dia
  * @author v.chacon
@@ -23,8 +23,7 @@ public class DiaEntity {
     
     private String fecha;
     
-    //Se utilizara cuando la clase ComidaEntity este lista
-   // private ComidaEntity [] comidas;
+    private List<ComidaEntity> comidas;
     
     //-----------------------------------------------------------
     // Metodos
@@ -64,16 +63,16 @@ public class DiaEntity {
      * Determina las comidas programadas para ese dia
      * @param pComidas comidas programadas
      */
-//    public void setComidas(ComidaEntity [] pComidas){
-//        comidas = pComidas;
-//    }
+    public void setComidas(List<ComidaEntity> pComidas){
+        comidas = pComidas;
+    }
     
     /**
      * @return las comidas programadas ese dia para el cliente
      */
-//    public ComidaEntity[] getComidas(){
-//        return comidas;
-//    } 
+    public List<ComidaEntity> getComidas(){
+        return comidas;
+    } 
     
     /**
      * Determina la fecha de este dia
