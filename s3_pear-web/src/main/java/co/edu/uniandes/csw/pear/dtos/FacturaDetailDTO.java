@@ -16,11 +16,11 @@ public class FacturaDetailDTO extends FacturaDTO{
     //Atributos
     //-----------------------------------------------------------
  
-    private CuentaCobroDetailDTO cuenta;
+    private CuentaCobroDTO cuenta;
     
-    private PersonaDetailDTO persona;
+    private PersonaDTO persona;
      
-    private SemanaDetailDTO semana;
+    private SemanaDTO semana;
     
     //-----------------------------------------------------------
     //Constructor
@@ -38,7 +38,7 @@ public class FacturaDetailDTO extends FacturaDTO{
      * Determina de que persona es la factura generada
      * @param p persona nueva asignada
      */
-    public void setPersona(PersonaDetailDTO p){
+    public void setPersona(PersonaDTO p){
         persona = p;
     }
    
@@ -46,7 +46,7 @@ public class FacturaDetailDTO extends FacturaDTO{
      * 
      * @return persona responsable de la factura
      */
-    public  PersonaDetailDTO getPersona(){
+    public  PersonaDTO getPersona(){
         return persona;
     }
 
@@ -54,14 +54,14 @@ public class FacturaDetailDTO extends FacturaDTO{
      * Determina el costo total de la transaccion
      * @param pCuenta cuenta de cobro
      */
-    public void setCuentaDeCobro(CuentaCobroDetailDTO pCuenta){
+    public void setCuentaDeCobro(CuentaCobroDTO pCuenta){
         cuenta  = pCuenta;
     }
     
     /**
      * @return costo total de la transaccion
      */
-    public CuentaCobroDetailDTO geCuentaDeCobro(){
+    public CuentaCobroDTO geCuentaDeCobro(){
         return cuenta;
     }
     
@@ -69,14 +69,14 @@ public class FacturaDetailDTO extends FacturaDTO{
      * Determina la semana por la cual se esta facturando
      * @param sem semana que se quiere "cobrar"
      */
-    public void setSemana(SemanaDetailDTO sem){
+    public void setSemana(SemanaDTO sem){
         semana = sem;    
     }
     
     /**
      * @return semana que se esta facturando
      */
-    public SemanaDetailDTO getSemana (){
+    public SemanaDTO getSemana (){
         return semana;
     }
 }

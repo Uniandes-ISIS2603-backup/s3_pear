@@ -16,7 +16,7 @@ public class SemanaDetailDTO extends SemanaDTO {
     //-----------------------------------------------------------
     //Atributos
     //-----------------------------------------------------------
-    private List<DiaDetailDTO> dias;
+    private List<DiaDTO> dias;
     //-----------------------------------------------------------
     //Constructor
     //-----------------------------------------------------------
@@ -32,14 +32,14 @@ public class SemanaDetailDTO extends SemanaDTO {
      * Determina los dias que contiene la semana, esta lista siempre tiene que tener 7 elementos. 
      * @param lista de los dias
      */
-    public void setListaDias(List<DiaDetailDTO> lista){
+    public void setListaDias(List<DiaDTO> lista){
        dias = lista;
     }
     
     /**
      * @return lista de los dias que componen la semana
      */
-    public List<DiaDetailDTO> getListaDias(){
+    public List<DiaDTO> getListaDias(){
         return dias;
     }
     

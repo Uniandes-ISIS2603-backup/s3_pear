@@ -17,7 +17,7 @@ public class DiaDetailDTO extends DiaDTO{
     //Atributos
     //-----------------------------------------------------------
     
-    private List<ComidaDetailDTO> comidas;
+    private List<ComidaDTO> comidas;
     //-----------------------------------------------------------
     //Constructor
     //-----------------------------------------------------------
@@ -34,16 +34,14 @@ public class DiaDetailDTO extends DiaDTO{
      * Determina las comidas programadas para ese dia
      * @param pComidas comidas programadas
      */
-    public void setComidas(List<ComidaDetailDTO> pComidas){
+    public void setComidas(List<ComidaDTO> pComidas){
         comidas = pComidas;
     }
     
     /**
      * @return las comidas programadas ese dia para el cliente
      */
-    public List<ComidaDetailDTO> getComidas(){
+    public List<ComidaDTO> getComidas(){
         return comidas;
     }
-    
-    //Es detail o no????????????????!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
