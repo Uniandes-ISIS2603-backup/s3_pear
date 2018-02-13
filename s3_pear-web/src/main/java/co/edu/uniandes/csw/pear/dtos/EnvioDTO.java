@@ -10,6 +10,30 @@ import co.edu.uniandes.csw.pear.entities.EnvioEntity;
 
 /**
  *
+ *  * EnvioDTO Objeto de transferencia de datos de Envios. Los DTO contienen las
+ * represnetaciones de los JSON que se transfieren entre el cliente y el
+ * servidor.
+ * 
+ * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * <pre>
+ *   {
+ *      "duraciom": number,
+ *      "recibidio": boolean,
+ *      "comida": ComidaDTO
+ *   }
+ * </pre>
+ * Por ejemplo un envio se representa asi:<br>
+ * 
+ * <pre>
+ * 
+ *   {
+ *      "duracion": 1hora,
+ *      "recibido": true,
+ *      "comida": UnaComida
+ *   }
+ *
+ * </pre>
+
  * @author js.cabra
  */
 public class EnvioDTO {
@@ -29,22 +53,34 @@ public class EnvioDTO {
         comida = entidad.getComida();
         
     }
-    
+        /**
+     * 
+     * @return la duracion.
+     */
     public int getDuracion()
     {
         return duracion;
     }
-    
+        /**
+     * 
+     * @return sì fue recibido el envio.
+     */
     public boolean getRecibido()
     {
         return recibido;
     }
-    
+        /**
+     * 
+     * @return la comida que se va a entregar.
+     */
     public ComidaEntity getComida()
     {
         return comida;
     }
-    
+        /**
+     * 
+     * @param la nueva duraciòn.
+     */
     public void setDuracion(int pDuracion)
     {
         duracion = pDuracion;
@@ -58,6 +94,10 @@ public class EnvioDTO {
     {
         recibido = true;
     }
+        /**
+     * 
+     * @param la nueva comida
+     */
     public void setComida(ComidaEntity pComida)
     {
         comida = pComida;

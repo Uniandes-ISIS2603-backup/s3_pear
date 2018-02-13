@@ -11,6 +11,32 @@ import java.io.Serializable;
 
 /**
  *
+ *  * ComidaDTO Objeto de transferencia de datos de comidas. Los DTO contienen las
+ * represnetaciones de los JSON que se transfieren entre el cliente y el
+ * servidor.
+ * 
+ * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * <pre>
+ *   {
+ *      "cantidad": number,
+ *      "alimentos":string,
+ *      "direccion: string,
+ *      "tipo": string
+ *     
+ *   }
+ * </pre>
+ * Por ejemplo una comida se representa asi:<br>
+ * 
+ * <pre>
+ * 
+ *   {
+ *      "cantidad": 360 gramos,
+ *       "alimentos":"arroz intregra 100 gramos, 200 gramos de carne de rez y aguacate 60 gramos",
+ *      "direccion: "Bogota DC, calle 106 # 19-20 casa 120",
+ *      "tipo": "ADELGAZAR"
+ *   }
+ *
+ * </pre>
  * @author js.cabra
  */
 public class ComidaDTO
@@ -34,43 +60,70 @@ public class ComidaDTO
         
         direccion = entidad.getDireccion();
     }
-    
+        /**
+     * 
+     * @return la cantidad de comida.
+     */
     public int getCantidad()
             
     {
         return cantidad;
         
     }
-    
+     /**
+     * 
+     * @param la nueva cantidad.
+     */
     public void setCantidad(int pCantidad)
     {
         cantidad = pCantidad;
     }
-    
+        /**
+     * 
+     * @return los alimentos que estan en esta comida.
+     */
      public String getAlimentos()
             
     {
         return alimentos;
         
     }
-    
+     /**
+     * 
+     * @param los nuevos alimentos.
+     */
     public void setAlimentos(String pAlimentos)
     {
         alimentos = pAlimentos;
     }
-    
+        /**
+     * 
+     * @return el tipo de comida.
+     */
     public String getTipo()
     {
         return TIPO;
     }
+     /**
+     * 
+     * @param el nuevo tipo.
+     */
     public void setTIPO(String pTipo)
     {
         TIPO = pTipo;
     }
+        /**
+     * 
+     * @return la direcciòn en donde se va a entregar.
+     */
     public String getDireccion()
     {
         return direccion;
     }
+     /**
+     * 
+     * @param la nueva direcciòn.
+     */
     public void setDireccion(String pDireccion)
     {
         direccion = pDireccion;
