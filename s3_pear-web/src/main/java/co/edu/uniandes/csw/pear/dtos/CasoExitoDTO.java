@@ -43,6 +43,10 @@ public class CasoExitoDTO {
     //Constructor
     //-----------------------------------------------------------
     
+    /**
+     * Constructor de un dto de caso exito a partir de un entity
+     * @param entidad Entidad a partir de la cual se construye el dto
+     */
     public CasoExitoDTO(CasoExitoEntity entidad){
         
         comentario = entidad.getComentario();
@@ -50,6 +54,13 @@ public class CasoExitoDTO {
         fotos = entidad.getFotos();
         
         testimonio = entidad.getTestimonio();        
+    }
+    
+    /**
+     * Constructor vacío para propósitos de persistencia
+     */
+    public CasoExitoDTO(){
+        
     }
     
     //-----------------------------------------------------------

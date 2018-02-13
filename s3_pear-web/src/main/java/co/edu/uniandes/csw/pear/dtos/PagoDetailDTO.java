@@ -20,10 +20,10 @@ public class PagoDetailDTO extends PagoDTO{
      * Constructor por defecto
      */
     public PagoDetailDTO() {
+        
     }
-
     
-       /**
+    /**
     * 
     * @return medioPago
     */

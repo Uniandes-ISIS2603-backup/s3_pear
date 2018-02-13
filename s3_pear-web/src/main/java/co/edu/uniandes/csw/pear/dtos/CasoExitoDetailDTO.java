@@ -21,6 +21,9 @@ public class CasoExitoDetailDTO {
     //Constructor
     //----------------------------------------
     
+    /**
+     * Constructor por defecto
+     */
     public CasoExitoDetailDTO(){
         
     }

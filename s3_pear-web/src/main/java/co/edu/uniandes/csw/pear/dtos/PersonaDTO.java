@@ -58,6 +58,11 @@ public class PersonaDTO {
     //Constructor
     //-----------------------------------------------------------
     
+    /**
+     * Constructor de dto de persona a partir de un entity
+     * @param entidad Entidad a partir de la cual se construye el dto
+     */
+    
     public PersonaDTO(PersonaEntity entidad){
         
         nombre = entidad.getNombre();
@@ -75,6 +80,12 @@ public class PersonaDTO {
         identificacion = entidad.getIdentificacion();
     }
     
+    /**
+     * Constructor vacío para propósitos de persistencia
+     */
+    public PersonaDTO(){
+        
+    }
     
     //-----------------------------------------------------------
     //Metodos
