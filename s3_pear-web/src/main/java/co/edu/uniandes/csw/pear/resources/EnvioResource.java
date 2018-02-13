@@ -8,7 +8,7 @@ package co.edu.uniandes.csw.pear.resources;
 
 
 /**
-  * <pre>Clase que implementa el recurso "cities".
+  * <pre>Clase que implementa el recurso "envios".
  * URL: /api/cities
  * </pre>
  * <i>Note que la aplicación (definida en {@link RestConfig}) define la ruta "/api" y
@@ -25,7 +25,7 @@ package co.edu.uniandes.csw.pear.resources;
 
 import javax.ws.rs.*;
 
-@Path("comidas")
+@Path("envios")
 @Produces("application/json")
 @Consumes("application/json")
 public class EnvioResource {
