@@ -15,7 +15,7 @@ public class CasoExitoDetailDTO {
     //Atributos
     //----------------------------------------
     
-    private DietaTipoDetailDTO dieta;
+    private DietaTipoDTO dieta;
     
     //----------------------------------------
     //Constructor
@@ -32,14 +32,14 @@ public class CasoExitoDetailDTO {
      /**
      * @return Dieta para la cual el caso fue exitoso 
      */
-    public DietaTipoDetailDTO getDieta(){
+    public DietaTipoDTO getDieta(){
         return dieta;
     }
     
     /**
      * @param pDieta Nueva dieta asociada al caso exitoso
      */
-    public void setDieta(DietaTipoDetailDTO pDieta){
+    public void setDieta(DietaTipoDTO pDieta){
         dieta = pDieta;
     }
 }

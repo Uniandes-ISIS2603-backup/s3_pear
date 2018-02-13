@@ -15,9 +15,9 @@ public class PersonaDetailDTO extends PersonaDTO{
     //Atributos
     //-----------------------------------------------------------
     
-    private CalificacionDetailDTO calificacion;
+    private CalificacionDTO calificacion;
     
-    private DietaTipoDetailDTO dieta;
+    private DietaTipoDTO dieta;
     
     //-----------------------------------------------------------
     //Constructor
@@ -41,21 +41,21 @@ public class PersonaDetailDTO extends PersonaDTO{
     /**
      * @param pCalificacion nueva calificacion otorgada por la persona
      */
-    public void setCalificacion(CalificacionDetailDTO pCalificacion){
+    public void setCalificacion(CalificacionDTO pCalificacion){
         calificacion = pCalificacion;
     }
     
     /**
      * @return dieta asignada a la persona
      */
-    public DietaTipoDetailDTO getDieta(){
+    public DietaTipoDTO getDieta(){
         return dieta;
     }
     
     /**
      * @param pDieta nueva dieta asignada para la persona
      */
-    public void setDieta(DietaTipoDetailDTO pDieta){
+    public void setDieta(DietaTipoDTO pDieta){
         dieta = pDieta;
     }
 }
