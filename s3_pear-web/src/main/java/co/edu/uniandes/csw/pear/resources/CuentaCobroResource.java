@@ -24,7 +24,7 @@ import javax.ws.rs.Produces;
  *
  * @author jp.campos
  */
-@Path("cuentaCobro")
+@Path("cuentascobro")
 @Produces("application/json")
 @Consumes("application/json")
 @RequestScoped
