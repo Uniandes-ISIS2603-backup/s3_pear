@@ -17,6 +17,15 @@ import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
  *   {
  *      "puntuacion": double
  *   }
+ *  Por ejemplo una calificaion se representa asi:<br>
+ * 
+ * <pre>
+ * 
+ *   {
+ *      "puntuacion": 91852
+ *   }
+ *
+ * </pre>
  * @author ga.bejarano10
  */
 public class CalificacionDTO {

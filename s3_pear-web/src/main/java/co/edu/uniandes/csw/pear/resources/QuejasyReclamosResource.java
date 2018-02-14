@@ -62,7 +62,7 @@ public class QuejasyReclamosResource
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la ciudad.
      */
     @POST
-    public QuejasyReclamosDetailDTO createCity(QuejasyReclamosDetailDTO quejayreclamo) throws BusinessLogicException {
+    public QuejasyReclamosDetailDTO createQuejayReclamo(QuejasyReclamosDetailDTO quejayreclamo) throws BusinessLogicException {
         
         return quejayreclamo;
     }
@@ -144,7 +144,7 @@ public class QuejasyReclamosResource
      */
     @DELETE
     @Path("{id: \\d+}")
-     public void deleteCalificaion(@PathParam("id") Long id) {
+     public void deleteQuejayReclamo(@PathParam("id") Long id) {
         // Void
     }
     

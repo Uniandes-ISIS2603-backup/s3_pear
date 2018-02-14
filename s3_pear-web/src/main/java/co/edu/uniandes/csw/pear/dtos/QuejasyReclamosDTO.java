@@ -18,6 +18,16 @@ import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
  *      "Asunto": String,
  *      "Comentario": string,
  *   }
+ *  Por ejemplo una queja y reclamo  se representa asi:<br>
+ * 
+ * <pre>
+ * 
+ *   {
+ *      "Asunto": "recomendacion",
+ *      "Comentario": "Mas puntual con la entrega"
+ *   }
+ *
+ * </pre>
  * @author ga.bejarano10
  */
 public class QuejasyReclamosDTO {
