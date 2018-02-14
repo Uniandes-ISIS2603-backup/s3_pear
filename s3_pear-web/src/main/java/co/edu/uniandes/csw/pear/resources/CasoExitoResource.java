@@ -73,7 +73,7 @@ public class CasoExitoResource {
      * </pre>
      * @param id Identificador del caso que se está buscando. Este debe ser una
      * cadena de dígitos.
-     * @return JSON {@link CasoExitoDetailDT} - El caso buscado
+     * @return JSON {@link CasoExitoDetailDTO} - El caso buscado
      */
     @GET
     @Path("{id: \\d+}")

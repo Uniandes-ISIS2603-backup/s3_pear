@@ -36,7 +36,7 @@ public class PersonaResource {
      * </pre>
      * @param persona {@link PersonaDetailDTO} - La persona que se 
      * quiere registrar.
-     * @eturn JSON {@link PersonaDetailDTO} - La persona registrada con
+     * @return JSON {@link PersonaDetailDTO} - La persona registrada con
      * el atributo id autogenerado.
      */
     @POST
@@ -75,7 +75,7 @@ public class PersonaResource {
      * </pre>
      * @param id Identificador de la persona que se está buscando. Este
      * debe ser una cadena de dígitos.
-     * @return JSON {@link PersonaDetailDT} - La persona buscada
+     * @return JSON {@link PersonaDetailDTO} - La persona buscada
      */
     @GET
     @Path("{id: \\d+}")
