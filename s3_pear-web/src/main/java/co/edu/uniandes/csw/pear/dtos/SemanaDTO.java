@@ -33,8 +33,20 @@ public class SemanaDTO {
     //-----------------------------------------------------------
     // Constructor
     //-----------------------------------------------------------
-    public SemanaDTO(SemanaEntity entity){
+    
+     /**
+      * Constructor de la clase SemanaDTO
+      * @param entity entidad a partir de la cual se construira el dto
+      */
+     public SemanaDTO(SemanaEntity entity){
         fechaLunes = entity.getFechaLunes();
+    }
+     
+     /**
+      * Contructor de la clase SemanaDTO
+      */
+    public SemanaDTO(){
+        
     }
     
     //-----------------------------------------------------------

@@ -40,10 +40,21 @@ public class DiaDTO {
     // Constructor
     //-----------------------------------------------------------
     
+    /**
+     * Constructor de la clase DiaDTO
+     * @param entity entidad a apartir de la cual se construye el dto
+     */
     public DiaDTO(DiaEntity entity){
         seEnvia = entity.getSenEnvia();
         recomendacion = entity.getRecomendacion();
         fecha = entity.getRecomendacion();
+    }
+    
+    /**
+     * Constructor de la clase DiaDTO
+     */
+    public DiaDTO(){
+        
     }
     //-----------------------------------------------------------
     // Metodos

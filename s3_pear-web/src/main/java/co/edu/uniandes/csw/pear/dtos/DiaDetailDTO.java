@@ -22,8 +22,19 @@ public class DiaDetailDTO extends DiaDTO{
     //Constructor
     //-----------------------------------------------------------
     
+    /**
+     * Constructor de la clase 
+     * @param entity entidad a apartir de la cual se construye el dto
+     */
     public DiaDetailDTO(DiaEntity entity){
         super(entity);
+    }
+    
+    /**
+     * Constructor de la clase DiaDetailDTO
+     */
+    public DiaDetailDTO(){
+        super();
     }
     
     //-----------------------------------------------------------

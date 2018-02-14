@@ -26,9 +26,20 @@ public class FacturaDetailDTO extends FacturaDTO{
     //Constructor
     //-----------------------------------------------------------
     
+    /**
+     * Constructor de la clase FacturaDetailDTO
+     * @param entity entidad a partir de la cual se construira el dto
+     */
     public FacturaDetailDTO(FacturaEntity entity){
         super(entity);
     }   
+    
+    /**
+     * Constructor de la aplicación
+     */
+    public FacturaDetailDTO(){
+        super();
+    }
     
     //-----------------------------------------------------------
     //Metodos

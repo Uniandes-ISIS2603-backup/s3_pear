@@ -48,9 +48,20 @@ public class FacturaDTO {
     //Constructor
     //-----------------------------------------------------------
     
+    /**
+     * Constructor de la clase
+     * @param entity entidad a partir de la cual se hara el dto
+     */
     public FacturaDTO(FacturaEntity entity){
         cantidadProductos = entity.getCantidadDeProductos();
         numeroFacturaDeVenta = entity.getNumeroFactura();
+    }
+    
+    /**
+     * Constructor de la clase
+     */
+    public FacturaDTO(){
+        
     }
     
     //-----------------------------------------------------------

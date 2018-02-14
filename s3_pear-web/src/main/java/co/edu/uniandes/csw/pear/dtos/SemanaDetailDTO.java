@@ -24,6 +24,9 @@ public class SemanaDetailDTO extends SemanaDTO {
     public SemanaDetailDTO(SemanaEntity entity){
         super(entity);
     }
+    public SemanaDetailDTO(){
+        super();
+    }
     
     //-----------------------------------------------------------
     //Metodos

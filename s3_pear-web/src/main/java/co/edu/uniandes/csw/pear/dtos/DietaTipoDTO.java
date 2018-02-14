@@ -32,18 +32,15 @@ public class DietaTipoDTO {
     //Metodos
     //-----------------------------------------------------------
     
-    
     /**
      * Contructor de DietaTipoDTO
-     * @param entidad DietaTipoEntity
      */
     public DietaTipoDTO(   ) {
         
     }
-    
     /**
      * Constructor a partir de una Entity
-     * @param entity 
+     * @param entity entidad a partir de la cual se construira el dto 
      */
     public DietaTipoDTO( DietaTipoEntity entity ) {
         this.objetivo = entity.getObjetivo();
