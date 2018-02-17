@@ -4,9 +4,12 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.resources;
+import co.edu.uniandes.csw.pear.dtos.CalificacionDTO;
 import co.edu.uniandes.csw.pear.dtos.CalificacionDetailDTO;
+import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.mappers.BusinessLogicExceptionMapper;
+import co.edu.uniandes.csw.pear.persistence.CalificacionPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -29,6 +32,7 @@ import javax.ws.rs.Produces;
 @RequestScoped
 public class CalificacionResource
 {
+    private CalificacionPersistence persistencia;
     /**
      * <h1>POST /api/calificaciones : crear una calificacion.</h1>
      * 
@@ -45,14 +49,15 @@ public class CalificacionResource
      * 412 Precodition Failed: Ya existe la calificacion.
      * </code>
      * </pre>
-     * @param quejayreclamo {@link CalificacionDetailDTO} - La Calificacion que se desea guardar.
+     * @param calificacion {@link CalificacionDetailDTO} - La Calificacion que se desea guardar.
      * @return JSON {@link CalificacionDetailDTO}  - Calificacion guardada con el atributo id autogenerado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la ciudad.
      */
     @POST
-    public CalificacionDetailDTO createCalificacion(CalificacionDetailDTO calificaciones) throws BusinessLogicException {
-        
-        return calificaciones;
+    public CalificacionDetailDTO createCalificacion(CalificacionDetailDTO calificacion) throws BusinessLogicException {
+       
+        //persistencia.create(calificacion.toEntity());
+        return calificacion;
     }
      /**
      * <h1>GET /api/calificaciones : Obtener todas las calificaciones.</h1>
@@ -66,8 +71,16 @@ public class CalificacionResource
      * @return JSONArray {@link CalificacionDetailDTO} - Las calificaciones en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
-    public List<CalificacionDetailDTO> getCalificaciones() {
-        return new ArrayList<>();
+    public List<CalificacionDetailDTO> getCalificaciones() 
+    {
+       List<CalificacionDetailDTO> calificaciones = new ArrayList();
+       //List listaEntity = persistencia.findAll();  
+       //for(int i=0; i<listaEntity.size();i++)
+       //{
+       //    CalificacionEntity entidad = (CalificacionEntity) listaEntity.get(i);
+       //    calificaciones.add(new CalificacionDetailDTO(entidad));
+       //}
+       return calificaciones;
     }
     /**
      * <h1>GET /api/calificaciones/{id} : Obtener queja y reclamo por id.</h1>
@@ -134,5 +147,6 @@ public class CalificacionResource
      public void deleteCalificaion(@PathParam("id") Long id) {
         // Void
     }
+     
     
 }
