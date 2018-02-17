@@ -7,11 +7,13 @@ package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Entity;
 
 /**
  * Clase que representa la entidad de una Dieta
  * @author js.garcial1
  */
+@Entity
 public class DietaTipoEntity extends BaseEntity implements Serializable {
     
     private String objetivo;

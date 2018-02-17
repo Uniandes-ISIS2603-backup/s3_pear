@@ -7,12 +7,14 @@ package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Entity;
 
 /**
  * Clase que representa la entidad de una Cocina
  *
  * @author js.garcial1
  */
+@Entity
 public class CocinaEntity extends BaseEntity implements Serializable {
     
     private String ubicacion;
