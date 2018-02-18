@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 /**
@@ -20,6 +21,8 @@ public class CuentaCobroEntity extends BaseEntity implements Serializable {
     
     @OneToOne
     private PagoEntity pago; 
+    
+  
     
     
     
@@ -48,6 +51,10 @@ public class CuentaCobroEntity extends BaseEntity implements Serializable {
         return pago; 
     }
     
+    /**
+     * Cambia el pago actual
+     * @param pPago
+     */
     public void  setPagoEntity (PagoEntity pPago)
     {
         pago = pPago;
