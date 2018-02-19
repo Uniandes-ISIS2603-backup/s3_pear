@@ -6,10 +6,12 @@
 package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
 
 /**
  * @author pa.suarezm
  */
+@Entity
 public class PersonaEntity extends BaseEntity implements Serializable{
     
     //-----------------------------------------------------------

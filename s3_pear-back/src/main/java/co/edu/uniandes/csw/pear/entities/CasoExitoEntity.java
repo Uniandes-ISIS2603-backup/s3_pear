@@ -7,11 +7,12 @@ package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Entity;
 
 /**
- *
  * @author pa.suarezm
  */
+@Entity
 public class CasoExitoEntity extends BaseEntity implements Serializable{
     
     //-----------------------------------------------------------
