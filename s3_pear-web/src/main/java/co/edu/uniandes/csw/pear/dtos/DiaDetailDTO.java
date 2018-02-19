@@ -41,18 +41,18 @@ public class DiaDetailDTO extends DiaDTO{
     //Metodos
     //-----------------------------------------------------------
     
-    /**
-     * Determina las comidas programadas para ese dia
-     * @param pComidas comidas programadas
-     */
-    public void setComidas(List<ComidaDTO> pComidas){
-        comidas = pComidas;
-    }
-    
-    /**
-     * @return las comidas programadas ese dia para el cliente
-     */
-    public List<ComidaDTO> getComidas(){
-        return comidas;
-    }
+//    /**
+//     * Determina las comidas programadas para ese dia
+//     * @param pComidas comidas programadas
+//     */
+//    public void setComidas(List<ComidaDTO> pComidas){
+//        comidas = pComidas;
+//    }
+//    
+//    /**
+//     * @return las comidas programadas ese dia para el cliente
+//     */
+//    public List<ComidaDTO> getComidas(){
+//        return comidas;
+//    }
 }

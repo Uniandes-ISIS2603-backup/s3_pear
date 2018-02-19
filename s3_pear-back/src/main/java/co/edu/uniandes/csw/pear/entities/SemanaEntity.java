@@ -7,12 +7,15 @@ package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Entity;
 
 /**
  * Clase que representa la entidad de una Semana
  * @author v.chacon
  */
-public class SemanaEntity {
+
+@Entity
+public class SemanaEntity  extends BaseEntity implements Serializable{
     
     //-----------------------------------------------------------
     //Atributos

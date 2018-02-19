@@ -13,7 +13,7 @@ import javax.ejb.Stateless;
 import javax.persistence.*;
 
 /**
- * Representa la clse de Persistencia de datos de DietaTipo
+ * Representa la clase de Persistencia de datos de DietaTipo
  * @author js.garcial1
  */
 @Stateless

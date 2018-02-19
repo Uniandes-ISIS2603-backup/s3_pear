@@ -6,8 +6,7 @@
 package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.FacturaEntity;
-import co.edu.uniandes.csw.pear.entities.PersonaEntity;
-import co.edu.uniandes.csw.pear.entities.SemanaEntity;
+
 
 
 /**
@@ -40,9 +39,9 @@ public class FacturaDTO {
     //-----------------------------------------------------------
 
     
-    private int cantidadProductos;
+    private Integer cantidadProductos;
     
-    private int numeroFacturaDeVenta;
+    private Integer numeroFacturaDeVenta;
     
     //-----------------------------------------------------------
     //Constructor
@@ -72,14 +71,14 @@ public class FacturaDTO {
      * Determina la cantidad de productos que se estan facturando
      * @param am cantidad
      */
-    public void setCantidadDeProductos (int am){
+    public void setCantidadDeProductos (Integer am){
         cantidadProductos  = am;
     }
     
     /**
      * @return cantidad de productos facturados
      */
-    public int getCantidadDeProductos (){
+    public Integer getCantidadDeProductos (){
         return cantidadProductos;
     }
     
@@ -87,14 +86,14 @@ public class FacturaDTO {
      * Asigna un identificador unico a la factura
      * @param num numero de indentificacion de la factura
      */
-    public void setNumeroFactura( int num){
+    public void setNumeroFactura( Integer num){
         numeroFacturaDeVenta = num;
     }
     
     /**
      * @return identificador de la factura
      */
-    public int getNumeroFactura(){
+    public Integer getNumeroFactura(){
         return numeroFacturaDeVenta;
     }
     

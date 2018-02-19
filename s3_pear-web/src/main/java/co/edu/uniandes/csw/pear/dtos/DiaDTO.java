@@ -11,7 +11,7 @@ import co.edu.uniandes.csw.pear.entities.DiaEntity;
  * en formato JSON.
  * 
  * El formato JSON de este objeto es el siguiente:
- * {"SeEnvia": boolean,
+ * {"Seenvia": boolean,
  *  "recomendacion": String,
  *  "fecha": String,
  *  "comida": [{
@@ -29,7 +29,7 @@ public class DiaDTO {
     //Atributos
     //-----------------------------------------------------------
     
-    private boolean seEnvia;
+    private Boolean seEnvia;
  
     private String recomendacion;
     
@@ -62,16 +62,16 @@ public class DiaDTO {
  
     /**
      * Determina si la comida se envia o no (Esto varia segun la disponibilidad del cliente)
-     * @param pSeEnvio boolean para indicar si se debe o no enviar la comida programada
+     * @param pSeEnvia boolean para indicar si se debe o no enviar la comida programada
      */
-    public void setSeEnvia (boolean pSeEnvia){
+    public void setSeEnvia (Boolean pSeEnvia){
         seEnvia = pSeEnvia;
     }
     
     /**
      * @return si se debe o no enviar la comida ese dia
      */
-    public boolean getSenEnvia(){
+    public Boolean getSenEnvia(){
         return seEnvia;
     }
     /**

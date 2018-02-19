@@ -22,23 +22,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 package co.edu.uniandes.csw.pear.resources;
-
 import co.edu.uniandes.csw.pear.dtos.FacturaDetailDTO;
-
-import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.pear.mappers.BusinessLogicExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
-import javax.enterprise.context.RequestScoped;
-import javax.ws.rs.Consumes;
-
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 
 /**
  * <pre>Clase que implementa el recurso "facturas".
@@ -59,7 +46,7 @@ import javax.ws.rs.Produces;
 @Path("facturas")
 @Produces("application/json")
 @Consumes("application/json")
-@RequestScoped
+
 
 public class FacturaResource {
     
@@ -85,7 +72,7 @@ public class FacturaResource {
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la factura.
      */
     @POST
-    public FacturaDetailDTO createFactura(FacturaDetailDTO factura) throws BusinessLogicException {
+    public FacturaDetailDTO createFactura(FacturaDetailDTO factura) {
         return factura;
     }
     
@@ -144,11 +131,11 @@ public class FacturaResource {
      * @param id Identificador de la factura que se desea actualizar.Este debe ser una cadena de dígitos.
      * @param factura {@link FacturaDetailDTO} La factura que se desea guardar.
      * @return JSON {@link FacturaDetailDTO} - La factura guardada.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar la factura porque ya existe una con ese nombre.
+     
      */
     @PUT
     @Path("{id: \\d+}")
-    public FacturaDetailDTO updateFactura(@PathParam("id") Long id, FacturaDetailDTO factura) throws BusinessLogicException {
+    public FacturaDetailDTO updateFactura(@PathParam("id") Long id, FacturaDetailDTO factura) {
         return factura;
     }
     

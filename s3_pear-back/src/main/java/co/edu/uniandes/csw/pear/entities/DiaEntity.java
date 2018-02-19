@@ -7,11 +7,14 @@ package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Entity;
 /**
  * Clase que representa la entidad de un dia
  * @author v.chacon
  */
-public class DiaEntity {
+
+@Entity
+public class DiaEntity extends BaseEntity implements Serializable {
     
     //-----------------------------------------------------------
     //Atributos
@@ -32,7 +35,7 @@ public class DiaEntity {
     
     /**
      * Determina si la comida se envia o no (Esto varia segun la disponibilidad del cliente)
-     * @param pSeEnvio boolean para indicar si se debe o no enviar la comida programada
+     * @param pSeEnvia boolean para indicar si se debe o no enviar la comida programada
      */
     public void setSeEnvia (boolean pSeEnvia){
         seEnvia = pSeEnvia;

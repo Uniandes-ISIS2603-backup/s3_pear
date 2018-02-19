@@ -6,10 +6,12 @@
 package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
 /**
  * Clase que representa la entidad de una Factura
  * @author v.chacon
  */
+@Entity
 public class FacturaEntity extends BaseEntity implements Serializable{
     
     //-----------------------------------------------------------

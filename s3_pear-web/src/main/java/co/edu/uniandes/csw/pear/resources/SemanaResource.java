@@ -23,21 +23,9 @@ SOFTWARE.
  */
 package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.SemanaDetailDTO;
-
-import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.pear.mappers.BusinessLogicExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
-import javax.enterprise.context.RequestScoped;
-import javax.ws.rs.Consumes;
-
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 
 /**
  * <pre>Clase que implementa el recurso "semanas".
@@ -58,7 +46,6 @@ import javax.ws.rs.Produces;
 @Path("semanas")
 @Produces("application/json")
 @Consumes("application/json")
-@RequestScoped
 
 public class SemanaResource {
     
@@ -84,7 +71,7 @@ public class SemanaResource {
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la semana.
      */
     @POST
-    public SemanaDetailDTO createSemana(SemanaDetailDTO semana) throws BusinessLogicException {
+    public SemanaDetailDTO createSemana(SemanaDetailDTO semana) {
         return semana;
     }
     
@@ -147,7 +134,7 @@ public class SemanaResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public SemanaDetailDTO updateSemana(@PathParam("id") Long id, SemanaDetailDTO semana) throws BusinessLogicException {
+    public SemanaDetailDTO updateSemana(@PathParam("id") Long id, SemanaDetailDTO semana) {
         return semana;
     }
     

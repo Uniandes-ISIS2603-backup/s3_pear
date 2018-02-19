@@ -23,22 +23,9 @@ SOFTWARE.
  */
 package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.DiaDetailDTO;
-
-
-import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.pear.mappers.BusinessLogicExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
-import javax.enterprise.context.RequestScoped;
-import javax.ws.rs.Consumes;
-
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 
 /**
  * <pre>Clase que implementa el recurso "dias".
@@ -59,7 +46,7 @@ import javax.ws.rs.Produces;
 @Path("dias")
 @Produces("application/json")
 @Consumes("application/json")
-@RequestScoped
+
 
 public class DiaResource {
     
@@ -85,7 +72,7 @@ public class DiaResource {
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la factura.
      */
     @POST
-    public DiaDetailDTO createDia (DiaDetailDTO dia) throws BusinessLogicException {
+    public DiaDetailDTO createDia (DiaDetailDTO dia) {
         return dia;
     }
     
@@ -148,7 +135,7 @@ public class DiaResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public DiaDetailDTO updateDia(@PathParam("id") Long id, DiaDetailDTO dia) throws BusinessLogicException {
+    public DiaDetailDTO updateDia(@PathParam("id") Long id, DiaDetailDTO dia)  {
         return dia;
     }
     
