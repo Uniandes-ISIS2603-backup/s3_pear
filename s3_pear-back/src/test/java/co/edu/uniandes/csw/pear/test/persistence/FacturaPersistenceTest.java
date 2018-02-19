@@ -98,7 +98,7 @@ public class FacturaPersistenceTest {
      *
      */
     private void clearData() {
-        em.createQuery("delete from DiaEntity").executeUpdate();
+        em.createQuery("delete from FacturaEntity").executeUpdate();
     }
 
     /**
