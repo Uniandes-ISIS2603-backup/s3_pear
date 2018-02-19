@@ -18,7 +18,7 @@ import javax.persistence.TypedQuery;
  *
  * @author js.cabra
  */
-public class EnvioPersistance {
+public class EnvioPersistence {
         /**
      * Constante LOGGER para mantener registro de lo que se hace
      */

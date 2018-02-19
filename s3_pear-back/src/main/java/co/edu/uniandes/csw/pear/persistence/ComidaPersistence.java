@@ -18,7 +18,7 @@ import javax.persistence.TypedQuery;
  *
  * @author js.cabra
  */
-public class ComidaPersistance {
+public class ComidaPersistence {
     
     
     /**
