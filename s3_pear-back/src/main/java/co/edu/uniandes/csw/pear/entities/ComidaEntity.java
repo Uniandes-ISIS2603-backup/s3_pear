@@ -17,7 +17,9 @@ public class ComidaEntity extends BaseEntity implements Serializable
     private String alimentos;
     private String TIPO;
     private String direccion;
+    private Long id;
     
+ 
     public int getCantidad()
             
     {
@@ -57,5 +59,20 @@ public class ComidaEntity extends BaseEntity implements Serializable
     public void setDireccion(String pDireccion)
     {
         direccion = pDireccion;
+    }
+    
+    /**
+     *
+     * @return id de la comida
+     */
+    @Override
+    public Long getId()
+    {
+        return id;
+    }
+    
+    public void setId(Long pId)
+    {
+        id = pId;
     }
 }

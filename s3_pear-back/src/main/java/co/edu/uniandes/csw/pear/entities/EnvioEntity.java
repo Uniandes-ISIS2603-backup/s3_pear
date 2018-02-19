@@ -19,6 +19,7 @@ public class EnvioEntity extends BaseEntity implements Serializable{
     
     private ComidaEntity comida;
     
+    private Long id;
     public int getDuracion()
     {
         return duracion;
@@ -34,6 +35,17 @@ public class EnvioEntity extends BaseEntity implements Serializable{
         return comida;
     }
     
+    
+      public Long getId()
+    {
+        return id;
+    }
+    
+    public void setId(Long pId)
+    {
+        id = pId;
+    }    
+          
     public void setDuracion(int pDuracion)
     {
         duracion = pDuracion;
