@@ -1,3 +1,5 @@
 /target/
-/s3_pear-back/target/
+/pear-back/target/
+/pear-web/target/
 /s3_pear-web/target/
+/s3_pear-back/target/
