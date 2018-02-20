@@ -95,7 +95,8 @@ public class MedioPagoPersistence {
      * Elimina la entidad pasada por parámetro
      * @param entity 
      */
-    public void delete(MedioPagoEntity entity) {
+    public void delete(Long id) {
+        MedioPagoEntity entity = em.find(MedioPagoEntity.class, id);
         em.remove(entity);
     }
     

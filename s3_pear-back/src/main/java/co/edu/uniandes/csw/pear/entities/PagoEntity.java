@@ -19,7 +19,7 @@ public class PagoEntity extends BaseEntity implements Serializable{
     private double montoInicial; 
     private double montoFinal;
     
-    @OneToOne   
+    @OneToOne
     private MedioPagoEntity medioPago;
    
     /**

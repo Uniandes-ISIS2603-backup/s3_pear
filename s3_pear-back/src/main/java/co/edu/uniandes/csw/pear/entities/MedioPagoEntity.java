@@ -7,6 +7,8 @@ package co.edu.uniandes.csw.pear.entities;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
 
 /**
  *
@@ -18,6 +20,7 @@ public class MedioPagoEntity extends BaseEntity implements Serializable{
     
     private String medioActual; 
     
+   @OneToMany
     private List<PersonaEntity> personas; 
     
     /**

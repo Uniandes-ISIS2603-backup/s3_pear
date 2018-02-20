@@ -40,6 +40,7 @@ public class MedioPagoDTO {
         
     }
     
+    
     public MedioPagoDTO(MedioPagoEntity entity)
     {
         medioPagoActual = entity.getMedioActual(); 
@@ -74,7 +75,7 @@ public class MedioPagoDTO {
         this.id = id;
     }
     
-          /**
+     /**
      * Convierte este objeto DTO a una entidad
      * @return Un nuevo entity con los valores del DTO
      */

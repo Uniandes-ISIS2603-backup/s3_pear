@@ -93,7 +93,8 @@ public class PagoPersistence {
      * Elimina la entidad pasada por parámetro
      * @param entity 
      */
-    public void delete(PagoEntity entity) {
+    public void delete(Long id) {
+       PagoEntity entity = em.find(PagoEntity.class, id);
         em.remove(entity);
     }
     

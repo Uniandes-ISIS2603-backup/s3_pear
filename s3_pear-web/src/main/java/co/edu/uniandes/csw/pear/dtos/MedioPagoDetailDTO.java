@@ -20,7 +20,7 @@ public class MedioPagoDetailDTO extends MedioPagoDTO{
      * Constructor por defecto
      */
     public MedioPagoDetailDTO() {
-        personas = new ArrayList<>(); 
+        
         
     }
     
@@ -34,22 +34,14 @@ public class MedioPagoDetailDTO extends MedioPagoDTO{
     }
     
     /**
-     * Agrega una persona que este usando este medio de pago
-     * @param pPersona 
+     * Cambia la lista de personas que usan el medio de pago
+     * @param pPersonas 
      */
-    public void addPersona(PersonaDTO pPersona)
+    public void setPersonas(List<PersonaDTO> pPersonas)
     {
-        personas.add(pPersona); 
+       personas = pPersonas; 
     }
-    
-    /**
-     * Elimina a la persona en la posición i
-     * @param i 
-     */
-    public void removePersona(int i)
-    {
-        personas.remove(i);
-    }
+   
     
     /**
      * Constructor para transformar un Entity a un DTO

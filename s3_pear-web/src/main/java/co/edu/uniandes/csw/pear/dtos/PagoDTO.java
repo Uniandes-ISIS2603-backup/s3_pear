@@ -12,10 +12,11 @@ import co.edu.uniandes.csw.pear.entities.PagoEntity;
  * 
  * El formato JSON de este objeto es el siguiente:
  * {
- *  "montoIncial": double
- *  "montoFinal" : double
+ *  "montoIncial": double,
+ *  "montoFinal" : double, 
  *  "metodoPago" {
  *               "medioPagoActual": String
+ *      }
  * }
  * @author jp.campos
  */

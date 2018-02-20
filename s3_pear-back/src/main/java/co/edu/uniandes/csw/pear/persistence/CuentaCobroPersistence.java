@@ -95,7 +95,8 @@ public class CuentaCobroPersistence {
      * Elimina la entidad pasada por parámetro
      * @param entity 
      */
-    public void delete(CuentaCobroEntity entity) {
+    public void delete(Long id) {
+       CuentaCobroEntity entity = em.find(CuentaCobroEntity.class, id);
         em.remove(entity);
     }
     
