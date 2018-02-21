@@ -15,64 +15,67 @@ public class ComidaEntity extends BaseEntity implements Serializable
 {
     private int cantidad;
     private String alimentos;
-    private String TIPO;
-    private String direccion;
-    private Long id;
+    private static String TIPO;
     
- 
+    private static String DESAYUNO = "desayuno";
+    private static String ALMUERZO = "almuerzo";
+    private static String CENA = "cena";
+    private static String ADICIONAL= "adicional";
+    
+    
+ /**
+     * Cantidad de la comida 
+     * @return cantidad
+     */
     public int getCantidad()
             
     {
         return cantidad;
         
     }
-    
+    /**
+     * Cambia los alimentos de la comida
+     * @param pCantidad
+     */
     public void setCantidad(int pCantidad)
     {
         cantidad = pCantidad;
     }
-    
+    /**
+     * alimentos de la comida
+     * @return alimentos
+     */
      public String getAlimentos()
             
     {
         return alimentos;
         
     }
-    
+    /**
+     * Cambia alimentos de la comida
+     * @param pAlimetos
+     */
     public void setAlimentos(String pAlimentos)
     {
         alimentos = pAlimentos;
     }
-    
+    /**
+     * Tipo de la comida 
+     * @return TIPO
+     */
     public String getTipo()
     {
         return TIPO;
     }
+    /**
+     * Cambia el tipo de la comida
+     * @param pTipo
+     */
     public void setTIPO(String pTipo)
     {
         TIPO = pTipo;
     }
-    public String getDireccion()
-    {
-        return direccion;
-    }
-    public void setDireccion(String pDireccion)
-    {
-        direccion = pDireccion;
-    }
     
-    /**
-     *
-     * @return id de la comida
-     */
-    @Override
-    public Long getId()
-    {
-        return id;
-    }
     
-    public void setId(Long pId)
-    {
-        id = pId;
-    }
+    
 }

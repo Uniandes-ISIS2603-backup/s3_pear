@@ -50,7 +50,7 @@ public class ComidaPersistenceTest {
      * se van a probar.
      */
     @Inject
-    private ComidaPersistence employeePersistence;
+    private ComidaPersistence comidaPersistence;
 
     /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
@@ -128,7 +128,7 @@ public class ComidaPersistenceTest {
     public void createComidaTest() {
         PodamFactory factory = new PodamFactoryImpl();
         ComidaEntity newEntity = factory.manufacturePojo(ComidaEntity.class);
-        ComidaEntity result = employeePersistence.create(newEntity);
+        ComidaEntity result = comidaPersistence.create(newEntity);
 
         Assert.assertNotNull(result);
 
@@ -144,7 +144,7 @@ public class ComidaPersistenceTest {
      */
     @Test
     public void getComidasTest() {
-        List<ComidaEntity> list = employeePersistence.findAll();
+        List<ComidaEntity> list = comidaPersistence.findAll();
         Assert.assertEquals(data.size(), list.size());
         for (ComidaEntity ent : list) {
             boolean found = false;
@@ -165,7 +165,7 @@ public class ComidaPersistenceTest {
     @Test
     public void getComidaTest() {
         ComidaEntity entity = data.get(0);
-        ComidaEntity newEntity = employeePersistence.find(entity.getId());
+        ComidaEntity newEntity = comidaPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
     }
@@ -178,7 +178,7 @@ public class ComidaPersistenceTest {
     @Test
     public void deleteComidaeTest() {
         ComidaEntity entity = data.get(0);
-        employeePersistence.delete(entity.getId());
+        comidaPersistence.delete(entity.getId());
         ComidaEntity deleted = em.find(ComidaEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
@@ -196,7 +196,7 @@ public class ComidaPersistenceTest {
 
         newEntity.setId(entity.getId());
 
-        employeePersistence.update(newEntity);
+        comidaPersistence.update(newEntity);
 
         ComidaEntity resp = em.find(ComidaEntity.class, entity.getId());
 
