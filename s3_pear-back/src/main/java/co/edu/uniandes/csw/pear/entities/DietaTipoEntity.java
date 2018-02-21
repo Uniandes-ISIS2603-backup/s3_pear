@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.pear.entities;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.*;
 
 /**
  * Clase que representa la entidad de una Dieta
@@ -20,8 +21,10 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     
     private String descripcion;
     
+    @ManyToOne
     private CuentaCobroEntity cuentaCobro;
     
+    @OneToMany
     private List<SemanaEntity> semanas;
     
     

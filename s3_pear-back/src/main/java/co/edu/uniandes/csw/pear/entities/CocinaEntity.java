@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.pear.entities;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 /**
  * Clase que representa la entidad de una Cocina
@@ -21,6 +22,7 @@ public class CocinaEntity extends BaseEntity implements Serializable {
 
     private String capacidad;
     
+    @OneToMany
     private List<DietaTipoEntity> dietas;
 
 //-----------------------------------------------------------
