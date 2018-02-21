@@ -44,8 +44,9 @@ public class EnvioDTO {
     
     private ComidaEntity comida;
     
-    private int id;
+   
     
+    private String direccion;
     public EnvioDTO(EnvioEntity entidad)
     {
         duracion = entidad.getDuracion();
@@ -56,14 +57,14 @@ public class EnvioDTO {
         
     }
     
-       public int getId()
+       public String getDireccion()
     {
-        return id;
+        return direccion;
     }
     
-    public void setId(int pId)
+    public void setDireccion(String pDireccion)
     {
-        id = pId;
+        direccion = pDireccion;
     }
         /**
      * 

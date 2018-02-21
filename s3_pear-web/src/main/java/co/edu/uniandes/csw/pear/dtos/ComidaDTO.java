@@ -50,7 +50,7 @@ public class ComidaDTO
     
     public String  direccion;
     
-    public int id;
+   
     
     
     public ComidaDTO(ComidaEntity entidad)    
@@ -61,18 +61,8 @@ public class ComidaDTO
         
         TIPO = entidad.getTipo();
         
-        direccion = entidad.getDireccion();
     }
     
-       public int getId()
-    {
-        return id;
-    }
-    
-    public void setId(int pId)
-    {
-        id = pId;
-    }
         /**
      * 
      * @return la cantidad de comida.

@@ -35,6 +35,7 @@ public class EnvioPersistence {
     public EnvioEntity find( Long id ) {
         LOGGER.log(Level.INFO, "Consultando envio con id={0}", id);
         return em.find(EnvioEntity.class, id);
+        
     }
     
     /**
