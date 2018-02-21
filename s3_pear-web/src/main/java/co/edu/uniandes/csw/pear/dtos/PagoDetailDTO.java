@@ -6,15 +6,15 @@
 package co.edu.uniandes.csw.pear.dtos;
 import co.edu.uniandes.csw.pear.entities.PagoEntity;
 
-
-
 /**
- *
+ * Clase que extiende de {@link PagoDTO} para manejar la transformacion entre
+ * los objetos JSON y las Entidades de la base de datos. Para conocer el
+ * contenido de el pago vaya a la documentacion de {@link PagoDTO}
  * @author jp.campos
  */
 public class PagoDetailDTO extends PagoDTO{
     
-      private MedioPagoDTO medioPago;   
+     private MedioPagoDTO medioPago;   
     
      /**
      * Constructor por defecto
@@ -43,10 +43,15 @@ public class PagoDetailDTO extends PagoDTO{
     /**
      * Constructor para transformar un Entity a un DTO
      *
-     * @param entity La entidad de ciudad a partir de la cual se construye el objeto
+     * @param entity La entidad de pago a partir de la cual se construye el objeto
      */
     public PagoDetailDTO(PagoEntity entity) {
         super(entity);
+        if(entity.getMedioPagoEntity() != null)
+        {
+            this.medioPago = new MedioPagoDTO(entity.getMedioPagoEntity()); 
+        }
+        
     }
 
     /**
@@ -58,6 +63,10 @@ public class PagoDetailDTO extends PagoDTO{
     public PagoEntity toEntity() {
         PagoEntity entity = super.toEntity();
        
+        if(this.medioPago != null)
+        {
+            entity.setMedioPagoEntity(medioPago.toEntity());
+        }
         
         return entity;
     }

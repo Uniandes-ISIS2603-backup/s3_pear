@@ -8,10 +8,15 @@ import co.edu.uniandes.csw.pear.entities.MedioPagoEntity;
 import co.edu.uniandes.csw.pear.entities.PersonaEntity;
 import java.util.ArrayList;
 import java.util.List;
+
+
 /**
- *
+ * Clase que extiende de {@link MedioPagoDTO} para manejar la transformacion entre
+ * los objetos JSON y las Entidades de la base de datos. Para conocer el
+ * contenido del medio de pago vaya a la documentacion de {@link MedioPagoDTO}
  * @author jp.campos
  */
+
 public class MedioPagoDetailDTO extends MedioPagoDTO{
     
     

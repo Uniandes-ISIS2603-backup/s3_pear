@@ -7,7 +7,9 @@ package co.edu.uniandes.csw.pear.dtos;
 import co.edu.uniandes.csw.pear.entities.CuentaCobroEntity; 
 
 /**
- *
+ * Clase que extiende de {@link CuentaCobro} para manejar la transformacion entre
+ * los objetos JSON y las Entidades de la base de datos. Para conocer el
+ * contenido de la cuenta de cobro vaya a la documentacion de {@link CuentaCobroDTO}
  * @author jp.campos
  */
 public class CuentaCobroDetailDTO extends CuentaCobroDTO {
@@ -30,10 +32,14 @@ public class CuentaCobroDetailDTO extends CuentaCobroDTO {
      */
     public CuentaCobroDetailDTO(CuentaCobroEntity entidad) {
         super(entidad);
+        if(entidad.getPagoEntity() != null)
+        {
+            this.pago = new PagoDTO(entidad.getPagoEntity()); 
+        }
     }
     
     
-       /**
+      /**
      * 
      * @return pagoDTO
      */
@@ -59,6 +65,12 @@ public class CuentaCobroDetailDTO extends CuentaCobroDTO {
     @Override
     public CuentaCobroEntity toEntity() {
         CuentaCobroEntity entidad = super.toEntity();
+        
+        if(getPago()!= null)
+        {
+            entidad.setPagoEntity(getPago().toEntity());
+        }
+        
         return entidad;
     }
 
