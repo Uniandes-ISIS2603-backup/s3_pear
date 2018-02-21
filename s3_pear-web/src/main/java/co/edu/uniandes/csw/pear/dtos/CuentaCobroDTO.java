@@ -24,8 +24,6 @@ public class CuentaCobroDTO {
     
     private double valorAPagar;
     
- 
-    
     private Long id; 
     
     /**
@@ -36,7 +34,18 @@ public class CuentaCobroDTO {
         
     }
     
- 
+     /**
+     * Constructor para transformar un Entity a un DTO
+     *
+     * @param entity La entidad de ciudad a partir de la cual se construye el objeto
+     */
+    public CuentaCobroDTO(CuentaCobroEntity entity) {
+        
+        this.valorAPagar =  entity.getValorAPagar();
+        this.id = entity.getId();
+        
+    }
+
     
          /**
      * @return El ID del pago

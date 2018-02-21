@@ -19,12 +19,9 @@ public class CuentaCobroEntity extends BaseEntity implements Serializable {
     
     private double valorAPagar;
     
+    
     @OneToOne
-    private PagoEntity pago; 
-    
-  
-    
-    
+    private PagoEntity pago;
     
      /**
      * Devuelve el valor a pagar

@@ -35,6 +35,9 @@ public class MedioPagoDTO {
     
     
     private Long id; 
+    /**
+     * Constructor por defecto
+     */
     public MedioPagoDTO()
     {
         

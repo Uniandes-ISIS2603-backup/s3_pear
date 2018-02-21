@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.pear.dtos;
 import co.edu.uniandes.csw.pear.entities.MedioPagoEntity;
+import co.edu.uniandes.csw.pear.entities.PersonaEntity;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -14,7 +15,7 @@ import java.util.List;
 public class MedioPagoDetailDTO extends MedioPagoDTO{
     
     
-    private List<PersonaDTO> personas;
+    private ArrayList<PersonaDTO> personas;
     
      /**
      * Constructor por defecto
@@ -23,6 +24,8 @@ public class MedioPagoDetailDTO extends MedioPagoDTO{
         
         
     }
+      
+
     
     /**
      * Retorna las personas que usen este medio de pago
@@ -37,7 +40,7 @@ public class MedioPagoDetailDTO extends MedioPagoDTO{
      * Cambia la lista de personas que usan el medio de pago
      * @param pPersonas 
      */
-    public void setPersonas(List<PersonaDTO> pPersonas)
+    public void setPersonas(ArrayList<PersonaDTO> pPersonas)
     {
        personas = pPersonas; 
     }
@@ -50,6 +53,13 @@ public class MedioPagoDetailDTO extends MedioPagoDTO{
      */
     public MedioPagoDetailDTO(MedioPagoEntity entity) {
         super(entity);
+        if(entity != null)
+        {
+            personas = new ArrayList<>(); 
+            for (PersonaEntity persona : entity.getPersonas()) {
+                personas.add( new PersonaDTO(persona));
+            }
+        }
     }
 
     /**
@@ -60,6 +70,14 @@ public class MedioPagoDetailDTO extends MedioPagoDTO{
     @Override
     public MedioPagoEntity toEntity() {
         MedioPagoEntity entity = super.toEntity();
+        
+        if(personas != null)
+        {
+            List<PersonaEntity> personasEntity = new ArrayList<>();
+            for (PersonaDTO persona : personas) {
+                personasEntity.add(persona.toEntity());
+            }
+        }
         return entity;
     }
 

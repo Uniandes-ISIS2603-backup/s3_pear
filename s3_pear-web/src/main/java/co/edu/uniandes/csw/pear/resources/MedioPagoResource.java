@@ -32,7 +32,7 @@ public class MedioPagoResource {
 
 
     /**
-     * <h1>POST /api/cuentaCobro/pago/medioPago : Crea una pago.</h1>
+     * <h1>POST /api/medioagos : Crea una pago.</h1>
      * 
      * <pre>Cuerpo de petición: JSON {@link MedioPagoDetailDTO}.
      * 
@@ -59,7 +59,7 @@ public class MedioPagoResource {
 
     
     /**
-     * <h1>GET /api/pagos : Obtener todas los medios de pago.</h1>
+     * <h1>GET /api/mediospago : Obtener todas los medios de pago.</h1>
      * 
      * <pre>Busca y devuelve todos los medios de pago que existen en la aplicacion.
      * 
@@ -67,16 +67,16 @@ public class MedioPagoResource {
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Devuelve todos los medios de pago de la aplicacion.</code> 
      * </pre>
-     * @return JSONArray {@link MedioPagoDetailDTO} - las pagos encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
+     * @return JSONArray {@link MedioPagoDetailDTO} - las medios de pago encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
-    public List<MedioPagoDTO> getMedioDePagos() {
+    public List<MedioPagoDTO> getMediosDePago() {
         return new ArrayList<>();
     }
     
     
     /**
-     * <h1>GET /api/pagos/{id} : Obtener pago por id.</h1>
+     * <h1>GET /api/mediospago/{id} : Obtener pago por id.</h1>
      * 
      * <pre>Busca la pago con la id asociado recibido en la URL y la devulave.
      * 
@@ -89,7 +89,7 @@ public class MedioPagoResource {
      * </code> 
      * </pre>
      * @param id Identificador de la pago que se esta buscando. Este debe ser una cadena de dígitos.
-     * @return JSON {@link CityDetailDTO} - la pago buscada
+     * @return JSON {@link MedioPagoDTO} - la pago buscada
      */
     @GET
     @Path("{id: \\d+}")
@@ -99,8 +99,8 @@ public class MedioPagoResource {
     
     
     /**
-     * <h1>PUT /api/medioPago/{id} : Actualizar el medio de pago con la id dado.</h1>
-     * <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.
+     * <h1>PUT /api/mediospago/{id} : Actualizar el medio de pago con la id dado.</h1>
+     * <pre>Cuerpo de petición: JSON {@link MedioPagodDTO}.
      * 
      * Actualiza la pago con la id recibido en la URL con la informacion que se recibe en la cuerpo de la petición.
      * 
@@ -108,13 +108,13 @@ public class MedioPagoResource {
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Actualiza el medio de pago con la id dado con la información enviada como parámetro. Retorna un objeto identico.</code> 
      * <code style="color: #c7254e; background-color: #f9f2f4;">
-     * 404 Not Found. No existe una pago con la id dado.
+     * 404 Not Found. No existe un medio pago con la id dado.
      * </code> 
      * </pre>
      * @param id Identificador de la pago que se desea actualizar.Este debe ser una cadena de dígitos.
      * @param medioPago {@link MedioPagoDetailDTO} el medio de pago que se desea guardar.
      * @return JSON {@link MedioPagoDetailDTO} - el medio de pago guardado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar la ciudad porque ya existe una con ese nombre.
+     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar el medio de pago porque ya existe una con ese nombre.
      */
     @PUT
     @Path("{id: \\d+}")
@@ -124,9 +124,9 @@ public class MedioPagoResource {
     
     
      /**
-     * <h1>DELETE /api/pagos/{id} : Borrar pago por id.</h1>
+     * <h1>DELETE /api/mediospago/{id} : Borrar pago por id.</h1>
      * 
-     * <pre>Borra la pago con la id asociado recibido en la URL.
+     * <pre>Borra el medio de pago con la id asociado recibido en la URL.
      * 
      * Códigos de respuesta:<br>
      * <code style="color: mediumseagreen; background-color: #eaffe0;">

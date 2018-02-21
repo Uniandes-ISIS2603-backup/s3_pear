@@ -13,20 +13,29 @@ import co.edu.uniandes.csw.pear.entities.CuentaCobroEntity;
 public class CuentaCobroDetailDTO extends CuentaCobroDTO {
     
     
-       private PagoDTO pago; 
+    private PagoDTO pago; 
     
+       
+       
+    /**
+     * Constructor por defecto
+     */   
+    public CuentaCobroDetailDTO()
+    {
+        
+    }
       /**
      * Constructor de CuentaCobroailDTO
      * @param entidad 
      */
     public CuentaCobroDetailDTO(CuentaCobroEntity entidad) {
-        super();
+        super(entidad);
     }
     
     
        /**
      * 
-     * @return pagpDTO
+     * @return pagoDTO
      */
     public PagoDTO getPago()
     {
