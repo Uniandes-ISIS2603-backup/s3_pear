@@ -5,22 +5,51 @@
  */
 package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.CocinaDetailDTO;
+import co.edu.uniandes.csw.pear.ejb.CocinaLogic;
+import co.edu.uniandes.csw.pear.entities.CocinaEntity;
 import java.util.ArrayList;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
 /**
- *
+ * El formato JSON de este objeto es el siguiente:
+ * {
+ *  "ubicacion": String,
+ *  "capacidad": String,
+ *  "dietas": [
+ *              {
+ *                  "objetivo" : String,
+ *                  "descripcion" : String,
+ *                  "cuentadecobro": {
+ *                    "valorapagar": double
+ *                  },
+ *                  "semanas" : [
+ *                                  {
+ *                                      //ATRIBUTOS DE SEMANAS POR DEFINIR
+ *                                  }
+ *                              ]
+ *              }  
+ *            ]
+ * }
  * @author js.garcial1
  */
 @Path("cocinas")
 @Produces("application/json")
 @Consumes("application/json")
+@RequestScoped
 public class CocinaResource {
+    
+    
+    /**
+     * Conexion con la Logica
+     */
+    private CocinaLogic logic;
+    
     
     /**
      * <h1>POST /api/cocinas : Crear una cocina.</h1>
      * 
-     * <pre>Cuerpo de petición: JSON {@link DietaTipoDetailDTO}.
+     * <pre>Cuerpo de petición: JSON {@link CocinaDetailDTO}.
      * 
      * Crea una nueva cocina con la informacion que se recibe en el cuerpo 
      * de la petición y se regresa un objeto identico con un id auto-generado 
@@ -34,12 +63,12 @@ public class CocinaResource {
      * 412 Precodition Failed: Ya existe la cocina.
      * </code>
      * </pre>
-     * @param dietaTipo {@link DietaTipoDetailDTO} - La cocina que se desea guardar.
-     * @return JSON {@link DietaTipoDetailDTO}  - La cocina guardada con el atributo id autogenerado.
+     * @param cocina {@link CocinaDetailDTO} - La cocina que se desea guardar.
+     * @return JSON {@link CocinaDetailDTO}  - La cocina guardada con el atributo id autogenerado.
      */
     @POST
     public CocinaDetailDTO createCocina(CocinaDetailDTO cocina) {
-        return cocina;
+        return new CocinaDetailDTO(logic.createCocina(cocina.toEntity()));
     }
 
     /**
@@ -49,13 +78,17 @@ public class CocinaResource {
      * 
      * Codigos de respuesta:
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
-     * 200 OK Devuelve todas las ciudades de la aplicacion.</code> 
+     * 200 OK Devuelve todas las cocinas de la aplicacion.</code> 
      * </pre>
-     * @return JSONArray {@link CityDetailDTO} - Las dietas encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
+     * @return JSONArray {@link CocinaDetailDTO} - Las cocinas encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
     public List<CocinaDetailDTO> getCocinas() {
-        return new ArrayList<>();
+        List<CocinaDetailDTO> dtos = new ArrayList<>();
+        logic.getCocinas().forEach( dieta -> { 
+            dtos.add(new CocinaDetailDTO(dieta));
+        });
+        return dtos;
     }
 
     /**
@@ -72,17 +105,20 @@ public class CocinaResource {
      * </code> 
      * </pre>
      * @param id Identificador de la cocina que se esta buscando. Este debe ser una cadena de dígitos.
-     * @return JSON {@link CityDetailDTO} - La ciudad buscada
+     * @return JSON {@link CocinaDetailDTO} - La cocina buscada
      */
     @GET
     @Path("{id: \\d+}")
     public CocinaDetailDTO getCocina(@PathParam("id") Long id) {
-        return null;
+        CocinaEntity buscado = logic.getCocina(id);
+        if ( buscado == null ) 
+            throw new WebApplicationException("El recurso /cocinas/" + id + " no existe.", 404);
+        return new CocinaDetailDTO(buscado);
     }
     
     /**
      * <h1>PUT /api/cocinas/{id} : Actualizar cocinas con el id dado.</h1>
-     * <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.
+     * <pre>Cuerpo de petición: JSON {@link CocinaDetailDTO}.
      * 
      * Actualiza la cocina con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.
      * 
@@ -94,13 +130,15 @@ public class CocinaResource {
      * </code> 
      * </pre>
      * @param id Identificador de la cocina que se desea actualizar.Este debe ser una cadena de dígitos.
-     * @param city {@link CityDetailDTO} La dieta que se desea guardar.
-     * @return JSON {@link CityDetailDTO} - La ciudad guardada.
+     * @param cocina {@link CityDetailDTO} La cocina que se desea guardar.
+     * @return JSON {@link CityDetailDTO} - La cocina guardada.
      */
     @PUT
     @Path("{id: \\d+}")
     public CocinaDetailDTO updateCocina(@PathParam("id") Long id, CocinaDetailDTO cocina) {
-        return cocina;
+        if ( logic.getCocina(id) == null ) 
+            throw new WebApplicationException("El recurso /dietas/" + id + " no existe.", 404);
+        return new CocinaDetailDTO(logic.updateCocina(id, cocina.toEntity()));
     }
     
     
@@ -121,7 +159,9 @@ public class CocinaResource {
     @DELETE
     @Path("{id: \\d+}")
      public void deleteCocina(@PathParam("id") Long id) {
-        // Void
+        if ( logic.getCocina(id) == null )
+            throw new WebApplicationException("El recurso /dietas/" + id + " no existe.", 404);
+        logic.delete(id);
     }
     
 }

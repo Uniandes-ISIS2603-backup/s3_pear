@@ -37,7 +37,6 @@ import java.util.List;
 public class CocinaDTO {
     
     private String ubicacion;
-    
     private String capacidad;    
     
     //-----------------------------------------------------------

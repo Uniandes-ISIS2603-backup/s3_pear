@@ -16,6 +16,7 @@ import javax.persistence.*;
  * Representa la clse de Persistencia de datos de Cocina
  * @author js.garcial1
  */
+@Stateless
 public class CocinaPersistence {
     
     /**

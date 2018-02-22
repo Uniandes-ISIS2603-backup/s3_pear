@@ -25,7 +25,6 @@ import java.util.List;
 public class DietaTipoDTO {
     
     private String objetivo;
-    
     private String descripcion;
     
     //-----------------------------------------------------------

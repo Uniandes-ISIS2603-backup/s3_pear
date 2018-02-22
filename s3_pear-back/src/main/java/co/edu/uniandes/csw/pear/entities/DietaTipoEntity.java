@@ -9,22 +9,24 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.*;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
- * Clase que representa la entidad de una Dieta
+ * Clase que representa una Dieta en la PERSISTENCIA y permite su SERIALIZACION
  * @author js.garcial1
  */
 @Entity
 public class DietaTipoEntity extends BaseEntity implements Serializable {
     
     private String objetivo;
-    
     private String descripcion;
     
+    @PodamExclude
     @ManyToOne
     private CuentaCobroEntity cuentaCobro;
     
-    @OneToMany
+    @PodamExclude
+    @OneToMany( cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<SemanaEntity> semanas;
     
     

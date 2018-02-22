@@ -13,7 +13,10 @@ import javax.ejb.Stateless;
 import javax.persistence.*;
 
 /**
- * Representa la clase de Persistencia de datos de DietaTipo
+ * Representa la clase de persistencia de datos de DietaTipo
+ * Se conecta a través del Entity Manager de 
+ * javax.persistance con la base de datos SQL.
+ * 
  * @author js.garcial1
  */
 @Stateless
@@ -33,7 +36,7 @@ public class DietaTipoPersistence {
      * @return dieta de tipo entity
      */
     public DietaTipoEntity find( Long id ) {
-        LOGGER.log(Level.INFO, "Consultando dieta con id={0}", id);
+        LOGGER.log(Level.INFO, "Consultando dieta con id = {0}", id);
         return em.find(DietaTipoEntity.class, id);
     }
     
@@ -43,7 +46,7 @@ public class DietaTipoPersistence {
      * @return dieta de tipo entity
      */
     public DietaTipoEntity findByName( String name ) {
-        LOGGER.log(Level.INFO, "Consultando la dieta con name= ", name);
+        LOGGER.log(Level.INFO, "Consultando la dieta con name = ", name);
         TypedQuery<DietaTipoEntity> q = em.createQuery("select u from DietaTipoEntity u where u.name = :name", DietaTipoEntity.class);
         q = q.setParameter("name", name);
         return q.getSingleResult();

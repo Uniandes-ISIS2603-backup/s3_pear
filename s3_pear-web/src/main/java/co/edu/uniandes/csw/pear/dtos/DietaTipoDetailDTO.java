@@ -31,6 +31,23 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
         super(entity);
         //this.cuentaCobro = new CuentaCobroDTO(entity.getCuentaCobro());
     }
+
+    public CuentaCobroDTO getCuentaCobro() {
+        return cuentaCobro;
+    }
+
+    public void setCuentaCobro(CuentaCobroDTO cuentaCobro) {
+        this.cuentaCobro = cuentaCobro;
+    }
+
+    public List<SemanaDTO> getSemanas() {
+        return semanas;
+    }
+
+    public void setSemanas(List<SemanaDTO> semanas) {
+        this.semanas = semanas;
+    }
+    
     
   
 }

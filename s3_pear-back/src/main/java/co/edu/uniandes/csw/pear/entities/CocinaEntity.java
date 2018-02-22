@@ -7,11 +7,13 @@ package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
- * Clase que representa la entidad de una Cocina
+ * Clase que representa una Cocina en la PERSISTENCIA y permite su SERIALIZACION
  *
  * @author js.garcial1
  */
@@ -19,10 +21,10 @@ import javax.persistence.OneToMany;
 public class CocinaEntity extends BaseEntity implements Serializable {
     
     private String ubicacion;
-
     private String capacidad;
     
-    @OneToMany
+    @PodamExclude
+    @OneToMany( cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<DietaTipoEntity> dietas;
 
 //-----------------------------------------------------------
