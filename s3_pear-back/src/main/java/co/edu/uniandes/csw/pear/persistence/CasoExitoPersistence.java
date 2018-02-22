@@ -18,6 +18,7 @@ import javax.persistence.TypedQuery;
 /**
  * @author pa.suarezm
  */
+@Stateless
 public class CasoExitoPersistence {
     
     private static final Logger LOGGER = Logger.getLogger(CasoExitoPersistence.class.getName());

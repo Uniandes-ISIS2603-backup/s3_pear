@@ -36,7 +36,6 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     
     private DietaTipoEntity dieta;
     
-    
     //-----------------------------------------------------------
     //Metodos
     //-----------------------------------------------------------
