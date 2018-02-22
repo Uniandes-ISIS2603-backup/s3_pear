@@ -118,9 +118,12 @@ public class CasoExitoPersistenceTest {
      */
     @Test
     public void getCasosExitoTest() {
-        List<CasoExitoEntity> list = casoExitoPersistence.findAll();
+        List<CasoExitoEntity> list;
+        list = casoExitoPersistence.findAll();
         Assert.assertEquals(data.size(), list.size());
-        for (CasoExitoEntity ent : list) {
+        for (int i=0; i<list.size(); i++) {
+            CasoExitoEntity ent;
+            ent = list.get(i);
             boolean found = false;
             for (CasoExitoEntity entity : data) {
                 if (ent.getId().equals(entity.getId())) {

@@ -6,11 +6,13 @@
 package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
 
 /**
  *
  * @author ga.bejarano10
  */
+@Entity
 public class CalificacionEntity extends BaseEntity implements Serializable
 {
     private double puntuacion;
