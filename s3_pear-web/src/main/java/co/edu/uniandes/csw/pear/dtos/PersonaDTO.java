@@ -30,6 +30,18 @@ import co.edu.uniandes.csw.pear.entities.PersonaEntity;
  *                                  "valorAPagar": double
  *                               }
  *           }
+ * 
+ *  "soporteContacto":[
+ *                     {
+ *                       "Asunto": String,
+ *                       "Comentario": string,
+ *                      },
+ *                      ...,
+ *                      {
+ *                       "asunto": String,
+ *                       "comentario": string,
+ *                      }
+ *                    ]
  * }
  *  //TODO *******ACTUALIZAR A MEDIDA QUE ESTEN HECHAS LAS DEMAS CLASES********
  * @author pa.suarezm

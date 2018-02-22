@@ -6,8 +6,12 @@
 package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-
+import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 /**
  * @author pa.suarezm
  */
@@ -32,9 +36,15 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     
     private String identificacion;
     
+    @OneToOne
     private CalificacionEntity calificacion;
     
+    @OneToOne
     private DietaTipoEntity dieta;
+    
+    @PodamExclude
+    @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true)
+    private List<QuejasyReclamosEntity> quejas;
     
     //-----------------------------------------------------------
     //Metodos
@@ -164,5 +174,19 @@ public class PersonaEntity extends BaseEntity implements Serializable{
      */
     public void setDieta(DietaTipoEntity pDieta){
         dieta = pDieta;
+    }
+    
+    /**
+     * @return las quejas que tiene la persona
+     */
+    public List<QuejasyReclamosEntity> getQuejas(){
+        return quejas;
+    }
+    
+    /**
+     * @param pQuejas asigna las quejas que tiene la persona
+     */
+    public void setQuejas(List<QuejasyReclamosEntity> pQuejas){
+        quejas = pQuejas;
     }
 }

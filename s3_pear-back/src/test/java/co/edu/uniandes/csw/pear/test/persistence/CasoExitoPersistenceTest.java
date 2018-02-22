@@ -149,7 +149,7 @@ public class CasoExitoPersistenceTest {
      * Prueba para eliminar un CasoExito.
      */
     @Test
-    public void deleteBookTest() {
+    public void deleteCasoExitoTest() {
         CasoExitoEntity entity = data.get(0);
         casoExitoPersistence.delete(casoExitoPersistence.find(entity.getId()));
         CasoExitoEntity deleted = em.find(CasoExitoEntity.class, entity.getId());
@@ -160,7 +160,7 @@ public class CasoExitoPersistenceTest {
      * Prueba para actualizar un CasoExito.
      */
     @Test
-    public void updateBookTest() {
+    public void updateCasoExitoTest() {
         CasoExitoEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
         CasoExitoEntity newEntity = factory.manufacturePojo(CasoExitoEntity.class);
