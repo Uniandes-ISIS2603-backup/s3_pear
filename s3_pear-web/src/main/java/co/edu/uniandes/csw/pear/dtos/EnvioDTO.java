@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.ComidaEntity;
 import co.edu.uniandes.csw.pear.entities.EnvioEntity;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -42,6 +43,7 @@ public class EnvioDTO {
     
     private boolean recibido;
     
+    @OneToOne
     private ComidaEntity comida;
     
    
