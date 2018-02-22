@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.pear.entities;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 /**
  * @author pa.suarezm
@@ -25,6 +26,7 @@ public class CasoExitoEntity extends BaseEntity implements Serializable{
     
     private String testimonio;
     
+    @OneToOne
     private DietaTipoEntity dieta;
     
     
