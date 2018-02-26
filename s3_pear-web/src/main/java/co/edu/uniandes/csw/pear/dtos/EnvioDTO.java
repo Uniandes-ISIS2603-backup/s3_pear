@@ -49,6 +49,18 @@ public class EnvioDTO {
    
     
     private String direccion;
+     /**
+     * Constructor vacio
+     */
+    public EnvioDTO()
+    {
+        
+    }
+    
+     /**
+     * Constructor EnvioDTIO a partir de la Entity
+     * @param entidad 
+     */
     public EnvioDTO(EnvioEntity entidad)
     {
         duracion = entidad.getDuracion();
@@ -59,18 +71,25 @@ public class EnvioDTO {
         
     }
     
+      /**
+     * direccion del envio
+     * @return la direccion.
+     */
        public String getDireccion()
     {
         return direccion;
     }
-    
+      /**
+     * Cambia la direccion del envio
+     * @param la nueva direccion
+     */
     public void setDireccion(String pDireccion)
     {
         direccion = pDireccion;
     }
         /**
      * 
-     * @return la duracion.
+     * @return duracion del envio.
      */
     public int getDuracion()
     {
@@ -78,7 +97,7 @@ public class EnvioDTO {
     }
         /**
      * 
-     * @return sì fue recibido el envio.
+     * @return recibido el envio.
      */
     public boolean getRecibido()
     {
@@ -93,7 +112,7 @@ public class EnvioDTO {
         return comida;
     }
         /**
-     * 
+     * Cambia la duracion
      * @param la nueva duraciòn.
      */
     public void setDuracion(int pDuracion)
@@ -101,16 +120,22 @@ public class EnvioDTO {
         duracion = pDuracion;
     }
     
+      /**
+     * Cambia a falso sì fue recibido
+     */
     public void setRecibidoFalso()
     {
         recibido = false;
     }
+      /**
+     * Cambia a verdadero sì fue recibido
+     */
     public void setRecibidoVerdadero()
     {
         recibido = true;
     }
         /**
-     * 
+     * Cambia la comida
      * @param la nueva comida
      */
     public void setComida(ComidaEntity pComida)

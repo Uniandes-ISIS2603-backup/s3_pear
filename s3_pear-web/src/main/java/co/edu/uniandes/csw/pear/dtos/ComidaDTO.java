@@ -39,6 +39,8 @@ import java.io.Serializable;
  * </pre>
  * @author js.cabra
  */
+
+
 public class ComidaDTO
 
 {
@@ -48,11 +50,14 @@ public class ComidaDTO
     
     public String TIPO;
     
-    public String  direccion;
+    
     
    
     
-    
+     /**
+     * Constructor ComidaDTO a partir de la Entity
+     * @param entidad
+     */
     public ComidaDTO(ComidaEntity entidad)    
     {
         cantidad = entidad.getCantidad();
@@ -60,6 +65,15 @@ public class ComidaDTO
         alimentos = entidad.getAlimentos();
         
         TIPO = entidad.getTipo();
+        
+        
+    
+    }
+     /**
+     * Constructor vacio
+     */
+    public ComidaDTO()
+    {
         
     }
     
@@ -115,20 +129,5 @@ public class ComidaDTO
     {
         TIPO = pTipo;
     }
-        /**
-     * 
-     * @return la direcciòn en donde se va a entregar.
-     */
-    public String getDireccion()
-    {
-        return direccion;
-    }
-     /**
-     * 
-     * @param la nueva direcciòn.
-     */
-    public void setDireccion(String pDireccion)
-    {
-        direccion = pDireccion;
-    }
+
 }
