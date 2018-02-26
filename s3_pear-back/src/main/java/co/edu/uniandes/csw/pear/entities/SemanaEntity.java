@@ -7,7 +7,10 @@ package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  * Clase que representa la entidad de una Semana
@@ -23,6 +26,8 @@ public class SemanaEntity  extends BaseEntity implements Serializable{
     
     private String fechaLunes;
     
+    @PodamExclude
+    @OneToMany( cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<DiaEntity> dias;
    
     //-----------------------------------------------------------

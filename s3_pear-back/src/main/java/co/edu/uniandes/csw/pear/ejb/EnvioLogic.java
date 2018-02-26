@@ -5,8 +5,13 @@
  */
 package co.edu.uniandes.csw.pear.ejb;
 
+<<<<<<< HEAD
 import co.edu.uniandes.csw.pear.entities.EnvioEntity;
 import co.edu.uniandes.csw.pear.persistence.EnvioPersistence;
+=======
+
+import co.edu.uniandes.csw.pear.entities.EnvioEntity;
+>>>>>>> 0f8b3fec0bb3e1ad5a1cecbb71fe8b39c0513a8a
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

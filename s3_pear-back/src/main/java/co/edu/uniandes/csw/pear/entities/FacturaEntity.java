@@ -7,6 +7,8 @@ package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 /**
  * Clase que representa la entidad de una Factura
  * @author v.chacon
@@ -18,10 +20,16 @@ public class FacturaEntity extends BaseEntity implements Serializable{
     //Atributos
     //-----------------------------------------------------------
     
+    @PodamExclude
+    @OneToMany
     private PersonaEntity persona;
      
+    @PodamExclude
+    @OneToMany
     private SemanaEntity semana;
     
+    @PodamExclude
+    @OneToMany
     private CuentaCobroEntity cuenta;
 
     private int cantidadProductos;
