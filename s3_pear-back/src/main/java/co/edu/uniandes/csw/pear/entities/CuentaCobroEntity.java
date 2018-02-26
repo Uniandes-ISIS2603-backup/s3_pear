@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 /**
  * 
  *
@@ -19,7 +20,7 @@ public class CuentaCobroEntity extends BaseEntity implements Serializable {
     
     private double valorAPagar;
     
-    
+    @PodamExclude
     @OneToOne
     private PagoEntity pago;
     

@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.pear.entities;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -19,6 +20,7 @@ public class PagoEntity extends BaseEntity implements Serializable{
     private double montoInicial; 
     private double montoFinal;
     
+    @PodamExclude
     @OneToOne
     private MedioPagoEntity medioPago;
    

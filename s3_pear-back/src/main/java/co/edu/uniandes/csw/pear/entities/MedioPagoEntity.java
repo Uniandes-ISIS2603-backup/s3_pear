@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 
 /**
@@ -20,7 +21,8 @@ public class MedioPagoEntity extends BaseEntity implements Serializable{
     
     private String medioActual; 
     
-   @OneToMany
+   @PodamExclude
+   @OneToMany (mappedBy = "medioPago")
     private List<PersonaEntity> personas; 
     
     /**
