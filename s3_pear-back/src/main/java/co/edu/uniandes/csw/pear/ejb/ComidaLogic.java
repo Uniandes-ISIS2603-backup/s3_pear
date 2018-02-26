@@ -4,14 +4,9 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.ejb;
-
-<<<<<<< HEAD
 import co.edu.uniandes.csw.pear.entities.ComidaEntity;
 import co.edu.uniandes.csw.pear.persistence.ComidaPersistence;
-=======
 
-import co.edu.uniandes.csw.pear.entities.ComidaEntity;
->>>>>>> 0f8b3fec0bb3e1ad5a1cecbb71fe8b39c0513a8a
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
