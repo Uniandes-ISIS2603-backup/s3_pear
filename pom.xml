@@ -8,7 +8,10 @@
     <packaging>pom</packaging>
     <name>s3_pear</name>
  
-    <modules></modules>
+    <modules>
+        <module>s3_pear-back</module>
+        <module>s3_pear-web</module>
+    </modules>
     <repositories>
         <repository>
             <id>csw-releases</id>
