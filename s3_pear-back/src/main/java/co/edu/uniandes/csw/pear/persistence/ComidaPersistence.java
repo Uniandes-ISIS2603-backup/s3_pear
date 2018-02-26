@@ -39,17 +39,6 @@ public class ComidaPersistence {
         return em.find(ComidaEntity.class, id);
     }
     
-    /**
-     * Busca una ComidaEntity dado su nombre
-     * @param name de tipo string
-     * @return comida de tipo entity
-     */
-    public ComidaEntity findByName( String name ) {
-        LOGGER.log(Level.INFO, "Consultando la comida con name= ", name);
-        TypedQuery<ComidaEntity> q = em.createQuery("select u from ComidaEntity u where u.name = :name", ComidaEntity.class);
-        q = q.setParameter("name", name);
-        return q.getSingleResult();
-    }
     
     /**
      * Busca todas las comdias de tipo ComidaEntity
