@@ -37,18 +37,7 @@ public class EnvioPersistence {
         return em.find(EnvioEntity.class, id);
         
     }
-    
-    /**
-     * Busca una EnvioEntity dado su nombre
-     * @param name de tipo string
-     * @return envio de tipo entity
-     */
-    public EnvioEntity findByName( String name ) {
-        LOGGER.log(Level.INFO, "Consultando el envio con name= ", name);
-        TypedQuery<EnvioEntity> q = em.createQuery("select u from EnvioEntity u where u.name = :name", EnvioEntity.class);
-        q = q.setParameter("name", name);
-        return q.getSingleResult();
-    }
+
     
     /**
      * Busca todas las envios de tipo ComidaEntity
