@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.ejb;
 
 
+import co.edu.uniandes.csw.pear.entities.EnvioEntity;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

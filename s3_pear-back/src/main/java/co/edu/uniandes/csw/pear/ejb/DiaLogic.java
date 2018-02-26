@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.ejb;
 
 import co.edu.uniandes.csw.pear.entities.DiaEntity;
+import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.DiaPersistence;
 import java.util.List;
 import java.util.logging.Level;
@@ -66,8 +67,11 @@ public class DiaLogic {
      * @param entity de dia a persistir
      * @return entidad de dia persistida
      */
-    public DiaEntity createDia( DiaEntity entity ) {
+    public DiaEntity createDia( DiaEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de un dia con id = {0}", entity.getId());
+        if(persistence.findByName(entity.getName())!= null){
+            throw new BusinessLogicException("Ya existe un dia con ese nombre");
+        }
         persistence.create(entity);
         LOGGER.log(Level.INFO, "Termina proceso de creacion de un dia con id = {0}", entity.getId());
         return entity;

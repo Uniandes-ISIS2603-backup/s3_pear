@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.ejb;
 
 import co.edu.uniandes.csw.pear.entities.SemanaEntity;
+import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.SemanaPersistence;
 import java.util.List;
 import java.util.logging.Level;
