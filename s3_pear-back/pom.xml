@@ -50,13 +50,7 @@
             <version>6.0.2.RELEASE</version>
             <type>jar</type>
         </dependency>
-        <dependency>
-            <groupId>co.edu.uniandes.csw</groupId>
-            <artifactId>s3_pear-back</artifactId>
-            <version>1.0</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
+          <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <version>7.0</version>
