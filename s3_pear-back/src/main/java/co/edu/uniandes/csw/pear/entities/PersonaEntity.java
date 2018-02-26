@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -36,9 +37,11 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     
     private String identificacion;
     
+    @PodamExclude
     @OneToOne
     private CalificacionEntity calificacion;
     
+    @PodamExclude
     @OneToOne
     private DietaTipoEntity dieta;
     
@@ -46,9 +49,27 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<QuejasyReclamosEntity> quejas;
     
+    @PodamExclude
+    @ManyToOne
+    private MedioPagoEntity medioPago;
+    
     //-----------------------------------------------------------
     //Metodos
     //-----------------------------------------------------------
+    
+    /**
+     * @return el medio de pago
+     */
+    public MedioPagoEntity getMedioPago(){
+        return medioPago;
+    }
+    
+    /**
+     * @param entity Medio de pago
+     */
+    public void setMedioPago(MedioPagoEntity entity){
+        medioPago = entity;
+    }
     
     /**
      * @return nombre de la persona
