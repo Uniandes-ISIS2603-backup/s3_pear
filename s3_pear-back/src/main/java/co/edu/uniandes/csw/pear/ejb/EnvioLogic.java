@@ -5,7 +5,8 @@
  */
 package co.edu.uniandes.csw.pear.ejb;
 
-
+import co.edu.uniandes.csw.pear.entities.EnvioEntity;
+import co.edu.uniandes.csw.pear.persistence.EnvioPersistence;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,7 +27,7 @@ public class EnvioLogic {
     /**
      * Conexion con Persistencia
      */
-    private EnvioPersistance persistence;
+    private EnvioPersistence persistence;
     
     
     /**
@@ -65,7 +66,7 @@ public class EnvioLogic {
      * @param entity de envio a persistir
      * @return entidad de envio persistida
      */
-    public EnvioEntity createComida( EnvioEntity entity ) {
+    public EnvioEntity createEnvio( EnvioEntity entity ) {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de un envio con id = {0}", entity.getId());
         persistence.create(entity);
         LOGGER.log(Level.INFO, "Termina proceso de creacion de un envio con id = {0}", entity.getId());
@@ -73,12 +74,12 @@ public class EnvioLogic {
     } 
     
     /**
-     * Actualiza un ENvio por id
+     * Actualiza un Envio por id
      * @param id de tipo Long, representa el envio que se va a actualizar
      * @param entity de Envio con los cambios deseados
      * @return la entidad de Envio luego de ser actualizada
      */
-    public EnvioEntity updateComida( Long id, EnvioEntity entity ) {
+    public EnvioEntity updateEnvio( Long id, EnvioEntity entity ) {
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de un envio con id = {0} " , id);
         EnvioEntity actualizado = persistence.update(entity);
         LOGGER.log( Level.INFO, "Termina proceso de actualizacion de un envio, id = {0}", entity.getId() );
