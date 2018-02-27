@@ -7,6 +7,8 @@ package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.CocinaEntity;
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
+import co.edu.uniandes.csw.pear.entities.SemanaEntity;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,6 +50,21 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
         this.semanas = semanas;
     }
     
+    
+    @Override
+    public DietaTipoEntity toEntity() {
+        DietaTipoEntity en = super.toEntity();
+        if ( this.getCuentaCobro() != null )
+            en.setCuentaCobro(this.getCuentaCobro().toEntity());
+        if ( this.getSemanas() != null ) {
+            List<SemanaEntity> sems = new ArrayList<>();
+            this.getSemanas().forEach( semanita -> {
+                sems.add(semanita.toEntity());
+            });
+            en.setSemanas(sems);
+        }
+        return en;
+    }
     
   
 }

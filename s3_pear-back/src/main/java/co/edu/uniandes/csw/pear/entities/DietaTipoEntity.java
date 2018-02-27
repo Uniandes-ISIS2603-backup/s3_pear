@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.*;
@@ -27,7 +28,7 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     
     @PodamExclude
     @OneToMany
-    private List<SemanaEntity> semanas;
+    private List<SemanaEntity> semanas = new ArrayList<>();
     
     
     

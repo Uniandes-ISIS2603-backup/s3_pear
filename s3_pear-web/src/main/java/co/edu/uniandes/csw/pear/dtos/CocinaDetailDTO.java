@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.CocinaEntity;
+import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -38,6 +39,21 @@ public class CocinaDetailDTO extends CocinaDTO {
 
     public void setDietas(List<DietaTipoDTO> dietas) {
         this.dietas = dietas;
+    }
+    
+    
+    
+    @Override 
+    public CocinaEntity toEntity() {
+        CocinaEntity en = super.toEntity();
+        if( this.getDietas() != null ) {
+            List<DietaTipoEntity> dts = new ArrayList<>();
+            this.getDietas().forEach( dieta -> {
+                dts.add(dieta.toEntity());
+            });
+            en.setDietas(dts);
+        }
+        return en;
     }
     
     

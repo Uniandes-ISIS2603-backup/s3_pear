@@ -96,10 +96,22 @@ public class CocinaLogic {
      */
     public CocinaEntity createCocina( CocinaEntity entity ) {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de una cocina con id = {0}", entity.getId());
+        verificaciones(entity);
         persistence.create(entity);
         LOGGER.log(Level.INFO, "Termina proceso de creacion de una cocina con id = {0}", entity.getId());
         return entity;
     } 
+    
+    /**
+     * Verifica las reglas del negocio
+     * @param entity sobre la cual se haran las verificaciones
+     */
+    public void verificaciones( CocinaEntity entity ) {
+        assert !entity.getCapacidad().isEmpty() || entity.getCapacidad() != null : String.format("La Capacidad de Cocina ( capacidad = %s ) es invalida", entity.getCapacidad()) ;
+        assert !entity.getUbicacion().isEmpty() || entity.getUbicacion() != null : String.format("La Ubicacion de Cocina ( ubicacion = %s ) es invalida", entity.getUbicacion()) ;
+        assert !entity.getName().isEmpty() || entity.getName() != null : String.format("El Nombre de Cocina ( nombre = %s ) es invalida", entity.getName()) ;
+        assert entity.getId() != null : String.format("El ID de Cocina ( id = %s ) es invalida", entity.getId()) ;
+    }
     
     /**
      * Agrega una instancia de Dieta existente a una Cocina por id
@@ -123,6 +135,7 @@ public class CocinaLogic {
      */
     public CocinaEntity updateCocina( Long id, CocinaEntity entity ) {
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la cocina con id = {0} " , id);
+        verificaciones(entity);
         CocinaEntity actualizado = persistence.update(entity);
         LOGGER.log( Level.INFO, "Termina proceso de actualizacion de la cocina, id = {0}", entity.getId() );
         return actualizado;

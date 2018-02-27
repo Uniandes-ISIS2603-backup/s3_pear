@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -25,7 +26,7 @@ public class CocinaEntity extends BaseEntity implements Serializable {
     
     @PodamExclude
     @OneToMany
-    private List<DietaTipoEntity> dietas;
+    private List<DietaTipoEntity> dietas = new ArrayList<>();
 
 //-----------------------------------------------------------
 //Metodos

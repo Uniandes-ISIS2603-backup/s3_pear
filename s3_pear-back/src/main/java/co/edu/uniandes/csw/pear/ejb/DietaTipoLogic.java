@@ -108,10 +108,22 @@ public class DietaTipoLogic {
      */
     public DietaTipoEntity createDieta( DietaTipoEntity entity ) {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de una dieta con id = {0}", entity.getId());
+        verificaciones(entity);
         persistence.create(entity);
         LOGGER.log(Level.INFO, "Termina proceso de creacion de una dieta con id = {0}", entity.getId());
         return entity;
     } 
+    
+    /**
+     * Verifica las reglas del negocio
+     * @param entity a verificar
+     */
+    private void verificaciones( DietaTipoEntity entity) {
+        assert !entity.getDescripcion().isEmpty() || entity.getDescripcion() != null : "Descripcion de Dieta invalida";
+        assert !entity.getObjetivo().isEmpty() || entity.getObjetivo() != null : "Objetivo de Dieta invalida" ;
+        assert !entity.getName().isEmpty() || entity.getName() != null : "Nombre de Dieta invalido" ;
+        assert entity.getId() != null : "El ID de la Dieta NO puede ser NULL" ;
+    }
     
     /**
      * Asocia una Semana existente a una Dieta
@@ -149,6 +161,7 @@ public class DietaTipoLogic {
      */
     public DietaTipoEntity updateDieta( Long id, DietaTipoEntity entity ) {
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la dieta con id = {0} " , id);
+        verificaciones(entity);
         DietaTipoEntity actualizado = persistence.update(entity);
         LOGGER.log( Level.INFO, "Termina proceso de actualizacion de la dieta, id = {0}", entity.getId() );
         return actualizado;
