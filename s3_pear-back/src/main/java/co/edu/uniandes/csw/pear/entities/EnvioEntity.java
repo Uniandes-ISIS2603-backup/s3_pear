@@ -6,12 +6,16 @@
 package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
  * @author js.cabra
  */
+@Entity
 public class EnvioEntity extends BaseEntity implements Serializable{
     
     private int duracion;
@@ -19,7 +23,8 @@ public class EnvioEntity extends BaseEntity implements Serializable{
     private String direccion;
     
     private boolean recibido;
-    @OneToOne
+    @PodamExclude
+    @OneToOne( cascade = CascadeType.PERSIST, orphanRemoval = true)
     private ComidaEntity comida;
     
     /**

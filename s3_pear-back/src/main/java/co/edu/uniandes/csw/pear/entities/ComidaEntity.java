@@ -6,11 +6,14 @@
 package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+
 
 /**
  *
  * @author js.cabra
  */
+@Entity
 public class ComidaEntity extends BaseEntity implements Serializable 
 {
     private int cantidad;
