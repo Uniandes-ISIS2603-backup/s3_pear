@@ -41,7 +41,7 @@ public class DietaTipoPersistenceTest {
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
                 .addPackage(DietaTipoEntity.class.getPackage())
-                .addPackage(DietaTipoEntity.class.getPackage())
+                .addPackage(DietaTipoPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }

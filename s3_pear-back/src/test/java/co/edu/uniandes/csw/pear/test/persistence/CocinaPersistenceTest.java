@@ -43,7 +43,7 @@ public class CocinaPersistenceTest {
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
                 .addPackage(CocinaEntity.class.getPackage())
-                .addPackage(CocinaEntity.class.getPackage())
+                .addPackage(CocinaPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
