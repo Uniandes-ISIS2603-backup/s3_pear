@@ -16,12 +16,11 @@ public class FacturaDetailDTO extends FacturaDTO{
     //Atributos
     //-----------------------------------------------------------
  
-    private CuentaCobroDTO cuenta;
     
     private PersonaDTO persona;
      
-    private SemanaDTO semana;
-    
+
+
     //-----------------------------------------------------------
     //Constructor
     //-----------------------------------------------------------
@@ -61,33 +60,4 @@ public class FacturaDetailDTO extends FacturaDTO{
         return persona;
     }
 
-    /**
-     * Determina el costo total de la transaccion
-     * @param pCuenta cuenta de cobro
-     */
-    public void setCuentaDeCobro(CuentaCobroDTO pCuenta){
-        cuenta  = pCuenta;
-    }
-    
-    /**
-     * @return costo total de la transaccion
-     */
-    public CuentaCobroDTO geCuentaDeCobro(){
-        return cuenta;
-    }
-    
-    /**
-     * Determina la semana por la cual se esta facturando
-     * @param sem semana que se quiere "cobrar"
-     */
-    public void setSemana(SemanaDTO sem){
-        semana = sem;    
-    }
-    
-    /**
-     * @return semana que se esta facturando
-     */
-    public SemanaDTO getSemana (){
-        return semana;
-    }
 }

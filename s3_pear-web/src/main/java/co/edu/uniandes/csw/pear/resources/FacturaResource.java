@@ -25,6 +25,7 @@ package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.FacturaDetailDTO;
 import java.util.ArrayList;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
 
 /**
@@ -47,7 +48,7 @@ import javax.ws.rs.*;
 @Produces("application/json")
 @Consumes("application/json")
 
-
+@RequestScoped
 public class FacturaResource {
     
         /**

@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -15,13 +16,18 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author v.chacon
  */
 @Entity
-public class FacturaEntity extends BaseEntity implements Serializable{
+public class FacturaEntity extends  CuentaCobroEntity implements Serializable{
     
     //-----------------------------------------------------------
     //Atributos
     //-----------------------------------------------------------
     
+
     @PodamExclude
+<<<<<<< HEAD
+    @ManyToOne
+    private PersonaEntity persona;
+=======
     @OneToOne
     private PersonaEntity persona;
     
@@ -32,6 +38,7 @@ public class FacturaEntity extends BaseEntity implements Serializable{
     @PodamExclude
     @OneToOne
     private CuentaCobroEntity cuenta;
+>>>>>>> 3e47362bbb89c8ebcc3be938612d11387245e53d
 
     private int cantidadProductos;
     
@@ -57,38 +64,8 @@ public class FacturaEntity extends BaseEntity implements Serializable{
     public  PersonaEntity getPersona(){
         return persona;
     }
-
-    /**
-     * Determina el costo total de la transaccion
-     * @param pCuenta cuenta de cobro
-     */
-    public void setCuentaDeCobro(CuentaCobroEntity pCuenta){
-        cuenta  = pCuenta;
-    }
-    
-    /**
-     * @return costo total de la transaccion
-     */
-    public CuentaCobroEntity geCuentaDeCobro(){
-        return cuenta;
-    }
-    
-    /**
-     * Determina la semana por la cual se esta facturando
-     * @param sem semana que se quiere "cobrar"
-     */
-    public void setSemana(SemanaEntity sem){
-        semana = sem;    
-    }
-    
-    /**
-     * @return semana que se esta facturando
-     */
-    public SemanaEntity getSemana (){
-        return semana;
-    }
-    
-    /**
+  
+/**
      * Determina la cantidad de productos que se estan facturando
      * @param am cantidad
      */
