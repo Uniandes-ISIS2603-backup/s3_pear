@@ -81,7 +81,7 @@ public class CocinaLogicTest {
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
-        em.createQuery("delete from DietaTipoEntity").executeUpdate();
+        em.createQuery("delete from CocinaEntity").executeUpdate();
     }
     
     /**
