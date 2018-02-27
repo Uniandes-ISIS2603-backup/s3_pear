@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.PersonaDetailDTO;
 import javax.ws.rs.*;
 import java.util.*;
+import javax.enterprise.context.RequestScoped;
 
 /**
  * @author pa.suarezm
@@ -15,6 +16,7 @@ import java.util.*;
 @Path("personas")
 @Produces("application/json")
 @Consumes("application/json")
+@RequestScoped
 public class PersonaResource {
     
     /**
