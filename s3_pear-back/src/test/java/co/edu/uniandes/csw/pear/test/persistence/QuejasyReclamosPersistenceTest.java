@@ -162,6 +162,19 @@ public class QuejasyReclamosPersistenceTest
         }
     }
     /**
+     * Prueba para consultar una queja.
+     *
+     * 
+     */
+    @Test
+    public void getQuejayReclamoTest() {
+        QuejasyReclamosEntity entity = data.get(0);
+        QuejasyReclamosEntity newEntity = quejasyreclamosPersistence.find(entity.getId());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getAsunto(), newEntity.getAsunto());
+        Assert.assertEquals(entity.getComentario(), newEntity.getComentario());
+    }
+    /**
      * Prueba para eliminar una queja.
      *
      *
