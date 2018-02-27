@@ -22,7 +22,7 @@ public class FacturaEntity extends BaseEntity implements Serializable{
     
     @PodamExclude
     @OneToMany
-    private PersonaEntity persona;
+     private PersonaEntity persona;
      
     @PodamExclude
     @OneToMany
