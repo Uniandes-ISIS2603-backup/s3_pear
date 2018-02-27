@@ -137,7 +137,9 @@ public class CalificacionPersistenceTest
         Assert.assertNotNull(result);
 
         CalificacionEntity entity = em.find(CalificacionEntity.class, result.getId());
-        Assert.assertEquals(newEntity.getPuntuacion(),entity.getPuntuacion());
+        int nuevaPuntuacion = (int) newEntity.getPuntuacion();
+        int puntuacion = (int) entity.getPuntuacion();
+        Assert.assertEquals(nuevaPuntuacion, puntuacion);
        
     }
     /**
@@ -187,8 +189,11 @@ public class CalificacionPersistenceTest
         calificacionPersistence.update(newEntity);
 
         CalificacionEntity resp = em.find(CalificacionEntity.class, entity.getId());
-
-        Assert.assertEquals(newEntity.getPuntuacion(), resp.getPuntuacion());
+  
+        
+        int nuevaPuntuacion = (int) newEntity.getPuntuacion();
+        int puntuacion = (int) entity.getPuntuacion();
+        Assert.assertEquals(nuevaPuntuacion, puntuacion);
         
     }
 
