@@ -24,11 +24,13 @@ package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.ComidaDetailDTO;
 import java.util.ArrayList;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
 
 @Path("comidas")
 @Produces("application/json")
 @Consumes("application/json")
+@RequestScoped
 public class ComidaResource {
     /**
      * <h1>POST /api/comida : Crear una comida.</h1>
