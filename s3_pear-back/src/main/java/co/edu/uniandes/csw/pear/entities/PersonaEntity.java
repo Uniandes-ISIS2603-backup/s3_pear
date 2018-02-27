@@ -37,19 +37,15 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     
     private String identificacion;
     
-    @PodamExclude
     @OneToOne
     private CalificacionEntity calificacion;
     
-    @PodamExclude
     @OneToOne
     private DietaTipoEntity dieta;
     
-    @PodamExclude
-    @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @OneToMany
     private List<QuejasyReclamosEntity> quejas;
     
-    @PodamExclude
     @ManyToOne
     private MedioPagoEntity medioPago;
     
