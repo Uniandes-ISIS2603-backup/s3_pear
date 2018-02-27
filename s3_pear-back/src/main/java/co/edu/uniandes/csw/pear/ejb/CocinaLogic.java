@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 /**
  * Clase que implementa la conexion con la persistencia para la entidad de Cocina.
@@ -28,6 +29,7 @@ public class CocinaLogic {
     /**
      * Conexion con Persistencia
      */
+    @Inject
     private CocinaPersistence persistence;
     
     

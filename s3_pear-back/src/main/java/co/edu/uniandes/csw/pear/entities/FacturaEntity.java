@@ -24,8 +24,21 @@ public class FacturaEntity extends  CuentaCobroEntity implements Serializable{
     
 
     @PodamExclude
+<<<<<<< HEAD
     @ManyToOne
     private PersonaEntity persona;
+=======
+    @OneToOne
+    private PersonaEntity persona;
+    
+    @PodamExclude
+    @OneToOne
+    private SemanaEntity semana;
+    
+    @PodamExclude
+    @OneToOne
+    private CuentaCobroEntity cuenta;
+>>>>>>> 3e47362bbb89c8ebcc3be938612d11387245e53d
 
     private int cantidadProductos;
     

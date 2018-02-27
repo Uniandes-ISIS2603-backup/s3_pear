@@ -22,10 +22,23 @@ public class EnvioEntity extends BaseEntity implements Serializable{
     
     private String direccion;
     
+    @PodamExclude
+    @OneToOne( cascade = CascadeType.PERSIST, orphanRemoval = true)
+    private PersonaEntity persona;
+    
     private boolean recibido;
     @PodamExclude
     @OneToOne( cascade = CascadeType.PERSIST, orphanRemoval = true)
     private ComidaEntity comida;
+    
+    /**
+     * persona de entrega
+     * @return persona
+     */
+    public PersonaEntity getPersona()
+    {
+        return persona;
+    }
     
     /**
      * duracion de entrega
@@ -100,5 +113,13 @@ public class EnvioEntity extends BaseEntity implements Serializable{
     public void setDireccion(String pDireccion)
     {
         direccion = pDireccion;
+    }
+        /**
+     * Cambia la persona de el envio
+     * @param pPersona 
+     */
+    private void setPersona(PersonaEntity pPersona)
+    {
+        persona = pPersona;
     }
 }

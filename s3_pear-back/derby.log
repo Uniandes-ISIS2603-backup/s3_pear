@@ -1,4 +1,5 @@
 ----------------------------------------------------------------
+<<<<<<< HEAD
 Tue Feb 27 13:39:53 COT 2018:
  Iniciando instancia a816c00e-0161-d890-568f-00000fec8cf8 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
 en el directorio de base de datos C:\Users\v.chacon\AppData\Local\Temp\gfembed8265515830163328491tmp\lib\databases\embedded_default con el cargador de clases sun.misc.Launcher$AppClassLoader@6bc7c054
@@ -6,6 +7,15 @@ Cargado desde file:/C:/Users/v.chacon/.m2/repository/org/glassfish/main/extras/g
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_144-b01
 user.dir=C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back
+=======
+Tue Feb 27 13:28:35 COT 2018:
+ Iniciando instancia a816c00e-0161-d885-fe21-0000101d4638 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
+en el directorio de base de datos C:\Users\js.cabra\AppData\Local\Temp\gfembed5325625805291264018tmp\lib\databases\embedded_default con el cargador de clases sun.misc.Launcher$AppClassLoader@6bc7c054
+Cargado desde file:/C:/Users/js.cabra/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/4.1/glassfish-embedded-all-4.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_144-b01
+user.dir=C:\Users\js.cabra\Documents\NetBeansProjects\s3_pear\s3_pear\s3_pear-back
+>>>>>>> 3e47362bbb89c8ebcc3be938612d11387245e53d
 os.name=Windows 7
 os.arch=amd64
 os.version=6.1

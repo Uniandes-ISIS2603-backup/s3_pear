@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.ComidaEntity;
 import co.edu.uniandes.csw.pear.entities.EnvioEntity;
+import co.edu.uniandes.csw.pear.entities.PersonaEntity;
 import javax.persistence.OneToOne;
 
 /**
@@ -45,8 +46,8 @@ public class EnvioDTO {
     
     @OneToOne
     private ComidaEntity comida;
-    
-   
+    @OneToOne
+   private PersonaEntity persona;
     
     private String direccion;
      /**
@@ -141,6 +142,24 @@ public class EnvioDTO {
     public void setComida(ComidaEntity pComida)
     {
         comida = pComida;
+    }
+    
+        /**
+     * persona de entrega
+     * @return persona
+     */
+    public PersonaEntity getPersona()
+    {
+        return persona;
+    }
+    
+         /**
+     * Cambia la persona de el envio
+     * @param pPersona 
+     */
+    private void setPersona(PersonaEntity pPersona)
+    {
+        persona = pPersona;
     }
     
 }
