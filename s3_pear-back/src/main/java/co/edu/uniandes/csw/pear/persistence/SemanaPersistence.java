@@ -16,6 +16,7 @@ import javax.persistence.*;
  *
  * @author v.chacon
  */
+@Stateless
 public class SemanaPersistence {
     
        private static final Logger LOGGER = Logger.getLogger(DiaPersistence.class.getName());

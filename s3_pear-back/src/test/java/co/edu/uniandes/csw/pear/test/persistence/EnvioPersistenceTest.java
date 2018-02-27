@@ -38,7 +38,7 @@ public class EnvioPersistenceTest {
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
                 .addPackage(EnvioEntity.class.getPackage())
-                .addPackage(EnvioEntity.class.getPackage())
+                .addPackage(EnvioPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }

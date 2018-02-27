@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 /**
  * Clase que implementa la conexion con la persistencia para la entidad de Comida.
@@ -27,6 +28,7 @@ public class ComidaLogic {
     /**
      * Conexion con Persistencia
      */
+    @Inject
     private ComidaPersistence persistence;
     
     

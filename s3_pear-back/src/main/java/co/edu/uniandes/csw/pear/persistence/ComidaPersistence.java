@@ -6,14 +6,15 @@
 package co.edu.uniandes.csw.pear.persistence;
 
 import co.edu.uniandes.csw.pear.entities.ComidaEntity;
+;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
+
 
 /**
  *
@@ -39,6 +40,7 @@ public class ComidaPersistence {
     public ComidaEntity find( Long id ) {
         LOGGER.log(Level.INFO, "Consultando comida con id={0}", id);
         return em.find(ComidaEntity.class, id);
+        
     }
     
     
@@ -65,12 +67,12 @@ public class ComidaPersistence {
     }
     
     /**
-     * Actualiza una comdia a partir de la entidad
+     * Actualiza una comida a partir de la entidad
      * @param entity de tipo ComidaEntity
      * @return la comida actualizada
      */
     public ComidaEntity update( ComidaEntity entity ) {
-        LOGGER.log(Level.INFO, "Actualizando comdia con id={0}", entity.getId());
+        LOGGER.log(Level.INFO, "Actualizando comida con id={0}", entity.getId());
         return em.merge(entity);
     }
     
