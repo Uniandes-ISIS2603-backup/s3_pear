@@ -60,4 +60,4 @@ public class FacturaDetailDTO extends FacturaDTO{
         return persona;
     }
 
-   
+}
