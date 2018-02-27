@@ -48,5 +48,8 @@ public class CalificacionPersistence
         CalificacionEntity entity = em.find(CalificacionEntity.class, id);
         em.remove(entity);
     }
+    public  CalificacionEntity find(long id){
+        return em.find( CalificacionEntity.class,id);
+    }
     
 }

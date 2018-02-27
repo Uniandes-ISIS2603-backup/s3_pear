@@ -46,6 +46,9 @@ public class QuejasyReclamosPersistence
         QuejasyReclamosEntity entity = em.find(QuejasyReclamosEntity.class, id);
         em.remove(entity);
     }
+    public QuejasyReclamosEntity find(long id){
+        return em.find( QuejasyReclamosEntity.class,id);
+    }
     
     
     
