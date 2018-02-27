@@ -26,8 +26,10 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     private CuentaCobroEntity cuentaCobro;
     
     @PodamExclude
-    @OneToMany( cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @OneToMany
     private List<SemanaEntity> semanas;
+    
+    
     
     
     //-----------------------------------------------------------

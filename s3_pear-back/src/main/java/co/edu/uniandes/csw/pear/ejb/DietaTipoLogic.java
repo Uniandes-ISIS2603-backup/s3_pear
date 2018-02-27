@@ -5,7 +5,9 @@
  */
 package co.edu.uniandes.csw.pear.ejb;
 
+import co.edu.uniandes.csw.pear.entities.CuentaCobroEntity;
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
+import co.edu.uniandes.csw.pear.entities.SemanaEntity;
 import co.edu.uniandes.csw.pear.persistence.DietaTipoPersistence;
 import java.util.List;
 import java.util.logging.Level;
@@ -63,6 +65,43 @@ public class DietaTipoLogic {
     }
     
     /**
+     * Retorna una colection de instancias de Semana asociadas a la Dieta por id
+     * @param dieta_id
+     * @return lista de semanas tipo entity de la dieta
+     */
+    public List<SemanaEntity> getSemanasDeDieta( Long dieta_id ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las semanas de la dieta con id = {0}", dieta_id);
+        return this.getDieta(dieta_id).getSemanas();
+    }
+    
+    /**
+     * Retorna la instacia de Cuenta de Cobro asociada a la Dieta por id
+     * @param dieta_id
+     * @return cuenta de cobro entity de la dietas
+     */
+    public CuentaCobroEntity getCuentaCobroDeDieta( Long dieta_id ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar la Cuenta de Cobro de la Dieta con id = {0}", dieta_id);
+        return this.getDieta(dieta_id).getCuentaCobro();
+    }
+    
+    /**
+     * Retorna una instancia de Semana por Id asociada a una Dieta por Id
+     * @param semana_id
+     * @param dieta_id
+     * @return semana entity por id asociada a la dieta por id
+     */
+    public SemanaEntity getSemanaDeDieta( Long semana_id, Long dieta_id ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar la Semana con id = {0} de la Dieta con id = {1}", new Object[]{semana_id, dieta_id});           
+        List<SemanaEntity> list = this.getDieta(dieta_id).getSemanas();
+        SemanaEntity semana = new SemanaEntity();
+        semana.setId(semana_id);
+        int index = list.indexOf(semana);
+        if (index >= 0) 
+            return list.get(index);
+        return null;
+    }
+    
+    /**
      * Crea una Dieta y la guarda en la base de datos
      * @param entity de dieta a persistir
      * @return entidad de dieta persistida
@@ -73,6 +112,34 @@ public class DietaTipoLogic {
         LOGGER.log(Level.INFO, "Termina proceso de creacion de una dieta con id = {0}", entity.getId());
         return entity;
     } 
+    
+    /**
+     * Asocia una Semana existente a una Dieta
+     * @param semana_id
+     * @param dieta_id
+     * @return 
+     */
+    public SemanaEntity addSemanaToDieta ( Long semana_id, Long dieta_id ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de asociar una Semana con id = {0} con una Dieta con id = {1}", new Object[] {semana_id, dieta_id});
+        SemanaEntity semanita = new SemanaEntity();
+        semanita.setId(semana_id);
+        this.getDieta(dieta_id).getSemanas().add(semanita);
+        return this.getSemanaDeDieta(semana_id, dieta_id);
+    }
+    
+    /**
+     * Asocia una Cuenta de Cobro existente con una Dieta
+     * @param cuenta_id
+     * @param dieta_id
+     * @return 
+     */
+    public CuentaCobroEntity addCuentaCobroToDieta( Long cuenta_id, Long dieta_id ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de asociar una Cuenta de Cobro con id = {0} con una Dieta con id = {1}", new Object[]{cuenta_id, dieta_id});
+        CuentaCobroEntity cc = new CuentaCobroEntity();
+        cc.setId(dieta_id);
+        this.getDieta(dieta_id).setCuentaCobro(cc);
+        return this.getCuentaCobroDeDieta(dieta_id);
+    }
     
     /**
      * Actualiza una Dieta por id
@@ -87,10 +154,61 @@ public class DietaTipoLogic {
         return actualizado;
     }
     
-    public void delete( Long id ) {
+    /**
+     * Reemplaza la lista de semanas de una dieta por la que entra como parametro
+     * @param semanas
+     * @param dieta_id
+     * @return 
+     */
+    public List<SemanaEntity> updateSemanasDeDieta( List<SemanaEntity> semanas, long dieta_id ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de reemplazar la lista de semanas de Dieta con id = {0}", new Object[] { dieta_id});
+        this.getDieta(dieta_id).setSemanas(semanas);
+        return this.getDieta(dieta_id).getSemanas();
+    }
+    
+    /**
+     * Actualiza la Cuenta de Cobro por id de una Dieta por id
+     * @param cuenta_id
+     * @param dieta_id
+     * @return 
+     */
+    public CuentaCobroEntity updateCuentaCobroDeDieta( Long cuenta_id, Long dieta_id ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la cuenta de cobro con id = {0} de Dieta con id = {1}", new Object[] { cuenta_id, dieta_id});
+        CuentaCobroEntity cc = new CuentaCobroEntity();
+        cc.setId(cuenta_id);
+        this.getDieta(dieta_id).setCuentaCobro(cc);
+        return this.getCuentaCobroDeDieta(dieta_id);
+    }
+    
+    /**
+     * Elimina una Dieta por id
+     * @param id 
+     */
+    public void deleteDieta( Long id ) {
         LOGGER.log(Level.INFO, "Inicia eliminacion de la dieta con id = {0} " , id);
         persistence.delete(id);
         LOGGER.log( Level.INFO, "Dieta con id = {0} eliminada. ", id );
+    }
+    
+    /**
+     * Elimina una Semana por id de la Dieta por id
+     * @param semana_id
+     * @param dieta_id 
+     */
+    public void deleteSemanaDeDieta( Long semana_id, Long dieta_id ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de eliminar la Semana con id = {0} de la Dieta con id = {1}", new Object[]{semana_id,dieta_id});
+        SemanaEntity semana = new SemanaEntity();
+        semana.setId(semana_id);
+        this.getDieta(dieta_id).getSemanas().remove(semana);
+    }
+    
+    /**
+     * Elimina la Cuenta de Cobro asociada con la Dieta
+     * @param dieta_id 
+     */
+    public void deleteCuentaCobroDeDieta( Long dieta_id ) {
+        LOGGER.log(Level.INFO, "La Cuenta de Cobro de la Dieta con id = {0} se va a eliminar", dieta_id);
+        this.getDieta(dieta_id).setCuentaCobro(null);
     }
     
 }

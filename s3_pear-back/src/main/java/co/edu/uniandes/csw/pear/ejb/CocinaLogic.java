@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.ejb;
 
 import co.edu.uniandes.csw.pear.entities.CocinaEntity;
+import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.persistence.CocinaPersistence;
 import java.util.List;
 import java.util.logging.Level;
@@ -35,7 +36,6 @@ public class CocinaLogic {
      */
     
     
-    
     /**
      * Retorna todas las Cocinas Entities que se encuentran en la base de datos
      * @return 
@@ -62,6 +62,32 @@ public class CocinaLogic {
     }
     
     /**
+     * Retorna colection de instancias de Dietas asociadas a una Cocina por id
+     * @param cocina_id
+     * @return 
+     */
+    public List<DietaTipoEntity> getDietasDeCocina ( Long cocina_id ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar las dietas de la Cocina con id = {0}", cocina_id);
+        return this.getCocina(cocina_id).getDietas();
+    }
+    
+    /**
+     * Retorna una Dieta por id asociada a una Cocina por id
+     * @param dieta_id
+     * @param cocina_id
+     * @return 
+     */
+    public DietaTipoEntity getDietaDeCocina ( Long dieta_id, Long cocina_id ) {
+        LOGGER.log(Level.INFO, "Incia consulta de Dieta con id = {0} de la Cocina con id = {1}", new Object[]{dieta_id, cocina_id});
+        DietaTipoEntity dieta = new DietaTipoEntity();
+        dieta.setId(dieta_id);
+        int index = this.getCocina(cocina_id).getDietas().indexOf(dieta);
+        if ( index >= 0 )
+            return this.getCocina(cocina_id).getDietas().get(index);
+        return null;
+    }
+    
+    /**
      * Crea una Cocina y la guarda en la base de datos
      * @param entity de cocina a persistir
      * @return entidad de cocina persistida
@@ -72,6 +98,20 @@ public class CocinaLogic {
         LOGGER.log(Level.INFO, "Termina proceso de creacion de una cocina con id = {0}", entity.getId());
         return entity;
     } 
+    
+    /**
+     * Agrega una instancia de Dieta existente a una Cocina por id
+     * @param dieta_id
+     * @param cocina_id
+     * @return 
+     */
+    public DietaTipoEntity addDietaToCocina( Long dieta_id, Long cocina_id ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de asociar una Dieta con id = {0} a una Cocina con id = {1}", new Object[]{dieta_id, cocina_id});              
+        DietaTipoEntity dieta = new DietaTipoEntity();
+        dieta.setId(dieta_id);
+        this.getCocina(cocina_id).getDietas().add(dieta);
+        return this.getDietaDeCocina(dieta_id, cocina_id);
+    }
     
     /**
      * Actualiza una Cocina por id
@@ -87,6 +127,18 @@ public class CocinaLogic {
     }
     
     /**
+     * Reemplaza la dietas de la cocina por id
+     * @param dietas
+     * @param cocina_id
+     * @return lista actualizada de dietas
+     */
+     public List<DietaTipoEntity> updateSemanasDeDieta( List<DietaTipoEntity> dietas, long cocina_id ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de reemplazar la lista de dietas de Cocina con id = {0}", new Object[] { cocina_id});
+        this.getCocina(cocina_id).setDietas(dietas);
+        return this.getCocina(cocina_id).getDietas();
+    }
+    
+    /**
      * Elimina una Cocina por id
      * @param id 
      */
@@ -94,6 +146,18 @@ public class CocinaLogic {
         LOGGER.log(Level.INFO, "Inicia eliminacion de la cocina con id = {0} " , id);
         persistence.delete(id);
         LOGGER.log( Level.INFO, "Cocina con id = {0} eliminada. ", id );
+    }
+    
+    /**
+     * Elimina una Dieta por id de una Cocina por id
+     * @param dieta_id
+     * @param cocina_id 
+     */
+    public void deleteDietaDeCocina( Long dieta_id, Long cocina_id ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de eliminar la Dieta con id = {0} de la Cocina con id = {1}", new Object[]{dieta_id,cocina_id});
+        DietaTipoEntity dieta = new DietaTipoEntity();
+        dieta.setId(dieta_id);
+        this.getCocina(cocina_id).getDietas().remove(dieta);
     }
     
 }

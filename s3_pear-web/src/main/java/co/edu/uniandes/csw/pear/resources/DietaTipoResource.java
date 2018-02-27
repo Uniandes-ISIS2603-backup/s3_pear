@@ -171,6 +171,6 @@ public class DietaTipoResource {
      public void deleteDieta(@PathParam("id") Long id) {
         if ( logic.getDieta(id) == null )
             throw new WebApplicationException("El recurso /dietas/" + id + " no existe.", 404);
-        logic.delete(id);
+        logic.deleteDieta(id);
     }
 }

@@ -24,7 +24,7 @@ public class CocinaEntity extends BaseEntity implements Serializable {
     private String capacidad;
     
     @PodamExclude
-    @OneToMany( cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @OneToMany
     private List<DietaTipoEntity> dietas;
 
 //-----------------------------------------------------------
