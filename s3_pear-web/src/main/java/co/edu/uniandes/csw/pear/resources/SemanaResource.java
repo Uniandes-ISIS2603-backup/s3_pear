@@ -25,6 +25,7 @@ package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.SemanaDetailDTO;
 import java.util.ArrayList;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
 
 /**
@@ -46,6 +47,7 @@ import javax.ws.rs.*;
 @Path("semanas")
 @Produces("application/json")
 @Consumes("application/json")
+@RequestScoped
 
 public class SemanaResource {
     
