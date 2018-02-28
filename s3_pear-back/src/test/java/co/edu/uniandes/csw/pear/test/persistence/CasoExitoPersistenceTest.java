@@ -154,7 +154,7 @@ public class CasoExitoPersistenceTest {
     @Test
     public void deleteCasoExitoTest() {
         CasoExitoEntity entity = data.get(0);
-        casoExitoPersistence.delete(casoExitoPersistence.find(entity.getId()));
+        casoExitoPersistence.delete(entity.getId());
         CasoExitoEntity deleted = em.find(CasoExitoEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
@@ -176,6 +176,5 @@ public class CasoExitoPersistenceTest {
 
         Assert.assertEquals(newEntity.getComentario(), resp.getComentario());
         Assert.assertEquals(newEntity.getTestimonio(), resp.getTestimonio());
-        Assert.assertEquals(newEntity.getDieta(), resp.getDieta());
     }
 }

@@ -88,9 +88,11 @@ public class CasoExitoPersistence {
     
     /**
      * Elimina el caso
-     * @param entity Entidad para eliminar
+     * @param id Identificador de la entidad a eliminar
      */
-    public void delete(CasoExitoEntity entity){
+    public void delete(Long id) {
+        LOGGER.log(Level.INFO, "Borrando caso exito con id={0}", id);
+        CasoExitoEntity entity = em.find(CasoExitoEntity.class, id);
         em.remove(entity);
     }
 
