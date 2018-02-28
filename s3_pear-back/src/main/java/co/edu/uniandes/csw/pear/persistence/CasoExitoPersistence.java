@@ -46,7 +46,7 @@ public class CasoExitoPersistence {
     public CasoExitoEntity findByName(String dieta){
         LOGGER.log(Level.INFO, "Consultando caso por dieta", dieta);
         
-        TypedQuery query = em.createQuery("Select e From CasoExitoEntity e where e.dieta = :dieta", CasoExitoEntity.class);
+        TypedQuery query = em.createQuery("Select e from CasoExitoEntity e where e.dieta = :dieta", CasoExitoEntity.class);
     
         query = query.setParameter("dieta", dieta);
         

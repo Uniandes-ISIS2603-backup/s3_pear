@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
@@ -22,11 +23,11 @@ public class CasoExitoEntity extends BaseEntity implements Serializable{
     
     private String comentario;
     
-    private List/*<TODO>*/ fotos;
+    //private List/*<TODO>*/ fotos;
     
     private String testimonio;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private DietaTipoEntity dieta;
     
     
@@ -48,19 +49,19 @@ public class CasoExitoEntity extends BaseEntity implements Serializable{
         comentario = pComentario;
     }
     
-    /**
+   /* /**
      * @return La lista con las fotos respectivas del caso
-     */
-    public List/*<TODO>*/ getFotos(){
+     *
+    public List getFotos(){
         return fotos;
-    }
+    }*/
     
     /**
      * @param pFotos Nueva lista de fotos asociadas al caso 
-     */
-    public void setFotos(List/*<TODO>*/ pFotos){
+     *
+    public void setFotos(List pFotos){
         fotos = pFotos;
-    }
+    }*/
     
     /**
      * @return El testimonio del caso
