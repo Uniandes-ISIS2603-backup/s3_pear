@@ -22,14 +22,9 @@ public class FacturaEntity extends BaseEntity implements Serializable{
     //-----------------------------------------------------------
     
     @PodamExclude
-<<<<<<< HEAD
     @OneToOne
     private PersonaEntity persona;
-=======
-    @OneToMany
-     private PersonaEntity persona;
->>>>>>> 2239ddd5a0dc4005f84a4725eb09b6738dfb9c6c
-     
+    
     @PodamExclude
     @OneToOne
     private SemanaEntity semana;
