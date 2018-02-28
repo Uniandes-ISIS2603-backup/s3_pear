@@ -35,8 +35,6 @@ public class CasoExitoDTO {
     
     private String comentario;
     
-    private List/*<TODO>*/ fotos;
-    
     private String testimonio;
     
     //-----------------------------------------------------------
@@ -50,8 +48,6 @@ public class CasoExitoDTO {
     public CasoExitoDTO(CasoExitoEntity entidad){
         
         comentario = entidad.getComentario();
-        
-        fotos = entidad.getFotos();
         
         testimonio = entidad.getTestimonio();        
     }
@@ -82,20 +78,6 @@ public class CasoExitoDTO {
     }
     
     /**
-     * @return La lista con las fotos respectivas del caso
-     */
-    public List/*<TODO>*/ getFotos(){
-        return fotos;
-    }
-    
-    /**
-     * @param pFotos Nueva lista de fotos asociadas al caso 
-     */
-    public void setFotos(List/*<TODO>*/ pFotos){
-        fotos = pFotos;
-    }
-    
-    /**
      * @return El testimonio del caso
      */
     public String getTestimonio(){
@@ -119,7 +101,6 @@ public class CasoExitoDTO {
         CasoExitoEntity entidad = new CasoExitoEntity();
         
         entidad.setComentario(comentario);
-        entidad.setFotos(fotos);
         entidad.setTestimonio(testimonio);
         
         return entidad;
