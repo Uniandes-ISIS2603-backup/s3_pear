@@ -89,9 +89,11 @@ public class PersonaPersistence {
     
     /**
      * Elimina la persona
-     * @param entity Entidad para eliminar
+     * @param id Identificador de la persona a eliminar
      */
-    public void delete(PersonaEntity entity){
+    public void delete(Long id) {
+        LOGGER.log(Level.INFO, "Borrando persona con id={0}", id);
+        PersonaEntity entity = em.find(PersonaEntity.class, id);
         em.remove(entity);
     }
 }

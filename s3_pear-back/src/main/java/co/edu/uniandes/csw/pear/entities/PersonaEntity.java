@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 /**
  * @author pa.suarezm
  */
@@ -36,9 +37,11 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     
     private String identificacion;
     
+    @PodamExclude
     @OneToOne (cascade = CascadeType.PERSIST)
     private CalificacionEntity calificacion;
     
+    @PodamExclude
     @OneToOne (cascade = CascadeType.PERSIST, orphanRemoval = true)
     private DietaTipoEntity dieta;
     
