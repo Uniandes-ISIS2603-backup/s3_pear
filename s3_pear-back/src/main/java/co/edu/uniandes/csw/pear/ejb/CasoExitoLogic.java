@@ -35,7 +35,7 @@ public class CasoExitoLogic {
      */
     public CasoExitoEntity createCasoExito(CasoExitoEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de casoExito");
-        if (entity.getComentario() == null || entity.getTestimonio() == null || entity.getDieta() == null) {
+        if (entity.getComentario() == null || entity.getTestimonio() == null) {
             throw new BusinessLogicException("El caso exito no puede tener atributos nulos");
         }
         else if(entity.getComentario().equals("") || entity.getTestimonio().equals("")){
@@ -64,7 +64,7 @@ public class CasoExitoLogic {
      * @param id Identificador del caso a buscar.
      * @return Caso encontrado (null si no existe ningún caso con el id)
      */
-    public CasoExitoEntity getCaso(Long id) {
+    public CasoExitoEntity getCasoExito(Long id) {
         return persistence.find(id);
     }
     
@@ -74,7 +74,7 @@ public class CasoExitoLogic {
      * @return Caso actualizado
      * @throws BusinessLogicException Si no existe el caso que se quiere actualizar
      */
-    public CasoExitoEntity updateCaso(CasoExitoEntity entity) throws BusinessLogicException  {
+    public CasoExitoEntity updateCasoExito(CasoExitoEntity entity) throws BusinessLogicException  {
         if (persistence.find(entity.getId()) == null) {
             throw new BusinessLogicException("El caso que se quiere actualizar no existe");
         }
@@ -85,7 +85,7 @@ public class CasoExitoLogic {
      * Elimina el caso que entra por parametro
      * @param entity Caso a eliminar
      */
-    public void deleteCaso(CasoExitoEntity entity){
+    public void deleteCasoExito(CasoExitoEntity entity){
         LOGGER.log(Level.INFO, "Inicia proceso de borrar caso con id={0}", entity.getId());    
         persistence.delete(entity.getId());
         LOGGER.log(Level.INFO, "Termina proceso de borrar caso con id={0}", entity.getId());
