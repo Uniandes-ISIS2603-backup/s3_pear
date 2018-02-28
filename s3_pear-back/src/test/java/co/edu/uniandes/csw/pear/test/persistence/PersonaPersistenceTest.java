@@ -118,7 +118,7 @@ public class PersonaPersistenceTest {
         Assert.assertEquals(newEntity.isSubscrito(),entity.isSubscrito());
         Assert.assertEquals(newEntity.getIdentificacion(),entity.getIdentificacion());
         Assert.assertEquals(newEntity.getCalificacion(),entity.getCalificacion());
-        Assert.assertEquals(newEntity.getDieta(),entity.getDieta());
+        Assert.assertEquals(newEntity.getDieta(),entity.getDieta());        
     }
     
     /**

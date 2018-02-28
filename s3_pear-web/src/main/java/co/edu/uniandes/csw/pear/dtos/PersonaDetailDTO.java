@@ -23,6 +23,8 @@ public class PersonaDetailDTO extends PersonaDTO{
     
     private List<QuejasyReclamosDTO> quejas;
     
+    private List<FacturaDTO> facturas;
+    
     //-----------------------------------------------------------
     //Constructor
     //-----------------------------------------------------------
@@ -34,6 +36,20 @@ public class PersonaDetailDTO extends PersonaDTO{
     //-----------------------------------------------------------
     //Metodos
     //-----------------------------------------------------------
+    
+    /**
+     * @return lista de facturas
+     */
+    public List<FacturaDTO> getFacturas(){
+        return facturas;
+    }
+    
+    /**
+     * @param list lista de facturas
+     */
+    public void setFacturas(List<FacturaDTO> list){
+        facturas = list;
+    }
     
     /**
      * @return calificacion que otorga la persona

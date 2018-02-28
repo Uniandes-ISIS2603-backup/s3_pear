@@ -51,9 +51,26 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     @ManyToOne(cascade = CascadeType.PERSIST)
     private MedioPagoEntity medioPago;
     
+    @OneToMany(mappedBy = "persona")
+    List<FacturaEntity> facturas;
+    
     //-----------------------------------------------------------
     //Metodos
     //-----------------------------------------------------------
+    
+    /**
+     * @return lista de facturas
+     */
+    public List<FacturaEntity> getFacturas(){
+        return facturas;
+    }
+    
+    /**
+     * @param list lista de facturas
+     */
+    public void setFacturas(List<FacturaEntity> list){
+        facturas = list;
+    }
     
     /**
      * @return el medio de pago
