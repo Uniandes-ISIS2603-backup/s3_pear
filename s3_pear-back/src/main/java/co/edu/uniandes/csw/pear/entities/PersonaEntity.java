@@ -27,13 +27,13 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     
     private String apellido;
     
-    private int edad;
+    private Integer edad;
     
     private String direccion;
     
     private String correo;
     
-    private boolean subscrito;
+    private Boolean subscrito;
     
     private String identificacion;
     
@@ -117,14 +117,14 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     /**
      * @return edad de la personam
      */
-    public int getEdad(){
+    public Integer getEdad(){
         return edad;
     }
     
     /**
      * @param pEdad nueva edad para asignar
      */
-    public void setEdad(int pEdad){
+    public void setEdad(Integer pEdad){
         edad = pEdad;
     }
     
@@ -159,14 +159,14 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     /**
      * @return booleano indicando si la persona está subscrita o no
      */
-    public boolean isSubscrito(){
+    public Boolean isSubscrito(){
         return subscrito;
     }
     
     /**
      * @param pSubscrito cambia el indicador de subscripción de la persona
      */
-    public void setSubscrito(boolean pSubscrito){
+    public void setSubscrito(Boolean pSubscrito){
         subscrito = pSubscrito;
     }
     

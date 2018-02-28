@@ -74,7 +74,7 @@ public class CasoExitoLogic {
      * @return Caso actualizado
      * @throws BusinessLogicException Si no existe el caso que se quiere actualizar
      */
-    public CasoExitoEntity updateCity(CasoExitoEntity entity) throws BusinessLogicException  {
+    public CasoExitoEntity updateCaso(CasoExitoEntity entity) throws BusinessLogicException  {
         if (persistence.find(entity.getId()) == null) {
             throw new BusinessLogicException("El caso que se quiere actualizar no existe");
         }
@@ -85,7 +85,7 @@ public class CasoExitoLogic {
      * Elimina el caso que entra por parametro
      * @param entity Caso a eliminar
      */
-    public void deleteCity(CasoExitoEntity entity){
+    public void deleteCaso(CasoExitoEntity entity){
         LOGGER.log(Level.INFO, "Inicia proceso de borrar caso con id={0}", entity.getId());    
         persistence.delete(entity.getId());
         LOGGER.log(Level.INFO, "Termina proceso de borrar caso con id={0}", entity.getId());
