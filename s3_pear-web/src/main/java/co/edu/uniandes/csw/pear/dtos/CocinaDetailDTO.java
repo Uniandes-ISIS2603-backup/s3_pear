@@ -31,6 +31,14 @@ public class CocinaDetailDTO extends CocinaDTO {
     
     public CocinaDetailDTO( CocinaEntity entity ) {
         super(entity);
+        
+        if ( entity.getDietas() != null ) {
+            this.dietas = new ArrayList<>();
+            entity.getDietas().forEach( dieta -> {
+                this.dietas.add(new DietaTipoDTO(dieta));
+            });
+        }
+        
     }
 
     public List<DietaTipoDTO> getDietas() {
