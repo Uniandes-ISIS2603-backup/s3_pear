@@ -31,7 +31,19 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
     
     public DietaTipoDetailDTO( DietaTipoEntity entity ) {
         super(entity);
-        //this.cuentaCobro = new CuentaCobroDTO(entity.getCuentaCobro());
+        
+        if ( entity.getCuentaCobro() != null )
+            this.cuentaCobro = new CuentaCobroDTO(entity.getCuentaCobro());
+        else
+            this.cuentaCobro = null;
+        
+        if ( entity.getSemanas() != null ) {
+            this.semanas = new ArrayList<>();
+            entity.getSemanas().forEach( semanita -> {
+                this.semanas.add(new SemanaDTO(semanita));
+            } );
+        }
+        
     }
 
     public CuentaCobroDTO getCuentaCobro() {
