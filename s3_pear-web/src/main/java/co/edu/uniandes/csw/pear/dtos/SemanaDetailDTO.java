@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.dtos;
+import co.edu.uniandes.csw.pear.entities.DiaEntity;
 import co.edu.uniandes.csw.pear.entities.SemanaEntity;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,7 +29,6 @@ public class SemanaDetailDTO extends SemanaDTO {
     public SemanaDetailDTO(){
         super();
     }
-    
     //-----------------------------------------------------------
     //Metodos
     //-----------------------------------------------------------
@@ -44,6 +45,22 @@ public class SemanaDetailDTO extends SemanaDTO {
      */
     public List<DiaDTO> getListaDias(){
         return dias;
+    }
+    
+    
+    
+    @Override
+    public SemanaEntity toEntity(){
+        
+        SemanaEntity entity = super.toEntity();
+        if(this.getListaDias()!= null){
+            List<DiaEntity> listaDias = new ArrayList<>();
+            this.getListaDias().forEach(di -> {
+                listaDias.add(di.toEntity());
+            });
+            entity.setListaDias(listaDias);
+        }
+        return entity;
     }
     
 }

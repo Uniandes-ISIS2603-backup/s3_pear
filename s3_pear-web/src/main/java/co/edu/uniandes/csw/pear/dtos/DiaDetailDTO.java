@@ -5,7 +5,9 @@
  */
 package co.edu.uniandes.csw.pear.dtos;
 
+import co.edu.uniandes.csw.pear.entities.ComidaEntity;
 import co.edu.uniandes.csw.pear.entities.DiaEntity;
+import java.util.ArrayList;
 import java.util.List;
 /**
  *
@@ -41,18 +43,30 @@ public class DiaDetailDTO extends DiaDTO{
     //Metodos
     //-----------------------------------------------------------
     
-//    /**
-//     * Determina las comidas programadas para ese dia
-//     * @param pComidas comidas programadas
-//     */
-//    public void setComidas(List<ComidaDTO> pComidas){
-//        comidas = pComidas;
-//    }
-//    
-//    /**
-//     * @return las comidas programadas ese dia para el cliente
-//     */
-//    public List<ComidaDTO> getComidas(){
-//        return comidas;
-//    }
+    /**
+     * Determina las comidas programadas para ese dia
+     * @param pComidas comidas programadas
+     */
+    public void setComidas(List<ComidaDTO> pComidas){
+        comidas = pComidas;
+    }
+    
+    /**
+     * @return las comidas programadas ese dia para el cliente
+     */
+    public List<ComidaDTO> getComidas(){
+        return comidas;
+    }
+    
+    @Override
+    public DiaEntity toEntity(){
+        DiaEntity entity = super.toEntity();
+        if(this.getComidas() != null){
+            List<ComidaEntity> listaComidas = new ArrayList<>();
+            this.getComidas().forEach(comi -> {
+             //listaComidas.add(comi.toEntity);
+            });
+        }
+        return entity;
+    }
 }

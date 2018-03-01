@@ -12,15 +12,12 @@ import co.edu.uniandes.csw.pear.entities.FacturaEntity;
  * @author v.chacon
  */
 public class FacturaDetailDTO extends FacturaDTO{
+    
     //-----------------------------------------------------------
     //Atributos
     //-----------------------------------------------------------
- 
-    
     private PersonaDTO persona;
-     
-
-
+  
     //-----------------------------------------------------------
     //Constructor
     //-----------------------------------------------------------
@@ -58,6 +55,15 @@ public class FacturaDetailDTO extends FacturaDTO{
      */
     public  PersonaDTO getPersona(){
         return persona;
+    }
+    
+    @Override
+    public FacturaEntity toEntity(){
+        FacturaEntity entity = super.toEntity();
+        if(this.getPersona() != null){
+            entity.setPersona(this.getPersona().toEntity());
+        }
+        return entity;
     }
 
 }
