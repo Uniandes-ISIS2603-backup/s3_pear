@@ -134,7 +134,12 @@ public class DiaLogic {
     }
     
     public ComidaEntity addComidaToDia(Long idComida, Long idDia){
-        LOGGER.log(Level.INFO, "Inicia proceso de asociar una Comida con id = {0} a un Dia con id = {1}", new Object[]{idComida, idDia}); 
+        LOGGER.log(Level.INFO, "Inicia proceso de asociar una Comida con id = {0} a un Dia con id = {1}", new Object[]{idComida, idDia});
+        ComidaEntity comid = new ComidaEntity();
+        comid.setId(idComida);
+        this.getDia(idDia).getComidas().add(comid);
+        
+        return this.getComidaDeDia(idComida, idDia);     
     }
     /**
      * Elimina una dia segun su identificador
