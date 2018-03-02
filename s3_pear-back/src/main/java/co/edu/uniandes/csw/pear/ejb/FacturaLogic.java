@@ -6,6 +6,8 @@
 package co.edu.uniandes.csw.pear.ejb;
 
 import co.edu.uniandes.csw.pear.entities.FacturaEntity;
+import co.edu.uniandes.csw.pear.entities.PersonaEntity;
+import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.FacturaPersistence;
 import java.util.List;
 import java.util.logging.Level;
@@ -48,7 +50,7 @@ public class FacturaLogic {
         return facturas;
     }
     
-        /**
+    /**
      * Retorna la FacturaEntity que tiene el identificador que entra como parametro  
      * @param id identificador de la factura que se quiere buscar
      * @return factura con identificador dado
@@ -62,13 +64,37 @@ public class FacturaLogic {
         return factura;
     }
     
+    
+    /**
+     * Retorna la PersonaEntity de la Factura
+     * @param idFactura identificador de la factura 
+     * @return la persona dueña de la factura
+     */
+    public PersonaEntity getPersonaDeFactura(Long idFactura){
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar la persona de la factura con id = {0}", idFactura);
+        return this.getFactura(idFactura).getPersona();
+    }
     /**
      * Crea una Factura y la guarda en la base de datos
      * @param entity de factura a persistir
      * @return entidad de factura  persistida
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
-    public FacturaEntity createFactura( FacturaEntity entity ) {
+    public FacturaEntity createFactura( FacturaEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de una factura con id = {0}", entity.getId());
+        if(persistence.find(entity.getId())!= null){
+            throw new BusinessLogicException("Ya existe una factura con el identificador dado");
+        }
+        if(entity.getCantidadDeProductos()< 0){
+            throw new BusinessLogicException("No puede haber una cantidad negativa de productos");
+        }
+         if(entity.getNumeroFactura()< 0){
+            throw new BusinessLogicException("No puede haber un numero de factura negativo");
+        }
+        
+        if(entity.getPersona() == null){
+            throw new BusinessLogicException("La factura tiene que estar asociada a una persona");
+        }
         persistence.create(entity);
         LOGGER.log(Level.INFO, "Termina proceso de creacion de una factura con id = {0}", entity.getId());
         return entity;
@@ -79,9 +105,22 @@ public class FacturaLogic {
      * @param id de tipo Long, representa  el id de la factura que se va a actualizar
      * @param entity FacturaEntity con los cambios deseados
      * @return la entidad de factura luego de ser actualizada
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
-    public FacturaEntity updateFactura( Long id, FacturaEntity entity ) {
+    public FacturaEntity updateFactura( Long id, FacturaEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la factura con id = {0} " , id);
+        if(persistence.find(id) == null ||  entity.getId() == null){
+            throw new BusinessLogicException("No existe una factura con ese identificador");
+        }
+        if(entity.getPersona() == null){
+            throw new BusinessLogicException("La factura tiene que estar asociada a una persona");
+        }
+        if(entity.getCantidadDeProductos()< 0){
+            throw new BusinessLogicException("No puede haber una cantidad negativa de productos");
+        }
+        if(entity.getNumeroFactura()< 0){
+            throw new BusinessLogicException("No puede haber un numero de factura negativo");
+        }
         FacturaEntity actualizado = persistence.update(entity);
         LOGGER.log( Level.INFO, "Termina proceso de actualizacion de la factura, id = {0}", entity.getId() );
         return actualizado;
