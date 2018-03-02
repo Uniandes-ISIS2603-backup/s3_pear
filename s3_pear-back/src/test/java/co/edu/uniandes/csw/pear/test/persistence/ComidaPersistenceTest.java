@@ -140,6 +140,9 @@ public class ComidaPersistenceTest {
         ComidaEntity entity = em.find(ComidaEntity.class, result.getId());
 
         Assert.assertEquals(newEntity.getName(), entity.getName());
+         Assert.assertEquals(newEntity.getId(), entity.getId());
+          Assert.assertEquals(newEntity.getCantidad(), entity.getCantidad());
+         Assert.assertEquals(newEntity.getAlimentos(), entity.getAlimentos());
     }
 
     /**
@@ -173,6 +176,9 @@ public class ComidaPersistenceTest {
         ComidaEntity newEntity = comidaPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
+                 Assert.assertEquals(newEntity.getId(), entity.getId());
+          Assert.assertEquals(newEntity.getCantidad(), entity.getCantidad());
+         Assert.assertEquals(newEntity.getAlimentos(), entity.getAlimentos());
     }
 
     /**
