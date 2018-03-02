@@ -141,7 +141,7 @@ public class CasoExitoLogicTest {
     }
     
     /**
-     * Prueba para eliminar una Caso
+     * Prueba para eliminar un Caso
      */
     @Test
     public void deleteCasoTest(){
@@ -152,7 +152,7 @@ public class CasoExitoLogicTest {
     }
     
     /**
-     * Prueba para actualizar una Caso
+     * Prueba para actualizar un Caso
      */
     @Test
     public void updateBookTest() throws BusinessLogicException{

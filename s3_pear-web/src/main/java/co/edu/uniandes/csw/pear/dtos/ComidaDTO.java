@@ -129,6 +129,8 @@ public class ComidaDTO
     {
         TIPO = pTipo;
     }
+    
+    
 
     
     

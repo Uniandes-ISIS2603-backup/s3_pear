@@ -51,7 +51,8 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     @ManyToOne(cascade = CascadeType.PERSIST)
     private MedioPagoEntity medioPago;
     
-    @OneToMany(mappedBy = "persona")
+    @PodamExclude
+    @OneToMany(mappedBy = "persona", cascade = CascadeType.PERSIST)
     List<FacturaEntity> facturas;
     
     //-----------------------------------------------------------

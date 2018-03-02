@@ -35,9 +35,8 @@ public class PersonaLogic {
      */
     public PersonaEntity createPersona(PersonaEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de persona");
-        if (entity.getNombre() == null || entity.getApellido() == null || entity.getDieta() == null
-                || entity.getCalificacion() == null || entity.getCorreo() == null || entity.getDireccion() == null
-                || entity.getEdad() == null){
+        if (entity.getNombre() == null || entity.getApellido() == null || entity.getCorreo() == null
+                || entity.getDireccion() == null || entity.getEdad() == null){
             throw new BusinessLogicException("La persona no puede tener atributos nulos");
         }
         else if(persistence.findByName(entity.getNombre()) != null){

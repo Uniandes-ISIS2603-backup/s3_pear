@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.pear.ejb;
 
+import co.edu.uniandes.csw.pear.entities.ComidaEntity;
 import co.edu.uniandes.csw.pear.entities.DiaEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.DiaPersistence;
@@ -13,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+
 
 /**
  *Clase que implementa la conexión con la persistencia para la entidad DiaEntity
@@ -62,15 +64,48 @@ public class DiaLogic {
         return dia;
     }
     
+    
+    /**
+     * Retorna una lista de instancias de Comida asociadas al Dia segun el identificador
+     * @param idDia identificador del dia que tiene la informacion deseada
+     * @return lista con las ComidaEntity del dia buscado
+     */
+    public List<ComidaEntity> getComidasPorDia(Long idDia){
+        LOGGER.log(Level.INFO,"Inicia el proceso de consultar todas las comidas del dia con id = {0}",idDia);
+        return this.getDia(idDia).getComidas();
+    }
+    
+    /**
+     * Retorna una intancia comida en un dia especifico
+     * @param idComida identificador de la comida que se busca
+     * @param idDia dia en el que se quiere buscar la comida
+     * @return comida con el identificador dado en el dia dado
+     */
+    public ComidaEntity getComidaDeDia(Long idComida, Long idDia){
+        LOGGER.log(Level.INFO, "Inicia proceso de consulta del Dia con id = {0} de la comida con id = {1}",new Object[]{idDia, idComida});
+        List<ComidaEntity> listaComidas = this.getDia(idDia).getComidas();
+        ComidaEntity comida = new ComidaEntity();
+        comida.setId(idDia);
+        int index = listaComidas.indexOf(comida);
+        if(index >= 0){
+            return listaComidas.get(index); 
+        }
+        return null;
+    }
+    
      /**
      * Crea un Dia y lo guarda en la base de datos
      * @param entity de dia a persistir
      * @return entidad de dia persistida
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     public DiaEntity createDia( DiaEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de un dia con id = {0}", entity.getId());
-        if(persistence.findByName(entity.getName())!= null){
-            throw new BusinessLogicException("Ya existe un dia con ese nombre");
+        if(persistence.findByName(entity.getName())!= null || entity.getName() == null){
+            throw new BusinessLogicException("El nombre no es valido");
+        }
+        if(persistence.find(entity.getId())!= null){
+            throw new BusinessLogicException("Ya existe un dia con ese identificador");
         }
         persistence.create(entity);
         LOGGER.log(Level.INFO, "Termina proceso de creacion de un dia con id = {0}", entity.getId());
@@ -82,21 +117,59 @@ public class DiaLogic {
      * @param id de tipo Long, representa  el id del dia que se va a actualizar
      * @param entity DiaEntity con los cambios deseados
      * @return la entidad de Dia luego de ser actualizada
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
-    public DiaEntity updateDia( Long id, DiaEntity entity ) {
+    public DiaEntity updateDia( Long id, DiaEntity entity ) throws BusinessLogicException 
+    {
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion del dia con id = {0} " , id);
+        if(persistence.findByName(entity.getName()) != null || entity.getName() == null){
+            throw new BusinessLogicException("El nombre no es valido");
+        }
+        if(persistence.find(id) == null ||  entity.getId() == null){
+            throw new BusinessLogicException("No existe un dia con ese identificador");
+        }
         DiaEntity actualizado = persistence.update(entity);
         LOGGER.log( Level.INFO, "Termina proceso de actualizacion del dia, id = {0}", entity.getId() );
         return actualizado;
     }
     
     /**
+     * Agrega una comida a un dia
+     * @param idComida identificador de la comida
+     * @param idDia identificador del dia
+     * @return Comida que se agrego al dia
+     */
+    public ComidaEntity addComidaToDia(Long idComida, Long idDia){
+        LOGGER.log(Level.INFO, "Inicia proceso de asociar una Comida con id = {0} a un Dia con id = {1}", new Object[]{idComida, idDia});
+        ComidaEntity comid = new ComidaEntity();
+        comid.setId(idComida);
+        this.getDia(idDia).getComidas().add(comid);
+        
+        return this.getComidaDeDia(idComida, idDia);     
+    }
+    /**
      * Elimina una dia segun su identificador
      * @param id identificador del dia que se quiere eliminar
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
-    public void delete( Long id ) {
+    public void deleteDia( Long id ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia el proceso de eliminacion de un dia con id = {0} " , id);
+       if(persistence.find(id) == null){
+            throw new BusinessLogicException("No existe un dia con ese identificador");
+        }
         persistence.delete(id);
         LOGGER.log( Level.INFO, "El dia con id = {0} fue eliminada. ", id );
+    }
+    
+    /**
+     * Elimina una comida dada de la semana que tiene el identificador que entra por parametro
+     * @param idComida identificador de la comida que se quiere eliminar
+     * @param idDia identificador del dia al que se le eliminara una comida
+     */
+    public void deleteComidaFromDia(Long idComida, Long idDia){
+        LOGGER.log(Level.INFO, "Inicia proceso de eliminar la Comida con id = {0} del Dia con id = {1}", new Object[]{idComida,idDia});
+        ComidaEntity entity = new ComidaEntity();
+        entity.setId(idComida);
+        this.getDia(idDia).getComidas().remove(entity);
     }
 }
