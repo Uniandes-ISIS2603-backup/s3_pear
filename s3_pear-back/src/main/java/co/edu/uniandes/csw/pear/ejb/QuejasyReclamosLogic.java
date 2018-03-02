@@ -28,7 +28,16 @@ public class QuejasyReclamosLogic
     private QuejasyReclamosPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
     
     public QuejasyReclamosEntity createQuejasyReclamos(QuejasyReclamosEntity entity) throws BusinessLogicException {
+        
         LOGGER.info("Inicia proceso de creación de quejas y reclamos");
+        if(entity.getComentario().equals(""))
+        {
+            throw new BusinessLogicException("El comentario no puede estar vacio");
+        }
+        if(!(entity.getAsunto().equals("queja"))||!(entity.getAsunto().equals("reclamo"))) 
+        {
+            throw new BusinessLogicException("El asunto no corresponde a los 2 unicos disponibles");
+        }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de quejas y reclamos");
         return entity;

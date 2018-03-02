@@ -1,21 +1,11 @@
 ----------------------------------------------------------------
-<<<<<<< HEAD
-Wed Feb 28 14:13:35 COT 2018:
- Iniciando instancia a816c00e-0161-ddd5-8bf0-0000100b1a78 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
-en el directorio de base de datos C:\Users\js.cabra\AppData\Local\Temp\gfembed2866040121768403678tmp\lib\databases\embedded_default con el cargador de clases sun.misc.Launcher$AppClassLoader@6bc7c054
-Cargado desde file:/C:/Users/js.cabra/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/4.1/glassfish-embedded-all-4.1.jar
+Fri Mar 02 12:02:44 COT 2018:
+ Iniciando instancia a816c00e-0161-e7aa-79c0-00000d944710 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
+en el directorio de base de datos C:\Users\ga.bejarano10\AppData\Local\Temp\gfembed1565598146172894933tmp\lib\databases\embedded_default con el cargador de clases sun.misc.Launcher$AppClassLoader@6bc7c054
+Cargado desde file:/C:/Users/ga.bejarano10/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/4.1/glassfish-embedded-all-4.1.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_144-b01
-user.dir=C:\Users\js.cabra\Documents\NetBeansProjects\s3_pear\s3_pear\s3_pear-back
-=======
-Fri Mar 02 00:25:22 COT 2018:
- Iniciando instancia a816c00e-0161-e52c-02f8-00000e0909a8 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
-en el directorio de base de datos C:\Users\v.chacon\AppData\Local\Temp\gfembed7557560186551160061tmp\lib\databases\embedded_default con el cargador de clases sun.misc.Launcher$AppClassLoader@6bc7c054
-Cargado desde file:/C:/Users/v.chacon/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/4.1/glassfish-embedded-all-4.1.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_144-b01
-user.dir=C:\Users\v.chacon\Documents\NetBeansProjects\s3_pear\s3_pear-back
->>>>>>> 103b7baffaaab8412b1d21b31bc3c548c17f232b
+user.dir=C:\Users\ga.bejarano10\Documents\NetBeansProjects\s3_pear\s3_pear-back
 os.name=Windows 7
 os.arch=amd64
 os.version=6.1

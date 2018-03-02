@@ -23,7 +23,7 @@ import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
  * <pre>
  * 
  *   {
- *      "Asunto": "recomendacion",
+ *      "Asunto": "Queja",
  *      "Comentario": "Mas puntual con la entrega"
  *   }
  *

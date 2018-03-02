@@ -6,11 +6,15 @@
 package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.CalificacionDetailDTO;
 import co.edu.uniandes.csw.pear.dtos.QuejasyReclamosDetailDTO;
+import co.edu.uniandes.csw.pear.ejb.QuejasyReclamosLogic;
+import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
+import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.mappers.BusinessLogicExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 
 import javax.ws.rs.DELETE;
@@ -41,6 +45,9 @@ import javax.ws.rs.Produces;
 @RequestScoped
 public class QuejasyReclamosResource 
 {
+    @Inject
+    private QuejasyReclamosLogic logica;
+    
     /**
      * <h1>POST /api/quejasyreclamos : Crear una queja y reclamo.</h1>
      * 
@@ -64,7 +71,8 @@ public class QuejasyReclamosResource
     @POST
     public QuejasyReclamosDetailDTO createQuejayReclamo(QuejasyReclamosDetailDTO quejayreclamo) throws BusinessLogicException {
         
-        return quejayreclamo;
+        return new QuejasyReclamosDetailDTO(logica.createQuejasyReclamos(quejayreclamo.toEntity()));
+        
     }
      /**
      * <h1>GET /api/quejasyreclamaos : Obtener todas las quejas y reclamos.</h1>
@@ -79,7 +87,14 @@ public class QuejasyReclamosResource
      */
     @GET
     public List<QuejasyReclamosDetailDTO> getQuejasyReclamos() {
-        return new ArrayList<>();
+       List<QuejasyReclamosDetailDTO> quejasyreclamos = new ArrayList();
+       List listaEntity = logica.getQuejasyReclamos();
+       for(int i=0; i<listaEntity.size();i++)
+       {
+           QuejasyReclamosEntity entidad = (QuejasyReclamosEntity) listaEntity.get(i);
+           quejasyreclamos.add(new QuejasyReclamosDetailDTO(entidad));
+       }
+       return quejasyreclamos;
     }
 
     /**
