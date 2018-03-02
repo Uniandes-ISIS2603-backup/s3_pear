@@ -5,6 +5,9 @@
  */
 package co.edu.uniandes.csw.pear.resources;
 
+
+
+
 /**
    * <pre>Clase que implementa el recurso "comidas".
  * URL: /api/cities
@@ -22,6 +25,8 @@ package co.edu.uniandes.csw.pear.resources;
  */
 
 import co.edu.uniandes.csw.pear.dtos.ComidaDetailDTO;
+import co.edu.uniandes.csw.pear.ejb.ComidaLogic;
+import co.edu.uniandes.csw.pear.entities.ComidaEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -32,6 +37,9 @@ import javax.ws.rs.*;
 @Consumes("application/json")
 @RequestScoped
 public class ComidaResource {
+
+private ComidaLogic logic;
+
     /**
      * <h1>POST /api/comida : Crear una comida.</h1>
      * 
@@ -56,7 +64,7 @@ public class ComidaResource {
      
      public ComidaDetailDTO crearComida(ComidaDetailDTO comida)
      {
-         return comida;
+         return new ComidaDetailDTO(logic.createComida(comida.toEntity()));
      }
              /**
      * <h1>GET /api/comdas : Obtener todas las comidas.</h1>
@@ -70,8 +78,12 @@ public class ComidaResource {
      * @return JSONArray {@link ComidaDetailDTO} - Las dietas encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET   
-    public String getAlimentos() {
-        return "Los alimentos";
+    public List<ComidaDetailDTO> getComidas() {
+        List<ComidaDetailDTO> dtos = new ArrayList<>();
+        logic.getComidas().forEach( dieta -> { 
+            dtos.add(new ComidaDetailDTO(dieta));
+        });
+        return dtos;
     }
     /**
      * <h1>GET /api/comidas : Obtener todas las comidas.</h1>
@@ -85,31 +97,15 @@ public class ComidaResource {
      * @return JSONArray {@link ComidaDetailDTO} - Las comdias encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
-    public List<ComidaDetailDTO> getComidass() {
-        return new ArrayList<>();
+    @Path("{id: \\d+}")
+    public ComidaDetailDTO getComida (@PathParam("id") Long id) {
+        ComidaEntity buscado = logic.getComida(id);
+        if ( buscado == null ) 
+            throw new WebApplicationException("El recurso /comidas/" + id + " no existe.", 404);
+        return new ComidaDetailDTO(buscado);
     }
     
-    /**
-     * <h1>GET /api/comida/{id} : Obtener comida por id.</h1>
-     * 
-     * <pre>Busca la comida con el id asociado recibido en la URL y la devuelve.
-     * 
-     * Codigos de respuesta:
-     * <code style="color: mediumseagreen; background-color: #eaffe0;">
-     * 200 OK Devuelve la comida correspondiente al id.
-     * </code> 
-     * <code style="color: #c7254e; background-color: #f9f2f4;">
-     * 404 Not Found No existe una comida con el id dado.
-     * </code> 
-     * </pre>
-     * @param id Identificador de la comida que se esta buscando. Este debe ser una cadena de dígitos.
-     * @return JSON {@link ComidaDetailDTO} - La comida buscada
-     */
-    @GET
-    @Path("{id: \\d+}")
-    public ComidaDetailDTO getComida(@PathParam("id") Long id) {
-        return null;
-    }
+    
     
     /**
      * <h1>PUT /api/comidas/{id} : Actualizar comida con el id dado.</h1>
@@ -131,7 +127,9 @@ public class ComidaResource {
     @PUT
     @Path("{id: \\d+}")
     public ComidaDetailDTO updateComida(@PathParam("id") Long id, ComidaDetailDTO comida) {
-        return comida;
+        if ( logic.getComida(id) == null ) 
+            throw new WebApplicationException("El recurso /comidas/" + id + " no existe.", 404);
+        return new ComidaDetailDTO(logic.updateComida(id, comida.toEntity()));
     }
     
     
@@ -152,7 +150,10 @@ public class ComidaResource {
     @DELETE
     @Path("{id: \\d+}")
      public void deleteComida(@PathParam("id") Long id) {
-        // Void
+        if ( logic.getComida(id) == null )
+            throw new WebApplicationException("El recurso /comidas/" + id + " no existe.", 404);
+        logic.delete(id);
+
     }
     
 }

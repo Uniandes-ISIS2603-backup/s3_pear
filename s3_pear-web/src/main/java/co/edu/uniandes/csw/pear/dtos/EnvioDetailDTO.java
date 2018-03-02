@@ -23,5 +23,11 @@ public class EnvioDetailDTO extends EnvioDTO{
     public EnvioDetailDTO(EnvioEntity entidad) {
         super(entidad);
     }
-    
+    public EnvioEntity toEntity() {
+        EnvioEntity en = super.toEntity();
+        
+           
+        
+        return en;
+    }
 }

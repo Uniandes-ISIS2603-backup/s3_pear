@@ -5,7 +5,10 @@
  */
 package co.edu.uniandes.csw.pear.dtos;
 
+
 import co.edu.uniandes.csw.pear.entities.ComidaEntity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Clase que extiende de {@link ComidaDetail} para manejar la transformacion entre
@@ -23,5 +26,11 @@ public class ComidaDetailDTO extends ComidaDTO{
     public ComidaDetailDTO(ComidaEntity entidad) {
         super(entidad);
     }
-    
+    public ComidaEntity toEntity() {
+        ComidaEntity en = super.toEntity();
+        
+           
+        
+        return en;
+    }
 }

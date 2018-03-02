@@ -162,4 +162,20 @@ public class EnvioDTO {
         persona = pPersona;
     }
     
+    
+        public EnvioEntity toEntity() {
+        EnvioEntity en = new EnvioEntity();
+        en.setComida(comida);
+        en.setDireccion(direccion);
+        en.setDuracion(duracion);
+        if(recibido== true)
+        {
+            en.setRecibidoVerdadero();
+        }
+        if (recibido == false)
+                {
+                   en.setRecibidoFalso();
+                }
+        return en;
+    }
 }

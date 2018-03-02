@@ -7,11 +7,11 @@ package co.edu.uniandes.csw.pear.resources;
 
 
 /**
-   * <pre>Clase que implementa el recurso "comidas".
- * URL: /api/cities
+   * <pre>Clase que implementa el recurso "envios".
+ * URL: /api/envios
  * </pre>
- * <i>Note que la aplicación (definida en {@link RestConfig}) define la ruta "/api" y
- * este recurso tiene la ruta "cities".</i>
+ * <i>Note que la aplicación (definida en {@link RestConfig}) define el envio "/api" y
+ * este recurso tiene la ruta "envios".</i>
  *
  * <h2>Anotaciones </h2>
  * <pre>
@@ -23,6 +23,8 @@ package co.edu.uniandes.csw.pear.resources;
  */
 
 import co.edu.uniandes.csw.pear.dtos.EnvioDetailDTO;
+import co.edu.uniandes.csw.pear.ejb.EnvioLogic;
+import co.edu.uniandes.csw.pear.entities.EnvioEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -32,6 +34,14 @@ import javax.ws.rs.*;
 @Consumes("application/json")
 @RequestScoped
 public class EnvioResource {
+    
+     /**
+     * Conexion con la Logica
+     */
+    private EnvioLogic logic;
+    
+    
+    
     /**
      * <h1>POST /api/comida : Crear un evento.</h1>
      * 
@@ -56,7 +66,7 @@ public class EnvioResource {
      
      public EnvioDetailDTO crearEvento(EnvioDetailDTO envio)
      {
-         return envio;
+          return new EnvioDetailDTO(logic.createEnvio(envio.toEntity()));
      }
              /**
      * <h1>GET /api/envios : Obtener todos envios.</h1>
@@ -70,8 +80,12 @@ public class EnvioResource {
      * @return JSONArray {@link EnvioDetailDTO} - Los envios encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET   
-    public String getEnvios() {
-        return "Los envios";
+    public List<EnvioDetailDTO> getEnvios() {
+        List<EnvioDetailDTO> dtos = new ArrayList<>();
+        logic.getEnvios().forEach( dieta -> { 
+            dtos.add(new EnvioDetailDTO(dieta));
+        });
+        return dtos;
     }
     /**
      * <h1>GET /api/eventos : Obtener todos los eventos.</h1>
@@ -85,31 +99,14 @@ public class EnvioResource {
      * @return JSONArray {@link EnvioDetailDTO} - Los eventos encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
-    public List<EnvioDetailDTO> getEventos() {
-        return new ArrayList<>();
+     @Path("{id: \\d+}")
+    public EnvioDetailDTO getEnvio (@PathParam("id") Long id) {
+        EnvioEntity buscado = logic.getEnvio(id);
+        if ( buscado == null ) 
+            throw new WebApplicationException("El recurso /envios/" + id + " no existe.", 404);
+        return new EnvioDetailDTO(buscado);
     }
     
-    /**
-     * <h1>GET /api/evento/{id} : Obtener evento por id.</h1>
-     * 
-     * <pre>Busca el evento con el id asociado recibido en la URL y la devuelve.
-     * 
-     * Codigos de respuesta:
-     * <code style="color: mediumseagreen; background-color: #eaffe0;">
-     * 200 OK Devuelve el evento correspondiente al id.
-     * </code> 
-     * <code style="color: #c7254e; background-color: #f9f2f4;">
-     * 404 Not Found No existe un evento con el id dado.
-     * </code> 
-     * </pre>
-     * @param id Identificador de el evento que se esta buscando. Este debe ser una cadena de dígitos.
-     * @return JSON {@link EnvioDetailDTO} - el evento buscada
-     */
-    @GET
-    @Path("{id: \\d+}")
-    public EnvioDetailDTO getEvento(@PathParam("id") Long id) {
-        return null;
-    }
     
     /**
      * <h1>PUT /api/eventos/{id} : Actualizar comida con el id dado.</h1>
@@ -130,8 +127,10 @@ public class EnvioResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public EnvioDetailDTO updateEvento (@PathParam("id") Long id, EnvioDetailDTO evento) {
-        return evento;
+    public EnvioDetailDTO updateEvento (@PathParam("id") Long id, EnvioDetailDTO envio) {
+        if ( logic.getEnvio(id) == null ) 
+            throw new WebApplicationException("El recurso /envios/" + id + " no existe.", 404);
+        return new EnvioDetailDTO(logic.updateEnvio(id, envio.toEntity()));
     }
     
     
@@ -152,7 +151,10 @@ public class EnvioResource {
     @DELETE
     @Path("{id: \\d+}")
      public void deleteEvento(@PathParam("id") Long id) {
-        // Void
+        if ( logic.getEnvio(id) == null )
+            throw new WebApplicationException("El recurso /envios/" + id + " no existe.", 404);
+        logic.delete(id);
+
     }
     
 }

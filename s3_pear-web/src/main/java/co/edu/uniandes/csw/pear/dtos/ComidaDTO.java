@@ -130,4 +130,13 @@ public class ComidaDTO
         TIPO = pTipo;
     }
 
+    
+    
+      public ComidaEntity toEntity() {
+        ComidaEntity en = new ComidaEntity();
+        en.setAlimentos(this.alimentos);
+        en.setCantidad(this.cantidad);
+        en.setTIPO(this.TIPO);
+        return en;
+    }
 }
