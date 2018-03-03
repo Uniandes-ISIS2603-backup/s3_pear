@@ -43,7 +43,7 @@ public class MedioPagoLogic {
      * Retorna todas los medios de pago Entities que se encuentran en la base de datos
      * @return 
      */
-    public List<MedioPagoEntity> getMedioPagos() {
+    public List<MedioPagoEntity> getMediosPago() {
         LOGGER.info("Inicia consulta de todos los medios de pago");
         List<MedioPagoEntity> mediosPago =  persistence.findAll();
         LOGGER.info("Termina la consulta de todos los medios pago");
@@ -110,7 +110,7 @@ public class MedioPagoLogic {
      * @param entity de pago a persistir
      * @return entidad de pago persistida
      */
-    public MedioPagoEntity createPago( MedioPagoEntity entity ) throws BusinessLogicException {
+    public MedioPagoEntity createMedioPago( MedioPagoEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de un medio pago con id = {0}", entity.getId());
         if(!verificarMedioPago(entity.getMedioActual()))
         {
