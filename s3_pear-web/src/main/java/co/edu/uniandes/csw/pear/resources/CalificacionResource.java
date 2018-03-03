@@ -60,8 +60,8 @@ public class CalificacionResource
     public CalificacionDetailDTO createCalificacion(CalificacionDetailDTO calificacion) throws BusinessLogicException {
        
 
-        logica.createCalificacion(calificacion.toEntity());
-        return calificacion;
+        return new CalificacionDetailDTO(logica.createCalificacion(calificacion.toEntity()));
+        
     }
      /**
      * <h1>GET /api/calificaciones : Obtener todas las calificaciones.</h1>
@@ -104,8 +104,13 @@ public class CalificacionResource
      */
     @GET
     @Path("{id: \\d+}")
-    public CalificacionDetailDTO getCalificacion(@PathParam("id") Long id) {
-        return null;
+    public CalificacionDetailDTO getCalificacion(@PathParam("id") Long id) throws BusinessLogicException {
+        CalificacionEntity entidad = logica.getCalificacion(id);
+        if(entidad==null)
+        {
+            throw new BusinessLogicException("La calificacion no existe");
+        }
+        return new CalificacionDetailDTO(logica.getCalificacion(id));
     }
     
     /**
@@ -126,12 +131,16 @@ public class CalificacionResource
      * @return JSON {@link CalificacionDetailDTO} - La queja guardada.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar la ciudad porque ya existe una con ese nombre.
      */
+    
     @PUT
     @Path("{id: \\d+}")
     public CalificacionDetailDTO updateQuejayReclamo(@PathParam("id") Long id, CalificacionDetailDTO calificacion) throws BusinessLogicException {
-        CalificacionEntity entidad = logica.getCalificacion(id);
-        logica.updateCalificacion(entidad);
-        return calificacion;
+        calificacion.setId(id);
+        if(logica.getCalificacion(id)==null)
+        {
+            throw new BusinessLogicException("La calificacion que desea actualizar no existe");
+        }
+        return new CalificacionDetailDTO(logica.updateCalificacion(calificacion.toEntity()));
     }
     
     /**
@@ -150,8 +159,13 @@ public class CalificacionResource
      */
     @DELETE
     @Path("{id: \\d+}")
-     public void deleteCalificaion(@PathParam("id") Long id) {
-        // Void
+     public void deleteCalificaion(@PathParam("id") Long id) throws BusinessLogicException {
+         CalificacionEntity entidad = logica.getCalificacion(id);
+        if(entidad==null)
+        {
+            throw new BusinessLogicException("La calificación que desea eliminar no existe");
+        }
+        logica.deleteCalificacion(entidad);
     }
      
     
