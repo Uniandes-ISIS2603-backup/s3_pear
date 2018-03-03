@@ -115,8 +115,13 @@ public class QuejasyReclamosResource
      */
     @GET
     @Path("{id: \\d+}")
-    public QuejasyReclamosDetailDTO getQuejayReclamo(@PathParam("id") Long id) {
-        return null;
+    public QuejasyReclamosDetailDTO getQuejayReclamo(@PathParam("id") Long id) throws BusinessLogicException {
+        QuejasyReclamosEntity entidad = logica.getQuejayReclamo(id);
+        if(entidad==null)
+        {
+            throw new BusinessLogicException("la queja o reclamo no existe");
+        }
+        return new QuejasyReclamosDetailDTO(entidad);
     }
     
     /**
@@ -140,7 +145,13 @@ public class QuejasyReclamosResource
     @PUT
     @Path("{id: \\d+}")
     public QuejasyReclamosDetailDTO updateQuejayReclamo(@PathParam("id") Long id, QuejasyReclamosDetailDTO quejayreclamo) throws BusinessLogicException {
-        return quejayreclamo;
+        quejayreclamo.setId(id);
+        QuejasyReclamosEntity entidad = logica.getQuejayReclamo(id);
+        if(entidad==null)
+        {
+            throw new BusinessLogicException("La queja o reclamo que desea actualizar no existe");
+        }
+        return new QuejasyReclamosDetailDTO(entidad);
     }
     
     /**
@@ -156,11 +167,17 @@ public class QuejasyReclamosResource
      * </code>
      * </pre>
      * @param id Identificador de la queja que se desea borrar. Este debe ser una cadena de dígitos.
-     */
+     */ 
+    
     @DELETE
     @Path("{id: \\d+}")
-     public void deleteQuejayReclamo(@PathParam("id") Long id) {
-        // Void
+     public void deleteQuejayReclamo(@PathParam("id") Long id) throws BusinessLogicException {
+        QuejasyReclamosEntity entidad = logica.getQuejayReclamo(id);
+        if(entidad==null)
+        {
+            throw new BusinessLogicException("no se encontro la queja o reclamo que desea eliminar");
+        }
+        logica.deleteQuejayReclamo(entidad);
     }
     
 }
