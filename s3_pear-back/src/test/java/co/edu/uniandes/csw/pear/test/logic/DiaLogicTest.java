@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.pear.test.logic;
 
 import co.edu.uniandes.csw.pear.ejb.DiaLogic;
 import co.edu.uniandes.csw.pear.entities.DiaEntity;
+import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.DiaPersistence;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,9 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
@@ -79,7 +82,7 @@ public class DiaLogicTest {
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
-        em.createQuery("delete from DietaTipoEntity").executeUpdate();
+        em.createQuery("delete from DiaEntity").executeUpdate();
     }
     
     /**
@@ -94,4 +97,92 @@ public class DiaLogicTest {
         }
     }
     
+    
+    /**
+     * Prueba para crear un Dia
+     * @throws BusinessLogicException
+     */
+    @Test
+    public void createTest() throws BusinessLogicException {
+        DiaEntity newEntity = factory.manufacturePojo(DiaEntity.class);
+        DiaEntity result = logic.createDia(newEntity);
+        Assert.assertNotNull(result);
+        DiaEntity entity = em.find(DiaEntity.class, result.getId());
+        Assert.assertEquals(newEntity.getId(), entity.getId());
+        Assert.assertEquals(newEntity.getName(), entity.getName());
+        Assert.assertEquals(newEntity.getFecha(), entity.getFecha());
+        Assert.assertEquals(newEntity.getRecomendacion(),entity.getRecomendacion());
+        Assert.assertEquals(newEntity.getSeEnvia(),entity.getSeEnvia());
+        Assert.assertEquals(newEntity.getComidas(), entity.getComidas());
+    }
+    
+    /**
+     * Prueba para consultar la lista de comidas
+     */
+    @Test
+    public void getListTest() {
+        List<DiaEntity> list = logic.getDias();
+        Assert.assertEquals( data.size(), list.size());
+        for (DiaEntity entity : list) {
+            boolean found = false;
+            for (DiaEntity storedEntity : data) {
+                if (entity.getId().equals(storedEntity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
+    
+     /**
+     * Prueba para consultar un Dia
+     */
+    @Test
+    public void getDiaTest() {
+        DiaEntity entity = data.get(0);
+        DiaEntity resultEntity = logic.getDia(entity.getId());
+        Assert.assertNotNull(resultEntity);
+        Assert.assertEquals(entity.getId(), resultEntity.getId());
+        Assert.assertEquals(entity.getName(), resultEntity.getName());
+        Assert.assertEquals(entity.getFecha(), resultEntity.getFecha());
+        Assert.assertEquals(entity.getRecomendacion(),resultEntity.getRecomendacion());
+        Assert.assertEquals(entity.getSeEnvia(),resultEntity.getSeEnvia());
+        Assert.assertEquals(entity.getComidas(), resultEntity.getComidas());
+ 
+    }
+    
+    
+    /**
+     * Prueba para eliminar un Dia
+     */
+    @Test
+    public void deleteDiaTest() throws BusinessLogicException {
+        DiaEntity entity = data.get(0);
+            logic.deleteDia(entity.getId());
+        DiaEntity deleted = em.find(DiaEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
+    
+    /**
+     * Prueba para actualizar un Dia
+     */
+    @Test
+    public void updateDiaTest() throws BusinessLogicException {
+        DiaEntity entity = data.get(0);
+        DiaEntity pojoEntity = factory.manufacturePojo(DiaEntity.class);
+
+        pojoEntity.setId(entity.getId());
+
+        logic.updateDia(pojoEntity.getId(), pojoEntity);
+
+        DiaEntity resp = em.find(DiaEntity.class, entity.getId());
+
+        Assert.assertEquals(pojoEntity.getId(), resp.getId());
+        Assert.assertEquals(pojoEntity.getName(), resp.getName());
+        Assert.assertEquals(pojoEntity.getFecha(), resp.getFecha());
+        Assert.assertEquals(pojoEntity.getRecomendacion(),resp.getRecomendacion());
+        Assert.assertEquals(pojoEntity.getSeEnvia(),resp.getSeEnvia());
+        Assert.assertEquals(pojoEntity.getComidas(), resp.getComidas());
+        
+    }
 }

@@ -101,7 +101,7 @@ public class DiaLogic {
      */
     public DiaEntity createDia( DiaEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de un dia con id = {0}", entity.getId());
-        if(persistence.findByName(entity.getName())!= null || entity.getName() == null){
+        if(persistence.findByName(entity.getName())!= null){
             throw new BusinessLogicException("El nombre no es valido");
         }
         if(persistence.find(entity.getId())!= null){
@@ -122,10 +122,10 @@ public class DiaLogic {
     public DiaEntity updateDia( Long id, DiaEntity entity ) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion del dia con id = {0} " , id);
-        if(persistence.findByName(entity.getName()) != null || entity.getName() == null){
+        if(persistence.findByName(entity.getName()) != null){
             throw new BusinessLogicException("El nombre no es valido");
         }
-        if(persistence.find(id) == null ||  entity.getId() == null){
+        if(persistence.find(id) == null ){
             throw new BusinessLogicException("No existe un dia con ese identificador");
         }
         DiaEntity actualizado = persistence.update(entity);

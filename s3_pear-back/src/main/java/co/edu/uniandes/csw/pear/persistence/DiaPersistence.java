@@ -44,7 +44,7 @@ public class DiaPersistence {
      * @return  el primer dia que se encuentra.
      */
     public DiaEntity findByName(String name) {
-       LOGGER.log(Level.INFO, "Consultando el dia con name= ", name);
+        LOGGER.log(Level.INFO, "Consultando el dia con name = ", name);
         TypedQuery<DiaEntity> q = em.createQuery("select u from DiaEntity u where u.name = :name", DiaEntity.class);
         q = q.setParameter("name", name);
         return q.getSingleResult();

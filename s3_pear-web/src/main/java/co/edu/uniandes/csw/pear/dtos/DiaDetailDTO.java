@@ -64,7 +64,7 @@ public class DiaDetailDTO extends DiaDTO{
         if(this.getComidas() != null){
             List<ComidaEntity> listaComidas = new ArrayList<>();
             this.getComidas().forEach(comi -> {
-             //listaComidas.add(comi.toEntity);
+             listaComidas.add(comi.toEntity());
             });
         }
         return entity;

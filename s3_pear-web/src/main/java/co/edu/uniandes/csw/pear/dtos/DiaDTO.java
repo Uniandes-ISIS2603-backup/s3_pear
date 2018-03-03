@@ -45,7 +45,7 @@ public class DiaDTO {
      * @param entity entidad a apartir de la cual se construye el dto
      */
     public DiaDTO(DiaEntity entity){
-        seEnvia = entity.getSenEnvia();
+        seEnvia = entity.getSeEnvia();
         recomendacion = entity.getRecomendacion();
         fecha = entity.getRecomendacion();
     }
@@ -71,7 +71,7 @@ public class DiaDTO {
     /**
      * @return si se debe o no enviar la comida ese dia
      */
-    public Boolean getSenEnvia(){
+    public Boolean getSeEnvia(){
         return seEnvia;
     }
     /**

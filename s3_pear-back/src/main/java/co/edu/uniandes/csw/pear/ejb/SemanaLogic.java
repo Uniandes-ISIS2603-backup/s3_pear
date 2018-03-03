@@ -104,9 +104,9 @@ public class SemanaLogic {
         if(persistence.findByName(entity.getName())!= null){
             throw new BusinessLogicException("ya existe una semana con ese nombre");
         }
-        if(entity.getListaDias().size()!= 7){
-            throw new BusinessLogicException("No pueden haber mas de 7 dias en una semana");
-        }
+//        if(entity.getListaDias().size()!= 7){
+//            throw new BusinessLogicException("No pueden haber mas de 7 dias en una semana");
+//        }
         if(persistence.find(entity.getId())!= null){
             throw new BusinessLogicException("Ya existe una semana con ese identificador");
         }
@@ -128,9 +128,9 @@ public class SemanaLogic {
         if(persistence.findByName(entity.getName())!= null || entity.getName() == null){
             throw new BusinessLogicException("El nombre no es valido");
         }
-        if(entity.getListaDias().size()== 7){
-            throw new BusinessLogicException("Ya hay 7 dias en la semana");
-        }
+//        if(entity.getListaDias().size()== 7){
+//            throw new BusinessLogicException("Ya hay 7 dias en la semana");
+//        }
         if(persistence.find(id) == null || entity.getId() == null){
             throw new BusinessLogicException("No existe una semana con ese identificador");
         }
@@ -140,12 +140,12 @@ public class SemanaLogic {
     }
     
     
-        public DiaEntity addDiaToSemana(Long idDia, Long idSemana){
-         LOGGER.log(Level.INFO, "Inicia proceso de asociar un Dia con id = {0} con una Semana con id = {1}", new Object[] {idDia, idSemana});
-          DiaEntity di = new DiaEntity();
-          di.setId(idDia);
-          this.getSemana(idSemana).getListaDias().add(di);
-          return this.getDiaSemana(idDia, idSemana);
+    public DiaEntity addDiaToSemana(Long idDia, Long idSemana){
+        LOGGER.log(Level.INFO, "Inicia proceso de asociar un Dia con id = {0} con una Semana con id = {1}", new Object[] {idDia, idSemana});
+        DiaEntity di = new DiaEntity();
+        di.setId(idDia);
+        this.getSemana(idSemana).getListaDias().add(di);
+        return this.getDiaSemana(idDia, idSemana);
         }
     /**
      * Elimina una semana segun su identificador
