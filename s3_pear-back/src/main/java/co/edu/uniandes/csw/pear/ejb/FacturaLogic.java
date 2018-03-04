@@ -91,10 +91,6 @@ public class FacturaLogic {
          if(entity.getNumeroFactura()< 0){
             throw new BusinessLogicException("No puede haber un numero de factura negativo");
         }
-        
-        if(entity.getPersona() == null){
-            throw new BusinessLogicException("La factura tiene que estar asociada a una persona");
-        }
         persistence.create(entity);
         LOGGER.log(Level.INFO, "Termina proceso de creacion de una factura con id = {0}", entity.getId());
         return entity;
@@ -112,9 +108,6 @@ public class FacturaLogic {
         if(persistence.find(id) == null ||  entity.getId() == null){
             throw new BusinessLogicException("No existe una factura con ese identificador");
         }
-        if(entity.getPersona() == null){
-            throw new BusinessLogicException("La factura tiene que estar asociada a una persona");
-        }
         if(entity.getCantidadDeProductos()< 0){
             throw new BusinessLogicException("No puede haber una cantidad negativa de productos");
         }
@@ -130,10 +123,14 @@ public class FacturaLogic {
      * Elimina una factura segun su identificador
      * @param id identificador de la factura que se quiere eliminar
      */
-    public void delete( Long id ) {
+    public void deleteFactura( Long id ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia el proceso de eliminacion de una factura con id = {0} " , id);
+        if(persistence.find(id) == null){
+            throw new BusinessLogicException("No existe un dia con ese identificador");
+        }
         persistence.delete(id);
         LOGGER.log( Level.INFO, "La factura con id = {0} fue eliminada. ", id );
     }
     
 }
+

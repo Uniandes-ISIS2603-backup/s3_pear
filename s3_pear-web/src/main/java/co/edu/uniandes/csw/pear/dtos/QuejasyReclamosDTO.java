@@ -23,7 +23,7 @@ import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
  * <pre>
  * 
  *   {
- *      "Asunto": "recomendacion",
+ *      "Asunto": "Queja",
  *      "Comentario": "Mas puntual con la entrega"
  *   }
  *
@@ -34,13 +34,21 @@ public class QuejasyReclamosDTO {
 
     private String comentario;
     private String asunto;
-
+    private long id; 
     /**
      * Constructor por defecto
      */
     public QuejasyReclamosDTO() {
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+   
     /**
      * Conviertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
      * la entidad que viene de argumento.
@@ -50,6 +58,7 @@ public class QuejasyReclamosDTO {
     public QuejasyReclamosDTO(QuejasyReclamosEntity entidad) {
         this.comentario = entidad.getComentario();
         this.asunto = entidad.getAsunto();
+        this.id= entidad.getId();
     }
 
     /**
@@ -86,6 +95,7 @@ public class QuejasyReclamosDTO {
         QuejasyReclamosEntity entidad = new QuejasyReclamosEntity();
         entidad.setAsunto(this.asunto);
         entidad.setComentario(this.comentario);
+        entidad.setId(this.id);
         return entidad;
     }
 

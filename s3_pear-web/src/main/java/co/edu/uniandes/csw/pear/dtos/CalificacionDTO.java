@@ -22,7 +22,7 @@ import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
  * <pre>
  * 
  *   {
- *      "puntuacion": 91852
+ *      "puntuacion": 10
  *   }
  *
  * </pre>
@@ -30,13 +30,21 @@ import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
  */
 public class CalificacionDTO {
 
-    
+    private long id;
 
     private double puntuacion;
     /**
      * Constructor por defecto.
      */
     public CalificacionDTO() {
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
     
     /**
@@ -48,6 +56,7 @@ public class CalificacionDTO {
     public CalificacionDTO(CalificacionEntity entidad)
     {
       this.puntuacion= entidad.getPuntuacion();
+      this.id= entidad.getId();
     }
 
     /**
@@ -74,6 +83,7 @@ public class CalificacionDTO {
     {
         CalificacionEntity entidad = new CalificacionEntity();
         entidad.setPuntuacion(this.puntuacion);
+        entidad.setId(this.id);
         return entidad;
     }
     

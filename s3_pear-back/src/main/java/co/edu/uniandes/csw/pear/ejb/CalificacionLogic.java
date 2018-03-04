@@ -26,6 +26,14 @@ public class CalificacionLogic {
     private CalificacionPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias. 
      public CalificacionEntity createCalificacion(CalificacionEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de calificacion");
+        if(entity.getPuntuacion()>10)
+        {
+            throw new BusinessLogicException("la calificación no puede ser más de 10, si consideras que obtuvo un gran servicio puedes compartir tu historia en caso exito");
+        }
+        if(entity.getPuntuacion()<0)
+        {
+            throw new BusinessLogicException("La calificación no puede ser menos de 0, si considera que obtuvo un mal servicio puedes realizar tus quejas y reclamos");
+        }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de calificacion");
         return entity;

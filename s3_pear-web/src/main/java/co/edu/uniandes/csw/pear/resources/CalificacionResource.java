@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.CalificacionDTO;
 import co.edu.uniandes.csw.pear.dtos.CalificacionDetailDTO;
+import co.edu.uniandes.csw.pear.ejb.CalificacionLogic;
 import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.mappers.BusinessLogicExceptionMapper;
@@ -13,6 +14,7 @@ import co.edu.uniandes.csw.pear.persistence.CalificacionPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 
 import javax.ws.rs.DELETE;
@@ -32,7 +34,8 @@ import javax.ws.rs.Produces;
 @RequestScoped
 public class CalificacionResource
 {
-    private CalificacionPersistence persistencia;
+    @Inject
+    private CalificacionLogic logica;
     /**
      * <h1>POST /api/calificaciones : crear una calificacion.</h1>
      * 
@@ -56,8 +59,9 @@ public class CalificacionResource
     @POST
     public CalificacionDetailDTO createCalificacion(CalificacionDetailDTO calificacion) throws BusinessLogicException {
        
-        //persistencia.create(calificacion.toEntity());
-        return calificacion;
+
+        return new CalificacionDetailDTO(logica.createCalificacion(calificacion.toEntity()));
+        
     }
      /**
      * <h1>GET /api/calificaciones : Obtener todas las calificaciones.</h1>
@@ -74,12 +78,12 @@ public class CalificacionResource
     public List<CalificacionDetailDTO> getCalificaciones() 
     {
        List<CalificacionDetailDTO> calificaciones = new ArrayList();
-       //List listaEntity = persistencia.findAll();  
-       //for(int i=0; i<listaEntity.size();i++)
-       //{
-       //    CalificacionEntity entidad = (CalificacionEntity) listaEntity.get(i);
-       //    calificaciones.add(new CalificacionDetailDTO(entidad));
-       //}
+       List listaEntity = logica.getCalificaciones();
+       for(int i=0; i<listaEntity.size();i++)
+       {
+           CalificacionEntity entidad = (CalificacionEntity) listaEntity.get(i);
+           calificaciones.add(new CalificacionDetailDTO(entidad));
+       }
        return calificaciones;
     }
     /**
@@ -100,8 +104,13 @@ public class CalificacionResource
      */
     @GET
     @Path("{id: \\d+}")
-    public CalificacionDetailDTO getCalificacion(@PathParam("id") Long id) {
-        return null;
+    public CalificacionDetailDTO getCalificacion(@PathParam("id") Long id) throws BusinessLogicException {
+        CalificacionEntity entidad = logica.getCalificacion(id);
+        if(entidad==null)
+        {
+            throw new BusinessLogicException("La calificacion no existe");
+        }
+        return new CalificacionDetailDTO(logica.getCalificacion(id));
     }
     
     /**
@@ -122,10 +131,16 @@ public class CalificacionResource
      * @return JSON {@link CalificacionDetailDTO} - La queja guardada.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar la ciudad porque ya existe una con ese nombre.
      */
+    
     @PUT
     @Path("{id: \\d+}")
     public CalificacionDetailDTO updateQuejayReclamo(@PathParam("id") Long id, CalificacionDetailDTO calificacion) throws BusinessLogicException {
-        return calificacion;
+        calificacion.setId(id);
+        if(logica.getCalificacion(id)==null)
+        {
+            throw new BusinessLogicException("La calificacion que desea actualizar no existe");
+        }
+        return new CalificacionDetailDTO(logica.updateCalificacion(calificacion.toEntity()));
     }
     
     /**
@@ -144,8 +159,13 @@ public class CalificacionResource
      */
     @DELETE
     @Path("{id: \\d+}")
-     public void deleteCalificaion(@PathParam("id") Long id) {
-        // Void
+     public void deleteCalificaion(@PathParam("id") Long id) throws BusinessLogicException {
+         CalificacionEntity entidad = logica.getCalificacion(id);
+        if(entidad==null)
+        {
+            throw new BusinessLogicException("La calificación que desea eliminar no existe");
+        }
+        logica.deleteCalificacion(entidad);
     }
      
     

@@ -8,7 +8,20 @@ package co.edu.uniandes.csw.pear.dtos;
 import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
 
 /**
+ * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * <pre>
+ *   {
+ *      "puntuacion": double
+ *   }
+ *  Por ejemplo una calificaion se representa asi:<br>
+ * 
+ * <pre>
+ * 
+ *   {
+ *      "puntuacion": 10
+ *   }
  *
+ * </pre>
  * @author ga.bejarano10
  */
 public class CalificacionDetailDTO extends CalificacionDTO

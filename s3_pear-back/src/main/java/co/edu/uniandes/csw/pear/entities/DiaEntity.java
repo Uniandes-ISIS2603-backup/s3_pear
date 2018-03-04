@@ -48,7 +48,7 @@ public class DiaEntity extends BaseEntity implements Serializable {
     /**
      * @return si se debe o no enviar la comida ese dia
      */
-    public boolean getSenEnvia(){
+    public boolean getSeEnvia(){
         return seEnvia;
     }
     /**

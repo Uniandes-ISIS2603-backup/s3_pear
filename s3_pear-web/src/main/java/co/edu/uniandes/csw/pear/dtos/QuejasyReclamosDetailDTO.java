@@ -8,7 +8,22 @@ package co.edu.uniandes.csw.pear.dtos;
 import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
 
 /**
+ * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * <pre>
+ *   {
+ *      "Asunto": String,
+ *      "Comentario": string,
+ *   }
+ *  Por ejemplo una queja y reclamo  se representa asi:<br>
+ * 
+ * <pre>
+ * 
+ *   {
+ *      "Asunto": "Queja",
+ *      "Comentario": "Mas puntual con la entrega"
+ *   }
  *
+ * </pre>
  * @author ga.bejarano10
  */
 public class QuejasyReclamosDetailDTO extends QuejasyReclamosDTO
