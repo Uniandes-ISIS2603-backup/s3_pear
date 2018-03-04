@@ -81,22 +81,27 @@ public class EnvioResource {
      */
     @GET   
     public List<EnvioDetailDTO> getEnvios() {
-        List<EnvioDetailDTO> dtos = new ArrayList<>();
+        List<EnvioDetailDTO> dtos = new ArrayList<EnvioDetailDTO>();
         logic.getEnvios().forEach( dieta -> { 
             dtos.add(new EnvioDetailDTO(dieta));
         });
         return dtos;
     }
-    /**
-     * <h1>GET /api/eventos : Obtener todos los eventos.</h1>
+      /**
+     * <h1>GET /api/eventos/{id} : Obtener evento por id.</h1>
      * 
-     * <pre>Busca y devuelve todas los eventos que existen en la aplicacion.
+     * <pre>Busca el evento con el id asociado recibido en la URL y la devuelve.
      * 
      * Codigos de respuesta:
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
-     * 200 OK Devuelve todos los eventos de la aplicacion.</code> 
+     * 200 OK Devuelve el evento correspondiente al id.
+     * </code> 
+     * <code style="color: #c7254e; background-color: #f9f2f4;">
+     * 404 Not Found No existe un evento con el id dado.
+     * </code> 
      * </pre>
-     * @return JSONArray {@link EnvioDetailDTO} - Los eventos encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
+     * @param id Identificador de el evento que se esta buscando. Este debe ser una cadena de dígitos.
+     * @return JSON {@link EventoDetailDTO} - La cocina buscada
      */
     @GET
      @Path("{id: \\d+}")

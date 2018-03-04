@@ -8,7 +8,7 @@ package co.edu.uniandes.csw.pear.ejb;
 
 import co.edu.uniandes.csw.pear.entities.EnvioEntity;
 import co.edu.uniandes.csw.pear.persistence.EnvioPersistence;
-
+import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -70,9 +70,16 @@ public class EnvioLogic {
      * @param entity de envio a persistir
      * @return entidad de envio persistida
      */
-    public EnvioEntity createEnvio( EnvioEntity entity ) {
+    public EnvioEntity createEnvio( EnvioEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de un envio con id = {0}", entity.getId());
+        if(getEnvio(entity.getId())==null)
+        {
         persistence.create(entity);
+        }
+         else
+        {
+            throw new BusinessLogicException ("este id ya existe");
+        }
         LOGGER.log(Level.INFO, "Termina proceso de creacion de un envio con id = {0}", entity.getId());
         return entity;
     } 
@@ -83,9 +90,18 @@ public class EnvioLogic {
      * @param entity de Envio con los cambios deseados
      * @return la entidad de Envio luego de ser actualizada
      */
-    public EnvioEntity updateEnvio( Long id, EnvioEntity entity ) {
+    public EnvioEntity updateEnvio( Long id, EnvioEntity entity ) throws BusinessLogicException {
+
+        EnvioEntity actualizado = null;
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de un envio con id = {0} " , id);
-        EnvioEntity actualizado = persistence.update(entity);
+        if(id == entity.getId())
+        {
+         actualizado = persistence.update(entity);
+        }
+         else
+        {
+            throw new BusinessLogicException ("el id no puede ser cambiado");
+        }
         LOGGER.log( Level.INFO, "Termina proceso de actualizacion de un envio, id = {0}", entity.getId() );
         return actualizado;
     }
@@ -94,9 +110,16 @@ public class EnvioLogic {
      * Elimina un Envio por id
      * @param id 
      */
-    public void delete( Long id ) {
+    public void delete( Long id ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia eliminacion de el envio con id = {0} " , id);
+        if(getEnvio(id)!=null)
+        {
         persistence.delete(id);
+        }
+        else
+        {
+            throw new BusinessLogicException ("este no existe");
+        }
         LOGGER.log( Level.INFO, "Envio con id = {0} eliminada. ", id );
     }
     

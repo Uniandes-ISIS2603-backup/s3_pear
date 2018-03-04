@@ -79,22 +79,27 @@ private ComidaLogic logic;
      */
     @GET   
     public List<ComidaDetailDTO> getComidas() {
-        List<ComidaDetailDTO> dtos = new ArrayList<>();
+        List<ComidaDetailDTO> dtos = new ArrayList<ComidaDetailDTO>();
         logic.getComidas().forEach( dieta -> { 
             dtos.add(new ComidaDetailDTO(dieta));
         });
         return dtos;
     }
-    /**
-     * <h1>GET /api/comidas : Obtener todas las comidas.</h1>
+      /**
+     * <h1>GET /api/comidas/{id} : Obtener comida por id.</h1>
      * 
-     * <pre>Busca y devuelve todas las comdias que existen en la aplicacion.
+     * <pre>Busca la comida con el id asociado recibido en la URL y la devuelve.
      * 
      * Codigos de respuesta:
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
-     * 200 OK Devuelve todas las comidas de la aplicacion.</code> 
+     * 200 OK Devuelve la comida correspondiente al id.
+     * </code> 
+     * <code style="color: #c7254e; background-color: #f9f2f4;">
+     * 404 Not Found No existe una comida con el id dado.
+     * </code> 
      * </pre>
-     * @return JSONArray {@link ComidaDetailDTO} - Las comdias encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
+     * @param id Identificador de la comida que se esta buscando. Este debe ser una cadena de dígitos.
+     * @return JSON {@link ComidaDetailDTO} - La cocina buscada
      */
     @GET
     @Path("{id: \\d+}")

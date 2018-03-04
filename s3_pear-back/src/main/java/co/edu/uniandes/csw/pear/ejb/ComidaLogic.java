@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.pear.ejb;
 import co.edu.uniandes.csw.pear.entities.ComidaEntity;
+import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.ComidaPersistence;
 
 import java.util.List;
@@ -68,9 +69,25 @@ public class ComidaLogic {
      * @param entity de comida a persistir
      * @return entidad de comida persistida
      */
-    public ComidaEntity createComida( ComidaEntity entity ) {
+    public ComidaEntity createComida( ComidaEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de una comida con id = {0}", entity.getId());
+        if(getComida(entity.getId())==null)
+        {
+            if(entity.getTipo()== entity.DESAYUNO || entity.getTipo()== entity.ALMUERZO ||entity.getTipo()== entity.CENA ||entity.getTipo()== entity.ADICIONAL)
+                
+            {
         persistence.create(entity);
+            }
+            else
+            {
+                 throw new BusinessLogicException ("esta comida no tiene un tipo valido");
+            }
+        }
+        
+         else
+        {
+            throw new BusinessLogicException ("esta comida ya existe");
+        }
         LOGGER.log(Level.INFO, "Termina proceso de creacion de una comida con id = {0}", entity.getId());
         return entity;
     } 
@@ -81,9 +98,17 @@ public class ComidaLogic {
      * @param entity de Comida con los cambios deseados
      * @return la entidad de Comida luego de ser actualizada
      */
-    public ComidaEntity updateComida( Long id, ComidaEntity entity ) {
+    public ComidaEntity updateComida( Long id, ComidaEntity entity ) throws BusinessLogicException {
+        ComidaEntity actualizado = null;
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la comida con id = {0} " , id);
-        ComidaEntity actualizado = persistence.update(entity);
+        if(entity.getId() == id)
+        {
+         actualizado = persistence.update(entity);
+        }
+         else
+        {
+            throw new BusinessLogicException ("el id no puede ser cambiado");
+        }
         LOGGER.log( Level.INFO, "Termina proceso de actualizacion de la comida, id = {0}", entity.getId() );
         return actualizado;
     }
@@ -92,9 +117,16 @@ public class ComidaLogic {
      * Elimina una Comida por id
      * @param id 
      */
-    public void delete( Long id ) {
+    public void delete( Long id ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia eliminacion de la comida con id = {0} " , id);
-        persistence.delete(id);
+        if(getComida(id)!=null)
+        {
+            persistence.delete(id);
+        }
+         else
+        {
+            throw new BusinessLogicException ("este no existe");
+        }
         LOGGER.log( Level.INFO, "Comida con id = {0} eliminada. ", id );
     }
     
