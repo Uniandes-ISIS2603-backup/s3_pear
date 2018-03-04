@@ -14,28 +14,44 @@ import java.util.List;
  * en formato JSON.
  * 
  * El formato JSON de este objeto es el siguiente:
- * {
- *  "ubicacion": String,
- *  "capacidad": String,
- *  "dietas": [
- *              {
- *                  "objetivo" : String,
- *                  "descripcion" : String,
- *                  "cuentadecobro": {
- *                    "valorapagar": double
- *                  },
- *                  "semanas" : [
- *                                  {
- *                                      //ATRIBUTOS DE SEMANAS POR DEFINIR
- *                                  }
- *                              ]
- *              }  
- *            ]
- * }
+
+ 
+ {
+   "id": 123,
+  "ubicacion": "Una ubicacion",
+  "capacidad": "una capacidad",
+  "dietas": [
+              
+       {
+            "objetivo": "un objetivo",
+            "descripcion": "una descripcion",
+            "cuentaDeCobro": {
+                     "valorAPagar": 23.00
+                   },
+            "semanas":[
+                    {
+   		"fechaLunes":"2012-04-23T18:25:43.511Z",
+   		"dias":[
+   			{
+   				"SeEnvia": true,
+   				"recomendacion": "una recomendacion",
+            	"fecha": "2012-04-23T18:25:43.511Z"
+                        }
+                    ]
+                }
+               ]
+        }
+  
+  
+    ]
+  }
+ 
+ 
  * @author js.garcial1
  */
 public class CocinaDTO {
     
+    private Long id;
     private String ubicacion;
     private String capacidad;    
     
@@ -58,10 +74,17 @@ public class CocinaDTO {
     public CocinaDTO( CocinaEntity entity ) {
         this.capacidad = entity.getCapacidad();
         this.ubicacion = entity.getUbicacion();
+        this.id = entity.getId();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
     
-    
-
     public String getUbicacion() {
         return ubicacion;
     }
@@ -82,6 +105,7 @@ public class CocinaDTO {
         CocinaEntity en = new CocinaEntity();
         en.setCapacidad(this.capacidad);
         en.setUbicacion(this.ubicacion);
+        en.setId(this.id);
         return en;
     }
     

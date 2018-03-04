@@ -13,24 +13,42 @@ import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
 /**
  * El formato JSON de este objeto es el siguiente:
- * {
- *  "ubicacion": String,
- *  "capacidad": String,
- *  "dietas": [
- *              {
- *                  "objetivo" : String,
- *                  "descripcion" : String,
- *                  "cuentadecobro": {
- *                    "valorapagar": double
- *                  },
- *                  "semanas" : [
- *                                  {
- *                                      //ATRIBUTOS DE SEMANAS POR DEFINIR
- *                                  }
- *                              ]
- *              }  
- *            ]
- * }
+ 
+ 
+  {
+  "id": 123,
+  "ubicacion": "Una ubicacion",
+  "capacidad": "una capacidad",
+  "dietas": [
+              
+       {
+            "objetivo": "un objetivo",
+            "descripcion": "una descripcion",
+            "cuentaDeCobro": {
+                     "valorAPagar": 23.00
+                   },
+            "semanas":[
+                    {
+   		"fechaLunes":"2012-04-23T18:25:43.511Z",
+   		"dias":[
+   			{
+   				"SeEnvia": true,
+   				"recomendacion": "una recomendacion",
+            	"fecha": "2012-04-23T18:25:43.511Z"
+                        }
+                    ]
+                }
+               ]
+        }
+  
+  
+    ]
+  }
+ 
+ 
+ 
+ 
+ * 
  * @author js.garcial1
  */
 @Path("cocinas")
@@ -85,8 +103,8 @@ public class CocinaResource {
     @GET
     public List<CocinaDetailDTO> getCocinas() {
         List<CocinaDetailDTO> dtos = new ArrayList<>();
-        logic.getCocinas().forEach( dieta -> { 
-            dtos.add(new CocinaDetailDTO(dieta));
+        logic.getCocinas().forEach( cocina -> { 
+            dtos.add(new CocinaDetailDTO(cocina));
         });
         return dtos;
     }

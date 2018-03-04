@@ -11,19 +11,35 @@ import java.util.List;
 /**
  * DietaTipoDTO modela el objeto que se transfiere entre el cliente y el servidor 
  * en formato JSON.
- * 
- * El formato JSON de este objeto es el siguiente:
- * {
- *  "objetivo": String,
- *  "descripcion": String,
- *  "cuentaDeCobro": {
- *                    "valorAPagar": double
- *                  }
- * }
+
+* {
+   "id" : 123,
+   "objetivo": "un objetivo",
+   "descripcion": "una descripcion",
+   "cuentaCobro": {
+                     "valorAPagar": 23.00
+                   },
+   "semanas":[
+   	{
+   		"fechaLunes":"2012-04-23T18:25:43.511Z",
+   		"dias":[
+   			{
+   				"SeEnvia": true,
+   				"recomendacion": "una recomendacion",
+            	"fecha": "2012-04-23T18:25:43.511Z"
+        	}
+          ]
+   	}
+               ]
+ }
+* 
+* 
+* 
  * @author js.garcial1
  */
 public class DietaTipoDTO {
     
+    private Long id;
     private String objetivo;
     private String descripcion;
     
@@ -44,11 +60,17 @@ public class DietaTipoDTO {
     public DietaTipoDTO( DietaTipoEntity entity ) {
         this.objetivo = entity.getObjetivo();
         this.descripcion = entity.getDescripcion();
+        this.id = entity.getId();
     }
 
-    
-    
-    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getObjetivo() {
         return objetivo;
     }
@@ -69,6 +91,7 @@ public class DietaTipoDTO {
         DietaTipoEntity en = new DietaTipoEntity();
         en.setDescripcion(this.descripcion);
         en.setObjetivo(this.objetivo);
+        en.setId(this.id);
         return en;
     }
 

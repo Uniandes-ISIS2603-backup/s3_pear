@@ -42,7 +42,9 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
             entity.getSemanas().forEach( semanita -> {
                 this.semanas.add(new SemanaDTO(semanita));
             } );
-        }
+        } 
+        else
+            this.semanas = new ArrayList<>();
         
     }
 

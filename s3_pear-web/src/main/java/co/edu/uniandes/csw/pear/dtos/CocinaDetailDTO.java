@@ -38,6 +38,8 @@ public class CocinaDetailDTO extends CocinaDTO {
                 this.dietas.add(new DietaTipoDTO(dieta));
             });
         }
+        else 
+            this.dietas = new ArrayList<>();
         
     }
 
