@@ -7,7 +7,9 @@ package co.edu.uniandes.csw.pear.ejb;
 
 import co.edu.uniandes.csw.pear.entities.CocinaEntity;
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
+import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.CocinaPersistence;
+import com.sun.xml.internal.rngom.ast.builder.BuildException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -94,7 +96,7 @@ public class CocinaLogic {
      * @param entity de cocina a persistir
      * @return entidad de cocina persistida
      */
-    public CocinaEntity createCocina( CocinaEntity entity ) {
+    public CocinaEntity createCocina( CocinaEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de una cocina con id = {0}", entity.getId());
         verificaciones(entity);
         persistence.create(entity);
@@ -106,11 +108,11 @@ public class CocinaLogic {
      * Verifica las reglas del negocio
      * @param entity sobre la cual se haran las verificaciones
      */
-    public void verificaciones( CocinaEntity entity ) {
-        assert !entity.getCapacidad().isEmpty() || entity.getCapacidad() != null : String.format("La Capacidad de Cocina ( capacidad = %s ) es invalida", entity.getCapacidad()) ;
-        assert !entity.getUbicacion().isEmpty() || entity.getUbicacion() != null : String.format("La Ubicacion de Cocina ( ubicacion = %s ) es invalida", entity.getUbicacion()) ;
-        assert !entity.getName().isEmpty() || entity.getName() != null : String.format("El Nombre de Cocina ( nombre = %s ) es invalida", entity.getName()) ;
-        assert entity.getId() != null : String.format("El ID de Cocina ( id = %s ) es invalida", entity.getId()) ;
+    public void verificaciones( CocinaEntity entity ) throws BusinessLogicException {
+        if ( !entity.getCapacidad().isEmpty() || entity.getCapacidad() != null ) throw new BusinessLogicException( String.format("La Capacidad de Cocina ( capacidad = %s ) es invalida", entity.getCapacidad())) ;
+        if ( !entity.getUbicacion().isEmpty() || entity.getUbicacion() != null ) throw new BusinessLogicException( String.format("La Ubicacion de Cocina ( ubicacion = %s ) es invalida", entity.getUbicacion())) ;
+        //assert !entity.getName().isEmpty() || entity.getName() != null : String.format("El Nombre de Cocina ( nombre = %s ) es invalida", entity.getName()) ;
+        if ( entity.getId() != null ) throw new BusinessLogicException( String.format("El ID de Cocina ( id = %s ) es invalida", entity.getId())) ;
     }
     
     /**
@@ -133,7 +135,7 @@ public class CocinaLogic {
      * @param entity de Cocina con los cambios deseados
      * @return la entidad de Cocina luego de ser actualizada
      */
-    public CocinaEntity updateCocina( Long id, CocinaEntity entity ) {
+    public CocinaEntity updateCocina( Long id, CocinaEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la cocina con id = {0} " , id);
         verificaciones(entity);
         CocinaEntity actualizado = persistence.update(entity);

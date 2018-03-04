@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.CocinaDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.CocinaLogic;
 import co.edu.uniandes.csw.pear.entities.CocinaEntity;
+import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -85,7 +86,7 @@ public class CocinaResource {
      * @return JSON {@link CocinaDetailDTO}  - La cocina guardada con el atributo id autogenerado.
      */
     @POST
-    public CocinaDetailDTO createCocina(CocinaDetailDTO cocina) {
+    public CocinaDetailDTO createCocina(CocinaDetailDTO cocina) throws BusinessLogicException {
         return new CocinaDetailDTO(logic.createCocina(cocina.toEntity()));
     }
 
@@ -153,7 +154,7 @@ public class CocinaResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public CocinaDetailDTO updateCocina(@PathParam("id") Long id, CocinaDetailDTO cocina) {
+    public CocinaDetailDTO updateCocina(@PathParam("id") Long id, CocinaDetailDTO cocina) throws BusinessLogicException {
         if ( logic.getCocina(id) == null ) 
             throw new WebApplicationException("El recurso /dietas/" + id + " no existe.", 404);
         return new CocinaDetailDTO(logic.updateCocina(id, cocina.toEntity()));

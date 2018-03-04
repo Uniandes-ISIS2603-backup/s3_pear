@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.pear.ejb;
 import co.edu.uniandes.csw.pear.entities.CuentaCobroEntity;
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.entities.SemanaEntity;
+import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.DietaTipoPersistence;
 import java.util.List;
 import java.util.logging.Level;
@@ -106,7 +107,7 @@ public class DietaTipoLogic {
      * @param entity de dieta a persistir
      * @return entidad de dieta persistida
      */
-    public DietaTipoEntity createDieta( DietaTipoEntity entity ) {
+    public DietaTipoEntity createDieta( DietaTipoEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de una dieta con id = {0}", entity.getId());
         verificaciones(entity);
         persistence.create(entity);
@@ -118,11 +119,11 @@ public class DietaTipoLogic {
      * Verifica las reglas del negocio
      * @param entity a verificar
      */
-    private void verificaciones( DietaTipoEntity entity) {
-        assert !entity.getDescripcion().isEmpty() || entity.getDescripcion() != null : "Descripcion de Dieta invalida";
-        assert !entity.getObjetivo().isEmpty() || entity.getObjetivo() != null : "Objetivo de Dieta invalida" ;
-        assert !entity.getName().isEmpty() || entity.getName() != null : "Nombre de Dieta invalido" ;
-        assert entity.getId() != null : "El ID de la Dieta NO puede ser NULL" ;
+    private void verificaciones( DietaTipoEntity entity) throws BusinessLogicException {
+        if ( !entity.getDescripcion().isEmpty() || entity.getDescripcion() != null) throw new BusinessLogicException( "Descripcion de Dieta invalida" );
+        if ( !entity.getObjetivo().isEmpty() || entity.getObjetivo() != null ) throw new BusinessLogicException( "Objetivo de Dieta invalida" ) ;
+        //if ( !entity.getName().isEmpty() || entity.getName() != null ) throw new BusinessLogicException( "Nombre de Dieta invalida" ) ;
+        if ( entity.getId() != null ) throw new BusinessLogicException( "El ID de la Dieta NO puede ser NULL" )  ;
     }
     
     /**
@@ -159,7 +160,7 @@ public class DietaTipoLogic {
      * @param entity de Dieta con los cambios deseados
      * @return la entidad de Dieta luego de ser actualizada
      */
-    public DietaTipoEntity updateDieta( Long id, DietaTipoEntity entity ) {
+    public DietaTipoEntity updateDieta( Long id, DietaTipoEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la dieta con id = {0} " , id);
         verificaciones(entity);
         DietaTipoEntity actualizado = persistence.update(entity);

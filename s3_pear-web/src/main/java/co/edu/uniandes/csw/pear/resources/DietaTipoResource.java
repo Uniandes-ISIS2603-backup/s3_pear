@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.DietaTipoDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.DietaTipoLogic;
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
+import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.util.ArrayList;
 import java.util.List;
@@ -80,7 +81,7 @@ public class DietaTipoResource {
      * con el atributo id autogenerado.
      */
     @POST
-    public DietaTipoDetailDTO createDietaTipo(DietaTipoDetailDTO dietaTipo) {
+    public DietaTipoDetailDTO createDietaTipo(DietaTipoDetailDTO dietaTipo) throws BusinessLogicException {
         return new DietaTipoDetailDTO(logic.createDieta(dietaTipo.toEntity()));
     }
 
@@ -155,7 +156,7 @@ public class DietaTipoResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public DietaTipoDetailDTO updateDieta(@PathParam("id") Long id, DietaTipoDetailDTO dieta) {
+    public DietaTipoDetailDTO updateDieta(@PathParam("id") Long id, DietaTipoDetailDTO dieta) throws BusinessLogicException {
         if ( logic.getDieta(id) == null ) 
             throw new WebApplicationException("El recurso /dietas/" + id + " no existe.", 404);
         return new DietaTipoDetailDTO(logic.updateDieta(id, dieta.toEntity()));
