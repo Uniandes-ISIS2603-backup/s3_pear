@@ -81,7 +81,7 @@ public class EnvioResource {
      */
     @GET   
     public List<EnvioDetailDTO> getEnvios() {
-        List<EnvioDetailDTO> dtos = new ArrayList<>();
+        List<EnvioDetailDTO> dtos = new ArrayList<EnvioDetailDTO>();
         logic.getEnvios().forEach( dieta -> { 
             dtos.add(new EnvioDetailDTO(dieta));
         });

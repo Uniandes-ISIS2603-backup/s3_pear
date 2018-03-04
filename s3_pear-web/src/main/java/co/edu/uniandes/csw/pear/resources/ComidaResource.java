@@ -79,7 +79,7 @@ private ComidaLogic logic;
      */
     @GET   
     public List<ComidaDetailDTO> getComidas() {
-        List<ComidaDetailDTO> dtos = new ArrayList<>();
+        List<ComidaDetailDTO> dtos = new ArrayList<ComidaDetailDTO>();
         logic.getComidas().forEach( dieta -> { 
             dtos.add(new ComidaDetailDTO(dieta));
         });
