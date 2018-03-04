@@ -73,8 +73,17 @@ public class ComidaLogic {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de una comida con id = {0}", entity.getId());
         if(getComida(entity.getId())==null)
         {
+            if(entity.getTipo()== entity.DESAYUNO || entity.getTipo()== entity.ALMUERZO ||entity.getTipo()== entity.CENA ||entity.getTipo()== entity.ADICIONAL)
+                
+            {
         persistence.create(entity);
+            }
+            else
+            {
+                 throw new BusinessLogicException ("esta comida no tiene un tipo valido");
+            }
         }
+        
          else
         {
             throw new BusinessLogicException ("esta comida ya existe");
