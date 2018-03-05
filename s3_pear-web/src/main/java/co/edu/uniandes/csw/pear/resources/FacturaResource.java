@@ -171,7 +171,7 @@ public class FacturaResource {
             throw new WebApplicationException("El recurso /facturas/" + id + " no existe.", 404);
         return new FacturaDetailDTO(logic.updateFactura(id, factura.toEntity()));
     }
-    
+ 
     /**
      * <h1>DELETE /api/facturas/{id} : Borrar factura por id.</h1>
      * 
