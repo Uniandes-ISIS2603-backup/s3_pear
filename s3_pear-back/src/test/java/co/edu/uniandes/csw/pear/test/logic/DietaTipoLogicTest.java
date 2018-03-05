@@ -42,7 +42,7 @@ public class DietaTipoLogicTest {
     @Inject
     private UserTransaction utx;
     
-    private List<DietaTipoEntity> data = new ArrayList<DietaTipoEntity>();
+    private List<DietaTipoEntity> data = new ArrayList<>();
           
     @Inject
     private DietaTipoLogic logic;
@@ -133,7 +133,7 @@ public class DietaTipoLogicTest {
      * Prueba para consultar una Dieta
      */
     @Test
-    public void getBookTest() {
+    public void getDietaTest() {
         DietaTipoEntity entity = data.get(0);
         DietaTipoEntity resultEntity = logic.getDieta(entity.getId());
         Assert.assertNotNull(resultEntity);
@@ -146,7 +146,7 @@ public class DietaTipoLogicTest {
      * Prueba para eliminar una Dieta
      */
     @Test
-    public void deleteBookTest() {
+    public void deleteDietaTest() {
         DietaTipoEntity entity = data.get(0);
         logic.deleteDieta(entity.getId());
         DietaTipoEntity deleted = em.find(DietaTipoEntity.class, entity.getId());
@@ -157,7 +157,7 @@ public class DietaTipoLogicTest {
      * Prueba para actualizar una Dieta
      */
     @Test
-    public void updateBookTest() throws BusinessLogicException {
+    public void updateDietaTest() throws BusinessLogicException {
         DietaTipoEntity entity = data.get(0);
         DietaTipoEntity pojoEntity = factory.manufacturePojo(DietaTipoEntity.class);
 

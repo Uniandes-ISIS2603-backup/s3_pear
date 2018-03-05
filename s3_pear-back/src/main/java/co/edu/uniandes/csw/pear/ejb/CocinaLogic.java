@@ -109,10 +109,10 @@ public class CocinaLogic {
      * @param entity sobre la cual se haran las verificaciones
      */
     public void verificaciones( CocinaEntity entity ) throws BusinessLogicException {
-        if ( !entity.getCapacidad().isEmpty() || entity.getCapacidad() != null ) throw new BusinessLogicException( String.format("La Capacidad de Cocina ( capacidad = %s ) es invalida", entity.getCapacidad())) ;
-        if ( !entity.getUbicacion().isEmpty() || entity.getUbicacion() != null ) throw new BusinessLogicException( String.format("La Ubicacion de Cocina ( ubicacion = %s ) es invalida", entity.getUbicacion())) ;
+        if ( entity.getCapacidad().isEmpty() || entity.getCapacidad() == null ) throw new BusinessLogicException( String.format("La Capacidad de Cocina ( capacidad = %s ) es invalida", entity.getCapacidad())) ;
+        if ( entity.getUbicacion().isEmpty() || entity.getUbicacion() == null ) throw new BusinessLogicException( String.format("La Ubicacion de Cocina ( ubicacion = %s ) es invalida", entity.getUbicacion())) ;
         //assert !entity.getName().isEmpty() || entity.getName() != null : String.format("El Nombre de Cocina ( nombre = %s ) es invalida", entity.getName()) ;
-        if ( entity.getId() != null ) throw new BusinessLogicException( String.format("El ID de Cocina ( id = %s ) es invalida", entity.getId())) ;
+        if ( entity.getId() == null ) throw new BusinessLogicException( String.format("El ID de Cocina ( id = %s ) es invalida", entity.getId())) ;
     }
     
     /**

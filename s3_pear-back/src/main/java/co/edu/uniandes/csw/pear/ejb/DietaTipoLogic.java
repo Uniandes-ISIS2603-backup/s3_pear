@@ -120,10 +120,10 @@ public class DietaTipoLogic {
      * @param entity a verificar
      */
     private void verificaciones( DietaTipoEntity entity) throws BusinessLogicException {
-        if ( !entity.getDescripcion().isEmpty() || entity.getDescripcion() != null) throw new BusinessLogicException( "Descripcion de Dieta invalida" );
-        if ( !entity.getObjetivo().isEmpty() || entity.getObjetivo() != null ) throw new BusinessLogicException( "Objetivo de Dieta invalida" ) ;
+        if ( entity.getDescripcion().isEmpty() || entity.getDescripcion() == null) throw new BusinessLogicException( "Descripcion de Dieta invalida" );
+        if ( entity.getObjetivo().isEmpty() || entity.getObjetivo() == null ) throw new BusinessLogicException( "Objetivo de Dieta invalida" ) ;
         //if ( !entity.getName().isEmpty() || entity.getName() != null ) throw new BusinessLogicException( "Nombre de Dieta invalida" ) ;
-        if ( entity.getId() != null ) throw new BusinessLogicException( "El ID de la Dieta NO puede ser NULL" )  ;
+        if ( entity.getId() == null ) throw new BusinessLogicException( "El ID de la Dieta NO puede ser NULL" )  ;
     }
     
     /**
