@@ -157,7 +157,7 @@ public class EnvioDTO {
      * Cambia la persona de el envio
      * @param pPersona 
      */
-    private void setPersona(PersonaEntity pPersona)
+    public void setPersona(PersonaEntity pPersona)
     {
         persona = pPersona;
     }
@@ -168,14 +168,10 @@ public class EnvioDTO {
         en.setComida(comida);
         en.setDireccion(direccion);
         en.setDuracion(duracion);
-        if(recibido== true)
-        {
-            en.setRecibidoVerdadero();
-        }
-        if (recibido == false)
-                {
-                   en.setRecibidoFalso();
-                }
+        en.setPersona(persona);
+        en.setRecibidoFalso();
+        
+                
         return en;
     }
 }
