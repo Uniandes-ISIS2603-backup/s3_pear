@@ -82,7 +82,7 @@ public class EnvioResource {
      */
     @GET   
     public List<EnvioDetailDTO> getEnvios() {
-        List<EnvioDetailDTO> dtos = new ArrayList<EnvioDetailDTO>();
+        List<EnvioDetailDTO> dtos = new ArrayList<>();
         logic.getEnvios().forEach( dieta -> { 
             dtos.add(new EnvioDetailDTO(dieta));
         });
@@ -115,7 +115,7 @@ public class EnvioResource {
     
     
     /**
-     * <h1>PUT /api/eventos/{id} : Actualizar comida con el id dado.</h1>
+     * <h1>PUT /api/eventos/{id} : Actualizar envio con el id dado.</h1>
      * <pre>Cuerpo de petición: JSON {@link EnvioDetailDTO}.
      * 
      * Actualiza el evento con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.
