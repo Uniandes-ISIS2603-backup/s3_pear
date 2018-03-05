@@ -144,7 +144,7 @@ public class EnvioLogicTest {
      * Prueba para eliminar un Envio
      */
     @Test
-    public void deleteComidaTest()
+    public void deleteComidaTest() throws BusinessLogicException
     {
         EnvioEntity entity = data.get(0);
         logic.delete(entity.getId());

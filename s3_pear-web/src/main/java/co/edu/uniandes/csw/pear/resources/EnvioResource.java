@@ -25,6 +25,7 @@ package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.EnvioDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.EnvioLogic;
 import co.edu.uniandes.csw.pear.entities.EnvioEntity;
+import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -64,7 +65,7 @@ public class EnvioResource {
      */
      @POST
      
-     public EnvioDetailDTO crearEvento(EnvioDetailDTO envio)
+     public EnvioDetailDTO crearEvento(EnvioDetailDTO envio)throws BusinessLogicException
      {
           return new EnvioDetailDTO(logic.createEnvio(envio.toEntity()));
      }
@@ -132,7 +133,7 @@ public class EnvioResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public EnvioDetailDTO updateEvento (@PathParam("id") Long id, EnvioDetailDTO envio) {
+    public EnvioDetailDTO updateEvento (@PathParam("id") Long id, EnvioDetailDTO envio)throws BusinessLogicException {
         if ( logic.getEnvio(id) == null ) 
             throw new WebApplicationException("El recurso /envios/" + id + " no existe.", 404);
         return new EnvioDetailDTO(logic.updateEnvio(id, envio.toEntity()));
@@ -155,7 +156,7 @@ public class EnvioResource {
      */
     @DELETE
     @Path("{id: \\d+}")
-     public void deleteEvento(@PathParam("id") Long id) {
+     public void deleteEvento(@PathParam("id") Long id)throws BusinessLogicException {
         if ( logic.getEnvio(id) == null )
             throw new WebApplicationException("El recurso /envios/" + id + " no existe.", 404);
         logic.delete(id);

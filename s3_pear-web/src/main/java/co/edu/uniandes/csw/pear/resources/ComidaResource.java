@@ -27,6 +27,7 @@ package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.ComidaDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.ComidaLogic;
 import co.edu.uniandes.csw.pear.entities.ComidaEntity;
+import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -62,7 +63,7 @@ private ComidaLogic logic;
      */
      @POST
      
-     public ComidaDetailDTO crearComida(ComidaDetailDTO comida)
+     public ComidaDetailDTO crearComida(ComidaDetailDTO comida)throws BusinessLogicException
      {
          return new ComidaDetailDTO(logic.createComida(comida.toEntity()));
      }
@@ -131,7 +132,7 @@ private ComidaLogic logic;
      */
     @PUT
     @Path("{id: \\d+}")
-    public ComidaDetailDTO updateComida(@PathParam("id") Long id, ComidaDetailDTO comida) {
+    public ComidaDetailDTO updateComida(@PathParam("id") Long id, ComidaDetailDTO comida)throws BusinessLogicException {
         if ( logic.getComida(id) == null ) 
             throw new WebApplicationException("El recurso /comidas/" + id + " no existe.", 404);
         return new ComidaDetailDTO(logic.updateComida(id, comida.toEntity()));
@@ -154,7 +155,7 @@ private ComidaLogic logic;
      */
     @DELETE
     @Path("{id: \\d+}")
-     public void deleteComida(@PathParam("id") Long id) {
+     public void deleteComida(@PathParam("id") Long id)throws BusinessLogicException {
         if ( logic.getComida(id) == null )
             throw new WebApplicationException("El recurso /comidas/" + id + " no existe.", 404);
         logic.delete(id);

@@ -98,11 +98,12 @@ public class ComidaLogicTest {
     }
 
     /**
-     * Prueba para crear una Comida
+     * Prueba para crear una Comida con tipo desayuno
      */
     @Test
-    public void createTest() throws BusinessLogicException {
+    public void createDesayunoTest() throws BusinessLogicException {
         ComidaEntity newEntity = factory.manufacturePojo(ComidaEntity.class);
+        newEntity.setTIPO("desayuno");
         ComidaEntity result = logic.createComida(newEntity);
         Assert.assertNotNull(result);
         ComidaEntity entity = em.find(ComidaEntity.class, result.getId());
@@ -110,6 +111,47 @@ public class ComidaLogicTest {
         Assert.assertEquals(newEntity.getName(), entity.getName());
     }
     
+      /**
+     * Prueba para crear una Comida con tipo almuerzo
+     */
+    @Test
+    public void createAlmuerzoTest() throws BusinessLogicException {
+        ComidaEntity newEntity = factory.manufacturePojo(ComidaEntity.class);
+        newEntity.setTIPO("almuerzo");
+        ComidaEntity result = logic.createComida(newEntity);
+        Assert.assertNotNull(result);
+        ComidaEntity entity = em.find(ComidaEntity.class, result.getId());
+        Assert.assertEquals(newEntity.getId(), entity.getId());
+        Assert.assertEquals(newEntity.getName(), entity.getName());
+    }
+    
+      /**
+     * Prueba para crear una Comida con tipo cena
+     */
+    @Test
+    public void createCenaTest() throws BusinessLogicException {
+        ComidaEntity newEntity = factory.manufacturePojo(ComidaEntity.class);
+        newEntity.setTIPO("cena");
+        ComidaEntity result = logic.createComida(newEntity);
+        Assert.assertNotNull(result);
+        ComidaEntity entity = em.find(ComidaEntity.class, result.getId());
+        Assert.assertEquals(newEntity.getId(), entity.getId());
+        Assert.assertEquals(newEntity.getName(), entity.getName());
+    }
+    
+      /**
+     * Prueba para crear una Comida con tipo adicional
+     */
+    @Test
+    public void createAdicionalTest() throws BusinessLogicException {
+        ComidaEntity newEntity = factory.manufacturePojo(ComidaEntity.class);
+        newEntity.setTIPO("adicional");
+        ComidaEntity result = logic.createComida(newEntity);
+        Assert.assertNotNull(result);
+        ComidaEntity entity = em.find(ComidaEntity.class, result.getId());
+        Assert.assertEquals(newEntity.getId(), entity.getId());
+        Assert.assertEquals(newEntity.getName(), entity.getName());
+    }
     /**
      * Prueba para consultar la lista de Comidas
      */
@@ -145,7 +187,7 @@ public class ComidaLogicTest {
      * Prueba para eliminar una Comida
      */
     @Test
-    public void deleteComidaTest()
+    public void deleteComidaTest() throws BusinessLogicException
     {
         ComidaEntity entity = data.get(0);
         logic.delete(entity.getId());
