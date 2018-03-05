@@ -45,10 +45,7 @@ public class SemanaLogicTest {
     private UserTransaction utx;
     
     private List<SemanaEntity> data = new ArrayList<SemanaEntity>();
-    
-    private List<DiaEntity> diasData = new ArrayList<DiaEntity>();
-    
-    
+   
     @Inject
     private SemanaLogic logic;
     
@@ -87,7 +84,6 @@ public class SemanaLogicTest {
      */
     private void clearData() {
         em.createQuery("delete from SemanaEntity").executeUpdate();
-        em.createQuery("delete from DiaEntity").executeUpdate();
     }
     
     /**
@@ -99,11 +95,6 @@ public class SemanaLogicTest {
             SemanaEntity entity = factory.manufacturePojo(SemanaEntity.class);
             em.persist(entity);
             data.add(entity);
-        }
-        for (int i = 0; i < 3; i++) {
-            DiaEntity dias = factory.manufacturePojo(DiaEntity.class);
-            em.persist(dias);
-            diasData.add(dias);
         }
     }
     
@@ -182,33 +173,5 @@ public class SemanaLogicTest {
         Assert.assertEquals(pojoEntity.getName(), resp.getName());
  
     }
-    
-    /**
-     * Prueba para obtener una instancia de Dias asociada a una instancia
-     * Semana
-     */
-    @Test
-    public void getDiaTest() throws BusinessLogicException {
-        SemanaEntity entity = data.get(0);
-        DiaEntity diaEntity = diasData.get(0);
-        DiaEntity response = logic.getDiaSemana(entity.getId(), diaEntity.getId());
-
-        Assert.assertEquals(diaEntity.getId(), response.getId());
-        Assert.assertEquals(diaEntity.getName(), response.getName());
-        Assert.assertEquals(diaEntity.getFecha(), response.getFecha());
-        Assert.assertEquals(diaEntity.getSeEnvia(), response.getSeEnvia());
-        Assert.assertEquals(diaEntity.getRecomendacion(), response.getRecomendacion());
-    }
-    
-    /**
-     * Prueba para obtener una colección de instancias de Dias asociadas a una
-     * instancia Semana
-     */
-    @Test
-    public void listDiasTest() {
-        List<DiaEntity> list = logic.getDiasSemana(data.get(0).getId());
-        Assert.assertEquals(1, list.size());
-    }
-
     
 }

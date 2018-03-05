@@ -14,11 +14,14 @@ import java.util.List;
  * en formato JSON.
  *  El formato JSON de este objeto es el siguiente:
  * {
- *  "fechaLunes":String,
- *  "dias":[{"SeEnvia": boolean,
- *           "recomendacion": String,
- *           "fecha": String
- *         }]
+ *  "id": 123,
+ *  "fechaLunes": "14/02/2018",
+ *  "dias":[
+ *      {    "SeEnvia": true,
+ *           "recomendacion": "evitar la sal",
+ *           "fecha": "14/02/2018"
+ *      }
+ *         ]
  * }
  *
  * @author v.chacon
@@ -28,18 +31,24 @@ public class SemanaDTO {
     //-----------------------------------------------------------
     //Atributos
     //-----------------------------------------------------------
+    
+     private Long id;
+     
      private String fechaLunes;
     
     //-----------------------------------------------------------
     // Constructor
     //-----------------------------------------------------------
     
+     
+     
      /**
       * Constructor de la clase SemanaDTO
       * @param entity entidad a partir de la cual se construira el dto
       */
      public SemanaDTO(SemanaEntity entity){
         fechaLunes = entity.getFechaLunes();
+        id = entity.getId();
     }
      
      /**
@@ -53,6 +62,14 @@ public class SemanaDTO {
     // Metodos
     //-----------------------------------------------------------
     
+    
+    public Long getId() {
+        return id;
+    }
+     
+    public void setId(Long pId) {
+        id = pId;
+    }
     /**
      * Determina la fecha inicial de la semana
      * @param date fecha inicial
@@ -78,8 +95,7 @@ public class SemanaDTO {
         SemanaEntity entity = new SemanaEntity();
         
         entity.setFechaLunes(fechaLunes);
-
-        
+        entity.setId(id); 
         return entity;
     }
 }

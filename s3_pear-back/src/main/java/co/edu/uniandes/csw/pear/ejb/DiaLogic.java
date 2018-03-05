@@ -27,7 +27,7 @@ public class DiaLogic {
     /**
      * Constante que representa el logger
      */
-    private static final Logger LOGGER = Logger.getLogger(DietaTipoLogic.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(DiaLogic.class.getName());
     
     /**
      * Conexion con la Persistencia

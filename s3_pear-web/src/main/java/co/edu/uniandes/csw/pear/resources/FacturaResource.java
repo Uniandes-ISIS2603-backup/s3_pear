@@ -23,9 +23,12 @@ SOFTWARE.
  */
 package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.FacturaDetailDTO;
+import co.edu.uniandes.csw.pear.ejb.FacturaLogic;
+import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 
 /**
@@ -44,6 +47,18 @@ import javax.ws.rs.*;
  * @author v.chacon
  */
 
+/**
+ * FacturaDTO modela el objeto que se transfiere entre el cliente y el servidor 
+ * en formato JSON.
+ * 
+ * El formato JSon que representa el objeto es el siguiente: 
+ * {
+ *      "cantidadProductos": 2,
+ *      "numeroFacturaDeVenta": 12398,
+ * }
+ * 
+ */
+
 @Path("facturas")
 @Produces("application/json")
 @Consumes("application/json")
@@ -51,7 +66,14 @@ import javax.ws.rs.*;
 @RequestScoped
 public class FacturaResource {
     
-        /**
+     /**
+     * Conexion con la logica
+     */
+    @Inject
+    FacturaLogic logic;
+    
+    
+    /**
      * <h1>POST /api/facturas : Crear una factura.</h1>
      * 
      * <pre>Cuerpo de petición: JSON {@link FacturaDetailDTO}.
@@ -73,7 +95,7 @@ public class FacturaResource {
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la factura.
      */
     @POST
-    public FacturaDetailDTO createFactura(FacturaDetailDTO factura) {
+    public FacturaDetailDTO createFactura(FacturaDetailDTO factura) throws BusinessLogicException{
         return factura;
     }
     

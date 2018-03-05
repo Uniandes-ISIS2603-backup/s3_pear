@@ -23,9 +23,12 @@ SOFTWARE.
  */
 package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.SemanaDetailDTO;
+import co.edu.uniandes.csw.pear.ejb.SemanaLogic;
+import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 
 /**
@@ -44,6 +47,20 @@ import javax.ws.rs.*;
  * @author v.chacon
  */
 
+/**
+ *  El formato JSON de este objeto es el siguiente:
+ * {
+ *  "id": 123,
+ *  "fechaLunes": "14/02/2018",
+ *  "dias":[
+ *      {    "SeEnvia": true,
+ *           "recomendacion": "evitar la sal",
+ *           "fecha": "14/02/2018"
+ *      }
+ *         ]
+ * }
+*/
+
 @Path("semanas")
 @Produces("application/json")
 @Consumes("application/json")
@@ -51,7 +68,16 @@ import javax.ws.rs.*;
 
 public class SemanaResource {
     
-            /**
+   
+    /**
+     * Conexion con la logica
+     */
+    @Inject
+    SemanaLogic logic;
+    
+    
+     
+    /**
      * <h1>POST /api/semanas : Crear una semana.</h1>
      * 
      * <pre>Cuerpo de petición: JSON {@link SemanaDetailDTO}.
@@ -73,8 +99,8 @@ public class SemanaResource {
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la semana.
      */
     @POST
-    public SemanaDetailDTO createSemana(SemanaDetailDTO semana) {
-        return semana;
+    public SemanaDetailDTO createSemana(SemanaDetailDTO semana) throws BusinessLogicException {
+        return new SemanaDetailDTO(logic.createSemana(semana.toEntity()));
     }
     
     

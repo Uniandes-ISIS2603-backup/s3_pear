@@ -30,6 +30,15 @@ public class DiaDetailDTO extends DiaDTO{
      */
     public DiaDetailDTO(DiaEntity entity){
         super(entity);
+        if(entity.getComidas() != null){
+            comidas = new ArrayList<>();
+            entity.getComidas().forEach(com -> {
+                comidas.add(new ComidaDTO(com));
+            });
+        }
+        else{
+            comidas = new ArrayList<>();
+        }
     }
     
     /**
@@ -66,6 +75,7 @@ public class DiaDetailDTO extends DiaDTO{
             this.getComidas().forEach(comi -> {
              listaComidas.add(comi.toEntity());
             });
+            entity.setComidas(listaComidas);
         }
         return entity;
     }

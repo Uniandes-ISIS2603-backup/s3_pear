@@ -55,7 +55,7 @@ public class DiaPersistence {
      */
     public List<DiaEntity> findAll() {
         LOGGER.info("Consultando todos los dias");
-        TypedQuery query = em.createQuery("select u from DiaEntity u", DiaEntity.class);
+        Query query = em.createQuery("select u from DiaEntity u", DiaEntity.class);
         return query.getResultList();
     }
         
@@ -65,6 +65,7 @@ public class DiaPersistence {
      * @return el dia con ese identificador
      */
      public DiaEntity find(Long id) {
+        LOGGER.log(Level.INFO, "Consultando dia con id = {0}", id);
         return em.find(DiaEntity.class, id);
     }
     

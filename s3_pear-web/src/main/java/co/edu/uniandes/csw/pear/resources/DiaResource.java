@@ -23,9 +23,12 @@ SOFTWARE.
  */
 package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.DiaDetailDTO;
+import co.edu.uniandes.csw.pear.ejb.DiaLogic;
+import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 
 /**
@@ -44,6 +47,22 @@ import javax.ws.rs.*;
  * @author v.chacon
  */
 
+/**
+ * * El formato JSON de este objeto es el siguiente:
+ * {"SeEnvia": true,
+ *  "recomendacion": "Evitar la sal",
+ *  "fecha": "14/02/2018",
+ *  "comida": [
+ *       {
+ *              "cantidad": 2,
+ *              "alimentos": "1 Zanahoria, 1 Tomate",
+ *              "direccion": "Calle 48",
+ *              "tipo":  "ADELGAZAR"
+ *       }
+ *            ]
+ * }
+ */
+
 @Path("dias")
 @Produces("application/json")
 @Consumes("application/json")
@@ -51,7 +70,15 @@ import javax.ws.rs.*;
 
 public class DiaResource {
     
-            /**
+      /**
+     * Conexion con la logica
+     */
+    @Inject
+    DiaLogic logic;
+    
+    
+    
+    /**
      * <h1>POST /api/dias : Crear un dia.</h1>
      * 
      * <pre>Cuerpo de petición: JSON {@link DiaDetailDTO}.
@@ -73,7 +100,7 @@ public class DiaResource {
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la factura.
      */
     @POST
-    public DiaDetailDTO createDia (DiaDetailDTO dia) {
+    public DiaDetailDTO createDia (DiaDetailDTO dia) throws BusinessLogicException {
         return dia;
     }
     

@@ -26,7 +26,7 @@ public class SemanaLogic {
     /**
      * Constante que representa el logger
      */
-    private static final Logger LOGGER = Logger.getLogger(DietaTipoLogic.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(SemanaLogic.class.getName());
     
      /**
      * Conexion con la Persistencia
@@ -84,7 +84,7 @@ public class SemanaLogic {
      */
     public DiaEntity getDiaSemana(Long idDia, Long idSemana){
          LOGGER.log(Level.INFO, "Inicia proceso de consultar el Dia con id = {0} de la Semana con id = {1}", new Object[]{idDia, idSemana});           
-         List<DiaEntity> listaDias =this.getDiasSemana(idSemana);
+         List<DiaEntity> listaDias =this.getSemana(idSemana).getListaDias();
          DiaEntity dia = new DiaEntity();
          dia.setId(idDia);
          int index = listaDias.indexOf(dia);

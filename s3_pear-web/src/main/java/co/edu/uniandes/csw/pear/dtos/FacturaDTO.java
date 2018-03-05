@@ -15,8 +15,8 @@ import co.edu.uniandes.csw.pear.entities.FacturaEntity;
  * 
  * El formato JSon que representa el objeto es el siguiente: 
  * {
- *  "cantidadProductos": int,
- *  "numeroFacturaDeVenta": int,
+ *      "cantidadProductos": 2,
+ *      "numeroFacturaDeVenta": 12398,
  * }
  * 
  * @author v.chacon
@@ -28,6 +28,7 @@ public class FacturaDTO {
     //Atributos
     //-----------------------------------------------------------
 
+    private Long id;
     
     private Integer cantidadProductos;
     
@@ -44,6 +45,7 @@ public class FacturaDTO {
     public FacturaDTO(FacturaEntity entity){
         cantidadProductos = entity.getCantidadDeProductos();
         numeroFacturaDeVenta = entity.getNumeroFactura();
+        id = entity.getId();
     }
     
     /**
@@ -57,6 +59,15 @@ public class FacturaDTO {
     //Metodos
     //-----------------------------------------------------------
   
+    
+     public Long getId() {
+        return id;
+    }
+     
+    public void setId(Long pId) {
+        id = pId;
+    }
+
     /**
      * Determina la cantidad de productos que se estan facturando
      * @param am cantidad
@@ -97,6 +108,7 @@ public class FacturaDTO {
         FacturaEntity entity = new FacturaEntity();
         entity.setCantidadDeProductos(cantidadProductos);
         entity.setNumeroFactura(numeroFacturaDeVenta); 
+        entity.setId(id);
         return entity;
     }
  }

@@ -26,7 +26,7 @@ public class FacturaLogic {
      /**
      * Constante que representa el logger
      */
-    private static final Logger LOGGER = Logger.getLogger(DietaTipoLogic.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(FacturaLogic.class.getName());
     
     /**
      * Conexion con la Persistencia

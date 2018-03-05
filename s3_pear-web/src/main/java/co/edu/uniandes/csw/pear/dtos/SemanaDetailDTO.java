@@ -25,7 +25,17 @@ public class SemanaDetailDTO extends SemanaDTO {
     
     public SemanaDetailDTO(SemanaEntity entity){
         super(entity);
+        if(entity.getListaDias() != null){
+            dias =  new ArrayList<>();
+            entity.getListaDias().forEach(di -> {
+                dias.add(new DiaDTO(di));
+            });
+        }
+        else{
+            dias = new ArrayList<>();
+        }
     }
+    
     public SemanaDetailDTO(){
         super();
     }

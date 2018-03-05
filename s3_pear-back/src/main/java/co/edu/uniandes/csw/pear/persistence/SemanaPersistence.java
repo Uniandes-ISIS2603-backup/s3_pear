@@ -19,10 +19,44 @@ import javax.persistence.*;
 @Stateless
 public class SemanaPersistence {
     
-       private static final Logger LOGGER = Logger.getLogger(DiaPersistence.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(DiaPersistence.class.getName());
 
     @PersistenceContext(unitName = "PearPU")
     protected EntityManager em;
+    
+    /**
+     * Busca una SemanaEntity con el identificador dado por parametro
+     * @param id identificador de una SemanaEntity
+     * @return la semana con ese identificador
+     */
+     public SemanaEntity find(Long id) {
+        LOGGER.log(Level.INFO, "Consultando semana con id = {0}", id);
+        return em.find(SemanaEntity.class, id);
+    }
+        
+    /**
+     * Busca si hay alguna semana con el nombre que entra por parametro
+     * @param name Nombre de la semana que se está buscando
+     * @return  la primer semana que se encuentra.
+     */
+    public SemanaEntity findByName(String name) {
+       LOGGER.log(Level.INFO, "Consultando la semana con name= ", name);
+        TypedQuery<SemanaEntity> q = em.createQuery("select u from SemanaEntity u where u.name = :name", SemanaEntity.class);
+        q = q.setParameter("name", name);
+        return q.getSingleResult();
+    }
+    
+    /**
+     * Busca todos las semanas de tipo SemanaEntity
+     * @return lista con todas los dias
+     */
+    public List<SemanaEntity> findAll() {
+        LOGGER.info("Consultando todas las semanas");
+        Query query = em.createQuery("select u from SemanaEntity u", SemanaEntity.class);
+        return query.getResultList();
+    }
+    
+    
     
     /**
      * Crea una nueva semana a partir de una entidad dada
@@ -36,37 +70,7 @@ public class SemanaPersistence {
         LOGGER.info("Creando una semana nueva");
         return entity;
     }
-    
-      /**
-     * Busca si hay alguna semana con el nombre que entra por parametro
-     * @param name: Nombre de la semana que se está buscando
-     * @return  la primer semana que se encuentra.
-     */
-    public SemanaEntity findByName(String name) {
-       LOGGER.log(Level.INFO, "Consultando la semana con name= ", name);
-        TypedQuery<SemanaEntity> q = em.createQuery("select u from SemanaEntity u where u.name = :name", SemanaEntity.class);
-        q = q.setParameter("name", name);
-        return q.getSingleResult();
-    }
-    /**
-     * Busca todos las semanas de tipo SemanaEntity
-     * @return lista con todas los dias
-     */
-    public List<SemanaEntity> findAll() {
-        LOGGER.info("Consultando todas las semanas");
-        TypedQuery query = em.createQuery("select u from SemanaEntity u", SemanaEntity.class);
-        return query.getResultList();
-    }
-        
-    /**
-     * Busca una SemanaEntity con el identificador dado por parametro
-     * @param id identificador de una SemanaEntity
-     * @return la semana con ese identificador
-     */
-     public SemanaEntity find(Long id) {
-        return em.find(SemanaEntity.class, id);
-    }
-    
+
      /**
       * Actualiza una semana de acuerdo a una entidad
       * @param entity entidad de tipo SemanaEntity

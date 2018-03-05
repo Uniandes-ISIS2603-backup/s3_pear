@@ -11,15 +11,17 @@ import co.edu.uniandes.csw.pear.entities.DiaEntity;
  * en formato JSON.
  * 
  * El formato JSON de este objeto es el siguiente:
- * {"Seenvia": boolean,
- *  "recomendacion": String,
- *  "fecha": String,
- *  "comida": [{
- *              "cantidad":int,
- *              "alimentos":String,
- *              "direccion": String,
- *              "tipo":String
- *            }]
+ * {"SeEnvia": true,
+ *  "recomendacion": "Evitar la sal",
+ *  "fecha": "14/02/2018",
+ *  "comida": [
+ *       {
+ *              "cantidad": 2,
+ *              "alimentos": "1 Zanahoria, 1 Tomate",
+ *              "direccion": "Calle 48",
+ *              "tipo":  "ADELGAZAR"
+ *       }
+ *            ]
  * }
  * @author v.chacon
  */
@@ -28,6 +30,8 @@ public class DiaDTO {
     //-----------------------------------------------------------
     //Atributos
     //-----------------------------------------------------------
+    
+    private Long id;
     
     private Boolean seEnvia;
  
@@ -48,6 +52,7 @@ public class DiaDTO {
         seEnvia = entity.getSeEnvia();
         recomendacion = entity.getRecomendacion();
         fecha = entity.getRecomendacion();
+        id = entity.getId();
     }
     
     /**
@@ -60,6 +65,14 @@ public class DiaDTO {
     // Metodos
     //-----------------------------------------------------------
  
+    public Long getId() {
+        return id;
+    }
+     
+    public void setId(Long pId) {
+        id = pId;
+    }
+    
     /**
      * Determina si la comida se envia o no (Esto varia segun la disponibilidad del cliente)
      * @param pSeEnvia boolean para indicar si se debe o no enviar la comida programada
@@ -115,6 +128,7 @@ public class DiaDTO {
         entity.setSeEnvia(seEnvia);
         entity.setRecomendacion(recomendacion);
         entity.setFecha(fecha);
+        entity.setId(id);
         
         return entity;
     }
