@@ -29,8 +29,12 @@ public class PersonaDetailDTO extends PersonaDTO{
     //Constructor
     //-----------------------------------------------------------
     
+    public PersonaDetailDTO(){
+        super();
+    }
+    
     public PersonaDetailDTO(PersonaEntity entidad){
-        super(entidad);
+        
     }
     
     //-----------------------------------------------------------

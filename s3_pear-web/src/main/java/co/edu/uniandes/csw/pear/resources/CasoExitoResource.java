@@ -8,13 +8,14 @@ import co.edu.uniandes.csw.pear.dtos.CasoExitoDetailDTO;
 import javax.ws.rs.*;
 import java.util.*;
 import javax.enterprise.context.RequestScoped;
+import javax.ws.rs.core.MediaType;
 
 /**
  * @author pa.suarezm
  */
 @Path("casos")
-@Produces("application/json")
-@Consumes("application/json")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 @RequestScoped
 public class CasoExitoResource {
     

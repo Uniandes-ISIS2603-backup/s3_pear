@@ -25,7 +25,7 @@ public class CasoExitoDetailDTO {
      * Constructor por defecto
      */
     public CasoExitoDetailDTO(){
-        
+        super();
     }
     
     //----------------------------------------

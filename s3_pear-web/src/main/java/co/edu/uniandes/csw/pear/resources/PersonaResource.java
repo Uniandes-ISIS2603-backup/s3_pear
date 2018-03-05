@@ -9,13 +9,14 @@ import co.edu.uniandes.csw.pear.dtos.PersonaDetailDTO;
 import javax.ws.rs.*;
 import java.util.*;
 import javax.enterprise.context.RequestScoped;
+import javax.ws.rs.core.MediaType;
 
 /**
  * @author pa.suarezm
  */
 @Path("personas")
-@Produces("application/json")
-@Consumes("application/json")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 @RequestScoped
 public class PersonaResource {
     
