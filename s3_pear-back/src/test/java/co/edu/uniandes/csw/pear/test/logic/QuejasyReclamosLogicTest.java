@@ -92,6 +92,7 @@ public class QuejasyReclamosLogicTest {
 
         for (int i = 0; i < 3; i++) {
             QuejasyReclamosEntity entity = factory.manufacturePojo(QuejasyReclamosEntity.class);
+            entity.setAsunto("queja");
             em.persist(entity);
             data.add(entity);
          
@@ -106,6 +107,7 @@ public class QuejasyReclamosLogicTest {
     @Test
     public void createQuejayReclamoTest() throws BusinessLogicException {
         QuejasyReclamosEntity newEntity = factory.manufacturePojo(QuejasyReclamosEntity.class);
+        newEntity.setAsunto("queja");
         QuejasyReclamosEntity result = quejasLogic.createQuejasyReclamos(newEntity);
         Assert.assertNotNull(result);
         QuejasyReclamosEntity entity = em.find(QuejasyReclamosEntity.class, result.getId());
