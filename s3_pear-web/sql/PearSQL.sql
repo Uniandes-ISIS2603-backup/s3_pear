@@ -31,13 +31,13 @@ insert into CasoExitoEntity (id, comentario, testimonio) values (8, 'Comentario 
 insert into CasoExitoEntity (id, comentario, testimonio) values (9, 'Comentario 9', 'Testimonio 9');
 insert into CasoExitoEntity (id, comentario, testimonio) values (10, 'Comentario 10', 'Testimonio 10');
 
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (1, 'n1', 'a1', 1, 'd1', 'c1', true, 'i1');
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (2, 'n2', 'a2', 2, 'd2', 'c2', true, 'i2');
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (3, 'n3', 'a3', 3, 'd3', 'c3', true, 'i3');
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (4, 'n4', 'a4', 4, 'd4', 'c4', true, 'i4');
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (5, 'n5', 'a5', 5, 'd5', 'c5', true, 'i5');
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (6, 'n6', 'a6', 6, 'd6', 'c6', true, 'i6');
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (7, 'n7', 'a7', 7, 'd7', 'c7', true, 'i7');
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (8, 'n8', 'a8', 8, 'd8', 'c8', true, 'i8');
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (9, 'n9', 'a9', 9, 'd9', 'c9', true, 'i9');
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (10, 'n10', 'a10', 10, 'd10', 'c10', true, 'i10');
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (1, 'n1', 'a1', 1, 'd1', 'c1', 0, 'i1');
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (2, 'n2', 'a2', 2, 'd2', 'c2', 0, 'i2');
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (3, 'n3', 'a3', 3, 'd3', 'c3', 0, 'i3');
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (4, 'n4', 'a4', 4, 'd4', 'c4', 0, 'i4');
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (5, 'n5', 'a5', 5, 'd5', 'c5', 0, 'i5');
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (6, 'n6', 'a6', 6, 'd6', 'c6', 0, 'i6');
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (7, 'n7', 'a7', 7, 'd7', 'c7', 0, 'i7');
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (8, 'n8', 'a8', 8, 'd8', 'c8', 0, 'i8');
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (9, 'n9', 'a9', 9, 'd9', 'c9', 0, 'i9');
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (10, 'n10', 'a10', 10, 'd10', 'c10', 0, 'i10');
