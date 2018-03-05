@@ -1,0 +1,197 @@
+{
+	"id": "864b1ea4-48f6-0623-9a20-ec16c364d07a",
+	"name": "DietaTipo",
+	"description": "postman de dieta tipo",
+	"order": [
+		"c85df94d-cfab-1cd9-b043-570314bc44dd",
+		"068d9af2-13bb-56c9-75fd-277eea2c6e2b",
+		"1f9bc620-405b-bab7-5c65-4da8325a5e7e",
+		"a5c32bbb-9a83-3adc-b8ed-e51dcae5f90a",
+		"c839c403-e4fe-34b3-e416-5b5422a2cae4",
+		"d916669f-d9b5-e42d-7b84-bda4a6a0cd0d"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1520275261322,
+	"owner": "3730389",
+	"public": false,
+	"requests": [
+		{
+			"id": "068d9af2-13bb-56c9-75fd-277eea2c6e2b",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/dietas",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 4012\"] = responseCode.code === 412;\r\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1520280737295,
+			"name": "Falla creando una dieta",
+			"description": "",
+			"collectionId": "864b1ea4-48f6-0623-9a20-ec16c364d07a",
+			"responses": [],
+			"rawModeData": "{\n \n   \n   \"objetivo\": \"un post con otro objetivo x\",\n   \"descripcion\": \"un post con otra  descripcion y\"\n   \n }"
+		},
+		{
+			"id": "1f9bc620-405b-bab7-5c65-4da8325a5e7e",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/dietas",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "var data = JSON.parse(responseBody);\r\npostman.setGlobalVariable(\"new_id_1\",data.id);\r\ntests[\"Status code is 200\"] = responseCode.code === 200;\r\nconsole.log(data.id);",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1520280619547,
+			"name": "Retorna todas las dietas",
+			"description": "",
+			"collectionId": "864b1ea4-48f6-0623-9a20-ec16c364d07a",
+			"responses": [],
+			"rawModeData": "{\n \n   \"id\": 7,\n   \"objetivo\": \"un post con objetivo\",\n   \"descripcion\": \"un post con descripcion\"\n   \n }"
+		},
+		{
+			"id": "a5c32bbb-9a83-3adc-b8ed-e51dcae5f90a",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/dietas/4",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "var data = JSON.parse(responseBody);\r\npostman.setGlobalVariable(\"new_id_2\",data.id);\r\ntests[\"Status code is 200\"] = responseCode.code === 200;\r\nconsole.log(data.id);",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1520280615894,
+			"name": "Retorna la dieta con id = 4",
+			"description": "",
+			"collectionId": "864b1ea4-48f6-0623-9a20-ec16c364d07a",
+			"responses": [],
+			"rawModeData": "{\n \n   \"id\": 7,\n   \"objetivo\": \"un post con objetivo\",\n   \"descripcion\": \"un post con descripcion\"\n   \n }"
+		},
+		{
+			"id": "c839c403-e4fe-34b3-e416-5b5422a2cae4",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/dietas/4",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\r\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1520280613216,
+			"name": "Actualiza la informacion de la dieta con id = 4",
+			"description": "",
+			"collectionId": "864b1ea4-48f6-0623-9a20-ec16c364d07a",
+			"responses": [],
+			"rawModeData": "{\n \n   \"id\": 4,\n   \"objetivo\": \"un put con objetivo un objetivo nuevo\",\n   \"descripcion\": \"un put con descripcion nuevo\"\n }"
+		},
+		{
+			"id": "c85df94d-cfab-1cd9-b043-570314bc44dd",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/dietas",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "var data = JSON.parse(responseBody);\r\npostman.setGlobalVariable(\"new_id\",data.id);\r\ntests[\"Status code is 200\"] = responseCode.code === 200;\r\nconsole.log(data.id);",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1520280622213,
+			"name": "Crea una Dieta",
+			"description": "",
+			"collectionId": "864b1ea4-48f6-0623-9a20-ec16c364d07a",
+			"responses": [],
+			"rawModeData": "{\n \n   \"id\": 7,\n   \"objetivo\": \"un post con otro objetivo x\",\n   \"descripcion\": \"un post con otra  descripcion y\"\n   \n }"
+		},
+		{
+			"id": "d916669f-d9b5-e42d-7b84-bda4a6a0cd0d",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/dietas/5",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1520280804455,
+			"name": "Actualiza la informacion de la dieta con id = 7",
+			"description": "",
+			"collectionId": "864b1ea4-48f6-0623-9a20-ec16c364d07a",
+			"responses": [],
+			"rawModeData": ""
+		}
+	]
+}
