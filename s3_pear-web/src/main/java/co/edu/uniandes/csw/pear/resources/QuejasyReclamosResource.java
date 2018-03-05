@@ -151,7 +151,7 @@ public class QuejasyReclamosResource
         {
             throw new BusinessLogicException("La queja o reclamo que desea actualizar no existe");
         }
-        return new QuejasyReclamosDetailDTO(entidad);
+        return new QuejasyReclamosDetailDTO(logica.updateQuejayReclamo(quejayreclamo.toEntity()));
     }
     
     /**

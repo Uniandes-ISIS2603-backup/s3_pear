@@ -1,0 +1,603 @@
+{
+	"id": "40ea50a6-75b2-49cf-a244-13310fa10072",
+	"name": "Calificacion",
+	"allTests": [],
+	"timestamp": "2018-03-05T14:36:24.166Z",
+	"collection_id": "c971cae4-5865-4a9e-c274-2be157c4e1b0",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "no-environment",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "c971cae4-5865-4a9e-c274-2be157c4e1b0",
+		"name": "Calificacion",
+		"description": "",
+		"order": [
+			"1012ae32-6dce-3b4c-6276-b1ab8f3952ef",
+			"2ba24b5a-fce0-8e6b-7e49-98d76bb781ee",
+			"dea612ca-0d80-77a1-90b9-3930a2a10232",
+			"f7845dd2-7b91-8660-5928-745938e4a262",
+			"a0184ddc-d936-dd5e-ac9e-d3653f9eb8d2",
+			"f4f47bfd-ce66-44e5-1a25-75b32075e9cf",
+			"75109579-9fac-78a3-6f7b-3ed1ee055dbb",
+			"090cb5d9-5bad-25d6-0b33-18801ad3fa5d",
+			"0073f9e8-329a-4f37-975f-fd2a1197fbfb",
+			"85883263-b6d8-b5bd-480c-ea7c34c8a592"
+		],
+		"folders": [],
+		"folders_order": [],
+		"timestamp": 1520113053539,
+		"synced": false,
+		"remote_id": 0,
+		"owner": 0,
+		"sharedWithTeam": false,
+		"subscribed": false,
+		"remoteLink": "",
+		"remoteLinkUpdatedAt": null,
+		"public": false,
+		"createdAt": 1520113053539,
+		"updatedAt": 1520260544765,
+		"write": true,
+		"published": false,
+		"favorite": false,
+		"permissions": {},
+		"syncedPermissions": {},
+		"events": [],
+		"variables": [],
+		"auth": null
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [],
+	"results": [
+		{
+			"name": "Dar una lista con todas las calificaciones",
+			"id": "1012ae32-6dce-3b4c-6276-b1ab8f3952ef",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"27"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": "27",
+			"totalRequestTime": "27",
+			"iterationResults": {}
+		},
+		{
+			"name": "crear una calificacion nueva",
+			"id": "2ba24b5a-fce0-8e6b-7e49-98d76bb781ee",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"31"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": "31",
+			"totalRequestTime": "31",
+			"iterationResults": {}
+		},
+		{
+			"name": "dar una calificacion",
+			"id": "dea612ca-0d80-77a1-90b9-3930a2a10232",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"75"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": "75",
+			"totalRequestTime": "75",
+			"iterationResults": {}
+		},
+		{
+			"name": "Dar una calificacion que no existe.",
+			"id": "f7845dd2-7b91-8660-5928-745938e4a262",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones/50",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"tests": {
+				"la calificacion no existe": true
+			},
+			"testPassFailCounts": {
+				"la calificacion no existe": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"102"
+			],
+			"allTests": [
+				{
+					"la calificacion no existe": true
+				}
+			],
+			"time": "102",
+			"totalRequestTime": "102",
+			"iterationResults": {}
+		},
+		{
+			"name": "Crear una calificacion con puntuacion mayor a 10",
+			"id": "a0184ddc-d936-dd5e-ac9e-d3653f9eb8d2",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"tests": {
+				"La puntuacion no puede ser mayor a 10": true
+			},
+			"testPassFailCounts": {
+				"La puntuacion no puede ser mayor a 10": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"55"
+			],
+			"allTests": [
+				{
+					"La puntuacion no puede ser mayor a 10": true
+				}
+			],
+			"time": "55",
+			"totalRequestTime": "55",
+			"iterationResults": {}
+		},
+		{
+			"name": "Crear calificacion con puntuacion menor a 0",
+			"id": "f4f47bfd-ce66-44e5-1a25-75b32075e9cf",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"tests": {
+				"la puntuacion no puede ser menor a 0": true
+			},
+			"testPassFailCounts": {
+				"la puntuacion no puede ser menor a 0": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"144"
+			],
+			"allTests": [
+				{
+					"la puntuacion no puede ser menor a 0": true
+				}
+			],
+			"time": "144",
+			"totalRequestTime": "144",
+			"iterationResults": {}
+		},
+		{
+			"name": "Actualizar una calificacion.",
+			"id": "75109579-9fac-78a3-6f7b-3ed1ee055dbb",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones/2",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"93"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": "93",
+			"totalRequestTime": "93",
+			"iterationResults": {}
+		},
+		{
+			"name": "Eliminar una calificacion.",
+			"id": "090cb5d9-5bad-25d6-0b33-18801ad3fa5d",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones/2",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"tests": {
+				"Status code is 204": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"96"
+			],
+			"allTests": [
+				{
+					"Status code is 204": true
+				}
+			],
+			"time": "96",
+			"totalRequestTime": "96",
+			"iterationResults": {}
+		},
+		{
+			"name": "Eliminar una calificacion que no existe.",
+			"id": "0073f9e8-329a-4f37-975f-fd2a1197fbfb",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones/14",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"tests": {
+				"la calificación no existe": true
+			},
+			"testPassFailCounts": {
+				"la calificación no existe": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"80"
+			],
+			"allTests": [
+				{
+					"la calificación no existe": true
+				}
+			],
+			"time": "80",
+			"totalRequestTime": "80",
+			"iterationResults": {}
+		},
+		{
+			"name": "Actualizar calificacion que no existe",
+			"id": "85883263-b6d8-b5bd-480c-ea7c34c8a592",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones/100",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"tests": {
+				"la calificación no existe": true
+			},
+			"testPassFailCounts": {
+				"la calificación no existe": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"19"
+			],
+			"allTests": [
+				{
+					"la calificación no existe": true
+				}
+			],
+			"time": "19",
+			"totalRequestTime": "19",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 10,
+	"totalFail": 0,
+	"totalTime": 722,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "Dar una lista con todas las calificaciones",
+			"id": "1012ae32-6dce-3b4c-6276-b1ab8f3952ef",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones",
+			"time": "2018-03-05T14:36:24.166Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "crear una calificacion nueva",
+			"id": "2ba24b5a-fce0-8e6b-7e49-98d76bb781ee",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones",
+			"time": "2018-03-05T14:36:24.166Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "dar una calificacion",
+			"id": "dea612ca-0d80-77a1-90b9-3930a2a10232",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones/1",
+			"time": "2018-03-05T14:36:24.166Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Dar una calificacion que no existe.",
+			"id": "f7845dd2-7b91-8660-5928-745938e4a262",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones/50",
+			"time": "2018-03-05T14:36:24.166Z",
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"testPassFailCounts": {
+				"la calificacion no existe": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Crear una calificacion con puntuacion mayor a 10",
+			"id": "a0184ddc-d936-dd5e-ac9e-d3653f9eb8d2",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones/",
+			"time": "2018-03-05T14:36:24.166Z",
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"testPassFailCounts": {
+				"La puntuacion no puede ser mayor a 10": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Crear calificacion con puntuacion menor a 0",
+			"id": "f4f47bfd-ce66-44e5-1a25-75b32075e9cf",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones/",
+			"time": "2018-03-05T14:36:24.166Z",
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"testPassFailCounts": {
+				"la puntuacion no puede ser menor a 0": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Actualizar una calificacion.",
+			"id": "75109579-9fac-78a3-6f7b-3ed1ee055dbb",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones/2",
+			"time": "2018-03-05T14:36:24.166Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Eliminar una calificacion.",
+			"id": "090cb5d9-5bad-25d6-0b33-18801ad3fa5d",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones/2",
+			"time": "2018-03-05T14:36:24.166Z",
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Eliminar una calificacion que no existe.",
+			"id": "0073f9e8-329a-4f37-975f-fd2a1197fbfb",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones/14",
+			"time": "2018-03-05T14:36:24.166Z",
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"testPassFailCounts": {
+				"la calificación no existe": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Actualizar calificacion que no existe",
+			"id": "85883263-b6d8-b5bd-480c-ea7c34c8a592",
+			"url": "http://localhost:8080/s3_pear-web/api/calificaciones/100",
+			"time": "2018-03-05T14:36:24.166Z",
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"testPassFailCounts": {
+				"la calificación no existe": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		}
+	],
+	"synced": false
+}

@@ -1,0 +1,658 @@
+{
+	"id": "31686351-771e-44ca-bbc0-73493678e9e2",
+	"name": "QuejasyReclamos",
+	"allTests": [],
+	"timestamp": "2018-03-05T14:37:02.783Z",
+	"collection_id": "e73b3476-cf29-54dc-9874-c1fce35c7d50",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "no-environment",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "e73b3476-cf29-54dc-9874-c1fce35c7d50",
+		"name": "QuejasyReclamos",
+		"description": "",
+		"order": [
+			"1c42d7b6-ada7-f015-c293-6a0a43c1dc3d",
+			"c3a7423a-924c-7d7b-dd68-2ca3ce48181d",
+			"296fecdc-c505-4238-3114-dc51930740ca",
+			"e8add947-f6a3-940e-c772-98a228607c09",
+			"6cd528e7-e480-dbbe-c8f6-1e00cd66f4ea",
+			"e8b403e0-58ac-6c61-fdf8-ad35ba26ff9c",
+			"d2fc5910-4313-1075-b003-6a50caa17ce0",
+			"fa56a821-58e8-e369-ba6d-6c37ecdbc7a9",
+			"11e64925-0a4e-5d49-67e7-5ca3f4635630",
+			"6cb5c6b9-85aa-53d1-c80e-f56d740357fd",
+			"997d714a-f4df-fd95-bb83-27bc296b7d60"
+		],
+		"folders": [],
+		"folders_order": [],
+		"timestamp": 1520115031759,
+		"synced": false,
+		"remote_id": 0,
+		"owner": 0,
+		"sharedWithTeam": false,
+		"subscribed": false,
+		"remoteLink": "",
+		"remoteLinkUpdatedAt": null,
+		"public": false,
+		"createdAt": 1520115031759,
+		"updatedAt": 1520260070612,
+		"write": true,
+		"published": false,
+		"favorite": false,
+		"permissions": {},
+		"syncedPermissions": {},
+		"events": [],
+		"variables": [],
+		"auth": null
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [],
+	"results": [
+		{
+			"name": "Excepcion al crear una queja y/o reclamo nuevo cuando el comentario esta vacio",
+			"id": "1c42d7b6-ada7-f015-c293-6a0a43c1dc3d",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"tests": {
+				"El comentario no puede estar vacio": true
+			},
+			"testPassFailCounts": {
+				"El comentario no puede estar vacio": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"23"
+			],
+			"allTests": [
+				{
+					"El comentario no puede estar vacio": true
+				}
+			],
+			"time": "23",
+			"totalRequestTime": "23",
+			"iterationResults": {}
+		},
+		{
+			"name": "Excepcion cuando se crea una queja y el asunto esta vacío",
+			"id": "c3a7423a-924c-7d7b-dd68-2ca3ce48181d",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"tests": {
+				"El asunto no puede estar vacio": true
+			},
+			"testPassFailCounts": {
+				"El asunto no puede estar vacio": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"25"
+			],
+			"allTests": [
+				{
+					"El asunto no puede estar vacio": true
+				}
+			],
+			"time": "25",
+			"totalRequestTime": "25",
+			"iterationResults": {}
+		},
+		{
+			"name": "Excepcion cuando el asunto no es 'queja' o 'recomendacion'",
+			"id": "296fecdc-c505-4238-3114-dc51930740ca",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"tests": {
+				"El asunto debe ser 'queja' o 'recomendacion'": true
+			},
+			"testPassFailCounts": {
+				"El asunto debe ser 'queja' o 'recomendacion'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"94"
+			],
+			"allTests": [
+				{
+					"El asunto debe ser 'queja' o 'recomendacion'": true
+				}
+			],
+			"time": "94",
+			"totalRequestTime": "94",
+			"iterationResults": {}
+		},
+		{
+			"name": "dar todas las quejas y reclamos",
+			"id": "e8add947-f6a3-940e-c772-98a228607c09",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"107"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": "107",
+			"totalRequestTime": "107",
+			"iterationResults": {}
+		},
+		{
+			"name": "Excepcion cuando se pide una queja o reclamo que no existe",
+			"id": "6cd528e7-e480-dbbe-c8f6-1e00cd66f4ea",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/0",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"tests": {
+				"la queja no existe": true
+			},
+			"testPassFailCounts": {
+				"la queja no existe": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"27"
+			],
+			"allTests": [
+				{
+					"la queja no existe": true
+				}
+			],
+			"time": "27",
+			"totalRequestTime": "27",
+			"iterationResults": {}
+		},
+		{
+			"name": "dar una queja",
+			"id": "e8b403e0-58ac-6c61-fdf8-ad35ba26ff9c",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"30"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": "30",
+			"totalRequestTime": "30",
+			"iterationResults": {}
+		},
+		{
+			"name": "crear una queja y/o reclamo",
+			"id": "d2fc5910-4313-1075-b003-6a50caa17ce0",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"63"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": "63",
+			"totalRequestTime": "63",
+			"iterationResults": {}
+		},
+		{
+			"name": "Excepcion cuando se desea actualizar una queja que no existe.",
+			"id": "fa56a821-58e8-e369-ba6d-6c37ecdbc7a9",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/510",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"tests": {
+				"la queja no existe": true
+			},
+			"testPassFailCounts": {
+				"la queja no existe": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"39"
+			],
+			"allTests": [
+				{
+					"la queja no existe": true
+				}
+			],
+			"time": "39",
+			"totalRequestTime": "39",
+			"iterationResults": {}
+		},
+		{
+			"name": "Actualizar una queja ",
+			"id": "11e64925-0a4e-5d49-67e7-5ca3f4635630",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"70"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": "70",
+			"totalRequestTime": "70",
+			"iterationResults": {}
+		},
+		{
+			"name": "Eliminar una queja",
+			"id": "6cb5c6b9-85aa-53d1-c80e-f56d740357fd",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/3",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"tests": {
+				"Status code is 204": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"51"
+			],
+			"allTests": [
+				{
+					"Status code is 204": true
+				}
+			],
+			"time": "51",
+			"totalRequestTime": "51",
+			"iterationResults": {}
+		},
+		{
+			"name": "Eliminar una queja que no existe.",
+			"id": "997d714a-f4df-fd95-bb83-27bc296b7d60",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/100",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"tests": {
+				"la calificación no existe": true
+			},
+			"testPassFailCounts": {
+				"la calificación no existe": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"159"
+			],
+			"allTests": [
+				{
+					"la calificación no existe": true
+				}
+			],
+			"time": "159",
+			"totalRequestTime": "159",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 11,
+	"totalFail": 0,
+	"totalTime": 688,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "Excepcion al crear una queja y/o reclamo nuevo cuando el comentario esta vacio",
+			"id": "1c42d7b6-ada7-f015-c293-6a0a43c1dc3d",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/",
+			"time": "2018-03-05T14:37:02.783Z",
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"testPassFailCounts": {
+				"El comentario no puede estar vacio": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Excepcion cuando se crea una queja y el asunto esta vacío",
+			"id": "c3a7423a-924c-7d7b-dd68-2ca3ce48181d",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/",
+			"time": "2018-03-05T14:37:02.783Z",
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"testPassFailCounts": {
+				"El asunto no puede estar vacio": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Excepcion cuando el asunto no es 'queja' o 'recomendacion'",
+			"id": "296fecdc-c505-4238-3114-dc51930740ca",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/",
+			"time": "2018-03-05T14:37:02.783Z",
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"testPassFailCounts": {
+				"El asunto debe ser 'queja' o 'recomendacion'": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "dar todas las quejas y reclamos",
+			"id": "e8add947-f6a3-940e-c772-98a228607c09",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/",
+			"time": "2018-03-05T14:37:02.783Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Excepcion cuando se pide una queja o reclamo que no existe",
+			"id": "6cd528e7-e480-dbbe-c8f6-1e00cd66f4ea",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/0",
+			"time": "2018-03-05T14:37:02.783Z",
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"testPassFailCounts": {
+				"la queja no existe": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "dar una queja",
+			"id": "e8b403e0-58ac-6c61-fdf8-ad35ba26ff9c",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/1",
+			"time": "2018-03-05T14:37:02.783Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "crear una queja y/o reclamo",
+			"id": "d2fc5910-4313-1075-b003-6a50caa17ce0",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/",
+			"time": "2018-03-05T14:37:02.783Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Excepcion cuando se desea actualizar una queja que no existe.",
+			"id": "fa56a821-58e8-e369-ba6d-6c37ecdbc7a9",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/510",
+			"time": "2018-03-05T14:37:02.783Z",
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"testPassFailCounts": {
+				"la queja no existe": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Actualizar una queja ",
+			"id": "11e64925-0a4e-5d49-67e7-5ca3f4635630",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/1",
+			"time": "2018-03-05T14:37:02.783Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Eliminar una queja",
+			"id": "6cb5c6b9-85aa-53d1-c80e-f56d740357fd",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/3",
+			"time": "2018-03-05T14:37:02.783Z",
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Eliminar una queja que no existe.",
+			"id": "997d714a-f4df-fd95-bb83-27bc296b7d60",
+			"url": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/100",
+			"time": "2018-03-05T14:37:02.783Z",
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": {
+					"name": "Precondition Failed",
+					"detail": "The server does not meet one of the preconditions that the requester put on the request."
+				}
+			},
+			"testPassFailCounts": {
+				"la calificación no existe": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		}
+	],
+	"synced": false
+}

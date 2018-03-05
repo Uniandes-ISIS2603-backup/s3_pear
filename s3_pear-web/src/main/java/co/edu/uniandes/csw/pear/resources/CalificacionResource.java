@@ -140,7 +140,11 @@ public class CalificacionResource
         {
             throw new BusinessLogicException("La calificacion que desea actualizar no existe");
         }
-        return new CalificacionDetailDTO(logica.updateCalificacion(calificacion.toEntity()));
+        if(logica.getCalificacion(id).getPuntuacion()>=0&& logica.getCalificacion(id).getPuntuacion()<11)
+        {
+             return new CalificacionDetailDTO(logica.updateCalificacion(calificacion.toEntity()));
+        }
+        throw new BusinessLogicException ("la calificacion debe estar entre 0 y  10");
     }
     
     /**
