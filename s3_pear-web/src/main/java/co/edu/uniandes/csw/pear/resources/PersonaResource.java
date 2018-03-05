@@ -4,11 +4,15 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.resources;
-
 import co.edu.uniandes.csw.pear.dtos.PersonaDetailDTO;
-import javax.ws.rs.*;
-import java.util.*;
+import co.edu.uniandes.csw.pear.ejb.PersonaLogic;
+import co.edu.uniandes.csw.pear.entities.PersonaEntity;
+import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -19,6 +23,11 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 @RequestScoped
 public class PersonaResource {
+    
+    
+    
+    @Inject
+    PersonaLogic logic;
     
     /**
      * <h1>POST TODOLaRuta : Crear una persona.</h1>
@@ -41,10 +50,11 @@ public class PersonaResource {
      * quiere registrar.
      * @return JSON {@link PersonaDetailDTO} - La persona registrada con
      * el atributo id autogenerado.
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @POST
-    public PersonaDetailDTO createPersona(PersonaDetailDTO persona){
-        return persona;
+    public PersonaDetailDTO createPersona(PersonaDetailDTO persona) throws BusinessLogicException{
+        return new PersonaDetailDTO(logic.createPersona(persona.toEntity()));
     }
     
     /**
@@ -62,7 +72,11 @@ public class PersonaResource {
      */
     @GET
     public List<PersonaDetailDTO> getPersonas(){
-        return new ArrayList<PersonaDetailDTO>(); //TODO
+        List<PersonaDetailDTO> dtos = new ArrayList<>();
+        logic.getPersonas().forEach( persona -> { 
+            dtos.add(new PersonaDetailDTO(persona));
+        });
+        return dtos;
     }
     
     /**
@@ -83,7 +97,10 @@ public class PersonaResource {
     @GET
     @Path("{id: \\d+}")
     public PersonaDetailDTO getPersona(@PathParam("id") Long id){
-        return null; //TODO
+        PersonaEntity buscado = logic.getPersona(id);
+        if(buscado == null)
+            throw new WebApplicationException("El recurso /personas/" + id + " no existe.", 404);
+        return new PersonaDetailDTO(buscado);
     }
     
     /**
@@ -106,11 +123,14 @@ public class PersonaResource {
      * @param persona {@link PersonaDetailDTO} La persona que se desea
      * actualizar.
      * @return JSON {@link PersonaDetailDTO} - La persona actualizada
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @PUT
     @Path("{id: \\d+}")
-    public PersonaDetailDTO updatePersona(@PathParam("id") Long id, PersonaDetailDTO persona){
-        return persona; //TODO
+    public PersonaDetailDTO updatePersona(@PathParam("id") Long id, PersonaDetailDTO persona) throws BusinessLogicException{
+        if ( logic.getPersona(id) == null ) 
+            throw new WebApplicationException("El recurso /personas/" + id + " no existe.", 404);
+        return new PersonaDetailDTO(logic.updatePersona(persona.toEntity()));
     }
 
     /**
@@ -131,6 +151,8 @@ public class PersonaResource {
     @DELETE
     @Path("{id: \\d+}")
     public void deletePersona(@PathParam("id") Long id){
-        //TODO (?)
+        if ( logic.getPersona(id) == null )
+            throw new WebApplicationException("El recurso /personas/" + id + " no existe.", 404);
+        logic.deletePersona(id);
     }
 }

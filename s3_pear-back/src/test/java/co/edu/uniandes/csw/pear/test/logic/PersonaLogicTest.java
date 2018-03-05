@@ -160,7 +160,7 @@ public class PersonaLogicTest {
     @Test
     public void deletePersonaTest(){
         PersonaEntity entity = data.get(0);
-        logic.deletePersona(entity);
+        logic.deletePersona(entity.getId());
         PersonaEntity deleted = em.find(PersonaEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
