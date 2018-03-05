@@ -2,6 +2,22 @@ delete from CalificacionEntity;
 delete from QuejasyReclamosEntity;
 delete from CasoExitoEntity;
 delete from PersonaEntity;
+delete from DietaTipoEntity;
+delete from CocinaEntity;
+
+
+insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 1, 'un objetivo inicial', 'una descripcion inicial' );
+insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 2, 'otro objetivo segundo', 'otra descripcion segunda' );
+insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 4, 'Mandatory exuding archive', 'Fundamental exuding database' );
+insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 5, 'Versatile tangible task-force', 'Enterprise-wide coherent access' );
+insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 6, 'Ergonomic solution-oriented support', 'Vision-oriented intermediate matrix' );
+insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 7, 'Balanced tertiary strategy', 'Operative motivating strategy' );
+insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 8, 'Enterprise-wide global architecture', 'Digitized real-time implementation' );
+insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 9, 'Multi-tiered cohesive contingency', 'De-engineered multi-state info-mediaries' );
+insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 10, 'Multi-layered explicit circu', 'ntegrated multimedia initiative' );
+
+
+
 
 insert into CalificacionEntity (id, puntuacion) values (1, 7);
 insert into CalificacionEntity (id, puntuacion) values (2, 1);
