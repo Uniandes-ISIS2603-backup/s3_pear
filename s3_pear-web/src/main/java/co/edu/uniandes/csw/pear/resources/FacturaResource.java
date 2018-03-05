@@ -24,6 +24,7 @@ SOFTWARE.
 package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.FacturaDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.FacturaLogic;
+import co.edu.uniandes.csw.pear.entities.FacturaEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
@@ -96,7 +97,7 @@ public class FacturaResource {
      */
     @POST
     public FacturaDetailDTO createFactura(FacturaDetailDTO factura) throws BusinessLogicException{
-        return factura;
+        return new FacturaDetailDTO(logic.createFactura(factura.toEntity()));
     }
     
     
@@ -113,7 +114,11 @@ public class FacturaResource {
      */
     @GET
     public List<FacturaDetailDTO> getFacturas() {
-        return new ArrayList<>();
+        List<FacturaDetailDTO> dtos = new ArrayList<>();
+        logic.getFacturas().forEach( fac -> { 
+            dtos.add(new FacturaDetailDTO(fac));
+        });
+        return dtos;
     }
 
     /**
@@ -135,7 +140,10 @@ public class FacturaResource {
     @GET
     @Path("{id: \\d+}")
     public FacturaDetailDTO getFactura(@PathParam("id") Long id) {
-        return null;
+        FacturaEntity buscado = logic.getFactura(id);
+        if ( buscado == null ) 
+            throw new WebApplicationException("El recurso /facturas/" + id + " no existe.", 404);
+        return new FacturaDetailDTO(buscado);
     }
     
     /**
@@ -158,8 +166,10 @@ public class FacturaResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public FacturaDetailDTO updateFactura(@PathParam("id") Long id, FacturaDetailDTO factura) {
-        return factura;
+    public FacturaDetailDTO updateFactura(@PathParam("id") Long id, FacturaDetailDTO factura) throws BusinessLogicException {
+         if ( logic.getFactura(id) == null ) 
+            throw new WebApplicationException("El recurso /facturas/" + id + " no existe.", 404);
+        return new FacturaDetailDTO(logic.updateFactura(id, factura.toEntity()));
     }
     
     /**
@@ -178,8 +188,10 @@ public class FacturaResource {
      */
     @DELETE
     @Path("{id: \\d+}")
-     public void deleteFactura(@PathParam("id") Long id) {
-        // Void
+     public void deleteFactura(@PathParam("id") Long id) throws BusinessLogicException {
+        if ( logic.getFactura(id) == null )
+            throw new WebApplicationException("El recurso /facturas/" + id + " no existe.", 404);
+        logic.deleteFactura(id);
     }
     
 }

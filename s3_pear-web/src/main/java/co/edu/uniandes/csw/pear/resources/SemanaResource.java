@@ -24,6 +24,7 @@ SOFTWARE.
 package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.SemanaDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.SemanaLogic;
+import co.edu.uniandes.csw.pear.entities.SemanaEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
@@ -117,7 +118,11 @@ public class SemanaResource {
      */
     @GET
     public List<SemanaDetailDTO> getSemanas() {
-        return new ArrayList<>();
+         List<SemanaDetailDTO> dtos = new ArrayList<>();
+        logic.getSemanas().forEach( sem -> { 
+            dtos.add(new SemanaDetailDTO(sem));
+        });
+        return dtos;
     }
 
     /**
@@ -139,7 +144,10 @@ public class SemanaResource {
     @GET
     @Path("{id: \\d+}")
     public SemanaDetailDTO getSemana(@PathParam("id") Long id) {
-        return null;
+        SemanaEntity buscado = logic.getSemana(id);
+        if ( buscado == null ) 
+            throw new WebApplicationException("El recurso /semanas/" + id + " no existe.", 404);
+        return new SemanaDetailDTO(buscado);
     }
     
     /**
@@ -162,8 +170,10 @@ public class SemanaResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public SemanaDetailDTO updateSemana(@PathParam("id") Long id, SemanaDetailDTO semana) {
-        return semana;
+    public SemanaDetailDTO updateSemana(@PathParam("id") Long id, SemanaDetailDTO semana) throws BusinessLogicException {
+        if ( logic.getSemana(id) == null ) 
+            throw new WebApplicationException("El recurso /semanas/" + id + " no existe.", 404);
+        return new SemanaDetailDTO(logic.updateSemana(id, semana.toEntity()));
     }
     
     /**
@@ -182,8 +192,10 @@ public class SemanaResource {
      */
     @DELETE
     @Path("{id: \\d+}")
-     public void deleteSemana(@PathParam("id") Long id) {
-        // Void
+     public void deleteSemana(@PathParam("id") Long id) throws BusinessLogicException {
+         if ( logic.getSemana(id) == null )
+            throw new WebApplicationException("El recurso /semanas/" + id + " no existe.", 404);
+        logic.deleteSemana(id);
     }
     
     

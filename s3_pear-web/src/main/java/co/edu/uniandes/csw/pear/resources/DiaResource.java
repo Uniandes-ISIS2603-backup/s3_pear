@@ -24,6 +24,7 @@ SOFTWARE.
 package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.DiaDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.DiaLogic;
+import co.edu.uniandes.csw.pear.entities.DiaEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
@@ -101,7 +102,7 @@ public class DiaResource {
      */
     @POST
     public DiaDetailDTO createDia (DiaDetailDTO dia) throws BusinessLogicException {
-        return dia;
+        return new DiaDetailDTO(logic.createDia(dia.toEntity()));
     }
     
     
@@ -118,7 +119,11 @@ public class DiaResource {
      */
     @GET
     public List<DiaDetailDTO> getDias() {
-        return new ArrayList<>();
+        List<DiaDetailDTO> dtos = new ArrayList<>();
+        logic.getDias().forEach( di -> { 
+            dtos.add(new DiaDetailDTO(di));
+        });
+        return dtos;
     }
 
     /**
@@ -140,7 +145,10 @@ public class DiaResource {
     @GET
     @Path("{id: \\d+}")
     public DiaDetailDTO getDia(@PathParam("id") Long id) {
-        return null;
+        DiaEntity buscado = logic.getDia(id);
+        if ( buscado == null ) 
+            throw new WebApplicationException("El recurso /dias/" + id + " no existe.", 404);
+        return new DiaDetailDTO(buscado);
     }
     
     /**
@@ -163,8 +171,10 @@ public class DiaResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public DiaDetailDTO updateDia(@PathParam("id") Long id, DiaDetailDTO dia)  {
-        return dia;
+    public DiaDetailDTO updateDia(@PathParam("id") Long id, DiaDetailDTO dia) throws BusinessLogicException  {
+        if ( logic.getDia(id) == null ) 
+            throw new WebApplicationException("El recurso /dias/" + id + " no existe.", 404);
+        return new DiaDetailDTO(logic.updateDia(id, dia.toEntity()));
     }
     
     /**
@@ -183,8 +193,10 @@ public class DiaResource {
      */
     @DELETE
     @Path("{id: \\d+}")
-     public void deleteDia(@PathParam("id") Long id) {
-        // Void
+     public void deleteDia(@PathParam("id") Long id) throws BusinessLogicException {
+        if ( logic.getDia(id) == null )
+            throw new WebApplicationException("El recurso /dias/" + id + " no existe.", 404);
+        logic.deleteDia(id);
     }
     
     
