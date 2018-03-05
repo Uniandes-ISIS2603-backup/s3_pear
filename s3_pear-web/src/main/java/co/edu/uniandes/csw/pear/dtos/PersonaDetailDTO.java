@@ -34,7 +34,7 @@ public class PersonaDetailDTO extends PersonaDTO{
     }
     
     public PersonaDetailDTO(PersonaEntity entidad){
-        
+        super(entidad);
     }
     
     //-----------------------------------------------------------
@@ -95,5 +95,9 @@ public class PersonaDetailDTO extends PersonaDTO{
      */
     public void setQuejas(List<QuejasyReclamosDTO> pQuejas){
         quejas = pQuejas;
+    }
+    
+    public PersonaEntity toEntity(){
+        return super.toEntity();
     }
 }

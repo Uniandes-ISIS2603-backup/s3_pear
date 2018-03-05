@@ -5,9 +5,14 @@
  */
 package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.CasoExitoDetailDTO;
-import javax.ws.rs.*;
-import java.util.*;
+import co.edu.uniandes.csw.pear.ejb.CasoExitoLogic;
+import co.edu.uniandes.csw.pear.entities.CasoExitoEntity;
+import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -18,6 +23,9 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 @RequestScoped
 public class CasoExitoResource {
+    
+    @Inject
+    CasoExitoLogic logic;
     
     /**
      * <h1>POST TODOLaRuta : Crear un caso exitoso.</h1>
@@ -40,10 +48,11 @@ public class CasoExitoResource {
      * quiere registrar.
      * @return JSON {@link CasoExitoDetailDTO} - El caso registrado con
      * el atributo id autogenerado.
+     * @throws BusinessLogicException
      */
     @POST
-    public CasoExitoDetailDTO createCaso(CasoExitoDetailDTO caso){
-        return caso;
+    public CasoExitoDetailDTO createCaso(CasoExitoDetailDTO caso) throws BusinessLogicException{
+        return new CasoExitoDetailDTO(logic.createCasoExito(caso.toEntity()));
     }
     
     /**
@@ -60,7 +69,11 @@ public class CasoExitoResource {
      */
     @GET
     public List<CasoExitoDetailDTO> getCasos(){
-        return new ArrayList<CasoExitoDetailDTO>(); //TODO
+        List<CasoExitoDetailDTO> dtos = new ArrayList<>();
+        logic.getCasosExito().forEach( caso -> { 
+            dtos.add(new CasoExitoDetailDTO(caso));
+        });
+        return dtos;
     }
     
     /**
@@ -81,7 +94,10 @@ public class CasoExitoResource {
     @GET
     @Path("{id: \\d+}")
     public CasoExitoDetailDTO getCaso(@PathParam("id") Long id){
-        return null; //TODO
+        CasoExitoEntity buscado = logic.getCasoExito(id);
+        if(buscado == null)
+            throw new WebApplicationException("El recurso /casos/" + id + " no existe.", 404);
+        return new CasoExitoDetailDTO(buscado);
     }
     
     /**
@@ -103,11 +119,14 @@ public class CasoExitoResource {
      * una cadena de dígitos.
      * @param caso {@link CasoExitoDetailDTO} El caso que se desea actualizar.
      * @return JSON {@link CasoExitoDetailDTO} - El caso actualizado
+     * @throws BusinessLogicException
      */
     @PUT
     @Path("{id: \\d+}")
-    public CasoExitoDetailDTO updateCaso(@PathParam("id") Long id, CasoExitoDetailDTO caso){
-        return caso; //TODO
+    public CasoExitoDetailDTO updateCaso(@PathParam("id") Long id, CasoExitoDetailDTO caso) throws BusinessLogicException{
+        if ( logic.getCasoExito(id) == null ) 
+            throw new WebApplicationException("El recurso /casos/" + id + " no existe.", 404);
+        return new CasoExitoDetailDTO(logic.updateCasoExito(caso.toEntity()));
     }
 
     /**
@@ -128,6 +147,8 @@ public class CasoExitoResource {
     @DELETE
     @Path("{id: \\d+}")
     public void deleteCaso(@PathParam("id") Long id){
-        //TODO (?)
+        if ( logic.getCasoExito(id) == null )
+            throw new WebApplicationException("El recurso /casos/" + id + " no existe.", 404);
+        logic.deleteCasoExito(id);
     }
 }

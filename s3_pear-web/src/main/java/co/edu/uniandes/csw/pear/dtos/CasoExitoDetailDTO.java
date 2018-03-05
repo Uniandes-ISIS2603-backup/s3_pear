@@ -5,11 +5,13 @@
  */
 package co.edu.uniandes.csw.pear.dtos;
 
+import co.edu.uniandes.csw.pear.entities.CasoExitoEntity;
+
 /**
  *
  * @author pa.suarezm
  */
-public class CasoExitoDetailDTO {
+public class CasoExitoDetailDTO extends CasoExitoDTO{
     
     //----------------------------------------
     //Atributos
@@ -28,6 +30,10 @@ public class CasoExitoDetailDTO {
         super();
     }
     
+    public CasoExitoDetailDTO(CasoExitoEntity entidad){
+        super(entidad);
+    }
+    
     //----------------------------------------
     //Metodos
     //----------------------------------------
@@ -44,5 +50,10 @@ public class CasoExitoDetailDTO {
      */
     public void setDieta(DietaTipoDTO pDieta){
         dieta = pDieta;
+    }
+    
+    @Override
+    public CasoExitoEntity toEntity(){
+        return super.toEntity();
     }
 }
