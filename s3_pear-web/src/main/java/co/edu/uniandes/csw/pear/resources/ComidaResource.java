@@ -39,8 +39,10 @@ import javax.ws.rs.*;
 @Consumes("application/json")
 @RequestScoped
 public class ComidaResource {
-@Inject
-private ComidaLogic logic;
+
+    
+    @Inject
+    private ComidaLogic logic;
 
     /**
      * <h1>POST /api/comida : Crear una comida.</h1>
@@ -64,12 +66,12 @@ private ComidaLogic logic;
      * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
      @POST
-     
      public ComidaDetailDTO crearComida(ComidaDetailDTO comida)throws BusinessLogicException
      {
          return new ComidaDetailDTO(logic.createComida(comida.toEntity()));
      }
-             /**
+             
+     /**
      * <h1>GET /api/comdas : Obtener todas las comidas.</h1>
      * 
      * <pre>Busca y devuelve todas las comidas que existen en la aplicacion.
@@ -88,7 +90,8 @@ private ComidaLogic logic;
         });
         return dtos;
     }
-      /**
+     
+    /**
      * <h1>GET /api/comidas/{id} : Obtener comida por id.</h1>
      * 
      * <pre>Busca la comida con el id asociado recibido en la URL y la devuelve.

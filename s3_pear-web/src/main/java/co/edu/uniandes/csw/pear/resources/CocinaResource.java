@@ -11,6 +11,7 @@ import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 /**
  * El formato JSON de este objeto es el siguiente:
@@ -62,6 +63,7 @@ public class CocinaResource {
     /**
      * Conexion con la Logica
      */
+    @Inject
     private CocinaLogic logic;
     
     
@@ -84,6 +86,7 @@ public class CocinaResource {
      * </pre>
      * @param cocina {@link CocinaDetailDTO} - La cocina que se desea guardar.
      * @return JSON {@link CocinaDetailDTO}  - La cocina guardada con el atributo id autogenerado.
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @POST
     public CocinaDetailDTO createCocina(CocinaDetailDTO cocina) throws BusinessLogicException {
@@ -151,6 +154,7 @@ public class CocinaResource {
      * @param id Identificador de la cocina que se desea actualizar.Este debe ser una cadena de dígitos.
      * @param cocina {@link CityDetailDTO} La cocina que se desea guardar.
      * @return JSON {@link CityDetailDTO} - La cocina guardada.
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @PUT
     @Path("{id: \\d+}")
