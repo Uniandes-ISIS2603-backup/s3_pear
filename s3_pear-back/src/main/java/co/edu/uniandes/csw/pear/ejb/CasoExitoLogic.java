@@ -83,11 +83,11 @@ public class CasoExitoLogic {
     
     /**
      * Elimina el caso que entra por parametro
-     * @param entity Caso a eliminar
+     * @param id Caso a eliminar
      */
-    public void deleteCasoExito(CasoExitoEntity entity){
-        LOGGER.log(Level.INFO, "Inicia proceso de borrar caso con id={0}", entity.getId());    
-        persistence.delete(entity.getId());
-        LOGGER.log(Level.INFO, "Termina proceso de borrar caso con id={0}", entity.getId());
+    public void deleteCasoExito(Long id){
+        LOGGER.log(Level.INFO, "Inicia proceso de borrar caso con id={0}", id);    
+        persistence.delete(id);
+        LOGGER.log(Level.INFO, "Termina proceso de borrar caso con id={0}", id);
     }
 }

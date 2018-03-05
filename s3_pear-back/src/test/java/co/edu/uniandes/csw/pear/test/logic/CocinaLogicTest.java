@@ -41,7 +41,7 @@ public class CocinaLogicTest {
     @Inject
     private UserTransaction utx;
     
-    private List<CocinaEntity> data = new ArrayList<CocinaEntity>();
+    private List<CocinaEntity> data = new ArrayList<>();
       
     @Inject 
     private CocinaLogic logic;
@@ -132,7 +132,7 @@ public class CocinaLogicTest {
      * Prueba para consultar una Cocina
      */
     @Test
-    public void getBookTest() {
+    public void getCocinaTest() {
         CocinaEntity entity = data.get(0);
         CocinaEntity resultEntity = logic.getCocina(entity.getId());
         Assert.assertNotNull(resultEntity);
@@ -145,7 +145,7 @@ public class CocinaLogicTest {
      * Prueba para eliminar una Cocina
      */
     @Test
-    public void deleteBookTest() {
+    public void deleteCocinaTest() {
         CocinaEntity entity = data.get(0);
         logic.delete(entity.getId());
         CocinaEntity deleted = em.find(CocinaEntity.class, entity.getId());
@@ -156,7 +156,7 @@ public class CocinaLogicTest {
      * Prueba para actualizar una Cocina
      */
     @Test
-    public void updateBookTest() throws BusinessLogicException {
+    public void updateCocinaTest() throws BusinessLogicException {
         CocinaEntity entity = data.get(0);
         CocinaEntity pojoEntity = factory.manufacturePojo(CocinaEntity.class);
 

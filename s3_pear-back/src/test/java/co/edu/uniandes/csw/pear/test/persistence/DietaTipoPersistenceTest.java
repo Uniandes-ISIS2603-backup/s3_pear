@@ -51,7 +51,7 @@ public class DietaTipoPersistenceTest {
      * se van a probar.
      */
     @Inject
-    private DietaTipoPersistence employeePersistence;
+    private DietaTipoPersistence persistence;
 
     /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
@@ -102,7 +102,7 @@ public class DietaTipoPersistenceTest {
     /**
      *
      */
-    private List<DietaTipoEntity> data = new ArrayList<DietaTipoEntity>();
+    private List<DietaTipoEntity> data = new ArrayList<>();
 
     /**
      * Inserta los datos iniciales para el correcto funcionamiento de las
@@ -126,10 +126,10 @@ public class DietaTipoPersistenceTest {
      *
      */
     @Test
-    public void createEmployeeTest() {
+    public void createDietaTest() {
         PodamFactory factory = new PodamFactoryImpl();
         DietaTipoEntity newEntity = factory.manufacturePojo(DietaTipoEntity.class);
-        DietaTipoEntity result = employeePersistence.create(newEntity);
+        DietaTipoEntity result = persistence.create(newEntity);
 
         Assert.assertNotNull(result);
 
@@ -144,8 +144,8 @@ public class DietaTipoPersistenceTest {
      *
      */
     @Test
-    public void getEmployeesTest() {
-        List<DietaTipoEntity> list = employeePersistence.findAll();
+    public void getDietasTest() {
+        List<DietaTipoEntity> list = persistence.findAll();
         Assert.assertEquals(data.size(), list.size());
         for (DietaTipoEntity ent : list) {
             boolean found = false;
@@ -164,9 +164,9 @@ public class DietaTipoPersistenceTest {
      *
      */
     @Test
-    public void getEmployeeTest() {
+    public void getDietaTest() {
         DietaTipoEntity entity = data.get(0);
-        DietaTipoEntity newEntity = employeePersistence.find(entity.getId());
+        DietaTipoEntity newEntity = persistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
     }
@@ -177,9 +177,9 @@ public class DietaTipoPersistenceTest {
      *
      */
     @Test
-    public void deleteEmployeeTest() {
+    public void deleteDietaTest() {
         DietaTipoEntity entity = data.get(0);
-        employeePersistence.delete(entity.getId());
+        persistence.delete(entity.getId());
         DietaTipoEntity deleted = em.find(DietaTipoEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
@@ -190,14 +190,14 @@ public class DietaTipoPersistenceTest {
      *
      */
     @Test
-    public void updateEmployeeTest() {
+    public void updateDietaTest() {
         DietaTipoEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
         DietaTipoEntity newEntity = factory.manufacturePojo(DietaTipoEntity.class);
 
         newEntity.setId(entity.getId());
 
-        employeePersistence.update(newEntity);
+        persistence.update(newEntity);
 
         DietaTipoEntity resp = em.find(DietaTipoEntity.class, entity.getId());
 

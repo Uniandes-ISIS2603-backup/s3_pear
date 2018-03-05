@@ -146,7 +146,7 @@ public class CasoExitoLogicTest {
     @Test
     public void deleteCasoTest(){
         CasoExitoEntity entity = data.get(0);
-        logic.deleteCasoExito(entity);
+        logic.deleteCasoExito(entity.getId());
         CasoExitoEntity deleted = em.find(CasoExitoEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }

@@ -84,12 +84,12 @@ public class PersonaLogic {
     
     /**
      * Elimina la persona que entra por parametro
-     * @param entity Persona a eliminar
+     * @param id Persona a eliminar
      */
-    public void deletePersona(PersonaEntity entity){
-        LOGGER.log(Level.INFO, "Inicia proceso de borrar persona con id={0}", entity.getId());    
-        persistence.delete(entity.getId());
-        LOGGER.log(Level.INFO, "Termina proceso de borrar persona con id={0}", entity.getId());
+    public void deletePersona(Long id){
+        LOGGER.log(Level.INFO, "Inicia proceso de borrar persona con id={0}", id);    
+        persistence.delete(id);
+        LOGGER.log(Level.INFO, "Termina proceso de borrar persona con id={0}", id);
     }
     
 }

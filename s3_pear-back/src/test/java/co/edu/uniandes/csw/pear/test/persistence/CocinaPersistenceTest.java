@@ -53,7 +53,7 @@ public class CocinaPersistenceTest {
      * se van a probar.
      */
     @Inject
-    private CocinaPersistence employeePersistence;
+    private CocinaPersistence persistence;
 
     /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
@@ -104,7 +104,7 @@ public class CocinaPersistenceTest {
     /**
      *
      */
-    private List<CocinaEntity> data = new ArrayList<CocinaEntity>();
+    private List<CocinaEntity> data = new ArrayList<>();
 
     /**
      * Inserta los datos iniciales para el correcto funcionamiento de las
@@ -128,10 +128,10 @@ public class CocinaPersistenceTest {
      *
      */
     @Test
-    public void createEmployeeTest() {
+    public void createCocinaTest() {
         PodamFactory factory = new PodamFactoryImpl();
         CocinaEntity newEntity = factory.manufacturePojo(CocinaEntity.class);
-        CocinaEntity result = employeePersistence.create(newEntity);
+        CocinaEntity result = persistence.create(newEntity);
 
         Assert.assertNotNull(result);
 
@@ -146,8 +146,8 @@ public class CocinaPersistenceTest {
      *
      */
     @Test
-    public void getEmployeesTest() {
-        List<CocinaEntity> list = employeePersistence.findAll();
+    public void getCocinasTest() {
+        List<CocinaEntity> list = persistence.findAll();
         Assert.assertEquals(data.size(), list.size());
         for (CocinaEntity ent : list) {
             boolean found = false;
@@ -166,9 +166,9 @@ public class CocinaPersistenceTest {
      *
      */
     @Test
-    public void getEmployeeTest() {
+    public void getCocinaTest() {
         CocinaEntity entity = data.get(0);
-        CocinaEntity newEntity = employeePersistence.find(entity.getId());
+        CocinaEntity newEntity = persistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
     }
@@ -179,9 +179,9 @@ public class CocinaPersistenceTest {
      *
      */
     @Test
-    public void deleteEmployeeTest() {
+    public void deleteCocinaTest() {
         CocinaEntity entity = data.get(0);
-        employeePersistence.delete(entity.getId());
+        persistence.delete(entity.getId());
         CocinaEntity deleted = em.find(CocinaEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
@@ -192,14 +192,14 @@ public class CocinaPersistenceTest {
      *
      */
     @Test
-    public void updateEmployeeTest() {
+    public void updateCocinaTest() {
         CocinaEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
         CocinaEntity newEntity = factory.manufacturePojo(CocinaEntity.class);
 
         newEntity.setId(entity.getId());
 
-        employeePersistence.update(newEntity);
+        persistence.update(newEntity);
 
         CocinaEntity resp = em.find(CocinaEntity.class, entity.getId());
 
