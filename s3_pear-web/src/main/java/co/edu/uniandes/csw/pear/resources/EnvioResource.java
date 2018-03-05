@@ -6,21 +6,7 @@
 package co.edu.uniandes.csw.pear.resources;
 
 
-/**
-   * <pre>Clase que implementa el recurso "envios".
- * URL: /api/envios
- * </pre>
- * <i>Note que la aplicación (definida en {@link RestConfig}) define el envio "/api" y
- * este recurso tiene la ruta "envios".</i>
- *
- * <h2>Anotaciones </h2>
- * <pre>
- * Path: indica la dirección después de "api" para acceder al recurso
- * Produces/Consumes: indica que los servicios definidos en este recurso reciben y devuelven objetos en formato JSON
- * RequestScoped: Inicia una transacción desde el llamado de cada método (servicio). 
- * </pre>
- * @author js.cabra
- */
+
 
 import co.edu.uniandes.csw.pear.dtos.EnvioDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.EnvioLogic;
@@ -30,6 +16,23 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
+
+/**
+ * El formato JSON de este objeto es el siguiente:
+ 
+ 
+  {
+  "id": 123,
+  "duracion": 200,
+  "recibido" : "false"
+  
+    ]
+  }
+ 
+
+ * 
+ * @author js.cabra
+ */
 @Path("envios")
 @Produces("application/json")
 @Consumes("application/json")
@@ -115,7 +118,7 @@ public class EnvioResource {
     
     
     /**
-     * <h1>PUT /api/eventos/{id} : Actualizar comida con el id dado.</h1>
+     * <h1>PUT /api/eventos/{id} : Actualizar envio con el id dado.</h1>
      * <pre>Cuerpo de petición: JSON {@link EnvioDetailDTO}.
      * 
      * Actualiza el evento con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.

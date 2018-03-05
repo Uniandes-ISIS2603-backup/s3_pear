@@ -6,6 +6,9 @@
 package co.edu.uniandes.csw.pear.resources;
 
 import co.edu.uniandes.csw.pear.dtos.MedioPagoDTO;
+import co.edu.uniandes.csw.pear.dtos.MedioPagoDetailDTO;
+import co.edu.uniandes.csw.pear.ejb.MedioPagoLogic;
+import co.edu.uniandes.csw.pear.entities.MedioPagoEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +21,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  *
@@ -30,6 +34,7 @@ import javax.ws.rs.Produces;
 public class MedioPagoResource {
     
 
+    MedioPagoLogic logic;
 
     /**
      * <h1>POST /api/medioagos : Crea una pago.</h1>
@@ -53,10 +58,24 @@ public class MedioPagoResource {
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la pago.
      */
     @POST
-    public MedioPagoDTO createMedioPago(MedioPagoDTO pago) throws BusinessLogicException {
-        return pago;
+    public MedioPagoDetailDTO createMedioPago(MedioPagoDTO pago) throws BusinessLogicException {
+        return new MedioPagoDetailDTO(logic.createMedioPago(pago.toEntity()));
     }
 
+      /**
+     * Convierte una lista de MedioPagoEntity a una lista de MedioPagoDetailDTO.
+     *
+     * @param entityList Lista de MedioPago a convertir.
+     * @return Lista de MedioPagoDetailDTO convertida.
+     * 
+     */
+    private List<MedioPagoDetailDTO> listEntity2DTO(List<MedioPagoEntity> entityList) {
+        List<MedioPagoDetailDTO> list = new ArrayList<>();
+        for (MedioPagoEntity entity : entityList) {
+            list.add(new MedioPagoDetailDTO(entity));
+        }
+        return list;
+    }
     
     /**
      * <h1>GET /api/mediospago : Obtener todas los medios de pago.</h1>
@@ -70,8 +89,8 @@ public class MedioPagoResource {
      * @return JSONArray {@link MedioPagoDetailDTO} - las medios de pago encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
-    public List<MedioPagoDTO> getMediosDePago() {
-        return new ArrayList<>();
+    public List<MedioPagoDetailDTO> getMediosDePago() {
+        return listEntity2DTO(logic.getMediosPago());
     }
     
     
@@ -94,7 +113,11 @@ public class MedioPagoResource {
     @GET
     @Path("{id: \\d+}")
     public MedioPagoDTO getMedioDePago(@PathParam("id") Long id) {
-        return null;
+          MedioPagoEntity entity = logic.getMedioPago(id);
+        if (entity == null) {
+            throw new WebApplicationException("El author no existe", 404);
+        }
+        return new MedioPagoDetailDTO(entity);
     }
     
     
@@ -118,8 +141,15 @@ public class MedioPagoResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public MedioPagoDTO updateMedioPago(@PathParam("id") Long id, MedioPagoDTO medioPago) throws BusinessLogicException {
-        return medioPago;
+    public MedioPagoDTO updateMedioPago(@PathParam("id") Long id, MedioPagoDetailDTO medioPago) throws BusinessLogicException {
+        MedioPagoEntity entity = medioPago.toEntity();
+        entity.setId(id);
+        MedioPagoEntity oldEntity = logic.getMedioPago(id);
+        if (oldEntity == null) {
+            throw new WebApplicationException("El author no existe", 404);
+        }
+        entity.setPersonas(oldEntity.getPersonas());
+        return new MedioPagoDetailDTO(logic.updateMedioPago(entity));
     }
     
     
@@ -140,7 +170,11 @@ public class MedioPagoResource {
     @DELETE
     @Path("{id: \\d+}")
      public void deleteMedioPago(@PathParam("id") Long id) {
-        // Void
+       MedioPagoEntity entity = logic.getMedioPago(id);
+        if (entity == null) {
+            throw new WebApplicationException("El author no existe", 404);
+        }
+        logic.delete(id);
     }
     
 }

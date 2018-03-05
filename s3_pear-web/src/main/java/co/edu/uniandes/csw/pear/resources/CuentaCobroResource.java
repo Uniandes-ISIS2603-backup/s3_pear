@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.CuentaCobroDetailDTO;
+import co.edu.uniandes.csw.pear.ejb.CuentaCobroLogic;
+import co.edu.uniandes.csw.pear.entities.CuentaCobroEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.mappers.BusinessLogicExceptionMapper;
 import java.util.ArrayList;
@@ -19,6 +21,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  *
@@ -32,7 +35,7 @@ public class CuentaCobroResource {
     
     
    
-
+    CuentaCobroLogic logic;
 
 
     /**
@@ -58,9 +61,23 @@ public class CuentaCobroResource {
      */
     @POST
     public CuentaCobroDetailDTO createCuentaDeCobro(CuentaCobroDetailDTO cuenta) throws BusinessLogicException {
-        return cuenta;
+        return new CuentaCobroDetailDTO(logic.createCuenta(cuenta.toEntity()));
     }
 
+      /**
+     * Convierte una lista de CuentaCobroEntity a una lista de CuentaCobroDetailDTO.
+     *
+     * @param entityList Lista de MedioPago a convertir.
+     * @return Lista de MedioPagoDetailDTO convertida.
+     * 
+     */
+    private List<CuentaCobroDetailDTO> listEntity2DTO(List<CuentaCobroEntity> entityList) {
+        List<CuentaCobroDetailDTO> list = new ArrayList<>();
+        for (CuentaCobroEntity entity : entityList) {
+            list.add(new CuentaCobroDetailDTO(entity));
+        }
+        return list;
+    }
     
     /**
      * <h1>GET /api/cuentas : Obtener todas las cuentas.</h1>
@@ -75,7 +92,7 @@ public class CuentaCobroResource {
      */
     @GET
     public List<CuentaCobroDetailDTO> getCuentas() {
-        return new ArrayList<>();
+         return listEntity2DTO(logic.getCuentas());
     }
     
     
@@ -98,7 +115,11 @@ public class CuentaCobroResource {
     @GET
     @Path("{id: \\d+}")
     public CuentaCobroDetailDTO getCuentaCobro(@PathParam("id") Long id) {
-        return null;
+        CuentaCobroEntity entity = logic.getCuenta(id);
+        if (entity == null) {
+            throw new WebApplicationException("El author no existe", 404);
+        }
+        return new CuentaCobroDetailDTO(entity);
     }
     
     
@@ -116,14 +137,21 @@ public class CuentaCobroResource {
      * </code> 
      * </pre>
      * @param id Identificador de la cuenta que se desea actualizar.Este debe ser una cadena de dígitos.
-     * @param cuentaCobro( {@link CuentaCobro(DetailDTO} La cuenta que se desea guardar.
+     * @param cuenta( {@link CuentaCobro(DetailDTO} La cuenta que se desea guardar.
      * @return JSON {@link CuentaCobroDetailDTO} - La cuenta guardada.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar la ciudad porque ya existe una con ese nombre.
      */
     @PUT
     @Path("{id: \\d+}")
     public CuentaCobroDetailDTO updateCuentaCobro(@PathParam("id") Long id, CuentaCobroDetailDTO cuenta) throws BusinessLogicException {
-        return cuenta;
+        CuentaCobroEntity entity = cuenta.toEntity();
+        entity.setId(id);
+        CuentaCobroEntity oldEntity = logic.getCuenta(id);
+        if (oldEntity == null) {
+            throw new WebApplicationException("La cuenta no existe", 404);
+        }
+        entity.setPagoEntity(oldEntity.getPagoEntity());
+        return new CuentaCobroDetailDTO(logic.updateCuenta(entity));
     }
     
     
@@ -144,6 +172,10 @@ public class CuentaCobroResource {
     @DELETE
     @Path("{id: \\d+}")
      public void deleteCuenta(@PathParam("id") Long id) {
-        // Void
+         CuentaCobroEntity entity = logic.getCuenta(id);
+        if (entity == null) {
+            throw new WebApplicationException("La cuenta no existe", 404);
+        }
+        logic.delete(id);
     }
 }

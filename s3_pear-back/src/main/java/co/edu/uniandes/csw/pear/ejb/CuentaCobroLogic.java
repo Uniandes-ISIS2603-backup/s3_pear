@@ -99,8 +99,8 @@ public class CuentaCobroLogic {
      * @param entity de cuenta de cobro con los cambios deseados
      * @return la entidad de  cuenta de cobro luego de ser actualizada
      */
-    public CuentaCobroEntity updateCuenta( Long id, CuentaCobroEntity entity ) {
-        LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la cuenta con id = {0} " , id);
+    public CuentaCobroEntity updateCuenta( CuentaCobroEntity entity ) {
+        LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la cuenta con id = {0} " );
         CuentaCobroEntity actualizado = persistence.update(entity);
         LOGGER.log( Level.INFO, "Termina proceso de actualizacion de la cuenta com  id = {0}", entity.getId() );
         return actualizado;
@@ -127,6 +127,10 @@ public class CuentaCobroLogic {
         LOGGER.log(Level.INFO, "Inicia eliminacion la cuenta con id = {0} " , id);
         persistence.delete(id);
         LOGGER.log( Level.INFO, "Cuenta con id = {0} eliminada. ", id );
+    }
+
+    public void setId(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

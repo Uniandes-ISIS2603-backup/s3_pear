@@ -138,7 +138,7 @@ public class ComidaDTO
         ComidaEntity en = new ComidaEntity();
         en.setAlimentos(this.alimentos);
         en.setCantidad(this.cantidad);
-        en.setTIPO(this.TIPO);
+        en.setTIPO("desayuno");
         return en;
     }
 }

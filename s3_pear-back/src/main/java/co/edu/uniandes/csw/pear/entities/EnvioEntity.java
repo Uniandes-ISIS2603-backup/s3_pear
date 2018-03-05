@@ -118,7 +118,7 @@ public class EnvioEntity extends BaseEntity implements Serializable{
      * Cambia la persona de el envio
      * @param pPersona 
      */
-    private void setPersona(PersonaEntity pPersona)
+    public void setPersona(PersonaEntity pPersona)
     {
         persona = pPersona;
     }

@@ -6,24 +6,6 @@
 package co.edu.uniandes.csw.pear.resources;
 
 
-
-
-/**
-   * <pre>Clase que implementa el recurso "comidas".
- * URL: /api/cities
- * </pre>
- * <i>Note que la aplicación (definida en {@link RestConfig}) define la ruta "/api" y
- * este recurso tiene la ruta "cities".</i>
- *
- * <h2>Anotaciones </h2>
- * <pre>
- * Path: indica la dirección después de "api" para acceder al recurso
- * Produces/Consumes: indica que los servicios definidos en este recurso reciben y devuelven objetos en formato JSON
- * RequestScoped: Inicia una transacción desde el llamado de cada método (servicio). 
- * </pre>
- * @author js.cabra
- */
-
 import co.edu.uniandes.csw.pear.dtos.ComidaDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.ComidaLogic;
 import co.edu.uniandes.csw.pear.entities.ComidaEntity;
@@ -33,6 +15,24 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
 
+
+/**
+ * El formato JSON de este objeto es el siguiente:
+ 
+ 
+  {
+  "id": 123,
+  "cantidad": 200,
+  "alimentos": "Pollo y arroz",
+  "TIPO" : "desayuno"
+  
+    ]
+  }
+ 
+
+ * 
+ * @author js.cabra
+ */
 @Path("comidas")
 @Produces("application/json")
 @Consumes("application/json")
@@ -80,7 +80,7 @@ private ComidaLogic logic;
      */
     @GET   
     public List<ComidaDetailDTO> getComidas() {
-        List<ComidaDetailDTO> dtos = new ArrayList<ComidaDetailDTO>();
+        List<ComidaDetailDTO> dtos = new ArrayList<>();
         logic.getComidas().forEach( dieta -> { 
             dtos.add(new ComidaDetailDTO(dieta));
         });

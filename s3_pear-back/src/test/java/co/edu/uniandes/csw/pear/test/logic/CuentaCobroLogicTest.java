@@ -195,7 +195,7 @@ public class CuentaCobroLogicTest {
 
         pojoEntity.setId(entity.getId());
 
-        cuentaCobroLogic.updateCuenta(pojoEntity.getId(), pojoEntity);
+        cuentaCobroLogic.updateCuenta( pojoEntity);
 
         CuentaCobroEntity resp = em.find(CuentaCobroEntity.class, entity.getId());
         resp = em.find(CuentaCobroEntity.class, entity.getId());

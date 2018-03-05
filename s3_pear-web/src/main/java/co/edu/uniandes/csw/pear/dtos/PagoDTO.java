@@ -14,7 +14,7 @@ import co.edu.uniandes.csw.pear.entities.PagoEntity;
  * {
  *  "montoIncial": double,
  *  "montoFinal" : double, 
- *  "metodoPago" {
+ *  "medioPago" {
  *               "medioPagoActual": String
  *      }
  * }
