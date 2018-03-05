@@ -1,0 +1,530 @@
+{
+	"id": "d91fb7a9-6e23-b0b7-8365-5ee9f0c82bf3",
+	"name": "Cocina",
+	"allTests": [],
+	"timestamp": 1520292167861,
+	"collection_id": "56a80f42-a5b6-6939-8b63-0034182e2db0",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "0",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "56a80f42-a5b6-6939-8b63-0034182e2db0",
+		"name": "Cocina",
+		"description": "",
+		"order": [
+			"22e4904e-54e3-cac5-c08d-92801cc84cd7",
+			"6bccf8a1-5ea7-1c75-398c-9054d674bc69",
+			"7849c817-8396-c334-c8c9-c97f01efdb86",
+			"701c4aca-4a01-7073-acab-98754a3152b4",
+			"09ebeac7-821f-e6df-d34b-d989eda2c2b9"
+		],
+		"folders": [],
+		"folders_order": [],
+		"requests": [
+			{
+				"id": "09ebeac7-821f-e6df-d34b-d989eda2c2b9",
+				"headers": "Content-Type: application/json\n",
+				"headerData": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"enabled": true
+					}
+				],
+				"url": "http://localhost:8080/s3_pear-web/api/cocinas/49",
+				"queryParams": [],
+				"preRequestScript": null,
+				"pathVariables": {},
+				"pathVariableData": [],
+				"method": "DELETE",
+				"data": "",
+				"dataMode": "raw",
+				"tests": "tests[\"Status code is 204\"] = responseCode.code === 204;",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"time": 1520292163129,
+				"name": "Elimina la cocina con id = 50",
+				"description": "",
+				"collectionId": "56a80f42-a5b6-6939-8b63-0034182e2db0",
+				"responses": []
+			},
+			{
+				"id": "22e4904e-54e3-cac5-c08d-92801cc84cd7",
+				"headers": "Content-Type: application/json\n",
+				"headerData": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"enabled": true
+					}
+				],
+				"url": "http://localhost:8080/s3_pear-web/api/cocinas",
+				"queryParams": [],
+				"preRequestScript": null,
+				"pathVariables": {},
+				"pathVariableData": [],
+				"method": "POST",
+				"data": "{\n\t\"id\": 2,\n\t\"ubicacion\": \"ubica\",\n\t\"capacidad\": \"12\"\n\t\n}\n ",
+				"dataMode": "raw",
+				"version": 2,
+				"tests": "\r\ntests[\"Status code is 200\"] = responseCode.code === 200;\r\n",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"time": 1520290748263,
+				"name": "Crea todas las cocinas",
+				"description": "",
+				"collectionId": "56a80f42-a5b6-6939-8b63-0034182e2db0",
+				"responses": []
+			},
+			{
+				"id": "6bccf8a1-5ea7-1c75-398c-9054d674bc69",
+				"headers": "Content-Type: application/json\n",
+				"headerData": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"enabled": true
+					}
+				],
+				"url": "http://localhost:8080/s3_pear-web/api/cocinas",
+				"queryParams": [],
+				"pathVariables": {},
+				"pathVariableData": [],
+				"preRequestScript": null,
+				"method": "POST",
+				"collectionId": "56a80f42-a5b6-6939-8b63-0034182e2db0",
+				"data": "{\n\t\"id\": 1,\n\t\"ubicacion\": \"ubica\",\n\t\"capacidad\": \"13232\"\n\t\n}\n ",
+				"dataMode": "raw",
+				"name": "Crea cocina",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1520290737832,
+				"version": 2,
+				"responses": [],
+				"tests": "\r\ntests[\"Status code is 200\"] = responseCode.code === 200;\r\n",
+				"currentHelper": "normal",
+				"helperAttributes": {}
+			},
+			{
+				"id": "701c4aca-4a01-7073-acab-98754a3152b4",
+				"headers": "Content-Type: application/json\n",
+				"headerData": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"enabled": true
+					}
+				],
+				"url": "http://localhost:8080/s3_pear-web/api/cocinas/38",
+				"queryParams": [],
+				"preRequestScript": null,
+				"pathVariables": {},
+				"pathVariableData": [],
+				"method": "PUT",
+				"data": "{\n\t\"id\": 6,\n  \"ubicacion\": \"Una ubicacion\",\n  \"capacidad\": \"una capacidad\"\n  }",
+				"dataMode": "raw",
+				"version": 2,
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"time": 1520292029180,
+				"name": "Actualiza la cocina con id = 38",
+				"description": "",
+				"collectionId": "56a80f42-a5b6-6939-8b63-0034182e2db0",
+				"responses": []
+			},
+			{
+				"id": "7849c817-8396-c334-c8c9-c97f01efdb86",
+				"headers": "Content-Type: application/json\n",
+				"headerData": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"enabled": true
+					}
+				],
+				"url": "http://localhost:8080/s3_pear-web/api/cocinas",
+				"queryParams": [],
+				"preRequestScript": null,
+				"pathVariables": {},
+				"pathVariableData": [],
+				"method": "GET",
+				"data": "{\n \n   \"id\": 7,\n   \"objetivo\": \"un post con objetivo\",\n   \"descripcion\": \"un post con descripcion\"\n   \n }",
+				"dataMode": "raw",
+				"version": 2,
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\r\n",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"time": 1520290687096,
+				"name": "Retorna todas las cocinas",
+				"description": "",
+				"collectionId": "56a80f42-a5b6-6939-8b63-0034182e2db0",
+				"responses": []
+			}
+		],
+		"timestamp": 1520288822731,
+		"synced": false,
+		"syncedFilename": "",
+		"remote_id": 0,
+		"remoteLink": "",
+		"remoteLinkUpdatedAt": null,
+		"public": false,
+		"owner": "3730389",
+		"subscribed": false,
+		"createdAt": 1520288822731,
+		"updatedAt": 1520290777157,
+		"write": true,
+		"published": false,
+		"favorite": true,
+		"permissions": {},
+		"syncedPermissions": {},
+		"sharedWithTeam": false
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [
+		{
+			"key": "new_id",
+			"type": "text",
+			"value": "undefined",
+			"enabled": true
+		},
+		{
+			"key": "new_id_e",
+			"type": "text",
+			"value": "1",
+			"enabled": true
+		},
+		{
+			"key": "new_id_b",
+			"type": "text",
+			"value": "2",
+			"enabled": true
+		},
+		{
+			"key": "new_id_1",
+			"type": "text",
+			"value": "undefined",
+			"enabled": true
+		},
+		{
+			"key": "new_id_2",
+			"type": "text",
+			"value": "4",
+			"enabled": true
+		}
+	],
+	"results": [
+		{
+			"id": "22e4904e-54e3-cac5-c08d-92801cc84cd7",
+			"name": "Crea todas las cocinas",
+			"url": "http://localhost:8080/s3_pear-web/api/cocinas",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				44
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": 44,
+			"totalRequestTime": 44,
+			"iterationResults": {}
+		},
+		{
+			"id": "6bccf8a1-5ea7-1c75-398c-9054d674bc69",
+			"name": "Crea cocina",
+			"url": "http://localhost:8080/s3_pear-web/api/cocinas",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": 24,
+			"totalRequestTime": 24,
+			"iterationResults": {}
+		},
+		{
+			"id": "7849c817-8396-c334-c8c9-c97f01efdb86",
+			"name": "Retorna todas las cocinas",
+			"url": "http://localhost:8080/s3_pear-web/api/cocinas",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				52
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": 52,
+			"totalRequestTime": 52,
+			"iterationResults": {}
+		},
+		{
+			"id": "701c4aca-4a01-7073-acab-98754a3152b4",
+			"name": "Actualiza la cocina con id = 38",
+			"url": "http://localhost:8080/s3_pear-web/api/cocinas/38",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				25
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": 25,
+			"totalRequestTime": 25,
+			"iterationResults": {}
+		},
+		{
+			"id": "09ebeac7-821f-e6df-d34b-d989eda2c2b9",
+			"name": "Elimina la cocina con id = 50",
+			"url": "http://localhost:8080/s3_pear-web/api/cocinas/49",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": "The server successfully processed the request, but is not returning any content."
+			},
+			"tests": {
+				"Status code is 204": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				25
+			],
+			"allTests": [
+				{
+					"Status code is 204": true
+				}
+			],
+			"time": 25,
+			"totalRequestTime": 25,
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 5,
+	"totalFail": 0,
+	"totalTime": 170,
+	"lifecycle": "done",
+	"willStop": false,
+	"requests": [
+		{
+			"name": "Crea todas las cocinas",
+			"id": "22e4904e-54e3-cac5-c08d-92801cc84cd7",
+			"url": "http://localhost:8080/s3_pear-web/api/cocinas",
+			"time": 44,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200"
+			],
+			"gridData": [
+				[
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true
+			}
+		},
+		{
+			"name": "Crea cocina",
+			"id": "6bccf8a1-5ea7-1c75-398c-9054d674bc69",
+			"url": "http://localhost:8080/s3_pear-web/api/cocinas",
+			"time": 24,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200"
+			],
+			"gridData": [
+				[
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true
+			}
+		},
+		{
+			"name": "Retorna todas las cocinas",
+			"id": "7849c817-8396-c334-c8c9-c97f01efdb86",
+			"url": "http://localhost:8080/s3_pear-web/api/cocinas",
+			"time": 52,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200"
+			],
+			"gridData": [
+				[
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true
+			}
+		},
+		{
+			"name": "Actualiza la cocina con id = 38",
+			"id": "701c4aca-4a01-7073-acab-98754a3152b4",
+			"url": "http://localhost:8080/s3_pear-web/api/cocinas/38",
+			"time": 25,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200"
+			],
+			"gridData": [
+				[
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true
+			}
+		},
+		{
+			"name": "Elimina la cocina con id = 50",
+			"id": "09ebeac7-821f-e6df-d34b-d989eda2c2b9",
+			"url": "http://localhost:8080/s3_pear-web/api/cocinas/49",
+			"time": 25,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": "The server successfully processed the request, but is not returning any content."
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 204"
+			],
+			"gridData": [
+				[
+					true
+				]
+			],
+			"tests": {
+				"Status code is 204": true
+			}
+		}
+	],
+	"synced": false
+}

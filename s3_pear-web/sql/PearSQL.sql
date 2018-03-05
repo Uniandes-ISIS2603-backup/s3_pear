@@ -16,15 +16,15 @@ insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 8, 'Enterpris
 insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 9, 'Multi-tiered cohesive contingency', 'De-engineered multi-state info-mediaries' );
 insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 10, 'Multi-layered explicit circu', 'ntegrated multimedia initiative' );
 
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 1,'8871 Merry Point','2008');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 2,'7303 Troy Placet','2048');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 3,'652 Lukken Junction','2308');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 4,'15 Hoepker Plaza','208');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 5,'8871 Merry Point','28');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 6,'29 Larry Parkway','2028');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 7,'5073 Lakeland Lane','38');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 8,'3 Meadow Ridge Plaza','4008');
 
+insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 20,'8871 Merry Point','2008');
+insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 21,'7303 Troy Placet','2048');
+insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 38,'652 Lukken Junction','2308');
+insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 40,'15 Hoepker Plaza','208');
+insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 50,'8871 Merry Point','28');
+insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 16,'29 Larry Parkway','2028');
+insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 17,'5073 Lakeland Lane','38');
+insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 18,'3 Meadow Ridge Plaza','4008');
 
 
 
