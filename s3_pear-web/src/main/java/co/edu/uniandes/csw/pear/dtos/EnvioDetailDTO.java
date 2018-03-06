@@ -20,9 +20,15 @@ public class EnvioDetailDTO extends EnvioDTO{
      *
      * @param entity La entidad de Envio a partir de la cual se construye el objeto
      */
+    
+    public EnvioDetailDTO()
+    {
+        super();
+    }
     public EnvioDetailDTO(EnvioEntity entidad) {
         super(entidad);
     }
+    @Override
     public EnvioEntity toEntity() {
         EnvioEntity en = super.toEntity();
         

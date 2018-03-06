@@ -18,6 +18,11 @@ import java.util.List;
  */
 public class ComidaDetailDTO extends ComidaDTO{
     
+    
+    public ComidaDetailDTO()
+    {
+        super();
+    }
     /**
      * Constructor para transformar un Entity a un DTO
      *
@@ -26,6 +31,7 @@ public class ComidaDetailDTO extends ComidaDTO{
     public ComidaDetailDTO(ComidaEntity entidad) {
         super(entidad);
     }
+        @Override
     public ComidaEntity toEntity() {
         ComidaEntity en = super.toEntity();
         
