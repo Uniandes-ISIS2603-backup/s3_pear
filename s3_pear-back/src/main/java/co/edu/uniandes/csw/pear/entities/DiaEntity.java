@@ -41,14 +41,14 @@ public class DiaEntity extends BaseEntity implements Serializable {
      * Determina si la comida se envia o no (Esto varia segun la disponibilidad del cliente)
      * @param pSeEnvia boolean para indicar si se debe o no enviar la comida programada
      */
-    public void setSeEnvia (boolean pSeEnvia){
+    public void setSeEnvia (Boolean pSeEnvia){
         seEnvia = pSeEnvia;
     }
     
     /**
      * @return si se debe o no enviar la comida ese dia
      */
-    public boolean getSeEnvia(){
+    public Boolean getSeEnvia(){
         return seEnvia;
     }
     /**

@@ -18,7 +18,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class CuentaCobroEntity extends BaseEntity implements Serializable {
     
-    private double valorAPagar;
+    private Double valorAPagar;
     
     @PodamExclude
     @OneToOne
@@ -28,7 +28,7 @@ public class CuentaCobroEntity extends BaseEntity implements Serializable {
      * Devuelve el valor a pagar
      * @return valorAPagar
      */
-    public double getValorAPagar() {
+    public Double getValorAPagar() {
         return valorAPagar;
     }
 
@@ -36,7 +36,7 @@ public class CuentaCobroEntity extends BaseEntity implements Serializable {
      * Cambia el valor a pagar
      * @param pValor 
      */
-    public void setValorAPagar(double pValor) {
+    public void setValorAPagar(Double pValor) {
         this.valorAPagar = pValor;
     }
     
