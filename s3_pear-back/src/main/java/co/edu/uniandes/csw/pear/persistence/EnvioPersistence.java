@@ -42,7 +42,7 @@ public class EnvioPersistence {
 
     
     /**
-     * Busca todas las envios de tipo ComidaEntity
+     * Busca todas las envios de tipo EnvioEntity
      * @return todas las cocinas
      */
     public List<EnvioEntity> findAll( ) {

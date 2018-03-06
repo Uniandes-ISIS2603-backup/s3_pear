@@ -34,7 +34,7 @@ import javax.ws.rs.*;
  * 
  * @author js.cabra
  */
-@Path("envios")
+@Path("eventos")
 @Produces("application/json")
 @Consumes("application/json")
 @RequestScoped
