@@ -100,7 +100,7 @@ private ComidaLogic logic;
      * </code> 
      * </pre>
      * @param id Identificador de la comida que se esta buscando. Este debe ser una cadena de dígitos.
-     * @return JSON {@link ComidaDetailDTO} - La cocina buscada
+     * @return JSON {@link ComidaDetailDTO} - La comida buscada
      */
     @GET
     @Path("{id: \\d+}")
