@@ -169,7 +169,7 @@ public class PersonaLogicTest {
      * Prueba para actualizar una Persona
      */
     @Test
-    public void updateBookTest() throws BusinessLogicException{
+    public void updatePersonaTest() throws BusinessLogicException{
         PersonaEntity entity = data.get(0);
         PersonaEntity pojoEntity = factory.manufacturePojo(PersonaEntity.class);
 

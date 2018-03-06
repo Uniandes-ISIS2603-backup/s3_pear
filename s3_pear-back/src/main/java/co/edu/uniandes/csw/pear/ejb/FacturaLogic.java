@@ -103,9 +103,9 @@ public class FacturaLogic {
      * @return la entidad de factura luego de ser actualizada
      * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
-    public FacturaEntity updateFactura( Long id, FacturaEntity entity ) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la factura con id = {0} " , id);
-        if(persistence.find(id) == null ||  entity.getId() == null){
+    public FacturaEntity updateFactura(FacturaEntity entity ) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la factura con id = {0} " , entity.getId());
+        if(persistence.find(entity.getId()) == null ||  entity.getId() == null){
             throw new BusinessLogicException("No existe una factura con ese identificador");
         }
         if(entity.getCantidadDeProductos()< 0){

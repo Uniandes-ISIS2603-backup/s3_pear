@@ -27,9 +27,9 @@ public class FacturaEntity extends  CuentaCobroEntity implements Serializable{
     @ManyToOne
     private PersonaEntity persona;
   
-    private Integer cantidadProductos;
+    private Integer cantidadProductos = 0;
     
-    private Integer numeroFacturaDeVenta;
+    private Integer numeroFacturaDeVenta = 0;
     
     
     //-----------------------------------------------------------
@@ -56,14 +56,14 @@ public class FacturaEntity extends  CuentaCobroEntity implements Serializable{
      * Determina la cantidad de productos que se estan facturando
      * @param am cantidad
      */
-    public void setCantidadDeProductos (int am){
+    public void setCantidadDeProductos (Integer am){
         cantidadProductos  = am;
     }
     
     /**
      * @return cantidad de productos facturados
      */
-    public int getCantidadDeProductos (){
+    public Integer getCantidadDeProductos (){
         return cantidadProductos;
     }
     
@@ -71,14 +71,14 @@ public class FacturaEntity extends  CuentaCobroEntity implements Serializable{
      * Asigna un identificador unico a la factura
      * @param num numero de indentificacion de la factura
      */
-    public void setNumeroFactura( int num){
+    public void setNumeroFactura( Integer num){
         numeroFacturaDeVenta = num;
     }
     
     /**
      * @return identificador de la factura
      */
-    public int getNumeroFactura(){
+    public Integer getNumeroFactura(){
         return numeroFacturaDeVenta;
     }
  }
