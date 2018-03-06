@@ -13,6 +13,7 @@ import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 
 
@@ -39,6 +40,7 @@ import javax.ws.rs.*;
 @RequestScoped
 public class ComidaResource {
 
+    @Inject
 private ComidaLogic logic;
 
     /**
@@ -76,7 +78,7 @@ private ComidaLogic logic;
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Devuelve todas las comidas de la aplicacion.</code> 
      * </pre>
-     * @return JSONArray {@link ComidaDetailDTO} - Las dietas encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
+     * @return JSONArray {@link ComidaDetailDTO} - Las comidas encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET   
     public List<ComidaDetailDTO> getComidas() {
