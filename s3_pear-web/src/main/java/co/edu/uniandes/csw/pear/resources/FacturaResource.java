@@ -159,7 +159,6 @@ public class FacturaResource {
      * 404 Not Found. No existe una factura con el id dado.
      * </code> 
      * </pre>
-     * @param id Identificador de la factura que se desea actualizar.Este debe ser una cadena de dígitos.
      * @param factura {@link FacturaDetailDTO} La factura que se desea guardar.
      * @return JSON {@link FacturaDetailDTO} - La factura guardada.
      
@@ -169,7 +168,7 @@ public class FacturaResource {
     public FacturaDetailDTO updateFactura(@PathParam("id") Long id, FacturaDetailDTO factura) throws BusinessLogicException {
          if ( logic.getFactura(id) == null ) 
             throw new WebApplicationException("El recurso /facturas/" + id + " no existe.", 404);
-        return new FacturaDetailDTO(logic.updateFactura(id, factura.toEntity()));
+        return new FacturaDetailDTO(logic.updateFactura(factura.toEntity()));
     }
  
     /**
