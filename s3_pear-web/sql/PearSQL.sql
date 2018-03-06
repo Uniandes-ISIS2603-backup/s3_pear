@@ -87,7 +87,7 @@ insert into EnvioEntity (id,duracion,direccion,recibido) values (02,20,'ejemplo 
 insert into EnvioEntity (id,duracion,direccion,recibido) values (03,30,'ejemplo 3', 0);
 insert into EnvioEntity (id,duracion,direccion,recibido) values (04,40,'ejemplo 4', 0);
 insert into EnvioEntity (id,duracion,direccion,recibido) values (05,50,'ejemplo 5', 1);
-insert into EnvioEntity (id,duracion,direccion,recibido)) values (06,60,'ejemplo 6', 0);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (06,60,'ejemplo 6', 0);
 insert into EnvioEntity (id,duracion,direccion,recibido) values (07,70,'ejemplo 8', 0);
 insert into EnvioEntity (id,duracion,direccion,recibido) values (08,80,'ejemplo7', 1);
 
