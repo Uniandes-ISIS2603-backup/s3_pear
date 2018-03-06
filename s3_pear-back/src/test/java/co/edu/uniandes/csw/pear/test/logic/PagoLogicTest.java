@@ -199,7 +199,7 @@ public class PagoLogicTest {
 
         pojoEntity.setId(entity.getId());
 
-        pagoLogic.updatePago(pojoEntity.getId(), pojoEntity);
+        pagoLogic.updatePago( pojoEntity);
 
         PagoEntity resp = em.find(PagoEntity.class, entity.getId());
         resp = em.find(PagoEntity.class, entity.getId());

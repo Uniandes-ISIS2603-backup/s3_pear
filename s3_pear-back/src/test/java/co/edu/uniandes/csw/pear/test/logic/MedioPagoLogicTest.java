@@ -196,7 +196,7 @@ public class MedioPagoLogicTest {
 
         pojoEntity.setId(entity.getId());
 
-        medioPagoLogic.updatePago(pojoEntity.getId(), pojoEntity);
+        medioPagoLogic.updateMedioPago( pojoEntity);
 
         MedioPagoEntity resp = em.find(MedioPagoEntity.class, entity.getId());
         resp = em.find(MedioPagoEntity.class, entity.getId());

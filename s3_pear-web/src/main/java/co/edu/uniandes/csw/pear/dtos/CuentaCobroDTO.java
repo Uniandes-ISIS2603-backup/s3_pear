@@ -12,7 +12,12 @@ import co.edu.uniandes.csw.pear.entities.PagoEntity;
  * 
  * El formato JSON de este objeto es el siguiente:
  * {
- *  "valorAPagar": double
+ *  "valorAPagar": 15.0,
+ *  "id": 7,
+ * "pago" : {
+ *              "montoInicial":7.0
+ *              "montoFinal": 8.0
+ * }
  * }
  * @author jp.campos
  */

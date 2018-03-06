@@ -129,8 +129,8 @@ public class MedioPagoLogic {
      * @param entity de medio de  pago con los cambios deseados
      * @return la entidad de medio de pago luego de ser actualizada
      */
-    public MedioPagoEntity updatePago( Long id, MedioPagoEntity entity ) {
-        LOGGER.log(Level.INFO, "Inica proceso de actualizacion del medio de pago con id = {0} " , id);
+    public MedioPagoEntity updateMedioPago(MedioPagoEntity entity ) {
+        LOGGER.log(Level.INFO, "Inica proceso de actualizacion del medio de pago con id = {0} " );
         MedioPagoEntity actualizado = persistence.update(entity);
         LOGGER.log( Level.INFO, "Termina proceso de actualizacion del medio de pago, id = {0}", entity.getId() );
         return actualizado;

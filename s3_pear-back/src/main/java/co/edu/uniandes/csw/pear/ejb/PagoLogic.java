@@ -112,8 +112,8 @@ public class PagoLogic {
      * @param entity de pago con los cambios deseados
      * @return la entidad de pago luego de ser actualizada
      */
-    public PagoEntity updatePago( Long id, PagoEntity entity ) {
-        LOGGER.log(Level.INFO, "Inica proceso de actualizacion del pago con id = {0} " , id);
+    public PagoEntity updatePago(  PagoEntity entity ) {
+        LOGGER.log(Level.INFO, "Inica proceso de actualizacion del pago con id = {0} " );
         PagoEntity actualizado = persistence.update(entity);
         LOGGER.log( Level.INFO, "Termina proceso de actualizacion del pago, id = {0}", entity.getId() );
         return actualizado;
