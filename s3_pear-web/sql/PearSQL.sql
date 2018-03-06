@@ -67,3 +67,22 @@ insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscr
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (8, 'n8', 'a8', 8, 'd8', 'c8', 0, 'i8');
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (9, 'n9', 'a9', 9, 'd9', 'c9', 0, 'i9');
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (10, 'n10', 'a10', 10, 'd10', 'c10', 0, 'i10');
+
+
+insert into ComidaEntity (id,cantidad,alimentos,TIPO) values (01,400,'ejemplo 1', 'almuerzo');
+insert into ComidaEntity (id,cantidad,alimentos,TIPO) values (02,100,'ejemplo 2', 'desayuno');
+insert into ComidaEntity (id,cantidad,alimentos,TIPO) values (03,800,'ejemplo 3', 'cena');
+insert into ComidaEntity (id,cantidad,alimentos,TIPO) values (04,700,'ejemplo 4', 'adicional');
+insert into ComidaEntity (id,cantidad,alimentos,TIPO) values (05,600,'ejemplo 5', 'almuerzo');
+insert into ComidaEntity (id,cantidad,alimentos,TIPO) values (06,400,'ejemplo 6', 'cena');
+insert into ComidaEntity (id,cantidad,alimentos,TIPO) values (07,300,'ejemplo 8', 'desayuno');
+insert into ComidaEntity (id,cantidad,alimentos,TIPO) values (08,1200,'ejemplo7', 'cena');
+
+insert into EnvioEntity (id,duracion,direccion,recibio) values (01,10,'ejemplo 1', false);
+insert into EnvioEntity (id,duracion,direccion,recibio) values (02,20,'ejemplo 2', true);
+insert into EnvioEntity (id,duracion,direccion,recibio) values (03,30,'ejemplo 3', true);
+insert into EnvioEntity (id,duracion,direccion,recibio) values (04,40,'ejemplo 4', true);
+insert into EnvioEntity (id,duracion,direccion,recibio) values (05,50,'ejemplo 5', false);
+insert into EnvioEntity (id,duracion,direccion,recibio)) values (06,60,'ejemplo 6', true);
+insert into EnvioEntity (id,duracion,direccion,recibio) values (07,70,'ejemplo 8', true);
+insert into EnvioEntity (id,duracion,direccion,recibio) values (08,80,'ejemplo7', false);
