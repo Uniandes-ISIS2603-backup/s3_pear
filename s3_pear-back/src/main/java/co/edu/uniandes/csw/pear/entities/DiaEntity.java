@@ -22,7 +22,7 @@ public class DiaEntity extends BaseEntity implements Serializable {
     //Atributos
     //-----------------------------------------------------------
     
-    private boolean seEnvia;
+    private Boolean seEnvia;
  
     private String recomendacion;
     

@@ -27,9 +27,9 @@ public class FacturaEntity extends  CuentaCobroEntity implements Serializable{
     @ManyToOne
     private PersonaEntity persona;
   
-    private int cantidadProductos;
+    private Integer cantidadProductos;
     
-    private int numeroFacturaDeVenta;
+    private Integer numeroFacturaDeVenta;
     
     
     //-----------------------------------------------------------
