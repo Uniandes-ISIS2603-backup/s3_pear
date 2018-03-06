@@ -4,7 +4,11 @@ delete from CasoExitoEntity;
 delete from PersonaEntity;
 delete from DietaTipoEntity;
 delete from CocinaEntity;
-
+delete from ComidaEntity;
+delete from EnvioEntity;
+delete from DiaEntity;
+delete from SemanaEntity;
+delete from FacturaEntity;
 
 insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 1, 'un objetivo inicial', 'una descripcion inicial' );
 insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 2, 'otro objetivo segundo', 'otra descripcion segunda' );
