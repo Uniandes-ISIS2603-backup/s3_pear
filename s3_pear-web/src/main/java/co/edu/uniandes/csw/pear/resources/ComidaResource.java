@@ -39,8 +39,7 @@ import javax.ws.rs.*;
 @Consumes("application/json")
 @RequestScoped
 public class ComidaResource {
-
-    @Inject
+@Inject
 private ComidaLogic logic;
 
     /**
@@ -62,6 +61,7 @@ private ComidaLogic logic;
      * </pre>
      * @param comida {@link ComidaDetailDTO} - La comida que se desea guardar.
      * @return JSON {@link ComidaDetailDTO}  - La comida guardada con el atributo id autogenerado.
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
      @POST
      
@@ -78,7 +78,7 @@ private ComidaLogic logic;
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Devuelve todas las comidas de la aplicacion.</code> 
      * </pre>
-     * @return JSONArray {@link ComidaDetailDTO} - Las comidas encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
+     * @return JSONArray {@link ComidaDetailDTO} - Las dietas encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET   
     public List<ComidaDetailDTO> getComidas() {
