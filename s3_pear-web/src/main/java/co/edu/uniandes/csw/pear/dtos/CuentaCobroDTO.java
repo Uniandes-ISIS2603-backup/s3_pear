@@ -27,7 +27,7 @@ public class CuentaCobroDTO {
     //Atributos
     //-----------------------------------------------------------
     
-    private double valorAPagar;
+    private Double valorAPagar;
     
     private Long id; 
     
@@ -46,9 +46,11 @@ public class CuentaCobroDTO {
      */
     public CuentaCobroDTO(CuentaCobroEntity entity) {
         
+        if(entity != null)
+        {
         this.valorAPagar =  entity.getValorAPagar();
         this.id = entity.getId();
-        
+        }
     }
 
     
@@ -75,7 +77,7 @@ public class CuentaCobroDTO {
     /**
      * @param pValorAPagar nuevo valor para asignar
      */
-    public void setValorAPagar(double pValorAPagar){
+    public void setValorAPagar(Double pValorAPagar){
         valorAPagar = pValorAPagar;
     }
     

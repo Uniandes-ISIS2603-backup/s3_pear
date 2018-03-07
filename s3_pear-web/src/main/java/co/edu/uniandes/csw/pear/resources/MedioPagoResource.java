@@ -13,6 +13,7 @@ import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -33,7 +34,7 @@ import javax.ws.rs.WebApplicationException;
 @RequestScoped
 public class MedioPagoResource {
     
-
+    @Inject
     MedioPagoLogic logic;
 
     /**

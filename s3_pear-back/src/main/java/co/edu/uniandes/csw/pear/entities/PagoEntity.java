@@ -17,8 +17,8 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class PagoEntity extends BaseEntity implements Serializable{
     
    
-    private double montoInicial; 
-    private double montoFinal;
+    private Double montoInicial; 
+    private Double montoFinal;
     
     @PodamExclude
     @OneToOne
@@ -27,14 +27,14 @@ public class PagoEntity extends BaseEntity implements Serializable{
     /**
      * @return montoInicial
      */
-    public double getMontoInicial(){
+    public Double getMontoInicial(){
         return montoInicial;
     }
     /**
      * Cambia el monto inicial
      * @param pMonto 
      */
-    public void setMontoInicial(double pMonto)
+    public void setMontoInicial(Double pMonto)
     {
         montoInicial = pMonto; 
     }
@@ -52,7 +52,7 @@ public class PagoEntity extends BaseEntity implements Serializable{
      * Cambia el monto final
      * @param pMonto 
      */
-    public void setMontoFinal(double pMonto)
+    public void setMontoFinal(Double pMonto)
     {
         montoFinal = pMonto;
     }

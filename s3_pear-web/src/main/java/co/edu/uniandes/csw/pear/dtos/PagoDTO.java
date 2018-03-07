@@ -23,8 +23,8 @@ import co.edu.uniandes.csw.pear.entities.PagoEntity;
 public class PagoDTO {
     
     
-    private double montoInicial; 
-    private double montoFinal; 
+    private Double montoInicial; 
+    private Double montoFinal; 
     private Long id; 
  
     
@@ -58,7 +58,7 @@ public class PagoDTO {
     /**
      * @return montoIncial
      */
-    public double getMontoIncial()
+    public Double getMontoIncial()
     {
         return montoInicial;
     }
@@ -67,7 +67,7 @@ public class PagoDTO {
      * Cambia el monto inicial
      * @param pMonto 
      */
-    public void setMontoIncial(double pMonto)
+    public void setMontoIncial(Double pMonto)
     {
         montoInicial = pMonto; 
     }
@@ -76,7 +76,7 @@ public class PagoDTO {
      * 
      * @return Monto Final
      */
-   public double getMontoFinal(){
+   public Double getMontoFinal(){
        return montoFinal; 
                
    }
@@ -85,7 +85,7 @@ public class PagoDTO {
     * Cambia el monto final
     * @param pMonto 
     */
-   public void setMontoFinal(double pMonto)
+   public void setMontoFinal(Double pMonto)
    {
        montoFinal = pMonto; 
    }

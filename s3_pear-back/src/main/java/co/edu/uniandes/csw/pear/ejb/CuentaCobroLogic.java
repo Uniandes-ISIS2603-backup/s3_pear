@@ -69,15 +69,16 @@ public class CuentaCobroLogic {
      * Crea una cuenta de cobro y la guarda en la base de datos
      * @param entity de pago a persistir
      * @return entidad de pago persistida
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     public CuentaCobroEntity createCuenta( CuentaCobroEntity entity ) throws BusinessLogicException{
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de una cuenta de cobro con id = {0}", entity.getId());
-        if(verificarCuenta(entity.getValorAPagar()))
+        if(!verificarCuenta(entity.getValorAPagar()))
         {
-        persistence.create(entity);
+            throw new BusinessLogicException("El valor a pagar es negativo");
         }else 
         {
-            throw new BusinessLogicException("El valor a pagar es negativo"); 
+            persistence.create(entity); 
         }
         LOGGER.log(Level.INFO, "Termina proceso de creacion de una cuenta de cobro con id = {0}", entity.getId());
         return entity;
