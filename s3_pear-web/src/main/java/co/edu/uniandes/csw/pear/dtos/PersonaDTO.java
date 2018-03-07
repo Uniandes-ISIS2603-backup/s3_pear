@@ -52,6 +52,8 @@ public class PersonaDTO {
     //Atributos
     //-----------------------------------------------------------
     
+    private Long id;
+    
     private String nombre;
     
     private String apellido;
@@ -76,6 +78,8 @@ public class PersonaDTO {
      */
     
     public PersonaDTO(PersonaEntity entidad){
+        
+        id = entidad.getId();
         
         nombre = entidad.getNombre();
         
@@ -102,6 +106,20 @@ public class PersonaDTO {
     //-----------------------------------------------------------
     //Metodos
     //-----------------------------------------------------------
+    
+    /**
+     * @return id de la persona
+     */
+    public Long getId(){
+        return id;
+    }
+    
+    /**
+     * @param pId nuevo id
+     */
+    public void setId(Long pId){
+        id = pId;
+    }
     
     /**
      * @return nombre de la persona
@@ -210,6 +228,7 @@ public class PersonaDTO {
     public PersonaEntity toEntity(){
         PersonaEntity entidad = new PersonaEntity();
         
+        entidad.setId(id);
         entidad.setNombre(nombre);
         entidad.setApellido(apellido);
         entidad.setCorreo(correo);

@@ -33,6 +33,8 @@ public class CasoExitoDTO {
     //Atributos
     //-----------------------------------------------------------
     
+    private Long id;
+    
     private String comentario;
     
     private String testimonio;
@@ -46,6 +48,8 @@ public class CasoExitoDTO {
      * @param entidad Entidad a partir de la cual se construye el dto
      */
     public CasoExitoDTO(CasoExitoEntity entidad){
+        
+        id = entidad.getId();
         
         comentario = entidad.getComentario();
         
@@ -62,6 +66,20 @@ public class CasoExitoDTO {
     //-----------------------------------------------------------
     //Metodos
     //-----------------------------------------------------------
+    
+    /**
+     * @return el id del caso
+     */
+    public Long getId(){
+        return id;
+    }
+    
+    /**
+     * @param pId nuevo id
+     */
+    public void setId(Long pId){
+        id = pId;
+    }
     
     /**
      * @return El comentario asociado al caso
@@ -100,6 +118,7 @@ public class CasoExitoDTO {
     public CasoExitoEntity toEntity(){
         CasoExitoEntity entidad = new CasoExitoEntity();
         
+        entidad.setId(id);
         entidad.setComentario(comentario);
         entidad.setTestimonio(testimonio);
         
