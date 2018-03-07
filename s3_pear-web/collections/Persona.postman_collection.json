@@ -1,0 +1,117 @@
+{
+	"info": {
+		"name": "Persona",
+		"_postman_id": "6be927a1-df93-fc83-385e-4142121a9aee",
+		"description": "Pruebas iniciales para el recurso Persona",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Consultar todas las personas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d30aa0a6-2bf4-42b1-ab85-0a3e46c7323c",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/personas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"personas"
+					]
+				},
+				"description": "Busca a todas las personas del sistema"
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar una persona (id = 1)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9b0a8e4e-5b4e-405d-8d69-50a4ec313b8b",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/personas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"personas",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta equivocada de una persona (id = 11 (no existe))",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eeef2a0e-a501-4a30-90c0-ff2c8e90c480",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 404\"] = responseCode.code === 404;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/personas/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"personas",
+						"11"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

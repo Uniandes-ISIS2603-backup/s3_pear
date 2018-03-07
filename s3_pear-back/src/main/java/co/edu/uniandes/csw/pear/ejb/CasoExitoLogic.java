@@ -41,6 +41,9 @@ public class CasoExitoLogic {
         else if(entity.getComentario().equals("") || entity.getTestimonio().equals("")){
             throw new BusinessLogicException("El caso exito no puede tener comentarios ni testimonios vacíos");
         }
+        else if(getCasoExito(entity.getId()) != null){
+            throw new BusinessLogicException("Ya existe un caso exito con el id " + entity.getId());
+        }
         // Invoca la persistencia para crear el caso exito
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de casoExito");
