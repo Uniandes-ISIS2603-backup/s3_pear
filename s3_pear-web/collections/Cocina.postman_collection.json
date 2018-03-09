@@ -1,0 +1,241 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Cocina",
+		"_postman_id": "21e21532-a90d-e616-aed1-477c4a3621da",
+		"description": "servicios REST sobre el recurso Cocina",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crea una cocina",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/cocinas",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ubicacion\": \"Una ubicacion POST\",\n  \"capacidad\": \"una capacidad POST\"\n  }"
+				},
+				"description": "crea una cocina por medio del servicio POST"
+			},
+			"response": []
+		},
+		{
+			"name": "Falla creando una cocina",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 412\"] = responseCode.code === 412;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/cocinas",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ubicacion\": \"Una ubicacion POST ahora FALLA porque capacidad es una cadena vacia\",\n  \"capacidad\": \"\"\n  }"
+				},
+				"description": "falla creando una cocina porque el objetivo no esta definido"
+			},
+			"response": []
+		},
+		{
+			"name": "Retorna todas las cocinas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/cocinas",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "retorna todas las cocinas registradas en la base de datos"
+			},
+			"response": []
+		},
+		{
+			"name": "Retorna una cocina por id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/cocinas/2",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "retorna la cocina registrada por id = 2"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza una cocina por id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/cocinas/4",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ubicacion\": \"Una ubicacion ACTUALIZADA POR PUT\",\n  \"capacidad\": \"Una capacidad ACTUALIZADA POR PUT\"\n  }"
+				},
+				"description": "actualiza la ubicacion y capacidad de una cocina con id = 4"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza una cocina por id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 404\"] = responseCode.code === 404;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/cocinas/400",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ubicacion\": \"Una ubicacion ACTUALIZADA POR PUT pero NO Existe la cocina con id = 400\",\n  \"capacidad\": \"Una capacidad ACTUALIZADA POR PUT pero falla\"\n  }"
+				},
+				"description": "falla actualizando una cocina que no existe"
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina una cocina por id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/cocinas/5",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "elimina una cocina por id"
+			},
+			"response": []
+		},
+		{
+			"name": "Falla eliminando una cocina que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 404\"] = responseCode.code === 404;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/cocinas/500",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "falla eliminando una cocina que no existe"
+			},
+			"response": []
+		}
+	]
+}
