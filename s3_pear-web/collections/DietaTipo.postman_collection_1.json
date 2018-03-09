@@ -1,0 +1,290 @@
+{
+	"variables": [],
+	"info": {
+		"name": "DietaTipo",
+		"_postman_id": "1f48e377-293b-7625-b311-9862d8a16807",
+		"description": "Servicios REST sobre el recurso dietas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crea una dieta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/dietas",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"descripcion\": \"Descripcion de Dieta Creada usando el Servicio POST\",\n    \"objetivo\": \"Objetivo de Dieta Creada usando el Servicio POST\"\n}"
+				},
+				"description": "crea un dieta"
+			},
+			"response": []
+		},
+		{
+			"name": "Falla creando una dieta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 412\"] = responseCode.code === 412;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/dietas",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"descripcion\": \"Descripcion de Dieta que FALLA creandose usando el Servicio POST\",\n    \"objetivo\" : \"\"\n}"
+				},
+				"description": "como el objetivo es null, debe falla creandose"
+			},
+			"response": []
+		},
+		{
+			"name": "Retorna todas las dietas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/dietas",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"descripcion\": \"Descripcion de Dieta que FALLA creandose usando el Servicio POST\",\n    \"objetivo\" : \"\"\n}"
+				},
+				"description": "retorna todas las dietas registradas"
+			},
+			"response": []
+		},
+		{
+			"name": "Retorna la dieta por id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/dietas/2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"descripcion\": \"Descripcion de Dieta que FALLA creandose usando el Servicio POST\",\n    \"objetivo\" : \"\"\n}"
+				},
+				"description": "retorna la dieta con id = 2"
+			},
+			"response": []
+		},
+		{
+			"name": "Falla buscando una dieta por id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 404\"] = responseCode.code === 404;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/dietas/300",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"descripcion\": \"Una Descripcion de dieta ACTUALIZADA por medio del servicio PUT\",\n    \"objetivo\" : \"Un Objetivo de dieta ACTUALIZADO por medio del servicio PU\"\n}"
+				},
+				"description": "falla buscando la dieta por id = 200"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza uan dieta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/dietas/3",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"descripcion\": \"Una Descripcion de dieta ACTUALIZADA por medio del servicio PUT\",\n    \"objetivo\" : \"Un Objetivo de dieta ACTUALIZADO por medio del servicio PU\"\n}"
+				},
+				"description": "actualiza la descripcion y objetivo de la dieta con id = 3"
+			},
+			"response": []
+		},
+		{
+			"name": "Falla actualizando una dieta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 412\"] = responseCode.code === 412;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/dietas/3",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"descripcion\": \"\",\n    \"objetivo\" : \"Un Objetivo de dieta ACTUALIZADO por medio del servicio PU\"\n}"
+				},
+				"description": "falla actualizando la dieta por id = 3"
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina una dieta por id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/dietas/2",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "elimina la dieta con id = 4"
+			},
+			"response": []
+		},
+		{
+			"name": "Falla elimina una dieta por id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 404\"] = responseCode.code === 404;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/dietas/5000",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "falla elimina la dieta con id = 4"
+			},
+			"response": []
+		}
+	]
+}
