@@ -18,10 +18,9 @@ import javax.ws.rs.*;
  ** El formato JSON de este objeto es el siguiente:
 
  {
-   "id": 123, 
    "objetivo": "un objetivo",
    "descripcion": "una descripcion",
-   "cuentaDeCobro": {
+   "cuentaCobro": {
                      "valorAPagar": 23.00
                    },
    "semanas":[
@@ -29,13 +28,13 @@ import javax.ws.rs.*;
    		"fechaLunes":"2012-04-23T18:25:43.511Z",
    		"dias":[
    			{
-   				"SeEnvia": true,
+   				"seEnvia": true,
    				"recomendacion": "una recomendacion",
-            	"fecha": "2012-04-23T18:25:43.511Z"
-        	}
-          ]
+                                "fecha": "2012-04-23T18:25:43.511Z"
+                        }
+                        ]
    	}
-               ]
+            ]
  }
 
 * 
@@ -48,13 +47,11 @@ import javax.ws.rs.*;
 public class DietaTipoResource {
     
     
-    
     /**
      * Conexion con la logica
      */
     @Inject
     DietaTipoLogic logic;
-    
     
     
     
@@ -157,8 +154,10 @@ public class DietaTipoResource {
     @PUT
     @Path("{id: \\d+}")
     public DietaTipoDetailDTO updateDieta(@PathParam("id") Long id, DietaTipoDetailDTO dieta) throws BusinessLogicException {
-        if ( logic.getDieta(id) == null ) 
-            throw new WebApplicationException("El recurso /dietas/" + id + " no existe.", 404);
+        if ( logic.getDieta(id) == null )
+            throw new WebApplicationException("El recurso dietas/" + id + " no existe", 404);
+        
+        dieta.setId(id);
         return new DietaTipoDetailDTO(logic.updateDieta(id, dieta.toEntity()));
     }
     

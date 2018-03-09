@@ -112,7 +112,7 @@ public class CocinaLogic {
         if ( entity.getCapacidad().isEmpty() || entity.getCapacidad() == null ) throw new BusinessLogicException( String.format("La Capacidad de Cocina ( capacidad = %s ) es invalida", entity.getCapacidad())) ;
         if ( entity.getUbicacion().isEmpty() || entity.getUbicacion() == null ) throw new BusinessLogicException( String.format("La Ubicacion de Cocina ( ubicacion = %s ) es invalida", entity.getUbicacion())) ;
         //assert !entity.getName().isEmpty() || entity.getName() != null : String.format("El Nombre de Cocina ( nombre = %s ) es invalida", entity.getName()) ;
-        if ( entity.getId() == null ) throw new BusinessLogicException( String.format("El ID de Cocina ( id = %s ) es invalida", entity.getId())) ;
+        //if ( entity.getId() == null ) throw new BusinessLogicException( String.format("El ID de Cocina ( id = %s ) es invalida", entity.getId())) ;
     }
     
     /**
@@ -136,9 +136,10 @@ public class CocinaLogic {
      * @return la entidad de Cocina luego de ser actualizada
      */
     public CocinaEntity updateCocina( Long id, CocinaEntity entity ) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la cocina con id = {0} " , id);
-        verificaciones(entity);
+        if ( persistence.find(entity.getId()) == null ) throw new BusinessLogicException("la cocina que se piensa eliminar no existe. ID = " + entity.getId());
+        LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la dieta con id = {0} " , id);
         CocinaEntity actualizado = persistence.update(entity);
+        verificaciones(actualizado);
         LOGGER.log( Level.INFO, "Termina proceso de actualizacion de la cocina, id = {0}", entity.getId() );
         return actualizado;
     }

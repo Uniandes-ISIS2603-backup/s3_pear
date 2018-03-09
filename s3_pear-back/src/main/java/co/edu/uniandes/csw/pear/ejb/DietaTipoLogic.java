@@ -123,7 +123,7 @@ public class DietaTipoLogic {
         if ( entity.getDescripcion().isEmpty() || entity.getDescripcion() == null) throw new BusinessLogicException( "Descripcion de Dieta invalida" );
         if ( entity.getObjetivo().isEmpty() || entity.getObjetivo() == null ) throw new BusinessLogicException( "Objetivo de Dieta invalida" ) ;
         //if ( !entity.getName().isEmpty() || entity.getName() != null ) throw new BusinessLogicException( "Nombre de Dieta invalida" ) ;
-        if ( entity.getId() == null ) throw new BusinessLogicException( "El ID de la Dieta NO puede ser NULL" )  ;
+        //if ( entity.getId() == null ) throw new BusinessLogicException( "El ID de la Dieta NO puede ser NULL" )  ;
     }
     
     /**
@@ -161,12 +161,24 @@ public class DietaTipoLogic {
      * @return la entidad de Dieta luego de ser actualizada
      */
     public DietaTipoEntity updateDieta( Long id, DietaTipoEntity entity ) throws BusinessLogicException {
+        if ( persistence.find(entity.getId()) == null ) throw new BusinessLogicException("la dieta que se piensa eliminar no existe. ID = " + entity.getId());
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la dieta con id = {0} " , id);
-        verificaciones(entity);
         DietaTipoEntity actualizado = persistence.update(entity);
+        verificaciones(actualizado);
         LOGGER.log( Level.INFO, "Termina proceso de actualizacion de la dieta, id = {0}", entity.getId() );
         return actualizado;
     }
+    
+    
+    /**
+     * =======================================
+     * SI DE VERDAD SE VAN A USAR ESTOS METDOS, 
+     * HAY QUE CAMBIAR LA IMPLEMENTACIÓN USANDO 
+     * COMO BASE EL METODO updateDieta QUE 
+     * SÍ SIRVE Y SE MODIFICO
+     * =======================================
+     */
+    
     
     /**
      * Reemplaza la lista de semanas de una dieta por la que entra como parametro
@@ -193,6 +205,12 @@ public class DietaTipoLogic {
         this.getDieta(dieta_id).setCuentaCobro(cc);
         return this.getCuentaCobroDeDieta(dieta_id);
     }
+    
+    /**
+     * =======================================
+     * 
+     * =======================================
+     */
     
     /**
      * Elimina una Dieta por id

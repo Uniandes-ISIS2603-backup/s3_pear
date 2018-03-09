@@ -18,7 +18,6 @@ import javax.ws.rs.*;
  
  
   {
-  "id": 123,
   "ubicacion": "Una ubicacion",
   "capacidad": "una capacidad",
   "dietas": [
@@ -159,8 +158,10 @@ public class CocinaResource {
     @PUT
     @Path("{id: \\d+}")
     public CocinaDetailDTO updateCocina(@PathParam("id") Long id, CocinaDetailDTO cocina) throws BusinessLogicException {
-        if ( logic.getCocina(id) == null ) 
-            throw new WebApplicationException("El recurso /dietas/" + id + " no existe.", 404);
+       if ( logic.getCocina(id) == null )
+            throw new WebApplicationException("El recurso cocinas/" + id + " no existe", 404);
+        
+        cocina.setId(id);
         return new CocinaDetailDTO(logic.updateCocina(id, cocina.toEntity()));
     }
     

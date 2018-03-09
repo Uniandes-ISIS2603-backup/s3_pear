@@ -12,23 +12,23 @@ delete from FacturaEntity;
 
 insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 1, 'un objetivo inicial', 'una descripcion inicial' );
 insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 2, 'otro objetivo segundo', 'otra descripcion segunda' );
-insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 4, 'Mandatory exuding archive', 'Fundamental exuding database' );
-insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 5, 'Versatile tangible task-force', 'Enterprise-wide coherent access' );
-insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 6, 'Ergonomic solution-oriented support', 'Vision-oriented intermediate matrix' );
-insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 7, 'Balanced tertiary strategy', 'Operative motivating strategy' );
-insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 8, 'Enterprise-wide global architecture', 'Digitized real-time implementation' );
-insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 9, 'Multi-tiered cohesive contingency', 'De-engineered multi-state info-mediaries' );
-insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 10, 'Multi-layered explicit circu', 'ntegrated multimedia initiative' );
+insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 3, 'Mandatory exuding archive', 'Fundamental exuding database' );
+insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 4, 'Versatile tangible task-force', 'Enterprise-wide coherent access' );
+insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 5, 'Ergonomic solution-oriented support', 'Vision-oriented intermediate matrix' );
+insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 6, 'Balanced tertiary strategy', 'Operative motivating strategy' );
+insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 7, 'Enterprise-wide global architecture', 'Digitized real-time implementation' );
+insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 8, 'Multi-tiered cohesive contingency', 'De-engineered multi-state info-mediaries' );
+insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 9, 'Multi-layered explicit circu', 'ntegrated multimedia initiative' );
 
 
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 20,'8871 Merry Point','2008');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 21,'7303 Troy Placet','2048');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 38,'652 Lukken Junction','2308');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 40,'15 Hoepker Plaza','208');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 50,'8871 Merry Point','28');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 16,'29 Larry Parkway','2028');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 17,'5073 Lakeland Lane','38');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 18,'3 Meadow Ridge Plaza','4008');
+insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 1,'8871 Merry Point','2008');
+insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 2,'7303 Troy Placet','2048');
+insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 3,'652 Lukken Junction','2308');
+insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 4,'15 Hoepker Plaza','208');
+insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 5,'8871 Merry Point','28');
+insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 6,'29 Larry Parkway','2028');
+insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 7,'5073 Lakeland Lane','38');
+insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 8,'3 Meadow Ridge Plaza','4008');
 
 
 
