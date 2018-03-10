@@ -1,0 +1,448 @@
+{
+	"info": {
+		"name": "Calificacion",
+		"_postman_id": "c971cae4-5865-4a9e-c274-2be157c4e1b0",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Dar una lista con todas las calificaciones",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ebe97f8e-a2e7-44e0-b9f6-6cb77359d7a7",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"puntuacion\": 4\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/calificaciones",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"calificaciones"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "crear una calificacion nueva",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "794d2a66-7bb7-4d81-9dc7-69d75b7efc5a",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"puntuacion\" :8\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/calificaciones",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"calificaciones"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "dar una calificacion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "df074e07-bcb3-4943-963c-0e953b462cb2",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"puntuacion\" :8\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/calificaciones/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"calificaciones",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Dar una calificacion que no existe.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6b7b4399-265f-40f7-a20d-25b0f196b513",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"la calificacion no existe\"] = responseCode.code === 412;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"puntuacion\" :8\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/calificaciones/50",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"calificaciones",
+						"50"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Crear una calificacion con puntuacion mayor a 10",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "19c1826f-79d5-4a66-8d17-b6c6f61bbf9a",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"La puntuacion no puede ser mayor a 10\"] = responseCode.code === 412;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"puntuacion\" :15\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/calificaciones/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"calificaciones",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Crear calificacion con puntuacion menor a 0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "db9f6e95-0b22-40c7-adb2-51ec4fef8075",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"la puntuacion no puede ser menor a 0\"] = responseCode.code === 412;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"puntuacion\" :-5\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/calificaciones/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"calificaciones",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar una calificacion.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "54714cc9-75fa-4bbe-8310-37bf8d6f90be",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"puntuacion\": 3\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/calificaciones/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"calificaciones",
+						"2"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar una calificacion.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "913997de-b403-4b66-b3df-8eb8f0613d96",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/calificaciones/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"calificaciones",
+						"2"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar una calificacion que no existe.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "99a8eaf7-02ae-4784-a6bb-60e554911122",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"la calificación no existe\"] = responseCode.code === 412;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/calificaciones/14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"calificaciones",
+						"14"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar calificacion que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "87f20b3b-cbc5-4d75-84a3-491f9b8e2a29",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"la calificación no existe\"] = responseCode.code === 412;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"puntuacion\": 5\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/calificaciones/100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"calificaciones",
+						"100"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
