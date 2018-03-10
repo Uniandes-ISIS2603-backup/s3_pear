@@ -1,0 +1,494 @@
+{
+	"info": {
+		"name": "QuejasyReclamos",
+		"_postman_id": "e73b3476-cf29-54dc-9874-c1fce35c7d50",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Excepcion al crear una queja y/o reclamo nuevo cuando el comentario esta vacio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "036f9389-bf4c-404e-ba0d-d6f7b592a879",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"El comentario no puede estar vacio\"] = responseCode.code === 412;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"asunto\": \"\",\n\t\"comentario\": \"\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"quejasyreclamos",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Excepcion cuando se crea una queja y el asunto esta vacío",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4a577508-e750-47fa-a74e-c08739c697dc",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"El asunto no puede estar vacio\"] = responseCode.code === 412;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"asunto\": \"\",\n\t\"comentario\": \"la comida llegó fria\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"quejasyreclamos",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Excepcion cuando el asunto no es 'queja' o 'recomendacion'",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5746ace8-77c1-44d7-8134-d690998d6d84",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"El asunto debe ser 'queja' o 'recomendacion'\"] = responseCode.code === 412;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"asunto\": \"x\",\n\t\"comentario\": \"la comida llegó fria\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"quejasyreclamos",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "dar todas las quejas y reclamos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b02c9149-b562-43b3-801d-e54286e0ed8f",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"asunto\": \"queja\",\n\t\"comentario\": \"la comida llegó fria\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"quejasyreclamos",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Excepcion cuando se pide una queja o reclamo que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fec4e2bd-a6ec-4711-8311-53693d08269b",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"la queja no existe\"] = responseCode.code === 412;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"asunto\": \"queja\",\n\t\"comentario\": \"la comida llegó fria\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"quejasyreclamos",
+						"0"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "dar una queja",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fbbbfccb-17e7-4a39-af21-177cf2b53c43",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"asunto\": \"queja\",\n\t\"comentario\": \"la comida llegó fria\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"quejasyreclamos",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "crear una queja y/o reclamo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d3e56271-4709-4c06-9a99-a9570105932f",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"asunto\" :\"recomendacion\",\n    \"comentario\" : \"contratar mas domiciliarios\",\n    \"id\": 7\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"quejasyreclamos",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Excepcion cuando se desea actualizar una queja que no existe.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "011b181a-1fb4-4ec1-874f-4609fdf01f4f",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"la queja no existe\"] = responseCode.code === 412;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"asunto\" :\"queja\",\n    \"comentario\" : \"la comida llegó incompleta\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/510",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"quejasyreclamos",
+						"510"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar una queja ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5102b5c9-30a0-4b5c-90fe-f617807ecb3a",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"asunto\": \"queja\",\n\t\"comentario\": \"la comida llego incompleta\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"quejasyreclamos",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar una queja",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d761f07e-a61a-4188-a049-8fc007e13da3",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"quejasyreclamos",
+						"3"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar una queja que no existe.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed32999-6b33-455e-ba1b-38fd8cc584c5",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"la calificación no existe\"] = responseCode.code === 412;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/quejasyreclamos/100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"quejasyreclamos",
+						"100"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
