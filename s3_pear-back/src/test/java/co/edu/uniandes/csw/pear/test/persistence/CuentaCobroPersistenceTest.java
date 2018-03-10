@@ -139,6 +139,7 @@ public class CuentaCobroPersistenceTest {
         CuentaCobroEntity entity = em.find(CuentaCobroEntity.class, result.getId());
 
         Assert.assertEquals(newEntity.getName(), entity.getName());
+        Assert.assertEquals(newEntity.getValorAPagar(), entity.getValorAPagar(), 0.1);
     }
 
     /**

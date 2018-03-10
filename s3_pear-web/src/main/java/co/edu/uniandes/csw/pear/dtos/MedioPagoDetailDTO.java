@@ -58,13 +58,18 @@ public class MedioPagoDetailDTO extends MedioPagoDTO{
      */
     public MedioPagoDetailDTO(MedioPagoEntity entity) {
         super(entity);
-        if(entity != null)
+        if(entity.getPersonas() != null)
         {
             personas = new ArrayList<>(); 
             for (PersonaEntity persona : entity.getPersonas()) {
                 personas.add( new PersonaDTO(persona));
             }
         }
+        else 
+        {
+            this.personas = new ArrayList<>(); 
+        }
+                    
     }
 
     /**

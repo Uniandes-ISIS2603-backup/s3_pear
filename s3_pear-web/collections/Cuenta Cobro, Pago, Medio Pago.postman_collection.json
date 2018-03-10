@@ -1,0 +1,400 @@
+{
+	"id": "0f6ca91a-0e2f-1d5f-00d1-9458f3411adf",
+	"name": "Cuenta Cobro, Pago, Medio Pago",
+	"description": "Colección de las clases Cuenta Cobro, Pago, Medio Pago",
+	"order": [
+		"c59a3084-337b-9411-9a42-13a3829cfda8",
+		"19043707-2945-08bb-09aa-772372d72ed8",
+		"7fc7ae9a-19ad-8fc5-1721-acf260c53a65",
+		"b8ef9dee-e99e-f4a8-6451-b6cc2fb31bc5",
+		"c3298a0b-1865-b6c5-0983-a7ab0673197f",
+		"a02bcb88-8bd4-fac4-4c59-b176e7cd10ce",
+		"4da0fb73-ab0e-a701-a359-afb9e65bc3fa",
+		"fa77f177-6bb4-8393-3ab5-b05a74f1eedf",
+		"8cfb8cc1-7410-ee82-08e2-c2a77f565b3e"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1520352887260,
+	"owner": 0,
+	"public": false,
+	"events": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "589df45c-cac1-4f52-9d8b-9fdbc94628f2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d62bc1ac-a1a4-4074-b675-b49f130db137",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variables": [],
+	"auth": null,
+	"requests": [
+		{
+			"id": "19043707-2945-08bb-09aa-772372d72ed8",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/pagos",
+			"queryParams": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "15ee7610-d9db-4a9e-af5f-d817189b21a6",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"auth": null,
+			"time": 1520715868306,
+			"name": "Crear un nuevo pago",
+			"description": "",
+			"collectionId": "0f6ca91a-0e2f-1d5f-00d1-9458f3411adf",
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\npostman.setGlobalVariable(\"new_id\",data.id);\ntests[\"Status code is 200\"] = responseCode.code === 200;\nconsole.log(data.id);",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "{\n\t\n\t\"montoIncial\": 10,\n\t\"montoFinal\": 13 \n\t\n}"
+		},
+		{
+			"id": "4da0fb73-ab0e-a701-a359-afb9e65bc3fa",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/s3_pear-web/api/cuentascobro/{{new_id}}",
+			"queryParams": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e43fe13a-cab2-4139-a8cb-8550412e51d8",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"auth": null,
+			"time": 1520716788178,
+			"name": "Borra una cuenta de cobro",
+			"description": "",
+			"collectionId": "0f6ca91a-0e2f-1d5f-00d1-9458f3411adf",
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 204\"] = responseCode.code === 204;",
+			"currentHelper": null,
+			"helperAttributes": null
+		},
+		{
+			"id": "7fc7ae9a-19ad-8fc5-1721-acf260c53a65",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/mediopagos",
+			"queryParams": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9e24eb9e-e917-4c40-85bf-6f0b5457a464",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"auth": null,
+			"time": 1520715862261,
+			"name": "Crear un medio de pago",
+			"description": "",
+			"collectionId": "0f6ca91a-0e2f-1d5f-00d1-9458f3411adf",
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\npostman.setGlobalVariable(\"new_id\",data.id);\ntests[\"Status code is 200\"] = responseCode.code === 200;\nconsole.log(data.id);",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "{\n\t\"id\": 1,\n\t\"medioPagoActual\": \"crédito\"\n}"
+		},
+		{
+			"id": "8cfb8cc1-7410-ee82-08e2-c2a77f565b3e",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/s3_pear-web/api/mediopagos/{{new_id}}",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bf74299d-d8e1-4991-8281-27cec4af8cbd",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"auth": null,
+			"method": "DELETE",
+			"collectionId": "0f6ca91a-0e2f-1d5f-00d1-9458f3411adf",
+			"data": null,
+			"dataMode": "params",
+			"name": "Borra un medio de pago",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1520716962549,
+			"version": 2,
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 204\"] = responseCode.code === 204;",
+			"currentHelper": null,
+			"helperAttributes": null
+		},
+		{
+			"id": "a02bcb88-8bd4-fac4-4c59-b176e7cd10ce",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/s3_pear-web/api/mediopagos",
+			"queryParams": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c595a3b5-98fe-4b1b-94a0-40fbdfaf34fb",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"auth": null,
+			"time": 1520716713319,
+			"name": "Obtener todos los medios de pago",
+			"description": "",
+			"collectionId": "0f6ca91a-0e2f-1d5f-00d1-9458f3411adf",
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\npostman.setGlobalVariable(\"new_id\",data.id);\ntests[\"Status code is 200\"] = responseCode.code === 200;\nconsole.log(data.id);",
+			"currentHelper": null,
+			"helperAttributes": null
+		},
+		{
+			"id": "b8ef9dee-e99e-f4a8-6451-b6cc2fb31bc5",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/s3_pear-web/api/cuentascobro",
+			"queryParams": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2730f56c-af06-47ca-9ab9-5c8a9e25ee3b",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"auth": null,
+			"time": 1520716082293,
+			"name": "Obtener todas la cuentas de cobro",
+			"description": "",
+			"collectionId": "0f6ca91a-0e2f-1d5f-00d1-9458f3411adf",
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\npostman.setGlobalVariable(\"new_id\",data.id);\ntests[\"Status code is 200\"] = responseCode.code === 200;\nconsole.log(data.id);",
+			"currentHelper": null,
+			"helperAttributes": null
+		},
+		{
+			"id": "c3298a0b-1865-b6c5-0983-a7ab0673197f",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/s3_pear-web/api/pagos",
+			"queryParams": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7fdf41ff-4b64-4814-be6e-4e51880f6609",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"auth": null,
+			"time": 1520716793791,
+			"name": "Obtener todos los pagos",
+			"description": "",
+			"collectionId": "0f6ca91a-0e2f-1d5f-00d1-9458f3411adf",
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\npostman.setGlobalVariable(\"new_id\",data.id);\ntests[\"Status code is 200\"] = responseCode.code === 200;\nconsole.log(data.id);",
+			"currentHelper": null,
+			"helperAttributes": null
+		},
+		{
+			"id": "c59a3084-337b-9411-9a42-13a3829cfda8",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/cuentascobro",
+			"queryParams": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "88a6a278-32a0-4ffb-8825-49854c04cccf",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"auth": null,
+			"time": 1520716791227,
+			"name": "Crear una nueva cuenta de cobro",
+			"description": "",
+			"collectionId": "0f6ca91a-0e2f-1d5f-00d1-9458f3411adf",
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\npostman.setGlobalVariable(\"new_id\",data.id);\ntests[\"Status code is 200\"] = responseCode.code === 200;\nconsole.log(data.id);",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": " {\t\n\t\"valorAPagar\": 10,\n\t\"id\": 14\n  }"
+		},
+		{
+			"id": "fa77f177-6bb4-8393-3ab5-b05a74f1eedf",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/s3_pear-web/api/pagos/{{new_id}}",
+			"queryParams": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a033019e-3b7f-469b-9bca-18c3e26d302a",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"auth": null,
+			"time": 1520716782013,
+			"name": "Borra un pago",
+			"description": "",
+			"collectionId": "0f6ca91a-0e2f-1d5f-00d1-9458f3411adf",
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 204\"] = responseCode.code === 204;",
+			"currentHelper": null,
+			"helperAttributes": null
+		}
+	]
+}

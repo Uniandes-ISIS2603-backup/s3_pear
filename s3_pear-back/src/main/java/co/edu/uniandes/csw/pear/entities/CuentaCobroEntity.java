@@ -7,8 +7,10 @@ package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+
 import uk.co.jemos.podam.common.PodamExclude;
 /**
  * 
@@ -16,10 +18,11 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author jp.campos
  */
 @Entity
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public class CuentaCobroEntity extends BaseEntity implements Serializable {
     
     private Double valorAPagar;
-    
+  
     @PodamExclude
     @OneToOne
     private PagoEntity pago;

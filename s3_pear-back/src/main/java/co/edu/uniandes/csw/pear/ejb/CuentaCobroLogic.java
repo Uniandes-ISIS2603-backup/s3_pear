@@ -47,6 +47,10 @@ public class CuentaCobroLogic {
     public List<CuentaCobroEntity> getCuentas() {
         LOGGER.info("Inicia consulta de todas las cuentas de cobro");
         List<CuentaCobroEntity> cuentasCobro =  persistence.findAll();
+        for (CuentaCobroEntity cuentaCobroEntity : cuentasCobro) {
+            System.out.println("cuenta " + cuentaCobroEntity.getValorAPagar());
+            
+        }
         LOGGER.info("Termina la consulta de todas las cuentas de cobro");
         return cuentasCobro;
     }
@@ -73,25 +77,25 @@ public class CuentaCobroLogic {
      */
     public CuentaCobroEntity createCuenta( CuentaCobroEntity entity ) throws BusinessLogicException{
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de una cuenta de cobro con id = {0}", entity.getId());
-        if(!verificarCuenta(entity.getValorAPagar()))
-        {
-            throw new BusinessLogicException("El valor a pagar es negativo");
-        }else 
-        {
-            persistence.create(entity); 
-        }
+        verificarCuenta(entity);
+        persistence.create(entity); 
+        System.out.println("ENTIDAD cuenta valor a pagar" + entity.getValorAPagar());
         LOGGER.log(Level.INFO, "Termina proceso de creacion de una cuenta de cobro con id = {0}", entity.getId());
         return entity;
     } 
     
     
-    public boolean verificarCuenta(double valorAPagar)
+    public void verificarCuenta(CuentaCobroEntity entity) throws BusinessLogicException
     {
-        if(valorAPagar>0)
+        if(entity.getValorAPagar() == null)
         {
-            return true; 
+            throw new BusinessLogicException("El valor a pagar es nulo");
         }
-        return false; 
+        if( entity.getValorAPagar() < 0)
+        {
+            throw new BusinessLogicException("El valor a pagar es negativo");
+        }
+        
     }
     
     /**

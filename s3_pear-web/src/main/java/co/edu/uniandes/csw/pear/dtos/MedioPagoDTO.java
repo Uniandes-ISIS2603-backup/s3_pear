@@ -23,18 +23,9 @@ public class MedioPagoDTO {
     //-----------------------------------------------------------
     
     
-    public final static String CREDITO  = "Crédito";  
-    
-    public final static String DEBITO = "Débito"; 
-    
-    public final static String EFECTIVO = "Efectivo";
-    
-    public final static String BALOTO = "Baloto";
-    
-    private String medioPagoActual;
-    
-    
     private Long id; 
+    private String medioPagoActual;
+  
     /**
      * Constructor por defecto
      */
@@ -46,7 +37,7 @@ public class MedioPagoDTO {
     
     public MedioPagoDTO(MedioPagoEntity entity)
     {
-        medioPagoActual = entity.getMedioActual(); 
+      this.medioPagoActual  = entity.getMedioActual(); 
     }
     
     /**

@@ -20,7 +20,7 @@ public class PagoDetailDTO extends PagoDTO{
      * Constructor por defecto
      */
     public PagoDetailDTO() {
-        
+        super(); 
     }
     
     /**
@@ -50,6 +50,9 @@ public class PagoDetailDTO extends PagoDTO{
         if(entity.getMedioPagoEntity() != null)
         {
             this.medioPago = new MedioPagoDTO(entity.getMedioPagoEntity()); 
+        }else 
+        {
+            this.medioPago = null;
         }
         
     }
@@ -63,9 +66,9 @@ public class PagoDetailDTO extends PagoDTO{
     public PagoEntity toEntity() {
         PagoEntity entity = super.toEntity();
        
-        if(this.medioPago != null)
+        if(this.getMedioPago() != null)
         {
-            entity.setMedioPagoEntity(medioPago.toEntity());
+            entity.setMedioPagoEntity(getMedioPago().toEntity());
         }
         
         return entity;

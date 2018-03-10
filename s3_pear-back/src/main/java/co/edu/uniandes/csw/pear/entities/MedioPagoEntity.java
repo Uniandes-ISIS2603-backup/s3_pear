@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.entities;
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -19,7 +20,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class MedioPagoEntity extends BaseEntity implements Serializable{
     
     
-    private String medioActual; 
+    private String medioPagoActual; 
     
    @PodamExclude
    @OneToMany (mappedBy = "medioPago")
@@ -31,7 +32,7 @@ public class MedioPagoEntity extends BaseEntity implements Serializable{
      */
     public String getMedioActual()
     {
-        return medioActual; 
+        return medioPagoActual; 
     }
     
     /**
@@ -40,7 +41,7 @@ public class MedioPagoEntity extends BaseEntity implements Serializable{
      */
     public void setMedioActual(String pMedio) 
     {
-        medioActual = pMedio;
+        medioPagoActual = pMedio;
     }
 
     /**

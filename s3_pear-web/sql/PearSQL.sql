@@ -9,6 +9,19 @@ delete from EnvioEntity;
 delete from DiaEntity;
 delete from SemanaEntity;
 delete from FacturaEntity;
+delete from MedioPagoEntity; 
+delete from PagoEntity; 
+delete from CuentaCobroEntity; 
+
+
+insert into CuentaCobroEntity(id, valorAPagar) values (2, 20);
+insert into CuentaCobroEntity(id, valorAPagar) values (3, 25);
+insert into CuentaCobroEntity(id, valorAPagar) values (4, 22);
+insert into CuentaCobroEntity(id, valorAPagar) values (5, 24);
+insert into CuentaCobroEntity(id, valorAPagar) values (6, 22.3);
+
+insert into PagoEntity(id, montoInicial, montoFinal) values (1, 10, 10);
+insert into MedioPagoEntity(id, medioPagoActual) values (1, 'baloto');
 
 insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 1, 'un objetivo inicial', 'una descripcion inicial' );
 insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 2, 'otro objetivo segundo', 'otra descripcion segunda' );

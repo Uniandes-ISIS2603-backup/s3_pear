@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 /**
@@ -32,9 +33,9 @@ public class PagoPersistence {
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
     public PagoEntity create(PagoEntity entity) {
-        LOGGER.info("Creando una cuentaCobro nueva");
+        LOGGER.info("Creando un nuevo pago");
         em.persist(entity);
-        LOGGER.info("Creando una cuentaCobro nueva");
+       
         return entity;
     }
 
@@ -67,7 +68,7 @@ public class PagoPersistence {
      */
     public List<PagoEntity> findAll() {
         LOGGER.info("Consultando todos los pagos");
-        TypedQuery query = em.createQuery("select u from PagoEntity u", PagoEntity.class);
+        Query query = em.createQuery("select u from PagoEntity u");
         return query.getResultList();
     }
 
@@ -91,7 +92,7 @@ public class PagoPersistence {
     
     /**
      * Elimina la entidad pasada por parámetro
-     * @param entity 
+     * @param id 
      */
     public void delete(Long id) {
        PagoEntity entity = em.find(PagoEntity.class, id);

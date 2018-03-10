@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -11,14 +11,14 @@ import co.edu.uniandes.csw.pear.entities.PagoEntity;
  * en formato JSON.
  * 
  * El formato JSON de este objeto es el siguiente:
- * {
- *  "valorAPagar": 15.0,
- *  "id": 7,
- * "pago" : {
- *              "montoInicial":7.0
- *              "montoFinal": 8.0
- * }
- * }
+  {
+   "valorAPagar": 15.0,
+   "id": 1, 
+  "pago" : {
+               "montoInicial":7.0,
+               "montoFinal": 8.0
+    }
+  }
  * @author jp.campos
  */
 public class CuentaCobroDTO {
@@ -26,10 +26,9 @@ public class CuentaCobroDTO {
     //-----------------------------------------------------------
     //Atributos
     //-----------------------------------------------------------
-    
-    private Double valorAPagar;
-    
     private Long id; 
+    private double valorAPagar;
+
     
     /**
      * Contructor por defecto
@@ -46,16 +45,15 @@ public class CuentaCobroDTO {
      */
     public CuentaCobroDTO(CuentaCobroEntity entity) {
         
-        if(entity != null)
-        {
+            
         this.valorAPagar =  entity.getValorAPagar();
         this.id = entity.getId();
-        }
+        
     }
 
     
          /**
-     * @return El ID del pago
+     * @return El ID de la cuenta
      */
     public Long getId() {
         return id;
@@ -77,7 +75,7 @@ public class CuentaCobroDTO {
     /**
      * @param pValorAPagar nuevo valor para asignar
      */
-    public void setValorAPagar(Double pValorAPagar){
+    public void setValorAPagar(double pValorAPagar){
         valorAPagar = pValorAPagar;
     }
     
@@ -90,13 +88,8 @@ public class CuentaCobroDTO {
     public CuentaCobroEntity toEntity(){
         CuentaCobroEntity entidad = new CuentaCobroEntity();
         entidad.setId(this.id);
-        
-        PagoEntity pagoEntity = new PagoEntity();
-        
-      
-        
-        entidad.setPagoEntity(pagoEntity);
         entidad.setValorAPagar(this.valorAPagar);
+        
         return entidad;
     }
     

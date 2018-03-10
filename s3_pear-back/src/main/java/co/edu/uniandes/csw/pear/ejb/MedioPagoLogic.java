@@ -62,7 +62,7 @@ public class MedioPagoLogic {
         LOGGER.log(Level.INFO, "Inicia proceso de asociar una persona a un medio de pago con id = {0}", medioPagoId);
         MedioPagoEntity medioPagoEntity = getMedioPago(medioPagoId);
         PersonaEntity personaEntity = new PersonaEntity();
-        personaEntity.setId(personaId  );
+        personaEntity.setId(personaId);
         medioPagoEntity.getPersonas().add(personaEntity);
         return getPersona(medioPagoId, personaId);
     }
@@ -112,13 +112,8 @@ public class MedioPagoLogic {
      */
     public MedioPagoEntity createMedioPago( MedioPagoEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de un medio pago con id = {0}", entity.getId());
-        if(!verificarMedioPago(entity.getMedioActual()))
-        {
-            throw new BusinessLogicException("El medio de pago no es uno aceptado");
-        }else
-        {
-            persistence.create(entity);
-        }
+        System.out.println("EN LOGIC " + entity.getMedioActual());
+        persistence.create(entity);
         LOGGER.log(Level.INFO, "Termina proceso de creacion de un medio pago con id = {0}", entity.getId());
         return entity;
     } 

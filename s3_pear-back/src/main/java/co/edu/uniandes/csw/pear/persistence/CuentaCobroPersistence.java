@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 /**
@@ -69,7 +70,7 @@ public class CuentaCobroPersistence {
      */
     public List<CuentaCobroEntity> findAll() {
         LOGGER.info("Consultando todos las cuentas de cobro");
-        TypedQuery query = em.createQuery("select u from CuentaCobroEntity u", CuentaCobroEntity.class);
+        Query query = em.createQuery("select u from CuentaCobroEntity u");
         return query.getResultList();
     }
 

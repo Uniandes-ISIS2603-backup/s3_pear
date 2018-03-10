@@ -24,7 +24,7 @@ public class CuentaCobroDetailDTO extends CuentaCobroDTO {
      */   
     public CuentaCobroDetailDTO()
     {
-        
+        super();
     }
       /**
      * Constructor de CuentaCobroailDTO
@@ -35,6 +35,9 @@ public class CuentaCobroDetailDTO extends CuentaCobroDTO {
         if(entidad.getPagoEntity() != null)
         {
             this.pago = new PagoDTO(entidad.getPagoEntity()); 
+        }
+        else {
+            this.pago = null; 
         }
     }
     
@@ -66,7 +69,7 @@ public class CuentaCobroDetailDTO extends CuentaCobroDTO {
     public CuentaCobroEntity toEntity() {
         CuentaCobroEntity entidad = super.toEntity();
         
-        if(getPago()!= null)
+        if(this.getPago() != null)
         {
             entidad.setPagoEntity(getPago().toEntity());
         }

@@ -38,7 +38,7 @@ public class PagoResource {
 PagoLogic logic;
 
     /**
-     * <h1>POST /api/cuentaCobro/pago : Crea un pagoh1>
+     * <h1>POST /api/pago : Crea un pagoh1>
      * 
      * <pre>Cuerpo de petición: JSON {@link PagoDetailDTO}.
      * 
@@ -60,6 +60,7 @@ PagoLogic logic;
      */
     @POST
     public PagoDetailDTO createPago(PagoDetailDTO pago) throws BusinessLogicException {
+        System.out.println("Resource monto final " + pago.getMontoFinal() + "monto inicial  " + pago.getMontoIncial());
         return new PagoDetailDTO(logic.createPago(pago.toEntity()));
     }
 

@@ -38,7 +38,7 @@ public class MedioPagoResource {
     MedioPagoLogic logic;
 
     /**
-     * <h1>POST /api/medioagos : Crea una pago.</h1>
+     * <h1>POST /api/mediospago : Crea una pago.</h1>
      * 
      * <pre>Cuerpo de petición: JSON {@link MedioPagoDetailDTO}.
      * 
@@ -59,7 +59,8 @@ public class MedioPagoResource {
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la pago.
      */
     @POST
-    public MedioPagoDetailDTO createMedioPago(MedioPagoDTO pago) throws BusinessLogicException {
+    public MedioPagoDetailDTO createMedioPago(MedioPagoDetailDTO pago) throws BusinessLogicException {
+        System.out.println("EN RESOURCE " + pago.getMedioPagoActual());
         return new MedioPagoDetailDTO(logic.createMedioPago(pago.toEntity()));
     }
 
@@ -173,7 +174,7 @@ public class MedioPagoResource {
      public void deleteMedioPago(@PathParam("id") Long id) {
        MedioPagoEntity entity = logic.getMedioPago(id);
         if (entity == null) {
-            throw new WebApplicationException("El author no existe", 404);
+            throw new WebApplicationException("El medio de pago no existe", 404);
         }
         logic.delete(id);
     }

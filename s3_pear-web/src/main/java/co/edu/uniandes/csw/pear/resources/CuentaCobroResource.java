@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.resources;
+import co.edu.uniandes.csw.pear.dtos.CuentaCobroDTO;
 import co.edu.uniandes.csw.pear.dtos.CuentaCobroDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.CuentaCobroLogic;
 import co.edu.uniandes.csw.pear.entities.CuentaCobroEntity;
@@ -40,7 +41,7 @@ public class CuentaCobroResource {
 
 
     /**
-     * <h1>POST /api/cities : Crea una cuenta de cobro.</h1>
+     * <h1>POST /api/cuentascobro : Crea una cuenta de cobro.</h1>
      * 
      * <pre>Cuerpo de petición: JSON {@link CuentaCobroDetailDTO}.
      * 
@@ -62,6 +63,7 @@ public class CuentaCobroResource {
      */
     @POST
     public CuentaCobroDetailDTO createCuentaDeCobro(CuentaCobroDetailDTO cuenta) throws BusinessLogicException {
+        System.out.println("En resource valor a pagar " + cuenta.getValorAPagar());
         return new CuentaCobroDetailDTO(logic.createCuenta(cuenta.toEntity()));
     }
 
@@ -81,7 +83,7 @@ public class CuentaCobroResource {
     }
     
     /**
-     * <h1>GET /api/cuentas : Obtener todas las cuentas.</h1>
+     * <h1>GET /api/cuentascobro : Obtener todas las cuentas.</h1>
      * 
      * <pre>Busca y devuelve todas las cuentas que existen en la aplicacion.
      * 
@@ -98,7 +100,7 @@ public class CuentaCobroResource {
     
     
     /**
-     * <h1>GET /api/cuentas/{id} : Obtener cuenta por id.</h1>
+     * <h1>GET /api/cuentascobro/{id} : Obtener cuenta por id.</h1>
      * 
      * <pre>Busca la cuenta con el id asociado recibido en la URL y la devuelve.
      * 
@@ -125,7 +127,7 @@ public class CuentaCobroResource {
     
     
     /**
-     * <h1>PUT /api/cuentas/{id} : Actualizar cuenta con el id dado.</h1>
+     * <h1>PUT /api/cuentascobro/{id} : Actualizar cuenta con el id dado.</h1>
      * <pre>Cuerpo de petición: JSON {@link CuentaCobroDetailDTO}.
      * 
      * Actualiza la cuenta con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.
@@ -157,7 +159,7 @@ public class CuentaCobroResource {
     
     
      /**
-     * <h1>DELETE /api/cuentas/{id} : Borrar cuenta por id.</h1>
+     * <h1>DELETE /api/cuentascobro/{id} : Borrar cuenta por id.</h1>
      * 
      * <pre>Borra la cuenta con el id asociado recibido en la URL.
      * 

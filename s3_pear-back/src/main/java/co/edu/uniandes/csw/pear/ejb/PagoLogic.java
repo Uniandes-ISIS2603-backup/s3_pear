@@ -82,10 +82,11 @@ public class PagoLogic {
      */
     public PagoEntity createPago( PagoEntity entity ) throws BusinessLogicException{
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de un pago con id = {0}", entity.getId());
-        if(validarPago(entity.getMontoInicial(), entity.getMontoFinal()))
-        {
+     
+        System.out.println("montoIncial" + entity.getMontoInicial() + "montoFinal " + entity.getMontoFinal());
         persistence.create(entity);
-        }
+        
+      
         LOGGER.log(Level.INFO, "Termina proceso de creacion de un pago con id = {0}", entity.getId());
         return entity;
     }

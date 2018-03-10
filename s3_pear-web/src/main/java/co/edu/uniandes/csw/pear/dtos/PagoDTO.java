@@ -11,20 +11,20 @@ import co.edu.uniandes.csw.pear.entities.PagoEntity;
  * en formato JSON.
  * 
  * El formato JSON de este objeto es el siguiente:
- * {
- *  "montoIncial": double,
- *  "montoFinal" : double, 
- *  "medioPago" {
- *               "medioPagoActual": String
- *      }
- * }
+  {
+  "montoIncial": 0.1,
+   "montoFinal" : 0.1, 
+   "medioPago" :{
+                "medioPagoActual": "baloto"
+       }
+  }
  * @author jp.campos
  */
 public class PagoDTO {
     
     
-    private Double montoInicial; 
-    private Double montoFinal; 
+    private double montoInicial; 
+    private double montoFinal; 
     private Long id; 
  
     
@@ -37,9 +37,11 @@ public class PagoDTO {
     
     public PagoDTO(PagoEntity entity){
         
+        if(entity !=null)
+        {
         montoInicial = entity.getMontoInicial(); 
         montoFinal = entity.getMontoFinal(); 
-       
+        }
     }
     
         /**
@@ -58,7 +60,7 @@ public class PagoDTO {
     /**
      * @return montoIncial
      */
-    public Double getMontoIncial()
+    public double getMontoIncial()
     {
         return montoInicial;
     }
@@ -67,7 +69,7 @@ public class PagoDTO {
      * Cambia el monto inicial
      * @param pMonto 
      */
-    public void setMontoIncial(Double pMonto)
+    public void setMontoIncial(double pMonto)
     {
         montoInicial = pMonto; 
     }
@@ -76,7 +78,7 @@ public class PagoDTO {
      * 
      * @return Monto Final
      */
-   public Double getMontoFinal(){
+   public double getMontoFinal(){
        return montoFinal; 
                
    }
@@ -85,7 +87,7 @@ public class PagoDTO {
     * Cambia el monto final
     * @param pMonto 
     */
-   public void setMontoFinal(Double pMonto)
+   public void setMontoFinal(double pMonto)
    {
        montoFinal = pMonto; 
    }
@@ -99,12 +101,6 @@ public class PagoDTO {
     public PagoEntity toEntity(){
         PagoEntity entidad = new PagoEntity();
         entidad.setId(this.id);
-        
-        MedioPagoEntity medioPagoEntity = new MedioPagoEntity(); 
-       
-        
-        
-        entidad.setMedioPagoEntity(medioPagoEntity);
         entidad.setMontoFinal(this.montoFinal);
         entidad.setMontoInicial(this.montoInicial);
         
