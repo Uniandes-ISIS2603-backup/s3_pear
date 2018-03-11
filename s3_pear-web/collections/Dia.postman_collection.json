@@ -1,0 +1,204 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Dia",
+		"_postman_id": "95665488-a8a0-84d1-b767-9f434bae84aa",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Se intenta agregar dia con id preexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"tests[\"Status code is 412\"] = responseCode.code === 412;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/dias",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 4,\n\t\"recomendacion\": \"No ingerir azucar refinado\",\n\t\"fecha\": \"11/03/2018\",\n\t\"seEnvia\": 1\n}"
+				},
+				"description": "Dado que ya existe un dia con ese id en la base de datos no se crea."
+			},
+			"response": []
+		},
+		{
+			"name": "Se crea un dia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/dias",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 2,\n\t\"recomendacion\": \"Una harina diaria\",\n\t\"fecha\": \"24/03/2018\",\n\t\"seEnvia\": 1\n}"
+				},
+				"description": "Se crea un dia con un id nuevo"
+			},
+			"response": []
+		},
+		{
+			"name": "obtener todos los dias",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/dias",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 4,\n\t\"recomendacion\": \"No ingerir azucar refinado\",\n\t\"fecha\": \"11/03/2018\",\n\t\"seEnvia\": 1\n}"
+				},
+				"description": "Se obtienen todos los dias que estan en la base de datos"
+			},
+			"response": []
+		},
+		{
+			"name": "obtener un dia segun identificador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/dias/3",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 4,\n\t\"recomendacion\": \"No ingerir azucar refinado\",\n\t\"fecha\": \"11/03/2018\",\n\t\"seEnvia\": 1\n}"
+				},
+				"description": "Dado un identificador se encuentra un dia especifico en la base de datos"
+			},
+			"response": []
+		},
+		{
+			"name": "Se intenta obtener un dia inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"tests[\"Status code is 404\"] = responseCode.code === 404;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/dias/56",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 4,\n\t\"recomendacion\": \"No ingerir azucar refinado\",\n\t\"fecha\": \"11/03/2018\",\n\t\"seEnvia\": 1\n}"
+				},
+				"description": "No es posible encontrar el dia dado que aun no existe un dia con ese identificador en la base de datos"
+			},
+			"response": []
+		},
+		{
+			"name": "Se elimina un dia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/dias/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "dado un identificador se elimina un dia"
+			},
+			"response": []
+		}
+	]
+}

@@ -10,12 +10,14 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import uk.co.jemos.podam.common.PodamExclude;
 /**
  * Clase que representa la entidad de una Factura
  * @author v.chacon
  */
 @Entity
+@Table(name = "FACTURA")
 public class FacturaEntity extends  CuentaCobroEntity implements Serializable{
     
     //-----------------------------------------------------------

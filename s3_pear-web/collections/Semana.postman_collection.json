@@ -1,0 +1,243 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Semana",
+		"_postman_id": "772611c5-db5c-b93a-f1c8-f804c4543d0c",
+		"description": "Estas son las pruebas para el recurso Semana",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Consultar todas las semanas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"new_id_b\",data.id);\r",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/semanas",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 33,\n\t\"fechaLunes\":\"05/02/2018\"\n}\n"
+				},
+				"description": "Consulta todas las semanas"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear una semana con datos iguales",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"new_id_b\",data.id);\r",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/semanas",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n\t\"fechaLunes\":\"15/01/2018\"\n}\n"
+				},
+				"description": "Intenta crear una semana con datos ya existentes por lo que no se crea"
+			},
+			"response": []
+		},
+		{
+			"name": "se elimina una semana con un id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;\r",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/semanas/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Dado un id previamente existente en la base de datos se borra una semana"
+			},
+			"response": []
+		},
+		{
+			"name": "Recuperar una semana por id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 200;\r",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/semanas/11",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 62,\n\t\"fechaLunes\": \"30/01/2018\"\n}"
+				},
+				"description": "Dado un identificador se encuentra una semana existente en la base de datos\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Nueva semana",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"new_id_b\",data.id);\r",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/semanas",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":88,\n\t\"fechaLunes\" : \"11/02/2018\"\n}"
+				},
+				"description": "Se agrega una nueva semana a la base de datos"
+			},
+			"response": []
+		},
+		{
+			"name": "Intentar crear semana con id preexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"\r",
+							"tests[\"Status code is 412\"] = responseCode.code === 412;\r",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/semanas",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 11,\n\t\"fechaLunes\":\"05/02/2018\"\n}\n"
+				},
+				"description": "Se intenta crear una semana con un identificador que ya existe"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar semana inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"\r",
+							"tests[\"Status code is 404\"] = responseCode.code === 404;\r",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/semanas/31",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 11,\n\t\"fechaLunes\":\"05/02/2018\"\n}\n"
+				},
+				"description": "Se busca una semana que aun no ha sido creada"
+			},
+			"response": []
+		}
+	]
+}

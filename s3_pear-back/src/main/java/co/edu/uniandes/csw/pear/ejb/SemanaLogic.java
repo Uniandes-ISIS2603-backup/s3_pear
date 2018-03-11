@@ -55,11 +55,13 @@ public class SemanaLogic {
      * @param id identificador de la semana que se quiere buscar
      * @return semana con identificador dado
      */
-    public SemanaEntity getSemana( Long id ) {
+    public SemanaEntity getSemana( Long id ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia consulta de la semana con id = {0}", id);
         SemanaEntity semana = persistence.find(id);
-        if ( semana ==  null )
+        if ( semana ==  null ){
             LOGGER.log(Level.INFO, "No existe una semana  con el id = {0}", id);
+            throw new BusinessLogicException("no existe una semana con ese identificador");
+        }
         LOGGER.log(Level.INFO, "Termina la consulta de la semana con id = {0}", id);
         return semana;
     }
@@ -70,7 +72,7 @@ public class SemanaLogic {
      * @param id identificador de la semana
      * @return lista de dias tipo entity de la semana
      */
-    public List<DiaEntity> getDiasSemana(Long id){
+    public List<DiaEntity> getDiasSemana(Long id) throws BusinessLogicException{
       LOGGER.log(Level.INFO, "Inicia proceso de consultar todas los dias de la semana con id = {0}", id);
       return this.getSemana(id).getListaDias();
     }
@@ -82,7 +84,7 @@ public class SemanaLogic {
      * @param idSemana identificador de la semana
      * @return dia con el id dado que corresponde a la semana dada
      */
-    public DiaEntity getDiaSemana(Long idDia, Long idSemana){
+    public DiaEntity getDiaSemana(Long idDia, Long idSemana) throws BusinessLogicException{
          LOGGER.log(Level.INFO, "Inicia proceso de consultar el Dia con id = {0} de la Semana con id = {1}", new Object[]{idDia, idSemana});           
          List<DiaEntity> listaDias =this.getSemana(idSemana).getListaDias();
          DiaEntity dia = new DiaEntity();
@@ -101,14 +103,15 @@ public class SemanaLogic {
      */
     public SemanaEntity createSemana( SemanaEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de una semana con id = {0}", entity.getId());
-        if(persistence.findByName(entity.getName())!= null){
-            throw new BusinessLogicException("ya existe una semana con ese nombre");
-        }
+
 //        if(entity.getListaDias().size()!= 7){
 //            throw new BusinessLogicException("No pueden haber mas de 7 dias en una semana");
 //        }
         if(persistence.find(entity.getId())!= null){
             throw new BusinessLogicException("Ya existe una semana con ese identificador");
+        }
+        if(entity.getFechaLunes() == null || entity.getFechaLunes() == ""){
+            throw new BusinessLogicException("La fecha no puede ser vacia");
         }
         persistence.create(entity);
         LOGGER.log(Level.INFO, "Termina proceso de creacion de una semana con id = {0}", entity.getId());
@@ -125,9 +128,7 @@ public class SemanaLogic {
      */
     public SemanaEntity updateSemana( Long id, SemanaEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la semana con id = {0} " , id);
-        if(persistence.findByName(entity.getName())!= null || entity.getName() == null){
-            throw new BusinessLogicException("El nombre no es valido");
-        }
+
 //        if(entity.getListaDias().size()== 7){
 //            throw new BusinessLogicException("Ya hay 7 dias en la semana");
 //        }
@@ -140,7 +141,7 @@ public class SemanaLogic {
     }
     
     
-    public DiaEntity addDiaToSemana(Long idDia, Long idSemana){
+    public DiaEntity addDiaToSemana(Long idDia, Long idSemana) throws BusinessLogicException{
         LOGGER.log(Level.INFO, "Inicia proceso de asociar un Dia con id = {0} con una Semana con id = {1}", new Object[] {idDia, idSemana});
         DiaEntity di = new DiaEntity();
         di.setId(idDia);
