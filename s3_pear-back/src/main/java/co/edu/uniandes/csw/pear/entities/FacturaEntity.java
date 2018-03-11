@@ -17,7 +17,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author v.chacon
  */
 @Entity
-@Table(name = "FACTURA")
+@Table(name = "FACTURAENTITY")
 public class FacturaEntity extends  CuentaCobroEntity implements Serializable{
     
     //-----------------------------------------------------------

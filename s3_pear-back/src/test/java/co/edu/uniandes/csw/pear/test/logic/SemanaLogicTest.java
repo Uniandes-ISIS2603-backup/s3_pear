@@ -135,7 +135,7 @@ public class SemanaLogicTest {
      * Prueba para consultar una Semana
      */
     @Test
-    public void getSemanaTest() {
+    public void getSemanaTest() throws BusinessLogicException {
         SemanaEntity entity = data.get(0);
         SemanaEntity resultEntity = logic.getSemana(entity.getId());
         Assert.assertNotNull(resultEntity);

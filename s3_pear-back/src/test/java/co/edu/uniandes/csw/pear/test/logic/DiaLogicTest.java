@@ -138,7 +138,7 @@ public class DiaLogicTest {
      * Prueba para consultar un Dia
      */
     @Test
-    public void getDiaTest() {
+    public void getDiaTest() throws BusinessLogicException {
         DiaEntity entity = data.get(0);
         DiaEntity resultEntity = logic.getDia(entity.getId());
         Assert.assertNotNull(resultEntity);

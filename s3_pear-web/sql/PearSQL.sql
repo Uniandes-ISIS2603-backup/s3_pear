@@ -104,18 +104,18 @@ insert into EnvioEntity (id,duracion,direccion,recibido) values (06,60,'ejemplo 
 insert into EnvioEntity (id,duracion,direccion,recibido) values (07,70,'ejemplo 8', 0);
 insert into EnvioEntity (id,duracion,direccion,recibido) values (08,80,'ejemplo7', 1);
 
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (22, 'no sal', '20/01/2018', 1);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (23, 'no sal', '20/02/2018', 0);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (24, 'no sal', '10/02/2018', 0);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (25, 'no sal', '05/02/2018', 1);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (26, 'no sal', '03/02/2018', 1);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (27, 'no sal', '27/02/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2, 'no sal', '20/01/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (3, 'no sal', '20/02/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (4, 'no sal', '10/02/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (5, 'no sal', '05/02/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (6, 'no sal', '03/02/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (7, 'no sal', '27/02/2018', 0);
 
-insert into SemanaEntity(id, fechaLunes) values (33,'05/02/2018');
-insert into SemanaEntity(id, fechaLunes) values (34,'22/01/2018');
-insert into SemanaEntity(id, fechaLunes) values (35,'05/02/2018');
-insert into SemanaEntity(id, fechaLunes) values (36,'29/01/2018');
-insert into SemanaEntity(id, fechaLunes) values (37,'01/01/2018');
+insert into SemanaEntity(id, fechaLunes) values (5,'05/02/2018');
+insert into SemanaEntity(id, fechaLunes) values (10,'05/07/2017');
+insert into SemanaEntity(id, fechaLunes) values (11,'30/01/2018');
+insert into SemanaEntity(id, fechaLunes) values (12,'30/01/2018');
+insert into SemanaEntity(id, fechaLunes) values (13,'11/02/2018');
 
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(44, 5, 1); 
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(45, 3, 2);

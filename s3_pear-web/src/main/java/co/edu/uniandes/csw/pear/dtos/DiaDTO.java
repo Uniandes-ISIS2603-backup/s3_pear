@@ -51,7 +51,7 @@ public class DiaDTO {
     public DiaDTO(DiaEntity entity){
         seEnvia = entity.getSeEnvia();
         recomendacion = entity.getRecomendacion();
-        fecha = entity.getRecomendacion();
+        fecha = entity.getFecha();
         id = entity.getId();
     }
     
