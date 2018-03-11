@@ -143,7 +143,7 @@ public class SemanaResource {
      */
     @GET
     @Path("{id: \\d+}")
-    public SemanaDetailDTO getSemana(@PathParam("id") Long id) {
+    public SemanaDetailDTO getSemana(@PathParam("id") Long id) throws BusinessLogicException {
         SemanaEntity buscado = logic.getSemana(id);
         if ( buscado == null ) 
             throw new WebApplicationException("El recurso /semanas/" + id + " no existe.", 404);
