@@ -16,12 +16,12 @@ public class ComidaEntity extends BaseEntity implements Serializable
 {
     private int cantidad;
     private String alimentos;
-    private static String TIPO;
+    private  String TIPO;
     
-    public static String DESAYUNO = "desayuno";
-    public static String ALMUERZO = "almuerzo";
-    public static String CENA = "cena";
-    public static String ADICIONAL= "adicional";
+    public  String DESAYUNO = "desayuno";
+    public  String ALMUERZO = "almuerzo";
+    public  String CENA = "cena";
+    public  String ADICIONAL= "adicional";
     
     
  /**
