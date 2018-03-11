@@ -169,7 +169,11 @@ public class EnvioDTO {
         en.setDireccion(direccion);
         en.setDuracion(duracion);
         en.setPersona(persona);
+        if(recibido == false)
         en.setRecibidoFalso();
+        
+        if (recibido== true)
+                en.setRecibidoVerdadero();
         
                 
         return en;
