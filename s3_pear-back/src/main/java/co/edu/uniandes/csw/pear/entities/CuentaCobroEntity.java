@@ -19,6 +19,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Table(name = "CUENTACOBROENTITY")
 public class CuentaCobroEntity extends BaseEntity implements Serializable {
     
     private Double valorAPagar;

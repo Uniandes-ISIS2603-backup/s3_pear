@@ -9,6 +9,7 @@ import co.edu.uniandes.csw.pear.entities.CuentaCobroEntity;
 import co.edu.uniandes.csw.pear.entities.PagoEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.CuentaCobroPersistence;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -46,9 +47,15 @@ public class CuentaCobroLogic {
      */
     public List<CuentaCobroEntity> getCuentas() {
         LOGGER.info("Inicia consulta de todas las cuentas de cobro");
-        List<CuentaCobroEntity> cuentasCobro =  persistence.findAll();
-        for (CuentaCobroEntity cuentaCobroEntity : cuentasCobro) {
+        List<CuentaCobroEntity> todascuentasCobro =  persistence.findAll();
+        List<CuentaCobroEntity> cuentasCobro = new ArrayList<>();
+        for (CuentaCobroEntity cuentaCobroEntity : todascuentasCobro) {
             System.out.println("cuenta " + cuentaCobroEntity.getValorAPagar());
+            
+            if ( cuentaCobroEntity.getValorAPagar() != null);
+            {
+                cuentasCobro.add(cuentaCobroEntity); 
+            }
             
         }
         LOGGER.info("Termina la consulta de todas las cuentas de cobro");
