@@ -54,13 +54,10 @@ insert into CalificacionEntity (id, puntuacion) values (5, 7);
 insert into CalificacionEntity (id, puntuacion) values (6, 8);
 insert into CalificacionEntity (id, puntuacion) values (7, 8);
 
-
-
 insert into QuejasyReclamosEntity (id, asunto, comentario) values (1,'queja', 'La comida llego fria');
 insert into QuejasyReclamosEntity (id, asunto, comentario) values (2,'recomendacion', 'Llamar al cliente cuando el envio este cerca');
 insert into QuejasyReclamosEntity (id, asunto, comentario) values (3,'recomendacion', 'Contratar domiciliarios más amables');
 insert into QuejasyReclamosEntity (id, asunto, comentario) values (4,'queja', 'el domiciliario fue grosero');
-
 
 
 insert into CasoExitoEntity (id, comentario, testimonio) values (1, 'Comentario 1', 'Testimonio 1');
@@ -104,23 +101,24 @@ insert into EnvioEntity (id,duracion,direccion,recibido) values (06,60,'ejemplo 
 insert into EnvioEntity (id,duracion,direccion,recibido) values (07,70,'ejemplo 8', 0);
 insert into EnvioEntity (id,duracion,direccion,recibido) values (08,80,'ejemplo7', 1);
 
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2, 'no sal', '20/01/2018', 1);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (3, 'no sal', '20/02/2018', 0);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (4, 'no sal', '10/02/2018', 0);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (5, 'no sal', '05/02/2018', 1);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (6, 'no sal', '03/02/2018', 1);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (7, 'no sal', '27/02/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2, 'Una harina diaria', '24/03/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (3, 'Consumir arroz integral', '24/03/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (4, 'Consumir 5 porciones de vegetales', '02/02/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (5, 'Una harina diaria','24/03/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (6, 'Una harina diaria','24/03/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (7, 'Una harina diaria','24/03/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (6, 'Solo agua','05/02/2018',0);
 
 insert into SemanaEntity(id, fechaLunes) values (5,'05/02/2018');
 insert into SemanaEntity(id, fechaLunes) values (10,'05/07/2017');
 insert into SemanaEntity(id, fechaLunes) values (11,'30/01/2018');
 insert into SemanaEntity(id, fechaLunes) values (12,'30/01/2018');
 insert into SemanaEntity(id, fechaLunes) values (13,'11/02/2018');
+insert into SemanaEntity(id, fechaLunes) values (14,'15/01/2018');
 
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(44, 5, 1); 
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(45, 3, 2);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(46, 7, 3);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(47, 8, 4);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(48, 2, 5);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(49, 1, 6);
-
+insert into FacturaEntity(id, cantidadDeProductos, numeroFactura) values(1, 5, 1); 
+insert into FacturaEntity(id, cantidadProductos, numeroFactura) values(2, 111, 12);
+insert into FacturaEntity(id, cantidadProductos, numeroFactura) values(3, 1, 13);
+insert into FacturaEntity(id, cantidadProductos, numeroFactura) values(4, 3, 14);
+insert into FacturaEntity(id, cantidadProductos, numeroFactura) values(5, 2, 15);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaa) values(6, 1, 16);

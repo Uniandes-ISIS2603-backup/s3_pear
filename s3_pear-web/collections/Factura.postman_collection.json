@@ -1,0 +1,206 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Factura",
+		"_postman_id": "c2fbcc2c-0804-b2a7-d6ac-2f1bc0651e29",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Se agrega una nueva factura",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/facturas",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \"cantidadDeProductos\": 1,\n\t \"id\":6,\n\t \"numeroFactura\":16\n}"
+				},
+				"description": "dado un id inexistente se agrega una factura"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener facturas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/facturas",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \"cantidadDeProductos\": 1,\n\t \"id\":6,\n\t \"numeroFactura\":16\n}"
+				},
+				"description": "se obtienen todas las facturas en la base de datos\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una factura",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/facturas/2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \"cantidadDeProductos\": 1,\n\t \"id\":6,\n\t \"numeroFactura\":16\n}"
+				},
+				"description": "Dado un identificador se encuentra una factura"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar factura inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"tests[\"Status code is 404\"] = responseCode.code === 404;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/facturas/9",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \"cantidadDeProductos\": 1,\n\t \"id\":6,\n\t \"numeroFactura\":16\n}"
+				},
+				"description": "Se busca una factura que no existe en la base de datos\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar una factura segun su identificador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"tests[\"Status code is 204\"] = responseCode.code === 204"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/facturas/3",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "dado un identificador de una factura ya existente, ésta se elimina"
+			},
+			"response": []
+		},
+		{
+			"name": "Se quiere eliminar una factura que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"tests[\"Status code is 404\"] = responseCode.code === 404"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/facturas/3",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Dado un identificador que no esta en la base de datos, se busca eliminar una factura. Lo anterior no es posible"
+			},
+			"response": []
+		}
+	]
+}

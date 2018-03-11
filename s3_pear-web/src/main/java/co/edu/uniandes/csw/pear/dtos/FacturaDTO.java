@@ -15,8 +15,8 @@ import co.edu.uniandes.csw.pear.entities.FacturaEntity;
  * 
  * El formato JSon que representa el objeto es el siguiente: 
  * {
- *      "cantidadProductos": 2,
- *      "numeroFacturaDeVenta": 12398,
+ *      "cantidadDeProductos": 2,
+ *      "numeroFactura": 12398,
  * }
  * 
  * @author v.chacon
