@@ -22,10 +22,10 @@ import co.edu.uniandes.csw.pear.entities.PagoEntity;
  */
 public class PagoDTO {
     
-    
+    private Long id; 
     private double montoInicial; 
     private double montoFinal; 
-    private Long id; 
+    
  
     
     /**
@@ -41,6 +41,7 @@ public class PagoDTO {
         {
         montoInicial = entity.getMontoInicial(); 
         montoFinal = entity.getMontoFinal(); 
+        id = entity.getId(); 
         }
     }
     

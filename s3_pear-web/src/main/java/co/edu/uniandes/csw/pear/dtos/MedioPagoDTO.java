@@ -38,6 +38,7 @@ public class MedioPagoDTO {
     public MedioPagoDTO(MedioPagoEntity entity)
     {
       this.medioPagoActual  = entity.getMedioActual(); 
+      this.id = entity.getId();
     }
     
     /**

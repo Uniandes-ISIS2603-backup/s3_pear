@@ -78,7 +78,7 @@
 			"dataMode": "raw",
 			"version": 2,
 			"auth": null,
-			"time": 1520715868306,
+			"time": 1520723551474,
 			"name": "Crear un nuevo pago",
 			"description": "",
 			"collectionId": "0f6ca91a-0e2f-1d5f-00d1-9458f3411adf",
@@ -87,13 +87,13 @@
 			"tests": "var data = JSON.parse(responseBody);\npostman.setGlobalVariable(\"new_id\",data.id);\ntests[\"Status code is 200\"] = responseCode.code === 200;\nconsole.log(data.id);",
 			"currentHelper": null,
 			"helperAttributes": null,
-			"rawModeData": "{\n\t\n\t\"montoIncial\": 10,\n\t\"montoFinal\": 13 \n\t\n}"
+			"rawModeData": "{\n\n\t\"montoIncial\": 10,\n\t\"montoFinal\": 13 \n\t\n}"
 		},
 		{
 			"id": "4da0fb73-ab0e-a701-a359-afb9e65bc3fa",
 			"headers": "",
 			"headerData": [],
-			"url": "http://localhost:8080/s3_pear-web/api/cuentascobro/{{new_id}}",
+			"url": "http://localhost:8080/s3_pear-web/api/cuentascobro/4",
 			"queryParams": [],
 			"events": [
 				{
@@ -113,7 +113,7 @@
 			"data": null,
 			"dataMode": "params",
 			"auth": null,
-			"time": 1520716788178,
+			"time": 1520720744062,
 			"name": "Borra una cuenta de cobro",
 			"description": "",
 			"collectionId": "0f6ca91a-0e2f-1d5f-00d1-9458f3411adf",
@@ -157,7 +157,7 @@
 			"data": [],
 			"dataMode": "raw",
 			"auth": null,
-			"time": 1520715862261,
+			"time": 1520723563928,
 			"name": "Crear un medio de pago",
 			"description": "",
 			"collectionId": "0f6ca91a-0e2f-1d5f-00d1-9458f3411adf",
@@ -166,16 +166,14 @@
 			"tests": "var data = JSON.parse(responseBody);\npostman.setGlobalVariable(\"new_id\",data.id);\ntests[\"Status code is 200\"] = responseCode.code === 200;\nconsole.log(data.id);",
 			"currentHelper": null,
 			"helperAttributes": null,
-			"rawModeData": "{\n\t\"id\": 1,\n\t\"medioPagoActual\": \"crédito\"\n}"
+			"rawModeData": "{\n\n\t\"medioPagoActual\": \"crédito\"\n}"
 		},
 		{
 			"id": "8cfb8cc1-7410-ee82-08e2-c2a77f565b3e",
 			"headers": "",
 			"headerData": [],
-			"url": "http://localhost:8080/s3_pear-web/api/mediopagos/{{new_id}}",
+			"url": "http://localhost:8080/s3_pear-web/api/mediopagos/2",
 			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
 			"events": [
 				{
 					"listen": "test",
@@ -188,16 +186,17 @@
 					}
 				}
 			],
-			"auth": null,
+			"pathVariables": {},
+			"pathVariableData": [],
 			"method": "DELETE",
-			"collectionId": "0f6ca91a-0e2f-1d5f-00d1-9458f3411adf",
 			"data": null,
 			"dataMode": "params",
+			"version": 2,
+			"auth": null,
+			"time": 1520723823903,
 			"name": "Borra un medio de pago",
 			"description": "",
-			"descriptionFormat": "html",
-			"time": 1520716962549,
-			"version": 2,
+			"collectionId": "0f6ca91a-0e2f-1d5f-00d1-9458f3411adf",
 			"responses": [],
 			"preRequestScript": null,
 			"tests": "tests[\"Status code is 204\"] = responseCode.code === 204;",
@@ -350,7 +349,7 @@
 			"data": [],
 			"dataMode": "raw",
 			"auth": null,
-			"time": 1520716791227,
+			"time": 1520723537694,
 			"name": "Crear una nueva cuenta de cobro",
 			"description": "",
 			"collectionId": "0f6ca91a-0e2f-1d5f-00d1-9458f3411adf",
@@ -359,13 +358,13 @@
 			"tests": "var data = JSON.parse(responseBody);\npostman.setGlobalVariable(\"new_id\",data.id);\ntests[\"Status code is 200\"] = responseCode.code === 200;\nconsole.log(data.id);",
 			"currentHelper": null,
 			"helperAttributes": null,
-			"rawModeData": " {\t\n\t\"valorAPagar\": 10,\n\t\"id\": 14\n  }"
+			"rawModeData": " {\t\n\n\t\"valorAPagar\": 10\n\t\n  }"
 		},
 		{
 			"id": "fa77f177-6bb4-8393-3ab5-b05a74f1eedf",
 			"headers": "",
 			"headerData": [],
-			"url": "http://localhost:8080/s3_pear-web/api/pagos/{{new_id}}",
+			"url": "http://localhost:8080/s3_pear-web/api/pagos/2",
 			"queryParams": [],
 			"events": [
 				{
@@ -386,7 +385,7 @@
 			"dataMode": "params",
 			"version": 2,
 			"auth": null,
-			"time": 1520716782013,
+			"time": 1520723818786,
 			"name": "Borra un pago",
 			"description": "",
 			"collectionId": "0f6ca91a-0e2f-1d5f-00d1-9458f3411adf",
