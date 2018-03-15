@@ -7,8 +7,15 @@ package co.edu.uniandes.csw.pear.dtos;
 
 
 import co.edu.uniandes.csw.pear.entities.FacturaEntity;
-/**
- *
+
+/*
+ * 
+ * El formato JSon que representa el objeto es el siguiente: 
+ * {
+ *      "cantidadDeProductos": Integer,
+ *      "numeroFactura": Integer,
+        "persona": PersonaDTO (Referirse a esa clase)
+ * }
  * @author v.chacon
  */
 public class FacturaDetailDTO extends FacturaDTO{

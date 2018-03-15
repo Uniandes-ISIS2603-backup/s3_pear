@@ -9,8 +9,21 @@ import co.edu.uniandes.csw.pear.entities.ComidaEntity;
 import co.edu.uniandes.csw.pear.entities.DiaEntity;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
- *
+  * El formato JSON de este objeto es el siguiente:
+ * {"SeEnvia": true,
+ *  "recomendacion": "Evitar la sal",
+ *  "fecha": "14/02/2018",
+ *  "comida": [
+ *       {
+ *              "cantidad": 2,
+ *              "alimentos": "1 Zanahoria, 1 Tomate",
+ *              "direccion": "Calle 48",
+ *              "tipo":  "ADELGAZAR"
+ *       }
+ *            ]
+ * }
  * @author v.chacon
  */
 public class DiaDetailDTO extends DiaDTO{

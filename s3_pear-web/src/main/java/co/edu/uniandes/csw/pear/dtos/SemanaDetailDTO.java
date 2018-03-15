@@ -10,7 +10,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ El formato JSON de este objeto es el siguiente:
+ * {
+ *  "id": 123,
+ *  "fechaLunes": "14/02/2018",
+ *  "dias":[
+ *      {    "SeEnvia": true,
+ *           "recomendacion": "evitar la sal",
+ *           "fecha": "14/02/2018"
+ *      }
+ *         ]
+ * }
  * @author v.chacon
  */
 public class SemanaDetailDTO extends SemanaDTO {
