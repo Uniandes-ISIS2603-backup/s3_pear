@@ -8,26 +8,53 @@ package co.edu.uniandes.csw.pear.dtos;
 import co.edu.uniandes.csw.pear.entities.EnvioEntity;
 
 /**
- * Clase que extiende de {@link EnvioDTO} para manejar la transformacion entre
- * los objetos JSON y las Entidades de la base de datos. Para conocer el
- * contenido de la ciudad vaya a la documentacion de {@link EnvioDTO}
+/**
+ * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * <pre>
+ *   {
+ *      "duraciom": number,
+ *      "recibidio": boolean,
+ *      "direccio":String
+ *   }
+ *  Por ejemplo un envio  se representa asi:<br>
+ * 
+ * <pre>
+ * 
+ *   {
+ *      "duracion": 1hora,
+ *      "recibido": true,
+ *      "direccion": UnaDireccion
+ *   }
+ *
+ * </pre>
  * @author js.cabra
  */
 public class EnvioDetailDTO extends EnvioDTO{
     
     /**
-     * Constructor para transformar un Entity a un DTO
-     *
-     * @param entity La entidad de Envio a partir de la cual se construye el objeto
+     * Constructor vacio
      */
     
     public EnvioDetailDTO()
     {
         super();
     }
+    
+        /**
+     * Constructor para transformar un Entity a un DTO
+     *
+     * @param entity La entidad de Envio a partir de la cual se construye el objeto
+     */
+    
     public EnvioDetailDTO(EnvioEntity entidad) {
         super(entidad);
     }
+    
+      /**
+     * Transformar un DTO a un Entity
+     *
+     * @return  La entidad construida a partir del DTO.
+     */
     @Override
     public EnvioEntity toEntity() {
         EnvioEntity en = super.toEntity();

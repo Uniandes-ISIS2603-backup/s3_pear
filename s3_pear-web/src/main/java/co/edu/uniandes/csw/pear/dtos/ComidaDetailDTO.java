@@ -11,14 +11,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Clase que extiende de {@link ComidaDetail} para manejar la transformacion entre
- * los objetos JSON y las Entidades de la base de datos. Para conocer el
- * contenido de la ciudad vaya a la documentacion de {@link ComidaDTO}
+/**
+ * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * <pre>
+ *   {
+ *      *      "cantidad": number,
+ *      "alimentos":string,
+ *      "direccion: string,
+ *      "tipo": string
+ *   }
+ *  Por ejemplo una comida se representa asi:<br>
+ * 
+ * <pre>
+ * 
+ *   {
+ *      "cantidad": 360 gramos,
+ *       "alimentos":"arroz intregra 100 gramos, 200 gramos de carne de rez y aguacate 60 gramos",
+ *      "direccion: "Bogota DC, calle 106 # 19-20 casa 120",
+ *      "tipo": "desayuno"
+ *   }
+ *
+ * </pre>
  * @author js.cabra
  */
 public class ComidaDetailDTO extends ComidaDTO{
     
-    
+    /**
+     * Constructor vacio
+     */
     public ComidaDetailDTO()
     {
         super();
@@ -31,6 +51,12 @@ public class ComidaDetailDTO extends ComidaDTO{
     public ComidaDetailDTO(ComidaEntity entidad) {
         super(entidad);
     }
+    
+       /**
+     * Transformar un DTO a un Entity
+     *
+     * @return  La entidad construida a partir del DTO.
+     */
         @Override
     public ComidaEntity toEntity() {
         ComidaEntity en = super.toEntity();

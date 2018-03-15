@@ -21,7 +21,7 @@ import javax.persistence.OneToOne;
  *   {
  *      "duraciom": number,
  *      "recibidio": boolean,
- *      "comida": ComidaDTO
+ *      "direccio":String
  *   }
  * </pre>
  * Por ejemplo un envio se representa asi:<br>

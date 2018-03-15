@@ -33,7 +33,7 @@ import java.io.Serializable;
  *      "cantidad": 360 gramos,
  *       "alimentos":"arroz intregra 100 gramos, 200 gramos de carne de rez y aguacate 60 gramos",
  *      "direccion: "Bogota DC, calle 106 # 19-20 casa 120",
- *      "tipo": "ADELGAZAR"
+ *      "tipo": "desayuno"
  *   }
  *
  * </pre>
