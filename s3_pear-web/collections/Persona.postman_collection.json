@@ -78,25 +78,76 @@
 			"response": []
 		},
 		{
-			"name": "Consulta equivocada de una persona (id = 11 (no existe))",
+			"name": "Crear una nueva persona",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "eeef2a0e-a501-4a30-90c0-ff2c8e90c480",
+						"id": "34284563-3f3d-45df-ad6b-4449e3a3a728",
 						"type": "text/javascript",
 						"exec": [
-							"tests[\"Status code is 404\"] = responseCode.code === 404;"
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
 						]
 					}
 				}
 			],
 			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 100,\n\t\"nombre\": \"n100\",\n\t\"apellido\": \"a100\",\n\t\"edad\": 100,\n\t\"direccion\": \"d100\",\n\t\"correo\": \"c100\",\n\t\"subscrito\": 0,\n\t\"identifiacion\": \"i100\"\n}"
+				},
 				"url": {
-					"raw": "http://localhost:8080/s3_pear-web/api/personas/11",
+					"raw": "http://localhost:8080/s3_pear-web/api/personas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"personas"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar el nombre de una persona",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1272c75a-6668-4b8f-b08b-dbeb0818b444",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1,\n\t\"nombre\": \"nombre actualizado\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/personas/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -106,7 +157,43 @@
 						"s3_pear-web",
 						"api",
 						"personas",
-						"11"
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar una persona",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5b7a9991-009c-44ef-879e-a49abfda7bfa",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/personas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"personas",
+						"1"
 					]
 				},
 				"description": ""
