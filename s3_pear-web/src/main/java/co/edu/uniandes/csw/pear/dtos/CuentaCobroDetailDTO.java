@@ -11,8 +11,19 @@ import co.edu.uniandes.csw.pear.entities.CuentaCobroEntity;
  * los objetos JSON y las Entidades de la base de datos. Para conocer el
  * contenido de la cuenta de cobro vaya a la documentacion de {@link CuentaCobroDTO}
  * @author jp.campos
+ *  
+ * El formato JSON de este objeto es el siguiente:
+  {
+   "valorAPagar": 15.0,
+   "id": 1, 
+  "pago" : {
+               "montoInicial":7.0,
+               "montoFinal": 8.0
+    }
+  }
  */
 public class CuentaCobroDetailDTO extends CuentaCobroDTO {
+    
     
     
     private PagoDTO pago; 

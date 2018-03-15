@@ -20,13 +20,32 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 @Table(name = "CUENTACOBROENTITY")
-public class CuentaCobroEntity extends BaseEntity implements Serializable {
+public class CuentaCobroEntity implements Serializable {
     
     private Double valorAPagar;
   
     @PodamExclude
     @OneToOne
     private PagoEntity pago;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     
      /**
      * Devuelve el valor a pagar

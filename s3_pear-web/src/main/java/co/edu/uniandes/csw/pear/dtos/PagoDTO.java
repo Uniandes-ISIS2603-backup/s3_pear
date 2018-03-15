@@ -16,6 +16,12 @@ import co.edu.uniandes.csw.pear.entities.PagoEntity;
    "montoFinal" : 0.1, 
    "medioPago" :{
                 "medioPagoActual": "baloto"
+                "personas":
+                [{
+                
+                
+                ]
+                
        }
   }
  * @author jp.campos

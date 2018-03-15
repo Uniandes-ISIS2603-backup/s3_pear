@@ -11,6 +11,15 @@ import co.edu.uniandes.csw.pear.entities.PagoEntity;
  * los objetos JSON y las Entidades de la base de datos. Para conocer el
  * contenido de el pago vaya a la documentacion de {@link PagoDTO}
  * @author jp.campos
+ * 
+ * El formato JSON de este objeto es el siguiente:
+  {
+  "montoIncial": 0.1,
+   "montoFinal" : 0.1, 
+   "medioPago" :{
+                "medioPagoActual": "baloto"
+       }
+  }
  */
 public class PagoDetailDTO extends PagoDTO{
     

@@ -15,6 +15,42 @@ import java.util.List;
  * los objetos JSON y las Entidades de la base de datos. Para conocer el
  * contenido del medio de pago vaya a la documentacion de {@link MedioPagoDTO}
  * @author jp.campos
+ * El formato JSON de este objeto es el siguiente:
+ * {
+ *  "medioPagoActual ": String,
+ *  personas:
+ * [
+ * "nombre": String,
+ *  "apellido": String,
+ *  "edad": int,
+ *  "direccion": String,
+ *  "correo": String,
+ *  "subscrito": boolean,
+ *  "identificacion": String
+ *  "calificacion": {
+ *                    "puntuacion": double
+ *                  },
+ *  "dieta": {
+ *              "objetivo": String,
+ *              "descripcion": String,
+ *              "cuentaDeCobro": {
+ *                                  "valorAPagar": double
+ *                               }
+ *           }
+ * 
+ *  "soporteContacto":[
+ *                     {
+ *                       "Asunto": String,
+ *                       "Comentario": string,
+ *                      },
+ *                      ...,
+ *                      {
+ *                       "asunto": String,
+ *                       "comentario": string,
+ *                      }
+ * ]
+ * ]
+ * }
  */
 
 public class MedioPagoDetailDTO extends MedioPagoDTO{
