@@ -83,14 +83,11 @@ insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscr
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (10, 'n10', 'a10', 10, 'd10', 'c10', 0, 'i10');
 
 
-insert into ComidaEntity (id,cantidad,alimentos,TIPO) values (01,400,'ejemplo 1', 'almuerzo');
-insert into ComidaEntity (id,cantidad,alimentos,TIPO) values (02,100,'ejemplo 2', 'desayuno');
-insert into ComidaEntity (id,cantidad,alimentos,TIPO) values (03,800,'ejemplo 3', 'cena');
-insert into ComidaEntity (id,cantidad,alimentos,TIPO) values (04,700,'ejemplo 4', 'adicional');
-insert into ComidaEntity (id,cantidad,alimentos,TIPO) values (05,600,'ejemplo 5', 'almuerzo');
-insert into ComidaEntity (id,cantidad,alimentos,TIPO) values (06,400,'ejemplo 6', 'cena');
-insert into ComidaEntity (id,cantidad,alimentos,TIPO) values (07,300,'ejemplo 8', 'desayuno');
-insert into ComidaEntity (id,cantidad,alimentos,TIPO) values (08,1200,'ejemplo7', 'cena');
+insert into ComidaEntity(id,cantidad,alimentos) values (01,10,'ejemplo1');
+insert into ComidaEntity(id,cantidad,alimentos) values (02,10,'ejemplo1');
+insert into ComidaEntity(id,cantidad,alimentos) values (03,10,'ejemplo1');
+insert into ComidaEntity(id,cantidad,alimentos) values (04,10,'ejemplo1');
+insert into ComidaEntity(id,cantidad,alimentos) values (05,10,'ejemplo1';
 
 insert into EnvioEntity (id,duracion,direccion,recibido) values (01,10,'ejemplo 1', 1);
 insert into EnvioEntity (id,duracion,direccion,recibido) values (02,20,'ejemplo 2', 0);
