@@ -167,12 +167,22 @@ public class CalificacionPersistenceTest
      *
      */
     @Test
+    public void getCalificacionTest() {
+        CalificacionEntity entity = data.get(0);
+        CalificacionEntity newEntity = calificacionPersistence.find(entity.getId());
+        Assert.assertNotNull(newEntity);
+        int nuevaPuntuacion = (int) newEntity.getPuntuacion();
+        int puntuacion = (int) entity.getPuntuacion();
+        Assert.assertEquals(nuevaPuntuacion, puntuacion);
+    }
+    @Test
     public void deleteCalificacionTest() {
         CalificacionEntity entity = data.get(0);
         calificacionPersistence.delete(entity.getId());
         CalificacionEntity deleted = em.find(CalificacionEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
+    
     /**
      * Prueba para actualizar un Employee.
      *
