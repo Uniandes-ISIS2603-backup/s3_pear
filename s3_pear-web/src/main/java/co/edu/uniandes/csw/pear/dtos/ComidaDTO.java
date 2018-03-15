@@ -50,7 +50,7 @@ public class ComidaDTO
     
     public String TIPO;
     
-    
+    public Long id;
     
    
     
@@ -77,6 +77,17 @@ public class ComidaDTO
         
     }
     
+    public Long getId()
+    {
+        return id;
+    }
+    
+    public void setId(Long pId)
+          {
+        id = pId;
+    }
+      
+          
         /**
      * 
      * @return la cantidad de comida.
@@ -138,7 +149,18 @@ public class ComidaDTO
         ComidaEntity en = new ComidaEntity();
         en.setAlimentos(this.alimentos);
         en.setCantidad(this.cantidad);
+        
+        if(TIPO.equalsIgnoreCase("desayuno"))
         en.setTIPO("desayuno");
+        else if(TIPO.equalsIgnoreCase("almuerzo"))
+            en.setTIPO("almuerzo");
+        else if(TIPO.equalsIgnoreCase("cena"))
+            en.setTIPO("cena");
+        
+        else if (TIPO.equalsIgnoreCase("adicional"))
+            en.setTIPO("adicional");
+        
+        en.setId(this.id);
         return en;
     }
 }

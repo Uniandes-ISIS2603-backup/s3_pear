@@ -40,16 +40,18 @@ import javax.persistence.OneToOne;
  */
 public class EnvioDTO {
     
-    private int duracion;
+    public int duracion;
     
-    private boolean recibido;
+    public boolean recibido;
+    
+    public Long id;
     
     @OneToOne
-    private ComidaEntity comida;
+    public ComidaEntity comida;
     @OneToOne
-   private PersonaEntity persona;
+   public PersonaEntity persona;
     
-    private String direccion;
+    public String direccion;
      /**
      * Constructor vacio
      */
@@ -68,7 +70,7 @@ public class EnvioDTO {
         
         recibido = entidad.getRecibido();
         
-        comida = entidad.getComida();
+        
         
     }
     
@@ -163,6 +165,15 @@ public class EnvioDTO {
     }
     
     
+        public Long getId()
+    {
+        return id;
+    }
+    
+    public void setId(Long pId)
+          {
+        id = pId;
+    }
         public EnvioEntity toEntity() {
         EnvioEntity en = new EnvioEntity();
         en.setComida(comida);
@@ -174,6 +185,7 @@ public class EnvioDTO {
         
         if (recibido== true)
                 en.setRecibidoVerdadero();
+        en.setId(this.id);
         
                 
         return en;

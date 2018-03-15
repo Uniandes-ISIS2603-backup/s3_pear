@@ -25,7 +25,7 @@ import javax.ws.rs.*;
   {
   "id": 123,
   "duracion": 200,
-  "recibido" : "false"
+  "recibido" : 0
   
     ]
   }
@@ -34,7 +34,7 @@ import javax.ws.rs.*;
  * 
  * @author js.cabra
  */
-@Path("eventos")
+@Path("envios")
 @Produces("application/json")
 @Consumes("application/json")
 @RequestScoped

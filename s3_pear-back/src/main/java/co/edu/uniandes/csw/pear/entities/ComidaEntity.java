@@ -18,10 +18,7 @@ public class ComidaEntity extends BaseEntity implements Serializable
     private String alimentos;
     private  String TIPO;
     
-    public  String DESAYUNO = "desayuno";
-    public  String ALMUERZO = "almuerzo";
-    public  String CENA = "cena";
-    public  String ADICIONAL= "adicional";
+    
     
     
  /**

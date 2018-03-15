@@ -1,0 +1,298 @@
+{
+	"id": "dd0b89d1-886e-801b-1d84-b091282cbe5a",
+	"name": "ENVIOS",
+	"description": "",
+	"order": [
+		"3638af52-1148-6d58-e9b9-9ab61435b133",
+		"5d7e70f4-1f4b-e1be-4fbc-14b1be62e450",
+		"db459f9f-5e34-85d4-b1f4-ec63c9d1737f",
+		"7c31f12b-0f1c-1be4-3fc4-b1e9404f8832",
+		"f9a09871-fb29-e4d8-a5ee-cab915ef1897",
+		"51734037-982d-6cd2-4ae4-0fcc26143c73",
+		"38bb7e22-03de-5ef7-585d-7cb662e80db1",
+		"411cd423-adf9-491a-45b8-7910b1aeb685",
+		"d44aaf0b-5d64-bfde-e14d-fab8cc61172e"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1521142297561,
+	"owner": "3682669",
+	"public": false,
+	"events": [],
+	"variables": [],
+	"auth": null,
+	"requests": [
+		{
+			"id": "3638af52-1148-6d58-e9b9-9ab61435b133",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/envios",
+			"folder": null,
+			"queryParams": [],
+			"events": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"auth": null,
+			"time": 1521143876230,
+			"name": "http://localhost:8080/s3_pear-web/api/envios",
+			"description": "GET ALL",
+			"collectionId": "dd0b89d1-886e-801b-1d84-b091282cbe5a",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "\n{\n\"id\":0111\n\n}\n"
+		},
+		{
+			"id": "38bb7e22-03de-5ef7-585d-7cb662e80db1",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/envios/08",
+			"queryParams": [],
+			"events": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"auth": null,
+			"time": 1521143744784,
+			"name": "http://localhost:8080/s3_pear-web/api/envios",
+			"description": "PUT no funcional",
+			"collectionId": "dd0b89d1-886e-801b-1d84-b091282cbe5a",
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "\n{\n\n\"id\":081283789,\n\"duracion\":212,\n\"direccion\": \"ejemplo8\",\n\"recibido\":0\n\n\n}\n"
+		},
+		{
+			"id": "411cd423-adf9-491a-45b8-7910b1aeb685",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/envios/01",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "GET",
+			"collectionId": "dd0b89d1-886e-801b-1d84-b091282cbe5a",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:8080/s3_pear-web/api/envios",
+			"description": "GET funcional Invdividual",
+			"descriptionFormat": "html",
+			"time": 1521143656320,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "\n{\n\"id\":0111\n\n}\n"
+		},
+		{
+			"id": "51734037-982d-6cd2-4ae4-0fcc26143c73",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/envios/08",
+			"queryParams": [],
+			"events": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"auth": null,
+			"time": 1521143725994,
+			"name": "http://localhost:8080/s3_pear-web/api/envios",
+			"description": "PUT funcional",
+			"collectionId": "dd0b89d1-886e-801b-1d84-b091282cbe5a",
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "\n{\n\n\"id\":08,\n\"duracion\":4588,\n\"direccion\": \"ejemplo8\",\n\"recibido\":0\n\n\n}\n"
+		},
+		{
+			"id": "5d7e70f4-1f4b-e1be-4fbc-14b1be62e450",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/envios",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "POST",
+			"collectionId": "dd0b89d1-886e-801b-1d84-b091282cbe5a",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:8080/s3_pear-web/api/envios",
+			"description": "POST",
+			"descriptionFormat": "html",
+			"time": 1521142906322,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "\n{\n\"id\":09,\n\"duracion\":1,\n\"direccion\": \"ejemplo8\",\n\"recibido\":0\n\n\n\n}\n"
+		},
+		{
+			"id": "7c31f12b-0f1c-1be4-3fc4-b1e9404f8832",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/envios/08",
+			"queryParams": [],
+			"events": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"auth": null,
+			"time": 1521143883159,
+			"name": "http://localhost:8080/s3_pear-web/api/envios",
+			"description": "DELETE funcioal",
+			"collectionId": "dd0b89d1-886e-801b-1d84-b091282cbe5a",
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "\n{\n\"id\":08\n\n\n\n\n}\n"
+		},
+		{
+			"id": "d44aaf0b-5d64-bfde-e14d-fab8cc61172e",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/envios/011",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "GET",
+			"collectionId": "dd0b89d1-886e-801b-1d84-b091282cbe5a",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:8080/s3_pear-web/api/envios",
+			"description": "GET no funcional Invdividual",
+			"descriptionFormat": "html",
+			"time": 1521143682696,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "\n{\n\"id\":0111\n\n}\n"
+		},
+		{
+			"id": "db459f9f-5e34-85d4-b1f4-ec63c9d1737f",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/envios",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "POST",
+			"collectionId": "dd0b89d1-886e-801b-1d84-b091282cbe5a",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:8080/s3_pear-web/api/envios",
+			"description": "POST no funcional",
+			"descriptionFormat": "html",
+			"time": 1521143019368,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "\n{\n\"id\":08,\n\"duracion\":1,\n\"direccion\": \"ejemplo8\",\n\"recibido\":0\n\n\n\n}\n"
+		},
+		{
+			"id": "f9a09871-fb29-e4d8-a5ee-cab915ef1897",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/envios/1000",
+			"queryParams": [],
+			"events": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"auth": null,
+			"time": 1521143898518,
+			"name": "http://localhost:8080/s3_pear-web/api/envios",
+			"description": "DELETE no funcional",
+			"collectionId": "dd0b89d1-886e-801b-1d84-b091282cbe5a",
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "\n{\n\"id\":1000\n\n\n\n}\n"
+		}
+	]
+}

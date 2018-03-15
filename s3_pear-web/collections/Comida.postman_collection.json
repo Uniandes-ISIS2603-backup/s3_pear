@@ -1,0 +1,293 @@
+{
+	"id": "62a69e0f-67d5-4752-c946-deb93505f9ed",
+	"name": "Comida",
+	"description": "",
+	"order": [
+		"c5bb9c4f-b4b8-9471-ef9d-039992c31aa4",
+		"979d3ad4-5243-1c1a-e3a6-42b4f29e3df0",
+		"3bd72ab0-4faa-11ec-64b0-37b56b98bd9d",
+		"44abdfd8-9690-bcee-1324-c0e866ee97fe",
+		"f7f88c3b-8d5d-d5fe-ca7b-6941a70d6932",
+		"1ee70d5c-c6f7-e10d-e1af-fde1945759eb",
+		"4107b18c-8e43-094b-b3ae-bc042f139eb2",
+		"4611d0d4-80ec-f930-4b8b-f7b1c6694f84",
+		"555ce010-0a2b-8e58-6586-cdc28a7960ee"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 0,
+	"owner": "3682669",
+	"public": false,
+	"events": null,
+	"variables": [],
+	"auth": null,
+	"requests": [
+		{
+			"id": "1ee70d5c-c6f7-e10d-e1af-fde1945759eb",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/comidas/05",
+			"queryParams": [],
+			"events": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"auth": null,
+			"time": 1521143768639,
+			"name": "http://localhost:8080/s3_pear-web/api/comidas",
+			"description": "PUT funcional",
+			"collectionId": "62a69e0f-67d5-4752-c946-deb93505f9ed",
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "\n{\n\"id\":05,\n\"cantidad\":200,\n\"alimentos\": \"aaa\",\n\"TIPO\":\"almuerzo\"\n\n}\n"
+		},
+		{
+			"folder": null,
+			"id": "3bd72ab0-4faa-11ec-64b0-37b56b98bd9d",
+			"name": "http://localhost:8080/s3_pear-web/api/comidas",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": null,
+			"descriptionFormat": "html",
+			"description": "POST no funcional",
+			"variables": null,
+			"headers": "Content-Type: application/json\n",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "http://localhost:8080/s3_pear-web/api/comidas",
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"collectionId": "62a69e0f-67d5-4752-c946-deb93505f9ed",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "\n{\n\"id\":05,\n\"cantidad\":300,\n\"alimentos\": \"aaa\",\n\"TIPO\":\"almuerzo\"\n\n}\n"
+		},
+		{
+			"id": "4107b18c-8e43-094b-b3ae-bc042f139eb2",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/comidas/01",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "GET",
+			"collectionId": "62a69e0f-67d5-4752-c946-deb93505f9ed",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:8080/s3_pear-web/api/comidas",
+			"description": "GET Individual funcional",
+			"descriptionFormat": "html",
+			"time": 1521143494177,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "\n{\n\"id\":05,\n\"cantidad\":300,\n\"alimentos\": \"aaa\",\n\"TIPO\":\"almuerzo\"\n}\n"
+		},
+		{
+			"id": "44abdfd8-9690-bcee-1324-c0e866ee97fe",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/comidas/01",
+			"queryParams": [],
+			"events": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"auth": null,
+			"time": 1521144053603,
+			"name": "http://localhost:8080/s3_pear-web/api/comidas",
+			"description": "DELETE",
+			"collectionId": "62a69e0f-67d5-4752-c946-deb93505f9ed",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "\n{\n\"id\":01\n\n}\n"
+		},
+		{
+			"id": "4611d0d4-80ec-f930-4b8b-f7b1c6694f84",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/comidas/1000",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "GET",
+			"collectionId": "62a69e0f-67d5-4752-c946-deb93505f9ed",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:8080/s3_pear-web/api/comidas",
+			"description": "GET Individual no funcional",
+			"descriptionFormat": "html",
+			"time": 1521143535445,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "\n{\n\"id\":05,\n\"cantidad\":300,\n\"alimentos\": \"aaa\",\n\"TIPO\":\"almuerzo\"\n}\n"
+		},
+		{
+			"id": "555ce010-0a2b-8e58-6586-cdc28a7960ee",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/comidas/05",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "PUT",
+			"collectionId": "62a69e0f-67d5-4752-c946-deb93505f9ed",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:8080/s3_pear-web/api/comidas",
+			"description": "PUT no funcional",
+			"descriptionFormat": "html",
+			"time": 1521143793616,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "\n{\n\"id\":0849289,\n\"cantidad\":200,\n\"alimentos\": \"aaa\",\n\"TIPO\":\"almuerzo\"\n\n}\n"
+		},
+		{
+			"folder": null,
+			"id": "979d3ad4-5243-1c1a-e3a6-42b4f29e3df0",
+			"name": "http://localhost:8080/s3_pear-web/api/comidas",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": null,
+			"descriptionFormat": "html",
+			"description": "POST",
+			"variables": null,
+			"headers": "Content-Type: application/json\n",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "http://localhost:8080/s3_pear-web/api/comidas",
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"collectionId": "62a69e0f-67d5-4752-c946-deb93505f9ed",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "\n{\n\"id\":06,\n\"cantidad\":300,\n\"alimentos\": \"aaa\",\n\"TIPO\":\"almuerzo\"\n\n}\n"
+		},
+		{
+			"folder": null,
+			"id": "c5bb9c4f-b4b8-9471-ef9d-039992c31aa4",
+			"name": "http://localhost:8080/s3_pear-web/api/comidas",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": null,
+			"descriptionFormat": "html",
+			"description": "GET ALL",
+			"variables": null,
+			"headers": "Content-Type: application/json\n",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://localhost:8080/s3_pear-web/api/comidas",
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"collectionId": "62a69e0f-67d5-4752-c946-deb93505f9ed",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "\n{\n\"id\":05,\n\"cantidad\":300,\n\"alimentos\": \"aaa\",\n\"TIPO\":\"almuerzo\"\n}\n"
+		},
+		{
+			"id": "f7f88c3b-8d5d-d5fe-ca7b-6941a70d6932",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_pear-web/api/comidas/1000",
+			"queryParams": [],
+			"events": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"auth": null,
+			"time": 1521144035280,
+			"name": "http://localhost:8080/s3_pear-web/api/comidas",
+			"description": "DELETE no funcional",
+			"collectionId": "62a69e0f-67d5-4752-c946-deb93505f9ed",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "\n{\n\"id\":1000\n\n}\n"
+		}
+	]
+}
