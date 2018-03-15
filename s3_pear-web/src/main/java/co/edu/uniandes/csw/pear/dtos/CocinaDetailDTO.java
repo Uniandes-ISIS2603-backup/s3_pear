@@ -12,7 +12,35 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- *
+ *{
+   "id": 123,
+  "ubicacion": "Una ubicacion",
+  "capacidad": "una capacidad",
+  "dietas": [
+              
+       {
+            "objetivo": "un objetivo",
+            "descripcion": "una descripcion",
+            "cuentaDeCobro": {
+                     "valorAPagar": 23.00
+                   },
+            "semanas":[
+                    {
+   		"fechaLunes":"2012-04-23T18:25:43.511Z",
+   		"dias":[
+   			{
+   				"SeEnvia": true,
+   				"recomendacion": "una recomendacion",
+            	"fecha": "2012-04-23T18:25:43.511Z"
+                        }
+                    ]
+                }
+               ]
+        }
+  
+  
+    ]
+  }
  * @author js.garcial1
  */
 public class CocinaDetailDTO extends CocinaDTO {
