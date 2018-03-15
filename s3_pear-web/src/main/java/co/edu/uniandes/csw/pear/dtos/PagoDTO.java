@@ -17,10 +17,7 @@ import co.edu.uniandes.csw.pear.entities.PagoEntity;
    "medioPago" :{
                 "medioPagoActual": "baloto"
                 "personas":
-                [{
-                
-                
-                ]
+                []
                 
        }
   }

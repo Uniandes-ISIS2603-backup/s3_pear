@@ -19,7 +19,7 @@ import java.util.List;
  * {
  *  "medioPagoActual ": String,
  *  personas:
- * [
+ * [{
  * "nombre": String,
  *  "apellido": String,
  *  "edad": int,
@@ -48,7 +48,8 @@ import java.util.List;
  *                       "asunto": String,
  *                       "comentario": string,
  *                      }
- * ]
+ * ]}
+ * 
  * ]
  * }
  */
