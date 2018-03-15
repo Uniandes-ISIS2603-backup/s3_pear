@@ -34,6 +34,7 @@ public class CasoExitoLogic {
      * @throws BusinessLogicException Si no se respeta alguna de las reglas de negocio
      */
     public CasoExitoEntity createCasoExito(CasoExitoEntity entity) throws BusinessLogicException {
+        //try{
         LOGGER.info("Inicia proceso de creación de casoExito");
         if (entity.getComentario() == null || entity.getTestimonio() == null) {
             throw new BusinessLogicException("El caso exito no puede tener atributos nulos");
@@ -48,6 +49,11 @@ public class CasoExitoLogic {
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de casoExito");
         return entity;
+        /*}
+        catch(Exception e){
+            e.printStackTrace();
+            throw e;
+        }*/
     }
     
     /**

@@ -1,0 +1,204 @@
+{
+	"info": {
+		"name": "CasoExito",
+		"_postman_id": "2e974ab6-99f9-42a0-854e-9aa3d9ccee0a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Consutlar todos los casos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "43f90d43-10ae-4dbf-9709-467ec02b4104",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/casos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"casos"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar un caso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a9f67508-4c92-4123-b5d8-934102170ef7",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/casos/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"casos",
+						"5"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un nuevo caso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0a9c995f-fca9-4cbf-a9a7-c84130c91ca8",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 12,\n\t\"comentario\": \"c100\",\n\t\"testimonio\": \"t100\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/casos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"casos"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza un caso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5024d6e5-0182-4201-a3ae-9a7bd0760d59",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1,\n\t\"comentario\": \"nuevo comentario\",\n\t\"testimonio\": \"nuevo testimonio\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/casos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"casos",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina un caso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d2f135b7-2bfa-486a-b22e-122ee16905c8",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_pear-web/api/casos/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_pear-web",
+						"api",
+						"casos",
+						"10"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
