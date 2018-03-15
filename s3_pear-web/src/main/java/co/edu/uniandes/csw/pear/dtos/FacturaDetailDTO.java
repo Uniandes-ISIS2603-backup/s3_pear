@@ -14,7 +14,37 @@ import co.edu.uniandes.csw.pear.entities.FacturaEntity;
  * {
  *      "cantidadDeProductos": Integer,
  *      "numeroFactura": Integer,
-        "persona": PersonaDTO (Referirse a esa clase)
+        "persona":  [ {
+ *                   "nombre": String,
+ *                   "apellido": String,
+ *                   "edad": int,
+ *                   "direccion": String,
+ *                   "correo": String,
+ *                      "subscrito": boolean,
+ *                   "identificacion": String
+ *                   "calificacion": {
+ *                              "puntuacion": double
+ *                                   },
+ *                    "dieta": {
+ *                              "objetivo": String,
+ *                              "descripcion": String,
+ *                              "cuentaDeCobro": {
+ *                                  "valorAPagar": double
+ *                               }
+ *                              }
+ * 
+ *                    "soporteContacto":[
+ *                     {
+ *                       "Asunto": String,
+ *                       "Comentario": string,
+ *                      },
+ *                      ...,
+ *                      {
+ *                       "asunto": String,
+ *                       "comentario": string,
+ *                      }
+ *                    ]
+ * }
  * }
  * @author v.chacon
  */
