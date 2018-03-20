@@ -19,22 +19,25 @@ import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
  *      "Comentario": string,
  *   }
  *  Por ejemplo una queja y reclamo  se representa asi:<br>
- * 
+ *
  * <pre>
- * 
+ *
  *   {
  *      "Asunto": "Queja",
  *      "Comentario": "Mas puntual con la entrega"
  *   }
  *
  * </pre>
+ *
  * @author ga.bejarano10
  */
 public class QuejasyReclamosDTO {
 
     private String comentario;
     private String asunto;
-    private long id; 
+    //TODO: debe ser Long 
+    private long id;
+
     /**
      * Constructor por defecto
      */
@@ -48,7 +51,7 @@ public class QuejasyReclamosDTO {
     public void setId(long id) {
         this.id = id;
     }
-   
+
     /**
      * Conviertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
      * la entidad que viene de argumento.
@@ -56,9 +59,10 @@ public class QuejasyReclamosDTO {
      * @param entidad: Es la entidad que se va a convertir a DTO
      */
     public QuejasyReclamosDTO(QuejasyReclamosEntity entidad) {
+        //TODO: entity puede ser null 
         this.comentario = entidad.getComentario();
         this.asunto = entidad.getAsunto();
-        this.id= entidad.getId();
+        this.id = entidad.getId();
     }
 
     /**
@@ -69,27 +73,31 @@ public class QuejasyReclamosDTO {
     }
 
     /**
-     * @param nuevo comentario 
+     * @param nuevo comentario
      */
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
+
     /**
-     * 
-     * @return el asunto. 
+     *
+     * @return el asunto.
      */
     public String getAsunto() {
         return asunto;
     }
-     /**
-      * @param nuevo asunto 
-      */
+
+    /**
+     * @param nuevo asunto
+     */
     public void setAsunto(String asunto) {
         this.asunto = asunto;
     }
+
     /**
      * Convertir DTO a Entity
-     * @return  un entity con los valores de DTO
+     *
+     * @return un entity con los valores de DTO
      */
     public QuejasyReclamosEntity toEntity() {
         QuejasyReclamosEntity entidad = new QuejasyReclamosEntity();

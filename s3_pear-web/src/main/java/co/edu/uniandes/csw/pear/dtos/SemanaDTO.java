@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.dtos;
+//TODO: Borrar lo simport que no se usan
 import co.edu.uniandes.csw.pear.entities.DiaEntity;
 import co.edu.uniandes.csw.pear.entities.SemanaEntity;
 import java.util.LinkedList;
@@ -47,6 +48,7 @@ public class SemanaDTO {
       * @param entity entidad a partir de la cual se construira el dto
       */
      public SemanaDTO(SemanaEntity entity){
+         //TODO: entity puede ser null
         fechaLunes = entity.getFechaLunes();
         id = entity.getId();
     }

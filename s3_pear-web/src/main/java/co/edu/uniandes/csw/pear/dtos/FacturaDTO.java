@@ -74,6 +74,7 @@ public class FacturaDTO {
      * @param entity entidad a partir de la cual se hara el dto
      */
     public FacturaDTO(FacturaEntity entity){
+        //TODO: entity puede ser null
         cantidadProductos = entity.getCantidadDeProductos();
         numeroFacturaDeVenta = entity.getNumeroFactura();
         id = entity.getId();

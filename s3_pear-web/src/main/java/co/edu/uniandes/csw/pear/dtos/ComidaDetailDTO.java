@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.pear.dtos;
 
 
 import co.edu.uniandes.csw.pear.entities.ComidaEntity;
+//TODO: Borrar lo queno se necesita
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +37,7 @@ import java.util.List;
  */
 public class ComidaDetailDTO extends ComidaDTO{
     
+    //TODO: Si no hay atributos especiales, esta clase no debería existir
     /**
      * Constructor vacio
      */

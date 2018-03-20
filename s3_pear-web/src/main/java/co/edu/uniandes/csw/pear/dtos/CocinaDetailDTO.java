@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.pear.dtos;
 import co.edu.uniandes.csw.pear.entities.CocinaEntity;
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import java.util.ArrayList;
+//TODO: borrar lo que no se usa
 import java.util.LinkedList;
 import java.util.List;
 
@@ -46,8 +47,8 @@ import java.util.List;
 public class CocinaDetailDTO extends CocinaDTO {
     
     private List<DietaTipoDTO> dietas;
-    
-    /**
+    //TODO: esta documentación es un mal copy/paste
+    /** 
      * Constructor CocinaDetail con paramatros
      * @param ubicacion
      * @param capacidad
@@ -59,7 +60,7 @@ public class CocinaDetailDTO extends CocinaDTO {
     
     public CocinaDetailDTO( CocinaEntity entity ) {
         super(entity);
-        
+        //TODO: entity puede ser null
         if ( entity.getDietas() != null ) {
             this.dietas = new ArrayList<>();
             entity.getDietas().forEach( dieta -> {

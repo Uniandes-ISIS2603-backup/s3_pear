@@ -6,58 +6,47 @@
 package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
+//TODO: Borrar lo que no se usa
 import java.util.List;
 
 /**
- * DietaTipoDTO modela el objeto que se transfiere entre el cliente y el servidor 
- * en formato JSON.
-
-* {
-   "id" : 123,
-   "objetivo": "un objetivo",
-   "descripcion": "una descripcion",
-   "cuentaCobro": {
-                     "valorAPagar": 23.00
-                   },
-   "semanas":[
-   	{
-   		"fechaLunes":"2012-04-23T18:25:43.511Z",
-   		"dias":[
-   			{
-   				"SeEnvia": true,
-   				"recomendacion": "una recomendacion",
-            	"fecha": "2012-04-23T18:25:43.511Z"
-        	}
-          ]
-   	}
-               ]
- }
-* 
-* 
-* 
+ * DietaTipoDTO modela el objeto que se transfiere entre el cliente y el
+ * servidor en formato JSON.
+ *
+ * {
+ * "id" : 123, "objetivo": "un objetivo", "descripcion": "una descripcion",
+ * "cuentaCobro": { "valorAPagar": 23.00 }, "semanas":[ {
+ * "fechaLunes":"2012-04-23T18:25:43.511Z", "dias":[ { "SeEnvia": true,
+ * "recomendacion": "una recomendacion", "fecha": "2012-04-23T18:25:43.511Z" } ]
+ * } ] }
+ *
+ *
+ *
  * @author js.garcial1
  */
 public class DietaTipoDTO {
-    
+
     private Long id;
     private String objetivo;
     private String descripcion;
-    
+
     //-----------------------------------------------------------
     //Metodos
     //-----------------------------------------------------------
-    
     /**
      * Contructor de DietaTipoDTO
      */
-    public DietaTipoDTO(   ) {
-        
+    public DietaTipoDTO() {
+
     }
+
     /**
      * Constructor a partir de una Entity
-     * @param entity entidad a partir de la cual se construira el dto 
+     *
+     * @param entity entidad a partir de la cual se construira el dto
      */
-    public DietaTipoDTO( DietaTipoEntity entity ) {
+    public DietaTipoDTO(DietaTipoEntity entity) {
+        //TODO: entity puede ser null
         this.objetivo = entity.getObjetivo();
         this.descripcion = entity.getDescripcion();
         this.id = entity.getId();
@@ -95,5 +84,4 @@ public class DietaTipoDTO {
         return en;
     }
 
-    
 }

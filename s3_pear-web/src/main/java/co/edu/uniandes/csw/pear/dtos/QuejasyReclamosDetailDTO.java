@@ -28,7 +28,7 @@ import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
  */
 public class QuejasyReclamosDetailDTO extends QuejasyReclamosDTO
 {
-
+//TODO: Si la clase no tiene atributos no debería existir
     /**
      * generado por defecto
      */

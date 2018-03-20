@@ -36,7 +36,7 @@ public class MedioPagoDTO {
     
     
     public MedioPagoDTO(MedioPagoEntity entity)
-    {
+    {//TODO: entity puede ser null
       this.medioPagoActual  = entity.getMedioActual(); 
       this.id = entity.getId();
     }

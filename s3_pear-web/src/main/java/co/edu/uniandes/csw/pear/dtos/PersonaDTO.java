@@ -57,13 +57,13 @@ public class PersonaDTO {
     private String nombre;
     
     private String apellido;
-    
+    //TODO: debe ser Integer 
     private int edad;
     
     private String direccion;
     
     private String correo;
-    
+    //TODO: debe se Boolean
     private boolean subscrito;
     
     private String identificacion;
@@ -79,6 +79,7 @@ public class PersonaDTO {
     
     public PersonaDTO(PersonaEntity entidad){
         
+        //TODO: entity puede ser null
         id = entidad.getId();
         
         nombre = entidad.getNombre();

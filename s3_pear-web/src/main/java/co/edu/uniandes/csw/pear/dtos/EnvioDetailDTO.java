@@ -31,6 +31,7 @@ import co.edu.uniandes.csw.pear.entities.EnvioEntity;
  */
 public class EnvioDetailDTO extends EnvioDTO{
     
+    //TODO: si no hay atributos esta clase no se necesita
     /**
      * Constructor vacio
      */

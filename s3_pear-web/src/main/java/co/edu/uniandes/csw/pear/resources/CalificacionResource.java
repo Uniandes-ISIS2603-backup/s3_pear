@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.resources;
+//TODO: Borrar lo que no se necesita
 import co.edu.uniandes.csw.pear.dtos.CalificacionDTO;
 import co.edu.uniandes.csw.pear.dtos.CalificacionDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.CalificacionLogic;
@@ -107,7 +108,7 @@ public class CalificacionResource
     public CalificacionDetailDTO getCalificacion(@PathParam("id") Long id) throws BusinessLogicException {
         CalificacionEntity entidad = logica.getCalificacion(id);
         if(entidad==null)
-        {
+        {//TODO: Si el recurso no existe debe disparar WebApplicationException
             throw new BusinessLogicException("La calificacion no existe");
         }
         return new CalificacionDetailDTO(logica.getCalificacion(id));
@@ -137,9 +138,10 @@ public class CalificacionResource
     public CalificacionDetailDTO updateQuejayReclamo(@PathParam("id") Long id, CalificacionDetailDTO calificacion) throws BusinessLogicException {
         calificacion.setId(id);
         if(logica.getCalificacion(id)==null)
-        {
+        {//TODO: Si el recurso no existe debe disparar WebApplicationException
             throw new BusinessLogicException("La calificacion que desea actualizar no existe");
         }
+        //TODO: Esto es una regla de negocio que debe ir en la capa de lógica
         if(logica.getCalificacion(id).getPuntuacion()>=0&& logica.getCalificacion(id).getPuntuacion()<11)
         {
              return new CalificacionDetailDTO(logica.updateCalificacion(calificacion.toEntity()));
@@ -166,7 +168,7 @@ public class CalificacionResource
      public void deleteCalificaion(@PathParam("id") Long id) throws BusinessLogicException {
          CalificacionEntity entidad = logica.getCalificacion(id);
         if(entidad==null)
-        {
+        {//TODO: Si el recurso no existe debe disparar WebApplicationException
             throw new BusinessLogicException("La calificación que desea eliminar no existe");
         }
         logica.deleteCalificacion(entidad);

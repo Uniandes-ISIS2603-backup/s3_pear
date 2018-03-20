@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.CasoExitoEntity;
+//TODO: Borrar si no se usa
 import java.util.List;
 
 /**
@@ -48,7 +49,7 @@ public class CasoExitoDTO {
      * @param entidad Entidad a partir de la cual se construye el dto
      */
     public CasoExitoDTO(CasoExitoEntity entidad){
-        
+        //TODO: entidad puede ser null
         id = entidad.getId();
         
         comentario = entidad.getComentario();

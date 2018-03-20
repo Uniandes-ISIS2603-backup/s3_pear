@@ -26,7 +26,7 @@ import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
  */
 public class CalificacionDetailDTO extends CalificacionDTO
 {
-
+//TODO: Si Calificacion no declara atributos de asociaición no debería existir
      /**
      * Constructor por defecto
      */

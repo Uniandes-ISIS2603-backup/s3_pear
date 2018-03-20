@@ -43,6 +43,7 @@ public class DiaDetailDTO extends DiaDTO{
      */
     public DiaDetailDTO(DiaEntity entity){
         super(entity);
+        //TODO: entity puede ser null
         if(entity.getComidas() != null){
             comidas = new ArrayList<>();
             entity.getComidas().forEach(com -> {

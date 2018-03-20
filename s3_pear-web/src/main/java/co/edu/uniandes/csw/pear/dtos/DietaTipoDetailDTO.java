@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.dtos;
+//TODO: borrar loque no se necesita
 
 import co.edu.uniandes.csw.pear.entities.CocinaEntity;
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
@@ -12,59 +13,46 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *{
-   "id" : 123,
-   "objetivo": "un objetivo",
-   "descripcion": "una descripcion",
-   "cuentaCobro": {
-                     "valorAPagar": 23.00
-                   },
-   "semanas":[
-   	{
-   		"fechaLunes":"2012-04-23T18:25:43.511Z",
-   		"dias":[
-   			{
-   				"SeEnvia": true,
-   				"recomendacion": "una recomendacion",
-            	"fecha": "2012-04-23T18:25:43.511Z"
-        	}
-          ]
-   	}
-               ]
- }
+ * {
+ * "id" : 123, "objetivo": "un objetivo", "descripcion": "una descripcion",
+ * "cuentaCobro": { "valorAPagar": 23.00 }, "semanas":[ {
+ * "fechaLunes":"2012-04-23T18:25:43.511Z", "dias":[ { "SeEnvia": true,
+ * "recomendacion": "una recomendacion", "fecha": "2012-04-23T18:25:43.511Z" } ]
+ * } ] }
+ *
  * @author js.garcial1
  */
 public class DietaTipoDetailDTO extends DietaTipoDTO {
-    
+
     private CuentaCobroDTO cuentaCobro;
-    
+
     private List<SemanaDTO> semanas;
-    
-    
+
     /**
-     * Constructo de DietaTipoDetailDTO 
+     * Constructo de DietaTipoDetailDTO
      */
-    public DietaTipoDetailDTO( ) {
+    public DietaTipoDetailDTO() {
         super();
     }
-    
-    public DietaTipoDetailDTO( DietaTipoEntity entity ) {
+
+    public DietaTipoDetailDTO(DietaTipoEntity entity) {
         super(entity);
-        
-        if ( entity.getCuentaCobro() != null )
+//TODO: entity puede ser null
+        if (entity.getCuentaCobro() != null) {
             this.cuentaCobro = new CuentaCobroDTO(entity.getCuentaCobro());
-        else
+        } else {
             this.cuentaCobro = null;
-        
-        if ( entity.getSemanas() != null ) {
+        }
+
+        if (entity.getSemanas() != null) {
             this.semanas = new ArrayList<>();
-            entity.getSemanas().forEach( semanita -> {
+            entity.getSemanas().forEach(semanita -> {
                 this.semanas.add(new SemanaDTO(semanita));
-            } );
-        } 
-        else
+            });
+        } else {
             this.semanas = new ArrayList<>();
-        
+        }
+
     }
 
     public CuentaCobroDTO getCuentaCobro() {
@@ -82,22 +70,21 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
     public void setSemanas(List<SemanaDTO> semanas) {
         this.semanas = semanas;
     }
-    
-    
+
     @Override
     public DietaTipoEntity toEntity() {
         DietaTipoEntity en = super.toEntity();
-        if ( this.getCuentaCobro() != null )
+        if (this.getCuentaCobro() != null) {
             en.setCuentaCobro(this.getCuentaCobro().toEntity());
-        if ( this.getSemanas() != null ) {
+        }
+        if (this.getSemanas() != null) {
             List<SemanaEntity> sems = new ArrayList<>();
-            this.getSemanas().forEach( semanita -> {
+            this.getSemanas().forEach(semanita -> {
                 sems.add(semanita.toEntity());
             });
             en.setSemanas(sems);
         }
         return en;
     }
-    
-  
+
 }

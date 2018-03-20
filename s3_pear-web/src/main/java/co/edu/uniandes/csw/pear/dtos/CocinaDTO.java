@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.CocinaEntity;
+//TODO: borrar lo que no se usa
 import java.util.LinkedList;
 import java.util.List;
 
@@ -72,6 +73,7 @@ public class CocinaDTO {
      * @param entity 
      */
     public CocinaDTO( CocinaEntity entity ) {
+        //TODO: entity podría ser null
         this.capacidad = entity.getCapacidad();
         this.ubicacion = entity.getUbicacion();
         this.id = entity.getId();

@@ -11,49 +11,48 @@ import co.edu.uniandes.csw.pear.entities.CasoExitoEntity;
  *
  * @author pa.suarezm
  */
-public class CasoExitoDetailDTO extends CasoExitoDTO{
-    
+public class CasoExitoDetailDTO extends CasoExitoDTO {
+
     //----------------------------------------
     //Atributos
     //----------------------------------------
-    
     private DietaTipoDTO dieta;
-    
+
     //----------------------------------------
     //Constructor
     //----------------------------------------
-    
     /**
      * Constructor por defecto
      */
-    public CasoExitoDetailDTO(){
+    public CasoExitoDetailDTO() {
         super();
     }
-    
-    public CasoExitoDetailDTO(CasoExitoEntity entidad){
+
+    public CasoExitoDetailDTO(CasoExitoEntity entidad) {
         super(entidad);
+        //TODO: transformar el valor de dieta
     }
-    
+
     //----------------------------------------
     //Metodos
     //----------------------------------------
-    
-     /**
-     * @return Dieta para la cual el caso fue exitoso 
+    /**
+     * @return Dieta para la cual el caso fue exitoso
      */
-    public DietaTipoDTO getDieta(){
+    public DietaTipoDTO getDieta() {
         return dieta;
     }
-    
+
     /**
      * @param pDieta Nueva dieta asociada al caso exitoso
      */
-    public void setDieta(DietaTipoDTO pDieta){
+    public void setDieta(DietaTipoDTO pDieta) {
         dieta = pDieta;
     }
-    
+
     @Override
-    public CasoExitoEntity toEntity(){
+    public CasoExitoEntity toEntity() {
         return super.toEntity();
+        //TODO: transformar el valor de dieta
     }
 }
