@@ -8,8 +8,7 @@ import co.edu.uniandes.csw.pear.dtos.DietaTipoDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.DietaTipoLogic;
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
-//TODO: borrar lo que no se usa 
-import com.sun.javafx.scene.control.skin.VirtualFlow;
+//TODO: DONE borrar lo que no se usa 
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;

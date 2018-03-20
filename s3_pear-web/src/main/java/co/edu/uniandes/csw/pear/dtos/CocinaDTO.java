@@ -6,9 +6,8 @@
 package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.CocinaEntity;
-//TODO: borrar lo que no se usa
-import java.util.LinkedList;
-import java.util.List;
+//TODO: DONE borrar lo que no se usa
+
 
 /**
  * CocinaDTO modela el objeto que se transfiere entre el cliente y el servidor 
@@ -73,10 +72,12 @@ public class CocinaDTO {
      * @param entity 
      */
     public CocinaDTO( CocinaEntity entity ) {
-        //TODO: entity podría ser null
-        this.capacidad = entity.getCapacidad();
-        this.ubicacion = entity.getUbicacion();
-        this.id = entity.getId();
+        //TODO: DONE entity podría ser null
+        if ( entity != null ) {
+            this.capacidad = entity.getCapacidad();
+            this.ubicacion = entity.getUbicacion();
+            this.id = entity.getId();
+        }
     }
 
     public Long getId() {
