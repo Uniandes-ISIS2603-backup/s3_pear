@@ -5,8 +5,11 @@
  */
 package co.edu.uniandes.csw.pear.dtos;
 
+import co.edu.uniandes.csw.pear.entities.FacturaEntity;
 import co.edu.uniandes.csw.pear.entities.PersonaEntity;
+import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * @author pa.suarezm
@@ -32,8 +35,21 @@ public class PersonaDetailDTO extends PersonaDTO {
     }
 
     public PersonaDetailDTO(PersonaEntity entidad) {
-        //TODO: Sin terminar 
+        //DONE: Sin terminar 
         super(entidad);
+        if(entidad != null){
+           quejas = new ArrayList<QuejasyReclamosDTO>();
+           for(QuejasyReclamosEntity qyr: entidad.getQuejas()){
+               if(qyr != null)
+                   quejas.add(new QuejasyReclamosDTO(qyr));
+           }
+           
+           facturas = new ArrayList<FacturaDTO>();
+           for(FacturaEntity f: entidad.getFacturas()){
+               if(f != null)
+                   facturas.add(new FacturaDTO(f));
+           }
+        }
     }
 
     //-----------------------------------------------------------
@@ -95,9 +111,28 @@ public class PersonaDetailDTO extends PersonaDTO {
         quejas = pQuejas;
     }
 
+    @Override
     public PersonaEntity toEntity() {
-        //TODO: Sin terminar 
-        return super.toEntity();
+        //DONE: Sin terminar 
+        PersonaEntity entidad = super.toEntity();
+        if(entidad != null){
+            entidad.setDieta(dieta.toEntity());
+            
+            List<QuejasyReclamosEntity> qyrE = new ArrayList<QuejasyReclamosEntity>();
+            for(QuejasyReclamosDTO qyr: quejas){
+                if(qyr != null)
+                    qyrE.add(qyr.toEntity());
+            }
+            entidad.setQuejas(qyrE);
+            
+            List<FacturaEntity> fE = new ArrayList<FacturaEntity>();
+            for(FacturaDTO f: facturas){
+                if(f != null)
+                    fE.add(f.toEntity());
+            }
+            entidad.setFacturas(fE);
+        }
+        return entidad;
     }
 
 }

@@ -57,14 +57,14 @@ public class PersonaDTO {
     private String nombre;
     
     private String apellido;
-    //TODO: debe ser Integer 
-    private int edad;
+    //DONE: debe ser Integer 
+    private Integer edad;
     
     private String direccion;
     
     private String correo;
-    //TODO: debe se Boolean
-    private boolean subscrito;
+    //DONE: debe se Boolean
+    private Boolean subscrito;
     
     private String identificacion;
     
@@ -79,22 +79,24 @@ public class PersonaDTO {
     
     public PersonaDTO(PersonaEntity entidad){
         
-        //TODO: entity puede ser null
-        id = entidad.getId();
+        //DONE: entity puede ser null
+        if(entidad != null){
+            id = entidad.getId();
         
-        nombre = entidad.getNombre();
+            nombre = entidad.getNombre();
         
-        apellido = entidad.getApellido();
+            apellido = entidad.getApellido();
         
-        edad = entidad.getEdad();
+            edad = entidad.getEdad();
+            
+            direccion = entidad.getDireccion();
         
-        direccion = entidad.getDireccion();
+            correo = entidad.getCorreo();
         
-        correo = entidad.getCorreo();
+            subscrito = entidad.isSubscrito();
         
-        subscrito = entidad.isSubscrito();
-        
-        identificacion = entidad.getIdentificacion();
+            identificacion = entidad.getIdentificacion();
+        }
     }
     
     /**
@@ -237,9 +239,6 @@ public class PersonaDTO {
         entidad.setEdad(edad);
         entidad.setIdentificacion(identificacion);
         entidad.setSubscrito(subscrito);
-        
-        //TODO Falta que quien sea responsable de DietaTipo implemente el
-        //     método toEntity()
         
         return entidad;
     }

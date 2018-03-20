@@ -30,7 +30,9 @@ public class CasoExitoDetailDTO extends CasoExitoDTO {
 
     public CasoExitoDetailDTO(CasoExitoEntity entidad) {
         super(entidad);
-        //TODO: transformar el valor de dieta
+        if(entidad != null)
+            dieta = new DietaTipoDTO(entidad.getDieta());
+        //DONE: transformar el valor de dieta
     }
 
     //----------------------------------------
@@ -52,7 +54,10 @@ public class CasoExitoDetailDTO extends CasoExitoDTO {
 
     @Override
     public CasoExitoEntity toEntity() {
-        return super.toEntity();
-        //TODO: transformar el valor de dieta
+        CasoExitoEntity entity = super.toEntity();
+        if(entity != null && dieta != null)
+            entity.setDieta(dieta.toEntity());
+        return entity;
+        //DONE: transformar el valor de dieta
     }
 }

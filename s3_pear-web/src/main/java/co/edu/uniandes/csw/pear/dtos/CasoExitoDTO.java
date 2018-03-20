@@ -6,8 +6,7 @@
 package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.CasoExitoEntity;
-//TODO: Borrar si no se usa
-import java.util.List;
+//DONE: Borrar si no se usa
 
 /**
  * CasoExitoDTO modela el objeto que se transfiere entre el cliente y el
@@ -49,12 +48,14 @@ public class CasoExitoDTO {
      * @param entidad Entidad a partir de la cual se construye el dto
      */
     public CasoExitoDTO(CasoExitoEntity entidad){
-        //TODO: entidad puede ser null
-        id = entidad.getId();
+        //DONE: entidad puede ser null
+        if(entidad != null){
+            id = entidad.getId();
+            
+            comentario = entidad.getComentario();
         
-        comentario = entidad.getComentario();
-        
-        testimonio = entidad.getTestimonio();        
+            testimonio = entidad.getTestimonio();
+        }
     }
     
     /**
