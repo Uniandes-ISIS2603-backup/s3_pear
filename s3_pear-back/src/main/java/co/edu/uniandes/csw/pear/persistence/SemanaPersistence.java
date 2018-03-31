@@ -40,23 +40,10 @@ public class SemanaPersistence {
      * @return  la primer semana que se encuentra.
      */
     public SemanaEntity findByName(String name) {
-        LOGGER.log(Level.INFO, "Consultando semana  por nombre ", name);
-
-        // Se crea un query para buscar editoriales con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From SemanaEntity e where e.name = :name", SemanaEntity.class);
-        // Se remplaza el placeholder ":name" con el valor del argumento 
-        query = query.setParameter("name", name);
-        // Se invoca el query se obtiene la lista resultado
-        List<SemanaEntity> sameName = query.getResultList();
-        SemanaEntity result = null; 
-        if (sameName == null ) {
-            result = null;
-        } else if (sameName.isEmpty()) {
-             result = null;
-        } else {
-            result =  sameName.get(0);
-        }
-        return result;
+        LOGGER.log(Level.INFO, "Consultando la dieta con name = ", name);
+        TypedQuery<SemanaEntity> q = em.createQuery("select u from SemanaEntity u where u.name = :name", SemanaEntity.class);
+        q = q.setParameter("name", name);
+        return q.getSingleResult();
     }
     
     /**

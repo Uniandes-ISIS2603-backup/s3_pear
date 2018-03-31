@@ -44,23 +44,10 @@ public class DiaPersistence {
      * @return  el primer dia que se encuentra.
      */
     public DiaEntity findByName(String name) {
-       LOGGER.log(Level.INFO, "Consultando dia  por nombre ", name);
-
-        // Se crea un query para buscar editoriales con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From DiaEntity e where e.name = :name", DiaEntity.class);
-        // Se remplaza el placeholder ":name" con el valor del argumento 
-        query = query.setParameter("name", name);
-        // Se invoca el query se obtiene la lista resultado
-        List<DiaEntity> sameName = query.getResultList();
-         DiaEntity result = null; 
-        if (sameName == null ) {
-            result = null;
-        } else if (sameName.isEmpty()) {
-             result = null;
-        } else {
-            result =  sameName.get(0);
-        }
-        return result;
+        LOGGER.log(Level.INFO, "Consultando la semana con name = ", name);
+        TypedQuery<DiaEntity> q = em.createQuery("select u from DiaEntity u where u.name = :name", DiaEntity.class);
+        q = q.setParameter("name", name);
+        return q.getSingleResult();
     }
     /**
      * Busca todos los dias de tipo DiaEntity

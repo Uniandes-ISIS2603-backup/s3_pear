@@ -173,6 +173,8 @@ public class SemanaResource {
     public SemanaDetailDTO updateSemana(@PathParam("id") Long id, SemanaDetailDTO semana) throws BusinessLogicException {
         if ( logic.getSemana(id) == null ) 
             throw new WebApplicationException("El recurso /semanas/" + id + " no existe.", 404);
+        
+        semana.setId(id);
         return new SemanaDetailDTO(logic.updateSemana(id, semana.toEntity()));
     }
     

@@ -168,6 +168,8 @@ public class FacturaResource {
     public FacturaDetailDTO updateFactura(@PathParam("id") Long id, FacturaDetailDTO factura) throws BusinessLogicException {
          if ( logic.getFactura(id) == null ) 
             throw new WebApplicationException("El recurso /facturas/" + id + " no existe.", 404);
+         
+         factura.setId(id);
         return new FacturaDetailDTO(logic.updateFactura(factura.toEntity()));
     }
  

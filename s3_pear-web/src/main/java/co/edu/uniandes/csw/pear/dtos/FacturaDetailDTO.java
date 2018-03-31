@@ -65,12 +65,14 @@ public class FacturaDetailDTO extends FacturaDTO{
      */
     public FacturaDetailDTO(FacturaEntity entity){
         super(entity);
-        //TODO: entity puede ser null
+        //TODO: DONE entity puede ser null
+        if(entity != null){
         if(entity.getPersona() != null){
             persona = new PersonaDTO(entity.getPersona());
         }
         else{
             persona = null;
+        }
         }
     }   
     

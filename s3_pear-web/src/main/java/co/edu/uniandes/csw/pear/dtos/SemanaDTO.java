@@ -4,11 +4,10 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.dtos;
-//TODO: Borrar lo simport que no se usan
-import co.edu.uniandes.csw.pear.entities.DiaEntity;
+//TODO: DONE Borrar lo simport que no se usan
+
 import co.edu.uniandes.csw.pear.entities.SemanaEntity;
-import java.util.LinkedList;
-import java.util.List;
+
 
 /**
  *SemanaDTO  modela el objeto que se transfiere entre el cliente y el servidor 
@@ -48,9 +47,12 @@ public class SemanaDTO {
       * @param entity entidad a partir de la cual se construira el dto
       */
      public SemanaDTO(SemanaEntity entity){
-         //TODO: entity puede ser null
-        fechaLunes = entity.getFechaLunes();
-        id = entity.getId();
+         //TODO: DONE entity puede ser null
+         if (entity != null){
+             fechaLunes = entity.getFechaLunes();
+             id = entity.getId(); 
+         }
+       
     }
      
      /**

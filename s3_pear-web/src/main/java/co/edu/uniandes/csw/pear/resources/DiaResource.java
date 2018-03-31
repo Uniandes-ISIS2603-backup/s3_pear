@@ -166,7 +166,7 @@ public class DiaResource {
      * </pre>
      * @param id Identificador del dia que se desea actualizar.Este debe ser una cadena de dígitos.
      * @param dia {@link DiaDetailDTO} El dia que se desea guardar.
-     * @return JSON {@link DiaDetailDTO} - El dia guardada.
+     * @return JSON {@link DiaDetailDTO} - El dia guardado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar el dia porque ya existe una con ese nombre.
      */
     @PUT
@@ -174,6 +174,7 @@ public class DiaResource {
     public DiaDetailDTO updateDia(@PathParam("id") Long id, DiaDetailDTO dia) throws BusinessLogicException  {
         if ( logic.getDia(id) == null ) 
             throw new WebApplicationException("El recurso /dias/" + id + " no existe.", 404);
+        dia.setId(id);
         return new DiaDetailDTO(logic.updateDia(id, dia.toEntity()));
     }
     
