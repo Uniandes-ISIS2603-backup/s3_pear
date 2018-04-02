@@ -39,17 +39,17 @@ import javax.persistence.OneToOne;
  */
 public class EnvioDTO {
 
-    //TODO: estos tipos deben ser Integer y Boolean. cambiar también los set/get
-    public int duracion;
+    //TODO:DONE estos tipos deben ser Integer y Boolean. cambiar también los set/get
+    public Integer duracion;
 
-    public boolean recibido;
+    public Boolean recibido;
 
     public Long id;
 
-    //TODO: Estas anotaciones son de los entity no de los DTO
-    @OneToOne
+    //TODO:DONE Estas anotaciones son de los entity no de los DTO
+   
     public ComidaEntity comida;
-    @OneToOne
+    
     public PersonaEntity persona;
 
     public String direccion;
@@ -66,10 +66,13 @@ public class EnvioDTO {
      *
      * @param entidad
      */
-    public EnvioDTO(EnvioEntity entidad) {//TODO: entity puede ser null
+    public EnvioDTO(EnvioEntity entidad) {//TODO:DONE entity puede ser null
+        if(entidad!=null)
+        {
         duracion = entidad.getDuracion();
 
         recibido = entidad.getRecibido();
+        }
 
     }
 
@@ -95,7 +98,7 @@ public class EnvioDTO {
      *
      * @return duracion del envio.
      */
-    public int getDuracion() {
+    public Integer getDuracion() {
         return duracion;
     }
 
@@ -103,7 +106,7 @@ public class EnvioDTO {
      *
      * @return recibido el envio.
      */
-    public boolean getRecibido() {
+    public Boolean getRecibido() {
         return recibido;
     }
 
@@ -120,7 +123,7 @@ public class EnvioDTO {
      *
      * @param la nueva duraciòn.
      */
-    public void setDuracion(int pDuracion) {
+    public void setDuracion(Integer pDuracion) {
         duracion = pDuracion;
     }
 

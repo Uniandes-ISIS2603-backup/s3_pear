@@ -40,9 +40,9 @@ import java.io.Serializable;
  *
  * @author js.cabra
  */
-public class ComidaDTO {//TODO: Esto no puede ser tipo int debe ser Integer. cambiarlo e igualmente el set/get
+public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer. cambiarlo e igualmente el set/get
 
-    public int cantidad;
+    public Integer cantidad;
 
     public String alimentos;
 
@@ -56,13 +56,14 @@ public class ComidaDTO {//TODO: Esto no puede ser tipo int debe ser Integer. cam
      * @param entidad
      */
     public ComidaDTO(ComidaEntity entidad) {
-        //TODO: entidad puede ser null
+        //TODO:DONE entidad puede ser null
+        if(entidad != null) {
         cantidad = entidad.getCantidad();
 
         alimentos = entidad.getAlimentos();
 
         TIPO = entidad.getTipo();
-
+        }
     }
 
     /**
@@ -84,7 +85,7 @@ public class ComidaDTO {//TODO: Esto no puede ser tipo int debe ser Integer. cam
      *
      * @return la cantidad de comida.
      */
-    public int getCantidad() {
+    public Integer getCantidad() {
         return cantidad;
 
     }
@@ -93,7 +94,7 @@ public class ComidaDTO {//TODO: Esto no puede ser tipo int debe ser Integer. cam
      *
      * @param la nueva cantidad.
      */
-    public void setCantidad(int pCantidad) {
+    public void setCantidad(Integer pCantidad) {
         cantidad = pCantidad;
     }
 
