@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.resources;
-import co.edu.uniandes.csw.pear.dtos.CuentaCobroDTO;
 import co.edu.uniandes.csw.pear.dtos.CuentaCobroDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.CuentaCobroLogic;
 import co.edu.uniandes.csw.pear.entities.CuentaCobroEntity;

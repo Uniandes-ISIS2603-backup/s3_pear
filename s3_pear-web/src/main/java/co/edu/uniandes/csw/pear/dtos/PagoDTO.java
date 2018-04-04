@@ -4,9 +4,8 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.dtos;
-//TODO: borrar si no se usa
+//TODO DONE: borrar si no se usa
 
-import co.edu.uniandes.csw.pear.entities.MedioPagoEntity;
 import co.edu.uniandes.csw.pear.entities.PagoEntity;
 
 /**
@@ -24,9 +23,9 @@ import co.edu.uniandes.csw.pear.entities.PagoEntity;
 public class PagoDTO {
 
     private Long id;
-    //TOD: debe ser Double y no double. Cambiar los set/get también
-    private double montoInicial;
-    private double montoFinal;
+    //TODO DONE: debe ser Double y no double. Cambiar los set/get también
+    private Double montoInicial;
+    private Double montoFinal;
 
     /**
      * Contructor por defecto
@@ -70,7 +69,7 @@ public class PagoDTO {
      *
      * @param pMonto
      */
-    public void setMontoIncial(double pMonto) {
+    public void setMontoIncial(Double pMonto) {
         montoInicial = pMonto;
     }
 
@@ -78,7 +77,7 @@ public class PagoDTO {
      *
      * @return Monto Final
      */
-    public double getMontoFinal() {
+    public Double getMontoFinal() {
         return montoFinal;
 
     }
@@ -88,7 +87,7 @@ public class PagoDTO {
      *
      * @param pMonto
      */
-    public void setMontoFinal(double pMonto) {
+    public void setMontoFinal(Double pMonto) {
         montoFinal = pMonto;
     }
 

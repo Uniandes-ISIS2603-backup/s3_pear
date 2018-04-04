@@ -6,8 +6,8 @@
 package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.CuentaCobroEntity;
-//TODO: borrar lo que no se necesita
-import co.edu.uniandes.csw.pear.entities.PagoEntity;
+//TODO DONE: borrar lo que no se necesita
+
 
 /**
  * CuentaCobroDTO modela el objeto que se transfiere entre el cliente y el
@@ -25,8 +25,8 @@ public class CuentaCobroDTO {
     //-----------------------------------------------------------
     private Long id;
 
-    // TODO: el ditpo debe ser Double e igualmente en el set/get
-    private double valorAPagar;
+    // TODO DONE: el ditpo debe ser Double e igualmente en el set/get
+    private Double valorAPagar;
 
     /**
      * Contructor por defecto
@@ -43,10 +43,12 @@ public class CuentaCobroDTO {
      */
     public CuentaCobroDTO(CuentaCobroEntity entity) {
 
-        //TODO: entity puede ser null
+        //TODO DONE: entity puede ser null
+        if(entity!= null){
+        
         this.valorAPagar = entity.getValorAPagar();
         this.id = entity.getId();
-
+        }
     }
 
     /**
@@ -66,14 +68,14 @@ public class CuentaCobroDTO {
     /**
      * @return valor a pagar
      */
-    public double getValorAPagar() {
+    public Double getValorAPagar() {
         return valorAPagar;
     }
 
     /**
      * @param pValorAPagar nuevo valor para asignar
      */
-    public void setValorAPagar(double pValorAPagar) {
+    public void setValorAPagar(Double pValorAPagar) {
         valorAPagar = pValorAPagar;
     }
 

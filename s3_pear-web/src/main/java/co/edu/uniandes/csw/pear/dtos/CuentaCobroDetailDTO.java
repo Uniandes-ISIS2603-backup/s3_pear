@@ -42,14 +42,19 @@ public class CuentaCobroDetailDTO extends CuentaCobroDTO {
      * @param entidad 
      */
     public CuentaCobroDetailDTO(CuentaCobroEntity entidad) {
-        super(entidad);
-        //TODO: entity puede ser null
+        
+         super(entidad);
+        if(entidad != null){
+        
+      
+        //TODO DONE: entity puede ser null
         if(entidad.getPagoEntity() != null)
         {
             this.pago = new PagoDTO(entidad.getPagoEntity()); 
         }
         else {
             this.pago = null; 
+        }
         }
     }
     

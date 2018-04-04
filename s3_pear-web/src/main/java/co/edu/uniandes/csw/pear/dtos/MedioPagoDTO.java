@@ -36,10 +36,14 @@ public class MedioPagoDTO {
     
     
     public MedioPagoDTO(MedioPagoEntity entity)
-    {//TODO: entity puede ser null
+    {//TODO DONE: entity puede ser null
+      
+      if(entity != null){  
       this.medioPagoActual  = entity.getMedioActual(); 
       this.id = entity.getId();
-    }
+      }
+     }
+      
     
     /**
      * Retorna el medio de pago actual
