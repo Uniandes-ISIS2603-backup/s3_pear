@@ -243,6 +243,14 @@ document.querySelector("#comentarios").addEventListener("click", function () {
     document.querySelector("#lbl_comentarios").style.display = "block";
 });
 
+let ims = 1;
+document.querySelector("#next_dieta").addEventListener("click", function () {
+    ims++;
+    document.querySelector(".imagen_template").style.backgroundImage = "url(resources/" + ims + ".jpg)";
+    if ( ims === 13 )
+        ims = 1;
+});
+
 
 
 
