@@ -1,30 +1,51 @@
-<html ng-app="mainApp">
+<!DOCTYPE html>
+<html lang="es">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <!-- ASCII por defecto -->
+        <meta charset="utf-8">
+       
+        <!-- relacion 1:1 en tamaños de ventana-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Sebastian Garcia 201630047">
+        <meta name="description" content="Una descripcion de 160 chars que aparece cuando se busca en Google">
+        
         <title>Dieta Facil</title>
         
-         <!-- FAV ICONS IMPORTA ICONOS DE http://ionicons.com y cambia los tamaños dependiendo del dispositivo-->
+        <!-- FAV ICONS IMPORTA ICONOS DE http://ionicons.com y cambia los tamaños dependiendo del dispositivo-->
+        <link rel="apple-touch-icon" sizes="57x57" href="resources/fav_icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="resources/fav_icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="resources/fav_icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="resources/fav_icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="resources/fav_icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="resources/fav_icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="resources/fav_icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="resources/fav_icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="resources/fav_icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="resources/fav_icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="resources/fav_icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="resources/fav_icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="resources/fav_icons/favicon-16x16.png">
+        <link rel="manifest" href="resources/fav_icons/manifest.json">
         <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="resources/fav_icons/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
         <!-- FAV ICONS -->
+        
+        
         <!-- ICONS paquete por defecto -->
         <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
         <!-- fonts importa fonst de google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
-        <!-- CSS ANIMATIONS -->
-        <link rel="stylesheet" type="text/css" href="animate.css">
         <!-- CSS  PARA DISPLAYS MOBILES !! -->
         <link rel="stylesheet" type="text/css" href="style.css">
         <!-- CSS PARA DISPLAYS DESKTOP !! -->
         <link rel="stylesheet" type="text/css" href="media.css">
-        <!-- JQUERY solo se usa para el mapa al final de la pagina web -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>     
+       
+        <!-- CSS PARA ESTE HTML -->
+        <link rel="stylesheet" type="text/css" href="df_style.css">
         
-    
         <!-- Dependencias Externas -->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
         <script src="bower_components/angular/angular.js"></script>
@@ -36,54 +57,72 @@
         
         <script src="src/app.js" type="text/javascript"></script> 
         <script src="src/http-interceptor.factory.js" type="text/javascript"></script>
-      
     </head>
-
+    
+    
+    
+    
     <body>
 
         <!-- SECCION PRINCIPAL es la ventan de inicio, parallax es el efecto del fondo de pantalla de movimiento -->
-        <header class="parallax">
+        <header class="parallax" id="header_dietas">
             <!-- MENU BARRA DE NAVEGACION -->
             <nav >
-                <img class="logo" src="resources/logo-s.svg" alt="logo">
+                <img class="logo" src="resources/logo-s.svg" alt="logo" style="font-size: 70%">
                 <img class="logo_b" src="resources/logo-s.svg" alt="logo">
                 <ul class="menu js_menu_nav" style="display: block">
-                    <li><a href="#food">Quienes Somos</a></li>
-                    <li><a href="#works">Cómo Funciona</a></li>
-                    <li><a href="#" onclick="document.getElementById('id01').style.display='block'">Login</a></li>
-                    <li><a href="dietas.html">Sign Up</a></li>
+                    <li><a href="inicio.html" >Inicio</a></li>
+                    <li><a href="#" id="dietas_btn" >Dietas</a></li>
+                    <li><a href="#" id="facturas_btn" >Facturas</a></li>
+                    <li><a href="index.html">Nombre Usuario</a></li>
                 </ul>
 
                 <!-- MENU STYLE FOR MOBILE -->
                 <a class="menu_dinamic js_menu_mobile"><i class="ion-android-close menu_icon"></i></a>
             </nav>
             
-            <!-- Texto de la Div Principal -->
-            <div class="c1_text_box">
-                <h1 style="font-weight: 100">mi super grupo<br />se llama Pear </h1>
-                <a class="btn btn_sec scroll_sec2" href="#food">Quienes somos</a>
+           
+            <!--DIETAS -->
+            <div class="lbl" id="lbl_dietas">
+                <h1 style="font-weight: 100; color: whitesmoke">Dietas</h1>
+                <hr/>
+                
+                <div class="template">
+                    <h3 class="titulo_template">Nombre Dieta</h3>
+                    <div class="imagen_template"></div>
+                    <div class="contenido_template">
+                        <h3 id="comidas">Comidas</h3>
+                        <div id="stars"></div>
+                        <h3 id="comentarios">Comentarios</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- COMENTARIOS -->
+            <div class="lbl" id="lbl_comentarios">
+                <h1 style="font-weight: 100; color: whitesmoke">Comentarios</h1>
+                <hr/>
+                
+                <div class="template">
+                </div>
+                
+            </div>
+            
+            <!-- FACTURAS -->
+            <div class="lbl" id="lbl_facturas">
+                <h1 style="font-weight: 100; color: whitesmoke">Facturas</h1>
+                <hr/>
+                
+                <div class="template">
+                </div>
+                
             </div>
             
             
             
             
             
-              <!-- LOGIN FORM -->
-      <div id="id01" class="modal">
-          <form class="modal-content animate">              
-              <div class="container">
-                <label class="email" for="email"><b>Email</b></label>
-                <input class="input_email" type="text" placeholder="Enter Email" name="uname" required>
-                <div>&nbsp;</div>
-                <div class="space"></div>
-                <label class="password" for="psw"><b>Contraseña</b></label> 
-                <input class="input_psw" type="password" placeholder="Enter Password" name="psw" required>
-                <div>&nbsp;</div>
-                <label type="submit" class="input_login">Login</label>
-                <label onclick="document.getElementById('id01').style.display='none'" class="input_cancel">Cancel</label>
-              </div>
-            </form>
-        </div>
+          
             
             
             
@@ -91,280 +130,28 @@
         </header>
         
         
+        <body>
         
         
-        
-
-
-
-        
-        
-
-        <!-- SECTION C2 : INTEGRANTES -->
-        <div class="c2 js_sec_2 " id="food">
-
-            <div class="c2_head"> <!-- SECTION C2 HEADER -->
-                <h2>Integrantes &mdash; Grupo Pear</h2>
-                <p id="c2_txt">Pear es un grupo creado en la Universidad de Los Andes. Con 6 integrantes se enfrenta a los desafios de Desarrollo de Software en Equipo. Su primer proyecto se llama Dieta Facil, y con esta aplicación piensa cambiar la vida de todos aquellos que sufren haciendo dieta. </p>
-            </div>
-
-            <div class="c2_1 "> <!-- COLUMN 1 -->
-                <!-- ICONS -->
-                <i class="ion-ios-infinite-outline c2_icon"></i>
-                <h3>Valentina</h3>
-                <p class="c2_p">lider</p>
-                <!-- IMAGEN DE PERFIL -->
-                <img class="c2_5_im" src="resources/vale.png" alt="foto de vale">
-            </div>
-
-            <div class="c2_2 "> <!-- COLUMN 2 -->
-                 <i class="ion-ios-paw-outline  c2_icon"></i>
-                <h3>Cabra</h3>
-                <p class="c2_p">diseño</p>
-                <img class="c2_5_im" src="resources/cabra.png" alt="foto de cabra">
-            </div>
-
-            <div class="c2_3 "> <!-- COLUMN 3 -->
-                <i class="ion-happy-outline c2_icon"></i>
-                <h3>Juan Pablo</h3>
-                <p class="c2_p">champi</p>
-                <img class="c2_5_im" src="resources/champi.png" alt="foto de champi">
-            </div>
-
-            <div class="c2_4"> <!-- COLUMN 4 -->
-                <i class="ion-ios-timer-outline c2_icon"></i>
-                <h3>Sebastian</h3>
-                <p class="c2_p">yo</p>
-                <img class="c2_5_im" src="resources/yo.png" alt="foto de sebastian">
-            </div>
-     
-            <div class="c2_5"> <!-- COLUMN 1 -->
-                <!--ICONS -->
-                <i class="ion-ios-lightbulb-outline c2_icon"></i>
-                <h3>Pablo</h3>
-                <p class="c2_p">choco</p>
-                <img class="c2_5_im" src="resources/pablo.png" alt="foto de pablo">
-            </div>
-            
-            <div class="c2_6"> <!-- COLUMN 6 -->
-                <i class="ion-ios-cloudy-outline c2_icon"></i>
-                <h3>Gustavo</h3>
-                <p class="c2_p">el</p>
-                <img class="c2_5_im" src="resources/gustavo.png" alt="foto de gustavo">
-            </div>
-
-        </div>
-
-
-        
-
-        <!-- SECTION C3 -->
-        <!-- aqui solo hay fotos-->
-        <div class="c3">
-                <figure class="ce">
-                    <img src="resources/1.jpg" alt="food">
-                </figure>
-                <figure class="ce">
-                    <img src="resources/2.jpg" alt="food">
-                </figure>
-                <figure class="ce">
-                    <img src="resources/3.jpg" alt="food">
-                </figure>
-                <figure class="ce">
-                    <img src="resources/4.jpg" alt="food">
-                </figure>
-                <figure class="ce">
-                    <img src="resources/5.jpg" alt="food">
-                </figure>
-                <figure class="ce">
-                    <img src="resources/6.jpg" alt="food">
-                </figure>
-                <figure class="ce">
-                    <img src="resources/7.jpg" alt="food">
-                </figure>
-                <figure class="ce">
-                    <img src="resources/8.jpg" alt="food">
-                </figure>
-        </div>
-
-
-        
-        
-        
-
-        <!-- SECTION C4 -->
-        <!-- COMO FUNCIONA -->
-        <div class="c4 clearfix" id="works">
-
-            <div class="c4_head"> <!-- SECTION C4 HEADER -->
-                <h2>Cómo funciona &mdash; Sólo 3 pasos</h2>
-            </div>
-
-            <div class="c4_1"> <!-- COLUMN 1  -->
-                <img class="c4_im" src="resources/mac.svg" alt="iphone app">
-            </div>
-
-            <div class="c4_2"> <!-- COLUMN 2  -->
-                <div>1</div>
-                <p class="c4_p clearfix">Choose the subscription plan that best fits your needs and sign up today.</p>
-
-                <div>2</div>
-                <p class="c4_p clearfix">Order your delicious meal using our mobile app or website. Or you can even call us!</p>
-
-                <div>3</div>
-                <p class="c4_p clearfix">Enjoy your meal after less than 20 minutes. See you the next time!</p>
-
-                <a href="#"><img class="app" src="resources/download-app.svg" alt="app store"></a>
-            <a href="#"><img class="app google" src="resources/download-app-android.png" alt="google store"></a>
-            </div>
-        </div>
-
-
-        
-        
-        
-        
-        
-
-
-        <!-- SECTION C6 -->
-        <!-- TESTIMONIOS : CASOS DE EXITO -->
-        <div class="c6 clearfix">
-
-            <div class="c6_head"> <!-- SECTION C6 HEADER -->
-                <h2>Nuestros clientes no pueden vivir sin nosotros</h2>
-            </div>
-
-            <blockquote class="c6_1">
-                Lorem ipsum dolor sit amet, novum harum nonumy est eu, ad recusabo incorrupte vel, vix aperiri scaevola convenire ut. Ne detraxit evertitur appellantur his. Quo cetero interpretaris ne, nullam timeam.
-                <cite><img class="x" src="resources/customer-1.jpg" alt="alberto">Nombre Apellido</cite>
-            </blockquote>
-
-            <blockquote class="c6_2">
-                Lorem ipsum dolor sit amet, novum harum nonumy est eu, ad recusabo incorrupte vel, vix aperiri scaevola convenire ut. Ne detraxit evertitur appellantur his. Quo cetero interpretaris ne, nullam timeam.
-                <cite><img class="x" src="resources/customer-2.jpg" alt="joana">Nombre Apellido</cite>
-            </blockquote>
-
-            <blockquote class="c6_3">
-                Lorem ipsum dolor sit amet, novum harum nonumy est eu, ad recusabo incorrupte vel, vix aperiri scaevola convenire ut. Ne detraxit evertitur appellantur his. Quo cetero interpretaris ne, nullam timeam.
-                <cite><img class="x" src="resources/customer-3.jpg" alt="milton">Nombre Apellido</cite>
-            </blockquote>
-
-        </div>
 
 
 
         
         
+
+
+
         
-
-        <!-- SECTION C7 -->
-        <!-- SELECCION DE PLAN DE DIETA -->
-         <div class="c7_ js_plan" id="sign">
-        <div class="c7 clearfix">
-
-            <div class="c7_head"> <!-- SECTION C5 HEADER -->
-                <h2>Comienza a comer saludable hoy</h2>
-            </div>
-
-            <div class="c7_1"> <!-- COLUMN 1 -->
-                <div class="c7_tag">
-                    <h3>Pro</h3>
-                    <p>149$ per month <br /> That’s only 14.90$ per meal</p>
-                </div>
-                <div class="c7_info">
-                    <i class="ion-checkmark-round"></i> 1 meal 10 days/month <br />
-                    <i class="ion-checkmark-round"></i> Order 24/7 <br />
-                    <i class="ion-checkmark-round"></i> Access to newest creations<br />
-                    <i class="ion-checkmark-round"></i> Free delivery <br />
-                </div>
-                <div>
-                    <a href="#" class="c7_btn">Sign up now</a>
-                </div>
-            </div>
-
-            <div class="c7_2 prem anim_prem"> <!-- COLUMN 2 -->
-                <div class="c7_tag">
-                    <h3>Premium</h3>
-                    <p>399$ per month <br /> That’s only 13.30$ per meal</p>
-
-                </div>
-                <div class="c7_info">
-                    <i class="ion-checkmark-round"></i> 1 meal every day <br />
-                    <i class="ion-checkmark-round"></i> Order 24/7 <br />
-                    <i class="ion-checkmark-round"></i> Access to newest creations<br />
-                    <i class="ion-checkmark-round"></i> Free delivery <br />
-                </div>
-                <div>
-                    <a href="#" class="c7_btn">Sign up now</a>
-                </div>
-            </div>
-
-            <div class="c7_3"> <!-- COLUMN 3 -->
-                <div class="c7_tag">
-                    <h3>Starter</h3>
-                    <p>19$ per month <br /><br /> </p>
-                </div>
-                <div class="c7_info">
-                    <i class="ion-checkmark-round"></i> 1 meal <br />
-                    <i class="ion-checkmark-round"></i> Order from 8 am to 12 pm<br />
-                    <i class="ion-close-round"></i> <br />
-                    <i class="ion-checkmark-round"></i> Free delivery <br />
-                </div>
-                <div class="c7_btndiv">
-                    <a href="#" class="c7_btn">Sign up now</a>
-                </div>
-            </div>
-
-        </div>
-
-        </div>
 
         
         
         
         
+
         
-
-
-        <!-- SECTION C8 -->
-        <!-- CONTACTO -->
-        <div class="c8" >
-
-            <div class="c8_head"> <!-- SECTION C8 HEADER -->
-                <h2>Preguntanos lo que quieras</h2>
-            </div>
-
-             <div class="nuevo">
-                 <div class="map"></div>
-
-                    <form class="c8_form" method="post">
-                        <label>Nombre</label>
-                        <input name="name" type="text" placeholder="nombre completo" required>
-                        <label>Email</label>
-                        <input name="email" type="email" placeholder="email válido" required>
-                        <label>Cómo nos encontraste?</label>
-                        <select name="find_us">
-                            <option value="facebook">Facebook</option>
-                            <option value="twitter">Twitter</option>
-                            <option value="instagram">Instagram</option>
-                            <option value="web">Web Site</option>
-                            <option value="friend">a friend</option>
-                        </select>
-                        <label>Mensaje</label>
-                        <textarea placeholder="tu mensaje"></textarea>
-
-                        <div>&nbsp;</div>
-
-                        <div>
-                            <a href="#" class="c8_btn">Send it</a>
-                        </div>
-                    </form>
-
-                 </div>
-
-        </div>
-
+        
+      
+        
 
 
 
