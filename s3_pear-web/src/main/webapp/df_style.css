@@ -26,9 +26,15 @@ hr {
 
 
 
-#lbl_facturas, #lbl_comentarios {
+
+
+#lbl_facturas, #lbl_comentarios, #lbl_cuentas {
     display: none;
 }
+
+
+
+
 
 
 .template {
@@ -68,7 +74,7 @@ hr {
     grid-area: contenido;
     font-size: 150%;
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: 1fr;
     grid-template-areas: 
         "comida"
         "stars"
@@ -106,3 +112,65 @@ hr {
 #cancelar {
     grid-area: cancelar;
 }
+
+#next_dieta:hover,
+#comentarios:hover,
+#comidas:hover{
+    color: gray;
+}
+
+
+
+/*FACTURA*/
+
+
+#factura_row {
+    background-color: #b5b5b5;
+    width: 45em;
+    height:4em;
+    border-radius: 0.3em;
+    color: whitesmoke;   
+}
+
+#factura_nombre {
+    color: whitesmoke;
+    margin: auto;
+    margin-top: 1.2em;
+    margin-left: 1.5em;
+}
+
+#factura_row:hover {
+    background-color: #acaaaa;
+}
+
+
+
+
+/*CUENTAS DE CORBO*/
+
+.cuentas_general {
+    padding: 2em;
+    width: 45em;
+    height: 25em;
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "cuenta factura";
+}
+
+.cuentas_pagar {
+    grid-area: cuenta;
+    padding-left: 2em;
+}
+
+.cuentas_factura {
+    grid-area: factura;
+    background-color: lightgray;
+    padding: 1em;
+    margin: 2em;
+    text-align: center;
+}
+
+
+

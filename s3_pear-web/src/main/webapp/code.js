@@ -229,12 +229,14 @@ function parallax( ) {
 document.querySelector("#facturas_btn").addEventListener("click", function () {
     document.querySelector("#lbl_dietas").style.display = "none";
     document.querySelector("#lbl_comentarios").style.display = "none";
+    document.querySelector("#lbl_cuentas").style.display = "none";
     document.querySelector("#lbl_facturas").style.display = "block";
 });
 
 document.querySelector("#dietas_btn").addEventListener("click", function () {
     document.querySelector("#lbl_facturas").style.display = "none";
     document.querySelector("#lbl_comentarios").style.display = "none";
+    document.querySelector("#lbl_cuentas").style.display = "none";
     document.querySelector("#lbl_dietas").style.display = "block";
 });
 
@@ -252,8 +254,7 @@ document.querySelector("#next_dieta").addEventListener("click", function () {
 });
 
 
-
-
-
-
-
+document.querySelector("#factura_row").addEventListener("click", function () {
+    document.querySelector("#lbl_facturas").style.display = "none";   
+    document.querySelector("#lbl_cuentas").style.display = "block";
+});
