@@ -1,0 +1,102 @@
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
+
+       
+<style> 
+       
+       
+    h1 {
+        font-size: 54px; 
+    }
+    
+    h6{
+        font-size: 20px;  
+          color: #494949; 
+    }
+     h5{
+        font-size: 25px;  
+        color: #494949; 
+    }
+   
+    
+    .factura {
+        
+        font-family: "Courier New";
+        font-size: 20px; 
+        color: #494949; 
+    }
+    
+    .col-centered{
+    float: none;
+    margin: 0 auto;
+}
+</style>
+
+<div class = "container-fluid">
+<h1> Cuenta de cobro </h1>
+<p>Tipo dieta </p>
+</div>
+<br><br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      
+        
+        <!-- Valor inicial -->
+        
+        <h6>Pagado</h6>
+        <h1 style = "color: #d9d9d9; margin-top: 1px;" > $35.500 COP</h1>
+               
+        <br> <br>
+        
+         <h6>Valor a pagar antes de 22/04/18 </h6>
+        <h1 style = "color: #494949; margin-top: 1px;" > $35.500 COP</h1>
+               
+        <div class= "row" style ="margin-top: 30px; ">
+            
+        <div style ="height: 200px" class="col-sm-4"><!--ng-repeat-->
+            <h6><label><input type="radio" name="mediopago">Efectivo</label></h6>
+            
+        </div>
+            
+        <div class="col-sm-4">
+            <h6><label><input type="radio" name="mediopago">Baloto</label></h6>
+        </div>
+            
+        <div class="col-sm-4">
+            <h6><label><input type="radio" name="mediopago">Master Card</label></h6>
+             
+        </div>
+            
+        </div><!-- row Medios de pago-->
+    
+    </div><!-- /div columa izq -->
+      
+      
+    <div  class="col-sm-6">
+        <div style = "background-color:#f7f7f7; border: 2px solid #d9d9d9; width: 80%; padding: 20px" >
+      <h3>Factura</h3>
+            <br> 
+        <div> <!-- ng-repeat-->
+        <p class = "factura">16/04/18</p>
+        <p class = "factura">Desayuno..........................7.500</p>
+        <p class = "factura">Almuerzo..........................13.000</p>
+        <p class = "factura">Comida............................15.000</p>
+        </div>
+            
+            </div><!-- /div gris -->
+    </div><!-- /div columna -->
+    </div><!-- /row -->
+    
+   
+    
+    <!--Centrado --> 
+    <div class="row">
+    <div class="col-lg-2 col-centered">   
+    <button style = "margin-top: 10px" type="button" class="btn btn-primary btn-lg">PAGAR</button>    
+    </div>
+    </div>
+    
+</div><!-- container -->
+
+
+
