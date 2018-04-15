@@ -226,6 +226,7 @@ function parallax( ) {
 
 /** On Click sobre Facturas, sevuelve invisible el Dietas y visible Facturas
 */
+/*
 document.querySelector("#facturas_btn").addEventListener("click", function () {
     document.querySelector("#lbl_dietas").style.display = "none";
     document.querySelector("#lbl_comentarios").style.display = "none";
@@ -258,3 +259,5 @@ document.querySelector("#factura_row").addEventListener("click", function () {
     document.querySelector("#lbl_facturas").style.display = "none";   
     document.querySelector("#lbl_cuentas").style.display = "block";
 });
+
+*/

@@ -5,6 +5,7 @@
         'ui.router',
         // Internal modules dependencies       
         'dietaModule',
+		'cocinaModule',
 		'pagoModule',
 		'facturaModule'
 

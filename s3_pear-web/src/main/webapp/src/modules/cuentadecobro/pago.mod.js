@@ -24,7 +24,8 @@
 	mod.controller('cuentaController', ['$scope', '$http', 'cuentaContext',
 
         function ($scope, $http, cuentaContext) {
-			//$http.get( ).then(function (response) {
+			
+			//$http.get( http://localhost:8080/s3_pear-web/api/cuentascobro ).then(function (response) {
 			//	$scope.cuentas = response.data;
 			//});
         }

@@ -24,6 +24,7 @@
 	mod.controller('dietasController', ['$scope', '$http', 'dietasContext',
 
         function ($scope, $http, dietasContext) {
+			//http://localhost:8080/s3_pear-web/api/dietas
 			$http.get('src/modules/dietas/dietas.json').then(function (response) {
 				$scope.dietas = response.data;
 			});

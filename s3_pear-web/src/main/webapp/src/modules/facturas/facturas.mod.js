@@ -27,6 +27,7 @@
 	mod.controller('facturasController', ['$scope', '$http', 'facturaContext',
 
         function ($scope, $http, facturaContext) {
+			//http://localhost:8080/s3_pear-web/api/facturas
 			$http.get('src/modules/facturas/facturas.json').then(function (response) {
 				$scope.facturas = response.data;
 			});

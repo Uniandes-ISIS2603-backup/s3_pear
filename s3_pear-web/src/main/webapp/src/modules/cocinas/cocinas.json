@@ -1,0 +1,58 @@
+[
+    {
+        "type": "cocinaDetailDTO",
+        "capacidad": "2008",
+        "id": 1,
+        "ubicacion": "8871 Merry Point",
+        "dietas": []
+    },
+    {
+        "type": "cocinaDetailDTO",
+        "capacidad": "2048",
+        "id": 2,
+        "ubicacion": "7303 Troy Placet",
+        "dietas": []
+    },
+    {
+        "type": "cocinaDetailDTO",
+        "capacidad": "2308",
+        "id": 3,
+        "ubicacion": "652 Lukken Junction",
+        "dietas": []
+    },
+    {
+        "type": "cocinaDetailDTO",
+        "capacidad": "208",
+        "id": 4,
+        "ubicacion": "15 Hoepker Plaza",
+        "dietas": []
+    },
+    {
+        "type": "cocinaDetailDTO",
+        "capacidad": "28",
+        "id": 5,
+        "ubicacion": "8871 Merry Point",
+        "dietas": []
+    },
+    {
+        "type": "cocinaDetailDTO",
+        "capacidad": "2028",
+        "id": 6,
+        "ubicacion": "29 Larry Parkway",
+        "dietas": []
+    },
+    {
+        "type": "cocinaDetailDTO",
+        "capacidad": "38",
+        "id": 7,
+        "ubicacion": "5073 Lakeland Lane",
+        "dietas": []
+    },
+    {
+        "type": "cocinaDetailDTO",
+        "capacidad": "4008",
+        "id": 8,
+        "ubicacion": "3 Meadow Ridge Plaza",
+        "dietas": []
+    }
+]
