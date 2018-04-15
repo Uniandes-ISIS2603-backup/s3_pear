@@ -1,102 +1,140 @@
 <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
 
-       
-<style> 
-       
-       
-    h1 {
-        font-size: 54px; 
-    }
-    
-    h6{
-        font-size: 20px;  
-          color: #494949; 
-    }
-     h5{
-        font-size: 25px;  
-        color: #494949; 
-    }
-   
-    
-    .factura {
-        
-        font-family: "Courier New";
-        font-size: 20px; 
-        color: #494949; 
-    }
-    
-    .col-centered{
-    float: none;
-    margin: 0 auto;
-}
+
+<style>
+	hr {
+		display: block;
+		height: 2px;
+		border: 0;
+		border-top: 1px solid gray;
+		margin-top: -1em;
+		width: 16em;
+		color: black;
+		margin-bottom: 3em;
+	}
+
+	table {
+		border-collapse: collapse;
+		width: 100%;
+		margin: auto;
+		color: gray;
+	}
+
+	td,
+	th {
+		text-align: left;
+		padding: 8px;
+	}
+
+	/*tr:nth-child(even) {
+		background-color: #dddddd;
+	}*/
+
+	.lista {
+		margin: 4em auto 6em auto;
+		width: 70%;
+		padding: 2em 4em;
+		background-color: white;
+		border-radius: 0.3em;
+	}
+
+	.lbl {
+		position: relative;
+	}
+
+	.template {
+		margin: auto auto 3em auto;
+		height: 24em;
+		background-color: rgba(245, 245, 245, 0.37);
+		width: 100%;
+		border-radius: 0.3em;
+		position: relative;
+		display: grid;
+		grid-template-columns: 40%, 50%;
+		grid-template-rows: 10%, 90%;
+		grid-template-areas: "nombre space" "imagen contenido";
+	}
+
+	/*CUENTAS DE CORBO*/
+
+	.cuentas_general {
+		padding: 2em;
+		width: 45em;
+		height: 25em;
+		display: grid;
+		position: relative;
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas: "cuenta factura";
+	}
+
+	.cuentas_pagar {
+		grid-area: cuenta;
+		padding-left: 2em;
+	}
+
+	.cuentas_factura {
+		grid-area: factura;
+		background-color: lightgray;
+		padding: 1em;
+		margin: 2em;
+		text-align: center;
+	}
+
 </style>
 
-<div class = "container-fluid">
-<h1> Cuenta de cobro </h1>
-<p>Tipo dieta </p>
+
+<div class="lista">
+
+	<h1 style="font-weight: 300; color: gray">Cuenta de cobro</h1>
+	<hr/>
+
+	<table>
+		<tr>
+			<th></th>
+		</tr>
+
+		<tr>
+			
+			<td >
+				<div class="template">
+					<div class="cuentas_general">
+						<div class="cuentas_pagar">
+							<br/>
+							<br/>
+							<h3 style="font-size: 80%">PAGADO</h3>
+							<h3 style="font-size: 200%">$ 35.000 COP</h3>
+							<br/>
+							<br/>
+							<h3 style="font-size: 80%">VALOR PAGADO ANTES DE 22/04/2018</h3>
+							<h3 style="font-size: 200%">$ 35.000 COP</h3>
+							<div class="metodo_pago">
+								<input type="checkbox" name="efectivo" value="efevtivo"> Efectivo
+								<input type="checkbox" name="tarjeta" value="tarjeta"> Tarjeta
+								<input type="checkbox" name="baloto" value="baloto"> Baloto
+							</div>
+							<br/>
+							<br/>
+							<h3>PAGAR</h3>
+						</div>
+						<div class="cuentas_factura">
+							<h3 style="font-size: 80%;">FACTURA</h3>
+							
+							<div> <!-- TODO  <div ng-repeat="cuenta in cuentas | orderBy : 'id'">   -->
+								<!-- ng-repeat-->
+								<br/>
+								<p class="factura">16/04/18</p>
+								<p class="factura">Desayuno..........................7.500</p>
+								<p class="factura">Almuerzo..........................13.000</p>
+								<p class="factura">Comida............................15.000</p>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+
+
 </div>
-<br><br>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-6">
-      
-        
-        <!-- Valor inicial -->
-        
-        <h6>Pagado</h6>
-        <h1 style = "color: #d9d9d9; margin-top: 1px;" > $35.500 COP</h1>
-               
-        <br> <br>
-        
-         <h6>Valor a pagar antes de 22/04/18 </h6>
-        <h1 style = "color: #494949; margin-top: 1px;" > $35.500 COP</h1>
-               
-        <div class= "row" style ="margin-top: 30px; ">
-            
-        <div style ="height: 200px" class="col-sm-4"><!--ng-repeat-->
-            <h6><label><input type="radio" name="mediopago">Efectivo</label></h6>
-            
-        </div>
-            
-        <div class="col-sm-4">
-            <h6><label><input type="radio" name="mediopago">Baloto</label></h6>
-        </div>
-            
-        <div class="col-sm-4">
-            <h6><label><input type="radio" name="mediopago">Master Card</label></h6>
-             
-        </div>
-            
-        </div><!-- row Medios de pago-->
-    
-    </div><!-- /div columa izq -->
-      
-      
-    <div  class="col-sm-6">
-        <div style = "background-color:#f7f7f7; border: 2px solid #d9d9d9; width: 80%; padding: 20px" >
-      <h3>Factura</h3>
-            <br> 
-        <div> <!-- ng-repeat-->
-        <p class = "factura">16/04/18</p>
-        <p class = "factura">Desayuno..........................7.500</p>
-        <p class = "factura">Almuerzo..........................13.000</p>
-        <p class = "factura">Comida............................15.000</p>
-        </div>
-            
-            </div><!-- /div gris -->
-    </div><!-- /div columna -->
-    </div><!-- /row -->
-    
-   
-    
-    <!--Centrado --> 
-    <div class="row">
-    <div class="col-lg-2 col-centered">   
-    <button style = "margin-top: 10px" type="button" class="btn btn-primary btn-lg">PAGAR</button>    
-    </div>
-    </div>
-    
-</div><!-- container -->
-
-
-

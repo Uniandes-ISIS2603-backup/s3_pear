@@ -1,3 +1,8 @@
+* {
+    overflow-x: hidden;
+}
+
+
 #header_dietas {
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.20)), to(rgba(0, 0, 0, 0.0))), url(resources/green.jpg);
     background-image: linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.0)), url(resources/green.jpg);
@@ -5,172 +10,11 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 130vh;
-}
-
-.lbl {
-    margin-left: 10em;
-    position: relative;
-}
-
-hr {
-    display: block;
-    height: 2px;
-    border: 0;
-    border-top: 1px solid whitesmoke;
-    padding: 0;
-    margin-top: -1em;
-    width: 8em;
-    color: black;
+    height: 105vh;
 }
 
 
 
-
-
-#lbl_facturas, #lbl_comentarios, #lbl_cuentas {
-    display: none;
-}
-
-
-
-
-
-
-.template {
-    margin-top: 2em;
-    margin-bottom: 3em;
-    height: 25em;
-    background-color: whitesmoke;
-    width: 45em;
-    border-radius: 0.3em;
-    position: relative;
-    display: grid;
-    grid-template-columns: 40%, 50%;
-    grid-template-rows: 10%, 90%;
-    grid-template-areas: 
-        "nombre space"
-        "imagen contenido";
-}
-
-.titulo_template {
-    grid-area: nombre;
-    font-size: 200%;
-    padding: 1em 1em 0em 1em;
-}
-
-.imagen_template {
-    width: 15em;
-    height: 15em;
-    margin-left: 2em;
-    background-image: url(resources/1.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    grid-area: imagen;
-}
-
-.contenido_template {
-    grid-area: contenido;
-    font-size: 150%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas: 
-        "comida"
-        "stars"
-        "comentarios"
-        "pausar"
-        "cancelar";
-    width: 10em;
-    position: absolute;
-    right: 8em;
-    grid-gap: 0.5em;
-}
-
-#stars {
-    width: 4em;
-    height: 1em;
-    background-image: url(resources/stars_5.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    grid-area: stars;
-}
-
-#comentarios {
-    grid-area: comentarios;
-}
-
-#comidas {
-    grid-area: comida;
-}
-
-#pausar {
-    grid-area: pausar;
-}
-
-#cancelar {
-    grid-area: cancelar;
-}
-
-#next_dieta:hover,
-#comentarios:hover,
-#comidas:hover{
-    color: gray;
-}
-
-
-
-/*FACTURA*/
-
-
-#factura_row {
-    background-color: #b5b5b5;
-    width: 45em;
-    height:4em;
-    border-radius: 0.3em;
-    color: whitesmoke;   
-}
-
-#factura_nombre {
-    color: whitesmoke;
-    margin: auto;
-    margin-top: 1.2em;
-    margin-left: 1.5em;
-}
-
-#factura_row:hover {
-    background-color: #acaaaa;
-}
-
-
-
-
-/*CUENTAS DE CORBO*/
-
-.cuentas_general {
-    padding: 2em;
-    width: 45em;
-    height: 25em;
-    display: grid;
-    position: relative;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-        "cuenta factura";
-}
-
-.cuentas_pagar {
-    grid-area: cuenta;
-    padding-left: 2em;
-}
-
-.cuentas_factura {
-    grid-area: factura;
-    background-color: lightgray;
-    padding: 1em;
-    margin: 2em;
-    text-align: center;
-}
 
 
 

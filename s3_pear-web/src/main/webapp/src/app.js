@@ -1,16 +1,14 @@
 (function (ng) {
-    var app = angular.module('mainApp', [
+   
+    var app = angular.module('main', [
         // External dependencies
         'ui.router',
-       
         // Internal modules dependencies       
-        'citiesModule',
-        
+        'dietaModule',
+		'pagoModule',
+		'facturaModule'
 
     ]);
-    // Resuelve problemas de las promesas
-    app.config(['$qProvider', function ($qProvider) {
-            $qProvider.errorOnUnhandledRejections(false);
-        }]);
+    
+    
 })(window.angular);
-

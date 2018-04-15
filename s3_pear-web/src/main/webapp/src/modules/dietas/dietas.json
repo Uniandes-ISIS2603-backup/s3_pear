@@ -1,0 +1,65 @@
+[
+    {
+        "type": "dietaTipoDetailDTO",
+        "descripcion": "una descripcion inicial",
+        "id": 1,
+        "objetivo": "un objetivo inicial",
+        "semanas": []
+    },
+    {
+        "type": "dietaTipoDetailDTO",
+        "descripcion": "otra descripcion segunda",
+        "id": 2,
+        "objetivo": "otro objetivo segundo",
+        "semanas": []
+    },
+    {
+        "type": "dietaTipoDetailDTO",
+        "descripcion": "Fundamental exuding database",
+        "id": 3,
+        "objetivo": "Mandatory exuding archive",
+        "semanas": []
+    },
+    {
+        "type": "dietaTipoDetailDTO",
+        "descripcion": "Enterprise-wide coherent access",
+        "id": 4,
+        "objetivo": "Versatile tangible task-force",
+        "semanas": []
+    },
+    {
+        "type": "dietaTipoDetailDTO",
+        "descripcion": "Vision-oriented intermediate matrix",
+        "id": 5,
+        "objetivo": "Ergonomic solution-oriented support",
+        "semanas": []
+    },
+    {
+        "type": "dietaTipoDetailDTO",
+        "descripcion": "Operative motivating strategy",
+        "id": 6,
+        "objetivo": "Balanced tertiary strategy",
+        "semanas": []
+    },
+    {
+        "type": "dietaTipoDetailDTO",
+        "descripcion": "Digitized real-time implementation",
+        "id": 7,
+        "objetivo": "Enterprise-wide global architecture",
+        "semanas": []
+    },
+    {
+        "type": "dietaTipoDetailDTO",
+        "descripcion": "De-engineered multi-state info-mediaries",
+        "id": 8,
+        "objetivo": "Multi-tiered cohesive contingency",
+        "semanas": []
+    },
+    {
+        "type": "dietaTipoDetailDTO",
+        "descripcion": "ntegrated multimedia initiative",
+        "id": 9,
+        "objetivo": "Multi-layered explicit circu",
+        "semanas": []
+    }
+]

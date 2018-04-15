@@ -1,0 +1,38 @@
+[
+    {
+        "type": "facturaDetailDTO",
+        "cantidadDeProductos": 5,
+        "id": 44,
+        "numeroFactura": 1
+    },
+    {
+        "type": "facturaDetailDTO",
+        "cantidadDeProductos": 3,
+        "id": 45,
+        "numeroFactura": 2
+    },
+    {
+        "type": "facturaDetailDTO",
+        "cantidadDeProductos": 7,
+        "id": 46,
+        "numeroFactura": 3
+    },
+    {
+        "type": "facturaDetailDTO",
+        "cantidadDeProductos": 8,
+        "id": 47,
+        "numeroFactura": 4
+    },
+    {
+        "type": "facturaDetailDTO",
+        "cantidadDeProductos": 2,
+        "id": 48,
+        "numeroFactura": 5
+    },
+    {
+        "type": "facturaDetailDTO",
+        "cantidadDeProductos": 1,
+        "id": 49,
+        "numeroFactura": 6
+    }
+]
