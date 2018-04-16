@@ -28,7 +28,7 @@
 	}*/
 
 	.lista {
-		margin: 4em auto 6em auto;
+		margin: 2em auto 6em auto;
 		width: 70%;
 		padding: 2em 4em;
 		background-color: white;
@@ -45,11 +45,12 @@
 		background-color: rgba(245, 245, 245, 0.37);
 		width: 100%;
 		border-radius: 0.3em;
-		position: relative;
 		display: grid;
-		grid-template-columns: 40%, 50%;
+		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 10%, 90%;
-		grid-template-areas: "nombre space" "imagen contenido";
+		grid-template-areas: 
+            "nombre nombre" 
+            "imagen contenido";
 	}
 
 	.titulo_template {
@@ -59,9 +60,9 @@
 	}
 
 	.imagen_template {
-		width: 15em;
+		width: 18em;
 		height: 15em;
-		margin-left: 2em;
+		margin-left: 1em;
 		background-image: url(resources/1.jpg);
 		background-repeat: no-repeat;
 		background-position: center;
@@ -75,10 +76,7 @@
 		display: grid;
 		grid-template-columns: 1fr;
 		grid-template-areas: "comida" "stars" "comentarios" "pausar" "cancelar";
-		width: 10em;
-		position: absolute;
-		right: 8em;
-		grid-gap: 0.5em;
+        padding-left: 1em;
 	}
 
 	#stars {
