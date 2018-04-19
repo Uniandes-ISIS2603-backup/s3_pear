@@ -4,7 +4,7 @@
     
     mod.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
         
-        $urlRouterProvider.otherwise("/dietas");
+        $urlRouterProvider.otherwise("/personas");
         
         $stateProvider.state(
                     'personas', {
@@ -29,9 +29,9 @@
         function($scope, $http, personasContext) {
             //http://localhost:8080/s3_pear-web/api/dietas
             $http.get('src/modules/personas/personas.json').then(function (response) {
-                $scope.dietas = response.data;
+                $scope.personas = response.data;
             });
-        }    
+        }
     ]);
     
 })(window.angular);
