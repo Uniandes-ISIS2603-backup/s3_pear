@@ -1,146 +1,148 @@
 <style>
-	hr {
-		display: block;
-		height: 2px;
-		border: 0;
-		border-top: 1px solid gray;
-		margin-top: -1em;
-		width: 8em;
-		color: black;
-		margin-bottom: 1.5em;
-	}
+    hr {
+        display: block;
+        height: 2px;
+        border: 0;
+        border-top: 1px solid gray;
+        margin-top: -1em;
+        width: 8em;
+        color: black;
+        margin-bottom: 1.5em;
+    }
 
-	table {
-		border-collapse: collapse;
-		width: 100%;
-		margin: auto;
-		color: gray;
-	}
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: auto;
+        color: gray;
+    }
 
-	td,
-	th {
-		text-align: left;
-		padding: 8px;
-	}
+    td,
+    th {
+        text-align: left;
+        padding: 8px;
+    }
 
-	/*tr:nth-child(even) {
+    /*tr:nth-child(even) {
 		background-color: #dddddd;
 	}*/
 
-	.lista {
-		margin: 2em auto 6em auto;
-		width: 70%;
-		padding: 2em 4em;
-		background-color: white;
-		border-radius: 0.3em;
-	}
+    .lista {
+        margin: 2em auto 6em auto;
+        width: 70%;
+        padding: 2em 4em;
+        background-color: white;
+        border-radius: 0.3em;
+    }
 
-	.lbl {
-		position: relative;
-	}
+    .lbl {
+        position: relative;
+    }
 
-	.template {
-		margin: auto auto 3em auto;
-		height: 24em;
-		background-color: rgba(245, 245, 245, 0.37);
-		width: 100%;
-		border-radius: 0.3em;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 10%, 90%;
-		grid-template-areas: 
-            "nombre nombre" 
-            "imagen contenido";
-	}
+    .template {
+        margin: auto auto 3em auto;
+        height: 24em;
+        background-color: rgba(245, 245, 245, 0.37);
+        width: 100%;
+        border-radius: 0.3em;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 10%, 90%;
+        grid-template-areas: "nombre nombre" "imagen contenido";
+    }
 
-	.titulo_template {
-		grid-area: nombre;
-		font-size: 200%;
-		padding: 1em 1em 0em 1em;
-	}
+    .titulo_template {
+        grid-area: nombre;
+        font-size: 200%;
+        padding: 1em 1em 0em 1em;
+    }
 
-	.imagen_template {
-		width: 18em;
-		height: 15em;
-		margin-left: 1em;
-		background-image: url(../style/resources/1.jpg);
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: cover;
-		grid-area: imagen;
-	}
+    .imagen_template {
+        width: 18em;
+        height: 15em;
+        margin-left: 1em;
+        background-image: url(../style/resources/1.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        grid-area: imagen;
+    }
 
-	.contenido_template {
-		grid-area: contenido;
-		font-size: 150%;
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-template-areas: "comida" "stars" "comentarios" "pausar" "cancelar";
+    .contenido_template {
+        grid-area: contenido;
+        font-size: 150%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: "comida" "stars" "comentarios" "pausar" "cancelar";
         padding-left: 1em;
-	}
+    }
 
-	#stars {
-		width: 4em;
-		height: 1em;
-		background-image: url(resources/stars_5.png);
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: cover;
-		grid-area: stars;
-	}
+    #stars {
+        width: 4em;
+        height: 1em;
+        background-image: url(resources/stars_5.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        grid-area: stars;
+    }
 
-	#comentarios {
-		grid-area: comentarios;
-	}
+    #comentarios {
+        grid-area: comentarios;
+    }
 
-	#comidas {
-		grid-area: comida;
-	}
+    #comidas {
+        grid-area: comida;
+    }
 
-	#pausar {
-		grid-area: pausar;
-	}
+    #pausar {
+        grid-area: pausar;
+    }
 
-	#cancelar {
-		grid-area: cancelar;
-	}
+    #cancelar {
+        grid-area: cancelar;
+    }
 
-	#comentarios:hover,
-	#comidas:hover {
-		color: gray;
-	}
+    #comentarios:hover,
+    #comidas:hover {
+        color: gray;
+    }
 
 </style>
 
 
 <div class="lista">
 
-	<h1 style="font-weight: 300; color: gray;">Dietas</h1>
-	<hr/>
+    <h1 style="font-weight: 300; color: gray;">Dietas
+        <i href="dietas_add.html" style="float: right; font-size: 160%" class="ion-plus-round"></i>
+    </h1>
+    
 
-	<table>
-		<tr>
-			<th></th>
-		</tr>
+    <hr/>
 
-		<tr ng-repeat="dieta in dietas | orderBy : 'id'">
-			<td>
-				<div class="lbl" id="lbl_dietas">
-					<div class="template">
-						<h3 class="titulo_template">{{dieta.descripcion}}</h3>
-						<div class="imagen_template"></div>
-						<div class="contenido_template">
-							<h3 id="comidas">Comidas</h3>
-							<div id="stars"></div>
-							<h3 id="comentarios">Comentarios</h3>
-							<h3 id="pausar">Pausar Suscripción</h3>
-							<h3 id="cancelar">Cancelar Suscripción</h3>
-						</div>
-					</div>
-				</div>
-			</td>
-		</tr>
-	</table>
+    <table>
+        <tr>
+            <th></th>
+        </tr>
+
+        <tr ng-repeat="dieta in dietas | orderBy : 'id'" style="overflow-y: hidden">
+            <td>
+                <div class="lbl" id="lbl_dietas">
+                    <div class="template">
+                        <h3 class="titulo_template">{{dieta.descripcion}}
+                        </h3>
+                        <div class="imagen_template"></div>
+                        <div class="contenido_template">
+                            <h3 id="comidas">Comidas</h3>
+                            <div id="stars"></div>
+                            <h3 id="comentarios">Comentarios</h3>
+                            <h3 id="pausar">Pausar Suscripción</h3>
+                            <h3 id="cancelar">Cancelar Suscripción</h3>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
 
 </div>
-
