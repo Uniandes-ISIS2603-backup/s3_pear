@@ -4,14 +4,14 @@
     
     mod.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
         
-        $urlRouterProvider.otherwise("/personas");
+        $urlRouterProvider.otherwise("/dietas");
         
-        $stateProvider.state(
-                    'personas', {
-                                url:"/personas",
-                                templateUrl:"src/modules/personas/personas.html",
-                                controller: 'personasController'
-                                });
+        $stateProvider
+			.state('personas', {
+				url: "/personas",
+				templateUrl: "src/modules/personas/personas.html",
+				controller: 'personasController'
+			})
         
     }]);
 })(window.angular);
@@ -27,7 +27,7 @@
     mod.controller('personasController', ['$scope', '$http', 'personasContext',
     
         function($scope, $http, personasContext) {
-            //http://localhost:8080/s3_pear-web/api/dietas
+            //http://localhost:8080/s3_pear-web/api/personas
             $http.get('src/modules/personas/personas.json').then(function (response) {
                 $scope.personas = response.data;
             });
