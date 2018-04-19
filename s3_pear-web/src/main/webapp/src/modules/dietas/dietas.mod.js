@@ -27,7 +27,29 @@
 			//http://localhost:8080/s3_pear-web/api/dietas
 			$http.get('src/modules/dietas/dietas.json').then(function (response) {
 				$scope.dietas = response.data;
-			});
+			}).then(function (response) {
+                console.log('FAILED GET DIETAS ' + response);
+            })
+            ;
+            
+            $scope.enviar_dieta = function () {
+            
+                let data = {
+                    nombre: $scope.nombre,
+                    descripcion: $scope.descripcion,
+                    objetivo: $scope.objetivos
+                };
+                
+                console.log(data);
+
+                // DIRECCION HTTP 
+                /*$http.post(' DIRECCION HTTP DE POSTMAN', data).then(function (response) {
+                    $scope.post_data = response.data;
+                });*/
+            }
+            
+            
+            
         }
 
     ]);

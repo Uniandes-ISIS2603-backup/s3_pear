@@ -13,7 +13,6 @@
 	<title>Dieta Facil</title>
     
      <!-- Dependencias Externas -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
@@ -60,10 +59,6 @@
 			<div ui-view></div>
 		</div>
 
-		<!-- ANGULAR UI ROUTER IMPORT -->
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-		<script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
-
 		<!-- DIETAS -->
 		<script src="src/modules/dietas/dietas.mod.js" type="text/javascript"></script>
 		
@@ -81,10 +76,10 @@
                 
 		<!-- DECLARACION DE DEPENDENCIAS -->
 		<script src="src/app.js"></script>
-
-
-
-
+        <script src="src/http-interceptor.factory.js" type="text/javascript"></script>
+        
+        
+        
 		<!-- <<<<<<<<<<<<<<<<< DECORACION  >>>>>>>>>>>>>>>>>>>> -->
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 		<script src="style/code.js"></script>

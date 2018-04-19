@@ -7,6 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title> Dieta Facil </title>
+    
+    <!-- Dependencias Externas -->
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- Dependencias Externas -->
 
     <!-- SEMANTIC UI -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
@@ -62,7 +68,7 @@
 
 <body>
 
-    <header ng-app="loginModule">
+    <header>
 
         <div class="ui text container" style="margin-top: 5em;">
             <div class="ui form" style="width: 100%">
@@ -110,7 +116,24 @@
     </header>
 
     
-    <!-- TODO Definir dependencias AngularJS-->
+    <!-- DIETAS -->
+    <script src="modules/dietas/dietas.mod.js" type="text/javascript"></script>
+
+    <!-- COCINAS -->
+    <script src="modules/cocinas/cocinas.mod.js" type="text/javascript"></script>
+
+    <!-- CUENTAS DE COBRO -->
+    <script src="modules/cuentadecobro/pago.mod.js" type="text/javascript"></script>
+
+    <!-- FACTURAS -->
+    <script src="modules/facturas/facturas.mod.js" type="text/javascript"></script>
+
+    <!--PERSONAS-->
+     <script src="modules/personas/personas.mod.js" type="text/javascript"></script>
+
+    <!-- DECLARACION DE DEPENDENCIAS -->
+    <script src="app.js"></script>
+    <script src="http-interceptor.factory.js" type="text/javascript"></script>
     
 </body>
 
