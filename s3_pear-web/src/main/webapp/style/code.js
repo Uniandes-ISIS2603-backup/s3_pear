@@ -13,7 +13,7 @@ function change() {
     if ( random_piker(im_arr.length) < im_arr.length) {
         let nuevo = random_piker(im_arr.length);
         if ( nuevo !== prev ) {
-            im_arr[nuevo].innerHTML = `<img src="resources/${random_piker_im(14)}.jpg" alt="food">`;
+            im_arr[nuevo].innerHTML = `<img src="../style/resources/${random_piker_im(14)}.jpg" alt="food">`;
         }
         prev = nuevo;
     }
