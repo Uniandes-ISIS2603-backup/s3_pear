@@ -44,6 +44,17 @@
                 });*/
             }
             
+            
+            $scope.eliminar_cocina = function( id ) {
+                console.log(id + ' < Se va a eliminar la cocina');
+
+                // DIRECCION HTTP 
+                /*$http.delete(' DIRECCION HTTP DE POSTMAN' + id).then(function (response) {
+                    $scope.post_data = response.data;
+                });*/
+            }
+            
+            
         }
 
     ]);

@@ -62,6 +62,16 @@
             }
             
             
+            $scope.eliminar_dieta = function ( id ) {
+            
+                console.log(id + " < Se va a eliminar la dieta" );
+
+                // DIRECCION HTTP 
+                /*$http.delete(' DIRECCION HTTP DE POSTMAN' + id ).then(function (response) {
+                    $scope.post_data = response.data;
+                });*/
+            }
+            
             
         }
 
