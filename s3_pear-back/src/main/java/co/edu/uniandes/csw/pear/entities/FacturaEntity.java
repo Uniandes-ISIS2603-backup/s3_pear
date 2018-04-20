@@ -7,6 +7,9 @@ package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -17,8 +20,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author v.chacon
  */
 @Entity
-@Table(name = "FACTURAENTITY")
-public class FacturaEntity extends  CuentaCobroEntity implements Serializable{
+public class FacturaEntity extends BaseEntity implements Serializable{
     
     //-----------------------------------------------------------
     //Atributos
@@ -28,7 +30,7 @@ public class FacturaEntity extends  CuentaCobroEntity implements Serializable{
     @PodamExclude
     @ManyToOne
     private PersonaEntity persona;
-  
+
     private Integer cantidadProductos = 0;
     
     private Integer numeroFacturaDeVenta = 0;

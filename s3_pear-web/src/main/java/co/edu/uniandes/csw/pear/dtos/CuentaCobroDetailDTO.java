@@ -19,15 +19,20 @@ import co.edu.uniandes.csw.pear.entities.CuentaCobroEntity;
   "pago" : {
                "montoInicial":7.0,
                "montoFinal": 8.0
-    }
+    },
+   "factura": {
+   "cantidadDeProductos": 13,
+   "numeroFacturaDeVenta": 1,
+   
   }
+ }
  */
 public class CuentaCobroDetailDTO extends CuentaCobroDTO {
     
     
-    
     private PagoDTO pago; 
     
+    private FacturaDTO factura;
        
        
     /**
@@ -55,6 +60,16 @@ public class CuentaCobroDetailDTO extends CuentaCobroDTO {
         else {
             this.pago = null; 
         }
+        
+        if(entidad.getFacturaEntity() != null)
+        {
+            this.factura = new FacturaDTO(entidad.getFacturaEntity()); 
+        }else
+        {
+            this.factura = null;
+        }
+        
+        
         }
     }
     
@@ -91,7 +106,26 @@ public class CuentaCobroDetailDTO extends CuentaCobroDTO {
             entidad.setPagoEntity(getPago().toEntity());
         }
         
+        if(this.getFactura() != null)
+        {
+            entidad.setFacturaEntity(getFactura().toEntity());
+        }
+        
         return entidad;
+    }
+
+    /**
+     * @return the factura
+     */
+    public FacturaDTO getFactura() {
+        return factura;
+    }
+
+    /**
+     * @param factura the factura to set
+     */
+    public void setFactura(FacturaDTO factura) {
+        this.factura = factura;
     }
 
 }

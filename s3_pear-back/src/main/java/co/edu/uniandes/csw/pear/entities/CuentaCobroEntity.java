@@ -6,27 +6,28 @@
 package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.*;
 
 import uk.co.jemos.podam.common.PodamExclude;
 /**
- * 
- *
  * @author jp.campos
  */
 @Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-@Table(name = "CUENTACOBROENTITY")
 public class CuentaCobroEntity implements Serializable {
     
     private Double valorAPagar;
   
     @PodamExclude
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST, orphanRemoval = true)
     private PagoEntity pago;
+    
+    @PodamExclude
+    @OneToOne(cascade = CascadeType.PERSIST , orphanRemoval = true)
+    private FacturaEntity factura;
+    
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -79,6 +80,20 @@ public class CuentaCobroEntity implements Serializable {
     public void  setPagoEntity (PagoEntity pPago)
     {
         pago = pPago;
+    }
+
+    /**
+     * @return the factura
+     */
+    public FacturaEntity getFacturaEntity() {
+        return factura;
+    }
+
+    /**
+     * @param factura the factura to set
+     */
+    public void setFacturaEntity(FacturaEntity factura) {
+        this.factura = factura;
     }
     
     
