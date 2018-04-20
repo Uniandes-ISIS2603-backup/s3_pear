@@ -4,7 +4,7 @@
 
 	mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-		$urlRouterProvider.otherwise("/semanas");
+		$urlRouterProvider.otherwise("/dietas");
 
 		$stateProvider
 			.state('semanas', {

@@ -4,7 +4,7 @@
 
 	mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-		$urlRouterProvider.otherwise("/facturas");
+		$urlRouterProvider.otherwise("/dietas");
 		$stateProvider
 			.state('facturas', {
 				url: "/facturas",
