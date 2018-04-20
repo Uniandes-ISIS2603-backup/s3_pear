@@ -1,22 +1,59 @@
+<alert class="alert alert-danger" ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">
+    {{alert.msg}} </alert>
 
-<alert class="alert alert-danger" ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
+
+
+<div class="ui one column grid" style="background-color: white; width: 90%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em; overflow-y: hidden;">
+
+
+    <div class="ui seven column grid" ng-repeat="semana in semanas">
+        <div class="row">
+                <div class="wide column">
+                    <h1 style="font-weight: 300; color: gray; float: left;">{{semana.fechaLunes}}</h1>
+                     <hr/>
+                </div>
+        </div>
+
+        <div class="row" style="height: 15em;">
+            <div class="column" ng-repeat="dia in semana.dias" >
+                <div class="ui card" style="min-height: 7em;">
+                    <div class="content">
+                        <div class="header" style="font-size: 15px;">{{ dia.fecha }}</div>
+                        <div class="meta"><hr></div>
+                        <div class="description">
+                            <p>{{ dia.recomendacion}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+    
+</div>
+
+<!--
+
 <div class="container-fluid">
     <table class="table table-striped col-md-4">
         <tbody>
-          <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12" ng-repeat="semana in semanas">
-                    <h1 id="{{$index}}-fecha" style="text-align:center"> {{semana.fechaLunes}}</h1>
-                         <div class="col-md-3 col-md-3" ng-repeat="dia in semana.dias"> 
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12" ng-repeat="semana in semanas">
+                        <h1 id="{{$index}}-fecha" style="text-align:center"> {{semana.fechaLunes}}</h1>
+                        <div class="col-md-3 col-md-3" ng-repeat="dia in semana.dias">
                             <div class="thumbnail">
-                            <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5hupEeFtwom_qnf0z74e7lR8aNnCc_JQiQ8TukKL8tb0IcEM0" height="20" width="110"/>  
-                            <div class="caption text-center">{{ dia.fecha }}</div>
-                            <div class="caption text-center">{{ dia.recomendacion}}</div>
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5hupEeFtwom_qnf0z74e7lR8aNnCc_JQiQ8TukKL8tb0IcEM0" height="20" width="110" />
+                                <div class="caption text-center">{{ dia.fecha }}</div>
+                                <div class="caption text-center">{{ dia.recomendacion}}</div>
+                            </div>
                         </div>
-                     </div>
-                   </div>
+                    </div>
                 </div>
-          </div>           
+            </div>
         </tbody>
     </table>
 </div>
+-->
