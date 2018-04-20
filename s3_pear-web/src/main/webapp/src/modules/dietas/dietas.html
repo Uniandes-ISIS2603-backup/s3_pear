@@ -26,14 +26,14 @@
             <div class="extra content">
                 <div class="inline field">
                     <span class="field">Comidas &nbsp; &nbsp;</span>
-                    <span class="field">Comentarios &nbsp; &nbsp;</span>
+                    <span class="field"><a ui-sref="comentarios({ id: dieta.id })" style="text-decoration: none;">Comentarios</a>&nbsp; &nbsp;</span>
                     <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
                     <span class="field right floated">Pausar</span>
                     <span class="field right floated">Cancelar &nbsp; &nbsp;</span>
                 </div>
             </div>
             <div class="content">
-                <a ui-sref=".detail" class="ui one column grid centered" style="text-decoration: none; color: #7e7e7e;"><i class="ion-chevron-down" style="margin-bottom: 10px;"></i></a>
+                <a ui-sref=".detail({ id: dieta.id })" class="ui one column grid centered" style="text-decoration: none; color: #7e7e7e;"><i class="ion-chevron-down" style="margin-bottom: 10px;"></i></a>
                 <div ui-view></div>
             </div>
         </div>

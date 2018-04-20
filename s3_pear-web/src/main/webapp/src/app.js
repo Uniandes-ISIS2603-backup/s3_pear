@@ -9,7 +9,8 @@
         'pagoModule',
         'facturaModule',
         'semanaModule',
-        'personaModule'
+        'personaModule',
+        'comentariosModule'
     ]);
 
 

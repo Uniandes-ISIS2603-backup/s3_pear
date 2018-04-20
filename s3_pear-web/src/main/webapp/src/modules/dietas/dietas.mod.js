@@ -14,7 +14,10 @@
 			})  
         
             .state('dietas.detail', {
-				url: "/dietas/detail",
+				url: "/dieta/:id/detail",
+                param: {
+                    id: null
+                },
 				templateUrl: "src/modules/dietas/dieta_detail.html",
 				controller: 'dietasController'
 			}) 
