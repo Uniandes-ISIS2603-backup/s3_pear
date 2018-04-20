@@ -9,7 +9,7 @@
 		$stateProvider
 			.state('cocinas', {
 				url: "/cocinas",
-				templateUrl: "src/modules/cocinas/cocinas.html",
+				templateUrl: "src/modules/cocinas/cocina_list.html",
 				controller: 'cocinasController'
 			})  ;
     }]);
