@@ -1,5 +1,4 @@
 <style>
-	/*FACTURA*/
 
 	hr {
 		display: block;
@@ -16,7 +15,7 @@
 		margin: 4em auto 6em auto;
 		width: 70%;
 		padding: 2em 4em;
-		background-color: white;
+		background-color: #fffffb;
 		border-radius: 0.3em;
 	}
 
@@ -54,32 +53,29 @@
 </style>
 
 <!-- FACTURAS -->
+
 <div class="lista">
-	
-	
-
-	<h1 style="font-weight: 300; color: gray">Facturas</h1>
-	<hr/>
-
-	<table>
-		<tr>
-			<th></th>
-		</tr>
-
-		<tr ng-repeat="factura in facturas | orderBy : 'id'">
-			<td>
-				<div class="lbl" id="lbl_facturas">
-					<div class="template">
-						<div id="factura_row" ui-sref="cuenta">
-							<h3 id="factura_nombre">{{factura.id}} &nbsp; Cantidad de Productos {{factura.cantidadDeProductos}}</h3>
-						</div>
-					</div>
-
-				</div>
-			</td>
-		</tr>
-	</table>
+    <h1 style="font-weight: 300; color: gray">Facturas</h1>
+    <hr>
+    
+    <table>
+        <thead>
+            <tr> 
+             <th>Identificador</th> 
+             <th>Cantidad de productos</th> 
+             <th>Numero de factura</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="factura in facturas">
+                <td>{{ factura.id }}</td>
+                <td>{{ factura.cantidadDeProductos }}</td>
+                <td>{{ persona.numeroFactura }}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
+
 
 
 

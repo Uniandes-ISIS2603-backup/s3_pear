@@ -3,36 +3,36 @@
         "type": "facturaDetailDTO",
         "cantidadDeProductos": 5,
         "id": 44,
-        "numeroFactura": 1
+        "numeroFactura": 010418
     },
     {
         "type": "facturaDetailDTO",
         "cantidadDeProductos": 3,
         "id": 45,
-        "numeroFactura": 2
+        "numeroFactura": 200418
     },
     {
         "type": "facturaDetailDTO",
         "cantidadDeProductos": 7,
         "id": 46,
-        "numeroFactura": 3
+        "numeroFactura": 270418
     },
     {
         "type": "facturaDetailDTO",
         "cantidadDeProductos": 8,
         "id": 47,
-        "numeroFactura": 4
+        "numeroFactura": 280418
     },
     {
         "type": "facturaDetailDTO",
         "cantidadDeProductos": 2,
         "id": 48,
-        "numeroFactura": 5
+        "numeroFactura": 290418
     },
     {
         "type": "facturaDetailDTO",
         "cantidadDeProductos": 1,
         "id": 49,
-        "numeroFactura": 6
+        "numeroFactura": 300418
     }
 ]

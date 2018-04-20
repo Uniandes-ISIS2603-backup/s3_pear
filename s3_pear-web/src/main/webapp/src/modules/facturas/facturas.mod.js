@@ -4,17 +4,13 @@
 
 	mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-		$urlRouterProvider.otherwise("/dietas");
-
+		$urlRouterProvider.otherwise("/facturas");
 		$stateProvider
 			.state('facturas', {
 				url: "/facturas",
 				templateUrl: "src/modules/facturas/facturas.html",
 				controller: 'facturasController'
 			})
-
-			
-		
     }]);
 
 })(window.angular);
@@ -26,7 +22,7 @@
 
 	mod.controller('facturasController', ['$scope', '$http', 'facturaContext',
 
-        function ($scope, $http, facturaContext) {
+        function ($scope, $http, facturasContext) {
 			//http://localhost:8080/s3_pear-web/api/facturas
 			$http.get('src/modules/facturas/facturas.json').then(function (response) {
 				$scope.facturas = response.data;
@@ -35,3 +31,4 @@
 
     ]);
 })(window.angular);
+

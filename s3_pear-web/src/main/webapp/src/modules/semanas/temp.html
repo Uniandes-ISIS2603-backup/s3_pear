@@ -1,0 +1,91 @@
+
+<div class="container-fluid">
+    <table class="table table-striped col-md-4">
+        <tbody>
+          <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12" ng-repeat="semana in semanas">
+                  
+                     <h1 id="{{$index}}-fecha" style="text-align:center"> {{semana.fechaLunes}}</h1>
+                    
+                         <tr ng-repeat="dia in semanas" >
+                             
+                            <td>Lunes</td>
+                              <td>{{ dia.fecha }}</td>
+                            <td>{{ dia.seEnvia }}</td>
+                             <td>{{ dia.recomendacion}}</td>
+                            <td>Martes</td>
+                              <td>{{ dia.fecha }}</td>
+                            <td>{{ dia.seEnvia }}</td>
+                             <td>{{ dia.recomendacion}}</td>
+                            <td>Miercoles</td>
+                              <td>{{ dia.fecha }}</td>
+                            <td>{{ dia.seEnvia }}</td>
+                             <td>{{ dia.recomendacion}}</td>
+                            <td>Jueves</td>
+                              <td>{{ dia.fecha }}</td>
+                            <td>{{ dia.seEnvia }}</td>
+                             <td>{{ dia.recomendacion}}</td>
+                            <td>Viernes</td>
+                            <td>Sabado</td>x
+                            <td>Domingo</td>
+                         </tr>
+                        
+                           
+    
+                   </div>
+                </div>
+          </div>           
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+<div class="lista">
+    <table>
+        <thead>
+            
+            <tr ng-repeat="semana in semanas">
+            <h1 id="{{$index}}-fecha" style="text-align:center"> {{semana.fechaLunes}}</h1>
+                 
+            </tr>
+        </thead>
+        
+        
+        <tbody>
+            
+            <tr>
+                            <td> 
+                                <h3>Lunes</h3>
+                             <tr ng-repeat="dia in semana.dias">
+                            <td>{{ dia.fecha }}</td>
+                            <td>{{ dia.seEnvia }}</td>
+                            <td>{{ dia.recomendacion}}</td>
+                            </tr>
+                
+                
+                            </td>
+                            <td>Martes</td>
+                            <td>Miercoles</td>
+                            <td>Jueves</td>
+                            <td>Viernes</td>
+                            <td>Sabado</td>
+                            <td>Domingo</td>
+            </tr>
+                <tr ng-repeat="dia in semana.dias">
+                            <td>{{ dia.fecha }}</td>
+                            <td>{{ dia.seEnvia }}</td>
+                            <td>{{ dia.recomendacion}}</td>
+          
+                    
+               </tr>
+        </tbody>
+    </table>
+</div>
+

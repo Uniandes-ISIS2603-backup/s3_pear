@@ -8,6 +8,7 @@
         'cocinaModule',
         'pagoModule',
         'facturaModule',
+        'semanaModule',
         'personaModule'
     ]);
 
