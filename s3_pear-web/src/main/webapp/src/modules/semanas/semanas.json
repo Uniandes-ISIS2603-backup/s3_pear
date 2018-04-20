@@ -1,0 +1,174 @@
+[
+  {
+  "type": "semanaDetailDTO",
+  "id": 221,
+  "fechaLunes": "26/03/2018",
+  "dias":[
+      {    
+           "type": "diaDetailDTO",
+           "SeEnvia": false,
+           "recomendacion": "Evitar la sal",
+           "fecha": "26/03/2018"
+      },
+      {    "type": "diaDetailDTO", 
+           "SeEnvia": true,
+           "recomendacion": "",
+           "fecha": "27/03/2018"
+      },
+      {    "type": "diaDetailDTO",
+           "SeEnvia": false,
+           "recomendacion": "Tomar 2 litros de agua",
+           "fecha": "28/03/2018"
+      },
+      {    "type": "diaDetailDTO",
+           "SeEnvia": true,
+           "recomendacion": "",
+           "fecha": "29/03/2018"
+      },
+      {    "type": "diaDetailDTO",
+           "SeEnvia": false,
+           "recomendacion": "No consumir azucar refinada",
+           "fecha": "30/03/2018"
+      },
+      {    "type": "diaDetailDTO",
+           "SeEnvia": false,
+           "recomendacion": "No consumir azucar refinada",
+           "fecha": "31/03/2018"
+      },
+      {    "type": "diaDetailDTO",
+           "SeEnvia": true,
+           "recomendacion": "",
+           "fecha": "01/04/2018"
+      }]
+  },
+  {
+  "type": "semanaDetailDTO",
+  "id": 222,
+ "fechaLunes": "02/04/2018",
+  "dias":[
+      {    
+           "type": "diaDetailDTO",
+           "SeEnvia": false,
+           "recomendacion": "Evitar la sal",
+           "fecha": "02/04/2018"
+      },
+
+      {    "type": "diaDetailDTO", 
+           "SeEnvia": true,
+           "recomendacion": "",
+           "fecha": "03/04/2018"
+      },
+
+      {    "type": "diaDetailDTO",
+           "SeEnvia": true,
+           "recomendacion": "",
+           "fecha": "04/04/2018"
+      },
+      {    "type": "diaDetailDTO",
+           "SeEnvia": true,
+           "recomendacion": "",
+           "fecha": "05/04/2018"
+      },
+      {    "type": "diaDetailDTO",
+           "SeEnvia": true,
+           "recomendacion": "",
+           "fecha": "06/04/2018"
+      },
+      {    "type": "diaDetailDTO",
+           "SeEnvia": false,
+           "recomendacion": "No consumir azucar refinada",
+           "fecha": "07/04/2018"
+      },
+      {    "type": "diaDetailDTO",
+           "SeEnvia": false,
+           "recomendacion": "Evitar la sal",
+           "fecha": "08/04/2018"
+      }]
+  },
+  {
+  "type": "semanaDetailDTO",
+  "id": 223,
+ "fechaLunes": "09/04/2018",
+  "dias":[
+      {    
+           "type": "diaDetailDTO",
+           "SeEnvia": true,
+           "recomendacion": "",
+           "fecha": "09/04/2018"
+      },
+      {    "type": "diaDetailDTO", 
+           "SeEnvia": true,
+           "recomendacion": "",
+           "fecha": "10/04/2018"
+      },
+      {    "type": "diaDetailDTO",
+           "SeEnvia": true,
+           "recomendacion": "",
+           "fecha": "11/04/2018"
+      },
+      {    "type": "diaDetailDTO",
+           "SeEnvia": true,
+           "recomendacion": "",
+           "fecha": "12/04/2018"
+      },
+      {    "type": "diaDetailDTO",
+           "SeEnvia": true,
+           "recomendacion": "",
+           "fecha": "13/04/2018"
+      },
+      {    "type": "diaDetailDTO",
+           "SeEnvia": false,
+           "recomendacion": "No consumir azucar refinada",
+           "fecha": "14/04/2018"
+      },
+      {    "type": "diaDetailDTO",
+           "SeEnvia": false,
+           "recomendacion": "Tomar 2 litros de agua",
+           "fecha": "15/04/2018"
+      }]
+  },
+
+  {
+  "type": "semanaDetailDTO",
+  "id": 224,
+ "fechaLunes": "16/04/2018",
+  "dias":[
+      {    
+           "type": "diaDetailDTO",
+           "SeEnvia": true,
+           "recomendacion": "",
+           "fecha": "16/04/2018"
+      },
+      {    "type": "diaDetailDTO", 
+           "SeEnvia": true,
+           "recomendacion": "",
+           "fecha": "17/04/2018"
+      },
+      {    "type": "diaDetailDTO",
+           "SeEnvia": true,
+           "recomendacion": "",
+           "fecha": "18/04/2018"
+      },
+      {    "type": "diaDetailDTO",
+           "SeEnvia": true,
+           "recomendacion": "",
+           "fecha": "19/04/2018"
+      },
+      {    "type": "diaDetailDTO",
+           "SeEnvia": true,
+           "recomendacion": "Evitar la sal",
+           "fecha": "20/04/2018"
+      },
+      {    "type": "diaDetailDTO",
+           "SeEnvia": false,
+           "recomendacion": "No consumir harinas refinadas",
+           "fecha": "21/04/2018"
+      },
+
+      {    "type": "diaDetailDTO",
+           "SeEnvia": true,
+           "recomendacion": "",
+           "fecha": "22/04/2018"
+      }]
+  }
+  ]
