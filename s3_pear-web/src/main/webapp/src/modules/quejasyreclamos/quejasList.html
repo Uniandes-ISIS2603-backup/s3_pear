@@ -1,0 +1,15 @@
+<div class="container" >
+  <h2>Quejas y Recomendaciones</h2>
+  <table class="table" ng-repeat="queja in quejasRecords">
+    <thead>
+      <tr>
+          <th>Asunto</th>
+      </tr>
+    </thead>
+    <tbody>  
+      <tr class="success" >
+          <td><a ui-sref="quejasDetail({quejasId : queja.id})">{{queja.asunto}}</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
