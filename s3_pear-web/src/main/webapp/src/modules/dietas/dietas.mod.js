@@ -11,7 +11,15 @@
 				url: "/dietas",
 				templateUrl: "src/modules/dietas/dietas.html",
 				controller: 'dietasController'
-			})  ;
+			})  
+        
+            .state('dietas.detail', {
+				url: "/dietas/detail",
+				templateUrl: "src/modules/dietas/dieta_detail.html",
+				controller: 'dietasController'
+			}) 
+        
+        ;
     }]);
 
 })(window.angular);

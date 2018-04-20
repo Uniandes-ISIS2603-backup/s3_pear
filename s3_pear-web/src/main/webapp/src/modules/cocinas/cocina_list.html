@@ -1,80 +1,35 @@
-<style>
+<div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;">
 
-	hr {
-		display: block;
-		height: 2px;
-		border: 0;
-		border-top: 1px solid gray;
-		margin-top: -1em;
-		width: 8em;
-		color: black;
-		margin-bottom: 1em;
-	}
+    <div class="row">
+        <div class="column">
+            <div class="inline field">
+                <h1 style="font-weight: 300; color: gray; float: left;">cocinas</h1>
+                <a href="src/modules/cocinas/cocinas_add.html" style="text-decoration: none; color: #525252;"><i style="float: right; font-size: 30pt;" class="ion-plus-round"></i></a>
+            </div>
 
-	.lista {
-		margin: 4em auto 6em auto;
-		width: 70%;
-		padding: 2em 4em;
-		background-color: white;
-		border-radius: 0.3em;
-	}
+            <hr/>
 
-	.lbl {
-		position: relative;
-	}
+        </div>
+    </div>
 
-	.template {
-		margin: auto auto auto auto;
-		width: 100%;
-		border-radius: 0.5em;
-	}
+    <div class="ui two stackable link cards">
+        <div class="ui fluid card" ng-repeat="cocina in cocinas | orderBy : 'id'">
+            <div class="image">
+                <img src="/style/resources/store.jpg">
+            </div>
+            <div class="content">
+                <div class="header">Nombre Cocina</div>
+                <div class="meta"><a>ID: {{cocina.id}}</a></div>
+                <div class="description">Capacidad: {{cocina.capacidad}} <br/> Ubicacion: {{cocina.ubicacion}}</div>
+            </div>
+            <div class="extra content">
+                <div class="inline flief">
+                    <span class="field right floated">Eliminar</span>
+                    <span class="field right floated">Actualizar &nbsp; &nbsp;</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	table {
-		border-collapse: collapse;
-		width: 100%;
-		margin: auto;
-		color: gray;
-	}
 
-	td,
-	th {
-		text-align: left;
-		padding: 8px;
-	}
-
-	tr:nth-child(even) {
-		background-color: #dddddd;
-	}
-	
-	
-
-	
-
-</style>
-<div class="lista">
-    <h1 style="font-weight: 300; color: gray">cocinas</h1>
-    <hr>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Edad</th>
-                <th>Correo</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="cocina in cocinas">
-                <td>{{ cocina.nombre }}</td>
-                <td>{{ cocina.apellido }}</td>
-                <td>{{ cocina.edad }}</td>
-                <td>{{ cocina.correo }}</td>
-            </tr>
-        </tbody>
-    </table>
 </div>
-
-
-
-

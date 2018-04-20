@@ -1,0 +1,128 @@
+
+/*------------------------*/
+/* GENERAL */
+/*------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+
+header {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.20)), to(rgba(0, 0, 0, 0.0))), url(/style/resources/green.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.0)), url(/style/resources/green.jpg);
+    /*background-attachment: fixed;*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 105vh;
+}
+
+html {
+    color: #555;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+
+
+.parallax {
+    -webkit-transition: initial;
+    transition: initial;
+}
+
+
+
+
+
+/* DESKTOP VERSION */
+
+@media ( min-width: 700px) {
+
+
+    /*------------------------*/
+    /* GENERAL */
+    /*------------------------*/
+    * {
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    html {
+        color: #555;
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+    }
+
+    /* claeras the float after an element*/
+    .clearfix {
+        zoom: 1;
+    }
+    .clearfix:after {
+        content: ".";
+        clear: both;
+        display: block;
+        height: 4em;
+        visibility: hidden;
+    }
+
+    .parallax {
+        -webkit-transition: initial;
+        transition: initial;
+    }
+
+
+    .logo {
+        width: 10em;
+        margin: 1em 2em;
+    }
+
+
+
+    h1 {
+        margin: 0;
+        color: whitesmoke;
+        font-size: 200%;
+        /*responsive WS in html the font size is set as default of 20px*/
+        text-transform: lowercase;
+        letter-spacing: 1px;
+        word-spacing: 4px;
+        margin-bottom: 0.5em;
+    }
+    
+    p {
+        text-align: left;
+        font-size: 90%;
+        line-height: 145%
+    }
+    h2 {
+        text-transform: uppercase;
+        line-height: 2em;
+        word-spacing: 2px;
+        text-align: center;
+        font-weight: 300;
+        font-size: 175%;
+        letter-spacing: 1px;
+    }
+    h2:after {
+        display: block;
+        height: 2px;
+        background-color: #e67e22;
+        content: " ";
+        width: 3em;
+        margin: 0 auto;
+        margin-bottom: 0.6em;
+    }
+    h3 {
+        font-size: 110%;
+        margin-bottom: 0.4em;
+        letter-spacing: 0;
+        font-weight: 100;
+    }
+
+}

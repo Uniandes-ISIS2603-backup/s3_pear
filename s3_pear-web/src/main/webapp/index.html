@@ -2,40 +2,44 @@
 <html lang="es" ng-app="main">
 
 <head>
-	<!-- ASCII por defecto -->
-	<meta charset="utf-8">
-	<!-- relacion 1:1 en tamaños de ventana-->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ASCII por defecto -->
+    <meta charset="utf-8">
+    <!-- relacion 1:1 en tamaños de ventana-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<meta name="author" content="Grupo Pear">
-	<meta name="description" content="Dieta Facil">
+    <meta name="author" content="Grupo Pear">
+    <meta name="description" content="Dieta Facil Desarrollo de Software en Equipo Uniandes">
 
-	<title>Dieta Facil</title>
-    
-     <!-- Dependencias Externas -->
+    <title>Dieta Facil</title>
+
+
+    <!-- Dependencias Externas -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!--<script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>-->
     <!-- Dependencias Externas -->
 
-	<!-- ICONS paquete por defecto -->
-	<link rel="stylesheet" type="text/css" href="style/vendors/css/ionicons.min.css">
-    
-	<!-- fonts importa fonst de google fonts-->
-	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,400" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+    <!-- ICONS paquete por defecto -->
+    <link rel="stylesheet" type="text/css" href="style/vendors/css/ionicons.min.css">
 
-    <!-- CSS  PARA DISPLAYS MOBILES !! -->
-	<link rel="stylesheet" type="text/css" href="style/style.css">
-	<!-- CSS PARA DISPLAYS DESKTOP !! -->
-	<link rel="stylesheet" type="text/css" href="style/media.css">
-    
-	<!-- CSS PARA ESTE HTML -->
-	<link rel="stylesheet" type="text/css" href="style/df_style.css">
+    <!-- fonts importa fonst de google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+
+
+    <!-- CSS PARA ESTE HTML -->
+    <link rel="stylesheet" type="text/css" href="/style/dieta_facil/style.css">
+
+    <!-- SEMANTIC UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
+
+
 </head>
 
 <body>
 
+<<<<<<< HEAD
 	<!-- SECCION PRINCIPAL es la ventan de inicio, parallax es el efecto del fondo de pantalla de movimiento -->
 	<header class="parallax" id="header_dietas">
 	
@@ -74,23 +78,56 @@
         <!-- SEMANAS CON DIAS-->
         <script src="src/modules/semanas/semanas.mod.js" type="text/javascript"></script>
         
+=======
+    <!-- SECCION PRINCIPAL es la ventan de inicio, parallax es el efecto del fondo de pantalla de movimiento -->
+    <header class="parallax" id="header_dietas">
+
+        <div class="ui text menu right floated" style="padding: 1em;">
+            <a class="item" style="color: white; font-size: 20px" href="src/inicio.html">Inicio</a>
+            <a class="item" style="color: white; font-size: 20px" ui-sref="personas">Usuarios</a>
+            <a class="item active" style="color: white; font-size: 20px" ui-sref="dietas">Dietas</a>
+            <a class="item active" style="color: white; font-size: 20px" ui-sref="facturas">Facturas</a>
+            <a class="item active" style="color: white; font-size: 20px" ui-sref="cocinas">Cocinas</a>
+            <a class="item active" style="color: white; font-size: 20px" >Perfil</a>
+        </div>
+        
+        <img class="logo" src="style/resources/logo-s.svg" alt="logo" style="font-size: 100%">
+            
+
+        <div>
+            <div ui-view></div>
+        </div>
+
+        <!-- DIETAS -->
+        <script src="src/modules/dietas/dietas.mod.js" type="text/javascript"></script>
+
+        <!-- COCINAS -->
+        <script src="src/modules/cocinas/cocinas.mod.js" type="text/javascript"></script>
+
+        <!-- CUENTAS DE COBRO -->
+        <script src="src/modules/cuentadecobro/pago.mod.js" type="text/javascript"></script>
+
+        <!-- FACTURAS -->
+        <script src="src/modules/facturas/facturas.mod.js" type="text/javascript"></script>
+
+>>>>>>> a8016ef7e861c535495cc04bf3ccbaf62a4f7dba
         <!--PERSONAS-->
-         <script src="src/modules/personas/personas.mod.js" type="text/javascript"></script>
-                
-		<!-- DECLARACION DE DEPENDENCIAS -->
-		<script src="src/app.js"></script>
+        <script src="src/modules/personas/personas.mod.js" type="text/javascript"></script>
+
+        <!-- DECLARACION DE DEPENDENCIAS -->
+        <script src="src/app.js"></script>
         <script src="src/http-interceptor.factory.js" type="text/javascript"></script>
-        
-        
-        
-		<!-- <<<<<<<<<<<<<<<<< DECORACION  >>>>>>>>>>>>>>>>>>>> -->
-		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-		<script src="style/code.js"></script>
-
-	</header>
 
 
-	
+
+        <!-- <<<<<<<<<<<<<<<<< DECORACION  >>>>>>>>>>>>>>>>>>>> -->
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="style/code.js"></script>
+
+    </header>
+
+
+
 </body>
 
 </html>
