@@ -43,6 +43,8 @@
             $scope.enviar_dieta = function () {
             
                 let data = {
+                    
+                    //Aqui hay que poner el identificador??
                     nombre: $scope.nombre,
                     descripcion: $scope.descripcion,
                     objetivo: $scope.objetivos

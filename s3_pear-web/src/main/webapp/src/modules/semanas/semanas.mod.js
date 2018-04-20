@@ -11,10 +11,15 @@
 				url: "/semanas",
 				templateUrl: "src/modules/semanas/semanas.html",
 				controller: 'semanasController'
-			})	
+            
+			}).state('semanas.detail', {
+				url: "/semanas/detail",
+				templateUrl: "src/modules/dietas/semana_detail.html",
+				controller: 'semanasController'
+			}) 	
     }]);
-
 })(window.angular);
+
 
 (function (ng) {
 
@@ -27,8 +32,24 @@
 			//http://localhost:8080/s3_pear-web/api/semanas
 			$http.get('src/modules/semanas/semanas.json').then(function (response) {
 				$scope.semanas = response.data;
-			});
+			}).then(function (response) {
+                console.log('FAILED GET SEMANAS' + response);
+            })
+            ;
+            
+            $scope.enviar_semana = function (){
+                
+                //Como manejo aqui el idetificador, la fecha del lunes y los dias?????
+                let data = {
+                    seEnvia: $scope.seEnvia,
+                    recomendacion: $scope.recomendacion,
+                    fecha: $scope.fecha
+                };
+                
+                console.log(data);
         }
-
+            
+    }
     ]);
 })(window.angular);
+
