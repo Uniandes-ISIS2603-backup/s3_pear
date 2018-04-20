@@ -28,7 +28,7 @@
         }
 
         header {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.30)), url(../../../style/resources/login2.jpg);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.30)), url(../../../style/resources/store1.jpg);
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
@@ -67,12 +67,12 @@
 
 <body>
 
-    <header ng-app="dietaModule">
+    <header ng-app="cocinaModule">
 
-        <div class="ui text container" style="margin-top: 5em;" ng-controller="dietasController">
+        <div class="ui text container" style="margin-top: 5em;" ng-controller="cocinasController">
             <div class="ui form" style="width: 100%">
 
-                <h1 class="tittle">Registro Dieta</h1>
+                <h1 class="tittle">Registro Cocina</h1>
 
                 <hr/>
                 <p>&nbsp;</p>
@@ -83,18 +83,18 @@
                 </div>
 
                 <div class="field">
-                    <label style="color: white">Descripcion</label>
-                    <textarea ng-model="descripcion" type="text" placeholder="descripcion detallada de la dieta"></textarea>
+                    <label style="color: white">Capacidad</label>
+                    <input ng-model="capacidad" type="number" placeholder="capacidad de produccion">
                 </div>
-
+                
                 <div class="field">
-                    <label style="color: white">Objetivos</label>
-                    <textarea ng-model="objetivo" type="text" placeholder="objetivos de la dieta"></textarea>
+                    <label style="color: white">Dirección</label>
+                    <input ng-model="direccion" type="text" placeholder="direccion de la cocina">
                 </div>
 
                 <p>&nbsp;</p>
                 <div class="inline field">
-                    <button ng-click="enviar_dieta()" class="ui inverted olive basic button">Enviar</button>
+                    <button ng-click="enviar_cocina()" class="ui inverted olive basic button">Enviar</button>
                     <button class="ui inverted teal basic button"><a style="text-decoration: none; color: white" href="../../../index.html">Cancelar</a></button>
                 </div>
 
@@ -107,23 +107,23 @@
 
    
     <!-- DIETAS -->
-    <script src="dietas.mod.js" type="text/javascript"></script>
+    <script src="/src/modules/dietas/dietas.mod.js" type="text/javascript"></script>
 
     <!-- COCINAS -->
-    <script src="../cocinas/cocinas.mod.js" type="text/javascript"></script>
+    <script src="cocinas.mod.js" type="text/javascript"></script>
 
     <!-- CUENTAS DE COBRO -->
-    <script src="../cuentadecobro/pago.mod.js" type="text/javascript"></script>
+    <script src="/src/modules/cuentadecobro/pago.mod.js" type="text/javascript"></script>
 
     <!-- FACTURAS -->
-    <script src="../facturas/facturas.mod.js" type="text/javascript"></script>
+    <script src="/src/modules/facturas/facturas.mod.js" type="text/javascript"></script>
 
     <!--PERSONAS-->
-     <script src="../personas/personas.mod.js" type="text/javascript"></script>
+     <script src="/src/modules/personas/personas.mod.js" type="text/javascript"></script>
 
     <!-- DECLARACION DE DEPENDENCIAS -->
-    <script src="../../app.js"></script>
-    <script src="../../http-interceptor.factory.js" type="text/javascript"></script>
+    <script src="/src/app.js"></script>
+    <script src="/src/http-interceptor.factory.js" type="text/javascript"></script>
 
 
 </body>

@@ -1,147 +1,41 @@
-<style>
-    hr {
-        display: block;
-        height: 2px;
-        border: 0;
-        border-top: 1px solid gray;
-        margin-top: -1em;
-        width: 8em;
-        color: black;
-    }
+<div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;">
 
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        margin: auto;
-        color: gray;
-    }
+    <div class="row">
+        <div class="column">
+            <div class="inline field">
+                <h1 style="font-weight: 300; color: gray; float: left;">Dietas</h1>
+                <a href="src/modules/dietas/dietas_add.html" style="text-decoration: none; color: #525252;"><i style="float: right; font-size: 30pt;" class="ion-plus-round"></i></a>
+            </div>
 
-    td,
-    th {
-        text-align: left;
-        padding: 8px;
-    }
+            <hr/>
 
-    /*tr:nth-child(even) {
-		background-color: #dddddd;
-	}*/
+        </div>
+    </div>
 
-    .lista {
-        margin: 2em auto 6em auto;
-        width: 70%;
-        padding: 2em 4em;
-        background-color: white;
-        border-radius: 0.3em;
-    }
-
-    .lbl {
-        position: relative;
-    }
-
-    .template {
-        margin: auto auto 3em auto;
-        height: 24em;
-        background-color: rgba(245, 245, 245, 0.37);
-        width: 100%;
-        border-radius: 0.3em;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 10%, 90%;
-        grid-template-areas: "nombre nombre" "imagen contenido";
-    }
-
-    .titulo_template {
-        grid-area: nombre;
-        font-size: 200%;
-        padding: 1em 1em 0em 1em;
-    }
-
-    .imagen_template {
-        width: 18em;
-        height: 15em;
-        margin-left: 1em;
-        background-image: url(../style/resources/1.jpg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        grid-area: imagen;
-    }
-
-    .contenido_template {
-        grid-area: contenido;
-        font-size: 150%;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-areas: "comida" "stars" "comentarios" "pausar" "cancelar";
-        padding-left: 1em;
-    }
-
-    #stars {
-        width: 4em;
-        height: 1em;
-        background-image: url(style/resources/stars_5.png);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        grid-area: stars;
-    }
-
-    #comentarios {
-        grid-area: comentarios;
-    }
-
-    #comidas {
-        grid-area: comida;
-    }
-
-    #pausar {
-        grid-area: pausar;
-    }
-
-    #cancelar {
-        grid-area: cancelar;
-    }
-
-    #comentarios:hover,
-    #comidas:hover {
-        color: gray;
-    }
-
-</style>
-
-
-<div class="lista">
-
-    <h1 style="font-weight: 300; color: gray;">Dietas
-        <a href="src/modules/dietas/dietas_add.html" style="text-decoration: none; color: #525252;"><i style="float: right; font-size: 160%" class="ion-plus-round"></i></a>
-    </h1>
-    
-
-    <hr/>
-
-    <table>
-        <tr>
-            <th></th>
-        </tr>
-
-        <tr ng-repeat="dieta in dietas | orderBy : 'id'" style="overflow-y: hidden">
-            <td>
-                <div class="lbl" id="lbl_dietas">
-                    <div class="template">
-                        <h3 class="titulo_template">{{dieta.descripcion}}
-                        </h3>
-                        <div class="imagen_template"></div>
-                        <div class="contenido_template">
-                            <h3 id="comidas">Comidas</h3>
-                            <div id="stars"></div>
-                            <h3 id="comentarios">Comentarios</h3>
-                            <h3 id="pausar">Pausar Suscripción</h3>
-                            <h3 id="cancelar">Cancelar Suscripción</h3>
-                        </div>
-                    </div>
+    <div class="ui two stackable link cards">
+        <div class="ui fluid card" ng-repeat="dieta in dietas | orderBy : 'id'">
+            <div class="image">
+                <img src="/style/resources/1.jpg">
+            </div>
+            <div class="content">
+                <div class="header">Nombre Dieta</div>
+                <div class="meta"><a>Activa</a></div>
+                <div class="description">{{dieta.descripcion}} <br/> {{dieta.objetivo}}</div>
+            </div>
+            <div class="extra content">
+                <div class="inline field">
+                    <span class="field">Comidas &nbsp; &nbsp;</span>
+                    <span class="field">Comentarios &nbsp; &nbsp;</span>
+                    <span class="field right floated">Pausar</span>
+                    <span class="field right floated">Cancelar &nbsp; &nbsp;</span>
                 </div>
-            </td>
-        </tr>
-    </table>
+            </div>
+            <div class="content">
+                <a ui-sref=".detail" style="text-decoration: none; color: #7e7e7e;"><i class="ion-chevron-down" style="text-align: center;" ></i></a>
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
+
 
 </div>
