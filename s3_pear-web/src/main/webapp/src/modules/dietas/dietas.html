@@ -1,5 +1,5 @@
 <div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;">
-
+    
     <div class="row">
         <div class="column">
             <div class="inline field">
@@ -15,23 +15,25 @@
     <div class="ui two stackable link cards">
         <div class="ui fluid card" ng-repeat="dieta in dietas | orderBy : 'id'">
             <div class="image">
-                <img src="/style/resources/1.jpg">
+                <img id="im_dieta" src="/style/resources/1.jpg">
             </div>
             <div class="content">
                 <div class="header">Nombre Dieta</div>
                 <div class="meta"><a>Activa</a></div>
+                <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
                 <div class="description">{{dieta.descripcion}} <br/> {{dieta.objetivo}}</div>
             </div>
             <div class="extra content">
                 <div class="inline field">
                     <span class="field">Comidas &nbsp; &nbsp;</span>
                     <span class="field">Comentarios &nbsp; &nbsp;</span>
+                    <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
                     <span class="field right floated">Pausar</span>
                     <span class="field right floated">Cancelar &nbsp; &nbsp;</span>
                 </div>
             </div>
             <div class="content">
-                <a ui-sref=".detail" style="text-decoration: none; color: #7e7e7e;"><i class="ion-chevron-down" style="text-align: center;" ></i></a>
+                <a ui-sref=".detail" class="ui one column grid centered" style="text-decoration: none; color: #7e7e7e;"><i class="ion-chevron-down" style="margin-bottom: 10px;"></i></a>
                 <div ui-view></div>
             </div>
         </div>
