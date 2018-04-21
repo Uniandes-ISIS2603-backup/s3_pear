@@ -89,7 +89,7 @@ html {
         color: whitesmoke;
         font-size: 200%;
         /*responsive WS in html the font size is set as default of 20px*/
-        text-transform: lowercase;
+        /*text-transform: lowercase;*/
         letter-spacing: 1px;
         word-spacing: 4px;
         margin-bottom: 0.5em;

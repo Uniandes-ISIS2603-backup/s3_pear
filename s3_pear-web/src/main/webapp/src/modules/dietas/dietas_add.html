@@ -69,7 +69,7 @@
 
     <header ng-app="dietaModule">
 
-        <div class="ui text container" style="margin-top: 5em;" ng-controller="dietasController">
+        <div class="ui text container" style="margin-top: 2em;" ng-controller="dietasController">
             <div class="ui form" style="width: 100%">
 
                 <h1 class="tittle">Registro Dieta</h1>
@@ -80,6 +80,11 @@
                 <div class="field">
                     <label style="color: white">Nombre</label>
                     <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="nombre">
+                </div>
+                
+                <div class="field">
+                    <label style="color: white">URL Imagen</label>
+                    <input ng-model="direccion" type="text" placeholder="imagen representativa de la dieta">
                 </div>
 
                 <div class="field">

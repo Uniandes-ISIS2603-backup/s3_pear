@@ -4,55 +4,71 @@
         "capacidad": "2008",
         "id": 1,
         "ubicacion": "8871 Merry Point",
-        "dietas": []
+        "dietas": [],
+        "nombre": "La Gran Cocina",
+        "imagen": "https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     },
     {
         "type": "cocinaDetailDTO",
         "capacidad": "2048",
         "id": 2,
         "ubicacion": "7303 Troy Placet",
-        "dietas": []
+        "dietas": [],
+        "nombre": "Cocina de las Aguas",
+        "imagen": "https://images.pexels.com/photos/159991/pexels-photo-159991.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     },
     {
         "type": "cocinaDetailDTO",
         "capacidad": "2308",
         "id": 3,
         "ubicacion": "652 Lukken Junction",
-        "dietas": []
+        "dietas": [],
+        "nombre": "Central del Norte",
+        "imagen": "https://images.pexels.com/photos/225448/pexels-photo-225448.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     },
     {
         "type": "cocinaDetailDTO",
         "capacidad": "208",
         "id": 4,
         "ubicacion": "15 Hoepker Plaza",
-        "dietas": []
+        "dietas": [],
+        "nombre": "Cocina Bogota",
+        "imagen": "https://images.pexels.com/photos/2755/restaurant.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     },
     {
         "type": "cocinaDetailDTO",
         "capacidad": "28",
         "id": 5,
         "ubicacion": "8871 Merry Point",
-        "dietas": []
+        "dietas": [],
+        "nombre": "Un Nombre de Cocina",
+        "imagen": "https://images.pexels.com/photos/696205/pexels-photo-696205.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     },
     {
         "type": "cocinaDetailDTO",
         "capacidad": "2028",
         "id": 6,
         "ubicacion": "29 Larry Parkway",
-        "dietas": []
+        "dietas": [],
+        "nombre": "Otro Nombre de Cocina",
+        "imagen": "https://images.pexels.com/photos/375897/pexels-photo-375897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     },
     {
         "type": "cocinaDetailDTO",
         "capacidad": "38",
         "id": 7,
         "ubicacion": "5073 Lakeland Lane",
-        "dietas": []
+        "dietas": [],
+        "nombre": "Cocina X",
+        "imagen": "https://images.pexels.com/photos/64613/pexels-photo-64613.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     },
     {
         "type": "cocinaDetailDTO",
         "capacidad": "4008",
         "id": 8,
         "ubicacion": "3 Meadow Ridge Plaza",
-        "dietas": []
+        "dietas": [],
+        "nombre": "SUper Cocina",
+        "imagen": "https://images.pexels.com/photos/917371/pexels-photo-917371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     }
 ]

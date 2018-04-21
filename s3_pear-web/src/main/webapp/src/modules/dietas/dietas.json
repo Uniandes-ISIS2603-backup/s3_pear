@@ -1,65 +1,92 @@
 [
     {
         "type": "dietaTipoDetailDTO",
-        "descripcion": "una descripcion inicial",
+        "descripcion": "dieta basada en ensaladas o al asi",
         "id": 1,
-        "objetivo": "un objetivo inicial",
-        "semanas": []
+        "objetivo": "el objetivo de la dieta es desintoxicarse",
+        "semanas": [],
+        "stars": [{},{},{},{},{}],
+        "imagen": "https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "nombre": "Dieta Nutricional"
     },
     {
         "type": "dietaTipoDetailDTO",
-        "descripcion": "otra descripcion segunda",
+        "descripcion": "una dieta basada en proteinas",
         "id": 2,
-        "objetivo": "otro objetivo segundo",
-        "semanas": []
+        "objetivo": "el objetivo de la dieta es obtener masa muscular",
+        "semanas": [],
+        "stars": [{},{},{},{}],
+        "imagen": "https://images.pexels.com/photos/76093/pexels-photo-76093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "nombre": "Dieta Deportiva"
     },
     {
         "type": "dietaTipoDetailDTO",
-        "descripcion": "Fundamental exuding database",
+        "descripcion": "dieta basada en alimentos del mar",
         "id": 3,
-        "objetivo": "Mandatory exuding archive",
-        "semanas": []
+        "objetivo": "el objetivo de la dieta es alejarse de las carnes rojas",
+        "semanas": [],
+        "stars": [{},{},{},{}],
+        "imagen": "https://images.pexels.com/photos/36768/food-salmon-teriyaki-cooking.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "nombre": "Dieta Pacifica"
     },
     {
         "type": "dietaTipoDetailDTO",
         "descripcion": "Enterprise-wide coherent access",
         "id": 4,
         "objetivo": "Versatile tangible task-force",
-        "semanas": []
+        "semanas": [],
+        "stars": [{}],
+        "imagen": "https://images.pexels.com/photos/247685/pexels-photo-247685.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "nombre": "Dieta Japonesa"
     },
     {
         "type": "dietaTipoDetailDTO",
         "descripcion": "Vision-oriented intermediate matrix",
         "id": 5,
         "objetivo": "Ergonomic solution-oriented support",
-        "semanas": []
+        "semanas": [],
+        "stars": [{},{},{},{}],
+        "imagen": "https://images.pexels.com/photos/65174/pexels-photo-65174.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "nombre": "Dieta Verde"
     },
     {
         "type": "dietaTipoDetailDTO",
         "descripcion": "Operative motivating strategy",
         "id": 6,
         "objetivo": "Balanced tertiary strategy",
-        "semanas": []
+        "semanas": [],
+        "stars": [{},{},{}],
+        "imagen": "https://images.pexels.com/photos/161519/abstract-barbecue-barbeque-bbq-161519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "nombre": "Anti Dieta"
     },
     {
         "type": "dietaTipoDetailDTO",
         "descripcion": "Digitized real-time implementation",
         "id": 7,
         "objetivo": "Enterprise-wide global architecture",
-        "semanas": []
+        "semanas": [],
+        "stars": [{},{},{},{},{}],
+        "imagen": "https://images.pexels.com/photos/46247/thai-food-noodle-fried-noodles-meal-46247.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "nombre": "Dieta Oriental"
     },
     {
         "type": "dietaTipoDetailDTO",
         "descripcion": "De-engineered multi-state info-mediaries",
         "id": 8,
         "objetivo": "Multi-tiered cohesive contingency",
-        "semanas": []
+        "semanas": [],
+        "stars": [{},{}],
+        "imagen": "https://images.pexels.com/photos/41320/beef-cheese-cuisine-delicious-41320.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "nombre": "Dieta Italiana"
     },
     {
         "type": "dietaTipoDetailDTO",
         "descripcion": "ntegrated multimedia initiative",
         "id": 9,
         "objetivo": "Multi-layered explicit circu",
-        "semanas": []
+        "semanas": [],
+        "stars": [{},{},{}],
+        "imagen": "https://images.pexels.com/photos/629093/pexels-photo-629093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "nombre": "Dieta de Crudos"
     }
 ]

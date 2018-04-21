@@ -3,7 +3,7 @@
     <div class="row">
         <div class="column">
             <div class="inline field">
-                <h1 style="font-weight: 300; color: gray; float: left;">cocinas</h1>
+                <h1 style="font-weight: 300; color: gray; float: left;">Cocinas</h1>
                 <a href="src/modules/cocinas/cocinas_add.html" style="text-decoration: none; color: #525252;"><i style="float: right; font-size: 30pt;" class="ion-plus-round"></i></a>
             </div>
 
@@ -15,10 +15,10 @@
     <div class="ui two stackable link cards">
         <div class="ui fluid card" ng-repeat="cocina in cocinas | orderBy : 'id'">
             <div class="image">
-                <img src="style/resources/store.jpg">
+                <img src="{{cocina.imagen}}">
             </div>
             <div class="content">
-                <div class="header">Nombre Cocina</div>
+                <div class="header">{{cocina.nombre}}</div>
                 <div class="meta"><a>ID: {{cocina.id}}</a></div>
                 <div class="description">Capacidad: {{cocina.capacidad}} <br/> Ubicacion: {{cocina.ubicacion}}</div>
             </div>
