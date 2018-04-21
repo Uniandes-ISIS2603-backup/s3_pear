@@ -28,6 +28,7 @@ public class DietaTipoDTO {
     private Long id;
     private String objetivo;
     private String descripcion;
+    private String name;
     
     //-----------------------------------------------------------
     //Metodos
@@ -49,6 +50,7 @@ public class DietaTipoDTO {
         if ( entity != null  ) {
             this.objetivo = entity.getObjetivo();
             this.descripcion = entity.getDescripcion();
+            this.name = entity.getName();
             this.id = entity.getId();
         }
         
@@ -77,11 +79,22 @@ public class DietaTipoDTO {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    
     
     public DietaTipoEntity toEntity() {
         DietaTipoEntity en = new DietaTipoEntity();
         en.setDescripcion(this.descripcion);
         en.setObjetivo(this.objetivo);
+        en.setName(this.name);
         en.setId(this.id);
         return en;
     }

@@ -36,11 +36,10 @@
 
         function ($scope, $http, dietasContext) {
             //http://localhost:8080/s3_pear-web/api/dietas
-
-            $http.get('src/modules/dietas/dietas.json').then(function (response) {
+            // src/modules/dietas/dietas.json
+            
+            $http.get(/*'http://localhost:8080/s3_pear-web/api/dietas'*/ 'src/modules/dietas/dietas.json' ).then(function (response) {
                 $scope.dietas = response.data;
-            }).then(function (response) {
-                console.log('FAILED GET DIETAS ' + response);
             });
             
 
@@ -49,17 +48,17 @@
                 let data = {
 
                     //Aqui hay que poner el identificador??
-                    nombre: $scope.nombre,
+                    name: $scope.nombre,
                     descripcion: $scope.descripcion,
-                    objetivo: $scope.objetivos
+                    objetivo: $scope.objetivo
                 };
 
                 console.log(data);
 
                 // DIRECCION HTTP 
-                /*$http.post(' DIRECCION HTTP DE POSTMAN', data).then(function (response) {
+                $http.post('http://localhost:8080/s3_pear-web/api/dietas', data).then(function (response) {
                     $scope.post_data = response.data;
-                });*/
+                });
             };
 
 
@@ -68,9 +67,9 @@
                 console.log(id + " < Se va a eliminar la dieta");
 
                 // DIRECCION HTTP 
-                /*$http.delete(' DIRECCION HTTP DE POSTMAN' + id ).then(function (response) {
+                $http.delete('http://localhost:8080/s3_pear-web/api/dietas/' + id ).then(function (response) {
                     $scope.post_data = response.data;
-                });*/
+                });
             };
             
             

@@ -29,9 +29,6 @@ insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 3, 'Mandatory
 insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 4, 'Versatile tangible task-force', 'Enterprise-wide coherent access' );
 insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 5, 'Ergonomic solution-oriented support', 'Vision-oriented intermediate matrix' );
 insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 6, 'Balanced tertiary strategy', 'Operative motivating strategy' );
-insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 7, 'Enterprise-wide global architecture', 'Digitized real-time implementation' );
-insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 8, 'Multi-tiered cohesive contingency', 'De-engineered multi-state info-mediaries' );
-insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 9, 'Multi-layered explicit circu', 'ntegrated multimedia initiative' );
 
 
 insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 1,'8871 Merry Point','2008');
