@@ -1,19 +1,26 @@
-
 <style>
-    .boton{height: 60px;
-    width:200px;
-    background-color:#145705;
-    border-color:#145705;
-    border-style:solid;
-    border-width:2px;
-    /*This allows us to modify the corners of the html element. In        this case the button*/
-    border-radius:5px;
-        
-    margin:auto;
-    text-align:center;
-    line-height: 65px; 
+    .boton {
+        height: 60px;
+        width: 200px;
+        background-color: #145705;
+        border-color: #145705;
+        border-style: solid;
+        border-width: 2px;
+        /*This allows us to modify the corners of the html element. In        this case the button*/
+        border-radius: 5px;
+
+        margin: auto;
+        text-align: center;
+        line-height: 65px;
     }
 
+    #_hr {
+        height: 1px;
+        border: 0;
+        border-top: 1px solid white;
+        margin: 0.5em 0;
+        padding: 0;
+    }
 
 </style>
 
@@ -30,21 +37,29 @@
 
 
     <div class="ui seven column grid" ng-repeat="semana in semanas">
-        <div class="row">
-                <div class="wide column">
-                    <h1 style="font-weight: 300; color: gray; float: left;">{{semana.fechaLunes}}</h1>
-                    <!--Aqui va la referencia a eliminar una semana especifica-->
-                    <a style="color:red; font-size: 17px" href=""> Eliminar Semana</a>
-                     <hr/>
-                </div>
+        <div class="ui row">
+            <div class="ui seven wide column">
+                <h1 style="font-weight: 300; color: gray; float: left;">{{semana.fechaLunes}}</h1>
+            </div>
         </div>
 
-        <div class="row" style="height: 15em;">
-            <div class="column" ng-repeat="dia in semana.dias" >
+        <div class="ui row">
+            <div class="ui seven wide column">
+                <!--Aqui va la referencia a eliminar una semana especifica-->
+                <a style="color:red; font-size: 17px" href=""> Eliminar Semana</a>
+                <hr/>
+            </div>
+        </div>
+
+
+        <div class="ui row">
+            <div class="ui column" ng-repeat="dia in semana.dias">
                 <div class="ui card" style="min-height: 7em; background-color:#A3B246">
                     <div class="content">
                         <div class="header" style="font-size: 15px;">{{ dia.fecha }}</div>
-                        <div class="meta"><hr></div>
+                        <div class="meta">
+                            <hr id="_hr" />
+                        </div>
                         <div class="description">
                             <p>{{ dia.recomendacion}}</p>
                         </div>
@@ -52,19 +67,19 @@
                 </div>
             </div>
         </div>
-        
-    </div>    
+
+    </div>
     <div class="boton">
         <!--Aqui va la referencia de la página de agregar-->
-        <a href ="src/modules/semanas/semanas_add.html" style="font-size: 20px; color:floralwhite; text-align: center">Agregar Semana</a>
-    
+        <a href="src/modules/semanas/semanas_add.html" style="font-size: 20px; color:floralwhite; text-align: center">Agregar Semana</a>
+
     </div>
-    
+
 </div>
 
 
-    
- 
+
+
 
 
 
