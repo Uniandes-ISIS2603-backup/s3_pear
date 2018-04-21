@@ -1,0 +1,10 @@
+{
+        "type": "dietaTipoDetailDTO",
+        "descripcion": "dieta basada en ensaladas o al asi",
+        "id": 1,
+        "objetivo": "el objetivo de la dieta es desintoxicarse",
+        "semanas": [],
+        "stars": [{},{},{},{},{}],
+        "imagen": "https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "nombre": "Dieta Nutricional"
+    }

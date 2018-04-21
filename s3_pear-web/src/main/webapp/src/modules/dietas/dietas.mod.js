@@ -13,7 +13,7 @@
                 controller: 'dietasController'
             })
 
-            .state('dietas.detail', {
+            .state('detail', {
                 url: "/dieta/:id/detail",
                 param: {
                     id: null
@@ -32,22 +32,29 @@
     var mod = ng.module("dietaModule");
     mod.constant("dietasContext", "api/dietas");
 
-    mod.controller('dietasController', ['$scope', '$http', 'dietasContext',
+    mod.controller('dietasController', ['$scope', '$http', 'dietasContext', '$state',
 
-        function ($scope, $http, dietasContext) {
+        function ($scope, $http, dietasContext, $state) {
             //http://localhost:8080/s3_pear-web/api/dietas
             // src/modules/dietas/dietas.json
-            
-            $http.get(/*'http://localhost:8080/s3_pear-web/api/dietas'*/ 'src/modules/dietas/dietas.json' ).then(function (response) {
+
+            // TODO Descomentar
+            $http.get( /*'http://localhost:8080/s3_pear-web/api/dietas'*/ 'src/modules/dietas/dietas.json').then(function (response) {
                 $scope.dietas = response.data;
             });
-            
+
+            if ($state.params.id !== null && $state.params.id !== undefined) {
+                $scope.id_dieta = $state.params.id;
+
+                // TODO Descomentar
+                $http.get( /*'http://localhost:8080/s3_pear-web/api/dietas/' + $state.params.id */ 'src/modules/dietas/dieta.json').then(function (response) {
+                    $scope.dieta = response.data;
+                });
+            }
 
             $scope.enviar_dieta = function () {
 
                 let data = {
-
-                    //Aqui hay que poner el identificador??
                     name: $scope.nombre,
                     descripcion: $scope.descripcion,
                     objetivo: $scope.objetivo
@@ -67,13 +74,26 @@
                 console.log(id + " < Se va a eliminar la dieta");
 
                 // DIRECCION HTTP 
-                $http.delete('http://localhost:8080/s3_pear-web/api/dietas/' + id ).then(function (response) {
-                    $scope.post_data = response.data;
+                $http.delete('http://localhost:8080/s3_pear-web/api/dietas/' + id).then(function (response) {
+                    $scope.delete_data = response.data;
                 });
             };
-            
-            
 
+
+            $scope.actualizar_dieta = function () {
+                console.log($scope.id_dieta + " < Se va a actualizar la dieta.");
+                
+                let data = {
+                    name: $scope.new_nombre,
+                    descripcion: $scope.new_descripcion,
+                    objetivo: $scope.new_objetivo
+                };
+                
+                //http://localhost:8080/s3_pear-web/api/dietas/3
+                $http.put('http://localhost:8080/s3_pear-web/api/dietas/' + id, data).then(function (response) {
+                    $scope.put_data = response.data;
+                });
+            };
 
         }
 

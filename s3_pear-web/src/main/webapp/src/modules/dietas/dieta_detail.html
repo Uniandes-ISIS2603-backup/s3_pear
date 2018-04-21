@@ -1,6 +1,58 @@
-<div class="inline field" style="overflow-y: hidden;">
-    <div class="ui label">
-        ID
-        <div class="detail">{{dieta.id}}</div>
+<div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;" ng-app="dietaModule" ng-controller="dietasController">
+
+    <div class="row">
+        <div class="column">
+            <div class="inline field">
+                <h1 class="ui dividing header" style="font-weight: 300; color: gray;"> <i ui-sref="dietas" class="ion-chevron-left"></i> &nbsp; Detalles Dieta</h1>
+            </div>
+            <hr/>
+        </div>
     </div>
+
+    
+    
+
+    <div class="row">
+        <div class="column">
+            <div class="inline field" style="overflow-y: hidden;">
+                <div class="ui horizontal large label">ID</div> {{id_dieta}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <div class="inline field" style="overflow-y: hidden;">
+                <div class="ui horizontal large label">Nombre</div> <input ng-model="new_nombre" placeholder="{{dieta.nombre}}">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <div class="inline field" style="overflow-y: hidden;">
+                <div class="ui horizontal large label">Descripcion</div> <input ng-model="new_descripcion" placeholder="{{dieta.descripcion}}"> 
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <div class="inline field" style="overflow-y: hidden;">
+                <div class="ui horizontal large label">Objetivos</div>  <input ng-model="new_objetivo" placeholder="{{dieta.objetivo}}">  
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div>&nbsp;</div>
+        <div class="inline field">
+            <button ng-click="actualizar_dieta()" class="ui positive basic button">Actualizar</button>
+        </div>
+    </div>
+
+
+
+
+
 </div>
