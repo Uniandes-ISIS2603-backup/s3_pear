@@ -1,3 +1,52 @@
-{
-    "name": "js.cabra"
-}
+[
+      {
+        "type": "envioDetailDTO",
+        "id": 1,
+        "direccion": "ejemplo1",
+        "duracion": 1,
+        "recibido": "true"
+       
+    },
+       {
+        "type": "envioDetailDTO",
+        "id": 2,
+        "direccion": "ejemplo2",
+        "duracion": 2,
+        "recibido": "false"
+        
+    },
+       {
+        "type": "envioDetailDTO",
+        "id": 3,
+        "direccion": "ejemplo3",
+        "duracion": 1,
+        "recibido": "false"
+        
+    },
+       {
+        "type": "envioDetailDTO",
+        "id": 4,
+        "direccion": "ejemplo4",
+        "duracion": 2,
+        "recibido": "true"
+        
+    }
+    ,   {
+        "type": "envioDetailDTO",
+        "id": 5,
+        "direccion": "ejemplo5",
+        "duracion": 1,
+        "recibido": "true"
+      
+    }
+    ,
+       {
+        "type": "envioDetailDTO",
+        "id": 6,
+        "direccion": "ejemplo6",
+        "duracion":2,
+        "recibido": "false"
+       
+    }
+    
+]
