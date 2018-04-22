@@ -23,23 +23,27 @@ insert into CuentaCobroEntity(id, valorAPagar) values (6, 22.3);
 insert into PagoEntity(id, montoInicial, montoFinal) values (2, 10, 10);
 insert into MedioPagoEntity(id, medioPagoActual) values (2, 'baloto');
 
-insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 1, 'un objetivo inicial', 'una descripcion inicial' );
-insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 2, 'otro objetivo segundo', 'otra descripcion segunda' );
-insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 3, 'Mandatory exuding archive', 'Fundamental exuding database' );
-insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 4, 'Versatile tangible task-force', 'Enterprise-wide coherent access' );
-insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 5, 'Ergonomic solution-oriented support', 'Vision-oriented intermediate matrix' );
-insert into DietaTipoEntity ( id, objetivo, descripcion ) values ( 6, 'Balanced tertiary strategy', 'Operative motivating strategy' );
 
 
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 1,'8871 Merry Point','2008');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 2,'7303 Troy Placet','2048');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 3,'652 Lukken Junction','2308');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 4,'15 Hoepker Plaza','208');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 5,'8871 Merry Point','28');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 6,'29 Larry Parkway','2028');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 7,'5073 Lakeland Lane','38');
-insert into CocinaEntity ( id, ubicacion, capacidad ) values ( 8,'3 Meadow Ridge Plaza','4008');
+INSERT INTO DietaTipoEntity(descripcion,id,objetivo,stars,imagen,name) VALUES ('dieta basada en ensaladas o algo asi',1,'el objetivo de la dieta es desintoxicarse',5,'https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','Dieta Nutricional');
+INSERT INTO DietaTipoEntity(descripcion,id,objetivo,stars,imagen,name) VALUES ('una dieta basada en proteinas',2,'el objetivo de la dieta es obtener masa muscular',3,'https://images.pexels.com/photos/76093/pexels-photo-76093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','Dieta Deportiva');
+INSERT INTO DietaTipoEntity(descripcion,id,objetivo,stars,imagen,name) VALUES ('dieta basada en alimentos del mar',3,'el objetivo de la dieta es alejarse de las carnes rojas',4,'https://images.pexels.com/photos/36768/food-salmon-teriyaki-cooking.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','Dieta Pacifica');
+INSERT INTO DietaTipoEntity(descripcion,id,objetivo,stars,imagen,name) VALUES ('Enterprise-wide coherent access',4,'Versatile tangible task-force',5,'https://images.pexels.com/photos/247685/pexels-photo-247685.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','Dieta Japonesa');
+INSERT INTO DietaTipoEntity(descripcion,id,objetivo,stars,imagen,name) VALUES ('Vision-oriented intermediate matrix',5,'Ergonomic solution-oriented support',4,'https://images.pexels.com/photos/65174/pexels-photo-65174.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','Dieta Verde');
+INSERT INTO DietaTipoEntity(descripcion,id,objetivo,stars,imagen,name) VALUES ('Operative motivating strategy',6,'Balanced tertiary strategy',1,'https://images.pexels.com/photos/161519/abstract-barbecue-barbeque-bbq-161519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','Anti Dieta');
+INSERT INTO DietaTipoEntity(descripcion,id,objetivo,stars,imagen,name) VALUES ('Digitized real-time implementation',7,'Enterprise-wide global architecture',5,'https://images.pexels.com/photos/46247/thai-food-noodle-fried-noodles-meal-46247.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','Dieta Oriental');
+INSERT INTO DietaTipoEntity(descripcion,id,objetivo,stars,imagen,name) VALUES ('De-engineered multi-state info-mediaries',8,'Multi-tiered cohesive contingency',2,'https://images.pexels.com/photos/41320/beef-cheese-cuisine-delicious-41320.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','Dieta Italiana');
+INSERT INTO DietaTipoEntity(descripcion,id,objetivo,stars,imagen,name) VALUES ('ntegrated multimedia initiative',9,'Multi-layered explicit circu',3,'https://images.pexels.com/photos/629093/pexels-photo-629093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','Dieta de Crudos');
 
+
+INSERT INTO CocinaEntity(capacidad,id,ubicacion,name,imagen) VALUES (2008,1,'8871 Merry Point','La Gran Cocina','https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+INSERT INTO CocinaEntity(capacidad,id,ubicacion,name,imagen) VALUES (2048,2,'7303 Troy Placet','Cocina de las Aguas','https://images.pexels.com/photos/159991/pexels-photo-159991.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+INSERT INTO CocinaEntity(capacidad,id,ubicacion,name,imagen) VALUES (2308,3,'652 Lukken Junction','Central del Norte','https://images.pexels.com/photos/225448/pexels-photo-225448.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+INSERT INTO CocinaEntity(capacidad,id,ubicacion,name,imagen) VALUES (208,4,'15 Hoepker Plaza','Cocina Bogota','https://images.pexels.com/photos/2755/restaurant.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+INSERT INTO CocinaEntity(capacidad,id,ubicacion,name,imagen) VALUES (28,5,'8871 Merry Point','Un Nombre de Cocina','https://images.pexels.com/photos/696205/pexels-photo-696205.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+INSERT INTO CocinaEntity(capacidad,id,ubicacion,name,imagen) VALUES (2028,6,'29 Larry Parkway','Otro Nombre de Cocina','https://images.pexels.com/photos/375897/pexels-photo-375897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+INSERT INTO CocinaEntity(capacidad,id,ubicacion,name,imagen) VALUES (38,7,'5073 Lakeland Lane','Cocina X','https://images.pexels.com/photos/64613/pexels-photo-64613.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+INSERT INTO CocinaEntity(capacidad,id,ubicacion,name,imagen) VALUES (4008,8,'3 Meadow Ridge Plaza','SUper Cocina','https://images.pexels.com/photos/917371/pexels-photo-917371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
 
 
 

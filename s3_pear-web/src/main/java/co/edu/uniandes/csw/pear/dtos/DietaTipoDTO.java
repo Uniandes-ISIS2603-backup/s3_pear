@@ -30,6 +30,9 @@ public class DietaTipoDTO {
     private String descripcion;
     private String name;
     
+    private String imagen;
+    private Integer stars;
+    
     //-----------------------------------------------------------
     //Metodos
     //-----------------------------------------------------------
@@ -52,6 +55,8 @@ public class DietaTipoDTO {
             this.descripcion = entity.getDescripcion();
             this.name = entity.getName();
             this.id = entity.getId();
+            this.imagen = entity.getImagen();
+            this.stars = entity.getStars();
         }
         
     }
@@ -87,6 +92,24 @@ public class DietaTipoDTO {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public Integer getStars() {
+        return stars;
+    }
+
+    public void setStars(Integer stars) {
+        this.stars = stars;
+    }
+    
+    
     
     
     
@@ -96,6 +119,8 @@ public class DietaTipoDTO {
         en.setObjetivo(this.objetivo);
         en.setName(this.name);
         en.setId(this.id);
+        en.setImagen(this.imagen);
+        en.setStars(this.stars);
         return en;
     }
     

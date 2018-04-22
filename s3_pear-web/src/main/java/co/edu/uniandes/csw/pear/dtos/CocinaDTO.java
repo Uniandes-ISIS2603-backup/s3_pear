@@ -53,7 +53,9 @@ public class CocinaDTO {
     
     private Long id;
     private String ubicacion;
-    private String capacidad;    
+    private String capacidad;  
+    private String name;
+    private String imagen;
     
     //-----------------------------------------------------------
     //Metodos
@@ -77,6 +79,8 @@ public class CocinaDTO {
             this.capacidad = entity.getCapacidad();
             this.ubicacion = entity.getUbicacion();
             this.id = entity.getId();
+            this.name = entity.getName();
+            this.imagen = entity.getImagen();
         }
     }
 
@@ -109,6 +113,8 @@ public class CocinaDTO {
         en.setCapacidad(this.capacidad);
         en.setUbicacion(this.ubicacion);
         en.setId(this.id);
+        en.setName(this.name);
+        en.setImagen(this.imagen);
         return en;
     }
     

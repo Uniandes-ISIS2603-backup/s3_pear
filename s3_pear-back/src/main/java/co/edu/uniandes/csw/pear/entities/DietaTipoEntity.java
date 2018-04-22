@@ -21,6 +21,9 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     
     private String objetivo;
     private String descripcion;
+    /*Actuaizacion Ciclo 2*/
+    private String imagen;
+    private Integer stars;
     
     @PodamExclude
     @ManyToOne
@@ -29,10 +32,7 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @OneToMany
     private List<SemanaEntity> semanas = new ArrayList<>();
-    
-    
-    
-    
+   
     //-----------------------------------------------------------
     //Metodos
     //-----------------------------------------------------------
@@ -100,5 +100,23 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     public void setSemanas(List<SemanaEntity> semanas) {
         this.semanas = semanas;
     }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public Integer getStars() {
+        return stars;
+    }
+
+    public void setStars(Integer stars) {
+        this.stars = stars;
+    }
    
+    
+    
 }

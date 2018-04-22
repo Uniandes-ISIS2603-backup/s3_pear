@@ -13,14 +13,14 @@
     </div>
 
     <div class="ui two stackable link cards" ng-controller="dietasController">
-        <div class="ui fluid card" ng-repeat="dieta in dietas | orderBy : 'id'" style="min-width: 25em;">
+        <div class="ui fluid card" ng-repeat="dieta in dietas | orderBy : 'id'" style="max-width: 400px; min-width: 25em;">
             <div class="fluid image">
                 <img id="im_dieta" src="{{dieta.imagen}}" style="min-height: 18em; max-height: 18em;">
             </div>
             <div class="content">
-                <div class="header">{{dieta.nombre}}</div>
+                <div class="header">{{dieta.name}}</div>
                 <div class="meta"><a>Activa</a></div>
-                <div class="inline field" ><i ng-repeat="s in dieta.stars" class="ion-android-star">&nbsp;</i></div>
+                <div class="inline field" ><i ng-repeat="s in [] | range:dieta.stars" class="ion-android-star">&nbsp;</i></div>
                 <div class="description">{{dieta.descripcion}}</div>
                 <div class="description">{{dieta.objetivo}}</div>
             </div>

@@ -23,6 +23,7 @@ public class CocinaEntity extends BaseEntity implements Serializable {
     
     private String ubicacion;
     private String capacidad;
+    private String imagen;
     
     @PodamExclude
     @OneToMany
@@ -79,5 +80,15 @@ public class CocinaEntity extends BaseEntity implements Serializable {
     public void setDietas(List<DietaTipoEntity> dietas) {
         this.dietas = dietas;
     } 
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+    
+    
     
 }

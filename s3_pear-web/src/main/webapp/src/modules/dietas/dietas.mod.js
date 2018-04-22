@@ -31,6 +31,15 @@
 
     var mod = ng.module("dietaModule");
     mod.constant("dietasContext", "api/dietas");
+    
+    mod.filter('range', function() {
+        return function(input, total) {
+          total = parseInt(total);
+          for (var i=0; i<total; i++)
+            input.push(i);
+          return input;
+        };
+      });
 
     mod.controller('dietasController', ['$scope', '$http', 'dietasContext', '$state',
 
@@ -39,7 +48,7 @@
             // src/modules/dietas/dietas.json
 
             // TODO Descomentar
-            $http.get( /*'http://localhost:8080/s3_pear-web/api/dietas'*/ 'src/modules/dietas/dietas.json').then(function (response) {
+            $http.get('http://localhost:8080/s3_pear-web/api/dietas').then(function (response) {
                 $scope.dietas = response.data;
             });
 
@@ -47,7 +56,7 @@
                 $scope.id_dieta = $state.params.id;
 
                 // TODO Descomentar
-                $http.get( /*'http://localhost:8080/s3_pear-web/api/dietas/' + $state.params.id */ 'src/modules/dietas/dieta.json').then(function (response) {
+                $http.get('http://localhost:8080/s3_pear-web/api/dietas/' + $state.params.id ).then(function (response) {
                     $scope.dieta = response.data;
                 });
             }
