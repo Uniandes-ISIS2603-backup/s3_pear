@@ -20,6 +20,7 @@
             $http.get(quejasContext).then(function (response) {
 
                 $scope.quejasRecords = response.data;
+                console.log(response.data);
 
             }).then(function (response) {
                 console.log('FAILED GET COMENTARIOS ' + response);

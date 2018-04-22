@@ -2,7 +2,7 @@
 
     <div class="ui comments">
         <div class="inline field">
-            <h1 class="ui dividing header" style="font-weight: 300; color: gray;"> <i ui-sref="dietas" class="ion-chevron-left"></i> &nbsp; Calificaciones</h1>
+            <h1 class="ui dividing header" style="font-weight: 300; color: gray;"> <i ui-sref= "dietas" class="ion-chevron-left"></i> &nbsp; Calificaciones</h1>
         </div>
         
         <div class="comment" ng-repeat="calificacion in calificacionesRecords">
@@ -10,9 +10,9 @@
             <div class="content">
                 <a class="author">Usuario</a>
                 <div class="metadata">
-                    <span class="date"><{{calificacion.puntaje}}</span>
+                    <span class="date">{{calificacion.puntuacion}}</span>
                 </div>
-                       <!-- Font Awesome Icon Library -->
+                      <!-- Font Awesome Icon Library -->
                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" >
                          <style>
                            .checked {
@@ -24,7 +24,7 @@
                           <span class="fa fa-star checked"></span>
                           <span class="fa fa-star"></span>
                           <span class="fa fa-star"></span>
-            </style>
+            </style> 
             </div>
         </div>
     </div>
