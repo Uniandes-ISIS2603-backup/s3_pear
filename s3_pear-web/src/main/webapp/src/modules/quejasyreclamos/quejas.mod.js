@@ -1,54 +1,30 @@
 (function (ng) {
-    var mod = ng.module("quejasModule", ['ui.router']);
 
-    mod.constant("quejasContext", "api/quejasyreclamos");
+    var mod = ng.module("quejasModule", ['ui.router']);
 
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise("/quejasList");
+        $urlRouterProvider.otherwise("/dietas");
 
-        $stateProvider.state('quejas', {
-                url: "/quejas",
-                abstract: true,
-                views: {
-                    'mainView': {
-
-                        templateUrl: "src/module/quejasyreclamos/quejas.html",
-                        controller: 'quejasCtrl',
-                        controllerAs: 'ctrl'
-                    }
-                }
-            }).state('quejasList', {
-                url: '/list',
-                parent: 'quejas',
-                views: {
-                    'listView': {
-                        templateUrl: "src/module/quejasyreclamos/quejasList.html"
-                    }
-                }
-            }).state('quejasDetail', {
-                url: '/{quejasId:int}/detail',
-                parent: 'quejas',
+        $stateProvider
+            .state('quejasList', {
+                url: "/dieta/:id/comentarios",
                 param: {
-                    quejasId: null
+                    id: null
                 },
-                views: {
-                    'listView': {
-                        templateUrl: "src/module/quejasyreclamos/quejasList.html"
-
-                    },
-                    'detailView': {
-                        templateUrl: "src/module/quejasyreclamos/quejasDetail.html",
-                        controller: 'quejasDetailCtrl',
-                        controllerAs: 'ctrl'
-                    }
-
-                }
-            })   ;
+                templateUrl: "src/modules/quejasyreclamos/quejasList.html",
+                controller: 'quejasController'
+            }).state('quejasDetail', {
+                url: "/{quejasId:int}/detail",
+                param : {
+                    id:null
+                },
+                templateUrl: 'src/modules/quejasyreclamos/quejasDetail.html',
+                controller: 'quejasController'
+            })
 
 
+        ;
+    }]);
 
-
-
-        }]);
 })(window.angular);

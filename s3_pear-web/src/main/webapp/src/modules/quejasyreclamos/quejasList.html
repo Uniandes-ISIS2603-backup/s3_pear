@@ -1,15 +1,37 @@
-<div class="container">
-    <h2>Quejas y Recomendaciones</h2>
-    <table class="table" ng-repeat="queja in quejasRecords">
-        <thead>
-            <tr>
-                <th>Asunto</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="success">
-                <td><a ui-sref="quejasDetail({quejasId : queja.id})">{{queja.asunto}}</a></td>
-            </tr>
-        </tbody>
-    </table>
+<div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;">
+
+    <div class="ui comments">
+        <div class="inline field">
+            <h1 class="ui dividing header" style="font-weight: 300; color: gray;"> <i ui-sref="dietas" class="ion-chevron-left"></i> &nbsp; Quejas o Recomendaciones</h1>
+        </div>
+
+        <div class="comment" ng-repeat="quejas in quejasRecords">
+            <a class="avatar"><img src="https://semantic-ui.com/images/avatar/small/matt.jpg"></a>
+            <div class="content">
+                <a class="author">Usuario</a>
+                <div class="metadata">
+                    <span class="date"><a ui-sref="quejasDetail({quejasId : quejas.id})">{{quejas.asunto}}</a></span>
+                </div>
+                <div class="text">
+                    {{quejas.comentario}}
+                </div>
+                <div class="actions">
+                    <a class="reply">Reply</a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <form class="ui reply form">
+            <div class="field">
+                <textarea></textarea>
+            </div>
+            <div class="ui positive basic button">
+                Agregar Comentario
+            </div>
+        </form>
+    </div>
+
+
 </div>

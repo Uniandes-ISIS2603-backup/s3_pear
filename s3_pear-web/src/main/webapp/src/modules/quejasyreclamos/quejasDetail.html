@@ -1,5 +1,22 @@
-<div class="col-md-5">
-                <dl>     
-                    <dt>{{currentQuejas.comentario}}</dt>
-                </dl>
+<div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;" ng-app="dietaModule" ng-controller="dietasController">
+
+    <div class="row">
+        <div class="column">
+            <div class="inline field">
+                <h1 class="ui dividing header" style="font-weight: 300; color: gray;"> <i ui-sref="quejasList" class="ion-chevron-left"></i> &nbsp; Detalles Queja o Reclamo</h1>
+            </div>
+            <hr/>
+        </div>
+    </div>
+
+    
+    
+
+    <div class="row">
+        <div class="column">
+            <div class="inline field" style="overflow-y: hidden;">
+                <div class="ui horizontal large label">ID</div> {{id_queja}}
+            </div>
+        </div>
+    </div>
 </div>
