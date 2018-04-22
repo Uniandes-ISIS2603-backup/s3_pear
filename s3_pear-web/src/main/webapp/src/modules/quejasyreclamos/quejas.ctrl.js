@@ -27,7 +27,6 @@
             
             if ($state.params.id !== null && $state.params.id !== undefined) {
                 $scope.id_queja = $state.params.id;
-
                 // TODO Descomentar
                 $http.get(quejasContext + $state.params.id ).then(function (response) {
                     $scope.queja = response.data;
@@ -37,10 +36,13 @@
             $scope.enviar_comentario = function () {
 
                 let data = {
-
+                    
                 };
 
                 console.log(data);
+
+                
+
 
                 // DIRECCION HTTP 
                 /*$http.post(' DIRECCION HTTP DE POSTMAN', data).then(function (response) {

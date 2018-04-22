@@ -21,6 +21,10 @@
                 },
                 templateUrl: 'src/modules/quejasyreclamos/quejasDetail.html',
                 controller: 'quejasController'
+            }).state('quejaCreate', {
+                url:'/create',
+                templateUrl: 'src/modules/quejasyreclamos/new/quejasAdd.html',
+                controller: 'quejaNewCtrl'
             })
 
 

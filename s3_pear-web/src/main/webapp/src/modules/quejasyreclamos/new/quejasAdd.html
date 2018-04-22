@@ -1,0 +1,88 @@
+<head>
+    <!-- SEMANTIC UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
+
+    <!-- fonts importa fonst de google fonts :: Merriweather y Roboto -->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+<!-- Dependencias Externas -->
+    <script src="../../../bower_components/angular/angular.js"></script>
+    <script src="../../../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- Dependencias Externas -->
+    <style>
+        * {
+            overflow-y: hidden;
+            overflow-x: hidden;
+            font-family: 'Roboto';
+        }
+
+        header {
+           
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100%;
+        }
+
+        hr {
+            float: left;
+            display: block;
+            height: 2px;
+            border: 1px solid white;
+            width: 22em;
+            color: black;
+        }
+
+        .tittle {
+            margin-bottom: -1px;
+            font-size: 30pt;
+            color: white;
+            font-family: 'Roboto';
+        }
+
+        .field {
+            color: black;
+        }
+
+        .lbl {
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+
+        <div class="ui text container" style="margin-top: 2em;">
+            <div class="ui form" style="width: 100%">
+
+                <h1 class="tittle">Crear Queja o Recomendacion</h1>
+
+                <hr/>
+                <p>&nbsp;</p>
+
+                <div class="field">
+                    <label style="color:white">Asunto</label>
+                    <input ng-model="data.asunto" style="margin-right: 1em;" type="text" placeholder="asunto">
+                </div>
+                
+               
+                <div class="field">
+                    <label style="color: white">Comentario</label>
+                    <textarea ng-model="data.comentario" type="text" placeholder="comentario"></textarea>
+                </div>
+
+                <p>&nbsp;</p>
+                <div class="inline field">
+                    <button style="color:black" ng-click="createQueja()" class="ui inverted olive basic button" >Enviar</button>
+                    <button class="ui inverted teal basic button"><a style="text-decoration: none; color: white" href="../../../index.html">Cancelar</a></button>
+                </div>
+
+            </div>
+
+        </div>
+
+</header>
+</body>
