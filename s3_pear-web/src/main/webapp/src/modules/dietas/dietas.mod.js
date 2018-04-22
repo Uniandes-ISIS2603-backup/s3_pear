@@ -66,7 +66,8 @@
                 let data = {
                     name: $scope.nombre,
                     descripcion: $scope.descripcion,
-                    objetivo: $scope.objetivo
+                    objetivo: $scope.objetivo,
+                    imagen: $scope.imagen
                 };
 
                 console.log(data);
