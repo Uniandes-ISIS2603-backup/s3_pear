@@ -20,7 +20,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class MedioPagoEntity extends BaseEntity implements Serializable{
     
     
-    private String medioPagoActual; 
+   private String medioPagoActual; 
     
    @PodamExclude
    @OneToMany (mappedBy = "medioPago")

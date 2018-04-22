@@ -3,14 +3,27 @@
 	var mod = ng.module("pagoModule", ['ui.router']);
 
 	mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-			$urlRouterProvider.otherwise("/cuenta");
-
+			
+                        $urlRouterProvider.otherwise("/dietas");
+                        var basePath = 'src/modules/pago/'; 
 			$stateProvider
-				.state('cuenta', {
-					url: "/cuenta",
-					templateUrl: "src/modules/cuentadecobro/hacerpago.html",
-					controller: 'cuentaController'
-				})
+				.state('pago', {
+					url: '/pago',
+					templateUrl:  basePath + 'hacerpago.html',
+					controller: 'pagoController',
+
+                                         
+				}).state ('medioPagoDetail',{
+                                        
+                                        url: '/{medioPagoId:int}',
+					templateUrl: basePath + 'hacerpago.html',
+					controller: 'pagoDetailController',
+                                  
+                                        param: {
+                                            medioPagoId: null
+                                        }
+                                     
+                                });
         }
     ]);
 })(window.angular);
