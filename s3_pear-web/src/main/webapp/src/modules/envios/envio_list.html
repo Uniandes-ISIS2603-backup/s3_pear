@@ -4,13 +4,35 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;">
+
+    <div class="row">
+        <div class="column">
+            <div class="inline field">
+                <h1 style="font-weight: 300; color: gray; float: left;">Cocinas</h1>
+                <a href="src/modules/envios/envios_add.html" style="text-decoration: none; color: #525252;"><i style="float: right; font-size: 30pt;" class="ion-plus-round"></i></a>
+            </div>
+
+            <hr/>
+
+        </div>
+    </div>
+
+    <div class="ui two stackable link cards">
+        <div class="ui fluid card" ng-repeat="envio in envios | orderBy : 'id'">         
+            <div class="content">
+                <div class="header">{{envio.id}}</div>
+                <div class="meta"><a>ID: {{envio.direccion}}</a></div>
+                <div class="description">Capacidad: {{envio.duracion}} <br/> Ubicacion: {{envio.recibido}}</div>
+            </div>
+            <div class="extra content">
+                <div class="inline flief">
+                    <span class="field right floated"><a ng-click="eliminar_envio(envio.id)" style="text-decoration: none;">Eliminar</a></span>
+                    <span class="field right floated"><a href="src/modules/envios/envios_add.html">Actualizar</a> &nbsp; &nbsp;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
