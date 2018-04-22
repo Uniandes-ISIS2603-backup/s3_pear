@@ -58,9 +58,9 @@ public class MedioPagoDTO {
      * Cambia el metodo de pago actual
      * @param pMedio 
      */
-    public void setMedioActual(String pMedio)
+    public void setMedioPagoActual(String pMedio)
     {
-        medioPagoActual = pMedio;
+       this.medioPagoActual = pMedio;
     }
     
      public Long getId() {

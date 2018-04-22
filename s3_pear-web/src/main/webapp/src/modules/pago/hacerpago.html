@@ -91,7 +91,6 @@
 		</tr>
 
 		<tr>
-			
 			<td >
 				<div class="template">
 					<div class="cuentas_general">
@@ -104,14 +103,19 @@
 							<br/>
 							<h3 style="font-size: 80%">VALOR PAGADO ANTES DE 22/04/2018</h3>
 							<h3 style="font-size: 200%">$ 35.000 COP</h3>
-							<div class="metodo_pago">
-                                                            <input type="radio" name="efectivo" value="efevtivo"> Efectivo
-								<input type="radio" name="tarjeta" value="tarjeta"> Tarjeta
-								<input type="radio" name="baloto" value="baloto"> Baloto
+							<div  class="metodo_pago">
+                                                            <div ng-repeat="medioPago in medioPagoRecords">
+                                                            <a ui-sref = "medioPagoDetail({medioPagoId: medioPago.id})"> {{medioPago.medioPagoActual}}</a>
+                                                            </div>
+                                                    
+                                                             <div ui-view ="medioPagoDetail"></div>
+                                                            
+                                                            
 							</div>
+                                                       
 							<br/>
 							<br/>
-							<h3>PAGAR</h3>
+                                                        <a ui-sref="dietas">PAGAR</a>
 						</div>
 						<div class="cuentas_factura">
 							<h3 style="font-size: 80%;">FACTURA</h3>

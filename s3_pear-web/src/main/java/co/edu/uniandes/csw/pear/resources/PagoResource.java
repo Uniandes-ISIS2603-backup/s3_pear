@@ -60,7 +60,7 @@ PagoLogic logic;
      */
     @POST
     public PagoDetailDTO createPago(PagoDetailDTO pago) throws BusinessLogicException {
-        System.out.println("Resource monto final " + pago.getMontoFinal() + "monto inicial  " + pago.getMontoIncial());
+        System.out.println("Resource monto final " + pago.getMontoFinal() + "monto inicial  " + pago.getMontoInicial());
         return new PagoDetailDTO(logic.createPago(pago.toEntity()));
     }
 

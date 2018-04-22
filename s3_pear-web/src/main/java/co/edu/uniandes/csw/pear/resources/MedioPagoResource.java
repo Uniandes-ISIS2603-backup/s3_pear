@@ -54,14 +54,14 @@ public class MedioPagoResource {
      * 412 Precodition Failed: Ya existe el medio de pago.
      * </code>
      * </pre>
-     * @param pago {@link MedioPagoDetailDTO} - el medio de pago que se desea guardar.
+     * @param medioPago {@link MedioPagoDetailDTO} - el medio de pago que se desea guardar.
      * @return JSON {@link MedioPagoDetailDTO}  - el medio de pago con el atributo id autogenerado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la pago.
      */
     @POST
-    public MedioPagoDetailDTO createMedioPago(MedioPagoDetailDTO pago) throws BusinessLogicException {
-        System.out.println("EN RESOURCE " + pago.getMedioPagoActual());
-        return new MedioPagoDetailDTO(logic.createMedioPago(pago.toEntity()));
+    public MedioPagoDetailDTO createMedioPago(MedioPagoDetailDTO medioPago) throws BusinessLogicException {
+        System.out.println("EN RESOURCE " + medioPago.getMedioPagoActual());
+        return new MedioPagoDetailDTO(logic.createMedioPago(medioPago.toEntity()));
     }
 
       /**
