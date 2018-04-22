@@ -10,7 +10,8 @@
         'facturaModule',
         'semanaModule',
         'personaModule',
-        'quejasModule'
+        'quejasModule',
+        'calificacionesModule'
     ]);
 
 
