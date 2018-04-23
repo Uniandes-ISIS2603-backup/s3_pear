@@ -15,7 +15,7 @@
 		margin: 4em auto 6em auto;
 		width: 70%;
 		padding: 2em 4em;
-		background-color: #fffffb;
+		background-color: white;
 		border-radius: 0.3em;
 	}
 
@@ -70,7 +70,7 @@
             <tr ng-repeat="factura in facturas">
                 <td>{{ factura.id }}</td>
                 <td>{{ factura.cantidadDeProductos }}</td>
-                <td>{{ persona.numeroFactura }}</td>
+                <td>{{ factura.numeroFactura }}</td>
             </tr>
         </tbody>
     </table>

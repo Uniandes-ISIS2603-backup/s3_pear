@@ -29,8 +29,7 @@
 	mod.controller('semanasController', ['$scope', '$http', 'semanaContext',
 
         function ($scope, $http, semanaContext) {
-			//http://localhost:8080/s3_pear-web/api/semanas
-			$http.get('src/modules/semanas/semanas.json').then(function (response) {
+			$http.get(semanaContext).then(function (response) {
 				$scope.semanas = response.data;
 			}).then(function (response) {
                 console.log('FAILED GET SEMANAS' + response);
@@ -38,8 +37,6 @@
             ;
             
             $scope.enviar_semana = function (){
-                
-                //Como manejo aqui el idetificador, la fecha del lunes y los dias?????
                 let data = {
                     seEnvia: $scope.seEnvia,
                     recomendacion: $scope.recomendacion,
