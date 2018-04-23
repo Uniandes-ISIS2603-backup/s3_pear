@@ -9,7 +9,7 @@
 
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise("/comidas");
+        $urlRouterProvider.otherwise("/dietas");
 
         $stateProvider
             .state('comidas', {

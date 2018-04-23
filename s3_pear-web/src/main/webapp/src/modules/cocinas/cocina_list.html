@@ -1,35 +1,35 @@
-<div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;">
+<div class="ui container" style="width: 100%">
 
-    <div class="row">
-        <div class="column">
-            <div class="inline field">
-                <h1 style="font-weight: 300; color: gray; float: left;">Cocinas</h1>
-                <a href="src/modules/cocinas/cocinas_add.html" style="text-decoration: none; color: #525252;"><i style="float: right; font-size: 30pt;" class="ion-plus-round"></i></a>
-            </div>
+    <div class="ui raised segment" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;">
 
-            <hr/>
-
+        <div class="inline field">
+            <h1 style="font-weight: 300; color: gray; float: left;">Cocinas</h1>
+            <a href="src/modules/cocinas/cocinas_add.html" style="text-decoration: none; color: #525252;"><i style="float: right; font-size: 30pt;" class="ion-plus-round"></i></a>
         </div>
-    </div>
+        <hr/>
+        <br/>
+        <br/>
 
-    <div class="ui two stackable link cards">
-        <div class="ui fluid card" ng-repeat="cocina in cocinas | orderBy : '-id'">
-            <div class="image">
-                <img src="{{cocina.imagen}}">
-            </div>
-            <div class="content">
-                <div class="header">{{cocina.nombre}}</div>
-                <div class="meta"><a>ID: {{cocina.id}}</a></div>
-                <div class="description">Capacidad: {{cocina.capacidad}} <br/> Ubicacion: {{cocina.ubicacion}}</div>
-            </div>
-            <div class="extra content">
-                <div class="inline flief">
-                    <span class="field right floated"><a ng-click="eliminar_cocina(cocina.id)" style="text-decoration: none;">Eliminar</a></span>
-                    <span class="field right floated"><a ui-sref="cocina_detail({ id: cocina.id })">Actualizar</a> &nbsp; &nbsp;</span>
+        <div class="ui two stackable cards" ng-controller="dietasController">
+
+            <div class="ui raised orange link fluid card" ng-repeat="cocina in cocinas| orderBy : '-id'">
+                <div class="image">
+                    <img src="{{cocina.imagen}}">
+                </div>
+                <div class="content">
+                    <div class="header">{{cocina.nombre}}</div>
+                    <div class="meta"><a>ID: {{cocina.id}}</a></div>
+                    <div class="description">Capacidad: {{cocina.capacidad}} <br/> Ubicacion: {{cocina.ubicacion}}</div>
+                </div>
+                <div class="extra content">
+                    <div class="inline flief">
+                        <span class="field right floated"><a ng-click="eliminar_cocina(cocina.id)" style="text-decoration: none;">Eliminar</a></span>
+                        <span class="field right floated"><a ui-sref="cocina_detail({ id: cocina.id })">Actualizar</a> &nbsp; &nbsp;</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
+    </div>
 
 </div>
