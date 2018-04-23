@@ -107,6 +107,24 @@ public class CocinaDTO {
     public void setCapacidad(String capacidad) {
         this.capacidad = capacidad;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+    
+    
     
     public CocinaEntity toEntity() {
         CocinaEntity en = new CocinaEntity();
