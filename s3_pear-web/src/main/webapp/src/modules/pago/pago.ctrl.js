@@ -20,6 +20,11 @@
             };
             };
             
+            $http.get('http://localhost:8080/s3_pear-web/api/cuentascobro').then(function (response) {
+                 console.log("Entra al cuenta records")
+                $scope.cuentaRecords = response.data;
+            });
+            
              $http.get('http://localhost:8080/s3_pear-web/api/pagos').then(function (response) {
                  
                 $scope.pagosRecords = response.data;
@@ -27,6 +32,7 @@
             
             $http.get('http://localhost:8080/s3_pear-web/api/mediopagos').then(function (response) {
                 $scope.medioPagoRecords = response.data;
+                console.log("Entra al medio");
             });     
             
             
