@@ -29,7 +29,10 @@
 	mod.controller('semanasController', ['$scope', '$http', 'semanaContext',
 
         function ($scope, $http, semanaContext) {
-			$http.get(semanaContext).then(function (response) {
+            
+            //semanaContext
+           
+			$http.get( 'src/modules/semanas/semanas.json').then(function (response) {
 				$scope.semanas = response.data;
 			}).then(function (response) {
                 console.log('FAILED GET SEMANAS' + response);

@@ -27,7 +27,7 @@
         }
 
         header {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.30)), url(../../../style/resources/login2.jpg);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.30)), url(../../../style/resources/jugo.jpg);
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
@@ -71,24 +71,18 @@
         <div class="ui text container" style="margin-top: 5em;" ng-controller="dietasController">
             <div class="ui form" style="width: 100%">
 
-                <h1 class="tittle">Registro Dieta</h1>
+                <h1 class="tittle">Creación de una Factura</h1>
 
                 <hr/>
                 <p>&nbsp;</p>
 
                 <div class="field">
-                    <label style="color: white">Nombre</label>
+                    <label style="color: white; font-size: 21px">Numero de factura</label>
                     <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="nombre">
                 </div>
-
                 <div class="field">
-                    <label style="color: white">Descripcion</label>
-                    <textarea ng-model="descripcion" type="text" placeholder="descripcion detallada de la dieta"></textarea>
-                </div>
-
-                <div class="field">
-                    <label style="color: white">Objetivos</label>
-                    <textarea ng-model="objetivo" type="text" placeholder="objetivos de la dieta"></textarea>
+                    <label style="color: white; font-size: 21px">Cantidad de productos</label>
+                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="nombre">
                 </div>
 
                 <p>&nbsp;</p>
@@ -104,7 +98,7 @@
 
     </header>
 
-   
+
     <!-- DIETAS -->
     <script src="dietas.mod.js" type="text/javascript"></script>
 
