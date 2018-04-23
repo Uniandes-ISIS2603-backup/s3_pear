@@ -1,5 +1,20 @@
 <style>
 
+.boton {
+        height: 60px;
+        width: 200px;
+        background-color: #145705;
+        border-color: #145705;
+        border-style: solid;
+        border-width: 2px;
+        /*This allows us to modify the corners of the html element. In        this case the button*/
+        border-radius: 5px;
+
+        margin: auto;
+        text-align: center;
+        line-height: 65px;
+    }
+
 	hr {
 		display: block;
 		height: 2px;
@@ -73,7 +88,12 @@
                 <td>{{ factura.numeroFactura }}</td>
             </tr>
         </tbody>
-    </table>
+    </table>   
+     <div class="boton" style="margin-top: 70px">
+        <!--Aqui va la referencia de la página de agregar-->
+        <a href="src/modules/facturas/facturas_add.html" style="font-size: 20px; color:floralwhite; text-align: center">Agregar Factura</a>
+
+    </div>
 </div>
 
 
