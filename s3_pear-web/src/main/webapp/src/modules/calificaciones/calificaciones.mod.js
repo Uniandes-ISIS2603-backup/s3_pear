@@ -15,6 +15,13 @@
                 },
                 templateUrl: "src/modules/calificaciones/calificacionesList.html",
                 controller: 'calificacionesCtrl'
+            }).state('calificacionesDetail', {
+                url: "/{calificacionesId:int}/calificacionlesList/detail",
+                param : {
+                    id:null
+                },
+                templateUrl: 'src/modules/calificaciones/calificacionesDetail.html',
+                controller: 'calificacionesCtrl'
             })
 
 

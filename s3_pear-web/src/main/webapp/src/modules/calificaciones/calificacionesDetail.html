@@ -1,7 +1,22 @@
-<div class="panel panel-default"> 
-    <div class="panel-body">
-         <dl>     
-             <dt>{{currentCalificaciones.puntaje}}</dt>
-         </dl>
+<div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;" ng-app="calificacionesModule" ng-controller="calificacionesCtrl">
+
+    <div class="row">
+        <div class="column">
+            <div class="inline field">
+                <h1 class="ui dividing header" style="font-weight: 300; color: gray;"> <i ui-sref="calificacionesList" class="ion-chevron-left"></i> &nbsp; Detalles Calificaciones</h1>
+            </div>
+            <hr/>
+        </div>
+    </div>
+
+    
+    
+
+    <div class="row">
+        <div class="column">
+            <div class="inline field" style="overflow-y: hidden;">
+                <div class="ui horizontal large label">ID</div> {{id_calificacion}}
+            </div>
+        </div>
     </div>
 </div>
