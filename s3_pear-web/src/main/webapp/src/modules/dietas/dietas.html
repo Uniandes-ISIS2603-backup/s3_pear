@@ -1,51 +1,48 @@
-<div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;" ng-app="dietaModule">
-    
-    <div class="row">
-        <div class="column">
-            <div class="inline field">
-                <h1 style="font-weight: 300; color: gray; float: left;">Dietas</h1>
-                <a href="src/modules/dietas/dietas_add.html" style="text-decoration: none; color: #525252;"><i style="float: right; font-size: 30pt;" class="ion-plus-round"></i></a>
-            </div>
+<div class="ui container" style="width: 100%" ng-app="dietaModule">
 
-            <hr/>
+    <div class="ui raised segment" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;">
 
+        <div class="inline field">
+            <h1 style="font-weight: 300; color: gray; float: left;">Dietas</h1>
+            <a href="src/modules/dietas/dietas_add.html" style="text-decoration: none; color: #525252;"><i style="float: right; font-size: 30pt;" class="ion-plus-round"></i></a>
         </div>
-    </div>
+        <hr/>
+        <br/>
+        <br/>
 
-    <div class="ui two stackable link cards" ng-controller="dietasController">
-        <div class="ui fluid card" ng-repeat="dieta in dietas | orderBy : '-id'" style="max-width: 400px; min-width: 25em;">
-            <div class="fluid image">
-                <img id="im_dieta" src="{{dieta.imagen}}" style="min-height: 18em; max-height: 18em;">
-            </div>
-            <div class="content">
-                <div class="header">{{dieta.name}}</div>
-                <div class="meta"><a>Activa</a></div>
-                <div class="inline field" ><a ui-sref="calificacionesList({id: dieta.id})" style="text-decoration: none;"><i ng-repeat="s in [] | range:dieta.stars" class="ion-android-star">&nbsp;</i></a></div>
-                <div class="description">{{dieta.descripcion}}</div>
-                <div class="description">{{dieta.objetivo}}</div>
-            </div>
-            <div class="extra content">
-                <div class="inline field">
-                    <span class="field"><a ui-sref="comidas" style="text-decoration: none;">Comidas</a> &nbsp; &nbsp;</span>
-                    <span class="field"><a ui-sref="quejasList({ id: dieta.id })" style="text-decoration: none;">Comentarios</a>&nbsp; &nbsp;</span>
-                   <!-- <span class="field"><a ui-sref="calificacionesList({id: dieta.id})" style="text-decoration: none;"> Calificacion </a>&nbsp; &nbsp; </span> -->
-                    <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
-                    <span class="field right floated">Pausar</span>
-                    <span class="field right floated" ng-click="eliminar_dieta(dieta.id)"><a style="text-decoration: none;">Cancelar</a>&nbsp; &nbsp;</span>
+        <div class="ui two stackable cards" ng-controller="dietasController">
+
+            <div class="ui raised green link fluid card" ng-repeat="dieta in dietas| orderBy : '-id'">
+                <div class="fluid image">
+                    <img id="im_dieta" src="{{dieta.imagen}}">
+                </div>
+                <div class="content">
+                    <div class="header">{{dieta.name}}</div>
+                    <div class="meta"><a>Activa</a></div>
+                    <div class="inline field"><a ui-sref="calificacionesList({id: dieta.id})" style="text-decoration: none;"><i ng-repeat="s in []| range:dieta.stars" class="ion-android-star">&nbsp;</i></a></div>
+                    <div class="description">{{dieta.descripcion}}</div>
+                    <div class="description">{{dieta.objetivo}}</div>
+                </div>
+                <div class="extra content">
+                    <div class="inline field">
+                        <span class="field"><a ui-sref="comidas" style="text-decoration: none;">Comidas</a> &nbsp; &nbsp;</span>
+                        <span class="field"><a ui-sref="quejasList({ id: dieta.id })" style="text-decoration: none;">Comentarios</a>&nbsp; &nbsp;</span>
+                        <!-- <span class="field"><a ui-sref="calificacionesList({id: dieta.id})" style="text-decoration: none;"> Calificacion </a>&nbsp; &nbsp; </span> -->
+                        <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                        <span class="field right floated">Pausar</span>
+                        <span class="field right floated" ng-click="eliminar_dieta(dieta.id)"><a style="text-decoration: none;">Cancelar</a>&nbsp; &nbsp;</span>
+                    </div>
+                </div>
+                <div class="content">
+                    <a ui-sref="detail({ id: dieta.id })" class="ui one column grid centered" style="text-decoration: none; color: #7e7e7e;"><i class="ion-plus-round" style="margin-bottom: 10px;"></i></a>
                 </div>
             </div>
-            <div class="content">
-                <a ui-sref="detail({ id: dieta.id })" class="ui one column grid centered" style="text-decoration: none; color: #7e7e7e;"><i class="ion-plus-round" style="margin-bottom: 10px;"></i></a>
-            </div>
+
+
         </div>
+
     </div>
-
-
 </div>
-
-
-
-
 
 
 
