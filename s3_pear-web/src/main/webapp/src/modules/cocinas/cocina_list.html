@@ -13,7 +13,7 @@
     </div>
 
     <div class="ui two stackable link cards">
-        <div class="ui fluid card" ng-repeat="cocina in cocinas | orderBy : 'id'">
+        <div class="ui fluid card" ng-repeat="cocina in cocinas | orderBy : '-id'">
             <div class="image">
                 <img src="{{cocina.imagen}}">
             </div>
@@ -25,7 +25,7 @@
             <div class="extra content">
                 <div class="inline flief">
                     <span class="field right floated"><a ng-click="eliminar_cocina(cocina.id)" style="text-decoration: none;">Eliminar</a></span>
-                    <span class="field right floated"><a href="src/modules/cocinas/cocinas_add.html">Actualizar</a> &nbsp; &nbsp;</span>
+                    <span class="field right floated"><a ui-sref="cocina_detail({ id: cocina.id })">Actualizar</a> &nbsp; &nbsp;</span>
                 </div>
             </div>
         </div>
