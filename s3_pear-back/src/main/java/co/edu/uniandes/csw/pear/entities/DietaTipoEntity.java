@@ -26,11 +26,11 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     private Integer stars;
     
     @PodamExclude
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private CuentaCobroEntity cuentaCobro;
     
     @PodamExclude
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<SemanaEntity> semanas = new ArrayList<>();
    
     //-----------------------------------------------------------
