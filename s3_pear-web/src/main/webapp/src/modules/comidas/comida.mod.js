@@ -14,11 +14,11 @@
         $stateProvider
             .state('comidas', {
                 url: "/comidas",
-                templateUrl: "src/modules/comidas/comidas.html",
+                templateUrl: "src/modules/comidas/comida_list.html",
                 controller: 'comidasController'
             })
 
-            .state('detail', {
+            .state('detail_comida', {
                 url: "/comida/:id/detail",
                 param: {
                     id: null

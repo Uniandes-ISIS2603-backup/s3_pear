@@ -11,7 +11,8 @@
         'semanaModule',
         'personaModule',
         'quejasModule',
-        'calificacionesModule'
+        'calificacionesModule',
+        'comidaModule'
     ]);
 
 
