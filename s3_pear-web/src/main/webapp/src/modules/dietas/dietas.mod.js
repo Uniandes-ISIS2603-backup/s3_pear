@@ -67,7 +67,8 @@
                     name: $scope.nombre,
                     descripcion: $scope.descripcion,
                     objetivo: $scope.objetivo,
-                    imagen: $scope.imagen
+                    imagen: $scope.imagen,
+                    stars: $scope.stars
                 };
 
                 console.log(data);
@@ -96,11 +97,13 @@
                 let data = {
                     name: $scope.new_nombre,
                     descripcion: $scope.new_descripcion,
-                    objetivo: $scope.new_objetivo
+                    objetivo: $scope.new_objetivo,
+                    stars: $scope.new_stars,
+                    imagen: $scope.new_imagen
                 };
                 
                 //http://localhost:8080/s3_pear-web/api/dietas/3
-                $http.put('http://localhost:8080/s3_pear-web/api/dietas/' + id, data).then(function (response) {
+                $http.put('http://localhost:8080/s3_pear-web/api/dietas/' + $scope.id_dieta, data).then(function (response) {
                     $scope.put_data = response.data;
                 });
             };
