@@ -1,76 +1,42 @@
-<style>
+<div class="ui container" style="width: 100%" ng-app="personaModule">
 
-	hr {
-		display: block;
-		height: 2px;
-		border: 0;
-		border-top: 1px solid gray;
-		margin-top: -1em;
-		width: 8em;
-		color: black;
-		margin-bottom: 1em;
-	}
+    <div class="ui raised segment" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;" ng-controller="personasController">
 
-	.lista {
-		margin: 4em auto 6em auto;
-		width: 70%;
-		padding: 2em 4em;
-		background-color: white;
-		border-radius: 0.3em;
-	}
+        <div class="inline field">
+            <h1 style="font-weight: 300; color: gray; float: left;">Usuarios</h1>
+            <a href="src/login.html" style="text-decoration: none; color: #525252;"><i style="float: right; font-size: 30pt;" class="ion-plus-round"></i></a>
+        </div>
+        <hr/>
+        <br/>
+        <br/>
 
-	.lbl {
-		position: relative;
-	}
 
-	.template {
-		margin: auto auto auto auto;
-		width: 100%;
-		border-radius: 0.5em;
-	}
+        <table class="ui very basic table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apelldio</th>
+                    <th>Edad</th>
+                    <th>Correo</th>
+                </tr>
+            </thead>
+            <tbody>
 
-	table {
-		border-collapse: collapse;
-		width: 100%;
-		margin: auto;
-		color: gray;
-	}
+                <tr ng-repeat="persona in personas">
+                    <td>{{ persona.nombre}}</td>
+                    <td>{{ persona.apellido}}</td>
+                    <td>{{ persona.edad}}</td>
+                    <td>{{ persona.correo}}</td>
+                </tr>
 
-	td,
-	th {
-		text-align: left;
-		padding: 8px;
-	}
+            </tbody>
+        </table>
 
-	tr:nth-child(even) {
-		background-color: #dddddd;
-	}
-	
-	
 
-	
+    </div>
 
-</style>
-<div class="lista">
-    <h1 style="font-weight: 300; color: gray">Usuarios</h1>
-    <hr>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Edad</th>
-                <th>Correo</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="persona in personas">
-                <td>{{ persona.nombre }}</td>
-                <td>{{ persona.apellido }}</td>
-                <td>{{ persona.edad }}</td>
-                <td>{{ persona.correo }}</td>
-            </tr>
-        </tbody>
-    </table>
 </div>
+
+
+
+

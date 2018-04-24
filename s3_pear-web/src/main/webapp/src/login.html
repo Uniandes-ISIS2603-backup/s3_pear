@@ -21,7 +21,6 @@
 
     <style>
         * {
-            overflow-y: hidden;
             overflow-x: hidden;
             font-family: 'Roboto';
         }
@@ -68,8 +67,8 @@
 
     <header>
 
-        <div class="ui text container" style="margin-top: 5em;">
-            <div class="ui form" style="width: 100%">
+        <div class="ui text container" style="margin-top: 5em;"  ng-app="personaModule" >
+            <div class="ui form" style="width: 100%" ng-controller="personasController">
 
                 <h1 class="tittle">Registro</h1>
 
@@ -79,30 +78,30 @@
                 <div class="field">
                     <label style="color: white">Nombre Completo</label>
                     <div class="inline field">
-                        <input style="margin-right: 1em;" type="text" placeholder="nombre">
-                        <input style="margin-right: 1em;" type="text" placeholder="apellido">
-                        <input style="margin-right: 1em;" type="number" placeholder="edad">
+                        <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="nombre">
+                        <input ng-model="apellido" style="margin-right: 1em;" type="text" placeholder="apellido">
+                        <input ng-model="edad" style="margin-right: 1em;" type="number" placeholder="edad">
                     </div>
                 </div>
 
                 <div class="field">
                     <label style="color: white">Dirección</label>
-                    <input type="text" placeholder="dirección de resisdencia">
+                    <input ng-model="direccion" type="text" placeholder="dirección de resisdencia">
                 </div>
 
                 <div class="field">
                     <label style="color: white">Correo Electrónico</label>
-                    <input type="email" placeholder="email">
+                    <input ng-model="correo" type="email" placeholder="email">
                 </div>
 
                 <div class="field">
                     <label style="color: white">Número Telefónico</label>
-                    <input type="number" placeholder="celular/fijo">
+                    <input ng-model="telefono" type="number" placeholder="celular/fijo">
                 </div>
 
                 <p>&nbsp;</p>
                 <div class="inline field">
-                    <button class="ui inverted olive basic button">Enviar</button>
+                    <button ng-click="post_persona()" class="ui inverted olive basic button">Enviar</button>
                     <button class="ui inverted teal basic button"><a style="text-decoration: none; color: white" href="src/inicio.html">Cancelar</a></button>
                 </div>
 

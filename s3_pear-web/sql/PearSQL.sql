@@ -14,6 +14,9 @@ delete from PagoEntity;
 delete from CuentaCobroEntity; 
 
 
+
+
+
 insert into CuentaCobroEntity(id, valorAPagar) values (2, 20);
 insert into CuentaCobroEntity(id, valorAPagar) values (3, 25);
 insert into CuentaCobroEntity(id, valorAPagar) values (4, 22);
