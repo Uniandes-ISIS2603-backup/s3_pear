@@ -11,7 +11,7 @@
                         url: "/personas",
                         templateUrl: "src/modules/personas/personas.html",
                         controller: 'personasController'
-                    })
+                    });
 
         }]);
 })(window.angular);
@@ -28,8 +28,8 @@
 
         function ($scope, $http, personasContext) {
 
-            //http://localhost:8080/s3_pear-web/api/personas
-            $http.get(personasContext).then(function (response) {
+            //personasContext
+            $http.get('src/modules/personas/personas.json').then(function (response) {
                 $scope.personas = response.data;
             });
 
@@ -46,7 +46,8 @@
                     subscrito: true
                 };
                 
-                console.log('Se va a crear la persona : ' + data);
+                console.log('Se va a crear la siguiente persona');
+                console.log(data);
                 
                 $http.post(personasContext, data).then(function (response) {
                     
