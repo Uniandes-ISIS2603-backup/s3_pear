@@ -8,10 +8,7 @@
 
         $stateProvider
             .state('quejasList', {
-                url: "/dieta/:id/comentarios",
-                param: {
-                    id: null
-                },
+                url: "/dieta/comentarios",
                 templateUrl: "src/modules/quejasyreclamos/quejasList.html",
                 controller: 'quejasController'
             }).state('quejasDetail', {
