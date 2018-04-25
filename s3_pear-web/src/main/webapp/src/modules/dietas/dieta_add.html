@@ -15,24 +15,23 @@
     <!-- SEMANTIC UI -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
 
-    <!-- fonts importa fonst de google fonts :: Merriweather y Roboto -->
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400" rel="stylesheet">
+    <!-- fonts importa fonst de google fonts :: Roboto -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
 
     <style>
         * {
-            overflow-x: hidden;
-            overflow-y: scroll;
             font-family: 'Roboto';
+            overflow: hidden;
         }
 
         #head {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.30)), url(../../../style/resources/login2.jpg);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url('https://images.pexels.com/photos/349610/pexels-photo-349610.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            height: 140vh;
+            height: 120vh;
+
         }
 
         hr {
@@ -78,34 +77,30 @@
                     <p>&nbsp;</p>
 
                     <div class="field" style="overflow-y: hidden">
-                        <label style="color: white; overflow-y: hidden;">Nombre</label>
-                        <input ng-model="nombre" style="margin-right: 1em; overflow-y: hidden" type="text" placeholder="nombre">
+                        <input ng-model="nombre" style="margin-right: 1em; overflow-y: hidden" type="text" placeholder="NOMBRE">
                     </div>
 
                     <div class="field">
-                        <label style="color: white; overflow-y: hidden">URL Imagen</label>
-                        <input style="overflow-y: hidden" ng-model="imagen" type="text" placeholder="imagen representativa de la dieta">
+                        <input style="overflow-y: hidden" ng-model="imagen" type="text" placeholder="URL IMAGEN REPRESENTATIVA DE LA DIETA">
                     </div>
 
                     <div class="field">
-                        <label style="color: white; overflow-y: hidden">Cantidad de estrellas</label>
-                        <input ng-model="stars" type="number" placeholder="estrellas" style="overflow-y: hidden">
+                        <input ng-model="stars" type="number" placeholder="NUMERO DE ESTRELLAS INICIALES" style="overflow-y: hidden">
                     </div>
 
                     <div class="field">
-                        <label style="color: white; overflow-y: hidden">Descripcion</label>
-                        <textarea ng-model="descripcion" type="text" placeholder="descripcion detallada de la dieta" style="overflow-y: hidden"></textarea>
+                        <textarea ng-model="descripcion" type="text" placeholder="DESCRIPCION DETALLADA DE LA DIETA" style="overflow-y: hidden"></textarea>
                     </div>
 
                     <div class="field">
-                        <label style="color: white; overflow-y: hidden">Objetivos</label>
-                        <textarea ng-model="objetivo" type="text" placeholder="objetivos de la dieta"></textarea>
+                        <textarea ng-model="objetivo" type="text" placeholder="OBJETIVOS DE LA DIETA"></textarea>
                     </div>
 
                     <p>&nbsp;</p>
+
                     <div class="inline field">
-                        <button ng-click="enviar_dieta()" class="ui inverted olive basic button">Enviar</button>
-                        <button class="ui inverted teal basic button"><a style="text-decoration: none; color: white" href="../../../index.html">Cancelar</a></button>
+                        <a ng-click="enviar_dieta()" class="ui inverted olive basic button" href="../../../index.html">Enviar</a>
+                        <a class="ui inverted teal basic button" style="text-decoration: none; color: white" href="../../../index.html">Cancelar</a>
                     </div>
 
                 </div>
