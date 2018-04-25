@@ -26,10 +26,10 @@
                 console.log('FAILED GET COMENTARIOS ' + response);
             });
             
-            if ($state.params.id !== null && $state.params.id !== undefined) {
-                $scope.id_queja = $state.params.id;
+            if ($state.params.quejasId !== null && $state.params.quejasId !== undefined) {
+                $scope.id_queja = $state.params.quejasId;
                 // TODO Descomentar
-                $http.get(quejasContext + $state.params.id ).then(function (response) {
+                $http.get(quejasContext + "/" +$state.params.quejasId ).then(function (response) {
                     $scope.queja = response.data;
                 });
             }

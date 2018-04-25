@@ -12,7 +12,7 @@
                 templateUrl: "src/modules/quejasyreclamos/quejasList.html",
                 controller: 'quejasController'
             }).state('quejasDetail', {
-                url: "/{quejasId:int}/detail",
+                url: "/{quejasId:int}/quejasList/detail",
                 param : {
                     id:null
                 },
@@ -27,5 +27,4 @@
 
         ;
     }]);
-
 })(window.angular);
