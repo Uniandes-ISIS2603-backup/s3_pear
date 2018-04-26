@@ -18,6 +18,7 @@
                     <th>Apelldio</th>
                     <th>Edad</th>
                     <th>Correo</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +28,7 @@
                     <td>{{ persona.apellido}}</td>
                     <td>{{ persona.edad}}</td>
                     <td>{{ persona.correo}}</td>
+                    <td><p style="color: gray" ng-click="eliminar_persona(persona.id)">eliminar</p></td>
                 </tr>
 
             </tbody>
