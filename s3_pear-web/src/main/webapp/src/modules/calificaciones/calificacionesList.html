@@ -1,4 +1,4 @@
-<div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;">
+<div class="ui one column grid" style="background-color: white; width: 35%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;">
 
     <div class="ui comments">
         <div class="inline field">
@@ -178,16 +178,7 @@
                           <span class="fa fa-star checked"></span>
                          </style> 
                 </div>
-                <script>
-                    var total=0;
-                    function darCantidad5()
-                    {
-                        if(calificacion.puntiacion==10){
-                            total++;
-                        }
-                    }
-                    return total;
-                </script>
+           
             </div>
         </div>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -248,15 +239,16 @@ body {
 }
 
 /* Individual bars */
-.bar-5 {width: 0%; height: 18px; background-color: #4CAF50;}
-.bar-4 {width: 30%; height: 18px; background-color: #2196F3;}
-.bar-3 {width: 10%; height: 18px; background-color: #00bcd4;}
-.bar-2 {width: 4%; height: 18px; background-color: #ff9800;}
-.bar-1 {width: 15%; height: 18px; background-color: #f44336;}
+.bar-5 {width: {{porcentajeCinco}}%; height: 18px; background-color: #4CAF50;}
+.bar-4 {width: {{porcentajeCuatro}}%; height: 18px; background-color: #2196F3;}
+.bar-3 {width: {{porcentajeTres}}%; height: 18px; background-color: #00bcd4;}
+.bar-2 {width: {{porcentajeDos}}%; height: 18px; background-color: #ff9800;}
+.bar-1 {width: {{porcentajeUno}}%; height: 18px; background-color: #f44336;}
+.bar-1 {width: {{porcentajeCero}}%; height: 18px; background-color: #f44336;}
 
 
 </style>
-
+<p>El promedio de las calificaciones es {{promedio}}.</p>
         <hr style="border:3px solid #f1f1f1">
 
 
@@ -270,7 +262,7 @@ body {
     </div>
   </div>
   <div class="side right">
-      <div >0.0</div>
+      <div >{{calificacionCinco}}</div>
   </div>
   <div class="side">
     <div>4 star</div>
@@ -281,7 +273,7 @@ body {
     </div>
   </div>
   <div class="side right">
-    <div>3</div>
+    <div>{{calificacionCuatro}}</div>
   </div>
   <div class="side">
     <div>3 star</div>
@@ -292,7 +284,7 @@ body {
     </div>
   </div>
   <div class="side right">
-      <div>2</div>
+      <div>{{calificacionTres}}</div>
   </div>
   <div class="side">
     <div>2 star</div>
@@ -303,7 +295,7 @@ body {
     </div>
   </div>
   <div class="side right">
-    <div>6</div>
+    <div>{{calificacionDos}}</div>
   </div>
   <div class="side">
     <div>1 star</div>
@@ -314,7 +306,18 @@ body {
     </div>
   </div>
   <div class="side right">
-    <div>20</div>
+    <div>{{calificacionUno}}</div>
+  </div>
+    <div class="side">
+    <div>0 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-1"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>{{calificacionCero}}</div>
   </div>
     <div class="ui positive basic button" ><a ui-sref ="calificacionesCreate">
                 Agregar Calificacion
