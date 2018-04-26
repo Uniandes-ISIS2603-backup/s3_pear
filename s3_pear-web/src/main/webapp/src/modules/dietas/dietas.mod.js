@@ -47,7 +47,6 @@
             //http://localhost:8080/s3_pear-web/api/dietas
             // src/modules/dietas/dietas.json
 
-            // TODO Descomentar
             $http.get('http://localhost:8080/s3_pear-web/api/dietas').then(function (response) {
                 $scope.dietas = response.data;
             });
@@ -55,7 +54,6 @@
             if ($state.params.id !== null && $state.params.id !== undefined) {
                 $scope.id_dieta = $state.params.id;
 
-                // TODO Descomentar
                 $http.get('http://localhost:8080/s3_pear-web/api/dietas/' + $state.params.id ).then(function (response) {
                     $scope.dieta = response.data;
                 });
@@ -87,6 +85,7 @@
                 // DIRECCION HTTP 
                 $http.delete('http://localhost:8080/s3_pear-web/api/dietas/' + id).then(function (response) {
                     $scope.delete_data = response.data;
+                    $scope.reload();
                 });
             };
 
@@ -105,6 +104,8 @@
                 //http://localhost:8080/s3_pear-web/api/dietas/3
                 $http.put('http://localhost:8080/s3_pear-web/api/dietas/' + $scope.id_dieta, data).then(function (response) {
                     $scope.put_data = response.data;
+                    $state.go($state.current, {}, {reload: true});
+                    $state.go('dietas', {}, {reload: true});
                 });
             };
 

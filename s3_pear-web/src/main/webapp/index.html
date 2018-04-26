@@ -11,7 +11,7 @@
     <meta name="description" content="Dieta Facil Desarrollo de Software en Equipo Uniandes">
 
     <title>Dieta Facil</title>
-	
+
     <!-- ANGULAR UI ROUTER -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
     <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
@@ -40,6 +40,15 @@
             height: 105vh;
         }
 
+        #main {
+            margin-top: 1px;
+        }
+        
+        #main>a:hover,
+        #main>a:active {
+            border-top: 2px solid #e67e22;
+        }
+
     </style>
 
 </head>
@@ -48,12 +57,12 @@
 
     <header class="parallax" id="header_dietas">
 
-        <div class="ui text menu right floated" style="padding: 1em;">
-            <a class="item" style="color: white; font-size: 20px" href="src/inicio.html">Inicio</a>
+        <div id="main" class="ui text menu right floated" style="padding: 1em;">
+            <a class="item" style="color: white; font-size: 20px" href="src/inicio.html">Inicio</a> 
             <a class="item" style="color: white; font-size: 20px" ui-sref="personas">Usuarios</a>
             <a class="item active" style="color: white; font-size: 20px" ui-sref="dietas">Dietas</a>
             <a class="item active" style="color: white; font-size: 20px" ui-sref="facturas">Facturas</a>
-             <a class="item active" style="color: white; font-size: 20px" ui-sref="pago">Pago</a>
+            <a class="item active" style="color: white; font-size: 20px" ui-sref="pago">Pago</a>
             <a class="item active" style="color: white; font-size: 20px" ui-sref="cocinas">Cocinas</a>
             <a class="item active" style="color: white; font-size: 20px" ui-sref="semanas">Programación Semanal</a>
             <!--<a class="item active" style="color: white; font-size: 20px" ui-sref="quejasList">Quejas o Recomendaciones</a>-->
@@ -75,8 +84,8 @@
         <!-- CUENTAS DE COBRO -->
         <script src="src/modules/pago/pago.mod.js" type="text/javascript"></script>
         <script src="src/modules/pago/pago.ctrl.js" type="text/javascript"></script>
-         <script src="src/modules/pago/pago.detail  .ctrl.js" type="text/javascript"></script>
-         
+        <script src="src/modules/pago/pago.detail  .ctrl.js" type="text/javascript"></script>
+
         <!-- FACTURAS -->
         <script src="src/modules/facturas/facturas.mod.js" type="text/javascript"></script>
 
@@ -91,9 +100,9 @@
         <script src="src/modules/quejasyreclamos/quejas.ctrl.js" type="text/javascript"></script>
 
         <!-- Calificaciones -->
-        <script src="src/modules/calificaciones/calificaciones.mod.js" type ="text/javascript"></script>
+        <script src="src/modules/calificaciones/calificaciones.mod.js" type="text/javascript"></script>
         <script src="src/modules/calificaciones/calificaciones.ctrl.js" type="text/javascript"></script>
-       
+
         <!-- COMIDAS -->
         <script src="src/modules/comidas/comida.mod.js" type="text/javascript"></script>
 
