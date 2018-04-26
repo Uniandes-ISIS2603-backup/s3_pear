@@ -50,7 +50,7 @@
                 console.log(data);
                 
                 $http.post(personasContext, data).then(function (response) {
-                    // TODO
+                    $scope.post_data = response.data;
                 });
 
             };
@@ -58,9 +58,9 @@
             
             $scope.eliminar_persona = function (id) {
                 $http.delete(personasContext + '/' + id,).then(function (response) {
-                    // TODO
+                    $scope.delete_data = response.data;
                 });
-            }
+            };
 
 
 
