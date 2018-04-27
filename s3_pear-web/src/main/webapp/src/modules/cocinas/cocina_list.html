@@ -4,15 +4,17 @@
 
         <div class="inline field">
             <h1 style="font-weight: 300; color: gray; float: left;">Cocinas</h1>
-            <a href="src/modules/cocinas/cocinas_add.html" style="text-decoration: none; color: #525252;"><i style="float: right; font-size: 30pt;" class="ion-plus-round"></i></a>
+             <a ui-sref="post_cocina" style="text-decoration: none; color: #525252;">
+                <i style="float: right; font-size: 30pt;" class="ion-plus-round"></i>
+            </a>
         </div>
         <hr/>
         <br/>
         <br/>
 
-        <div class="ui two stackable cards">
+        <div class="ui three stackable cards">
 
-            <div class="ui raised orange link fluid card" ng-repeat="cocina in cocinas| orderBy : '-id'">
+            <div class="ui raised link fluid card" ng-repeat="cocina in cocinas| orderBy : '-id'">
                 <div class="image">
                     <img src="{{cocina.imagen}}">
                 </div>

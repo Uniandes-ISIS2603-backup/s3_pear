@@ -44,11 +44,11 @@ INSERT INTO CocinaEntity(capacidad,id,ubicacion,name,imagen) VALUES ('2008',1,'8
 INSERT INTO CocinaEntity(capacidad,id,ubicacion,name,imagen) VALUES ('232',2,'7303 Troy Placet','Cocina de las Aguas','https://images.pexels.com/photos/159991/pexels-photo-159991.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
 INSERT INTO CocinaEntity(capacidad,id,ubicacion,name,imagen) VALUES ('2308',3,'652 Lukken Junction','Central del Norte','https://images.pexels.com/photos/225448/pexels-photo-225448.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
 INSERT INTO CocinaEntity(capacidad,id,ubicacion,name,imagen) VALUES ('208',4,'15 Hoepker Plaza','Cocina Bogota','https://images.pexels.com/photos/2755/restaurant.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-INSERT INTO CocinaEntity(capacidad,id,ubicacion,name,imagen) VALUES ('28',5,'8871 Merry Point','Un Nombre de Cocina','https://images.pexels.com/photos/696205/pexels-photo-696205.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+/*INSERT INTO CocinaEntity(capacidad,id,ubicacion,name,imagen) VALUES ('28',5,'8871 Merry Point','Un Nombre de Cocina','https://images.pexels.com/photos/696205/pexels-photo-696205.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
 INSERT INTO CocinaEntity(capacidad,id,ubicacion,name,imagen) VALUES ('2028',6,'29 Larry Parkway','Otro Nombre de Cocina','https://images.pexels.com/photos/375897/pexels-photo-375897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
 INSERT INTO CocinaEntity(capacidad,id,ubicacion,name,imagen) VALUES ('38',7,'5073 Lakeland Lane','Cocina X','https://images.pexels.com/photos/64613/pexels-photo-64613.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
 INSERT INTO CocinaEntity(capacidad,id,ubicacion,name,imagen) VALUES ('4008',8,'3 Meadow Ridge Plaza','SUper Cocina','https://images.pexels.com/photos/917371/pexels-photo-917371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-
+*/
 
 
 insert into CalificacionEntity (id, puntuacion) values (1, 7);
