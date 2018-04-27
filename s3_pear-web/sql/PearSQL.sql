@@ -17,15 +17,14 @@ delete from CuentaCobroEntity;
 
 
 
-insert into CuentaCobroEntity(id, valorAPagar) values (2, 20);
-insert into CuentaCobroEntity(id, valorAPagar) values (3, 25);
-insert into CuentaCobroEntity(id, valorAPagar) values (4, 22);
-insert into CuentaCobroEntity(id, valorAPagar) values (5, 24);
-insert into CuentaCobroEntity(id, valorAPagar) values (6, 22.3);
+insert into CuentaCobroEntity(id, valorAPagar) values (1, 20);
+
 
 insert into PagoEntity(id, montoInicial, montoFinal) values (2, 10, 10);
-insert into MedioPagoEntity(id, medioPagoActual) values (2, 'baloto');
 
+insert into MedioPagoEntity(id, medioPagoActual) values (2, 'Baloto');
+insert into MedioPagoEntity(id, medioPagoActual) values (2, 'Efectivo');
+insert into MedioPagoEntity(id, medioPagoActual) values (2, 'Credito');
 
 
 INSERT INTO DietaTipoEntity(descripcion,id,objetivo,stars,imagen,name) VALUES ('Enterprise-wide coherent access',1,'Versatile tangible task-force',1,'https://images.pexels.com/photos/248444/pexels-photo-248444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260','Dieta Japonesa');
