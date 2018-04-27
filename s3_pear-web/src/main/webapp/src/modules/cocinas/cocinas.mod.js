@@ -58,7 +58,7 @@
                 let data = {
                     capacidad: $scope.capacidad,
                     ubicacion: $scope.ubicacion,
-                    imagen: $scope.imagen,
+                    //imagen: $scope.imagen,
                     name: $scope.name
                 };
 
@@ -101,7 +101,7 @@
                     name: $scope.new_nombre,
                     ubicacion: $scope.new_ubicacion,
                     capacidad: $scope.new_capacidad,
-                    imagen: $scope.new_imagen
+                   // imagen: $scope.new_imagen
                 };
 
                 //http://localhost:8080/s3_pear-web/api/dietas/3

@@ -184,7 +184,7 @@ public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer.
         } else if (TIPO.equalsIgnoreCase("adicional")) {
             en.setTIPO("adicional");
         }
-
+        en.setDia(this.dia);
         en.setId(this.id);
         return en;
     }
