@@ -5,7 +5,7 @@
         "alimentos": "ejemplo1",
         "cantidad": "100 gramos",
         "TIPO": "almuerzo",
-        "imagen": "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?cs=srgb&dl=chips-dinner-fast-food-70497.jpg&fm=jpg"
+        "image": "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     },
        {
         "type": "comidaDTO",
@@ -13,7 +13,7 @@
         "alimentos": "ejemplo2",
         "cantidad": "200 gramos",
         "TIPO": "desayuno",
-        "imagen": "https://images.pexels.com/photos/103124/pexels-photo-103124.jpeg?cs=srgb&dl=beans-bread-breakfast-103124.jpg&fm=jpg"
+        "image": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     },
        {
         "type": "comidaDTO",
@@ -21,7 +21,7 @@
         "alimentos": "ejemplo3",
         "cantidad": "300 gramos",
         "TIPO": "cena",
-        "imagen": "https://images.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg?cs=srgb&dl=close-up-cooking-dinner-46239.jpg&fm=jpg"
+        "image": "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
     },
        {
         "type": "comidaDTO",
@@ -29,7 +29,7 @@
         "alimentos": "ejemplo4",
         "cantidad": "400 gramos",
         "TIPO": "adicional",
-        "imagen": "https://images.pexels.com/photos/62097/pexels-photo-62097.jpeg?cs=srgb&dl=bread-chip-close-up-62097.jpg&fm=jpg"
+        "image": "https://images.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg?cs=srgb&dl=close-up-cooking-dinner-46239.jpg&fm=jpg"
     }
     ,   {
         "type": "comidaDTO",
@@ -37,7 +37,7 @@
         "alimentos": "ejemplo5",
         "cantidad": "500 gramos",
         "TIPO": "Almuerzo",
-        "imagen": "https://images.pexels.com/photos/675951/pexels-photo-675951.jpeg?cs=srgb&dl=asparagus-barbecue-bbq-675951.jpg&fm=jpg"
+        "image": "https://images.pexels.com/photos/8500/food-dinner-pasta-spaghetti-8500.jpg?auto=compress&cs=tinysrgb&h=750&w=1260"
     }
     ,
        {
@@ -46,7 +46,7 @@
         "alimentos": "ejemplo6",
         "cantidad": "600 gramos",
         "TIPO": "desayuno",
-        "imagen": "https://images.pexels.com/photos/128865/pexels-photo-128865.jpeg?cs=srgb&dl=berries-berry-blackberries-128865.jpg&fm=jpg"
+        "image": "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     }
     
 ]

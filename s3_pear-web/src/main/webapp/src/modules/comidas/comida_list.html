@@ -10,7 +10,7 @@ and open the template in the editor.
         <div class="column">
             <div class="inline field">
                 <h1 style="font-weight: 300; color: gray; float: left;">Comidas</h1>
-                <a href="src/modules/comidas/comidas_add.html" style="text-decoration: none; color: #525252;"><i style="float: right; font-size: 30pt;" class="ion-plus-round"></i></a>
+                <a href="src/modules/comidas/comida_add.html" style="text-decoration: none; color: #525252;"><i style="float: right; font-size: 30pt;" class="ion-plus-round"></i></a>
             </div>
 
             <hr/>
@@ -21,7 +21,7 @@ and open the template in the editor.
     <div class="ui two stackable link cards">
         <div class="ui fluid card" ng-repeat="comida in comidas | orderBy : 'id'">
             <div class="image">
-                <img src="{{comida.imagen}}">
+                <img src="{{comida.image}}">
             </div>
             <div class="content">
                 <div class="header">{{comida.id}}</div>
@@ -31,7 +31,7 @@ and open the template in the editor.
             <div class="extra content">
                 <div class="inline flief">
                     <span class="field right floated"><a ng-click="eliminar_comida(comida.id)" style="text-decoration: none;">Eliminar</a></span>
-                    <span class="field right floated"><a href="src/modules/comidas/comidas_add.html">Actualizar</a> &nbsp; &nbsp;</span>
+                    <span class="field right floated"><a href="src/modules/comidas/comida_add.html">Actualizar</a> &nbsp; &nbsp;</span>
                 </div>
             </div>
         </div>

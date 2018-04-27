@@ -17,7 +17,7 @@ public class ComidaEntity extends BaseEntity implements Serializable
     private int cantidad;
     private String alimentos;
     private  String TIPO;
-    
+    private String image;
     
     
     
@@ -73,7 +73,23 @@ public class ComidaEntity extends BaseEntity implements Serializable
     {
         TIPO = pTipo;
     }
-    
+   
+        /**
+     * Imagen de la comida 
+     * @return image
+     */
+    public String getImage()
+    {
+        return image;
+    }
+    /**
+     * Cambia la imagen de la comida
+     * @param pImage
+     */
+    public void setImage(String pImage)
+    {
+        image = pImage;
+    }
     
     
 }

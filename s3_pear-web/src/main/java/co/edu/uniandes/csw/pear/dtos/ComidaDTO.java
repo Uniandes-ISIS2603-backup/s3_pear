@@ -22,7 +22,8 @@ import java.io.Serializable;
  *      "cantidad": number,
  *      "alimentos":string,
  *      "direccion: string,
- *      "tipo": string
+ *      "tipo": string,
+ *      "image": String
  *
  *   }
  * </pre> Por ejemplo una comida se representa asi:<br>
@@ -33,7 +34,8 @@ import java.io.Serializable;
  *      "cantidad": 360 gramos,
  *       "alimentos":"arroz intregra 100 gramos, 200 gramos de carne de rez y aguacate 60 gramos",
  *      "direccion: "Bogota DC, calle 106 # 19-20 casa 120",
- *      "tipo": "desayuno"
+ *      "tipo": "desayuno",
+ *      "image": "https://images.pexels.com/photos/8500/food-dinner-pasta-spaghetti-8500.jpg?cs=srgb&dl=basil-dinner-food-8500.jpg&fm=jpg"
  *   }
  *
  * </pre>
@@ -49,6 +51,8 @@ public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer.
     public String TIPO;
 
     public Long id;
+    
+    public String image;
 
     /**
      * Constructor ComidaDTO a partir de la Entity
@@ -63,6 +67,8 @@ public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer.
         alimentos = entidad.getAlimentos();
 
         TIPO = entidad.getTipo();
+        
+        image = entidad.getImage();
         }
     }
 
@@ -130,12 +136,31 @@ public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer.
     public void setTIPO(String pTipo) {
         TIPO = pTipo;
     }
+    
+    
+       
+        /**
+     * Imagen de la comida 
+     * @return image
+     */
+    public String getImage()
+    {
+        return image;
+    }
+    /**
+     * Cambia la imagen de la comida
+     * @param pImage
+     */
+    public void setImage(String pImage)
+    {
+        image = pImage;
+    }
 
     public ComidaEntity toEntity() {
         ComidaEntity en = new ComidaEntity();
         en.setAlimentos(this.alimentos);
         en.setCantidad(this.cantidad);
-
+        en.setImage(this.image);
         if (TIPO.equalsIgnoreCase("desayuno")) {
             en.setTIPO("desayuno");
         } else if (TIPO.equalsIgnoreCase("almuerzo")) {
