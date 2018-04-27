@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.BaseEntity;
 import co.edu.uniandes.csw.pear.entities.ComidaEntity;
+import co.edu.uniandes.csw.pear.entities.DiaEntity;
 import java.io.Serializable;
 
 /**
@@ -52,7 +53,9 @@ public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer.
 
     public Long id;
     
-    public String image;
+    public DiaEntity dia;
+    
+   // public String image;
 
     /**
      * Constructor ComidaDTO a partir de la Entity
@@ -68,7 +71,7 @@ public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer.
 
         TIPO = entidad.getTipo();
         
-        image = entidad.getImage();
+       // image = entidad.getImage();
         }
     }
 
@@ -137,12 +140,23 @@ public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer.
         TIPO = pTipo;
     }
     
-    
+     public DiaEntity getDia()
+    {
+        return dia;
+    }
+    /**
+     * Cambia el dia de la comdia
+     * @param pTipo
+     */
+    public void setDia(DiaEntity pDia)
+    {
+        dia = pDia;
+    }
        
         /**
      * Imagen de la comida 
      * @return image
-     */
+     
     public String getImage()
     {
         return image;
@@ -150,17 +164,17 @@ public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer.
     /**
      * Cambia la imagen de la comida
      * @param pImage
-     */
+     
     public void setImage(String pImage)
     {
         image = pImage;
-    }
+    }*/
 
     public ComidaEntity toEntity() {
         ComidaEntity en = new ComidaEntity();
         en.setAlimentos(this.alimentos);
         en.setCantidad(this.cantidad);
-        en.setImage(this.image);
+       // en.setImage(this.image);
         if (TIPO.equalsIgnoreCase("desayuno")) {
             en.setTIPO("desayuno");
         } else if (TIPO.equalsIgnoreCase("almuerzo")) {

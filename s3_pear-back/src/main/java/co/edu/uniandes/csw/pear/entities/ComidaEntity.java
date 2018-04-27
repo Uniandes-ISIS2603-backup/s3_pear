@@ -6,7 +6,10 @@
 package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 /**
  *
  * @author js.cabra
@@ -17,9 +20,11 @@ public class ComidaEntity extends BaseEntity implements Serializable
     private int cantidad;
     private String alimentos;
     private  String TIPO;
-    private String image;
+    //private String image;
     
-    
+    @PodamExclude
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private DiaEntity dia;
     
  /**
      * Cantidad de la comida 
@@ -74,10 +79,28 @@ public class ComidaEntity extends BaseEntity implements Serializable
         TIPO = pTipo;
     }
    
+    /**
+     * Dia de la comida 
+     * @return TIPO
+     */
+    public DiaEntity getDia()
+    {
+        return dia;
+    }
+    /**
+     * Cambia el dia de la comdia
+     * @param pTipo
+     */
+    public void setDia(DiaEntity pDia)
+    {
+        dia = pDia;
+    }
+   
+    
         /**
      * Imagen de la comida 
      * @return image
-     */
+     
     public String getImage()
     {
         return image;
@@ -85,11 +108,11 @@ public class ComidaEntity extends BaseEntity implements Serializable
     /**
      * Cambia la imagen de la comida
      * @param pImage
-     */
+     
     public void setImage(String pImage)
     {
         image = pImage;
-    }
+    }*/
     
     
 }

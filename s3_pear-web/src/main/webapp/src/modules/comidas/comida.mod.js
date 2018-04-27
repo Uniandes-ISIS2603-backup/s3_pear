@@ -72,7 +72,7 @@
                     alimentos: $scope.alimentos,
                     cantidad: $scope.cantidad,
                     TIPO: $scope.TIPO,
-                    image: $scope.image
+                   // image: $scope.image
                 };
 
                 console.log(data);
@@ -102,7 +102,7 @@
                     alimentos: $scope.new_alimentos,
                     cantidad: $scope.new_cantidad,
                     TIPO: $scope.new_TIPO,
-                    image: $scope.new_image
+                   // image: $scope.new_image
                 };
                 
                 //http://localhost:8080/s3_pear-web/api/comidas/3
