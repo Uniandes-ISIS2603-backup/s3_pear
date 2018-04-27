@@ -125,5 +125,5 @@ insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(47
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(48, 2, 100518);
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(49, 1,200518);
 
-select * from FacturaEntity;
+select * from DiEntity;
 

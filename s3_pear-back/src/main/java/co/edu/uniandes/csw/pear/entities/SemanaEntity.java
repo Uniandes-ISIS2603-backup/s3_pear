@@ -29,13 +29,26 @@ public class SemanaEntity  extends BaseEntity implements Serializable{
     private String fechaLunes;
     
     @PodamExclude
-    @OneToMany( cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @OneToMany( mappedBy = "dia", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<DiaEntity> dias;
+    
+    @PodamExclude
+    @ManyToOne( cascade = CascadeType.PERSIST)
+    private DietaTipoEntity dieta;
    
     //-----------------------------------------------------------
     // Metodos
     //-----------------------------------------------------------
    
+    public void setDieta(DietaTipoEntity diet ){
+        dieta = diet;
+    }
+    
+    public DietaTipoEntity getDieta(){
+        return dieta;
+    }
+    
+    
     /**
      * Determina la fecha inicial de la semana
      * @param date fecha inicial

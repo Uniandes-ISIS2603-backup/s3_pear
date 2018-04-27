@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 /**
@@ -30,14 +31,23 @@ public class DiaEntity extends BaseEntity implements Serializable {
     private String fecha;
     
     @PodamExclude
-    @OneToMany( cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @OneToMany( mappedBy = "dia", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<ComidaEntity> comidas;
+    
+    @PodamExclude
+    @ManyToOne( cascade = CascadeType.PERSIST)
+    private SemanaEntity semana;
     
     //-----------------------------------------------------------
     // Metodos
     //-----------------------------------------------------------
     
-    
+    public SemanaEntity getSemana(){
+        return semana;
+    }
+    public void setSemana(SemanaEntity sem){
+        semana  = sem;
+    }
     /**
      * Determina si la comida se envia o no (Esto varia segun la disponibilidad del cliente)
      * @param pSeEnvia boolean para indicar si se debe o no enviar la comida programada
