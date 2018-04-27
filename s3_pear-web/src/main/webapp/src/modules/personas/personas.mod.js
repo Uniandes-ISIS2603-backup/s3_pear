@@ -11,7 +11,19 @@
                         url: "/personas",
                         templateUrl: "src/modules/personas/personas.html",
                         controller: 'personasController'
-                    });
+                    })
+                    
+                    .state('post_persona', {
+                        url: '/persona/post',
+                        views: {
+                            'post': {
+                                templateUrl: 'src/modules/personas/persona_add.html',
+                                controller: 'personasController'
+                            }
+                        }
+                    })
+            
+            ;
 
         }]);
 })(window.angular);
@@ -51,6 +63,7 @@
                 
                 $http.post(personasContext, data).then(function (response) {
                     $scope.post_data = response.data;
+                    $state.go('personas', {}, {reload: true});
                 });
 
             };
@@ -59,6 +72,7 @@
             $scope.eliminar_persona = function (id) {
                 $http.delete(personasContext + '/' + id,).then(function (response) {
                     $scope.delete_data = response.data;
+                    $state.reload();
                 });
             };
 
