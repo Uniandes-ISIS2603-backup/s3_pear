@@ -30,7 +30,7 @@ public class DiaEntity extends BaseEntity implements Serializable {
     private String fecha;
     
     @PodamExclude
-    @OneToMany( cascade = CascadeType.PERSIST)
+    @OneToMany( cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<ComidaEntity> comidas;
     
     //-----------------------------------------------------------

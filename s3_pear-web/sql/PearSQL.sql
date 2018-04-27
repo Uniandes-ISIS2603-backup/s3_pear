@@ -92,7 +92,7 @@ insert into ComidaEntity(id,cantidad,alimentos) values (01,10,'ejemplo1');
 insert into ComidaEntity(id,cantidad,alimentos) values (02,10,'ejemplo1');
 insert into ComidaEntity(id,cantidad,alimentos) values (03,10,'ejemplo1');
 insert into ComidaEntity(id,cantidad,alimentos) values (04,10,'ejemplo1');
-insert into ComidaEntity(id,cantidad,alimentos) values (05,10,'ejemplo1';
+insert into ComidaEntity(id,cantidad,alimentos) values (05,10,'ejemplo1');
 
 insert into EnvioEntity (id,duracion,direccion,recibido) values (01,10,'ejemplo 1', 1);
 insert into EnvioEntity (id,duracion,direccion,recibido) values (02,20,'ejemplo 2', 0);
@@ -103,8 +103,8 @@ insert into EnvioEntity (id,duracion,direccion,recibido) values (06,60,'ejemplo 
 insert into EnvioEntity (id,duracion,direccion,recibido) values (07,70,'ejemplo 8', 0);
 insert into EnvioEntity (id,duracion,direccion,recibido) values (08,80,'ejemplo7', 1);
 
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2, 'Una harina diaria', '24/03/2018', 0);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (3, 'Consumir arroz integral', '24/03/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (2, 'Una harina diaria', '24/03/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (3, 'Consumir arroz integral', '24/03/2018', 1);
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (4, 'Consumir 5 porciones de vegetales', '02/02/2018', 1);
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (5, 'Una harina diaria','24/03/2018', 0);
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (6, 'Una harina diaria','24/03/2018', 0);
@@ -118,9 +118,12 @@ insert into SemanaEntity(id, fechaLunes) values (12,'30/01/2018');
 insert into SemanaEntity(id, fechaLunes) values (13,'11/02/2018');
 insert into SemanaEntity(id, fechaLunes) values (14,'15/01/2018');
 
-insert into FacturaEntity(id, cantidadDeProductos, numeroFactura) values(1, 5, 1); 
-insert into FacturaEntity(id, cantidadProductos, numeroFactura) values(2, 111, 12);
-insert into FacturaEntity(id, cantidadProductos, numeroFactura) values(3, 1, 13);
-insert into FacturaEntity(id, cantidadProductos, numeroFactura) values(4, 3, 14);
-insert into FacturaEntity(id, cantidadProductos, numeroFactura) values(5, 2, 15);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaa) values(6, 1, 16);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(44, 5, 100418); 
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(45, 3, 200418);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(46, 7, 300418);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(47, 8, 400418);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(48, 2, 100518);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(49, 1,200518);
+
+select * from FacturaEntity;
+
