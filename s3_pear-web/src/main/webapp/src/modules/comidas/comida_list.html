@@ -24,14 +24,14 @@ and open the template in the editor.
                <!-- <img src="{{comida.image}}">-->
             </div>
             <div class="content">
-                <div class="header">{{comida.id}}</div>
-                <div class="meta"><a>ID: {{comida.alimentos}}</a></div>
+                <div class="header">ID:{{comida.id}}</div>
+                <div class="meta"><a>Alimentos: {{comida.alimentos}}</a></div>
                 <div class="description">Cantidad: {{comida.cantidad}} <br/> Tipo de comida: {{comida.TIPO}}</div>
             </div>
             <div class="extra content">
                 <div class="inline flief">
                     <span class="field right floated"><a ng-click="eliminar_comida(comida.id)" style="text-decoration: none;">Eliminar</a></span>
-                    <span class="field right floated"><a href="src/modules/comidas/comida_add.html">Actualizar</a> &nbsp; &nbsp;</span>
+                    <span class="field right floated"><a ui-sref="comida_detail({ id: comida.id })">Actualizar</a> &nbsp; &nbsp;</span>
                 </div>
             </div>
         </div>

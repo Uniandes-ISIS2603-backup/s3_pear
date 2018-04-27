@@ -174,6 +174,7 @@ public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer.
         ComidaEntity en = new ComidaEntity();
         en.setAlimentos(this.alimentos);
         en.setCantidad(this.cantidad);
+        en.setId(this.id);
        // en.setImage(this.image);
         if (TIPO.equalsIgnoreCase("desayuno")) {
             en.setTIPO("desayuno");
@@ -185,7 +186,7 @@ public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer.
             en.setTIPO("adicional");
         }
         en.setDia(this.dia);
-        en.setId(this.id);
+        
         return en;
     }
 }

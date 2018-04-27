@@ -85,12 +85,12 @@
 
 
             $scope.eliminar_comida = function (id) {
-
-                console.log(id + " < Se va a eliminar la comida");
+                console.log(id + ' < Se va a eliminar la comida');
 
                 // DIRECCION HTTP 
                 $http.delete('http://localhost:8080/s3_pear-web/api/comidas/' + id).then(function (response) {
-                    $scope.delete_data = response.data;
+                    $scope.post_data = response.data;
+                    $state.reload();
                 });
             };
 
@@ -101,13 +101,15 @@
                 let data = {
                     alimentos: $scope.new_alimentos,
                     cantidad: $scope.new_cantidad,
-                    TIPO: $scope.new_TIPO,
+                    TIPO: $scope.new_TIPO
                    // image: $scope.new_image
                 };
                 
                 //http://localhost:8080/s3_pear-web/api/comidas/3
-                $http.put('http://localhost:8080/s3_pear-web/api/comidas/' + id, data).then(function (response) {
+                $http.put('http://localhost:8080/s3_pear-web/api/comidas/' + $scope.id_comida, data).then(function (response) {
                     $scope.put_data = response.data;
+                    $state.go($state.current, {}, {reload: true});
+                    $state.go('comidas', {}, {reload: true});
                 });
             };
 
