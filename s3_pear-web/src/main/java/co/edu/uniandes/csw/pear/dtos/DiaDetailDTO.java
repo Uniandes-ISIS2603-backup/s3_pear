@@ -33,6 +33,8 @@ public class DiaDetailDTO extends DiaDTO{
     //-----------------------------------------------------------
     
     private List<ComidaDTO> comidas;
+    
+    private SemanaDTO semana;
     //-----------------------------------------------------------
     //Constructor
     //-----------------------------------------------------------
@@ -54,7 +56,14 @@ public class DiaDetailDTO extends DiaDTO{
         else{
             comidas = new ArrayList<>();
             }
+        if(entity.getSemana() != null){
+            semana =  new SemanaDTO(entity.getSemana());
         }
+        else{
+            semana = null;
+        }
+        }
+        
     }
     
     /**
@@ -68,6 +77,13 @@ public class DiaDetailDTO extends DiaDTO{
     //Metodos
     //-----------------------------------------------------------
     
+    public void setSemana(SemanaDTO sem){
+        semana = sem;
+    }
+    
+    public SemanaDTO getSemana(){
+        return semana;
+    }
     /**
      * Determina las comidas programadas para ese dia
      * @param pComidas comidas programadas
@@ -92,6 +108,9 @@ public class DiaDetailDTO extends DiaDTO{
              listaComidas.add(comi.toEntity());
             });
             entity.setComidas(listaComidas);
+        }
+        if(this.getSemana() != null){
+            entity.setSemana(this.getSemana().toEntity());
         }
         return entity;
     }

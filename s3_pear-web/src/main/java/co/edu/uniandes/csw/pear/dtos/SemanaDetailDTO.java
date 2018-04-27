@@ -29,23 +29,31 @@ public class SemanaDetailDTO extends SemanaDTO {
     //Atributos
     //-----------------------------------------------------------
     private List<DiaDTO> dias;
+    
+    private DietaTipoDTO dieta;
     //-----------------------------------------------------------
     //Constructor
     //-----------------------------------------------------------
     
     public SemanaDetailDTO(SemanaEntity entity){
         super(entity);
-        //TODO: DONE entity puede ser null
         if(entity != null){
             if(entity.getListaDias() != null){
             dias =  new ArrayList<>();
             entity.getListaDias().forEach(di -> {
                 dias.add(new DiaDTO(di));
             });
+            
         }
         else{
             dias = new ArrayList<>();
             }
+            
+          if(entity.getDieta()!= null){
+              dieta  = new DietaTipoDTO( entity.getDieta());
+          }
+          else dieta  =  null;
+         
         } 
     }
     
@@ -70,6 +78,14 @@ public class SemanaDetailDTO extends SemanaDTO {
         return dias;
     }
     
+    public void setDieta(DietaTipoDTO di){
+        dieta = di;
+    }
+    
+    public DietaTipoDTO getDieta(){
+        return dieta;
+    }
+    
     
     
     @Override
@@ -83,7 +99,9 @@ public class SemanaDetailDTO extends SemanaDTO {
             });
             entity.setListaDias(listaDias);
         }
+        if(this.getDieta()!= null){
+            entity.setDieta(this.getDieta().toEntity());
+        }
         return entity;
-    }
-    
+    }  
 }

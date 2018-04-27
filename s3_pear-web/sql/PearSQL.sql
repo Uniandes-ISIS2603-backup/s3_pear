@@ -17,15 +17,14 @@ delete from CuentaCobroEntity;
 
 
 
-insert into CuentaCobroEntity(id, valorAPagar) values (2, 20);
-insert into CuentaCobroEntity(id, valorAPagar) values (3, 25);
-insert into CuentaCobroEntity(id, valorAPagar) values (4, 22);
-insert into CuentaCobroEntity(id, valorAPagar) values (5, 24);
-insert into CuentaCobroEntity(id, valorAPagar) values (6, 22.3);
+insert into CuentaCobroEntity(id, valorAPagar) values (1, 20);
+
 
 insert into PagoEntity(id, montoInicial, montoFinal) values (2, 10, 10);
-insert into MedioPagoEntity(id, medioPagoActual) values (2, 'baloto');
 
+insert into MedioPagoEntity(id, medioPagoActual) values (1, 'Baloto');
+insert into MedioPagoEntity(id, medioPagoActual) values (2, 'Efectivo');
+insert into MedioPagoEntity(id, medioPagoActual) values (3, 'Credito');
 
 
 INSERT INTO DietaTipoEntity(descripcion,id,objetivo,stars,imagen,name) VALUES ('Enterprise-wide coherent access',1,'Versatile tangible task-force',1,'https://images.pexels.com/photos/248444/pexels-photo-248444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260','Dieta Japonesa');
@@ -108,8 +107,8 @@ insert into DiaEntity(id, recomendacion, fecha, seenvia) values (3, 'Consumir ar
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (4, 'Consumir 5 porciones de vegetales', '02/02/2018', 1);
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (5, 'Una harina diaria','24/03/2018', 0);
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (6, 'Una harina diaria','24/03/2018', 0);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (7, 'Una harina diaria','24/03/2018', 0);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (6, 'Solo agua','05/02/2018',0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana) values (7, 'Una harina diaria','24/03/2018', 0);
+
 
 insert into SemanaEntity(id, fechaLunes) values (5,'05/02/2018');
 insert into SemanaEntity(id, fechaLunes) values (10,'05/07/2017');
@@ -125,5 +124,5 @@ insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(47
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(48, 2, 100518);
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(49, 1,200518);
 
-select * from FacturaEntity;
 
+select * from DiaEntity;
