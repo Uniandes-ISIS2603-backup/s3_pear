@@ -24,14 +24,15 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     /*Actuaizacion Ciclo 2*/
     private String imagen;
     private Integer stars;
+    /*Actuaizacion Ciclo 2*/
     
     @PodamExclude
     @ManyToOne(cascade = CascadeType.PERSIST)
     private CuentaCobroEntity cuentaCobro;
     
     @PodamExclude
-    @OneToMany(cascade = CascadeType.PERSIST)
-    private List<SemanaEntity> semanas = new ArrayList<>();
+    @OneToMany( mappedBy = "dieta", cascade = CascadeType.PERSIST)
+    private List<SemanaEntity> semanas;
    
     //-----------------------------------------------------------
     //Metodos

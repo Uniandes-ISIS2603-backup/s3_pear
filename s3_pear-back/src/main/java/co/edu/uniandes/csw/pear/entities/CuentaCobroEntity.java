@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.*;
@@ -16,6 +17,15 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 public class CuentaCobroEntity implements Serializable {
+    
+    
+    /*Relaicion con Dietas*/
+    @PodamExclude
+    @OneToMany(  mappedBy = "cuentaCobro", cascade = CascadeType.PERSIST)
+    private List<DietaTipoEntity> dietas;
+    
+    
+    
     
     private Double valorAPagar;
   
