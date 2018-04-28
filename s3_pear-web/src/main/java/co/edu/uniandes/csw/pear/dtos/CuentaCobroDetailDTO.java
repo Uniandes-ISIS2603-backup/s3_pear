@@ -34,6 +34,7 @@ public class CuentaCobroDetailDTO extends CuentaCobroDTO {
     
     private FacturaDTO factura;
        
+    private DietaTipoDTO dieta;
        
     /**
      * Constructor por defecto
@@ -69,6 +70,13 @@ public class CuentaCobroDetailDTO extends CuentaCobroDTO {
             this.factura = null;
         }
         
+          if(entidad.getDieta()!= null)
+        {
+            this.dieta = new DietaTipoDTO(entidad.getDieta()); 
+        }else
+        {
+            this.dieta = null;
+        }
         
         }
     }
@@ -111,6 +119,11 @@ public class CuentaCobroDetailDTO extends CuentaCobroDTO {
             entidad.setFacturaEntity(getFactura().toEntity());
         }
         
+        if(this.dieta != null)
+        {
+            entidad.setDieta(getDieta().toEntity());
+        }
+        
         return entidad;
     }
 
@@ -126,6 +139,20 @@ public class CuentaCobroDetailDTO extends CuentaCobroDTO {
      */
     public void setFactura(FacturaDTO factura) {
         this.factura = factura;
+    }
+
+    /**
+     * @return the dieta
+     */
+    public DietaTipoDTO getDieta() {
+        return dieta;
+    }
+
+    /**
+     * @param dieta the dieta to set
+     */
+    public void setDieta(DietaTipoDTO dieta) {
+        this.dieta = dieta;
     }
 
 }

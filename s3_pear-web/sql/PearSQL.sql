@@ -16,8 +16,10 @@ delete from CuentaCobroEntity;
 
 
 
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(44, 5, 100418);
+INSERT INTO DietaTipoEntity(descripcion,id,objetivo,stars,imagen,name) VALUES ('Enterprise-wide coherent access',1,'Versatile tangible task-force',1,'https://images.pexels.com/photos/248444/pexels-photo-248444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260','Dieta Japonesa');
 
-insert into CuentaCobroEntity(id, valorAPagar) values (1, 20);
+insert into CuentaCobroEntity(id, valorAPagar, factura_id, dieta_id ) values (1, 20, 44, 1);
 
 
 insert into PagoEntity(id, montoInicial, montoFinal) values (2, 10, 10);
@@ -27,7 +29,7 @@ insert into MedioPagoEntity(id, medioPagoActual) values (2, 'Efectivo');
 insert into MedioPagoEntity(id, medioPagoActual) values (3, 'Credito');
 
 
-INSERT INTO DietaTipoEntity(descripcion,id,objetivo,stars,imagen,name) VALUES ('Enterprise-wide coherent access',1,'Versatile tangible task-force',1,'https://images.pexels.com/photos/248444/pexels-photo-248444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260','Dieta Japonesa');
+
 INSERT INTO DietaTipoEntity(descripcion,id,objetivo,stars,imagen,name) VALUES ('Vision-oriented intermediate matrix',2,'Ergonomic solution-oriented support',2,'https://images.pexels.com/photos/628777/pexels-photo-628777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260','Dieta Verde');
 INSERT INTO DietaTipoEntity(descripcion,id,objetivo,stars,imagen,name) VALUES ('Operative motivating strategy',3,'Balanced tertiary strategy',5,'https://images.pexels.com/photos/660282/pexels-photo-660282.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260','Anti Dieta');
 INSERT INTO DietaTipoEntity(descripcion,id,objetivo,stars,imagen,name) VALUES ('Digitized real-time implementation',4,'Enterprise-wide global architecture',4,'https://images.pexels.com/photos/628776/pexels-photo-628776.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260','Dieta Oriental');
@@ -117,7 +119,7 @@ insert into SemanaEntity(id, fechaLunes) values (12,'30/01/2018');
 insert into SemanaEntity(id, fechaLunes) values (13,'11/02/2018');
 insert into SemanaEntity(id, fechaLunes) values (14,'15/01/2018');
 
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(44, 5, 100418); 
+ 
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(45, 3, 200418);
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(46, 7, 300418);
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(47, 8, 400418);

@@ -95,16 +95,20 @@
 				<div class="template">
 					<div class="cuentas_general">
 						<div class="cuentas_pagar">
-							<br/>
-							<br/>
-							<h3 style="font-size: 80%">Pago inicial</h3>
+
+							<h3 style="font-size: 80%">Valor a Pagar</h3>
                                                         <div ng-repeat="cuenta in cuentaRecords">
-							<h3 style="font-size: 200%">{{cuenta.valorAPagar}} .000 COP</h3>
+							<h3 style="font-size: 200%; color: #2b2b2b">{{cuenta.valorAPagar}} .000 COP</h3>
 							<br/>   
-							<br/>
+                                                        <h3 style="font-size: 90%">Monto Inicial</h3>
+                                                        <h3 style="font-size: 200%">{{cuenta.pago.montoInicial}} .000 COP</h3>
+                                                        <h3 style="font-size: 90%">Monto final</h3>
+                                                        <h3 style="font-size: 200%">{{cuenta.pago.montoFinal}} .000 COP</h3>
                                                         </div>
 							
-						
+                                                        
+                                                        <br>
+                                                         
 							<div  class="metodo_pago">
                                                             <div ng-repeat="medioPago in medioPagoRecords">
                                                             <a ui-sref = "medioPagoDetail({medioPagoId: medioPago.id})"> {{medioPago.medioPagoActual}}</a>
@@ -120,15 +124,26 @@
                                                         <a ui-sref="dietas">PAGAR</a>
 						</div>
 						<div class="cuentas_factura">
-							<h3 style="font-size: 80%;">FACTURA</h3>
+							<h3 style="font-size: 80%; color: black">FACTURA</h3>
+                                                        
+                                                        <div ng-repeat="cuenta in cuentaRecords">
+                                                            <p>{{cuenta.factura.numeroFactura}}</p>
+                                                            <p style="font-size: 80%; color: black">TIPO DIETA</p>
+                                                            <p>{{cuenta.dieta.name}}<p>
+                                                               
+                                                                <img class="img-rounded" style = "height: 80%; width: 80%;" src="{{cuenta.dieta.imagen}}">
+                                                               
+                                                             <p style="font-size: 80%; color: black">CANTIDAD PRODUCTOS</p>
+                                                             <p>{{cuenta.factura.cantidadDeProductos}} </p>
+                                                            
+                                                            </div>
 							
 							<div> <!-- TODO  <div ng-repeat="cuenta in cuentas | orderBy : 'id'">   -->
 								<!-- ng-repeat-->
 								<br/>
-								<p class="factura">16/04/18</p>
-								<p class="factura">Desayuno..........................7.500</p>
-								<p class="factura">Almuerzo..........................13.000</p>
-								<p class="factura">Comida............................15.000</p>
+                                                                
+                                                                
+                                                                
 							</div>
 							
 						</div>

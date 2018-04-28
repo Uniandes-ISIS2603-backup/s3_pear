@@ -19,12 +19,11 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class CuentaCobroEntity implements Serializable {
     
     
-    /*Relaicion con Dietas*/
+    
+    
     @PodamExclude
-    @OneToMany(  mappedBy = "cuentaCobro", cascade = CascadeType.PERSIST)
-    private List<DietaTipoEntity> dietas;
-    
-    
+    @OneToOne
+    private DietaTipoEntity dieta;
     
     
     private Double valorAPagar;
@@ -104,6 +103,20 @@ public class CuentaCobroEntity implements Serializable {
      */
     public void setFacturaEntity(FacturaEntity factura) {
         this.factura = factura;
+    }
+
+    /**
+     * @return the dieta
+     */
+    public DietaTipoEntity getDieta() {
+        return dieta;
+    }
+
+    /**
+     * @param dieta the dieta to set
+     */
+    public void setDieta(DietaTipoEntity dieta) {
+        this.dieta = dieta;
     }
     
     
