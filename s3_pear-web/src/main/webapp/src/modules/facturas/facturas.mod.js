@@ -41,14 +41,6 @@
 
 	var mod = ng.module("facturaModule");
 	mod.constant("facturaContext", "api/facturas");
-        mod.filter('range', function () {
-        return function (input, total) {
-            total = parseInt(total);
-            for (var i = 0; i < total; i++)
-                input.push(i);
-            return input;
-        };
-    });
 
 
 	mod.controller('facturasController', ['$scope', '$http', 'facturaContext', '$state',
