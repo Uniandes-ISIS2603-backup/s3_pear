@@ -30,7 +30,7 @@
                     <td>{{ persona.apellido}}</td>
                     <td>{{ persona.edad}}</td>
                     <td>{{ persona.correo}}</td>
-                    <td><p style="color: gray" ng-click="">detalles</p></td>
+                    <td><p style="color: gray" ui-sref="detailPersona({ id: persona.id })">detalles</p></td>
                     <td><a class="item active" style="color: gray" ui-sref="envios">envíos</a></td>
                     <td><p style="color: gray" ng-click="eliminar_persona(persona.id)">eliminar</p></td>
                 </tr>

@@ -113,23 +113,30 @@ public class PersonaDetailDTO extends PersonaDTO {
 
     @Override
     public PersonaEntity toEntity() {
-        //DONE: Sin terminar 
         PersonaEntity entidad = super.toEntity();
         if(entidad != null){
-            entidad.setDieta(dieta.toEntity());
+            if(dieta != null)
+                entidad.setDieta(dieta.toEntity());
             
             List<QuejasyReclamosEntity> qyrE = new ArrayList<QuejasyReclamosEntity>();
-            for(QuejasyReclamosDTO qyr: quejas){
-                if(qyr != null)
-                    qyrE.add(qyr.toEntity());
+            
+            if(quejas != null){
+                for(QuejasyReclamosDTO qyr: quejas){
+                    if(qyr != null)
+                        qyrE.add(qyr.toEntity());
+                }
             }
             entidad.setQuejas(qyrE);
             
             List<FacturaEntity> fE = new ArrayList<FacturaEntity>();
-            for(FacturaDTO f: facturas){
-                if(f != null)
-                    fE.add(f.toEntity());
+            
+            if(facturas != null){
+                for(FacturaDTO f: facturas){
+                    if(f != null)
+                        fE.add(f.toEntity());
+                }
             }
+        
             entidad.setFacturas(fE);
         }
         return entidad;
