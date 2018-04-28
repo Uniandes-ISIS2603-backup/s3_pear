@@ -91,10 +91,10 @@ insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscr
 
 
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (01,10,'ejemplo1','desayuno'/**,'https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'*/);
-insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (02,10,'ejemplo2','almuerzo'/**,'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'*/);
-insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (03,10,'ejemplo3','adicional'/**,'https://images.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg?cs=srgb&dl=close-up-cooking-dinner-46239.jpg&fm=jpg'*/);
-insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (04,10,'ejemplo4','almuerzo'/**,'https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'*/);
-insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (05,10,'ejemplo5','cena'/**,'https://images.pexels.com/photos/8500/food-dinner-pasta-spaghetti-8500.jpg?auto=compress&cs=tinysrgb&h=750&w=1260'*/);
+insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (02,187,'ejemplo2','almuerzo'/**,'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'*/);
+insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (03,93,'ejemplo3','adicional'/**,'https://images.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg?cs=srgb&dl=close-up-cooking-dinner-46239.jpg&fm=jpg'*/);
+insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (04,87,'ejemplo4','almuerzo'/**,'https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'*/);
+insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (05,98,'ejemplo5','cena'/**,'https://images.pexels.com/photos/8500/food-dinner-pasta-spaghetti-8500.jpg?auto=compress&cs=tinysrgb&h=750&w=1260'*/);
 
 insert into EnvioEntity (id,duracion,direccion,recibido) values (01,10,'ejemplo 1', 1);
 insert into EnvioEntity (id,duracion,direccion,recibido) values (02,20,'ejemplo 2', 0);
@@ -142,3 +142,4 @@ insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_i
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(49, 1, 200518,5);
 
 
+Select * from ComidaEntity;
