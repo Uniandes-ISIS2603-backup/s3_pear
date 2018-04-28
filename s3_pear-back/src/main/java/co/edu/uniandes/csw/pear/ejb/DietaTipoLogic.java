@@ -75,15 +75,7 @@ public class DietaTipoLogic {
         return this.getDieta(dieta_id).getSemanas();
     }
     
-    /**
-     * Retorna la instacia de Cuenta de Cobro asociada a la Dieta por id
-     * @param dieta_id
-     * @return cuenta de cobro entity de la dietas
-     */
-    public CuentaCobroEntity getCuentaCobroDeDieta( Long dieta_id ) {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar la Cuenta de Cobro de la Dieta con id = {0}", dieta_id);
-        return this.getDieta(dieta_id).getCuentaCobro();
-    }
+    
     
     /**
      * Retorna una instancia de Semana por Id asociada a una Dieta por Id
@@ -141,19 +133,7 @@ public class DietaTipoLogic {
         return this.getSemanaDeDieta(semana_id, dieta_id);
     }
     
-    /**
-     * Asocia una Cuenta de Cobro existente con una Dieta
-     * @param cuenta_id
-     * @param dieta_id
-     * @return 
-     */
-    public CuentaCobroEntity addCuentaCobroToDieta( Long cuenta_id, Long dieta_id ) {
-        LOGGER.log(Level.INFO, "Inicia proceso de asociar una Cuenta de Cobro con id = {0} con una Dieta con id = {1}", new Object[]{cuenta_id, dieta_id});
-        CuentaCobroEntity cc = new CuentaCobroEntity();
-        cc.setId(dieta_id);
-        this.getDieta(dieta_id).setCuentaCobro(cc);
-        return this.getCuentaCobroDeDieta(dieta_id);
-    }
+   
     
     /**
      * Actualiza una Dieta por id
@@ -193,19 +173,7 @@ public class DietaTipoLogic {
         return this.getDieta(dieta_id).getSemanas();
     }
     
-    /**
-     * Actualiza la Cuenta de Cobro por id de una Dieta por id
-     * @param cuenta_id
-     * @param dieta_id
-     * @return 
-     */
-    public CuentaCobroEntity updateCuentaCobroDeDieta( Long cuenta_id, Long dieta_id ) {
-        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la cuenta de cobro con id = {0} de Dieta con id = {1}", new Object[] { cuenta_id, dieta_id});
-        CuentaCobroEntity cc = new CuentaCobroEntity();
-        cc.setId(cuenta_id);
-        this.getDieta(dieta_id).setCuentaCobro(cc);
-        return this.getCuentaCobroDeDieta(dieta_id);
-    }
+  
     
     /**
      * =======================================
@@ -235,13 +203,6 @@ public class DietaTipoLogic {
         this.getDieta(dieta_id).getSemanas().remove(semana);
     }
     
-    /**
-     * Elimina la Cuenta de Cobro asociada con la Dieta
-     * @param dieta_id 
-     */
-    public void deleteCuentaCobroDeDieta( Long dieta_id ) {
-        LOGGER.log(Level.INFO, "La Cuenta de Cobro de la Dieta con id = {0} se va a eliminar", dieta_id);
-        this.getDieta(dieta_id).setCuentaCobro(null);
-    }
+    
     
 }

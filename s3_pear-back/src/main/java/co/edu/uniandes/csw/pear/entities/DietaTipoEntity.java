@@ -25,10 +25,7 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     private String imagen;
     private Integer stars;
     /*Actuaizacion Ciclo 2*/
-    
-    @PodamExclude
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    private CuentaCobroEntity cuentaCobro;
+ 
     
     @PodamExclude
     @OneToMany( mappedBy = "dieta", cascade = CascadeType.PERSIST)
@@ -74,21 +71,7 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
         this.descripcion = descripcion;
     }
 
-    /**
-     * Cueta de cobro asociada a la dieta. Cotiene la informacion sobre el costo total de la dieta.
-     * @return cuenta de cobro
-     */
-    public CuentaCobroEntity getCuentaCobro() {
-        return cuentaCobro;
-    }
-
-    /**
-     * Cambia la cuenta de cobro
-     * @param cuentaCobro 
-     */
-    public void setCuentaCobro(CuentaCobroEntity cuentaCobro) {
-        this.cuentaCobro = cuentaCobro;
-    }
+    
 
     /**
      * Semanas, duracion de la dieta

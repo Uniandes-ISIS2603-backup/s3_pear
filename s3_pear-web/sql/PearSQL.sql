@@ -91,9 +91,9 @@ INSERT INTO DIETATIPOENTITY (DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCIN
 	VALUES ('dieta basada en alimentos del mar', 'https://images.pexels.com/photos/36768/food-salmon-teriyaki-cooking.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Pacifica', 'el objetivo de la dieta es alejarse de las carnes rojas', 4, NULL, 1);
 
 
-/*
+
 UPDATE CUENTACOBROENTITY SET DIETA_ID = 1;
-*/
+
 
 
 
