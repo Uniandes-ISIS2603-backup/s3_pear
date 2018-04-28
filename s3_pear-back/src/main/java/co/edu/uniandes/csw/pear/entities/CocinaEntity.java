@@ -26,7 +26,7 @@ public class CocinaEntity extends BaseEntity implements Serializable {
     private String imagen;
     
     @PodamExclude
-    @OneToMany
+    @OneToMany( mappedBy = "cocina", cascade = CascadeType.PERSIST)
     private List<DietaTipoEntity> dietas = new ArrayList<>();
 
 //-----------------------------------------------------------
@@ -71,6 +71,14 @@ public class CocinaEntity extends BaseEntity implements Serializable {
      */
     public List<DietaTipoEntity> getDietas() {
         return dietas;
+    }
+    
+    /**
+     * Agrega una entitdad de dieta a la cocina
+     * @param dieta 
+     */
+    public void add_dieta ( DietaTipoEntity dieta ) {
+        this.dietas.add(dieta);
     }
 
     /**
