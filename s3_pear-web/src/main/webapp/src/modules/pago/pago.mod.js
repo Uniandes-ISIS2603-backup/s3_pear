@@ -11,6 +11,9 @@
 					url: '/pago',
 					templateUrl:  basePath + 'hacerpago.html',
 					controller: 'pagoController',
+                                        param: {
+                                            clienteActual: null
+                                        }
 
                                          
 				}).state ('medioPagoDetail',{

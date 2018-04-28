@@ -65,6 +65,34 @@ public class CocinaLogic {
         return cocina;
     }
     
+    
+    /**
+     * Retorna la dieta que se agrefgó a la cocina
+     * @param cocina_id
+     * @param dieta
+     * @return 
+     */
+    public DietaTipoEntity add_dieta ( Long cocina_id, DietaTipoEntity dieta ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de insertar una dieta de la Cocina con id = {0}", cocina_id);
+        this.getCocina(cocina_id).add_dieta(dieta);
+        return dieta;
+    }
+    
+    
+    /**
+     * Retorna los IDs de las Dietas que se reaqlizan en la Cocina por ID
+     * @param id
+     * @return 
+     */
+    public List<Integer> get_dietas_cocinaID ( Long id ) {
+        LOGGER.log(Level.INFO, "Inicia consulta de dietas de la cocina con id = {0}", id);
+        List<Integer> dietas = persistence.get_dietas_cocinaID(id);
+        if ( dietas ==  null )
+            LOGGER.log(Level.INFO, "No existen Dietas en una Cocina con el id = {0}", id);
+        LOGGER.log(Level.INFO, "Termina la consulta de deitas de la  cocina con id = {0}", id);
+        return dietas;
+    } 
+    
     /**
      * Retorna colection de instancias de Dietas asociadas a una Cocina por id
      * @param cocina_id
@@ -126,7 +154,7 @@ public class CocinaLogic {
         LOGGER.log(Level.INFO, "Inicia proceso de asociar una Dieta con id = {0} a una Cocina con id = {1}", new Object[]{dieta_id, cocina_id});              
         DietaTipoEntity dieta = new DietaTipoEntity();
         dieta.setId(dieta_id);
-        this.getCocina(cocina_id).getDietas().add(dieta);
+        this.getCocina(cocina_id).add_dieta(dieta);
         return this.getDietaDeCocina(dieta_id, cocina_id);
     }
     

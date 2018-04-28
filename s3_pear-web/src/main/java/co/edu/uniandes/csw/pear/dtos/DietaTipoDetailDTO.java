@@ -2,7 +2,7 @@
 * To change this license header, choose License Headers in Project Properties.
 * To change this template file, choose Tools | Templates
 * and open the template in the editor.
-*/
+ */
 package co.edu.uniandes.csw.pear.dtos;
 //TODO: DONE borrar loque no se necesita
 
@@ -22,22 +22,22 @@ import java.util.List;
  * @author js.garcial1
  */
 public class DietaTipoDetailDTO extends DietaTipoDTO {
-    
+
     private CuentaCobroDTO cuentaCobro;
-    
+
     private List<SemanaDTO> semanas;
-    
+
     /**
      * Constructo de DietaTipoDetailDTO
      */
     public DietaTipoDetailDTO() {
         super();
     }
-    
+
     public DietaTipoDetailDTO(DietaTipoEntity entity) {
         super(entity);
-        //TODO: DONE entity puede ser null
-        if ( entity != null ) {
+        if (entity != null) {
+
             if (entity.getCuentaCobro() != null) {
                 this.cuentaCobro = new CuentaCobroDTO(entity.getCuentaCobro());
             } else {
@@ -45,39 +45,45 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
             }
 
             if (entity.getSemanas() != null) {
-                this.semanas = new ArrayList<>();
-                entity.getSemanas().forEach(semanita -> {
-                    this.semanas.add(new SemanaDTO(semanita));
-                });
+
+                semanas = new ArrayList<>();
+
+                for (SemanaEntity semana : entity.getSemanas()) {
+                    semanas.add(new SemanaDTO(semana));
+                }
+
             } else {
                 this.semanas = new ArrayList<>();
             }
+
         }
 
     }
-    
+
     public CuentaCobroDTO getCuentaCobro() {
         return cuentaCobro;
     }
-    
+
     public void setCuentaCobro(CuentaCobroDTO cuentaCobro) {
         this.cuentaCobro = cuentaCobro;
     }
-    
+
     public List<SemanaDTO> getSemanas() {
         return semanas;
     }
-    
+
     public void setSemanas(List<SemanaDTO> semanas) {
         this.semanas = semanas;
     }
-    
+
     @Override
     public DietaTipoEntity toEntity() {
         DietaTipoEntity en = super.toEntity();
+
         if (this.getCuentaCobro() != null) {
             en.setCuentaCobro(this.getCuentaCobro().toEntity());
         }
+
         if (this.getSemanas() != null) {
             List<SemanaEntity> sems = new ArrayList<>();
             this.getSemanas().forEach(semanita -> {
@@ -87,5 +93,5 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
         }
         return en;
     }
-    
+
 }

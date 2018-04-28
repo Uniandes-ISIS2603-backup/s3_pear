@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Cocina",
-		"_postman_id": "21e21532-a90d-e616-aed1-477c4a3621da",
+		"_postman_id": "2bff7be6-f450-c40e-0a75-d436a22ba155",
 		"description": "servicios REST sobre el recurso Cocina",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -32,7 +32,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"ubicacion\": \"Una ubicacion POST\",\n  \"capacidad\": \"una capacidad POST\"\n  }"
+					"raw": "{\n  \"capacidad\": \"2008\",\n   \"imagen\": \"https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940\",\n   \"name\": \"La Gran Cocina\",\n   \"ubicacion\": \"8871 Merry Point\",\n  \"dietas\": [\n\t\t  \t{\n\t\t        \"type\": \"dietaTipoDetailDTO\",\n\t\t        \"descripcion\": \"Enterprise-wide coherent access\",\n\t\t        \"id\": 1,\n\t\t        \"imagen\": \"https://images.pexels.com/photos/248444/pexels-photo-248444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260\",\n\t\t        \"name\": \"Dieta Japonesa\",\n\t\t        \"objetivo\": \"Versatile tangible task-force\",\n\t\t        \"stars\": 1,\n\t\t        \"semanas\": []\n\t\t    },\n\t\t    {\n\t\t        \"type\": \"dietaTipoDetailDTO\",\n\t\t        \"descripcion\": \"Vision-oriented intermediate matrix\",\n\t\t        \"id\": 2,\n\t\t        \"imagen\": \"https://images.pexels.com/photos/628777/pexels-photo-628777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260\",\n\t\t        \"name\": \"Dieta Verde\",\n\t\t        \"objetivo\": \"Ergonomic solution-oriented support\",\n\t\t        \"stars\": 2,\n\t\t        \"semanas\": []\n\t\t    },\n\t\t    {\n\t\t        \"type\": \"dietaTipoDetailDTO\",\n\t\t        \"descripcion\": \"Operative motivating strategy\",\n\t\t        \"id\": 3,\n\t\t        \"imagen\": \"https://images.pexels.com/photos/660282/pexels-photo-660282.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260\",\n\t\t        \"name\": \"Anti Dieta\",\n\t\t        \"objetivo\": \"Balanced tertiary strategy\",\n\t\t        \"stars\": 5,\n\t\t        \"semanas\": []\n\t\t    }\n  \t]\n  }"
 				},
 				"description": "crea una cocina por medio del servicio POST"
 			},
@@ -85,8 +85,17 @@
 			"request": {
 				"url": "http://localhost:8080/s3_pear-web/api/cocinas",
 				"method": "GET",
-				"header": [],
-				"body": {},
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": "retorna todas las cocinas registradas en la base de datos"
 			},
 			"response": []
@@ -108,7 +117,10 @@
 				"url": "http://localhost:8080/s3_pear-web/api/cocinas/2",
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": "retorna la cocina registrada por id = 2"
 			},
 			"response": []
@@ -234,6 +246,17 @@
 					"raw": ""
 				},
 				"description": "falla eliminando una cocina que no existe"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Agrega una Dieta a una Cocina",
+			"request": {
+				"url": "http://localhost:8080/s3_pear-web/api/cocinas/2/dietas/2",
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"description": "este servicio agrega una dieta, existente, por id a una cocina por id "
 			},
 			"response": []
 		}
