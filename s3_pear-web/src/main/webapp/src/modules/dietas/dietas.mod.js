@@ -119,8 +119,6 @@
                     $state.go('dietas', {}, {reload: true});
                 });
             };
-
         }
-
     ]);
 })(window.angular);

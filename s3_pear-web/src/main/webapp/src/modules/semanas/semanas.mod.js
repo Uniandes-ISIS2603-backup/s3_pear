@@ -32,7 +32,7 @@
             
             //semanaContext
            
-			$http.get( 'src/modules/semanas/semanas.json').then(function (response) {
+			$http.get( 'http://localhost:8080/s3_pear-web/api/semanas').then(function (response) {
 				$scope.semanas = response.data;
 			}).then(function (response) {
                 console.log('FAILED GET SEMANAS' + response);
