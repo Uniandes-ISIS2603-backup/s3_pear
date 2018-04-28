@@ -16,10 +16,11 @@ delete from CuentaCobroEntity;
 
 
 
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(44, 5, 100418);
+
 INSERT INTO DietaTipoEntity(descripcion,id,objetivo,stars,imagen,name) VALUES ('Enterprise-wide coherent access',1,'Versatile tangible task-force',1,'https://images.pexels.com/photos/248444/pexels-photo-248444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260','Dieta Japonesa');
 
-insert into CuentaCobroEntity(id, valorAPagar, factura_id, dieta_id ) values (1, 20, 44, 1);
+insert into CuentaCobroEntity(id, valorAPagar, factura_id, dieta_id ) values (1, 20, 45, 1);
+insert into CuentaCobroEntity(id, valorAPagar, factura_id, dieta_id ) values (1, 20, 46, 1);
 
 
 insert into PagoEntity(id, montoInicial, montoFinal) values (2, 10, 10);
@@ -104,27 +105,40 @@ insert into EnvioEntity (id,duracion,direccion,recibido) values (06,60,'ejemplo 
 insert into EnvioEntity (id,duracion,direccion,recibido) values (07,70,'ejemplo 8', 0);
 insert into EnvioEntity (id,duracion,direccion,recibido) values (08,80,'ejemplo7', 1);
 
-insert into DiaEntity(id, recomendacion, fecha, seenvia) values (2, 'Una harina diaria', '24/03/2018', 0);
-insert into DiaEntity(id, recomendacion, fecha, seenvia) values (3, 'Consumir arroz integral', '24/03/2018', 1);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (4, 'Consumir 5 porciones de vegetales', '02/02/2018', 1);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (5, 'Una harina diaria','24/03/2018', 0);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (6, 'Una harina diaria','24/03/2018', 0);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana) values (7, 'Una harina diaria','24/03/2018', 0);
+insert into SemanaEntity(id, fechaLunes) values (221,'26/03/2018');
+insert into SemanaEntity(id, fechaLunes) values (222,'02/04/2018');
+insert into SemanaEntity(id, fechaLunes) values (223,'09/04/2018');
 
 
-insert into SemanaEntity(id, fechaLunes) values (5,'05/02/2018');
-insert into SemanaEntity(id, fechaLunes) values (10,'05/07/2017');
-insert into SemanaEntity(id, fechaLunes) values (11,'30/01/2018');
-insert into SemanaEntity(id, fechaLunes) values (12,'30/01/2018');
-insert into SemanaEntity(id, fechaLunes) values (13,'11/02/2018');
-insert into SemanaEntity(id, fechaLunes) values (14,'15/01/2018');
+insert into DiaEntity(id, recomendacion, fecha, seenvia, semana_id) values (1, '', '26/03/2018', 1,221);
+insert into DiaEntity(id, recomendacion, fecha, seenvia, semana_id) values (2, '','27/03/2018', 1,221);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (3, '', '28/03/2018', 1,221);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (4, 'No consumir azucar refinada','29/03/2018', 0,221);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (5, 'Una harina diaria','30/03/2018', 0,221);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (6, 'Tomar 2 litros de agua','31/03/2018', 0,221);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (7, '','01/04/2018', 1,221);
+
+insert into DiaEntity(id, recomendacion, fecha, seenvia, semana_id) values (8, 'Una harina diaria', '02/04/2018', 0,222);
+insert into DiaEntity(id, recomendacion, fecha, seenvia, semana_id) values (9, 'Consumir arroz integral', '03/04/2018', 0,222);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (10,'Consumir 5 porciones de vegetales', '04/04/2018', 0,222);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (11, '','05/04/2018', 1, 222);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (12, '','06/04/2018', 1, 222);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (13, '','07/04/2018', 1, 222);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (14, 'Una harina diaria','08/04/2018', 0, 222);
+
+insert into DiaEntity(id, recomendacion, fecha, seenvia, semana_id) values (15, '', '09/04/2018', 1,223);
+insert into DiaEntity(id, recomendacion, fecha, seenvia, semana_id) values (16, '', '10/04/2018', 1,223);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (17, '', '11/04/2018', 1,223);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (18, 'Una harina diaria','12/04/2018', 0,223);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (19, 'Una harina diaria','13/04/2018', 0,223);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (20, 'Una harina diaria','14/04/2018', 0,223);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (21, 'Una harina diaria','15/04/2018', 0,223);
 
  
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(45, 3, 200418);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(46, 7, 300418);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(47, 8, 400418);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(48, 2, 100518);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta) values(49, 1,200518);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(45, 3, 200418,1);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(46, 7, 300418,2);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(47, 8, 400418,3);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(48, 2, 100518,4);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(49, 1, 200518,5);
 
 
-select * from DiaEntity;
