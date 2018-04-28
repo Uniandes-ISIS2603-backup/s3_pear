@@ -111,6 +111,8 @@
                     stars: $scope.new_stars,
                     imagen: $scope.new_imagen
                 };
+                
+                console.log(data);
 
                 //http://localhost:8080/s3_pear-web/api/dietas/3
                 $http.put('http://localhost:8080/s3_pear-web/api/dietas/' + $scope.id_dieta, data).then(function (response) {

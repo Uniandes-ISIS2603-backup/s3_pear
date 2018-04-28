@@ -58,13 +58,12 @@
                 let data = {
                     capacidad: $scope.capacidad,
                     ubicacion: $scope.ubicacion,
-                    //imagen: $scope.imagen,
+                    imagen: $scope.imagen,
                     name: $scope.name
                 };
 
                 console.log(data);
 
-                // DIRECCION HTTP 
                 $http.post('http://localhost:8080/s3_pear-web/api/cocinas', data).then(function (response) {
                     $scope.post_data = response.data;
                     $state.go('cocinas', {}, {reload: true});
@@ -75,7 +74,6 @@
             if ($state.params.id !== null && $state.params.id !== undefined) {
                 $scope.id_cocina = $state.params.id;
 
-                // TODO Descomentar
                 $http.get('http://localhost:8080/s3_pear-web/api/cocinas/' + $state.params.id).then(function (response) {
                     $scope.cocina = response.data;
                 });
@@ -86,7 +84,6 @@
             $scope.eliminar_cocina = function (id) {
                 console.log(id + ' < Se va a eliminar la cocina');
 
-                // DIRECCION HTTP 
                 $http.delete('http://localhost:8080/s3_pear-web/api/cocinas/' + id).then(function (response) {
                     $scope.post_data = response.data;
                     $state.reload();
@@ -95,16 +92,18 @@
 
 
             $scope.actualizar_cocina = function () {
-                console.log($scope.id_cocina + " < Se va a actualizar la cocina.");
+                
 
                 let data = {
                     name: $scope.new_nombre,
                     ubicacion: $scope.new_ubicacion,
                     capacidad: $scope.new_capacidad,
-                   // imagen: $scope.new_imagen
+                    imagen: $scope.new_imagen
                 };
+                
+                console.log($scope.id_cocina + " < Se va a actualizar la cocina.");
+                console.log(cocina);
 
-                //http://localhost:8080/s3_pear-web/api/dietas/3
                 $http.put('http://localhost:8080/s3_pear-web/api/cocinas/' + $scope.id_cocina, data).then(function (response) {
                     $scope.put_data = response.data;
                     $state.go($state.current, {}, {reload: true});
