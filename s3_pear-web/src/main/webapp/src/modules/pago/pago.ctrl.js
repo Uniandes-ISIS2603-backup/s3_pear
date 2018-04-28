@@ -33,7 +33,7 @@
                     medioPagoActual: $scope.medioPagoAgregar
                 };
 
-                console.log(data);
+                console.log(data.medioPagoActual);
 
                 // DIRECCION HTTP 
                 $http.post('http://localhost:8080/s3_pear-web/api/mediopagos', data).then(function (response) {
