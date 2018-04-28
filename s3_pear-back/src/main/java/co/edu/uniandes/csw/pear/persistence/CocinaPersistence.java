@@ -59,6 +59,23 @@ public class CocinaPersistence {
         return q.getResultList();
     }
     
+    
+    
+    /**
+     * Retorna los IDs de las Dietas que se prpeparan en la cocina
+     * @param id
+     * @return 
+     */
+    public List<Integer> get_dietas_cocinaID ( Long id ) {
+        
+        LOGGER.log(Level.INFO, "Consultando las dietas de la cocina por id = {0}", id);
+        Query q;
+        String stm = "SELECT C.DIETAS_ID FROM COCINAENTITY_DIETATIPOENTITY C WHERE COCINAENTITY_ID = " + id;
+        q = em.createQuery( stm );
+        return q.getResultList();
+    }
+    
+    
     /**
      * Crea una nueva cocina a partir de una Entity dada
      * @param entity de tipo CocinaEntity

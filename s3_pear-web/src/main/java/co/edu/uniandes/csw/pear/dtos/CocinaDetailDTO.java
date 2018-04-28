@@ -12,62 +12,55 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *{
-   "id": 123,
-  "ubicacion": "Una ubicacion",
-  "capacidad": "una capacidad",
-  "dietas": [
-              
-       {
-            "objetivo": "un objetivo",
-            "descripcion": "una descripcion",
-            "cuentaDeCobro": {
-                     "valorAPagar": 23.00
-                   },
-            "semanas":[
-                    {
-   		"fechaLunes":"2012-04-23T18:25:43.511Z",
-   		"dias":[
-   			{
-   				"SeEnvia": true,
-   				"recomendacion": "una recomendacion",
-            	"fecha": "2012-04-23T18:25:43.511Z"
-                        }
-                    ]
-                }
-               ]
-        }
-  
-  
-    ]
-  }
+ * {
+ * "id": 123, "ubicacion": "Una ubicacion", "capacidad": "una capacidad",
+ * "dietas": [
+ *
+ * {
+ * "objetivo": "un objetivo", "descripcion": "una descripcion", "cuentaDeCobro":
+ * { "valorAPagar": 23.00 }, "semanas":[ {
+ * "fechaLunes":"2012-04-23T18:25:43.511Z", "dias":[ { "SeEnvia": true,
+ * "recomendacion": "una recomendacion", "fecha": "2012-04-23T18:25:43.511Z" } ]
+ * } ] }
+ *
+ *
+ * ]
+ * }
+ *
  * @author js.garcial1
  */
 public class CocinaDetailDTO extends CocinaDTO {
-    
+
     private List<DietaTipoDTO> dietas;
-    //TODO: DONE esta documentación es un mal copy/paste
-    /** 
+
+    /**
      * Constructor CocinaDetail con paramatros
      */
-    public CocinaDetailDTO(  ) {
+    public CocinaDetailDTO() {
         super();
     }
-    
-    public CocinaDetailDTO( CocinaEntity entity ) {
+
+    public CocinaDetailDTO(CocinaEntity entity) {
         super(entity);
-        //TODO: DONE entity puede ser null
-        if ( entity != null ) {
-            if ( entity.getDietas() != null ) {
+
+        if (entity != null) {
+
+            if (entity.getDietas() != null) {
+
+                dietas = new ArrayList<>();
+
+                for (DietaTipoEntity dieta : entity.getDietas()) {
+
+                    dietas.add(new DietaTipoDTO(dieta));
+
+                }
+
+            } else {
                 this.dietas = new ArrayList<>();
-                entity.getDietas().forEach( dieta -> {
-                    this.dietas.add(new DietaTipoDTO(dieta));
-                });
             }
-            else 
-                this.dietas = new ArrayList<>();
+
         }
-        
+
     }
 
     public List<DietaTipoDTO> getDietas() {
@@ -77,23 +70,20 @@ public class CocinaDetailDTO extends CocinaDTO {
     public void setDietas(List<DietaTipoDTO> dietas) {
         this.dietas = dietas;
     }
-    
-    
-    
-    @Override 
+
+    @Override
     public CocinaEntity toEntity() {
         CocinaEntity en = super.toEntity();
-        if( this.getDietas() != null ) {
+
+        if (this.getDietas() != null) {
+
             List<DietaTipoEntity> dts = new ArrayList<>();
-            this.getDietas().forEach( dieta -> {
+            this.getDietas().forEach(dieta -> {
                 dts.add(dieta.toEntity());
             });
             en.setDietas(dts);
         }
         return en;
     }
-    
-    
-    
-    
+
 }
