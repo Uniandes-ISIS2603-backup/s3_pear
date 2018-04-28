@@ -13,6 +13,15 @@
                         controller: 'personasController'
                     })
                     
+                    .state('detailPersona', {
+                        url: "/personas/:id/detail",
+                        param: {
+                            id: null
+                        },
+                        templateUrl: "src/modules/personas/persona_detail.html",
+                        controller: 'personasController'
+                    })
+                    
                     .state('post_persona', {
                         url: '/persona/post',
                         views: {
@@ -36,17 +45,25 @@
 
     mod.constant("personasContext", "api/personas");
 
-    mod.controller('personasController', ['$scope', '$http', 'personasContext',
+    mod.controller('personasController', ['$scope', '$http', 'personasContext', '$state',
 
-        function ($scope, $http, personasContext) {
-
-            //personasContext
-            $http.get('src/modules/personas/personas.json').then(function (response) {
+        function ($scope, $http, personasContext, $state) {
+            
+            //GET
+            $http.get('http://localhost:8080/s3_pear-web/api/personas').then(function (response) {
                 $scope.personas = response.data;
             });
+            
+            //GET DETAIL
+            if ($state.params.id !== null && $state.params.id !== undefined) {
+                $scope.id_persona = $state.params.id;
 
+                $http.get('http://localhost:8080/s3_pear-web/api/personas/' + $state.params.id).then(function (response) {
+                    $scope.persona = response.data;
+                });
+            }
 
-
+            //POST
             $scope.post_persona = function () {
                 
                 let data = {

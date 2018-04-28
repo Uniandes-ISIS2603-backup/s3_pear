@@ -1,0 +1,81 @@
+<div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;" ng-app="personaModule" ng-controller="personasController">
+
+    <div class="row">
+        <div class="column">
+            <div class="inline field">
+                <h1 class="ui dividing header" style="font-weight: 300; color: gray;"> <i ui-sref="personas" class="ion-chevron-left"></i> &nbsp; Usuario</h1>
+            </div>
+            <hr/>
+        </div>
+    </div>
+
+    
+    
+     
+        <table class="ui very basic table">
+            
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            
+            <tbody>
+                
+              <tr>
+                <td>
+                    {{ persona.id }}
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <p>{{ persona.nombre }} {{ persona.apellido }}</p>
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <p>{{ persona.edad }} años</p> 
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+              
+              <tr>
+                <td>
+                    <p>{{ persona.direccion }}</p> 
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+              
+              <tr>
+                <td>
+                    <p>{{ persona.correo }}</p> 
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+              
+              <tr>
+                <td>
+                    <p>{{ persona.identificacion }}</p> 
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+              
+            </tbody>
+         
+        </table>
+</div>
