@@ -31,7 +31,17 @@
                             }
                         }
                     })
+                    
+                    .state('actualizar_persona', {
+                        url: '/personas/:id/put',
+                        param: {
+                            id: null
+                        },
+                        templateUrl: "src/modules/personas/persona_update.html",
+                        controller: 'personasController'
+                    })
             
+                    
             ;
 
         }]);
@@ -62,7 +72,7 @@
                     $scope.persona = response.data;
                 });
             }
-
+            
             //POST
             $scope.post_persona = function () {
                 
@@ -85,7 +95,7 @@
 
             };
             
-            
+            //DELETE
             $scope.eliminar_persona = function (id) {
                 $http.delete(personasContext + '/' + id,).then(function (response) {
                     $scope.delete_data = response.data;
@@ -93,7 +103,30 @@
                 });
             };
 
+            //PUT
+            $scope.actualizar_persona = function () {
 
+                let data = {
+                    id: $scope.id_persona,
+                    nombre: $scope.new_nombre,
+                    apellido: $scope.new_apellido,
+                    edad: $scope.new_edad,
+                    direccion: $scope.new_direccion,
+                    correo: $scope.new_correo,
+                    telefono: $scope.new_telefono,
+                    identificacion: $scope.identificacion
+                };
+
+                //http://localhost:8080/s3_pear-web/api/personas/3
+                
+                
+                console.log($scope.id_persona + " < Se va a actualizar la persona");
+                
+                $http.put('http://localhost:8080/s3_pear-web/api/personas/' + data.id, data).then(function (response) {
+                    $scope.put_data = response.data;
+                    $state.go('personas', {}, {reload: true});
+                });
+            };
 
 
         }

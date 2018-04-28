@@ -47,7 +47,7 @@
         <div class="ui text container" style="margin-top: 2em;" ng-controller="personasController">
             <div class="ui form" style="width: 100%">
 
-                <h1 class="tittle">Registro</h1>
+                <h1 class="tittle">Actualización</h1>
 
                 <hr/>
                 <p>&nbsp;</p>
@@ -55,27 +55,29 @@
 
                 <div class="field">
                     <div class="inline fluid field">
-                        <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="NOMBRE">
-                        <input ng-model="apellido" style="margin-right: 1em;" type="text" placeholder="APELLIDO">
-                        <input ng-model="edad" style="margin-right: 1em;" type="number" placeholder="EDAD">
+                        <p ng-model="id_persona">Identificador: {{ persona.id }}</p>
+                        <p ng-model="identificacion">Código: {{ persona.identificacion }}</p>
+                        <input ng-model="new_nombre" style="margin-right: 1em;" type="text" placeholder="NOMBRE">
+                        <input ng-model="new_apellido" style="margin-right: 1em;" type="text" placeholder="APELLIDO">
+                        <input ng-model="new_edad" style="margin-right: 1em;" type="number" placeholder="EDAD">
                     </div>
                 </div>
 
                 <div class="field">
-                    <input ng-model="direccion" type="text" placeholder="DIRECCIÓN DE RESIDENCIA">
+                    <input ng-model="new_direccion" type="text" placeholder="DIRECCION">
                 </div>
 
                 <div class="field">
-                    <input ng-model="correo" type="email" placeholder="EMAIL">
+                    <input ng-model="new_correo" type="email" placeholder="CORREO">
                 </div>
 
                 <div class="field">
-                    <input ng-model="telefono" type="number" placeholder="NÚMERO TELEFÓNICO">
+                    <input ng-model="new_telefono" type="number" placeholder="TELEFONO">
                 </div>
 
                 <p>&nbsp;</p>
                 <div class="inline field">
-                    <a ng-click="post_persona()" class="ui inverted olive basic button" ui-sref="personas">Enviar</a>
+                    <a ng-click="actualizar_persona()" class="ui inverted olive basic button" ui-sref="personas">Enviar</a>
                     <a class="ui inverted teal basic button" style="text-decoration: none; color: white" ui-sref="personas">Cancelar</a>
                 </div>
 
@@ -87,4 +89,3 @@
     </div>
 
 </div>
-
