@@ -9,11 +9,11 @@
             $stateProvider
                     .state('dias', {
                         url: "/dias",
-                        templateUrl: "src/modules/dias/dias.html",
+                        templateUrl: "src/modules/dias/dia.html",
                         controller: 'diasController'
                     })
 
-                    .state('diaDetail', {
+                    .state('detailDia', {
                         url: "/dia/:id/detail",
                         param: {
                             id: null
@@ -30,6 +30,13 @@
                                 controller: 'diasController'
                             }
                         }
+                    }).state('actualizar_dia', {
+                        url: '/dias/:id/put',
+                        param: {
+                            id: null
+                        },
+                        templateUrl: "src/modules/dias/dia_update.html",
+                        controller: 'diasController'
                     })
 
                     ;
@@ -68,7 +75,7 @@
                 });
             }
 
-            $scope.enviar_dia = function () {
+            $scope.post_dia = function () {
 
                 let data = {
                     fecha: $scope.fecha,
@@ -79,7 +86,6 @@
 
                 console.log(data);
 
-                // DIRECCION HTTP 
                 $http.post('http://localhost:8080/s3_pear-web/api/dias', data).then(function (response) {
                     $scope.post_data = response.data;
                     $state.go('dias', {}, {reload: true});

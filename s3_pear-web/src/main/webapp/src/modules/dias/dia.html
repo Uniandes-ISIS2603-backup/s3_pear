@@ -1,0 +1,50 @@
+<div class="ui container" style="width: 100%" ng-app="diaModule">
+
+    <div class="ui raised segment" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;" ng-controller="diasController">
+
+        <div class="inline field">
+            <h1 style="font-weight: 300; color: gray; float: left;">Dias</h1>
+            <a ui-sref="post_dia" style="text-decoration: none; color: #525252; overflow: hidden;">
+                <i style="float: right; font-size: 30pt; overflow: hidden;" class="ion-plus-round"></i>
+            </a>
+        </div>
+        <hr/>
+        <br/>
+        <br/>
+
+
+        <table class="ui very basic table">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Se Envia</th>
+                    <th>Recomendacion</th>
+                    <th>Semana</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr ng-repeat="dia in dias">
+                    <td>{{ dia.fecha}}</td>
+                    <td>{{ dia.seEnvia}}</td>
+                    <td>{{ dia.recomendacion}}</td>
+                    <td>{{ dia.semana.id}}</td>
+                    <td><p style="gray" ui-sref="actualizar_dia({ id: dia.id })">Actualizar</p></td>
+                    <td><p style="color: gray" ui-sref="detailDia({ id: dia.id })">Detalles</p></td>
+                    <td><p style="color: red" ng-click="eliminar_dia(dia.id)">eliminar</p></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>
+
+
+
+
