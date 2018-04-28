@@ -34,22 +34,22 @@
                 });
             }
 
-            $scope.enviar_comentario = function () {
+            $scope.enviar_queja = function () {
 
                 let data = {
+                    asunto: $scope.asunto,
+                    comentario: $scope.comentario
                     
                 };
 
                 console.log(data);
 
-                
-
-
-                // DIRECCION HTTP 
-                /*$http.post(' DIRECCION HTTP DE POSTMAN', data).then(function (response) {
+      
+                $http.post(quejasContext, data).then(function (response) {
                     $scope.post_data = response.data;
-                });*/
-            }
+                    $state.go('quejasList', {}, {reload: true});
+                });
+            };
 
 
 

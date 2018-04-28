@@ -62,7 +62,6 @@
                 $scope.porcentajeCinco= (cinco*100)/total;
                 $scope.promedio= puntajeTotal/a.length;
                 
-
             });
 
             if ($state.params.calificacionesId !== null && $state.params.calificacionesId !== undefined) {
@@ -72,10 +71,21 @@
                     $scope.calificacion = response.data;
                 });
             }
+            $scope.enviar_calificacion = function () {
 
+                let data = {
+                    puntuacion: $scope.puntuacion
+                    
+                };
 
+                console.log(data);
 
-
+      
+                $http.post(calificacionesContext, data).then(function (response) {
+                    $scope.post_data = response.data;
+                    $state.go('calificacionesList', {}, {reload: true});
+                });
+            };
 
         }
     ]);

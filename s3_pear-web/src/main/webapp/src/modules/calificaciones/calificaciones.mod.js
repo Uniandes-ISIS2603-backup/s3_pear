@@ -20,9 +20,9 @@
                 templateUrl: 'src/modules/calificaciones/calificacionesDetail.html',
                 controller: 'calificacionesCtrl'
             }).state('calificacionesCreate', {
-                url:'/createCalifiacion',
-                templateUrl: 'src/modules/calificaciones/new/calificacionesAdd.html',
-                controller: 'calificacaionNewCtrl'
+                url:'/calificaciones/createCalifiacion',
+                templateUrl: 'src/modules/calificaciones/new/calificaciones.new.html',
+                controller: 'calificacionesCtrl'
             })
     }]);
 
