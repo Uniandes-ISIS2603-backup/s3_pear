@@ -23,6 +23,13 @@
                 url:'/calificaciones/createCalifiacion',
                 templateUrl: 'src/modules/calificaciones/new/calificaciones.new.html',
                 controller: 'calificacionesCtrl'
+            }).state('calificacionesUpdate',{
+                url: '/update/{calificacionesId:int}/calificaciones/update',
+                param : {
+                    id:null
+                },
+                templateUrl:'src/modules/calificaciones/new/calificaciones.new.html',
+                controller: 'calificacionesCtrl'
             })
     }]);
 

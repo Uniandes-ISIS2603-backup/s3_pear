@@ -86,6 +86,20 @@
                     $state.go('calificacionesList', {}, {reload: true});
                 });
             };
+            $scope.actualizar_calificacion = function () {
+              
+                let data = {
+                    puntuacion: $scope.newPuntuacion
+                    
+                };
+
+                //http://localhost:8080/s3_pear-web/api/dietas/3
+                $http.put(calificacionesContext +"/" + $scope.calificacionesId, data).then(function (response) {
+                    $scope.put_data = response.data;
+                    $state.go($state.current, {}, {reload: true});
+                    $state.go('calificacionesList', {}, {reload: true});
+                });
+            };
 
         }
     ]);
