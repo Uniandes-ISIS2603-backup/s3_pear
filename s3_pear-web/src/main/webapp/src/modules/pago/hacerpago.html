@@ -67,6 +67,7 @@
 	.cuentas_pagar {
 		grid-area: cuenta;
 		padding-left: 1em;
+               
 	}
 
 	.cuentas_factura {
@@ -76,6 +77,15 @@
 		margin: 2em;
 		text-align: center;
 	}
+        
+        a{
+            color:  #444444;
+            font-size: 140%;
+            font-weight: 900;
+            
+        }
+        
+        
 
 </style>
 
@@ -95,33 +105,41 @@
 				<div class="template">
 					<div class="cuentas_general">
 						<div class="cuentas_pagar">
-
-							<h3 style="font-size: 80%">Valor a Pagar</h3>
-                                                        <div ng-repeat="cuenta in cuentaRecords">
-							<h3 style="font-size: 200%; color: #2b2b2b">{{cuenta.valorAPagar}} .000 COP</h3>
-							<br/>   
-                                                        <h3 style="font-size: 90%">Monto Inicial</h3>
-                                                        <h3 style="font-size: 200%">{{cuenta.pago.montoInicial}} .000 COP</h3>
-                                                        <h3 style="font-size: 90%">Monto final</h3>
-                                                        <h3 style="font-size: 200%">{{cuenta.pago.montoFinal}} .000 COP</h3>
-                                                        </div>
-							
+                                                           
+                                                    
+                                                       <!-- {{ myArray | filter : {'id':73} }}-->
+                                                       
+							<h2 style="font-size: 120% ;color: #444444;">Valor a pagar</h2>
+                                                       
+							<h3 style="font-size: 200%; color: #d35b00">{{cuentaActual.valorAPagar}} .000 COP</h3>
+                                                        <hr>
+							<br>   
+                                                        <h3 style="font-size: 90%;  color: #444444 ">Monto Inicial</h3>
+                                                        <h3 style="font-size: 200%"> {{mostrar_inicial()}} </h3>
+                                                        <h3 style="font-size: 90%;  color: #444444">Monto Final</h3>
+                                                        <h3 style="font-size: 200%">{{mostrar_final()}}</h3>
                                                         
+							<br>
+                                                        <hr>
                                                         <br>
                                                          
 							<div  class="metodo_pago">
-                                                            <div ng-repeat="medioPago in medioPagoRecords">
-                                                            <a ui-sref = "medioPagoDetail({medioPagoId: medioPago.id})"> {{medioPago.medioPagoActual}}</a>
-                                                            </div>
+                                                            
+                                                            <h3 style="margin-left: 20%; color: #444444"> Medios de Pago </h3> 
+                                                            <a ng-repeat="medioPago in medioPagoRecords" style="display: block" ui-sref = "medioPagoDetail({medioPagoId: medioPago.id})">
+                                                            <div style= "margin: 10px; border-top: 1px solid grey; background-color: lightgray" >
+                                                                    <p style="margin-left: 35%">  {{medioPago.medioPagoActual}}</p>
+                                                            
+                                                            </div></a>
                                                     
-                                                             <div ui-view ="medioPagoDetail"></div>
+
                                                             
                                                             
 							</div>
                                                        
 							<br/>
 							<br/>
-                                                        <a ui-sref="dietas">PAGAR</a>
+                                                        <a ng-click="hacer_pago()">PAGAR</a>
 						</div>
 						<div class="cuentas_factura">
 							<h3 style="font-size: 80%; color: black">FACTURA</h3>

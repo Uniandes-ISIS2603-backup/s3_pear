@@ -60,7 +60,7 @@ public class PagoDTO {
     /**
      * @return montoIncial
      */
-    public double getMontoInicial() {
+    public Double getMontoInicial() {
         return montoInicial;
     }
 
