@@ -108,11 +108,8 @@
                 console.log($scope.id_dia + " < Se va a actualizar el dia.");
 
                 let data = {
-                    
-                    fecha: $scope.new_fecha,
                     recomendacion: $scope.new_recomendacion,
-                    seEnvia: $scope.new_seEnvia,
-                    semana: $scope.new_semana
+                    seEnvia: $scope.new_seEnvia
                 };
 
                 //http://localhost:8080/s3_pear-web/api/dias/3

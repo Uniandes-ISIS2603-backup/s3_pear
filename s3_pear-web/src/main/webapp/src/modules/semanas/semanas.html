@@ -35,11 +35,21 @@
 
 <div class="ui one column grid" style="background-color:white; width: 90%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em; overflow-y: hidden;">
 
+    
+
+    
+    
 
     <div class="ui seven column grid" ng-repeat="semana in semanas">
         <div class="ui row">
+             <div class="ui seven wide column">
+                <h1 style="font-weight: 300; color: gray; float: left;">{{semana.id}}</h1>
+            </div>
+        </div>
+        <div class="ui row">
+  
             <div class="ui seven wide column">
-                <h1 style="font-weight: 300; color: gray; float: left;">{{semana.fechaLunes}}</h1>
+                <h3 style="font-weight: 300; color: gray; float: left;">Fecha lunes: {{semana.fechaLunes}}</h3>
             </div>
         </div>
 

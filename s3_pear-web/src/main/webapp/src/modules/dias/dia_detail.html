@@ -1,16 +1,72 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;" ng-app="diaModule" ng-controller="diasController">
+
+    <div class="row">
+        <div class="column">
+            <div class="inline field">
+                <h1 class="ui dividing header" style="font-weight: 300; color: gray;"> <i ui-sref="dias" class="ion-chevron-left"></i> &nbsp; Dia</h1>
+            </div>
+            <hr/>
+        </div>
+    </div>
+
+    
+    
+     
+        <table class="ui very basic table">
+            
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            
+            <tbody>
+                
+              <tr>
+                <td>
+                    Identificador: {{ dia.id }}
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    Fecha: {{dia.fecha}}
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    Se envia la comida: {{dia.seEnvia}}
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+              
+              <tr>
+                <td>
+                    Recomendación: {{dia.recomendacion}}
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+              
+              <tr>
+                <td>
+                     Semana:{{ dia.semana.id }}
+                     
+                </td>
+                <td>
+                     Fecha del primer dia de la semana: {{ dia.semana.fechaLunes }}  
+                </td>
+              </tr>
+            </tbody>
+         
+        </table>
+</div>
