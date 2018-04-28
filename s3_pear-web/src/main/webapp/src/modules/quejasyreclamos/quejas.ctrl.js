@@ -50,6 +50,22 @@
                     $state.go('quejasList', {}, {reload: true});
                 });
             };
+            $scope.actualizar_queja = function () {
+              
+                let data = {
+                    asunto: $scope.newAsunto,
+                    comentario: $scope.newComentario
+                    
+                };
+
+               
+                $http.put(quejasContext + "/" + $scope.id_queja, data).then(function (response) {
+                    $scope.put_data = response.data;
+                    $state.go($state.current, {}, {reload: true});
+                    $state.go('quejasList', {}, {reload: true});
+                });
+            };
+            
 
 
 

@@ -28,7 +28,7 @@
                 param : {
                     id:null
                 },
-                templateUrl:'src/modules/calificaciones/new/calificaciones.new.html',
+                templateUrl:'src/modules/calificaciones/update/calificaciones.update.html',
                 controller: 'calificacionesCtrl'
             })
     }]);

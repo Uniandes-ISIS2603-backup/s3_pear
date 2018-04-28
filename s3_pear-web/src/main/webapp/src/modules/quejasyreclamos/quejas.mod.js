@@ -22,6 +22,13 @@
                 url:'/quejas/create',
                 templateUrl: 'src/modules/quejasyreclamos/new/quejas.new.html',
                 controller: 'quejasController'
+            }).state('quejasUpdate',{
+                url: '/update/{quejasId:int}/quejas/update',
+                param : {
+                    id:null
+                },
+                templateUrl:'src/modules/quejasyreclamos/update/quejas.update.html',
+                controller: 'quejasController'
             })
 
 

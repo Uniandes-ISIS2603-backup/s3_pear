@@ -1,0 +1,74 @@
+<style>
+    * {
+        font-family: 'Roboto';
+        overflow: hidden;
+    }
+
+    #head {
+        
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 120vh;
+    }
+
+    hr {
+        float: left;
+        display: block;
+        height: 2px;
+        border: 1px solid white;
+        width: 22em;
+        color: white;
+    }
+
+    .tittle {
+        margin-bottom: -1px;
+        font-size: 30pt;
+        color: white;
+        font-family: 'Roboto';
+    }
+
+    .field {
+        color: white;
+    }
+
+    .lbl {
+        color: white;
+    }
+
+</style>
+
+<div id="head">
+
+    <div class="ui container" ng-app="quejasModule">
+
+        <div class="ui text container" style="margin-top: 2em;" ng-controller="quejasController">
+            <div class="ui form" style="width: 100%">
+
+                <h1 class="tittle">Actualizar queja o recomendación</h1>
+
+                <hr/>
+                <p>&nbsp;</p>
+
+                <div class="field" style="overflow-y: hidden">
+                    <input ng-model="newAsunto" style="margin-right: 1em; overflow-y: hidden" type="text" placeholder="NUEVO ASUNTO">
+                </div>
+                <div class="field" style="overflow-y: hidden">
+                    <input ng-model="newComentario" style="margin-right: 1em; overflow-y: hidden" type="text" placeholder="NUEVO COMENTARIO">
+                </div>
+
+                <p>&nbsp;</p>
+
+                <div class="inline field">
+                    <a ng-click="actualizar_queja()" class="ui inverted olive basic button" ui-sref="quejasList">Enviar</a>
+                    <a class="ui inverted teal basic button" style="text-decoration: none; color: white" ui-sref="quejasList">Cancelar</a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

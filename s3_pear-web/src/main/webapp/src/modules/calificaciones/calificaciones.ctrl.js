@@ -93,8 +93,8 @@
                     
                 };
 
-                //http://localhost:8080/s3_pear-web/api/dietas/3
-                $http.put(calificacionesContext +"/" + $scope.calificacionesId, data).then(function (response) {
+               
+                $http.put(calificacionesContext + "/" + $scope.id_calificacion, data).then(function (response) {
                     $scope.put_data = response.data;
                     $state.go($state.current, {}, {reload: true});
                     $state.go('calificacionesList', {}, {reload: true});
