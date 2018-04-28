@@ -48,13 +48,9 @@
 
         function ($scope, $http, semanaContext, $state) {
             
-            //semanaContext
-           
-           $http.get( 'http://localhost:8080/s3_pear-web/api/semanas').then(function (response){
+           $http.get('http://localhost:8080/s3_pear-web/api/semanas').then(function (response){
 				$scope.semanas = response.data;
-			}).then(function (response) {
-                console.log('FAILED GET SEMANAS' + response);
-            })
+			})
             ;
             
                  if ($state.params.id !== null && $state.params.id !== undefined) {
@@ -102,7 +98,7 @@
                     imagen: $scope.new_imagen
                 };
                 
-                //http://localhost:8080/s3_pear-web/api/dietas/3
+                //http://localhost:8080/s3_pear-web/api/semanas/3
                 $http.put('http://localhost:8080/s3_pear-web/api/semanas/' + $scope.id_semana, data).then(function (response) {
                     $scope.put_data = response.data;
                     $state.go($state.current, {}, {reload: true});
