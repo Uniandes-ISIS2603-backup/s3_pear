@@ -9,6 +9,7 @@
         'pagoModule',
         'facturaModule',
         'semanaModule',
+        'diaModule',
         'personaModule',
         'quejasModule',
         'calificacionesModule',

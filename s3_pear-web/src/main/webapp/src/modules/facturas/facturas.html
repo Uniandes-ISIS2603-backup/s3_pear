@@ -1,7 +1,7 @@
 <style>
 
 .boton {
-        height: 60px;
+        height: 50px;
         width: 200px;
         background-color: #145705;
         border-color: #145705;
@@ -70,15 +70,20 @@
 <!-- FACTURAS -->
 
 <div class="lista">
-    <h1 style="font-weight: 300; color: gray">Facturas</h1>
-    <hr>
-    
-    <table>
+     <div class="inline field">
+            <h1 style="font-weight: 300; color: gray; float: left;">Facturas</h1>
+            
+
+     </div>
+        <table>
+            
         <thead>
             <tr> 
              <th>Identificador</th> 
              <th>Cantidad de productos</th> 
              <th>Numero de factura</th> 
+             <th>Persona </th>
+             <th> </th>
             </tr>
         </thead>
         <tbody>
@@ -86,9 +91,15 @@
                 <td>{{ factura.id }}</td>
                 <td>{{ factura.cantidadDeProductos }}</td>
                 <td>{{ factura.numeroFactura }}</td>
+                <td><div class="inline field">
+                        <span class="field"><a ui-sref="personas({ id: factura.persona.id })" style="text-decoration: none;"> Acreedor </a> &nbsp; &nbsp;</span>
+                        <span class="field right floated" ng-click="eliminar_factura(factura.id)"><a style="text-decoration: none; color:red">Eliminar</a>&nbsp; &nbsp;</span>
+                </div></td>
+                <td><p style="color: gray" ui-sref="detailFactura({ id: factura.id })">Actualizar</p></td>
             </tr>
         </tbody>
-    </table>   
+    </table>  
+ 
      <div class="boton" style="margin-top: 70px">
         <!--Aqui va la referencia de la página de agregar-->
         <a href="src/modules/facturas/facturas_add.html" style="font-size: 20px; color:floralwhite; text-align: center">Agregar Factura</a>

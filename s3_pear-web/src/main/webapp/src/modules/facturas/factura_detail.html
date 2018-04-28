@@ -1,16 +1,98 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;" ng-app="facturaModule" ng-controller="facturasController">
+
+    <div class="row">
+        <div class="column">
+            <div class="inline field">
+                <h1 class="ui dividing header" style="font-weight: 300; color: gray;"> <i ui-sref="facturas" class="ion-chevron-left"></i> &nbsp; Detalles Factura</h1>
+            </div>
+            <hr/>
+        </div>
+    </div>
+
+    
+    
+     
+        <table class="ui very basic table">
+            
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            
+            <tbody>
+                
+              <tr>
+                <td>
+                    <div class="inline field" style="overflow-y: hidden;">
+                        <div class="ui horizontal large label">ID</div> 
+                    </div>
+                </td>
+                <td>
+                    {{id_factura}}
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <div class="inline field" style="overflow-y: hidden;">
+                        <div class="ui horizontal large label">Numero Factura de Venta</div>
+                    </div>
+                </td>
+                <td>
+                    <input ng-model="new_numeroFacturaDeVenta" placeholder="{{factura.numeroFacturaDeVenta}}">
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <div class="inline field" style="overflow-y: hidden;">
+                        <div class="ui horizontal large label">Cantidad de Productos</div>
+                    </div>
+                </td>
+                <td>
+                    <input ng-model="new_cantidadProductos" placeholder="{{factura.cantidadProductos}}"> 
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+              
+              <tr>
+                  <td>
+                      <div class="inline field" style="overflow-y: hidden;">
+                          <div class="ui horizontal large label"> Persona</div>
+                      </div>
+                  </td>
+                <td>
+                    <input ng-model="new_persona" placeholder="{{factura.persona.nombre}}"> 
+                    <input ng-model="new_persona" placeholder="{{factura.persona.apellido}}"> 
+                </td>
+                <td>
+                    
+                </td>
+              </tr>       
+            </tbody>
+        </table>
+         
+
+    <div class="row">
+        <div>&nbsp;</div>
+        <div class="inline field">
+            <a ng-click="actualizar_factura()" class="ui positive basic button">
+                Actualizar
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+</div>

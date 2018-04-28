@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,7 +29,7 @@ public class FacturaEntity extends BaseEntity implements Serializable{
     
 
     @PodamExclude
-    @ManyToOne
+    @ManyToOne( cascade = CascadeType.PERSIST)
     private PersonaEntity persona;
 
     private Integer cantidadProductos = 0;

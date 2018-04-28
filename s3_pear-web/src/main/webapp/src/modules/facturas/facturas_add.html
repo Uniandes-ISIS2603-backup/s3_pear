@@ -75,19 +75,23 @@
 
                 <hr/>
                 <p>&nbsp;</p>
-
+                
                 <div class="field">
                     <label style="color: white; font-size: 21px">Numero de factura</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="nombre">
+                    <input ng-model="numeroFacturaDeVenta" style="margin-right: 1em;" type="text" placeholder="nombre">
                 </div>
                 <div class="field">
                     <label style="color: white; font-size: 21px">Cantidad de productos</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="nombre">
+                    <input ng-model= "cantidadProductos" style="margin-right: 1em;" type="text" placeholder="nombre">
+                </div>
+                 <div class="field">
+                    <label style="color: white; font-size: 21px">Identificador del cliente</label>
+                    <input ng-model="persona" style="margin-right: 1em;" type="text" placeholder="nombre">
                 </div>
 
                 <p>&nbsp;</p>
                 <div class="inline field">
-                    <button ng-click="enviar_dieta()" class="ui inverted olive basic button">Enviar</button>
+                    <button ng-click="enviar_factura()" class="ui inverted olive basic button">Enviar</button>
                     <button class="ui inverted teal basic button"><a style="text-decoration: none; color: white" href="../../../index.html">Cancelar</a></button>
                 </div>
 

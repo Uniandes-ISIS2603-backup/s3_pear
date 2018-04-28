@@ -25,8 +25,8 @@
                        .state('postFactura', {
                         url: '/facturas/post',
                         views: {
-                            'post': {
-                                templateUrl: 'src/modules/facturas/factura_nueva.html',
+                            'post':{
+                                templateUrl: 'src/modules/facturas/facturas_add.html',
                                 controller: 'facturasController'
                             }
                         }
@@ -41,6 +41,15 @@
 
 	var mod = ng.module("facturaModule");
 	mod.constant("facturaContext", "api/facturas");
+        mod.filter('range', function () {
+        return function (input, total) {
+            total = parseInt(total);
+            for (var i = 0; i < total; i++)
+                input.push(i);
+            return input;
+        };
+    });
+
 
 	mod.controller('facturasController', ['$scope', '$http', 'facturaContext', '$state',
 
@@ -96,7 +105,7 @@
                 };
 
                 //http://localhost:8080/s3_pear-web/api/facturas/46
-                $http.put('http://localhost:8080/s3_pear-web/api/facturas/' + $scope.id_dieta, data).then(function (response) {
+                $http.put('http://localhost:8080/s3_pear-web/api/facturas/' + $scope.id_factura, data).then(function (response) {
                     $scope.put_data = response.data;
                     $state.go($state.current, {}, {reload: true});
                     $state.go('facturas', {}, {reload: true});
