@@ -23,8 +23,6 @@ import java.util.List;
  */
 public class DietaTipoDetailDTO extends DietaTipoDTO {
 
-    private CuentaCobroDTO cuentaCobro;
-
     private List<SemanaDTO> semanas;
 
     /**
@@ -37,12 +35,6 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
     public DietaTipoDetailDTO(DietaTipoEntity entity) {
         super(entity);
         if (entity != null) {
-
-            if (entity.getCuentaCobro() != null) {
-                this.cuentaCobro = new CuentaCobroDTO(entity.getCuentaCobro());
-            } else {
-                this.cuentaCobro = null;
-            }
 
             if (entity.getSemanas() != null) {
 
@@ -60,13 +52,7 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
 
     }
 
-    public CuentaCobroDTO getCuentaCobro() {
-        return cuentaCobro;
-    }
 
-    public void setCuentaCobro(CuentaCobroDTO cuentaCobro) {
-        this.cuentaCobro = cuentaCobro;
-    }
 
     public List<SemanaDTO> getSemanas() {
         return semanas;
@@ -80,9 +66,6 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
     public DietaTipoEntity toEntity() {
         DietaTipoEntity en = super.toEntity();
 
-        if (this.getCuentaCobro() != null) {
-            en.setCuentaCobro(this.getCuentaCobro().toEntity());
-        }
 
         if (this.getSemanas() != null) {
             List<SemanaEntity> sems = new ArrayList<>();

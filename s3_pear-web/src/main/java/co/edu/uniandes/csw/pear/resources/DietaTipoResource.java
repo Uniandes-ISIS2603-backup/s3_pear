@@ -208,20 +208,6 @@ public class DietaTipoResource {
         }
     }
 
-    /**
-     *
-     * @param id
-     * @param id_semana
-     * @return
-     */
-    @PUT
-    @Path("/{id_dieta: \\d+}/cuentas/{id_cuenta: \\d+}")
-    public DietaTipoDetailDTO addCuenta_toDieta(@PathParam("id_dieta") Long id, @PathParam("id_cuenta") Long id_cuenta) {
-        DietaTipoEntity dieta = logic.getDieta(id);
-        CuentaCobroEntity cuenta = logic_cuenta.getCuenta(id_cuenta);
-        dieta.setCuentaCobro(cuenta);
-        return new DietaTipoDetailDTO(dieta);
-
-    }
+    
 
 }
