@@ -54,9 +54,10 @@ insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_i
 
 insert into PagoEntity(id, montoInicial, montoFinal) values (2, 10, 10);
 
-
+INSERT INTO DIETATIPOENTITY (DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES ('Enterprise-wide coherent access', 'https://images.pexels.com/photos/248444/pexels-photo-248444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Japonesa', 'Versatile tangible task-force', 1, NULL);
 insert into CuentaCobroEntity(id, valorAPagar, factura_id ) values (1, 20, 45);
-insert into CuentaCobroEntity(id, valorAPagar, factura_id ) values (2, 20, 46);
+
 
 
 

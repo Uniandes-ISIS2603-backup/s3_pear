@@ -39,7 +39,7 @@ public class MedioPagoDTO {
     {//TODO DONE: entity puede ser null
       
       if(entity != null){  
-      this.medioPagoActual  = entity.getMedioActual(); 
+      this.medioPagoActual  = entity.getMedioPagoActual(); 
       this.id = entity.getId();
       }
      }
@@ -82,7 +82,7 @@ public class MedioPagoDTO {
         MedioPagoEntity entidad = new MedioPagoEntity();
   
         entidad.setId(this.id);
-        entidad.setMedioActual(this.medioPagoActual);
+        entidad.setMedioPagoActual(this.medioPagoActual);
         
         return entidad;
     }

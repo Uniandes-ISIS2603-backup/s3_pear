@@ -24,13 +24,13 @@ public class MedioPagoEntity extends BaseEntity implements Serializable{
     
    @PodamExclude
    @OneToMany (mappedBy = "medioPago")
-    private List<PersonaEntity> personas; 
+   private List<PersonaEntity> personas; 
     
     /**
      * Da el medio de pago actual
      * @return medioActual 
      */
-    public String getMedioActual()
+    public String getMedioPagoActual()
     {
         return medioPagoActual; 
     }
@@ -39,7 +39,7 @@ public class MedioPagoEntity extends BaseEntity implements Serializable{
      * Cambia el medio de pago actual
      * @param pMedio 
      */
-    public void setMedioActual(String pMedio) 
+    public void setMedioPagoActual(String pMedio) 
     {
         medioPagoActual = pMedio;
     }

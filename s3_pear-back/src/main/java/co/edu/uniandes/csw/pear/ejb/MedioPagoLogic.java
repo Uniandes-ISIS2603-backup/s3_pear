@@ -112,7 +112,7 @@ public class MedioPagoLogic {
      */
     public MedioPagoEntity createMedioPago( MedioPagoEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de un medio pago con id = {0}", entity.getId());
-        System.out.println("EN LOGIC " + entity.getMedioActual());
+        System.out.println("EN LOGIC " + entity.getMedioPagoActual());
         persistence.create(entity);
         LOGGER.log(Level.INFO, "Termina proceso de creacion de un medio pago con id = {0}", entity.getId());
         return entity;

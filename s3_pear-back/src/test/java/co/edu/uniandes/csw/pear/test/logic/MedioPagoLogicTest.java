@@ -126,7 +126,7 @@ public class MedioPagoLogicTest {
         MedioPagoEntity entity = em.find(MedioPagoEntity.class, result.getId());
         Assert.assertEquals(newEntity.getId(), entity.getId());
         Assert.assertEquals(newEntity.getName(), entity.getName());
-        Assert.assertEquals(newEntity.getMedioActual(),entity.getMedioActual() );
+        Assert.assertEquals(newEntity.getMedioPagoActual(),entity.getMedioPagoActual() );
         Assert.assertEquals(newEntity.getPersonas(), entity.getPersonas());
         
         } catch (BusinessLogicException ex) {

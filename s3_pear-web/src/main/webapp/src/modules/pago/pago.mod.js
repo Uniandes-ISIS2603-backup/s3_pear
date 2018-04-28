@@ -20,7 +20,7 @@
                                         
                                         url: '/{medioPagoId:int}',
 					templateUrl: basePath + 'hacerpago.html',
-					controller: 'pagoDetailController',
+					controller: 'pagoController',
                                   
                                         param: {
                                             medioPagoId: null
