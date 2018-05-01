@@ -13,7 +13,8 @@
         'personaModule',
         'quejasModule',
         'calificacionesModule',
-        'comidaModule'
+        'comidaModule',
+		'loginModule'
     ]);
 
 
