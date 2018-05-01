@@ -107,7 +107,6 @@ public class CuentaCobroLogic {
     
     /**
      * Actualiza una cuenta de cobro por id
-     * @param id de tipo Long, representa la cuenta de cobro que se va a actualizar
      * @param entity de cuenta de cobro con los cambios deseados
      * @return la entidad de  cuenta de cobro luego de ser actualizada
      */
@@ -116,6 +115,24 @@ public class CuentaCobroLogic {
         CuentaCobroEntity actualizado = persistence.update(entity);
         LOGGER.log( Level.INFO, "Termina proceso de actualizacion de la cuenta com  id = {0}", entity.getId() );
         return actualizado;
+    }
+    
+    
+        /**
+     * Asocia un Author existente a un Book
+     *
+     * @param cuentaId Identificador de la instancia de libro
+     * @param pagoId Identificador de la instancia de autor
+     * @return Instancia de AuthorEntity que fue asociada a Book
+     * 
+     */
+    public PagoEntity addPago(Long cuentaId, Long pagoId) {
+        LOGGER.log(Level.INFO, "Inicia proceso de asociar un pago a la cuenta con id = {0}", cuentaId);
+        CuentaCobroEntity cuentaEntity = getCuenta(cuentaId);
+        PagoEntity pagoEntity = new PagoEntity();
+        pagoEntity.setId(pagoId);
+        cuentaEntity.setPagoEntity(pagoEntity);
+        return pagoEntity;
     }
     
     /**

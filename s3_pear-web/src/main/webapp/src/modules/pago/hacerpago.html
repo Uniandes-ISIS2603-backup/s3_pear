@@ -151,22 +151,22 @@
                                                        
 							<br/>
 							<br/>
-                                                        <a ui-sref = "dietas">PAGAR</a>
+                                                        <a ng-click ="hacer_pago()">PAGAR</a>
 						</div>
 						<div class="cuentas_factura">
 							<h3 style="font-size: 80%; color: black">FACTURA</h3>
                                                         
-                                                        <div ng-repeat="cuenta in cuentaRecords">
-                                                            <p>{{cuenta.factura.numeroFactura}}</p>
+                                                        
+                                                            <p>{{cuentaActual.factura.numeroFactura}}</p>
                                                             <p style="font-size: 80%; color: black">TIPO DIETA</p>
-                                                            <p>{{cuenta.dieta.name}}<p>
+                                                            <p>{{cuentaActual.dieta.name}}<p>
                                                                
-                                                                <img class="img-rounded" style = "height: 80%; width: 80%;" src="{{cuenta.dieta.imagen}}">
+                                                                <img ng-if="cuentaActual.dieta !== null && cuentaActual.dieta !== undefined"  class="img-rounded" alt ="Imagen Dieta" style = "height: 80%; width: 80%;" src="{{cuentaActual.dieta.imagen}}">
                                                                
                                                              <p style="font-size: 80%; color: black">CANTIDAD PRODUCTOS</p>
-                                                             <p>{{cuenta.factura.cantidadDeProductos}} </p>
+                                                             <p>{{cuentaActual.factura.cantidadDeProductos}} </p>
                                                             
-                                                            </div>
+                                                            
 							
 							<div> <!-- TODO  <div ng-repeat="cuenta in cuentas | orderBy : 'id'">   -->
 								<!-- ng-repeat-->

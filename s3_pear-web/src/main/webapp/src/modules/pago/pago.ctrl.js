@@ -105,17 +105,40 @@
             $scope.hacer_pago = function ()
             {
                 
-                if($scope.cuentaActual.pago === undefined)
+                if($scope.cuentaActual.pago === undefined || $scope.cuentaActual.pago === null )
                 {
-                    var mitad = $scope.cuentaActual/2; 
-                    let data = 
-                         {
-                                montoInicial:mitad
-                         };
+               
                     
-                    $http.post('http://localhost:8080/s3_pear-web/api/pagos', data).then(function (response) {
+                    postPago(); 
+                    
+                    
+                  while ($scope.pagoActual === undefined){
+                      
                  
-                     $scope.pagosRecords = response.data;
+                    
+                }
+                
+                
+                   if($scope.pagoActual !== undefined && $scope.pagoActual !== null)
+                    {
+                     $http.post('http://localhost:8080/s3_pear-web/api/cuentascobro/' + $scope.cuentaActual.id  + "/pagos/"+ $scope.pagoActual.id).then(function (response) {
+                 
+                     console.log($scope.pagoActual.id);
+                     });
+                 }
+                
+                }else if ($scope.cuentaActual.pago.montoFinal === null ||$scope.cuentaActual.pago.montoFinal === undefined) 
+                {
+                    
+                    let data = 
+                          {
+                                montoInicial: $scope.pagoActual.montoInicial, 
+                                montoFinal : $scope.pagoActual.montoInicial
+                          }; 
+                    
+                    $http.put('http://localhost:8080/s3_pear-web/api/pagos/' + $scope.cuentaActual.id  + "/pagos/"+ $scope.pagoActual.id).then(function (response) {
+                 
+                     console.log($scope.pagoActual.id);
                      });
                     
                 }
@@ -134,14 +157,29 @@
             });     
             
             
-            
+             
+        function postPago()
+        {
+             var mitad = $scope.cuentaActual.valorAPagar/2; 
+                    let data = 
+                         {
+                                montoInicial:mitad,
+                                montoFinal: 0
+                         };
+                         
+            $http.post('http://localhost:8080/s3_pear-web/api/pagos', data).then(function (response) {
+                 
+                        $scope.pagoActual = response.data;
+                        console.log($scope.pagoActual);
+                     });
         }
         
         
+        
+        } 
     ]);
 }
-        
-        
+       
         
         
 )(window.angular);

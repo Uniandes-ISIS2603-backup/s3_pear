@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.pear.resources;
 import co.edu.uniandes.csw.pear.dtos.CuentaCobroDetailDTO;
+import co.edu.uniandes.csw.pear.dtos.PagoDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.CuentaCobroLogic;
 import co.edu.uniandes.csw.pear.entities.CuentaCobroEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
@@ -156,6 +157,13 @@ public class CuentaCobroResource {
         return new CuentaCobroDetailDTO(logic.updateCuenta(entity));
     }
     
+    
+    
+     @POST
+    @Path("/cuentascobro/{cuentaId: \\d+}/pagos/{pagoId: \\d+}")
+    public PagoDetailDTO addPago(@PathParam("cuentaId") Long cuentaId, @PathParam("pagoId") Long pagoId) {
+        return new PagoDetailDTO(logic.addPago(cuentaId, pagoId)); 
+    }
     
      /**
      * <h1>DELETE /api/cuentascobro/{id} : Borrar cuenta por id.</h1>
