@@ -126,11 +126,9 @@ public class CuentaCobroLogic {
      * @return Instancia de AuthorEntity que fue asociada a Book
      * 
      */
-    public PagoEntity addPago(Long cuentaId, Long pagoId) {
+    public PagoEntity addPago(Long cuentaId, PagoEntity pagoEntity) {
         LOGGER.log(Level.INFO, "Inicia proceso de asociar un pago a la cuenta con id = {0}", cuentaId);
         CuentaCobroEntity cuentaEntity = getCuenta(cuentaId);
-        PagoEntity pagoEntity = new PagoEntity();
-        pagoEntity.setId(pagoId);
         cuentaEntity.setPagoEntity(pagoEntity);
         return pagoEntity;
     }

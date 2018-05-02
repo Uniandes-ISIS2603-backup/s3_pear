@@ -57,7 +57,7 @@ import java.util.List;
 public class MedioPagoDetailDTO extends MedioPagoDTO{
     
     
-    private ArrayList<PersonaDTO> personas;
+    private List<PersonaDTO> personas = new ArrayList();
     
      /**
      * Constructor por defecto

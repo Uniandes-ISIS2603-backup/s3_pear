@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.resources;
 
 import co.edu.uniandes.csw.pear.dtos.PagoDetailDTO;
+import co.edu.uniandes.csw.pear.ejb.CuentaCobroLogic;
 import co.edu.uniandes.csw.pear.ejb.PagoLogic;
 import co.edu.uniandes.csw.pear.entities.PagoEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
@@ -37,6 +38,9 @@ public class PagoResource {
 @Inject
 PagoLogic logic;
 
+@Inject
+CuentaCobroLogic cuentaLogic;
+
     /**
      * <h1>POST /api/pago : Crea un pagoh1>
      * 
@@ -60,10 +64,43 @@ PagoLogic logic;
      */
     @POST
     public PagoDetailDTO createPago(PagoDetailDTO pago) throws BusinessLogicException {
-        System.out.println("Resource monto final " + pago.getMontoFinal() + "monto inicial  " + pago.getMontoInicial());
         return new PagoDetailDTO(logic.createPago(pago.toEntity()));
     }
 
+    
+    /**
+     * <h1>POST /api/pagos/cuenta/id : Crea un pagoh1>
+     * 
+     * <pre>Cuerpo de petición: JSON {@link PagoDetailDTO}.
+     * 
+     * Crea una nueva pago y asocia a la cuenta con id 1 con la informacion que se recibe en la cuerpo 
+     * de la petición y se regresa un objeto identico con un id auto-generado 
+     * por la base de datos.
+     * 
+     * Codigos de respuesta:
+     * <code style="color: mediumseagreen; background-color: #eaffe0;">
+     * 200 OK Creó la nueva pago .
+     * </code>
+     * <code style="color: #c7254e; background-color: #f9f2f4;">
+     * 412 Precodition Failed: Ya existe la pago.
+     * </code>
+     * </pre>
+     * @param pPago {@link pagoCobroDetailDTO} - el pago que se desea guardar.
+     * @param cuentaId - el id de la cuenta a la que se desea asociar 
+     * @return JSON {@link pagoCobroetailDTO}  - el pago guardada con la atributo id autogenerado.
+     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la pago.
+     */
+    @POST
+    @Path("cuenta/{cuentaId: \\d+}")
+    public PagoDetailDTO postPagoConCuenta(@PathParam("cuentaId") Long cuentaId, PagoDetailDTO pPago) throws BusinessLogicException
+    {
+        PagoEntity pago = logic.createPago(pPago.toEntity());
+        cuentaLogic.addPago(cuentaId, pago);
+        
+        return new PagoDetailDTO(pago); 
+    }
+    
+    
       /**
      * Convierte una lista de PagoEntity a una lista de PagoDetailDTO.
      *

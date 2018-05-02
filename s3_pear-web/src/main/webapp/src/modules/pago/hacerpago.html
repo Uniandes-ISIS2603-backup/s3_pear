@@ -1,4 +1,4 @@
-<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
+
 
 
 <style>
@@ -118,7 +118,7 @@
                                                        
 							<h2 style="font-size: 120% ;color: #444444;">Valor a pagar</h2>
                                                        
-							<h3 style="font-size: 200%; color: #d35b00">{{cuentaActual.valorAPagar}} .000 COP</h3>
+							<h3 ng-if"cuentaActual !== undefined style="font-size: 200%; color: #d35b00">{{cuentaActual.valorAPagar}} .000 COP</h3>
                                                         <hr>
 							<br>   
                                                         <h3 style="font-size: 90%;  color: #444444 ">Monto Inicial</h3>
@@ -161,8 +161,9 @@
                                                             <p style="font-size: 80%; color: black">TIPO DIETA</p>
                                                             <p>{{cuentaActual.dieta.name}}<p>
                                                                
-                                                                <img ng-if="cuentaActual.dieta !== null && cuentaActual.dieta !== undefined"  class="img-rounded" alt ="Imagen Dieta" style = "height: 80%; width: 80%;" src="{{cuentaActual.dieta.imagen}}">
-                                                               
+                                                                <div ng-if="cuentaActual.dieta !== null && cuentaActual.dieta !== undefined &&cuentaActual.dieta.imagen !== null && cuentaActual.dieta.imagen !== undefined ">
+                                                                <img   class="img-rounded" alt ="Imagen Dieta" style = "height: 80%; width: 80%;" src="{{cuentaActual.dieta.imagen}}">
+                                                                </div>
                                                              <p style="font-size: 80%; color: black">CANTIDAD PRODUCTOS</p>
                                                              <p>{{cuentaActual.factura.cantidadDeProductos}} </p>
                                                             

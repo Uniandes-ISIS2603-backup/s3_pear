@@ -5,7 +5,7 @@
         
         function ($scope, $http, pagoContext, $state, $filter) {
             
-            
+           
            
            //Aca poner el parámetro
               $http.get('http://localhost:8080/s3_pear-web/api/cuentascobro/' + 1).then(function (response) {
@@ -13,11 +13,14 @@
                 $scope.cuentaActual = response.data;
             });
             
-            $http.get('http://localhost:8080/s3_pear-web/api/cuentascobro').then(function (response) {
-         
-                $scope.cuentaRecords = response.data;
-            });
+             
             
+            
+            
+              $http.get('http://localhost:8080/s3_pear-web/api/mediopagos').then(function (response) {
+                $scope.medioPagoRecords = response.data;
+                
+            });  
             
             $scope.get_cuentaid = function ()
             {
@@ -108,27 +111,25 @@
                 if($scope.cuentaActual.pago === undefined || $scope.cuentaActual.pago === null )
                 {
                
+                     var mitad = $scope.cuentaActual.valorAPagar/2; 
+                     let data = 
+                         {
+                                montoInicial:mitad,
+                                montoFinal: 0
+                         };
+                         
                     
-                    postPago(); 
-                    
-                    
-                  while ($scope.pagoActual === undefined){
-                      
-                 
-                    
-                }
-                
-                
-                   if($scope.pagoActual !== undefined && $scope.pagoActual !== null)
-                    {
-                     $http.post('http://localhost:8080/s3_pear-web/api/cuentascobro/' + $scope.cuentaActual.id  + "/pagos/"+ $scope.pagoActual.id).then(function (response) {
-                 
+                     $http.post('http://localhost:8080/s3_pear-web/api/pagos/cuenta/' + $scope.cuentaActual.id, data).then(function (response) {
+                         $scope.pagoActual = response.data;
                      console.log($scope.pagoActual.id);
                      });
-                 }
+                     
+                    
                 
-                }else if ($scope.cuentaActual.pago.montoFinal === null ||$scope.cuentaActual.pago.montoFinal === undefined) 
+                }else if ($scope.cuentaActual.pago.montoFinal === 0 ||$scope.cuentaActual.pago.montoFinal === undefined) 
                 {
+                    
+                    $scope.pagoActual = $scope.cuentaActual.pago;
                     
                     let data = 
                           {
@@ -136,28 +137,18 @@
                                 montoFinal : $scope.pagoActual.montoInicial
                           }; 
                     
-                    $http.put('http://localhost:8080/s3_pear-web/api/pagos/' + $scope.cuentaActual.id  + "/pagos/"+ $scope.pagoActual.id).then(function (response) {
+                    $http.put('http://localhost:8080/s3_pear-web/api/pagos/' + $scope.pagoActual.id, data).then(function (response) {
                  
                      console.log($scope.pagoActual.id);
                      });
+                     
+                     
                     
                 }
                 
-                
+                 $state.go('pago', {}, {reload: true});
             }; 
             
-             $http.get('http://localhost:8080/s3_pear-web/api/pagos').then(function (response) {
-                 
-                $scope.pagosRecords = response.data;
-            });
-            
-            $http.get('http://localhost:8080/s3_pear-web/api/mediopagos').then(function (response) {
-                $scope.medioPagoRecords = response.data;
-                
-            });     
-            
-            
-             
         function postPago()
         {
              var mitad = $scope.cuentaActual.valorAPagar/2; 
@@ -170,7 +161,7 @@
             $http.post('http://localhost:8080/s3_pear-web/api/pagos', data).then(function (response) {
                  
                         $scope.pagoActual = response.data;
-                        console.log($scope.pagoActual);
+                        
                      });
         }
         
