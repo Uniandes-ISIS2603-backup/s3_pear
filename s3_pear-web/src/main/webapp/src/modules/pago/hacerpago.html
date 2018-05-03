@@ -118,7 +118,7 @@
                                                        
 							<h2 style="font-size: 120% ;color: #444444;">Valor a pagar</h2>
                                                        
-							<h3 ng-if"cuentaActual !== undefined style="font-size: 200%; color: #d35b00">{{cuentaActual.valorAPagar}} .000 COP</h3>
+							<h3 ng-if = "cuentaActual !== undefined" style="font-size: 200%; color: #d35b00">{{cuentaActual.valorAPagar}} .000 COP</h3>
                                                         <hr>
 							<br>   
                                                         <h3 style="font-size: 90%;  color: #444444 ">Monto Inicial</h3>
@@ -133,7 +133,7 @@
 							<div  class="metodo_pago">
                                                             
                                                             <h3 style="margin-left: 20%; color: #444444"> Medios de Pago </h3> 
-                                                            <a ng-repeat="medioPago in medioPagoRecords" style="display: block" ui-sref = "medioPagoDetail({medioPagoId: medioPago.id})">
+                                                            <a ng-repeat="medioPago in medioPagoRecords" style="display: block" ng-click="seleccionar_medio(medioPago.id)">
                                                             <div class = "medio" style= "margin: 10px; border-top: 1px solid grey;" >
                                                                     <p style="margin-left: 35%">  {{medioPago.medioPagoActual}}</p>
                                                             
@@ -145,13 +145,14 @@
                                                                <br>
                                                                 <button style ="margin: 10px" ng-click ="delete_medio()" ui-sref ="pago">Borrar medio seleccionado </button>
                                                                </div>
-                                                          
-                                                            
+                         
 							</div>
                                                        
 							<br/>
 							<br/>
-                                                        <a ng-click ="hacer_pago()">PAGAR</a>
+                                                        <h3 ng-if ="medioActual === null"> Por favor seleccione un medio para hacer el pago</h3> 
+                                                        <h3 ng-if="medioActual !== null">Medio seleccionado: {{medioActual.medioPagoActual}}</h3>
+                                                        <a href= "" ng-if = "medioActual !== null" ng-click ="hacer_pago()"><h3> PAGAR</h3></a>
 						</div>
 						<div class="cuentas_factura">
 							<h3 style="font-size: 80%; color: black">FACTURA</h3>
@@ -161,9 +162,9 @@
                                                             <p style="font-size: 80%; color: black">TIPO DIETA</p>
                                                             <p>{{cuentaActual.dieta.name}}<p>
                                                                
-                                                                <div ng-if="cuentaActual.dieta !== null && cuentaActual.dieta !== undefined &&cuentaActual.dieta.imagen !== null && cuentaActual.dieta.imagen !== undefined ">
+                                                               <!--<div ng-if="cuentaActual.dieta !== undefined && cuentaActual.dieta !== null &&  cuentaActual.dieta.imagen !== null && cuentaActual.dieta.imagen !== undefined ">
                                                                 <img   class="img-rounded" alt ="Imagen Dieta" style = "height: 80%; width: 80%;" src="{{cuentaActual.dieta.imagen}}">
-                                                                </div>
+                                                                </div>-->
                                                              <p style="font-size: 80%; color: black">CANTIDAD PRODUCTOS</p>
                                                              <p>{{cuentaActual.factura.cantidadDeProductos}} </p>
                                                             

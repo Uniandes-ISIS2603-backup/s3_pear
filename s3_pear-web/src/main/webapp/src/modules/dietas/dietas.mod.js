@@ -51,9 +51,9 @@
         };
     });
 
-    mod.controller('dietasController', ['$scope', '$http', 'dietasContext', '$state',
+    mod.controller('dietasController', ['$scope', '$http', 'dietasContext', '$state', '$rootScope',
 
-        function ($scope, $http, dietasContext, $state) {
+        function ($scope, $http, dietasContext, $state, $rootScope) {
             //http://localhost:8080/s3_pear-web/api/dietas
             // src/modules/dietas/dietas.json
 

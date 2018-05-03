@@ -66,9 +66,9 @@
 	<header class="parallax" id="header_dietas">
 
 		<br>
-		<div style="float: LEFT;">
-			<a ng-click="usuario = true; admin = false;" class="ui inverted teal basic button" style="text-decoration: none; color: white">Usuario</a>
-			<a ng-click="admin = true; usuario = false;" class="ui inverted teal basic button" style="text-decoration: none; color: white">Administrador</a>
+		<div style="float: right;">
+			<a ng-click="soyUser()" class="ui inverted teal basic button" style="text-decoration: none; color: white">Usuario</a>
+			<a ng-click="soyAdmin()" class="ui inverted teal basic button" style="text-decoration: none; color: white">Administrador</a>
 		</div>
 
 
@@ -81,6 +81,7 @@
 			<a ng-if="admin" class="item" style="color: white; font-size: 20px" ui-sref="cocinas">Cocinas</a>
 			<a ng-if="admin" class="item" style="color: white; font-size: 20px" ui-sref="semanas">Programación Semanal</a>
 			<a ng-if="admin" class="item" style="color: white; font-size: 20px" ui-sref="dias">Dias</a>
+                        <a ng-if="admin" class="item" style="color: white; font-size: 20px" ui-sref="bills">Bills</a>
 			<a class="item" style="color: white; font-size: 20px" ui-sref="logout">Salir</a>
 			<!--<a class="item active" style="color: white; font-size: 20px" ui-sref="quejasList">Quejas o Recomendaciones</a>-->
 		</div>
@@ -109,6 +110,7 @@
 
 		<!-- FACTURAS -->
 		<script src="src/modules/facturas/facturas.mod.js" type="text/javascript"></script>
+                <script src="src/modules/bills/bills.mod.js" type="text/javascript"></script>
 
 		<!-- SEMANAS CON DIAS-->
 		<script src="src/modules/semanas/semanas.mod.js" type="text/javascript"></script>

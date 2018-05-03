@@ -1,0 +1,79 @@
+<div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;" ng-app="billModule" ng-controller="billsController">
+
+    <div class="row">
+        <div class="column">
+            <div class="inline field">
+                <h1 class="ui dividing header" style="font-weight: 300; color: gray;"> <i ui-sref="bills" class="ion-chevron-left"></i> &nbsp; Factura</h1>
+            </div>
+            <hr/>
+        </div>
+    </div>
+
+    
+    
+     
+        <table class="ui very basic table">
+            
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            
+            <tbody>
+                
+              <tr>
+                <td>
+                    Identificador: {{id_bill}}
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+              <tr>
+                <td>
+                   Numero Factura de Venta: {{bill.numeroFacturaDeVenta}}
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    Cantidad de Productos: {{bill.numeroFacturaDeVenta}}
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+              
+              <tr>
+                <td>
+                    Identificador acreedor: {{bill.persona.id}} 
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+              
+              <tr>
+                <td>
+                    Nombre acreedor: {{bill.persona.nombre}}
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    Apellido acreedor: {{bill.persona.apellido}}
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+            </tbody>
+         
+        </table>
+</div>

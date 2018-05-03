@@ -54,10 +54,16 @@
 
 
                 <div class="field">
-                    <div class="inline fluid field">
-                        <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="NOMBRE">
-                        <input ng-model="apellido" style="margin-right: 1em;" type="text" placeholder="APELLIDO">
-                        <input ng-model="edad" style="margin-right: 1em;" type="number" placeholder="EDAD">
+                    <div class="three fields">
+                        <div class="field">
+                            <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="NOMBRE">
+                        </div>
+                        <div class="field">
+                            <input ng-model="apellido" style="margin-right: 1em;" type="text" placeholder="APELLIDO">
+                        </div>
+                        <div class="field">
+                            <input ng-model="edad" style="margin-right: 1em;" type="number" placeholder="EDAD">
+                        </div>
                     </div>
                 </div>
 
@@ -73,10 +79,20 @@
                     <input ng-model="telefono" type="number" placeholder="NÚMERO TELEFÓNICO">
                 </div>
 
+                <div class="ui checkbox">
+                    <input type="checkbox" name="user" ng-click="soyUser()">
+                    <label>Soy Usuario</label>
+                </div>
+
+                <div class="ui checkbox">
+                    <input type="checkbox" name="admin" ng-click="soyAdmin()">
+                    <label>Soy Administrador</label>
+                </div>
+
                 <p>&nbsp;</p>
                 <div class="inline field">
-                    <a ng-click="post_persona()" class="ui inverted olive basic button" ui-sref="personas">Enviar</a>
-                    <a class="ui inverted teal basic button" style="text-decoration: none; color: white" ui-sref="personas">Cancelar</a>
+                    <a ng-click="post_persona()" class="ui inverted olive basic button" ui-sref="dietas">Enviar</a>
+                    <a class="ui inverted teal basic button" style="text-decoration: none; color: white" ui-sref="dietas">Cancelar</a>
                 </div>
 
             </div>
