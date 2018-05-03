@@ -8,13 +8,14 @@
         'cocinaModule',
         'pagoModule',
         'facturaModule',
+        'billModule',
         'semanaModule',
         'diaModule',
         'personaModule',
         'quejasModule',
         'calificacionesModule',
         'comidaModule',
-		'loginModule'
+        'loginModule'
     ]);
 
 
