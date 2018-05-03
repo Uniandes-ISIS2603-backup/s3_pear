@@ -75,6 +75,17 @@ public class PagoLogic {
         return getPago(pagoId).getMedioPagoEntity(); 
     }
     
+    
+    public PagoEntity asociarMedioDePago(Long idPago, Long idMedio)
+    {
+        MedioPagoEntity pMedio = new MedioPagoEntity(); 
+        pMedio.setId(idMedio);
+        PagoEntity pago = getPago(idPago); 
+        pago.setMedioPagoEntity(pMedio);
+        
+        return pago;
+    }
+    
     /**
      * Crea un Pago y la guarda en la base de datos
      * @param entity de pago a persistir

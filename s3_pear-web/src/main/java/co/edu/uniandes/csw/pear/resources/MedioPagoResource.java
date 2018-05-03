@@ -64,6 +64,8 @@ public class MedioPagoResource {
         return new MedioPagoDetailDTO(logic.createMedioPago(medioPago.toEntity()));
     }
 
+
+    
       /**
      * Convierte una lista de MedioPagoEntity a una lista de MedioPagoDetailDTO.
      *

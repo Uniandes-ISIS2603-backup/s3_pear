@@ -99,7 +99,18 @@ CuentaCobroLogic cuentaLogic;
         
         return new PagoDetailDTO(pago); 
     }
-    
+    /**
+     * Asocia un pago existente con un medio de pago existente 
+     * @param pagoId - El id del pago existente
+     * @param medioId - El id del medio de pago existente
+     * @return 
+     */
+    @PUT 
+    @Path("{pagoId: \\d+}/medio/{medioId: \\d+}")
+    public PagoDetailDTO asociarPagoAMedio(@PathParam("pagoId") Long pagoId, @PathParam("medioId") Long medioId)
+    {
+      return new PagoDetailDTO(logic.asociarMedioDePago(pagoId, medioId)) ; 
+    }
     
       /**
      * Convierte una lista de PagoEntity a una lista de PagoDetailDTO.
