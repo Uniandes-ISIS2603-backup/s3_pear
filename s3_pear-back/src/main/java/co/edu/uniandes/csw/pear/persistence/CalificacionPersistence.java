@@ -48,8 +48,21 @@ public class CalificacionPersistence
         CalificacionEntity entity = em.find(CalificacionEntity.class, id);
         em.remove(entity);
     }
-    public  CalificacionEntity find(long id){
-        return em.find( CalificacionEntity.class,id);
+    public  CalificacionEntity find( Long dietaid ,Long id){
+        TypedQuery<CalificacionEntity> q = em.createQuery("select p from CalificacionEntity p where (p.dieta.id = :dietaid) and (p.id = :id)", CalificacionEntity.class);
+        q.setParameter("dietaid", dietaid);
+        q.setParameter("id", id);
+        List<CalificacionEntity> results = q.getResultList();
+        CalificacionEntity calificacion = null;
+        if (results == null) {
+            calificacion = null;
+        } else if (results.isEmpty()) {
+            calificacion= null;
+        } else if (results.size() >= 1) {
+            calificacion = results.get(0);
+        }
+
+        return calificacion;
     }
     
 }

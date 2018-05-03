@@ -32,7 +32,7 @@ import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
 public class CalificacionDTO {
 
     //TODO: este tipo no puede ser long, debe ser Long 
-    private long id;
+    private Long id;
 //TODO: este tipo no puede ser double, debe ser Double 
     private double puntuacion;
 
@@ -43,11 +43,11 @@ public class CalificacionDTO {
     public CalificacionDTO() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.persistence;
 
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
+import java.time.Clock;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -59,7 +60,9 @@ public class DietaTipoPersistence {
     public List<DietaTipoEntity> findAll( ) {
         LOGGER.info("Consultando todas las dietas");
         Query q = em.createQuery("select u from DietaTipoEntity u");
+        System.out.println(q.getResultList());
         return q.getResultList();
+        
     }
     
     /**

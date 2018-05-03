@@ -208,6 +208,42 @@ public class DietaTipoResource {
         }
     }
 
+    /**
+     * Conexión con el servicio de calificaciones para una dieta. {@link CalificacionResource}
+     * 
+     * Este método conecta la ruta de /dietas con las rutas de /calificaciones que dependen
+     * del libro, es una redirección al servicio que maneja el segmento de la 
+     * URL que se encarga de las reseñas.
+     * 
+     * @param dietasId El ID del libro con respecto al cual se accede al servicio.
+     * @return El servicio de calificaciones para esa dieta en paricular.
+     */
+    @Path("{idDieta: \\d+}/calificaciones")
+    public Class<CalificacionResource> getCalificacionResource(@PathParam("idDieta") Long dietasId) {
+        DietaTipoEntity entity = logic.getDieta(dietasId);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /books/" + dietasId + "/calificaciones no existe.", 404);
+        }
+        return CalificacionResource.class;
+    }
+    /**
+     * Conexión con el servicio de calificaciones para una dieta. {@link CalificacionResource}
+     * 
+     * Este método conecta la ruta de /dietas con las rutas de /calificaciones que dependen
+     * del libro, es una redirección al servicio que maneja el segmento de la 
+     * URL que se encarga de las reseñas.
+     * 
+     * @param dietasId El ID del libro con respecto al cual se accede al servicio.
+     * @return El servicio de calificaciones para esa dieta en paricular.
+     */
+    @Path("{idDieta: \\d+}/quejasyreclamos")
+    public Class<QuejasyReclamosResource> getQuejasResource(@PathParam("idDieta") Long dietasId) {
+        DietaTipoEntity entity = logic.getDieta(dietasId);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /books/" + dietasId + "/calificaciones no existe.", 404);
+        }
+        return QuejasyReclamosResource.class;
+    }
     
 
 }

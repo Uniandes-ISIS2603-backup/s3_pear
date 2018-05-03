@@ -10,6 +10,7 @@ package co.edu.uniandes.csw.pear.test.persistence;
  * @author ga.bejarano10
  */
 import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
+import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.persistence.CalificacionPersistence;
 import java.util.ArrayList;
 import java.util.List;
@@ -101,11 +102,14 @@ public class CalificacionPersistenceTest
      */
     private void clearData() {
         em.createQuery("delete from CalificacionEntity").executeUpdate();
+        em.createQuery("delete from DietaTipoEntity").executeUpdate();
     }
     /**
      *
      */
     private List<CalificacionEntity> data = new ArrayList<CalificacionEntity>();
+    
+    private List<DietaTipoEntity> dataDieta = new ArrayList<DietaTipoEntity>();
 
     /**
      * Inserta los datos iniciales para el correcto funcionamiento de las
@@ -116,8 +120,16 @@ public class CalificacionPersistenceTest
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
+            DietaTipoEntity entity = factory.manufacturePojo(DietaTipoEntity.class);
+            em.persist(entity);
+            dataDieta.add(entity);
+        }
+        for (int i = 0; i < 3; i++) {
             CalificacionEntity entity = factory.manufacturePojo(CalificacionEntity.class);
 
+            if (i == 0) {
+                entity.setDieta(dataDieta.get(0));
+            }
             em.persist(entity);
             data.add(entity);
         }
@@ -169,7 +181,7 @@ public class CalificacionPersistenceTest
     @Test
     public void getCalificacionTest() {
         CalificacionEntity entity = data.get(0);
-        CalificacionEntity newEntity = calificacionPersistence.find(entity.getId());
+        CalificacionEntity newEntity = calificacionPersistence.find(dataDieta.get(0).getId(), entity.getId());
         Assert.assertNotNull(newEntity);
         int nuevaPuntuacion = (int) newEntity.getPuntuacion();
         int puntuacion = (int) entity.getPuntuacion();

@@ -46,9 +46,23 @@ public class QuejasyReclamosPersistence
         QuejasyReclamosEntity entity = em.find(QuejasyReclamosEntity.class, id);
         em.remove(entity);
     }
-    public QuejasyReclamosEntity find(long id){
-        return em.find( QuejasyReclamosEntity.class,id);
+    public  QuejasyReclamosEntity find( Long dietaid ,Long id){
+        TypedQuery<QuejasyReclamosEntity> q = em.createQuery("select p from QuejasyReclamosEntity p where (p.dieta.id = :dietaid) and (p.id = :id)", QuejasyReclamosEntity.class);
+        q.setParameter("dietaid", dietaid);
+        q.setParameter("id", id);
+        List<QuejasyReclamosEntity> results = q.getResultList();
+        QuejasyReclamosEntity queja = null;
+        if (results == null) {
+            queja = null;
+        } else if (results.isEmpty()) {
+            queja= null;
+        } else if (results.size() >= 1) {
+            queja = results.get(0);
+        }
+
+        return queja;
     }
+    
     
     
     

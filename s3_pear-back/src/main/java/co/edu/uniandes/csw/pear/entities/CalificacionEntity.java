@@ -6,7 +6,10 @@
 package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -17,6 +20,9 @@ public class CalificacionEntity extends BaseEntity implements Serializable
 {
     private double puntuacion;
 
+    @PodamExclude
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private DietaTipoEntity dieta;
     /**
      * 
      * @return puntuacion. 
@@ -32,6 +38,21 @@ public class CalificacionEntity extends BaseEntity implements Serializable
     public void setPuntuacion(double puntuacion)
     {
         this.puntuacion = puntuacion;
+    }
+    /**
+     * Devuelve la dieta asociada a esta calificacion
+     * @return Entidad de tipo dieta
+     */
+    public DietaTipoEntity getDieta() {
+        return dieta;
+    }
+
+    /**
+     * Modifica la dieta asociada a esta calificacion
+     * @param dieta la nueva dieta
+     */
+    public void setDieta(DietaTipoEntity dieta) {
+        this.dieta = dieta;
     }
     
 }

@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.ejb;
 
 import co.edu.uniandes.csw.pear.entities.CityEntity;
+import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.QuejasyReclamosPersistence;
@@ -26,8 +27,11 @@ public class QuejasyReclamosLogic
 
     @Inject
     private QuejasyReclamosPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
+ 
+    @Inject 
+    private DietaTipoLogic dietaLogic;
     
-    public QuejasyReclamosEntity createQuejasyReclamos(QuejasyReclamosEntity entity) throws BusinessLogicException {
+    public QuejasyReclamosEntity createQuejasyReclamos(Long idDieta,QuejasyReclamosEntity entity) throws BusinessLogicException {
         
         LOGGER.info("Inicia proceso de creación de quejas y reclamos");
         
@@ -41,34 +45,36 @@ public class QuejasyReclamosLogic
         }
         if(entity.getAsunto().equals("recomendacion")||entity.getAsunto().equals("queja"))
         {
-          persistence.create(entity);
-          LOGGER.info("Termina proceso de creación de quejas y reclamos");
-          return entity;   
+          DietaTipoEntity dieta = dietaLogic.getDieta(idDieta);
+          entity.setDieta(dieta);
+          LOGGER.info("Termina proceso de creación de calificacion");
+          return persistence.create(entity); 
         }
         
          throw new BusinessLogicException("El asunto no corresponde a los 2 unicos disponibles : recomendacion o queja"); 
     }
-
-    public List<QuejasyReclamosEntity> getQuejasyReclamos() {
+    //seguir desde aqui
+    public List<QuejasyReclamosEntity> getQuejasyReclamos(Long idDieta) {
         LOGGER.info("Inicia proceso de consultar todas las quejas y reclamos");
-     
-        List<QuejasyReclamosEntity> lista = persistence.findAll();
+        DietaTipoEntity dieta = dietaLogic.getDieta(idDieta);
         LOGGER.info("Termina proceso de consultar todas las quejas y reclamos");
-        return lista;
+        return dieta.getQuejas();
     }
 
-    public QuejasyReclamosEntity getQuejayReclamo(Long id) {
-        return persistence.find(id);
+    public QuejasyReclamosEntity getQuejayReclamo(Long dietaid, Long id) {
+        return persistence.find(dietaid, id);
     }
 
-    public QuejasyReclamosEntity updateQuejayReclamo(QuejasyReclamosEntity entity) throws BusinessLogicException  {
+    public QuejasyReclamosEntity updateQuejayReclamo(QuejasyReclamosEntity entity, Long dietaId) throws BusinessLogicException  {
         
+        DietaTipoEntity dieta = dietaLogic.getDieta(dietaId);
+        entity.setDieta(dieta);
         return persistence.update(entity);
     }
     
-    public void deleteQuejayReclamo(QuejasyReclamosEntity entity) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inicia proceso de borrar queja y reclamo con id={0}", entity.getId());    
-        persistence.delete(entity.getId());
-        LOGGER.log(Level.INFO, "Termina proceso de borrar queja y reclamo con id={0}", entity.getId());
+    public void deleteQuejayReclamo(Long dietaid, Long id) throws BusinessLogicException {
+        LOGGER.info("Inicia proceso de borrar ");
+        QuejasyReclamosEntity old = getQuejayReclamo(dietaid, id);
+        persistence.delete(old.getId());
     }
 }

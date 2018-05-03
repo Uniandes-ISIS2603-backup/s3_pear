@@ -32,6 +32,9 @@ public class QuejasyReclamosDetailDTO extends QuejasyReclamosDTO
     /**
      * generado por defecto
      */
+    
+    
+    private DietaTipoDTO dieta;
     public QuejasyReclamosDetailDTO() {
     }
 
@@ -42,6 +45,11 @@ public class QuejasyReclamosDetailDTO extends QuejasyReclamosDTO
      */
     public QuejasyReclamosDetailDTO(QuejasyReclamosEntity entidad) {
         super(entidad);
+        if (entidad.getDieta() != null) {
+            this.dieta = new DietaTipoDTO(entidad.getDieta());
+        } else {
+            entidad.setDieta(null);
+        }
     }
     /**
      * Transformar un DTO a un Entity
@@ -51,7 +59,25 @@ public class QuejasyReclamosDetailDTO extends QuejasyReclamosDTO
     @Override
     public QuejasyReclamosEntity toEntity() {
         QuejasyReclamosEntity quejasYreclamosE = super.toEntity();
+        if (this.getDieta() != null) {
+            quejasYreclamosE.setDieta(this.getDieta().toEntity());
+        }
         return quejasYreclamosE;
+    }
+    /**
+     * Modifica la dieta asociada a esta calificacion.
+     * @param dieta the dieta to set
+     */
+    public void setDieta(DietaTipoDTO dieta) {
+        this.dieta = dieta;
+    }
+
+    /**
+     * Devuelve la dieta asociada a esta calificacion
+     * @return DTO de Editorial
+     */
+    public DietaTipoDTO getDieta() {
+        return dieta;
     }
     
 }

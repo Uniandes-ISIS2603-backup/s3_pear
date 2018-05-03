@@ -8,6 +8,8 @@ package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.entities.SemanaEntity;
+import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
+import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +26,8 @@ import java.util.List;
 public class DietaTipoDetailDTO extends DietaTipoDTO {
 
     private List<SemanaDTO> semanas;
+    private List<CalificacionDTO> calificaciones;
+    private List<QuejasyReclamosDTO> quejas;
 
     /**
      * Constructo de DietaTipoDetailDTO
@@ -34,25 +38,30 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
 
     public DietaTipoDetailDTO(DietaTipoEntity entity) {
         super(entity);
-        if (entity != null) {
+        
+        
+        if (entity.getSemanas() != null) {
 
-            if (entity.getSemanas() != null) {
-
-                semanas = new ArrayList<>();
-
-                for (SemanaEntity semana : entity.getSemanas()) {
-                    semanas.add(new SemanaDTO(semana));
-                }
-
-            } else {
-                this.semanas = new ArrayList<>();
+            semanas = new ArrayList<>();
+            for (SemanaEntity semana : entity.getSemanas()) {
+                semanas.add(new SemanaDTO(semana));
             }
 
+        } 
+        if (entity.getCalificaciones() != null) {
+           calificaciones = new ArrayList<>();
+            for (CalificacionEntity entityCalificaion : entity.getCalificaciones()) {
+                calificaciones.add(new CalificacionDTO(entityCalificaion));
+            }
         }
+        if (entity.getQuejas() != null) {
+            quejas = new ArrayList<>();
+            for (QuejasyReclamosEntity entityQueja : entity.getQuejas()) {
+                quejas.add(new QuejasyReclamosDTO(entityQueja));
+            }
+        } 
 
     }
-
-
 
     public List<SemanaDTO> getSemanas() {
         return semanas;
@@ -62,11 +71,40 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
         this.semanas = semanas;
     }
 
+    public List<CalificacionDTO> getCalificaciones() {
+        return calificaciones;
+    }
+
+    public void setCalificacon(List<CalificacionDTO> calificaciones) {
+        this.calificaciones = calificaciones;
+    }
+
+    public List<QuejasyReclamosDTO> getQuejas() {
+        return quejas;
+    }
+
+    public void setQuejas(List<QuejasyReclamosDTO> quejas) {
+        this.quejas = quejas;
+    }
+
     @Override
     public DietaTipoEntity toEntity() {
         DietaTipoEntity en = super.toEntity();
 
-
+        if (getCalificaciones() != null) {
+            List<CalificacionEntity> calificacionesEntity = new ArrayList<>();
+            for (CalificacionDTO dtoCalificacion : getCalificaciones()) {
+                calificacionesEntity.add(dtoCalificacion.toEntity());
+            }
+            en.setCalificaciones(calificacionesEntity);
+        }
+        if (getQuejas() != null) {
+            List<QuejasyReclamosEntity> quejasEntity = new ArrayList<>();
+            for (QuejasyReclamosDTO dtoQueja : getQuejas()) {
+                quejasEntity.add(dtoQueja.toEntity());
+            }
+            en.setQuejas(quejasEntity);
+        }
         if (this.getSemanas() != null) {
             List<SemanaEntity> sems = new ArrayList<>();
             this.getSemanas().forEach(semanita -> {

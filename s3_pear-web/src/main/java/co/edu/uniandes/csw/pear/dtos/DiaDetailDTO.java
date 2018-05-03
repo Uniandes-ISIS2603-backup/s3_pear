@@ -33,7 +33,7 @@ public class DiaDetailDTO extends DiaDTO{
     //-----------------------------------------------------------
     
     private List<ComidaDTO> comidas;
-    
+
     private SemanaDTO semana;
     //-----------------------------------------------------------
     //Constructor

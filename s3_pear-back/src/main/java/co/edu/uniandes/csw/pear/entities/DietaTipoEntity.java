@@ -32,6 +32,14 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     private List<SemanaEntity> semanas = new ArrayList<>();
     
     @PodamExclude
+    @OneToMany(mappedBy = "dieta", cascade = CascadeType.PERSIST)
+    private List<CalificacionEntity> calificaciones = new ArrayList<CalificacionEntity>();
+    
+    @PodamExclude
+    @OneToMany(mappedBy = "dieta", cascade = CascadeType.PERSIST)
+    private List<QuejasyReclamosEntity> quejas = new ArrayList<QuejasyReclamosEntity>();
+    
+    @PodamExclude
     @ManyToOne( cascade = CascadeType.PERSIST)
     private CocinaEntity cocina;
    
@@ -116,6 +124,42 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     
     public void add_semana ( SemanaEntity sem ) {
         this.semanas.add(sem);
+    }
+    /**
+     * Devuelve las calificaciones de la dieta.
+     * @return Lista de entidades de tipo calificacion
+     */
+    public List<CalificacionEntity> getCalificaciones() {
+        return calificaciones;
+    }
+    public void add_calificacion ( CalificacionEntity sem ) {
+        this.calificaciones.add(sem);
+    }
+    public void add_queja ( QuejasyReclamosEntity sem ) {
+        this.quejas.add(sem);
+    }
+
+    /**
+     * Modifica las calificaciones de una dieta.
+     * @param calificaciones
+     */
+    public void setCalificaciones(List<CalificacionEntity> calificaciones) {
+        this.calificaciones = calificaciones;
+    }
+    /**
+     * Devuelve las quejas o recomendaciones de la dieta.
+     * @return Lista de entidades de tipo QuejasyReclamos
+     */
+    public List<QuejasyReclamosEntity> getQuejas() {
+        return quejas;
+    }
+
+    /**
+     * Modifica las quejas o recomendaciones de una dieta.
+     * @param quejas Las nuevas quejas o recomendaciones.
+     */
+    public void setQuejas(List<QuejasyReclamosEntity> quejas) {
+        this.quejas= quejas;
     }
     
     

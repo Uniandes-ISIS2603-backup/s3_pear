@@ -9,6 +9,7 @@ package co.edu.uniandes.csw.pear.test.persistence;
  *
  * @author ga.bejarano10
  */
+import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
 import co.edu.uniandes.csw.pear.persistence.QuejasyReclamosPersistence;
 import java.util.ArrayList;
@@ -101,11 +102,14 @@ public class QuejasyReclamosPersistenceTest
      */
     private void clearData() {
         em.createQuery("delete from QuejasyReclamosEntity").executeUpdate();
+        em.createQuery("delete from DietaTipoEntity").executeUpdate();
     }
     /**
      *
      */
     private List<QuejasyReclamosEntity> data = new ArrayList<QuejasyReclamosEntity>();
+    
+    private List<DietaTipoEntity> dataDieta = new ArrayList<DietaTipoEntity>();
 
     /**
      * Inserta los datos iniciales para el correcto funcionamiento de las
@@ -116,8 +120,15 @@ public class QuejasyReclamosPersistenceTest
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
+            DietaTipoEntity entity = factory.manufacturePojo(DietaTipoEntity.class);
+            em.persist(entity);
+            dataDieta.add(entity);
+        }
+        for (int i = 0; i < 3; i++) {
             QuejasyReclamosEntity entity = factory.manufacturePojo(QuejasyReclamosEntity.class);
-
+            if (i == 0) {
+                entity.setDieta(dataDieta.get(0));
+            }
             em.persist(entity);
             data.add(entity);
         }
@@ -169,7 +180,7 @@ public class QuejasyReclamosPersistenceTest
     @Test
     public void getQuejayReclamoTest() {
         QuejasyReclamosEntity entity = data.get(0);
-        QuejasyReclamosEntity newEntity = quejasyreclamosPersistence.find(entity.getId());
+        QuejasyReclamosEntity newEntity = quejasyreclamosPersistence.find(dataDieta.get(0).getId(), entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getAsunto(), newEntity.getAsunto());
         Assert.assertEquals(entity.getComentario(), newEntity.getComentario());

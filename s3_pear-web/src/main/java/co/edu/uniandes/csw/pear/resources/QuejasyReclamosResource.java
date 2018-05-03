@@ -76,9 +76,9 @@ public class QuejasyReclamosResource {
      * Error de lógica que se genera cuando ya existe la ciudad.
      */
     @POST
-    public QuejasyReclamosDetailDTO createQuejayReclamo(QuejasyReclamosDetailDTO quejayreclamo) throws BusinessLogicException {
+    public QuejasyReclamosDetailDTO createQuejayReclamo(@PathParam("idDieta")Long idDieta,QuejasyReclamosDetailDTO quejayreclamo) throws BusinessLogicException {
 
-        return new QuejasyReclamosDetailDTO(logica.createQuejasyReclamos(quejayreclamo.toEntity()));
+        return new QuejasyReclamosDetailDTO(logica.createQuejasyReclamos(idDieta,quejayreclamo.toEntity()));
 
     }
 
@@ -96,9 +96,9 @@ public class QuejasyReclamosResource {
      * encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
-    public List<QuejasyReclamosDetailDTO> getQuejasyReclamos() {
+    public List<QuejasyReclamosDetailDTO> getQuejasyReclamos(@PathParam("id") Long idDieta) {
         List<QuejasyReclamosDetailDTO> quejasyreclamos = new ArrayList();
-        List listaEntity = logica.getQuejasyReclamos();
+        List listaEntity = logica.getQuejasyReclamos(idDieta);
         for (int i = 0; i < listaEntity.size(); i++) {
             QuejasyReclamosEntity entidad = (QuejasyReclamosEntity) listaEntity.get(i);
             quejasyreclamos.add(new QuejasyReclamosDetailDTO(entidad));
@@ -126,8 +126,8 @@ public class QuejasyReclamosResource {
      */
     @GET
     @Path("{id: \\d+}")
-    public QuejasyReclamosDetailDTO getQuejayReclamo(@PathParam("id") Long id) throws BusinessLogicException {
-        QuejasyReclamosEntity entidad = logica.getQuejayReclamo(id);
+    public QuejasyReclamosDetailDTO getQuejayReclamo(@PathParam("id") Long idDieta,@PathParam("id") Long id) throws BusinessLogicException {
+        QuejasyReclamosEntity entidad = logica.getQuejayReclamo(idDieta,id);
         if (entidad == null) {
             //TODO: Si el recurso no existe debe disparar WebApplicationException
             throw new BusinessLogicException("la queja o reclamo no existe");
@@ -161,14 +161,14 @@ public class QuejasyReclamosResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public QuejasyReclamosDetailDTO updateQuejayReclamo(@PathParam("id") Long id, QuejasyReclamosDetailDTO quejayreclamo) throws BusinessLogicException {
+    public QuejasyReclamosDetailDTO updateQuejayReclamo(@PathParam("id") Long idDieta,@PathParam("id") Long id, QuejasyReclamosDetailDTO quejayreclamo) throws BusinessLogicException {
         quejayreclamo.setId(id);
-        QuejasyReclamosEntity entidad = logica.getQuejayReclamo(id);
+        QuejasyReclamosEntity entidad = logica.getQuejayReclamo(idDieta,id);
         if (entidad == null) {
         //TODO: Si el recurso no existe debe disparar WebApplicationException
             throw new BusinessLogicException("La queja o reclamo que desea actualizar no existe");
         }
-        return new QuejasyReclamosDetailDTO(logica.updateQuejayReclamo(quejayreclamo.toEntity()));
+        return new QuejasyReclamosDetailDTO(logica.updateQuejayReclamo(quejayreclamo.toEntity(), idDieta));
     }
 
     /**
@@ -189,13 +189,13 @@ public class QuejasyReclamosResource {
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteQuejayReclamo(@PathParam("id") Long id) throws BusinessLogicException {
-        QuejasyReclamosEntity entidad = logica.getQuejayReclamo(id);
+    public void deleteQuejayReclamo(@PathParam("id") Long idDieta,@PathParam("id") Long id) throws BusinessLogicException {
+        QuejasyReclamosEntity entidad = logica.getQuejayReclamo(idDieta,id);
         if (entidad == null) {
             //TODO: Si el recurso no existe debe disparar WebApplicationException
             throw new BusinessLogicException("no se encontro la queja o reclamo que desea eliminar");
         }
-        logica.deleteQuejayReclamo(entidad);
+        logica.deleteQuejayReclamo(idDieta,id);
     }
 
 }

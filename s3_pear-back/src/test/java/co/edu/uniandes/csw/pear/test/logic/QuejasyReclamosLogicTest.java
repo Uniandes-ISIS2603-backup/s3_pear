@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package co.edu.uniandes.csw.pear.test.logic;
 import co.edu.uniandes.csw.pear.ejb.QuejasyReclamosLogic;
+import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.QuejasyReclamosPersistence;
@@ -41,6 +43,7 @@ public class QuejasyReclamosLogicTest {
     private UserTransaction utx;
     
      private List<QuejasyReclamosEntity> data = new ArrayList<QuejasyReclamosEntity>();
+     private List<DietaTipoEntity> dataDieta = new ArrayList<DietaTipoEntity>();
      
      
     @Deployment
@@ -81,6 +84,7 @@ public class QuejasyReclamosLogicTest {
      */
     private void clearData() {
         em.createQuery("delete from QuejasyReclamosEntity").executeUpdate();
+        em.createQuery("delete from DietaTipoEntity").executeUpdate();
     }
     /**
      * Inserta los datos iniciales para el correcto funcionamiento de las
@@ -90,9 +94,15 @@ public class QuejasyReclamosLogicTest {
      */
     private void insertData() {
 
+         for (int i = 0; i < 3; i++) {
+            DietaTipoEntity entity = factory.manufacturePojo(DietaTipoEntity.class);
+            em.persist(entity);
+            dataDieta.add(entity);
+        }
         for (int i = 0; i < 3; i++) {
             QuejasyReclamosEntity entity = factory.manufacturePojo(QuejasyReclamosEntity.class);
             entity.setAsunto("queja");
+            entity.setDieta(dataDieta.get(1));
             em.persist(entity);
             data.add(entity);
          
@@ -108,7 +118,7 @@ public class QuejasyReclamosLogicTest {
     public void createQuejayReclamoTest() throws BusinessLogicException {
         QuejasyReclamosEntity newEntity = factory.manufacturePojo(QuejasyReclamosEntity.class);
         newEntity.setAsunto("queja");
-        QuejasyReclamosEntity result = quejasLogic.createQuejasyReclamos(newEntity);
+        QuejasyReclamosEntity result = quejasLogic.createQuejasyReclamos(data.get(0).getDieta().getId(),newEntity);
         Assert.assertNotNull(result);
         QuejasyReclamosEntity entity = em.find(QuejasyReclamosEntity.class, result.getId());
         Assert.assertEquals(newEntity.getId(), entity.getId());
@@ -122,7 +132,7 @@ public class QuejasyReclamosLogicTest {
      */
     @Test
     public void getQuejasyReclamosTest() {
-        List<QuejasyReclamosEntity> list = quejasLogic.getQuejasyReclamos();
+        List<QuejasyReclamosEntity> list = quejasLogic.getQuejasyReclamos(dataDieta.get(1).getId());
         Assert.assertEquals(data.size(), list.size());
         for (QuejasyReclamosEntity entity : list) {
             boolean found = false;
@@ -142,7 +152,7 @@ public class QuejasyReclamosLogicTest {
     @Test
     public void getQuejayReclamoTest() {
         QuejasyReclamosEntity entity = data.get(0);
-        QuejasyReclamosEntity resultEntity = quejasLogic.getQuejayReclamo(entity.getId());
+        QuejasyReclamosEntity resultEntity = quejasLogic.getQuejayReclamo(dataDieta.get(1).getId(),entity.getId());
         Assert.assertNotNull(resultEntity);
         Assert.assertEquals(entity.getId(), resultEntity.getId());
         Assert.assertEquals(resultEntity.getAsunto(), entity.getAsunto());
@@ -157,7 +167,7 @@ public class QuejasyReclamosLogicTest {
     @Test
     public void deleteQuejayReclamoTest() throws BusinessLogicException {
         QuejasyReclamosEntity entity = data.get(0);
-        quejasLogic.deleteQuejayReclamo(entity);
+        quejasLogic.deleteQuejayReclamo(dataDieta.get(1).getId(),entity.getId());
         QuejasyReclamosEntity deleted = em.find(QuejasyReclamosEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
@@ -173,7 +183,7 @@ public class QuejasyReclamosLogicTest {
 
         pojoEntity.setId(entity.getId());
 
-        quejasLogic.updateQuejayReclamo(pojoEntity);
+        quejasLogic.updateQuejayReclamo(pojoEntity,dataDieta.get(1).getId());
 
         QuejasyReclamosEntity resp = em.find(QuejasyReclamosEntity.class, entity.getId());
 

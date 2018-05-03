@@ -62,14 +62,14 @@ insert into CuentaCobroEntity(id, valorAPagar, factura_id ) values (1, 20.000, 4
 
 
 
-INSERT INTO COCINAENTITY (CAPACIDAD, IMAGEN, "NAME", UBICACION) 
-	VALUES ('2008', 'https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'La Gran Cocina', '8871 Merry Point');
-INSERT INTO COCINAENTITY (CAPACIDAD, IMAGEN, "NAME", UBICACION) 
-	VALUES ('232', 'https://images.pexels.com/photos/159991/pexels-photo-159991.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Cocina de las Aguas', '7303 Troy Placet');
-INSERT INTO COCINAENTITY (CAPACIDAD, IMAGEN, "NAME", UBICACION) 
-	VALUES ('2308', 'https://images.pexels.com/photos/225448/pexels-photo-225448.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Central del Norte', '652 Lukken Junction');
-INSERT INTO COCINAENTITY (CAPACIDAD, IMAGEN, "NAME", UBICACION) 
-	VALUES ('208', 'https://images.pexels.com/photos/2755/restaurant.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Cocina Bogota', '15 Hoepker Plaza');
+INSERT INTO COCINAENTITY (ID,CAPACIDAD, IMAGEN, "NAME", UBICACION) 
+	VALUES (1,'2008', 'https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'La Gran Cocina', '8871 Merry Point');
+INSERT INTO COCINAENTITY (ID,CAPACIDAD, IMAGEN, "NAME", UBICACION) 
+	VALUES (2,'232', 'https://images.pexels.com/photos/159991/pexels-photo-159991.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Cocina de las Aguas', '7303 Troy Placet');
+INSERT INTO COCINAENTITY (ID,CAPACIDAD, IMAGEN, "NAME", UBICACION) 
+	VALUES (3,'2308', 'https://images.pexels.com/photos/225448/pexels-photo-225448.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Central del Norte', '652 Lukken Junction');
+INSERT INTO COCINAENTITY (ID,CAPACIDAD, IMAGEN, "NAME", UBICACION) 
+	VALUES (4,'208', 'https://images.pexels.com/photos/2755/restaurant.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Cocina Bogota', '15 Hoepker Plaza');
 
 
 INSERT INTO DIETATIPOENTITY (DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
@@ -107,18 +107,18 @@ insert into MedioPagoEntity(id, medioPagoActual) values (3, 'Credito');
 
 
 
-insert into CalificacionEntity (id, puntuacion) values (1, 7);
-insert into CalificacionEntity (id, puntuacion) values (2, 1);
-insert into CalificacionEntity (id, puntuacion) values (3, 1);
-insert into CalificacionEntity (id, puntuacion) values (4, 1);
-insert into CalificacionEntity (id, puntuacion) values (5, 7);
-insert into CalificacionEntity (id, puntuacion) values (6, 8);
-insert into CalificacionEntity (id, puntuacion) values (7, 8);
+insert into CalificacionEntity (id, puntuacion, idDieta) values (1, 7, 1);
+insert into CalificacionEntity (id, puntuacion, idDieta) values (2, 4,1);
+insert into CalificacionEntity (id, puntuacion, idDieta) values (3, 8,1);
+insert into CalificacionEntity (id, puntuacion, idDieta) values (4, 6,2);
+insert into CalificacionEntity (id, puntuacion, idDieta) values (5, 10,2);
+insert into CalificacionEntity (id, puntuacion, idDieta) values (6, 2,3);
+insert into CalificacionEntity (id, puntuacion, idDieta) values (7, 0,3);
 
-insert into QuejasyReclamosEntity (id, asunto, comentario) values (1,'queja', 'La comida llego fria');
-insert into QuejasyReclamosEntity (id, asunto, comentario) values (2,'recomendacion', 'Llamar al cliente cuando el envio este cerca');
-insert into QuejasyReclamosEntity (id, asunto, comentario) values (3,'recomendacion', 'Contratar domiciliarios más amables');
-insert into QuejasyReclamosEntity (id, asunto, comentario) values (4,'queja', 'el domiciliario fue grosero');
+insert into QuejasyReclamosEntity (id, asunto, comentario, idDieta) values (1,'queja', 'La comida llego fria',4);
+insert into QuejasyReclamosEntity (id, asunto, comentario, idDieta) values (2,'recomendacion', 'Llamar al cliente cuando el envio este cerca',5);
+insert into QuejasyReclamosEntity (id, asunto, comentario, idDieta) values (3,'recomendacion', 'Contratar domiciliarios más amables',6);
+insert into QuejasyReclamosEntity (id, asunto, comentario, idDieta) values (4,'queja', 'el domiciliario fue grosero',7);
 
 
 insert into CasoExitoEntity (id, comentario, testimonio) values (1, 'Comentario 1', 'Testimonio 1');

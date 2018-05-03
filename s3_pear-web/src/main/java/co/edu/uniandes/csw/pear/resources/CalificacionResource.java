@@ -25,11 +25,12 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 /**
  *
  * @author ga.bejarano10
  */
-@Path("calificaciones")
+@Path("dietas/{idDieta: \\d+}/calificaciones")
 @Produces("application/json")
 @Consumes("application/json")
 @RequestScoped
@@ -58,10 +59,10 @@ public class CalificacionResource
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la ciudad.
      */
     @POST
-    public CalificacionDetailDTO createCalificacion(CalificacionDetailDTO calificacion) throws BusinessLogicException {
+    public CalificacionDetailDTO createCalificacion(@PathParam("idDieta") Long idDieta,CalificacionDetailDTO calificacion) throws BusinessLogicException {
        
 
-        return new CalificacionDetailDTO(logica.createCalificacion(calificacion.toEntity()));
+        return new CalificacionDetailDTO(logica.createCalificacion(idDieta,calificacion.toEntity()));
         
     }
      /**
@@ -76,10 +77,11 @@ public class CalificacionResource
      * @return JSONArray {@link CalificacionDetailDTO} - Las calificaciones en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
-    public List<CalificacionDetailDTO> getCalificaciones() 
+    public List<CalificacionDetailDTO> getCalificaciones(@PathParam("id") Long idDieta) throws BusinessLogicException 
     {
+   
        List<CalificacionDetailDTO> calificaciones = new ArrayList();
-       List listaEntity = logica.getCalificaciones();
+       List listaEntity = logica.getCalificaciones(idDieta);
        for(int i=0; i<listaEntity.size();i++)
        {
            CalificacionEntity entidad = (CalificacionEntity) listaEntity.get(i);
@@ -105,13 +107,13 @@ public class CalificacionResource
      */
     @GET
     @Path("{id: \\d+}")
-    public CalificacionDetailDTO getCalificacion(@PathParam("id") Long id) throws BusinessLogicException {
-        CalificacionEntity entidad = logica.getCalificacion(id);
+    public CalificacionDetailDTO getCalificacion(@PathParam("idDieta") Long idDieta, @PathParam("id") Long id) throws BusinessLogicException {
+        CalificacionEntity entidad = logica.getCalificacion(idDieta,id);
         if(entidad==null)
         {//TODO: Si el recurso no existe debe disparar WebApplicationException
-            throw new BusinessLogicException("La calificacion no existe");
+             throw new WebApplicationException("El recurso /dietas/" + idDieta + "/calificaciones/" + id + " no existe.", 404);
         }
-        return new CalificacionDetailDTO(logica.getCalificacion(id));
+        return new CalificacionDetailDTO(logica.getCalificacion(idDieta,id));
     }
     
     /**
@@ -135,16 +137,16 @@ public class CalificacionResource
     
     @PUT
     @Path("{id: \\d+}")
-    public CalificacionDetailDTO updateQuejayReclamo(@PathParam("id") Long id, CalificacionDetailDTO calificacion) throws BusinessLogicException {
+    public CalificacionDetailDTO updateQuejayReclamo(@PathParam("idDieta") Long idDieta,@PathParam("id") Long id, CalificacionDetailDTO calificacion) throws BusinessLogicException {
         calificacion.setId(id);
-        if(logica.getCalificacion(id)==null)
+        if(logica.getCalificacion(idDieta,id)==null)
         {//TODO: Si el recurso no existe debe disparar WebApplicationException
             throw new BusinessLogicException("La calificacion que desea actualizar no existe");
         }
         //TODO: Esto es una regla de negocio que debe ir en la capa de lógica
-        if(logica.getCalificacion(id).getPuntuacion()>=0&& logica.getCalificacion(id).getPuntuacion()<11)
+        if(logica.getCalificacion(idDieta,id).getPuntuacion()>=0&& logica.getCalificacion(idDieta,id).getPuntuacion()<11)
         {
-             return new CalificacionDetailDTO(logica.updateCalificacion(calificacion.toEntity()));
+             return new CalificacionDetailDTO(logica.updateCalificacion(idDieta,calificacion.toEntity()));
         }
         throw new BusinessLogicException ("la calificacion debe estar entre 0 y  10");
     }
@@ -165,13 +167,13 @@ public class CalificacionResource
      */
     @DELETE
     @Path("{id: \\d+}")
-     public void deleteCalificaion(@PathParam("id") Long id) throws BusinessLogicException {
-         CalificacionEntity entidad = logica.getCalificacion(id);
+     public void deleteCalificaion(@PathParam("idDieta")Long idDieta,@PathParam("id") Long id) throws BusinessLogicException {
+         CalificacionEntity entidad = logica.getCalificacion(idDieta,id);
         if(entidad==null)
         {//TODO: Si el recurso no existe debe disparar WebApplicationException
             throw new BusinessLogicException("La calificación que desea eliminar no existe");
         }
-        logica.deleteCalificacion(entidad);
+        logica.deleteCalificacion(idDieta,id);
     }
      
     

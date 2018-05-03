@@ -36,7 +36,7 @@ public class QuejasyReclamosDTO {
     private String comentario;
     private String asunto;
     //TODO: debe ser Long 
-    private long id;
+    private Long id;
 
     /**
      * Constructor por defecto
@@ -44,11 +44,11 @@ public class QuejasyReclamosDTO {
     public QuejasyReclamosDTO() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

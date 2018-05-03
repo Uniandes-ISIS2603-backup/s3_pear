@@ -6,7 +6,10 @@
 package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -17,6 +20,10 @@ public class QuejasyReclamosEntity extends BaseEntity implements Serializable
 {
     private String comentario;
     private String asunto;
+    
+    @PodamExclude
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private DietaTipoEntity dieta;
 
     /**
      * 
@@ -48,6 +55,21 @@ public class QuejasyReclamosEntity extends BaseEntity implements Serializable
      */
     public void setAsunto(String asunto) {
         this.asunto = asunto;
+    }
+    /**
+     * Devuelve la dieta asociada a esta queja o recomendacion
+     * @return Entidad de tipo dieta
+     */
+    public DietaTipoEntity getDieta() {
+        return dieta;
+    }
+
+    /**
+     * Modifica la dieta asociada a esta queja o recomendacion
+     * @param dieta la nueva dieta
+     */
+    public void setDieta(DietaTipoEntity dieta) {
+        this.dieta = dieta;
     }
     
 }

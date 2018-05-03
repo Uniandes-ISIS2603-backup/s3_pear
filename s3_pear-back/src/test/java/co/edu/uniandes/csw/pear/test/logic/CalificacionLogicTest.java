@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.pear.test.logic;
 
 import co.edu.uniandes.csw.pear.ejb.CalificacionLogic;
 import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
+import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.CalificacionPersistence;
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ public class CalificacionLogicTest {
     private UserTransaction utx;
     
      private List<CalificacionEntity> data = new ArrayList<CalificacionEntity>();
+     private List<DietaTipoEntity> dataDieta= new ArrayList<DietaTipoEntity>();
      
      @Deployment
     public static JavaArchive createDeployment() {
@@ -82,6 +84,7 @@ public class CalificacionLogicTest {
      */
     private void clearData() {
         em.createQuery("delete from CalificacionEntity").executeUpdate();
+        em.createQuery("delete from DietaTipoEntity").executeUpdate();
     }
     /**
      * Inserta los datos iniciales para el correcto funcionamiento de las
@@ -92,7 +95,13 @@ public class CalificacionLogicTest {
     private void insertData() {
 
         for (int i = 0; i < 3; i++) {
+            DietaTipoEntity entity = factory.manufacturePojo(DietaTipoEntity.class);
+            em.persist(entity);
+            dataDieta.add(entity);
+        }
+        for (int i = 0; i < 3; i++) {
             CalificacionEntity entity = factory.manufacturePojo(CalificacionEntity.class);
+            entity.setDieta(dataDieta.get(1));
             em.persist(entity);
             data.add(entity);
          
@@ -107,7 +116,7 @@ public class CalificacionLogicTest {
     @Test
     public void createCalificacionTest() throws BusinessLogicException {
         CalificacionEntity newEntity = factory.manufacturePojo(CalificacionEntity.class);
-        CalificacionEntity result = calificacionLogic.createCalificacion(newEntity);
+        CalificacionEntity result = calificacionLogic.createCalificacion(data.get(0).getDieta().getId(), newEntity);
         Assert.assertNotNull(result);
         CalificacionEntity entity = em.find(CalificacionEntity.class, result.getId());
         Assert.assertEquals(newEntity.getId(), entity.getId());
@@ -121,8 +130,8 @@ public class CalificacionLogicTest {
      *
      */
     @Test
-    public void getCalificacionesTest() {
-        List<CalificacionEntity> list = calificacionLogic.getCalificaciones();
+    public void getCalificacionesTest() throws BusinessLogicException {
+        List<CalificacionEntity> list = calificacionLogic.getCalificaciones(dataDieta.get(1).getId());
         Assert.assertEquals(data.size(), list.size());
         for (CalificacionEntity entity : list) {
             boolean found = false;
@@ -142,7 +151,7 @@ public class CalificacionLogicTest {
     @Test
     public void getCalificacionTest() {
         CalificacionEntity entity = data.get(0);
-        CalificacionEntity resultEntity = calificacionLogic.getCalificacion(entity.getId());
+        CalificacionEntity resultEntity = calificacionLogic.getCalificacion(dataDieta.get(1).getId(),entity.getId());
         Assert.assertNotNull(resultEntity);
         Assert.assertEquals(entity.getId(), resultEntity.getId());
         int puntuacionNueva =(int) resultEntity.getPuntuacion();
@@ -157,7 +166,7 @@ public class CalificacionLogicTest {
     @Test
     public void deleteCalificacionTest() throws BusinessLogicException {
         CalificacionEntity entity = data.get(0);
-        calificacionLogic.deleteCalificacion(entity);
+        calificacionLogic.deleteCalificacion(dataDieta.get(1).getId(),entity.getId());
         CalificacionEntity deleted = em.find(CalificacionEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
@@ -173,7 +182,7 @@ public class CalificacionLogicTest {
 
         pojoEntity.setId(entity.getId());
 
-        calificacionLogic.updateCalificacion(pojoEntity);
+        calificacionLogic.updateCalificacion(dataDieta.get(1).getId(),pojoEntity);
 
         CalificacionEntity resp = em.find(CalificacionEntity.class, entity.getId());
 
