@@ -72,23 +72,23 @@ INSERT INTO COCINAENTITY (ID,CAPACIDAD, IMAGEN, "NAME", UBICACION)
 	VALUES (4,'208', 'https://images.pexels.com/photos/2755/restaurant.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Cocina Bogota', '15 Hoepker Plaza');
 
 
-INSERT INTO DIETATIPOENTITY (DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES ('Vision-oriented intermediate matrix', 'https://images.pexels.com/photos/628777/pexels-photo-628777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Verde', 'Ergonomic solution-oriented support', 2, NULL);
+INSERT INTO DIETATIPOENTITY (ID,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (1,'Vision-oriented intermediate matrix', 'https://images.pexels.com/photos/628777/pexels-photo-628777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Verde', 'Ergonomic solution-oriented support', 2, NULL);
 
-INSERT INTO DIETATIPOENTITY (DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES ('Operative motivating strategy', 'https://images.pexels.com/photos/660282/pexels-photo-660282.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Anti Dieta', 'Balanced tertiary strategy', 5, NULL);
-INSERT INTO DIETATIPOENTITY (DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES ('Digitized real-time implementation', 'https://images.pexels.com/photos/628776/pexels-photo-628776.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Oriental', 'Enterprise-wide global architecture', 4, NULL);
-INSERT INTO DIETATIPOENTITY (DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES ('De-engineered multi-state info-mediaries', 'https://images.pexels.com/photos/546945/pexels-photo-546945.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Italiana', 'Multi-tiered cohesive contingency', 4, NULL);
-INSERT INTO DIETATIPOENTITY (DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES ('ntegrated multimedia initiative', 'https://images.pexels.com/photos/629093/pexels-photo-629093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta de Crudos', 'Multi-layered explicit circu', 3, NULL);
-INSERT INTO DIETATIPOENTITY (DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES ('dieta basada en ensaladas o algo asi', 'https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Nutricional', 'el objetivo de la dieta es desintoxicarse', 3, NULL);
-INSERT INTO DIETATIPOENTITY (DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES ('una dieta basada en proteinas', 'https://images.pexels.com/photos/76093/pexels-photo-76093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Deportiva', 'el objetivo de la dieta es obtener masa muscular', 5, NULL);
-INSERT INTO DIETATIPOENTITY (DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID, ID ) 
-	VALUES ('dieta basada en alimentos del mar', 'https://images.pexels.com/photos/36768/food-salmon-teriyaki-cooking.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Pacifica', 'el objetivo de la dieta es alejarse de las carnes rojas', 4, NULL, 1);
+INSERT INTO DIETATIPOENTITY (ID,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (2,'Operative motivating strategy', 'https://images.pexels.com/photos/660282/pexels-photo-660282.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Anti Dieta', 'Balanced tertiary strategy', 5, NULL);
+INSERT INTO DIETATIPOENTITY (ID,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (3,'Digitized real-time implementation', 'https://images.pexels.com/photos/628776/pexels-photo-628776.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Oriental', 'Enterprise-wide global architecture', 4, NULL);
+INSERT INTO DIETATIPOENTITY (ID,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (4,'De-engineered multi-state info-mediaries', 'https://images.pexels.com/photos/546945/pexels-photo-546945.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Italiana', 'Multi-tiered cohesive contingency', 4, NULL);
+INSERT INTO DIETATIPOENTITY (ID,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (5,'ntegrated multimedia initiative', 'https://images.pexels.com/photos/629093/pexels-photo-629093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta de Crudos', 'Multi-layered explicit circu', 3, NULL);
+INSERT INTO DIETATIPOENTITY (ID,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (6,'dieta basada en ensaladas o algo asi', 'https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Nutricional', 'el objetivo de la dieta es desintoxicarse', 3, NULL);
+INSERT INTO DIETATIPOENTITY (ID,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (7,'una dieta basada en proteinas', 'https://images.pexels.com/photos/76093/pexels-photo-76093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Deportiva', 'el objetivo de la dieta es obtener masa muscular', 5, NULL);
+INSERT INTO DIETATIPOENTITY (ID,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID ) 
+	VALUES (8,'dieta basada en alimentos del mar', 'https://images.pexels.com/photos/36768/food-salmon-teriyaki-cooking.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Pacifica', 'el objetivo de la dieta es alejarse de las carnes rojas', 4, NULL);
 
 
 

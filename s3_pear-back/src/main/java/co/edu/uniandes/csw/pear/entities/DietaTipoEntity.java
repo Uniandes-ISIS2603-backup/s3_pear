@@ -33,11 +33,11 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     
     @PodamExclude
     @OneToMany(mappedBy = "dieta", cascade = CascadeType.PERSIST)
-    private List<CalificacionEntity> calificaciones = new ArrayList<CalificacionEntity>();
+    private List<CalificacionEntity> calificaciones = new ArrayList<>();
     
     @PodamExclude
     @OneToMany(mappedBy = "dieta", cascade = CascadeType.PERSIST)
-    private List<QuejasyReclamosEntity> quejas = new ArrayList<QuejasyReclamosEntity>();
+    private List<QuejasyReclamosEntity> quejas = new ArrayList<>();
     
     @PodamExclude
     @ManyToOne( cascade = CascadeType.PERSIST)
@@ -132,12 +132,7 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     public List<CalificacionEntity> getCalificaciones() {
         return calificaciones;
     }
-    public void add_calificacion ( CalificacionEntity sem ) {
-        this.calificaciones.add(sem);
-    }
-    public void add_queja ( QuejasyReclamosEntity sem ) {
-        this.quejas.add(sem);
-    }
+ 
 
     /**
      * Modifica las calificaciones de una dieta.

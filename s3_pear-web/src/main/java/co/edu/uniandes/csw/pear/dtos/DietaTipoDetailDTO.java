@@ -41,12 +41,12 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
         
         
         if (entity.getSemanas() != null) {
-
+        
             semanas = new ArrayList<>();
             for (SemanaEntity semana : entity.getSemanas()) {
                 semanas.add(new SemanaDTO(semana));
             }
-
+       
         } 
         if (entity.getCalificaciones() != null) {
            calificaciones = new ArrayList<>();

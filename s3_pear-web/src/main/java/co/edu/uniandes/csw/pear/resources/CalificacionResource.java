@@ -77,13 +77,14 @@ public class CalificacionResource
      * @return JSONArray {@link CalificacionDetailDTO} - Las calificaciones en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
-    public List<CalificacionDetailDTO> getCalificaciones(@PathParam("id") Long idDieta) throws BusinessLogicException 
+    public List<CalificacionDetailDTO> getCalificaciones(@PathParam("idDieta") Long idDieta) throws BusinessLogicException 
     {
    
        List<CalificacionDetailDTO> calificaciones = new ArrayList();
        List listaEntity = logica.getCalificaciones(idDieta);
        for(int i=0; i<listaEntity.size();i++)
        {
+           
            CalificacionEntity entidad = (CalificacionEntity) listaEntity.get(i);
            calificaciones.add(new CalificacionDetailDTO(entidad));
        }

@@ -49,7 +49,7 @@ public class CalificacionPersistence
         em.remove(entity);
     }
     public  CalificacionEntity find( Long dietaid ,Long id){
-        TypedQuery<CalificacionEntity> q = em.createQuery("select p from CalificacionEntity p where (p.dieta.id = :dietaid) and (p.id = :id)", CalificacionEntity.class);
+        TypedQuery<CalificacionEntity> q = em.createQuery("select p from CalificacionEntity p where (p.dietaId = :dietaid) and (p.id = :id)", CalificacionEntity.class);
         q.setParameter("dietaid", dietaid);
         q.setParameter("id", id);
         List<CalificacionEntity> results = q.getResultList();

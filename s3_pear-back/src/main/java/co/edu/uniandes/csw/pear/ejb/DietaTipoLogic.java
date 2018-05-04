@@ -61,6 +61,7 @@ public class DietaTipoLogic {
         DietaTipoEntity dieta = persistence.find(id);
         if ( dieta ==  null )
             LOGGER.log(Level.INFO, "No existe una Dieta con el id = {0}", id);
+        
         LOGGER.log(Level.INFO, "Termina la consulta de dieta con id = {0}", id);
         return dieta;
     }

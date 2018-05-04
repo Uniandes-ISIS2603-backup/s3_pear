@@ -65,7 +65,7 @@ public class QuejasyReclamosLogic
         return persistence.find(dietaid, id);
     }
 
-    public QuejasyReclamosEntity updateQuejayReclamo(QuejasyReclamosEntity entity, Long dietaId) throws BusinessLogicException  {
+    public QuejasyReclamosEntity updateQuejayReclamo(Long dietaId,QuejasyReclamosEntity entity ) throws BusinessLogicException  {
         
         DietaTipoEntity dieta = dietaLogic.getDieta(dietaId);
         entity.setDieta(dieta);

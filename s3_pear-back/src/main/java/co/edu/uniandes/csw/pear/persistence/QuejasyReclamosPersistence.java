@@ -47,7 +47,7 @@ public class QuejasyReclamosPersistence
         em.remove(entity);
     }
     public  QuejasyReclamosEntity find( Long dietaid ,Long id){
-        TypedQuery<QuejasyReclamosEntity> q = em.createQuery("select p from QuejasyReclamosEntity p where (p.dieta.id = :dietaid) and (p.id = :id)", QuejasyReclamosEntity.class);
+        TypedQuery<QuejasyReclamosEntity> q = em.createQuery("select p from QuejasyReclamosEntity p where (p.dietaId = :dietaid) and (p.id = :id)", QuejasyReclamosEntity.class);
         q.setParameter("dietaid", dietaid);
         q.setParameter("id", id);
         List<QuejasyReclamosEntity> results = q.getResultList();
@@ -60,6 +60,7 @@ public class QuejasyReclamosPersistence
             queja = results.get(0);
         }
 
+        
         return queja;
     }
     

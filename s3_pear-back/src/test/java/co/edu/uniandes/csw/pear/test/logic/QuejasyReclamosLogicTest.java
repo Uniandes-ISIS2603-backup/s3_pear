@@ -183,7 +183,7 @@ public class QuejasyReclamosLogicTest {
 
         pojoEntity.setId(entity.getId());
 
-        quejasLogic.updateQuejayReclamo(pojoEntity,dataDieta.get(1).getId());
+        quejasLogic.updateQuejayReclamo(dataDieta.get(1).getId(),pojoEntity);
 
         QuejasyReclamosEntity resp = em.find(QuejasyReclamosEntity.class, entity.getId());
 

@@ -54,7 +54,7 @@ public class CalificacionLogic {
         if(dieta.getCalificaciones().isEmpty()){
              throw new BusinessLogicException("La dieta que consulta aún no tiene calificaciones");
         }
-        return dieta.getCalificaciones();
+        return persistence.findAll();
     }
 
     public CalificacionEntity getCalificacion(Long dietaId, Long id) {

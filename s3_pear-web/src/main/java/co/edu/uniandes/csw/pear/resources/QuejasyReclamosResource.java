@@ -42,7 +42,7 @@ import javax.ws.rs.Produces;
  *
  * @author ga.bejarano10
  */
-@Path("quejasyreclamos")
+@Path("dietas/{idDieta: \\d+}/quejasyreclamos")
 @Produces("application/json")
 @Consumes("application/json")
 @RequestScoped
@@ -68,6 +68,7 @@ public class QuejasyReclamosResource {
      * </code>
      * </pre>
      *
+     * @param idDieta
      * @param quejayreclamo {@link quejayreclamoDetailDTO} - La queja y reclamo
      * que se desea guardar.
      * @return JSON {@link QuejasyReclamosDetailDTO} - La queja y reclamo
@@ -76,9 +77,9 @@ public class QuejasyReclamosResource {
      * Error de lógica que se genera cuando ya existe la ciudad.
      */
     @POST
-    public QuejasyReclamosDetailDTO createQuejayReclamo(@PathParam("idDieta")Long idDieta,QuejasyReclamosDetailDTO quejayreclamo) throws BusinessLogicException {
+    public QuejasyReclamosDetailDTO createQuejayReclamo(@PathParam("idDieta")Long idDieta, QuejasyReclamosDetailDTO quejayreclamo) throws BusinessLogicException {
 
-        return new QuejasyReclamosDetailDTO(logica.createQuejasyReclamos(idDieta,quejayreclamo.toEntity()));
+        return new QuejasyReclamosDetailDTO(logica.createQuejasyReclamos(idDieta, quejayreclamo.toEntity()));
 
     }
 
@@ -92,11 +93,12 @@ public class QuejasyReclamosResource {
      * 200 OK Devuelve todas las quejas y reclamos de la aplicacion.</code>
      * </pre>
      *
+     * @param idDieta
      * @return JSONArray {@link CityDetailDTO} - Las quejas y reclamos
      * encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
-    public List<QuejasyReclamosDetailDTO> getQuejasyReclamos(@PathParam("id") Long idDieta) {
+    public List<QuejasyReclamosDetailDTO> getQuejasyReclamos(@PathParam("idDieta") Long idDieta) {
         List<QuejasyReclamosDetailDTO> quejasyreclamos = new ArrayList();
         List listaEntity = logica.getQuejasyReclamos(idDieta);
         for (int i = 0; i < listaEntity.size(); i++) {
@@ -126,7 +128,7 @@ public class QuejasyReclamosResource {
      */
     @GET
     @Path("{id: \\d+}")
-    public QuejasyReclamosDetailDTO getQuejayReclamo(@PathParam("id") Long idDieta,@PathParam("id") Long id) throws BusinessLogicException {
+    public QuejasyReclamosDetailDTO getQuejayReclamo(@PathParam("idDieta") Long idDieta,@PathParam("id") Long id) throws BusinessLogicException {
         QuejasyReclamosEntity entidad = logica.getQuejayReclamo(idDieta,id);
         if (entidad == null) {
             //TODO: Si el recurso no existe debe disparar WebApplicationException
@@ -161,14 +163,14 @@ public class QuejasyReclamosResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public QuejasyReclamosDetailDTO updateQuejayReclamo(@PathParam("id") Long idDieta,@PathParam("id") Long id, QuejasyReclamosDetailDTO quejayreclamo) throws BusinessLogicException {
+    public QuejasyReclamosDetailDTO updateQuejayReclamo(@PathParam("idDieta") Long idDieta,@PathParam("id") Long id, QuejasyReclamosDetailDTO quejayreclamo) throws BusinessLogicException {
         quejayreclamo.setId(id);
         QuejasyReclamosEntity entidad = logica.getQuejayReclamo(idDieta,id);
         if (entidad == null) {
         //TODO: Si el recurso no existe debe disparar WebApplicationException
             throw new BusinessLogicException("La queja o reclamo que desea actualizar no existe");
         }
-        return new QuejasyReclamosDetailDTO(logica.updateQuejayReclamo(quejayreclamo.toEntity(), idDieta));
+        return new QuejasyReclamosDetailDTO(logica.updateQuejayReclamo(idDieta,quejayreclamo.toEntity()));
     }
 
     /**
@@ -189,7 +191,7 @@ public class QuejasyReclamosResource {
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteQuejayReclamo(@PathParam("id") Long idDieta,@PathParam("id") Long id) throws BusinessLogicException {
+    public void deleteQuejayReclamo(@PathParam("idDieta") Long idDieta,@PathParam("id") Long id) throws BusinessLogicException {
         QuejasyReclamosEntity entidad = logica.getQuejayReclamo(idDieta,id);
         if (entidad == null) {
             //TODO: Si el recurso no existe debe disparar WebApplicationException
