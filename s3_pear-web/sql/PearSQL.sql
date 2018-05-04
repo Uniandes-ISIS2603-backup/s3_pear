@@ -1,8 +1,7 @@
 
-UPDATE DIETATIPOENTITY SET CUENTACOBRO_ID = NULL, COCINA_ID = NULL;
-
 UPDATE CUENTACOBROENTITY SET DIETA_ID = NULL;
 UPDATE FACTURAENTITY SET PERSONA_ID = NULL;
+UPDATE PERSONAENTITY SET CUENTA_ID = NULL; 
 
 delete from CuentaCobroEntity;
 delete from DietaTipoEntity;
@@ -28,11 +27,20 @@ delete from QuejasyReclamosEntity;
 delete from CasoExitoEntity;
 
 
-
-
-
-
+/*Persona con la factura 45*/
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (1, 'Pablo', 'Suarez', 20, 'Cll. 127D #19-93', 'pa.suarezm@uniandes.edu.co', 0, '201632293');
+
+/*La factura 45*/
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(45, 3, 200418,1);
+
+/*Dieta de la cuenta*/
+INSERT INTO DIETATIPOENTITY (NUMSEMANAS, PRECIO , DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID, ID) 
+	VALUES (2,100, 'Enterprise-wide coherent access', 'https://images.pexels.com/photos/248444/pexels-photo-248444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Japonesa', 'Versatile tangible task-force', 1, NULL, 1);
+/*cuenta de la persona id 1*/ 
+insert into CuentaCobroEntity(id, valorAPagar, factura_id ) values (1, 20.000, 45);
+
+/*update personaEntity set cuenta_id = 1; */
+
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (2, 'Camilo', 'Bedoya', 20, 'Cll. 151 #9-26', 'jc.bedoya@uniandes.edu.co', 0, '201631591');
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (3, 'Carol', 'Trujillo', 19, 'Cra. 53 #127-43', 'cv.trujillo@uniandes.edu.co', 0, '201618005');
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (4, 'Mariana', 'Moreno', 20, 'Cll. 76 #7-83', 'mi.morenoa@uniandes.edu.co', 0, '201698416');
@@ -45,7 +53,7 @@ insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscr
 
 
 
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(45, 3, 200418,1);
+
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(46, 7, 300418,2);
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(47, 8, 400418,3);
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(48, 2, 100518,4);
@@ -54,9 +62,7 @@ insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_i
 
 insert into PagoEntity(id, montoInicial, montoFinal) values (2, 10, 10);
 
-INSERT INTO DIETATIPOENTITY (DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID, ID) 
-	VALUES ('Enterprise-wide coherent access', 'https://images.pexels.com/photos/248444/pexels-photo-248444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Japonesa', 'Versatile tangible task-force', 1, NULL, 1);
-insert into CuentaCobroEntity(id, valorAPagar, factura_id ) values (1, 20.000, 45);
+
 
 
 
@@ -72,23 +78,50 @@ INSERT INTO COCINAENTITY (ID,CAPACIDAD, IMAGEN, "NAME", UBICACION)
 	VALUES (4,'208', 'https://images.pexels.com/photos/2755/restaurant.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Cocina Bogota', '15 Hoepker Plaza');
 
 
-INSERT INTO DIETATIPOENTITY (ID,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (1,'Vision-oriented intermediate matrix', 'https://images.pexels.com/photos/628777/pexels-photo-628777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Verde', 'Ergonomic solution-oriented support', 2, NULL);
 
-INSERT INTO DIETATIPOENTITY (ID,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (2,'Operative motivating strategy', 'https://images.pexels.com/photos/660282/pexels-photo-660282.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Anti Dieta', 'Balanced tertiary strategy', 5, NULL);
-INSERT INTO DIETATIPOENTITY (ID,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (3,'Digitized real-time implementation', 'https://images.pexels.com/photos/628776/pexels-photo-628776.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Oriental', 'Enterprise-wide global architecture', 4, NULL);
-INSERT INTO DIETATIPOENTITY (ID,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (4,'De-engineered multi-state info-mediaries', 'https://images.pexels.com/photos/546945/pexels-photo-546945.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Italiana', 'Multi-tiered cohesive contingency', 4, NULL);
-INSERT INTO DIETATIPOENTITY (ID,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (5,'ntegrated multimedia initiative', 'https://images.pexels.com/photos/629093/pexels-photo-629093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta de Crudos', 'Multi-layered explicit circu', 3, NULL);
-INSERT INTO DIETATIPOENTITY (ID,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (6,'dieta basada en ensaladas o algo asi', 'https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Nutricional', 'el objetivo de la dieta es desintoxicarse', 3, NULL);
-INSERT INTO DIETATIPOENTITY (ID,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (7,'una dieta basada en proteinas', 'https://images.pexels.com/photos/76093/pexels-photo-76093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Deportiva', 'el objetivo de la dieta es obtener masa muscular', 5, NULL);
-INSERT INTO DIETATIPOENTITY (ID,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID ) 
-	VALUES (8,'dieta basada en alimentos del mar', 'https://images.pexels.com/photos/36768/food-salmon-teriyaki-cooking.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Pacifica', 'el objetivo de la dieta es alejarse de las carnes rojas', 4, NULL);
+INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (2,4,50,'Operative motivating strategy', 'https://images.pexels.com/photos/660282/pexels-photo-660282.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Anti Dieta', 'Balanced tertiary strategy', 5, NULL);
+INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (3,2,150,'Digitized real-time implementation', 'https://images.pexels.com/photos/628776/pexels-photo-628776.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Oriental', 'Enterprise-wide global architecture', 4, NULL);
+INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (4,5,200,'De-engineered multi-state info-mediaries', 'https://images.pexels.com/photos/546945/pexels-photo-546945.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Italiana', 'Multi-tiered cohesive contingency', 4, NULL);
+INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (5,4,150,'ntegrated multimedia initiative', 'https://images.pexels.com/photos/629093/pexels-photo-629093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta de Crudos', 'Multi-layered explicit circu', 3, NULL);
+INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (6,4,150,'dieta basada en ensaladas o algo asi', 'https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Nutricional', 'el objetivo de la dieta es desintoxicarse', 3, NULL);
+INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (7,4,150,'una dieta basada en proteinas', 'https://images.pexels.com/photos/76093/pexels-photo-76093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Deportiva', 'el objetivo de la dieta es obtener masa muscular', 5, NULL);
+INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID ) 
+	VALUES (8,5,200,'dieta basada en alimentos del mar', 'https://images.pexels.com/photos/36768/food-salmon-teriyaki-cooking.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Pacifica', 'el objetivo de la dieta es alejarse de las carnes rojas', 4, NULL);
+
+INSERT INTO COCINAENTITY (CAPACIDAD, IMAGEN, "NAME", UBICACION) 
+	VALUES ('2008', 'https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'La Gran Cocina', '8871 Merry Point');
+INSERT INTO COCINAENTITY (CAPACIDAD, IMAGEN, "NAME", UBICACION) 
+	VALUES ('232', 'https://images.pexels.com/photos/159991/pexels-photo-159991.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Cocina de las Aguas', '7303 Troy Placet');
+INSERT INTO COCINAENTITY (CAPACIDAD, IMAGEN, "NAME", UBICACION) 
+	VALUES ('2308', 'https://images.pexels.com/photos/225448/pexels-photo-225448.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Central del Norte', '652 Lukken Junction');
+INSERT INTO COCINAENTITY (CAPACIDAD, IMAGEN, "NAME", UBICACION) 
+	VALUES ('208', 'https://images.pexels.com/photos/2755/restaurant.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Cocina Bogota', '15 Hoepker Plaza');
+
+
+INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (9,3, 200, 'Vision-oriented intermediate matrix', 'https://images.pexels.com/photos/628777/pexels-photo-628777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Verde', 'Ergonomic solution-oriented support', 2, NULL);
+
+INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (10,4, 350, 'Operative motivating strategy', 'https://images.pexels.com/photos/660282/pexels-photo-660282.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Anti Dieta', 'Balanced tertiary strategy', 5, NULL);
+INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (11,2, 100, 'Digitized real-time implementation', 'https://images.pexels.com/photos/628776/pexels-photo-628776.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Oriental', 'Enterprise-wide global architecture', 4, NULL);
+INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (12,1, 40, 'De-engineered multi-state info-mediaries', 'https://images.pexels.com/photos/546945/pexels-photo-546945.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Italiana', 'Multi-tiered cohesive contingency', 4, NULL);
+INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (13,5, 200, 'ntegrated multimedia initiative', 'https://images.pexels.com/photos/629093/pexels-photo-629093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta de Crudos', 'Multi-layered explicit circu', 3, NULL);
+INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (14,10, 400,  'dieta basada en ensaladas o algo asi', 'https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Nutricional', 'el objetivo de la dieta es desintoxicarse', 3, NULL);
+INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
+	VALUES (15,3, 110, 'una dieta basada en proteinas', 'https://images.pexels.com/photos/76093/pexels-photo-76093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Deportiva', 'el objetivo de la dieta es obtener masa muscular', 5, NULL);
+INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID ) 
+	VALUES (16,8, 800, 'dieta basada en alimentos del mar', 'https://images.pexels.com/photos/36768/food-salmon-teriyaki-cooking.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Pacifica', 'el objetivo de la dieta es alejarse de las carnes rojas', 4, NULL);
+
 
 
 
@@ -178,6 +211,5 @@ insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (17, 
 insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (18, 'Una harina diaria','12/04/2018', 0,223);
 insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (19, 'Una harina diaria','13/04/2018', 0,223);
 insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (20, 'Una harina diaria','14/04/2018', 0,223);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (21, 'Una harina diaria','15/04/2018', 0,223);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (21, 'Una harina diaria','15/04/2018', 0, 223);
 
- 

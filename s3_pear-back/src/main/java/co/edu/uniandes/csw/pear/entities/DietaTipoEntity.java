@@ -25,6 +25,11 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     private String imagen;
     private Integer stars;
     /*Actuaizacion Ciclo 2*/
+    
+    /*ACtualizacion ciclo 3*/
+    private double precio;
+    private Integer numSemanas;
+    /*ACtualizacion ciclo 3*/
  
     
     @PodamExclude
@@ -33,11 +38,11 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     
     @PodamExclude
     @OneToMany(mappedBy = "dieta", cascade = CascadeType.PERSIST)
-    private List<CalificacionEntity> calificaciones = new ArrayList<>();
+    private List<CalificacionEntity> calificaciones;
     
     @PodamExclude
     @OneToMany(mappedBy = "dieta", cascade = CascadeType.PERSIST)
-    private List<QuejasyReclamosEntity> quejas = new ArrayList<>();
+    private List<QuejasyReclamosEntity> quejas ;
     
     @PodamExclude
     @ManyToOne( cascade = CascadeType.PERSIST)
@@ -125,6 +130,7 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     public void add_semana ( SemanaEntity sem ) {
         this.semanas.add(sem);
     }
+
     /**
      * Devuelve las calificaciones de la dieta.
      * @return Lista de entidades de tipo calificacion
@@ -155,6 +161,34 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
      */
     public void setQuejas(List<QuejasyReclamosEntity> quejas) {
         this.quejas= quejas;
+    }
+
+    /**
+     * @return the precio
+     */
+    public double getPrecio() {
+        return precio;
+    }
+
+    /**
+     * @param precio the precio to set
+     */
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    /**
+     * @param numSemanas the numSemanas to set
+     */
+    public void setNumSemanas(Integer numSemanas) {
+        this.numSemanas = numSemanas;
+    }
+
+    /**
+     * @return the numSemanas
+     */
+    public Integer getNumSemanas() {
+        return numSemanas;
     }
     
     

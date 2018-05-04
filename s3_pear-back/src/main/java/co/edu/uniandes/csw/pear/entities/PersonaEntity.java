@@ -45,11 +45,13 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     @OneToOne (cascade = CascadeType.PERSIST, orphanRemoval = true)
     private DietaTipoEntity dieta;
     
+    @PodamExclude
+    @OneToOne (cascade = CascadeType.PERSIST, orphanRemoval = true)
+    private CuentaCobroEntity cuenta;
+    
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<QuejasyReclamosEntity> quejas;
-    
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    private MedioPagoEntity medioPago;
+   
     
     @PodamExclude
     @OneToMany(mappedBy = "persona", cascade = CascadeType.PERSIST)
@@ -73,19 +75,7 @@ public class PersonaEntity extends BaseEntity implements Serializable{
         facturas = list;
     }
     
-    /**
-     * @return el medio de pago
-     */
-    public MedioPagoEntity getMedioPago(){
-        return medioPago;
-    }
-    
-    /**
-     * @param entity Medio de pago
-     */
-    public void setMedioPago(MedioPagoEntity entity){
-        medioPago = entity;
-    }
+ 
     
     /**
      * @return nombre de la persona
@@ -225,5 +215,19 @@ public class PersonaEntity extends BaseEntity implements Serializable{
      */
     public void setQuejas(List<QuejasyReclamosEntity> pQuejas){
         quejas = pQuejas;
+    }
+
+    /**
+     * @return the cuenta
+     */
+    public CuentaCobroEntity getCuenta() {
+        return cuenta;
+    }
+
+    /**
+     * @param cuenta the cuenta to set
+     */
+    public void setCuenta(CuentaCobroEntity cuenta) {
+        this.cuenta = cuenta;
     }
 }

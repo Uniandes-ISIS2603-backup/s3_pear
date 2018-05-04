@@ -37,6 +37,7 @@ public class CuentaCobroPersistence {
     public CuentaCobroEntity create(CuentaCobroEntity entity) {
         LOGGER.info("Creando una cuentaCobro nueva");
         em.persist(entity);
+       
         LOGGER.info("Creando una cuentaCobro nueva");
         return entity;
     }

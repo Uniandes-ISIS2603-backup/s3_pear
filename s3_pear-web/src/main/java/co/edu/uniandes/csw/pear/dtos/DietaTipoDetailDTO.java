@@ -49,7 +49,7 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
        
         } 
         if (entity.getCalificaciones() != null) {
-           calificaciones = new ArrayList<>();
+            calificaciones = new ArrayList<>();
             for (CalificacionEntity entityCalificaion : entity.getCalificaciones()) {
                 calificaciones.add(new CalificacionDTO(entityCalificaion));
             }

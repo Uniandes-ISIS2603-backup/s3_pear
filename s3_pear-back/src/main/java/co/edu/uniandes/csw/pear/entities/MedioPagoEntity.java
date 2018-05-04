@@ -5,11 +5,8 @@
  */
 package co.edu.uniandes.csw.pear.entities;
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import uk.co.jemos.podam.common.PodamExclude;
+
 
 
 /**
@@ -21,10 +18,7 @@ public class MedioPagoEntity extends BaseEntity implements Serializable{
     
     
    private String medioPagoActual; 
-    
-   @PodamExclude
-   @OneToMany (mappedBy = "medioPago")
-   private List<PersonaEntity> personas; 
+   
     
     /**
      * Da el medio de pago actual
@@ -44,19 +38,6 @@ public class MedioPagoEntity extends BaseEntity implements Serializable{
         medioPagoActual = pMedio;
     }
 
-    /**
-     * @return Las personas con el medio de pago
-     */
-    public List<PersonaEntity> getPersonas() {
-        return personas;
-    }
-    /**
-     * Cambia la lista de peronas que usan el medio de pago actual
-     * @param pPersonas 
-     */
-    public void setPersonas(List<PersonaEntity> pPersonas)
-    {
-        personas = pPersonas; 
-    }
+ 
     
 }

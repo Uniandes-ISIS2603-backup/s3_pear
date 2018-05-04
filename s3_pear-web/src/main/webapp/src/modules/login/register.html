@@ -5,7 +5,8 @@
     }
 
     #head {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url('https://images.pexels.com/photos/349610/pexels-photo-349610.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+        background-color: white;
+        background-image: url('https://images.pexels.com/photos/139259/pexels-photo-139259.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
         background-attachment: fixed;
         background-size: cover;
         background-position: center;
@@ -17,15 +18,15 @@
         float: left;
         display: block;
         height: 2px;
-        border: 1px solid white;
-        width: 22em;
+        border: 1px solid dimgray;
+        width: 14em;
         color: white;
     }
 
     .tittle {
         margin-bottom: -1px;
         font-size: 30pt;
-        color: white;
+        color: dimgray;
         font-family: 'Roboto';
     }
 
@@ -43,7 +44,7 @@
 
     <div class="ui container" ng-app="personaModule">
 
-        <div class="ui text container" style="margin-top: 2em;" ng-controller="personasController">
+        <div class="ui text container" style="margin-top: 2em;" ng-controller="personasController" >
             <div class="ui form" style="width: 100%">
 
                 <h1 class="tittle">Registro</h1>
@@ -78,24 +79,27 @@
                     <input ng-model="telefono" type="number" placeholder="NÚMERO TELEFÓNICO">
                 </div>
 
+                <p>&nbsp;</p>
                 <div class="field">
                     <div class="ui checkbox">
-                        <input type="checkbox" name="user" ng-click="soyUser()" ng-checked="user">
-                        <label style="color: white">Soy Usuario</label>
+                        <input ng-if="user" type="checkbox" ng-click="soyUser()" checked>
+                        <input ng-if="!user" type="checkbox" ng-click="soyUser()">
+                        <label style="color: dimgray; font-size: 18px">Soy Usuario {{user}}</label>
                     </div>
                 </div>
 
                 <div class="field">
                     <div class="ui checkbox">
-                        <input type="checkbox" name="admin" ng-click="soyAdmin()" ng-checked="admin">
-                        <label style="color: white">Soy Administrador</label>
+                        <input ng-if="admin" type="checkbox" ng-click="soyAdmin()" checked>
+                        <input ng-if="!admin" type="checkbox" ng-click="soyAdmin()" >
+                        <label style="color: dimgray; font-size: 18px">Soy Administrador {{admin}}</label>
                     </div>
                 </div>
 
                 <p>&nbsp;</p>
                 <div class="inline field">
-                    <a ng-click="post_persona()" class="ui inverted olive basic button" ui-sref="dietas">Enviar</a>
-                    <a class="ui inverted teal basic button" style="text-decoration: none; color: white" ui-sref="dietas">Cancelar</a>
+                    <a ng-click="post_persona()" class="large ui positive basic button" ui-sref="dietas">Enviar</a>
+                    <a class="large ui black basic button" style="text-decoration: none; color: white" href="/src/intro.html">Cancelar</a>
                 </div>
 
             </div>
