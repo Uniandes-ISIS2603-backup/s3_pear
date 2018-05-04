@@ -33,9 +33,10 @@ public class CalificacionPersistence
         LOGGER.info("Creando una calificacacion nueva");
         return entidad;
     }   
-     public List<CalificacionEntity> findAll() {
+     public List<CalificacionEntity> findAll(Long dietaid) {
         LOGGER.info("Consultando todas las calificaciones");
-        TypedQuery query = em.createQuery("select u from CalificacionEntity u", CalificacionEntity.class);
+        TypedQuery query = em.createQuery("select u from CalificacionEntity u where (u.dieta.id=:dietaid)", CalificacionEntity.class);
+        query.setParameter("dietaid", dietaid);
         return query.getResultList();
     }
      public CalificacionEntity update(CalificacionEntity entity) {
@@ -49,7 +50,7 @@ public class CalificacionPersistence
         em.remove(entity);
     }
     public  CalificacionEntity find( Long dietaid ,Long id){
-        TypedQuery<CalificacionEntity> q = em.createQuery("select p from CalificacionEntity p where (p.dietaId = :dietaid) and (p.id = :id)", CalificacionEntity.class);
+        TypedQuery<CalificacionEntity> q = em.createQuery("select p from CalificacionEntity p where (p.dieta.id = :dietaid) and (p.id = :id)", CalificacionEntity.class);
         q.setParameter("dietaid", dietaid);
         q.setParameter("id", id);
         List<CalificacionEntity> results = q.getResultList();

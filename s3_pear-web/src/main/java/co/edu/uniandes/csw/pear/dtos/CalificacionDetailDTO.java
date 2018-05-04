@@ -43,11 +43,11 @@ public class CalificacionDetailDTO extends CalificacionDTO
      */
     public CalificacionDetailDTO(CalificacionEntity entidad) {
         super(entidad);
-        if (entidad.getDieta() != null) {
-            this.dieta = new DietaTipoDTO(entidad.getDieta());
-        } else {
-            entidad.setDieta(null);
-        }
+//        if (entidad.getDieta() != null) {
+//            this.dieta = new DietaTipoDTO(entidad.getDieta());
+//        } else {
+//            entidad.setDieta(null);
+//        }
     }
     /**
      * Transformar un DTO a un Entity
@@ -57,9 +57,9 @@ public class CalificacionDetailDTO extends CalificacionDTO
     @Override
     public CalificacionEntity toEntity() {
         CalificacionEntity calificacionE = super.toEntity();
-        if (this.getDieta() != null) {
-            calificacionE.setDieta(this.getDieta().toEntity());
-        }
+//        if (this.getDieta() != null) {
+//            calificacionE.setDieta(this.getDieta().toEntity());
+//        }
         return calificacionE;
     }
     

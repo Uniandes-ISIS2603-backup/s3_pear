@@ -140,18 +140,19 @@ insert into MedioPagoEntity(id, medioPagoActual) values (3, 'Credito');
 
 
 
-insert into CalificacionEntity (id, puntuacion, idDieta) values (1, 7, 1);
-insert into CalificacionEntity (id, puntuacion, idDieta) values (2, 4,1);
-insert into CalificacionEntity (id, puntuacion, idDieta) values (3, 8,1);
-insert into CalificacionEntity (id, puntuacion, idDieta) values (4, 6,2);
-insert into CalificacionEntity (id, puntuacion, idDieta) values (5, 10,2);
-insert into CalificacionEntity (id, puntuacion, idDieta) values (6, 2,3);
-insert into CalificacionEntity (id, puntuacion, idDieta) values (7, 0,3);
+insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (1, 7, 1);
+insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (2, 4,1);
+insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (3, 8,1);
+insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (4, 6,2);
+insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (5, 10,2);
+insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (6, 2,3);
+insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (7, 0,3);
 
-insert into QuejasyReclamosEntity (id, asunto, comentario, idDieta) values (1,'queja', 'La comida llego fria',4);
-insert into QuejasyReclamosEntity (id, asunto, comentario, idDieta) values (2,'recomendacion', 'Llamar al cliente cuando el envio este cerca',5);
-insert into QuejasyReclamosEntity (id, asunto, comentario, idDieta) values (3,'recomendacion', 'Contratar domiciliarios más amables',6);
-insert into QuejasyReclamosEntity (id, asunto, comentario, idDieta) values (4,'queja', 'el domiciliario fue grosero',7);
+
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1,'queja', 'La comida llego fria',4);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (2,'recomendacion', 'Llamar al cliente cuando el envio este cerca',5);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (3,'recomendacion', 'Contratar domiciliarios más amables',6);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (4,'queja', 'el domiciliario fue grosero',7);
 
 
 insert into CasoExitoEntity (id, comentario, testimonio) values (1, 'Comentario 1', 'Testimonio 1');

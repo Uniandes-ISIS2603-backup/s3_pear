@@ -38,11 +38,11 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     
     @PodamExclude
     @OneToMany(mappedBy = "dieta", cascade = CascadeType.PERSIST)
-    private List<CalificacionEntity> calificaciones;
+    private List<CalificacionEntity> calificaciones= new ArrayList<>();
     
     @PodamExclude
     @OneToMany(mappedBy = "dieta", cascade = CascadeType.PERSIST)
-    private List<QuejasyReclamosEntity> quejas ;
+    private List<QuejasyReclamosEntity> quejas = new ArrayList<>() ;
     
     @PodamExclude
     @ManyToOne( cascade = CascadeType.PERSIST)

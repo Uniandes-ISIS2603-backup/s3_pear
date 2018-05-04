@@ -50,10 +50,10 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
         } 
         if (entity.getCalificaciones() != null) {
             calificaciones = new ArrayList<>();
-            for (CalificacionEntity entityCalificaion : entity.getCalificaciones()) {
-                calificaciones.add(new CalificacionDTO(entityCalificaion));
+            for (CalificacionEntity entityCalificacion : entity.getCalificaciones()) {
+                calificaciones.add(new CalificacionDTO(entityCalificacion));
             }
-        }
+        } 
         if (entity.getQuejas() != null) {
             quejas = new ArrayList<>();
             for (QuejasyReclamosEntity entityQueja : entity.getQuejas()) {
@@ -62,7 +62,33 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
         } 
 
     }
+     @Override
+    public DietaTipoEntity toEntity() {
+        DietaTipoEntity en = super.toEntity();
 
+        if (this.getCalificaciones() != null) {
+            List<CalificacionEntity> calificacionesEntity = new ArrayList<>();
+            for (CalificacionDTO dtoCalificacion : getCalificaciones()) {
+                calificacionesEntity.add(dtoCalificacion.toEntity());
+            }
+            en.setCalificaciones(calificacionesEntity);
+        }
+        if (quejas != null) {
+            List<QuejasyReclamosEntity> quejasEntity = new ArrayList<>();
+            for (QuejasyReclamosDTO dtoQueja : quejas) {
+                quejasEntity.add(dtoQueja.toEntity());
+            }
+            en.setQuejas(quejasEntity);
+        }
+        if (this.getSemanas() != null) {
+            List<SemanaEntity> sems = new ArrayList<>();
+            this.getSemanas().forEach(semanita -> {
+                sems.add(semanita.toEntity());
+            });
+            en.setSemanas(sems);
+        }
+        return en;
+    }
     public List<SemanaDTO> getSemanas() {
         return semanas;
     }
@@ -87,32 +113,6 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
         this.quejas = quejas;
     }
 
-    @Override
-    public DietaTipoEntity toEntity() {
-        DietaTipoEntity en = super.toEntity();
-
-        if (getCalificaciones() != null) {
-            List<CalificacionEntity> calificacionesEntity = new ArrayList<>();
-            for (CalificacionDTO dtoCalificacion : getCalificaciones()) {
-                calificacionesEntity.add(dtoCalificacion.toEntity());
-            }
-            en.setCalificaciones(calificacionesEntity);
-        }
-        if (getQuejas() != null) {
-            List<QuejasyReclamosEntity> quejasEntity = new ArrayList<>();
-            for (QuejasyReclamosDTO dtoQueja : getQuejas()) {
-                quejasEntity.add(dtoQueja.toEntity());
-            }
-            en.setQuejas(quejasEntity);
-        }
-        if (this.getSemanas() != null) {
-            List<SemanaEntity> sems = new ArrayList<>();
-            this.getSemanas().forEach(semanita -> {
-                sems.add(semanita.toEntity());
-            });
-            en.setSemanas(sems);
-        }
-        return en;
-    }
+   
 
 }

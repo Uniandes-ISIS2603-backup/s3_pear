@@ -45,11 +45,11 @@ public class QuejasyReclamosDetailDTO extends QuejasyReclamosDTO
      */
     public QuejasyReclamosDetailDTO(QuejasyReclamosEntity entidad) {
         super(entidad);
-        if (entidad.getDieta() != null) {
-            this.dieta = new DietaTipoDTO(entidad.getDieta());
-        } else {
-            entidad.setDieta(null);
-        }
+//        if (entidad.getDieta() != null) {
+//            this.dieta = new DietaTipoDTO(entidad.getDieta());
+//        } else {
+//            entidad.setDieta(null);
+//        }
     }
     /**
      * Transformar un DTO a un Entity
@@ -59,9 +59,9 @@ public class QuejasyReclamosDetailDTO extends QuejasyReclamosDTO
     @Override
     public QuejasyReclamosEntity toEntity() {
         QuejasyReclamosEntity quejasYreclamosE = super.toEntity();
-        if (this.getDieta() != null) {
-            quejasYreclamosE.setDieta(this.getDieta().toEntity());
-        }
+//        if (this.getDieta() != null) {
+//            quejasYreclamosE.setDieta(this.getDieta().toEntity());
+//        }
         return quejasYreclamosE;
     }
     /**

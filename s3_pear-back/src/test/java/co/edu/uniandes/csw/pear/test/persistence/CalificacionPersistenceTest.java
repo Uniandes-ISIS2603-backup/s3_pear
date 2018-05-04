@@ -161,7 +161,9 @@ public class CalificacionPersistenceTest
      */
     @Test
     public void getCalificacionesTest() {
-        List<CalificacionEntity> list = calificacionPersistence.findAll();
+        
+        
+        List<CalificacionEntity> list = calificacionPersistence.findAll(dataDieta.get(1).getId());
         Assert.assertEquals(data.size(), list.size());
         for (CalificacionEntity ent : list) {
             boolean found = false;

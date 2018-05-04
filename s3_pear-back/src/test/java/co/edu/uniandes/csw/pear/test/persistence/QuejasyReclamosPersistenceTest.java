@@ -160,7 +160,7 @@ public class QuejasyReclamosPersistenceTest
      */
     @Test
     public void getQuejasyReclamosTest() {
-        List<QuejasyReclamosEntity> list = quejasyreclamosPersistence.findAll();
+        List<QuejasyReclamosEntity> list = quejasyreclamosPersistence.findAll(dataDieta.get(1).getId());
         Assert.assertEquals(data.size(), list.size());
         for (QuejasyReclamosEntity ent : list) {
             boolean found = false;
