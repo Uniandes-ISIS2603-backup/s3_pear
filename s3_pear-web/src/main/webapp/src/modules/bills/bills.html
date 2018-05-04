@@ -1,0 +1,49 @@
+<div class="ui container" style="width: 100%" ng-app="billModule">
+
+    <div class="ui raised segment" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;" ng-controller="billsController">
+
+        <div class="inline field">
+            <h1 style="font-weight: 300; color: gray; float: left;">Facturas</h1>
+            <a ui-sref="post_bill" style="text-decoration: none; color: #525252; overflow: hidden;">
+                <i style="float: right; font-size: 30pt; overflow: hidden;" class="ion-plus-round"></i>
+            </a>
+        </div>
+        <hr/>
+        <br/>
+        <br/>
+
+
+        <table class="ui very basic table">
+            <thead>
+                <tr>
+                    <th>Identificador</th> 
+                    <th>Cantidad de productos</th>
+                    <th>Numero de factura</th> 
+                    <th>Identificador del Acreedor</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr ng-repeat="factura in bills">
+                    <td>{{ factura.id }}</td>
+                    <td>{{ factura.cantidadDeProductos }}</td>
+                    <td>{{ factura.numeroFactura }}</td>
+                    <td>{{ factura.persona.id }}</td>
+                    <td><p style="gray" ui-sref="actualizar_bill({ id: factura.id })">Actualizar</p></td>
+                    <td><p style="color: gray" ui-sref="detailBill({ id: factura.id })">Detalles</p></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>
+
+
+
+
