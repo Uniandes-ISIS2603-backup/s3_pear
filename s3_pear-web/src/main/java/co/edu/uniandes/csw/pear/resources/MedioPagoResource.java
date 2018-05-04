@@ -152,7 +152,7 @@ public class MedioPagoResource {
         if (oldEntity == null) {
             throw new WebApplicationException("El author no existe", 404);
         }
-        entity.setPersonas(oldEntity.getPersonas());
+       
         return new MedioPagoDetailDTO(logic.updateMedioPago(entity));
     }
     

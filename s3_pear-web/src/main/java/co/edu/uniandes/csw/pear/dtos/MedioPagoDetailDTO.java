@@ -57,7 +57,7 @@ import java.util.List;
 public class MedioPagoDetailDTO extends MedioPagoDTO{
     
     
-    private List<PersonaDTO> personas = new ArrayList();
+    
     
      /**
      * Constructor por defecto
@@ -67,26 +67,6 @@ public class MedioPagoDetailDTO extends MedioPagoDTO{
         
     }
       
-
-    
-    /**
-     * Retorna las personas que usen este medio de pago
-     * @return personas
-     */
-    public List<PersonaDTO> getPersonas()
-    {
-        return personas; 
-    }
-    
-    /**
-     * Cambia la lista de personas que usan el medio de pago
-     * @param pPersonas 
-     */
-    public void setPersonas(ArrayList<PersonaDTO> pPersonas)
-    {
-       personas = pPersonas; 
-    }
-   
     
     /**
      * Constructor para transformar un Entity a un DTO
@@ -96,20 +76,7 @@ public class MedioPagoDetailDTO extends MedioPagoDTO{
     public MedioPagoDetailDTO(MedioPagoEntity entity) {
         super(entity);
         //TODO DONE: entity puede ser null
-        
-        if(entity != null){
-        if(entity.getPersonas() != null)
-        {
-            personas = new ArrayList<>(); 
-            for (PersonaEntity persona : entity.getPersonas()) {
-                personas.add( new PersonaDTO(persona));
-            }
-        }
-        else 
-        {
-            this.personas = new ArrayList<>(); 
-        }
-        }    
+
     }
 
     /**
@@ -121,13 +88,7 @@ public class MedioPagoDetailDTO extends MedioPagoDTO{
     public MedioPagoEntity toEntity() {
         MedioPagoEntity entity = super.toEntity();
         
-        if(personas != null)
-        {
-            List<PersonaEntity> personasEntity = new ArrayList<>();
-            for (PersonaDTO persona : personas) {
-                personasEntity.add(persona.toEntity());
-            }
-        }
+        
         return entity;
     }
 

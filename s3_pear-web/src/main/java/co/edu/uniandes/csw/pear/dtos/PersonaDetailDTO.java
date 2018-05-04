@@ -26,6 +26,8 @@ public class PersonaDetailDTO extends PersonaDTO {
     private List<QuejasyReclamosDTO> quejas;
 
     private List<FacturaDTO> facturas;
+    
+    private CuentaCobroDTO cuenta;
 
     //-----------------------------------------------------------
     //Constructor
@@ -49,6 +51,15 @@ public class PersonaDetailDTO extends PersonaDTO {
                if(f != null)
                    facturas.add(new FacturaDTO(f));
            }
+           
+           if(entidad.getCuenta() != null)
+           {
+               this.cuenta = new CuentaCobroDTO(entidad.getCuenta());
+           }else
+           {
+               this.cuenta = null;
+           }
+           
         }
     }
 
@@ -138,8 +149,30 @@ public class PersonaDetailDTO extends PersonaDTO {
             }
         
             entidad.setFacturas(fE);
+            
+            
+            if(getCuenta() != null)
+            {
+                entidad.setCuenta(getCuenta().toEntity());
+            }
+            
+            
         }
         return entidad;
+    }
+
+    /**
+     * @return the cuenta
+     */
+    public CuentaCobroDTO getCuenta() {
+        return cuenta;
+    }
+
+    /**
+     * @param cuenta the cuenta to set
+     */
+    public void setCuenta(CuentaCobroDTO cuenta) {
+        this.cuenta = cuenta;
     }
 
 }

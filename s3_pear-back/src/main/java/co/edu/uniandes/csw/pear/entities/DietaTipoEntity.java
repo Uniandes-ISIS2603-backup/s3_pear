@@ -25,6 +25,11 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     private String imagen;
     private Integer stars;
     /*Actuaizacion Ciclo 2*/
+    
+    /*ACtualizacion ciclo 3*/
+    private Double precio;
+    private Integer numSemanas;
+    /*ACtualizacion ciclo 3*/
  
     
     @PodamExclude
@@ -116,6 +121,34 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     
     public void add_semana ( SemanaEntity sem ) {
         this.semanas.add(sem);
+    }
+
+    /**
+     * @return the precio
+     */
+    public Double getPrecio() {
+        return precio;
+    }
+
+    /**
+     * @param precio the precio to set
+     */
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
+    /**
+     * @param numSemanas the numSemanas to set
+     */
+    public void setNumSemanas(Integer numSemanas) {
+        this.numSemanas = numSemanas;
+    }
+
+    /**
+     * @return the numSemanas
+     */
+    public Integer getNumSemanas() {
+        return numSemanas;
     }
     
     

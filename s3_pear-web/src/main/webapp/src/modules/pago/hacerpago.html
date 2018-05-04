@@ -132,13 +132,19 @@
                                                          
 							<div  class="metodo_pago">
                                                             
+                                                            <div>
                                                             <h3 style="margin-left: 20%; color: #444444"> Medios de Pago </h3> 
-                                                            <a ng-repeat="medioPago in medioPagoRecords" style="display: block" ng-click="seleccionar_medio(medioPago.id)">
+                                                            <a ng-if ="pagoActual.medioPago === null || pagoActual.medioPago === undefined " ng-repeat="medioPago in medioPagoRecords" style="display: block" ng-click="seleccionar_medio(medioPago.id)">
                                                             <div class = "medio" style= "margin: 10px; border-top: 1px solid grey;" >
                                                                     <p style="margin-left: 35%">  {{medioPago.medioPagoActual}}</p>
                                                             
                                                             </div></a>
-                                                                
+                                                            </div> <!-- / mostrar medios de pago si no se ha hecho el pago-->   
+                                                            
+                                                            <div ng-if="pagoActual.medioPago !== null && pagoActual.medioPago !== undefined">
+                                                                <h3> Medio Pago actual: {{pagoActual.medioPago}}</h3>
+                                                            </div>
+                                                            
                                                             <div>
                                                                <input type="text" ng-model="medioPagoAgregar" >
                                                                <button style ="margin: 10px" ng-click ="post_medio()" ui-sref ="pago">Agregar medio de pago </button>
@@ -149,8 +155,7 @@
 							</div>
                                                        
 							<br/>
-							<br/>
-                                                        <h3 ng-if ="medioActual === null"> Por favor seleccione un medio para hacer el pago</h3> 
+                                                        <h3 ng-if ="medioActual === null" style="color: #ed6250"> Por favor seleccione un medio para hacer el pago</h3> 
                                                         <h3 ng-if="medioActual !== null">Medio seleccionado: {{medioActual.medioPagoActual}}</h3>
                                                         <a href= "" ng-if = "medioActual !== null" ng-click ="hacer_pago()"><h3> PAGAR</h3></a>
 						</div>

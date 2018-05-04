@@ -33,6 +33,9 @@ public class DietaTipoDTO {
     private String imagen;
     private Integer stars;
     
+    private Double precio; 
+    private Integer numSemanas;
+    
     //-----------------------------------------------------------
     //Metodos
     //-----------------------------------------------------------
@@ -57,6 +60,8 @@ public class DietaTipoDTO {
             this.id = entity.getId();
             this.imagen = entity.getImagen();
             this.stars = entity.getStars();
+            this.precio = entity.getPrecio(); 
+            this.numSemanas = entity.getNumSemanas();
         }
         
     }
@@ -121,7 +126,37 @@ public class DietaTipoDTO {
         en.setId(this.id);
         en.setImagen(this.imagen);
         en.setStars(this.stars);
+        en.setPrecio(this.precio);
+        en.setNumSemanas(this.numSemanas);
         return en;
+    }
+
+    /**
+     * @return the precio
+     */
+    public Double getPrecio() {
+        return precio;
+    }
+
+    /**
+     * @param precio the precio to set
+     */
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
+    /**
+     * @return the numSemanas
+     */
+    public Integer getNumSemanas() {
+        return numSemanas;
+    }
+
+    /**
+     * @param numSemanas the numSemanas to set
+     */
+    public void setNumSemanas(Integer numSemanas) {
+        this.numSemanas = numSemanas;
     }
     
 }

@@ -49,44 +49,10 @@ public class MedioPagoLogic {
         LOGGER.info("Termina la consulta de todos los medios pago");
         return mediosPago;
     }
-    
-     /**
-     * Asocia una persona existente a un medio de pago
-     *
-     * @param medioPagoId Identificador de la instancia de medio de pago
-     * @param personaId Identificador de la instancia de persona
-     * @return Instancia de PersonaEntity que fue asociada a medioPago
-     * 
-     */
-    public PersonaEntity addPersona(Long medioPagoId, Long personaId) {
-        LOGGER.log(Level.INFO, "Inicia proceso de asociar una persona a un medio de pago con id = {0}", medioPagoId);
-        MedioPagoEntity medioPagoEntity = getMedioPago(medioPagoId);
-        PersonaEntity personaEntity = new PersonaEntity();
-        personaEntity.setId(personaId);
-        medioPagoEntity.getPersonas().add(personaEntity);
-        return getPersona(medioPagoId, personaId);
-    }
+
     
     
 
-    /**
-     * Obtiene una instancia de PersonaEntity asociada a una instancia de medioPago
-     *
-     * @param medioPagoId Identificador de la instancia de medio de pago
-     * @param personaId Identificador de la instancia de persona
-     * @return La entidad de la persona asociada al medio de pago
-     */
-    public PersonaEntity getPersona(Long medioPagoId, Long personaId) {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar una persona con el li con id = {0}", medioPagoId);
-        List<PersonaEntity> list = getMedioPago(medioPagoId).getPersonas();
-        PersonaEntity personaEntity = new PersonaEntity();
-        personaEntity.setId(personaId);
-        int index = list.indexOf(personaEntity);
-        if (index >= 0) {
-            return list.get(index);
-        }
-        return null;
-    }
     
     
     /**
@@ -141,20 +107,7 @@ public class MedioPagoLogic {
         return false; 
     }
     
-     /**
-     * Desasocia una Persona existente de un medio de pago existente
-     *
-     * @param medioPagoId Identificador de la instancia de medio de pago
-     * @param personaId Identificador de la instancia de persona
-     * 
-     */
-    public void removePersona(Long medioPagoId, Long personaId) {
-        LOGGER.log(Level.INFO, "Inicia proceso de borrar un autor del libro con id = {0}", medioPagoId);
-        MedioPagoEntity entity = getMedioPago(medioPagoId);
-        PersonaEntity personaEntity = new PersonaEntity();
-        personaEntity.setId(personaId);
-        entity.getPersonas().remove(personaEntity);
-    }
+
     
     /**
      * Elimina el medio de pago con el id dado

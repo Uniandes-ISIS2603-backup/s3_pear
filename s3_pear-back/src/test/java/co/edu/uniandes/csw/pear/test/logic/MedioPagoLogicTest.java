@@ -127,7 +127,7 @@ public class MedioPagoLogicTest {
         Assert.assertEquals(newEntity.getId(), entity.getId());
         Assert.assertEquals(newEntity.getName(), entity.getName());
         Assert.assertEquals(newEntity.getMedioPagoActual(),entity.getMedioPagoActual() );
-        Assert.assertEquals(newEntity.getPersonas(), entity.getPersonas());
+        
         
         } catch (BusinessLogicException ex) {
             Logger.getLogger(PagoLogicTest.class.getName()).log(Level.SEVERE, null, ex);
