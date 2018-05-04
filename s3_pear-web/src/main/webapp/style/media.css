@@ -34,7 +34,7 @@ html {
 
 header {
 	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.60)), to(rgba(0, 0, 0, 0.40))), url(resources/hero.jpg);
-	background-image: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.40)), url(resources/hero.jpg);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.30)), url(resources/hero.jpg);
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -225,7 +225,8 @@ h3 {
 
 /*INTEGRANTES*/
 
-#integrantes {
+#integrantes,
+#como_funciona {
 	padding: 7em 7em 0 7em;
 }
 
@@ -334,7 +335,7 @@ div.info {
 }
 
 #pasos {
-	padding-left: 5em;
+	padding-left: 2em;
 }
 
 i.pasos_icon {

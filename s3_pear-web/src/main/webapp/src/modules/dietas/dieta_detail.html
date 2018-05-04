@@ -1,3 +1,17 @@
+<!--
+<div class="ui container" ng-if="isAuthenticated() && !hasPermissions()">
+
+    <div class="row">
+        <h1>403 Forbidden</h1>
+        <h4>You do not have permission for this action.</h4>
+        <p>Contact the administrator to obtain permission.</p>
+    </div>
+
+</div>
+-->
+
+
+
 <div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;" ng-app="dietaModule" ng-controller="dietasController">
 
     <div class="row">
@@ -9,35 +23,35 @@
         </div>
     </div>
 
-    
-    
-     
-        <table class="ui very basic table">
-            
-            <thead>
-              <tr>
+
+
+
+    <table class="ui very basic table">
+
+        <thead>
+            <tr>
                 <th></th>
                 <th></th>
                 <th></th>
-              </tr>
-            </thead>
-            
-            <tbody>
-                
-              <tr>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
                 <td>
                     <div class="inline field" style="overflow-y: hidden;">
-                        <div class="ui horizontal large label">ID</div> 
+                        <div class="ui horizontal large label">ID</div>
                     </div>
                 </td>
                 <td>
                     {{id_dieta}}
                 </td>
                 <td>
-                    
+
                 </td>
-              </tr>
-              <tr>
+            </tr>
+            <tr>
                 <td>
                     <div class="inline field" style="overflow-y: hidden;">
                         <div class="ui horizontal large label">Nombre</div>
@@ -47,72 +61,72 @@
                     <input ng-model="new_nombre" placeholder="{{dieta.name}}">
                 </td>
                 <td>
-                    
+
                 </td>
-              </tr>
-              <tr>
+            </tr>
+            <tr>
                 <td>
                     <div class="inline field" style="overflow-y: hidden;">
                         <div class="ui horizontal large label">Descripcion</div>
                     </div>
                 </td>
                 <td>
-                    <input ng-model="new_descripcion" placeholder="{{dieta.descripcion}}"> 
+                    <input ng-model="new_descripcion" placeholder="{{dieta.descripcion}}">
                 </td>
                 <td>
-                    
+
                 </td>
-              </tr>
-              
-              <tr>
-                  <td>
-                      <div class="inline field" style="overflow-y: hidden;">
-                          <div class="ui horizontal large label">Objetivos</div>
-                      </div>
-                  </td>
+            </tr>
+
+            <tr>
                 <td>
-                    <input ng-model="new_objetivo" placeholder="{{dieta.objetivo}}"> 
+                    <div class="inline field" style="overflow-y: hidden;">
+                        <div class="ui horizontal large label">Objetivos</div>
+                    </div>
                 </td>
                 <td>
-                    
-                </td>
-              </tr>
-              
-              <tr>
-                  <td>
-                      <div class="inline field" style="overflow-y: hidden;">
-                          <div class="ui horizontal large label">Estrellas</div>
-                      </div>
-                  </td>
-                <td>
-                    <input ng-model="new_stars" placeholder="{{dieta.stars}}"> 
+                    <input ng-model="new_objetivo" placeholder="{{dieta.objetivo}}">
                 </td>
                 <td>
-                    
+
                 </td>
-              </tr>
-              
-              <tr>
-                  <td>
-                      <div class="inline field" style="overflow-y: hidden;">
-                          <div class="ui horizontal large label">Imagen</div>
-                      </div>
-                  </td>
+            </tr>
+
+            <tr>
                 <td>
-                    <input ng-model="new_imagen" placeholder="{{dieta.imagen}}"> 
+                    <div class="inline field" style="overflow-y: hidden;">
+                        <div class="ui horizontal large label">Estrellas</div>
+                    </div>
                 </td>
                 <td>
-                    
+                    <input ng-model="new_stars" placeholder="{{dieta.stars}}">
                 </td>
-              </tr>
-              
-            </tbody>
-         
-        </table>
-         
-     
-    
-    
+                <td>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="inline field" style="overflow-y: hidden;">
+                        <div class="ui horizontal large label">Imagen</div>
+                    </div>
+                </td>
+                <td>
+                    <input ng-model="new_imagen" placeholder="{{dieta.imagen}}">
+                </td>
+                <td>
+
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+
+
 
     <div class="row">
         <div>&nbsp;</div>

@@ -1,0 +1,104 @@
+<style>
+    * {
+        font-family: 'Roboto';
+        overflow: hidden;
+    }
+
+    #head {
+        background-color: white;
+        background-image: url('https://images.pexels.com/photos/139259/pexels-photo-139259.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 120vh;
+    }
+
+    hr {
+        float: left;
+        display: block;
+        height: 2px;
+        border: 1px solid dimgray;
+        width: 22em;
+        color: white;
+    }
+
+    .tittle {
+        margin-bottom: -1px;
+        font-size: 30pt;
+        color: dimgray;
+        font-family: 'Roboto';
+    }
+
+    .field {
+        color: white;
+    }
+
+    .lbl {
+        color: white;
+    }
+
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 2px solid red;
+    }
+
+</style>
+
+<div id="head">
+
+    <div class="ui container">
+
+        <div class="ui text container" style="margin-top: 2em;">
+            <div class="ui form" style="width: 100%">
+
+                <h1 class="tittle">Iniciar sesión</h1>
+
+                <hr/>
+                <p>&nbsp;</p>
+
+
+                <div class="field">
+                    <input required="" autofocus="" ng-model="data.username" type="text" placeholder="NOMBRE" style="margin-right: 1em;">
+                </div>
+
+                <div class="field">
+                    <input required="" ng-model="data.password" style="margin-right: 1em;" type="password" placeholder="CONTRASEÑA">
+                </div>
+
+                <p>&nbsp;</p>
+                <div class="field">
+                    <div class="ui checkbox"> <!-- ng-model="data.rol" required="true" -->
+                        <input ng-if="user" type="checkbox" ng-click="soyUser()" checked>
+                        <input ng-if="!user" type="checkbox" ng-click="soyUser()">
+                        <label style="color: dimgray; font-size: 18px">Soy Usuario</label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="ui checkbox">
+                        <input ng-if="admin" type="checkbox" ng-click="soyAdmin()" checked>
+                        <input ng-if="!admin" type="checkbox" ng-click="soyAdmin()">
+                        <label style="color: dimgray; font-size: 18px">Soy Administrador</label>
+                    </div>
+                </div>
+
+                <p>&nbsp;</p>
+                <div class="inline field">
+                    <!-- ng-click="autenticar()" -->
+                    <a ui-sref="dietas" class="large ui positive basic button">Enviar</a>
+                    <a class="large ui black basic button" style="text-decoration: none; color: white" href="/src/intro.html">Cancelar</a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>

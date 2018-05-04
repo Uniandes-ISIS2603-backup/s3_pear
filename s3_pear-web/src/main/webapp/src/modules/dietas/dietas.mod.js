@@ -4,35 +4,45 @@
 
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-            $urlRouterProvider.otherwise("/dietas");
+        $urlRouterProvider.otherwise("/dietas");
 
-            $stateProvider
-                    .state('dietas', {
-                        url: "/dietas",
-                        templateUrl: "src/modules/dietas/dietas.html",
+        $stateProvider
+            .state('dietas', {
+                url: "/dietas",
+                templateUrl: "src/modules/dietas/dietas.html",
+                controller: 'dietasController'
+            })
+
+            .state('detail', {
+                url: "/dieta/:id/detail",
+                param: {
+                    id: null
+                },
+                templateUrl: "src/modules/dietas/dieta_detail.html",
+                controller: 'dietasController'
+//            ,
+//                data: {
+//                    requiereLogin: true,
+//                    roles: ['admin', 'user']
+//                }
+            })
+
+            .state('post_dieta', {
+                url: '/dietas/post',
+                views: {
+                    'post': {
+                        templateUrl: 'src/modules/dietas/dieta_new.html',
                         controller: 'dietasController'
-                    })
+                    }
+                }
+//            ,
+//                data: {
+//                    requiereLogin: true,
+//                    roles: ['admin']
+//                }
+            })
 
-                    .state('detail', {
-                        url: "/dieta/:id/detail",
-                        param: {
-                            id: null
-                        },
-                        templateUrl: "src/modules/dietas/dieta_detail.html",
-                        controller: 'dietasController'
-                    })
-
-                    .state('post_dieta', {
-                        url: '/dietas/post',
-                        views: {
-                            'post': {
-                                templateUrl: 'src/modules/dietas/dieta_new.html',
-                                controller: 'dietasController'
-                            }
-                        }
-                    })
-
-                    ;
+        ;
         }]);
 
 })(window.angular);
@@ -84,7 +94,9 @@
                 // DIRECCION HTTP 
                 $http.post('http://localhost:8080/s3_pear-web/api/dietas', data).then(function (response) {
                     $scope.post_data = response.data;
-                    $state.go('dietas', {}, {reload: true});
+                    $state.go('dietas', {}, {
+                        reload: true
+                    });
                 });
             };
 
@@ -111,14 +123,18 @@
                     stars: $scope.new_stars,
                     imagen: $scope.new_imagen
                 };
-                
+
                 console.log(data);
 
                 //http://localhost:8080/s3_pear-web/api/dietas/3
                 $http.put('http://localhost:8080/s3_pear-web/api/dietas/' + $scope.id_dieta, data).then(function (response) {
                     $scope.put_data = response.data;
-                    $state.go($state.current, {}, {reload: true});
-                    $state.go('dietas', {}, {reload: true});
+                    $state.go($state.current, {}, {
+                        reload: true
+                    });
+                    $state.go('dietas', {}, {
+                        reload: true
+                    });
                 });
             };
         }

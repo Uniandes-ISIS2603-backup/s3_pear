@@ -65,11 +65,13 @@
 
 	<header class="parallax" id="header_dietas">
 
+        <!-- TODO QUITAR -->
 		<br>
 		<div style="float: right;">
 			<a ng-click="soyUser()" class="ui inverted teal basic button" style="text-decoration: none; color: white">Usuario</a>
 			<a ng-click="soyAdmin()" class="ui inverted teal basic button" style="text-decoration: none; color: white">Administrador</a>
 		</div>
+        <!-- X X -->
 
 
 		<div id="main" class="ui text menu right floated" style="padding: 1em;">
@@ -83,7 +85,12 @@
 			<a ng-if="admin" class="item" style="color: white; font-size: 20px" ui-sref="dias">Dias</a>
                         <a ng-if="admin" class="item" style="color: white; font-size: 20px" ui-sref="bills">Bills</a>
 			<a class="item" style="color: white; font-size: 20px" ui-sref="logout">Salir</a>
-			<!--<a class="item active" style="color: white; font-size: 20px" ui-sref="quejasList">Quejas o Recomendaciones</a>-->
+            
+            
+            <!-- Hola, {{currentUser}} -->
+			
+            
+            <!--<a class="item active" style="color: white; font-size: 20px" ui-sref="quejasList">Quejas o Recomendaciones</a>-->
 		</div>
 
 
