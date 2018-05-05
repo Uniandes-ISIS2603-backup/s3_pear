@@ -21,6 +21,15 @@
                         templateUrl: "src/modules/cocinas/cocina_detail.html",
                         controller: 'cocinasController'
                     })
+                    
+                    .state('cocina_update', {
+                        url: "/cocina/:id/update",
+                        param: {
+                            id: null
+                        },
+                        templateUrl: "src/modules/cocinas/cocina_update.html",
+                        controller: 'cocinasController'
+                    })
 
                     .state('post_cocina', {
                         url: '/cocinas/post',

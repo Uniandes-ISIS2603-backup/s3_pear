@@ -13,18 +13,40 @@
                 controller: 'dietasController'
             })
 
-            .state('detail', {
-                url: "/dieta/:id/detail",
+            .state('dieta_update', {
+                url: "/dieta/:id/update",
                 param: {
                     id: null
                 },
-                templateUrl: "src/modules/dietas/dieta_detail.html",
-                controller: 'dietasController'
-//            ,
-//                data: {
-//                    requiereLogin: true,
-//                    roles: ['admin', 'user']
-//                }
+                views: {
+                    'post': {
+                        templateUrl: 'src/modules/dietas/dieta_update.html',
+                        controller: 'dietasController'
+                    }
+                }
+                //            ,
+                //                data: {
+                //                    requiereLogin: true,
+                //                    roles: ['admin', 'user']
+                //                }
+            })
+
+            .state('dieta_specs', {
+                url: "/dieta/:id/specs",
+                param: {
+                    id: null
+                },
+                views: {
+                    'post': {
+                        templateUrl: 'src/modules/dietas/dieta_specs.html',
+                        controller: 'dietasController'
+                    }
+                }
+                //            ,
+                //                data: {
+                //                    requiereLogin: true,
+                //                    roles: ['admin', 'user']
+                //                }
             })
 
             .state('post_dieta', {
@@ -35,11 +57,11 @@
                         controller: 'dietasController'
                     }
                 }
-//            ,
-//                data: {
-//                    requiereLogin: true,
-//                    roles: ['admin']
-//                }
+                //            ,
+                //                data: {
+                //                    requiereLogin: true,
+                //                    roles: ['admin']
+                //                }
             })
 
         ;
@@ -85,7 +107,7 @@
                     name: $scope.nombre,
                     descripcion: $scope.descripcion,
                     objetivo: $scope.objetivo,
-                    imagen: $scope.imagen,
+                    imagen: ($scope.imagen === null || $scope.imagen === undefined ) ? 'https://images.pexels.com/photos/5317/food-salad-restaurant-person.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' : $scope.imagen,
                     stars: $scope.stars
                 };
 
@@ -116,26 +138,36 @@
             $scope.actualizar_dieta = function () {
                 console.log($scope.id_dieta + " < Se va a actualizar la dieta.");
 
-                let data = {
-                    name: $scope.new_nombre,
-                    descripcion: $scope.new_descripcion,
-                    objetivo: $scope.new_objetivo,
-                    stars: $scope.new_stars,
-                    imagen: $scope.new_imagen
-                };
+                let data = {};
+                
+                if ( $scope.new_nombre !== undefined || $scope.new_nombre !== null )
+                    data.name = $scope.new_nombre;
+                
+                if ( $scope.new_descripcion !== undefined || $scope.new_descripcion !== null )
+                    data.descripcion = $scope.new_descripcion;
+                
+                if ( $scope.new_objetivo !== undefined || $scope.new_objetivo !== null )
+                    data.objetivo = $scope.new_objetivo;
+                
+                if ( $scope.new_stars !== undefined || $scope.new_stars !== null )
+                    data.stars = $scope.new_stars;
+                
+                if ( $scope.new_imagen !== undefined || $scope.new_imagen !== null )
+                    data.imagen = $scope.new_imagen;
+                
 
                 console.log(data);
 
                 //http://localhost:8080/s3_pear-web/api/dietas/3
-                $http.put('http://localhost:8080/s3_pear-web/api/dietas/' + $scope.id_dieta, data).then(function (response) {
-                    $scope.put_data = response.data;
-                    $state.go($state.current, {}, {
-                        reload: true
-                    });
-                    $state.go('dietas', {}, {
-                        reload: true
-                    });
-                });
+//                $http.put('http://localhost:8080/s3_pear-web/api/dietas/' + $scope.id_dieta, data).then(function (response) {
+//                    $scope.put_data = response.data;
+//                    $state.go($state.current, {}, {
+//                        reload: true
+//                    });
+//                    $state.go('dietas', {}, {
+//                        reload: true
+//                    });
+//                });
             };
         }
     ]);

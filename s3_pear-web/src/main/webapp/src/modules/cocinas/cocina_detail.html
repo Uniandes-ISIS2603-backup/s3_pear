@@ -1,118 +1,149 @@
-<div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;" ng-app="cocinaModule" ng-controller="cocinasController">
+<!--
+<div class="ui container" ng-if="isAuthenticated() && !hasPermissions()">
 
     <div class="row">
-        <div class="column">
-            <div class="inline field">
-                <h1 class="ui dividing header" style="font-weight: 300; color: gray;"> <i ui-sref="cocinas" class="ion-chevron-left"></i> &nbsp; Detalles Cocina</h1>
+        <h1>403 Forbidden</h1>
+        <h4>You do not have permission for this action.</h4>
+        <p>Contact the administrator to obtain permission.</p>
+    </div>
+
+</div>
+-->
+
+
+<style>
+    * {
+        overflow: hidden;
+    }
+
+    div.back {
+        height: 100vh;
+        background-color: white;
+    }
+
+    div.backimg {
+        height: 25vh;
+        background-attachment: fixed;
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+</style>
+
+
+<div class="back" ng-app="cocinaModule" ng-controller="cocinasController">
+
+
+    <div class="backimg" style="background-image: url('{{cocina.imagen}}'); float: bottom;">
+    </div>
+
+
+    <div class="ui container" style="width: 70%; padding: 2em 6em;">
+
+        <div class="row">
+            <div class="column">
+                <div class="inline field">
+                    <h1 class="ui dividing header" style="font-weight: 300; color: gray;">{{cocina.name}}</h1>
+                </div>
+                <hr/>
             </div>
-            <hr/>
         </div>
-    </div>
 
-    
-    
-     
-        <table class="ui very basic table">
-            
-            <thead>
-              <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            
+
+
+
+        <table class="ui padded very basic table">
+
             <tbody>
+
+                <tr>
+                    <td>
+                        <div class="inline field" style="overflow-y: hidden;">
+                            <div class="ui horizontal large label">ID</div>
+                        </div>
+                    </td>
+                    <td>
+                        {{id_cocina}}
+                    </td>
+                </tr>
                 
-              <tr>
-                <td>
-                    <div class="inline field" style="overflow-y: hidden;">
-                        <div class="ui horizontal large label">ID</div> 
-                    </div>
-                </td>
-                <td>
-                    {{id_cocina}}
-                </td>
-                <td>
-                    
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <div class="inline field" style="overflow-y: hidden;">
-                        <div class="ui horizontal large label">Nombre</div>
-                    </div>
-                </td>
-                <td>
-                    <input ng-model="new_nombre" placeholder="{{cocina.name}}">
-                </td>
-                <td>
-                    
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <div class="inline field" style="overflow-y: hidden;">
-                        <div class="ui horizontal large label">Ubicacion</div>
-                    </div>
-                </td>
-                <td>
-                    <input ng-model="new_ubicacion" placeholder="{{cocina.ubicacion}}"> 
-                </td>
-                <td>
-                    
-                </td>
-              </tr>
-              
-              <tr>
-                  <td>
-                      <div class="inline field" style="overflow-y: hidden;">
-                          <div class="ui horizontal large label">Capacidad</div>
-                      </div>
-                  </td>
-                <td>
-                    <input ng-model="new_capacidad" placeholder="{{cocina.capacidad}}"> 
-                </td>
-                <td>
-                    
-                </td>
-              </tr>
-              
-              <tr>
-                  <td>
-                      <div class="inline field" style="overflow-y: hidden;">
-                          <div class="ui horizontal large label">Imagen</div>
-                      </div>
-                  </td>
-                <td>
-                    <input ng-model="new_imagen" placeholder="{{cocina.imagen}}"> 
-                </td>
-                <td>
-                    
-                </td>
-              </tr>
-              
-         
-              
+                <tr>
+                    <td>
+                        <div class="inline field" style="overflow-y: hidden;">
+                            <div class="ui horizontal large label">Nombre</div>
+                        </div>
+                    </td>
+                    <td>
+                        <p>{{cocina.name}}</p>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div class="inline field" style="overflow-y: hidden;">
+                            <div class="ui horizontal large label">Ubicación</div>
+                        </div>
+                    </td>
+                    <td>
+                        <p>{{cocina.ubicacion}}</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="inline field" style="overflow-y: hidden;">
+                            <div class="ui horizontal large label">Capacidad</div>
+                        </div>
+                    </td>
+                    <td>
+                        <p>{{cocina.capacidad}}</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="inline field" style="overflow-y: hidden;">
+                            <div class="ui horizontal large label">Imagen</div>
+                        </div>
+                    </td>
+                    <td>
+                        <p>{{cocina.imagen}}"</p>
+                    </td>
+                </tr>
+
             </tbody>
-         
+
         </table>
-         
-     
-    
-    
 
-    <div class="row">
-        <div>&nbsp;</div>
-        <div class="inline field">
-            <a href="" ng-click="actualizar_cocina()" class="ui positive basic button">
-                Actualizar
-            </a>
+
+
+
+
+        <div class="row">
+            <div>&nbsp;</div>
+            <div class="inline field">
+                
+                <a ui-sref='cocinas' class="ui olive basic button">
+                    Volver
+                </a>
+
+                <a ui-sref='comentarios' class="ui teal basic button">
+                    Comentarios
+                </a>
+                <a ui-sref='dietas' class="ui teal basic button">
+                    Dietas
+                </a>
+                <a ui-sref='cocina_update({ id: cocina.id })' class="ui teal basic button">
+                    Actualizar
+                </a>
+
+            </div>
         </div>
+
+
+
+
     </div>
-
-
-
-
 
 </div>
