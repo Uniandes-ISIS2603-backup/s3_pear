@@ -28,6 +28,12 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
+    
+    input.place {
+        text-decoration: none; 
+        border:none; 
+        border-bottom:1px solid dimgray !important;
+    }
 
 </style>
 
@@ -79,7 +85,7 @@
                         </div>
                     </td>
                     <td>
-                        <input ng-model="new_nombre" type='text' placeholder='{{dieta.name}}' value="{{dieta.name}}">
+                        <input class="place" ng-model="new_nombre" type='text' placeholder='{{dieta.name}}' value="{{dieta.name}}">
                     </td>
                     <td>
 
@@ -92,7 +98,7 @@
                         </div>
                     </td>
                     <td>
-                        <input style="border:1px solid red !important;" ng-model="new_descripcion" type='text' placeholder='{{dieta.descripcion}}'>
+                        <input class="place"  ng-model="new_descripcion" type='text' placeholder='{{dieta.descripcion}}'>
                     </td>
                     <td>
 
@@ -106,7 +112,7 @@
                         </div>
                     </td>
                     <td>
-                        <input ng-model="new_objetivo" type='text' placeholder='{{dieta.objetivo}}'>
+                        <input class="place" ng-model="new_objetivo" type='text' placeholder='{{dieta.objetivo}}'>
                     </td>
                     <td>
 
@@ -120,7 +126,7 @@
                         </div>
                     </td>
                     <td>
-                        <input ng-model="new_stars" type='text' placeholder='{{dieta.stars}}'>
+                        <input class="place" ng-model="new_stars" type='text' placeholder='{{dieta.stars}}'>
                     </td>
                     <td>
 
@@ -134,7 +140,7 @@
                         </div>
                     </td>
                     <td>
-                        <input ng-model="new_stars" type='text' placeholder='{{dieta.imagen}}'>
+                        <input class="place" ng-model="new_stars" type='text' placeholder='{{dieta.imagen}}'>
                     </td>
                     <td>
 

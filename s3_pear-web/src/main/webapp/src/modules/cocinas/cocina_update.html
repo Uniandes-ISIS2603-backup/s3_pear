@@ -28,6 +28,12 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
+    
+    input.place {
+        text-decoration: none; 
+        border:none; 
+        border-bottom:1px solid dimgray !important;
+    }
 
 </style>
 
@@ -35,7 +41,7 @@
 <div class="back" ng-app="cocinaModule" ng-controller="cocinasController">
     
     
-    <div class="backimg" style="background-image: url('{{dieta.imagen}}'); float: bottom;">
+    <div class="backimg" style="background-image: url('{{cocina.imagen}}'); float: bottom;">
         
     </div>
     
@@ -45,7 +51,7 @@
         <div class="row">
             <div class="column">
                 <div class="inline field">
-                    <h1 class="ui dividing header" style="font-weight: 300; color: gray;">Actualizar {{dieta.name}}</h1>
+                    <h1 class="ui dividing header" style="font-weight: 300; color: gray;">Actualizar {{cocina.name}}</h1>
                 </div>
                 <hr/>
             </div>
@@ -79,7 +85,7 @@
                         </div>
                     </td>
                     <td>
-                        <input ng-model="new_nombre" type='text' placeholder='{{cocina.name}}'>
+                        <input class="place" ng-model="new_nombre" type='text' placeholder='{{cocina.name}}'>
                     </td>
                     <td>
 
@@ -92,7 +98,7 @@
                         </div>
                     </td>
                     <td>
-                        <input style="border:1px solid red !important;" ng-model="new_ubicacion" type='text' placeholder='{{cocina.ubicacion}}'>
+                        <input class="place" ng-model="new_ubicacion" type='text' placeholder='{{cocina.ubicacion}}'>
                     </td>
                     <td>
 
@@ -106,7 +112,7 @@
                         </div>
                     </td>
                     <td>
-                        <input ng-model="new_capacidad" type='text' placeholder='{{cocina.capacidad}}'>
+                        <input class="place" ng-model="new_capacidad" type='text' placeholder='{{cocina.capacidad}}'>
                     </td>
                     <td>
 
@@ -120,28 +126,14 @@
                         </div>
                     </td>
                     <td>
-                        <input ng-model="new_imagen" type='text' placeholder='{{cocina.imagen}}'>
+                        <input class="place" ng-model="new_imagen" type='text' placeholder='{{cocina.imagen}}'>
                     </td>
                     <td>
 
                     </td>
                 </tr>
 
-                
-
-                <tr>
-                    <td>
-                        <div class="inline field" style="overflow-y: hidden;">
-                            <div class="ui horizontal large label">Imagen</div>
-                        </div>
-                    </td>
-                    <td>
-                        <input ng-model="new_stars" type='text' placeholder='{{dieta.imagen}}'>
-                    </td>
-                    <td>
-
-                    </td>
-                </tr>
+             
 
             </tbody>
 
@@ -159,7 +151,7 @@
                 Actualizar
             </a>
             
-            <a ui-sref='cocina_detail({ id: dieta.id})' class="ui negative basic button">
+            <a ui-sref='cocina_detail({ id: cocina.id})' class="ui negative basic button">
                 Cancelar
             </a>
             
