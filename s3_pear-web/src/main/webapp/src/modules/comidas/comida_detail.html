@@ -1,0 +1,25 @@
+ 
+
+
+
+<h1>DETAIL DE LA COMIDA AQUI</h1>
+
+
+<div class="ui two stackable link cards" style="margin-top: 40px;">
+    <div class="ui fluid card" ng-repeat="comida in comidas| orderBy : 'id'">
+        <div class="image">
+            <!-- <img src="{{comida.image}}">-->
+        </div>
+        <div class="content">
+            <div class="header">ID:{{comida.id}}</div>
+            <div class="meta"><a>Alimentos: {{comida.alimentos}}</a></div>
+            <div class="description">Cantidad: {{comida.cantidad}} <br/> Tipo de comida: {{comida.TIPO}}</div>
+        </div>
+        <div class="extra content">
+            <div class="inline flief">
+                <span class="field right floated"><a ng-click="eliminar_comida(comida.id)" style="text-decoration: none;">Eliminar</a></span>
+                <span class="field right floated"><a ui-sref="comida_detail({ id: comida.id })">Actualizar</a> &nbsp; &nbsp;</span>
+            </div>
+        </div>
+    </div>
+</div>

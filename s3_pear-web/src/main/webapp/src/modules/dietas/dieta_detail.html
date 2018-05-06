@@ -86,7 +86,7 @@
             Volver
         </a>
 
-        <a ui-sref='dieta_update({ id: dieta.id })' class="ui positive basic button" style="float: right; margin: 0em 10px;">
+        <a ng-if="admin" ui-sref='dieta_update({ id: dieta.id })' class="ui positive basic button" style="float: right; margin: 0em 10px;">
             Actualizar
         </a>
 

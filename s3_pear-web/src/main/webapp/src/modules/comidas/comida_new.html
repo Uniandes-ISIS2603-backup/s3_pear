@@ -1,0 +1,38 @@
+
+
+<div class="ui container" style="margin-top: 40px;">
+
+    <div class="ui form">
+
+        <div class="field">
+            <input ng-model="tipo" placeholder="TIPO DE COMIDA" type="text">
+        </div>
+        
+        <div class="field">
+            <input ng-model="alimentos" placeholder="ALIMENTOS" type="text">
+        </div>
+
+        <div class="field">
+            <input ng-model="cantidad" placeholder="CANTIDAD" type="number">
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div>&nbsp;</div>
+    <div class="inline field">
+
+        <a ui-sref='dieta_specs.comidas({ id_dieta: dieta })' class="ui orange basic button">
+            Cancelar
+        </a>
+
+        <a ng-click='enviar_comida()' class="ui positive basic button" style="float: right; margin: 0em 10px;">
+            Agregar Comida
+        </a>
+
+    </div>
+</div>

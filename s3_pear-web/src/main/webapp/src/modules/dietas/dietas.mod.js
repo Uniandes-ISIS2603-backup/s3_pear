@@ -50,7 +50,7 @@
             })
             
             .state('dieta_specs.dieta_specs_id', {
-                url: "/dieta/:id/specs/detail",
+                url: "/detail",
                 param: {
                     id: null
                 },

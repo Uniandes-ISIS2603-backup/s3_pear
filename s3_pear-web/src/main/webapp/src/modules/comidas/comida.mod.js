@@ -9,7 +9,7 @@
             $stateProvider
 
                     .state('dieta_specs.comidas', {
-                        url: "/dieta/:id_dieta/specs/comidas",
+                        url: "/comidas",
                         param: {
                             id_dieta: null
                         },
@@ -21,14 +21,27 @@
                         }
                     })
                     
-                    .state('dieta_specs.comida_post', {
-                        url: "/dieta/:id_dieta/specs/comida/post",
+                    .state('dieta_specs.comida_detail', {
+                        url: "/comida/detail",
                         param: {
                             id_dieta: null
                         },
                         views: {
                             'dieta_spec': {
-                                templateUrl: 'src/modules/comidas/comida_post.html',
+                                templateUrl: 'src/modules/comidas/comida_detail.html',
+                                controller: 'comidaController'
+                            }
+                        }
+                    })
+                    
+                    .state('dieta_specs.comida_post', {
+                        url: "/comida/post",
+                        param: {
+                            id_dieta: null
+                        },
+                        views: {
+                            'dieta_spec': {
+                                templateUrl: 'src/modules/comidas/comida_new.html',
                                 controller: 'comidaController'
                             }
                         }

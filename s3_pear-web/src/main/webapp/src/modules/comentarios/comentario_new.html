@@ -1,3 +1,34 @@
 
 
-<h1>AGREGAR COMENTARIO</h1>
+<div class="ui container" style="margin-top: 40px;">
+
+    <div class="ui form">
+        
+        <div class="field">
+            <input placeholder="ASUNTO">
+        </div>
+        
+        <div class="field">
+            <textarea rows="3" placeholder="COMENTARIO"></textarea>
+        </div>
+        
+        
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div>&nbsp;</div>
+    <div class="inline field">
+
+        <a ui-sref='dieta_specs.comentarios({ id_dieta: dieta })' class="ui orange basic button">
+            Cancelar
+        </a>
+
+        <a ng-click='comentario_post()' class="ui positive basic button" style="float: right; margin: 0em 10px;">
+            Agregar Calificacion
+        </a>
+
+    </div>
+</div>

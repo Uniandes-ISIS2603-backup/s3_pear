@@ -1,17 +1,19 @@
 
 
 <style>
-    
-    p.titulo {
-        font-family: 'Roboto'; font-weight: 400; font-size: 16px; color: dimgray;
+
+    div.tap {
+        text-align: center; 
+        height: 25em; 
+        background-position: top; 
+        background-size: cover; 
+        background-repeat: no-repeat; 
+        position: relative;
+        border-radius: 0.5em 0.5em 0px 0px;
     }
     
-    hr {
-        width: 100px; margin-top: -10px; margin-bottom: 20px;
-    }
-    
-    div.text_content {
-        margin-bottom: 40px;
+    div.tap:hover {
+        border: 1.3px solid white;
     }
     
 </style>
@@ -19,43 +21,30 @@
 
 
 
-<div class="ui text container" style="margin-top: 40px;">
+<div class="ui container" style="margin-top: 40px;">
 
-    <div class="row">
-        <p class="titulo">Desayuno</p>
-        <hr/>
+    <div class="ui grid" style="text-align: center;">
+        
+        <div class="one wide column">&nbsp;</div>
+        <div ui-sref="dieta_specs.comida_detail({ id_dieta: dieta })" class="four wide column tap" style="background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.60)), url('https://images.pexels.com/photos/101533/pexels-photo-101533.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
+            <h1 style="font-weight: 100; position: absolute; bottom: 10px; left: 10px;">Desayuno</h1>
+        </div>
+        
+        <div class="ome wide column">&nbsp;</div>
+        <div ui-sref="dieta_specs.comida_detail({ id_dieta: dieta })" class="four wide column tap" style="background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.60)), url('https://images.pexels.com/photos/5929/food-salad-dinner-eating.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
+            <h1 style="font-weight: 100; position: absolute; bottom: 10px; left: 10px;">Almuerzo</h1>
+        </div>
+        
+        <<div class="ome wide column">&nbsp;</div>
+        <div ui-sref="dieta_specs.comida_detail({ id_dieta: dieta })" class="four wide column tap" style="background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.60)), url('https://images.unsplash.com/photo-1479796099910-b137a80acde4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b816c2fe3faa1efba2f5dc2c259ac7a5&auto=format&fit=crop&w=1004&q=80');">
+            <h1 style="font-weight: 100; position: absolute; bottom: 10px; left: 10px;">Cena</h1>
+        </div>
+        
+         <div class="one wide column">&nbsp;</div>
+        
     </div>
-    
-    <div class="row text_content">
-        alimentos
-    </div>
-    
-    
-    
-    
-    <div class="row">
-        <p class="titulo">Almuerzo</p>
-        <hr/>
-    </div>
-    
-    <div class="row text_content">
-        alimentos
-    </div>
-    
-    
-    
-    
-    <div class="row">
-        <p class="titulo">Comida</p>
-        <hr/>
-    </div>
-    
-    <div class="row text_content">
-        alimentos
-    </div>
-    
-    
-    
+
+
 
 </div>
 
@@ -77,7 +66,7 @@
             Volver
         </a>
 
-        <a ui-sref='dieta_specs.comida_post({ id_dieta: dieta })' class="ui positive basic button" style="float: right; margin: 0em 10px;">
+        <a ng-if="admin" ui-sref='dieta_specs.comida_post({ id_dieta: dieta })' class="ui positive basic button" style="float: right; margin: 0em 10px;">
             Agregar Comida
         </a>
 

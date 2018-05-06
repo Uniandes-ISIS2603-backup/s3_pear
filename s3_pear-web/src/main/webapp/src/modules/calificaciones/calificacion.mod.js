@@ -9,7 +9,7 @@
             $stateProvider
 
                     .state('dieta_specs.calificaciones', {
-                        url: "/dieta/:id_dieta/specs/calificaciones",
+                        url: "/calificaciones",
                         param: {
                             id_dieta: null
                         },
@@ -22,7 +22,7 @@
                     })
                     
                     .state('dieta_specs.calificacion_post', {
-                        url: "/dieta/:id_dieta/specs/calificaciones/post",
+                        url: "/calificaciones/post",
                         param: {
                             id_dieta: null
                         },
