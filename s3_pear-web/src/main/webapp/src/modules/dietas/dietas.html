@@ -22,30 +22,18 @@
                 <div class="content">
                     <div class="header">{{dieta.name}}</div>
                     <div class="meta"><a>Activa</a></div>
-<<<<<<< HEAD
-                    <div class="inline field"><a ui-sref="calificacionesList({dietaId: dieta.id})" style="text-decoration: none;"><i ng-repeat="s in []| range:dieta.stars" class="ion-android-star">&nbsp;</i></a></div>
-=======
                     <div class="inline field"><a style="text-decoration: none;"><i ng-repeat="s in []| range:dieta.stars" class="ion-android-star">&nbsp;</i></a></div>
->>>>>>> db224e6ff7746838e3dc53aaa33be9cfcaaa0c31
                     <div class="description">{{dieta.descripcion}}</div>
                     <div class="description">{{dieta.objetivo}}</div>
                 </div>
                 <div class="extra content">
                     <div class="inline field">
-<<<<<<< HEAD
-                        <span class="field"><a ui-sref="comidas" style="text-decoration: none;">Comidas</a> &nbsp; &nbsp;</span>
-                        <span class="field"><a ui-sref="quejasList({ dietaId: dieta.id })" style="text-decoration: none;">Comentarios</a>&nbsp; &nbsp;</span>
-                       <!-- <span class="field"><a ui-sref="calificacionesList({id: dieta.id})" style="text-decoration: none;"> Calificacion </a>&nbsp; &nbsp; </span>-->
-                        <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
-                        <span class="field right floated">Pausar</span>
-=======
                         <span class="field left floated">
                             <a ui-sref="dieta_specs({ id: dieta.id })" style="text-decoration: none; color: dimgray;">
                                 <i class="ion-more"></i>
                             </a>
                         </span>
                         <span ng-if="user" class="field right floated">Pausar</span>
->>>>>>> db224e6ff7746838e3dc53aaa33be9cfcaaa0c31
                         <span ng-if="user" class="field right floated" ng-click="eliminar_dieta(dieta.id)"><a style="text-decoration: none;">Cancelar</a>&nbsp; &nbsp;</span>
                         <span ng-if="admin" class="field right floated" ng-click="eliminar_dieta(dieta.id)"><a style="text-decoration: none;">Eliminar</a>&nbsp; &nbsp;</span>
                     </div>
@@ -58,11 +46,5 @@
 
     </div>
 </div>
-
-
-
-
-
-
 
 
