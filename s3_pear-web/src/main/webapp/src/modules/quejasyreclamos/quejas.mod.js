@@ -1,6 +1,6 @@
 (function (ng) {
 
-    var mod = ng.module("quejasModule", ['ui.router']);
+    var mod = ng.module("quejasModule", ['dietaModule','ui.router']);
 
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
@@ -8,13 +8,18 @@
 
         $stateProvider
             .state('quejasList', {
-                url: "/dieta/comentarios",
+                url: "/dieta/{dietaId:int}/comentarios",
+                param: {
+                    dietaId:null
+                },
                 templateUrl: "src/modules/quejasyreclamos/quejasList.html",
                 controller: 'quejasController'
             }).state('quejasDetail', {
-                url: "/{quejasId:int}/quejasList/detail",
+                url: "/dieta/{idDieta:int}/comentarios/{quejasId:int}/detail",
                 param : {
+                    idDieta:null,
                     id:null
+                    
                 },
                 templateUrl: 'src/modules/quejasyreclamos/quejasDetail.html',
                 controller: 'quejasController'
@@ -23,9 +28,11 @@
                 templateUrl: 'src/modules/quejasyreclamos/new/quejas.new.html',
                 controller: 'quejasController'
             }).state('quejasUpdate',{
-                url: '/update/{quejasId:int}/quejas/update',
+                url: '/dieta/{dietaId:int}/comentarios/{quejasId:int}/update',
                 param : {
+                    dietaId:null,
                     id:null
+                    
                 },
                 templateUrl:'src/modules/quejasyreclamos/update/quejas.update.html',
                 controller: 'quejasController'

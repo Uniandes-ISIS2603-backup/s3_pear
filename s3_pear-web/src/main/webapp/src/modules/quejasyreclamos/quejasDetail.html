@@ -3,7 +3,7 @@
     <div class="row">
         <div class="column">
             <div class="inline field">
-                <h1 class="ui dividing header" style="font-weight: 300; color: gray;"> <i ui-sref="quejasList" class="ion-chevron-left"></i> &nbsp; Detalles Queja o Reclamo</h1>
+                <h1 class="ui dividing header" style="font-weight: 300; color: gray;"> <i ui-sref="quejasList({dietaId:queja.dieta.id})" class="ion-chevron-left"></i> &nbsp; Detalles Queja o Reclamo</h1>
             </div>
             <hr/>
         </div>
@@ -49,7 +49,7 @@
                </td>
                </tr>
     </table>
-    <div class="ui positive basic button" ><a ui-sref ="quejasUpdate({quejasId: queja.id})"><i class="glyphicon glyphicon-edit">Actualizar</i></a>
+    <div class="ui positive basic button" ><a ui-sref ="quejasUpdate({idDieta:queja.dieta.id,quejasId: queja.id})"><i class="glyphicon glyphicon-edit">Actualizar</i></a>
                 
             </a>
      </div>

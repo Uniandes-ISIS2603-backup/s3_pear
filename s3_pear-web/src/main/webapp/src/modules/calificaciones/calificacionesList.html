@@ -10,7 +10,7 @@
             <div class="content">
                 <a class="author">Usuario</a>
                 <div class="metadata">
-                    <i class="ion"><a ui-sref="calificacionesDetail({calificacionesId:calificacion.id})">{{calificacion.puntuacion}}</a></i>
+                    <i class="ion"><a ui-sref="calificacionesDetail({idDieta: calificacion.dieta.id,calificacionesId:calificacion.id})">{{calificacion.puntuacion}}</a></i>
                 </div> 
        
                  <div ng-if="calificacion.puntuacion===0">

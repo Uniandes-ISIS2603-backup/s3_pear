@@ -9,13 +9,19 @@
 
         $stateProvider
             .state('calificacionesList', {
-                url: "/dieta/calificaciones",
+                url: "/dieta/{dietaId:int}/calificaciones",
+                 param: {
+                    dietaId:null
+                },
                 templateUrl: "src/modules/calificaciones/calificacionesList.html",
                 controller: 'calificacionesCtrl'
             }).state('calificacionesDetail', {
-                url: "/{calificacionesId:int}/calificacionlesList/detail",
+                url: "/dieta/{idDieta:int}/calificaciones/{quejasId:int}/detail",
                 param : {
+                    
+                    idDieta:null,
                     id:null
+                    
                 },
                 templateUrl: 'src/modules/calificaciones/calificacionesDetail.html',
                 controller: 'calificacionesCtrl'
@@ -24,8 +30,9 @@
                 templateUrl: 'src/modules/calificaciones/new/calificaciones.new.html',
                 controller: 'calificacionesCtrl'
             }).state('calificacionesUpdate',{
-                url: '/update/{calificacionesId:int}/calificaciones/update',
+                url: '/dieta/{idDieta:int}/comentarios/update/{quejasId:int}',
                 param : {
+                    idDieta:null,
                     id:null
                 },
                 templateUrl:'src/modules/calificaciones/update/calificaciones.update.html',

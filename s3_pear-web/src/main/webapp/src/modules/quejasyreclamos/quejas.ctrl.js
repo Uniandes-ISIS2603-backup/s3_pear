@@ -1,7 +1,8 @@
 (function (ng) {
 
     var mod = ng.module("quejasModule");
-    mod.constant("quejasContext", "api/quejasyreclamos");
+    mod.constant("quejasContext", "quejasyreclamos");
+    mod.constant("dietasContext", "api/dietas");
 
     mod.filter('range', function() {
         return function(input, total) {
@@ -12,12 +13,13 @@
         };
      });
      
-    mod.controller('quejasController', ['$scope', '$http', 'quejasContext', '$state',
+    mod.controller('quejasController', ['$scope', '$http', 'dietasContext', '$state', 'quejasContext',
 
 
-        function ($scope, $http, quejasContext,  $state) {
+        function ($scope, $http, dietasContext,  $state, quejasContext) {
 
-            $http.get(quejasContext).then(function (response) {
+            console.log($state.params.dietaId);
+            $http.get(dietasContext + '/' + $state.params.dietaId + '/'+quejasContext).then(function (response) {
 
                 $scope.quejasRecords = response.data;
                 console.log(response.data);
@@ -29,8 +31,10 @@
             if ($state.params.quejasId !== null && $state.params.quejasId !== undefined) {
                 $scope.id_queja = $state.params.quejasId;
                 // TODO Descomentar
-                $http.get(quejasContext + "/" +$state.params.quejasId ).then(function (response) {
+                $http.get(dietasContext + '/' + $state.params.idDieta + '/'+ quejasContext + "/" +$state.params.quejasId ).then(function (response) {
                     $scope.queja = response.data;
+                    $scope.dietaId= $state.params.idDieta;
+                    console.log($state.params.dietaId);
                 });
             }
 
@@ -59,7 +63,7 @@
                 };
 
                
-                $http.put(quejasContext + "/" + $scope.id_queja, data).then(function (response) {
+                $http.put(dietasContext + '/' + $state.params.dietaId+ '/'+ quejasContext + "/" + $scope.id_queja, data).then(function (response) {
                     $scope.put_data = response.data;
                     $state.go($state.current, {}, {reload: true});
                     $state.go('quejasList', {}, {reload: true});

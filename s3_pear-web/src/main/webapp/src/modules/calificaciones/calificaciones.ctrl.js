@@ -1,6 +1,7 @@
 (function (ng) {
-    var mod = ng.module("calificacionesModule");
-    mod.constant("calificacionesContext", "api/calificaciones");
+    var mod = ng.module("calificacionesModule");  
+    mod.constant("calificacionesContext", "calificaciones");
+      mod.constant("dietasContext", "api/dietas");
 
     mod.filter('range', function () {
         return function (input, total) {
@@ -10,9 +11,10 @@
             return input;
         };
     });
-    mod.controller('calificacionesCtrl', ['$scope', '$http', 'calificacionesContext', '$state',
+    mod.controller('calificacionesCtrl', ['$scope', '$http', 'calificacionesContext', '$state', 'dietasContext',
 
-        function ($scope, $http, calificacionesContext, $state) {
+        
+        function ($scope, $http, calificacionesContext, $state, dietasContext) {
 
             var cero=0;
             var uno=0;
@@ -20,10 +22,14 @@
             var tres=0;
             var cuatro = 0;
             var cinco =0;
-            $http.get(calificacionesContext).then(function (response) {
+            var dieta=0;
+            $http.get(dietasContext+ '/' + $state.params.dietaId + '/'+ calificacionesContext).then(function (response) {
                 var a = response.data;
                 var puntajeTotal=0;
                 $scope.calificacionesRecords = response.data;
+                
+               
+          
                 
 
                 for (var i = 0; i < a.length; i++) {
@@ -45,8 +51,18 @@
                     if (a[i].puntuacion == 10) {
                         cinco++;
                     }
+                    if(a[i].dieta.id==$state.params.dietaId){
+                        dieta = a[i].dieta.id;
+                    }
+                    
+                     
+                     
+                   
+                    
                     puntajeTotal+= a[i].puntuacion;
                 }
+                $scope.dieta_id= dieta;
+                
                 var total = uno+ dos+ tres + cuatro + cinco + cero;
                 $scope.calificacionCero=cero;
                 $scope.calificacionUno=uno;
@@ -66,9 +82,10 @@
 
             if ($state.params.calificacionesId !== null && $state.params.calificacionesId !== undefined) {
                 $scope.id_calificacion = $state.params.calificacionesId;
-
-                $http.get(calificacionesContext + "/" + $state.params.calificacionesId).then(function (response) {
+               
+                $http.get(dietasContext+ '/' + $state.params.idDieta + '/'+calificacionesContext + "/" + $state.params.calificacionesId).then(function (response) {
                     $scope.calificacion = response.data;
+                    console.log(response.data);
                 });
             }
             $scope.enviar_calificacion = function () {
@@ -93,11 +110,12 @@
                     
                 };
 
-               
-                $http.put(calificacionesContext + "/" + $scope.id_calificacion, data).then(function (response) {
+                var dieta=1;
+                $http.put(dietasContext+ '/' + $state.params.idDieta + '/'+calificacionesContext + "/" + $scope.id_calificacion, data).then(function (response) {
+                    
                     $scope.put_data = response.data;
                     $state.go($state.current, {}, {reload: true});
-                    $state.go('calificacionesList', {}, {reload: true});
+                    $state.go('calificacionesList({dietaId:dieta})', {}, {reload: true});
                 });
             };
 
