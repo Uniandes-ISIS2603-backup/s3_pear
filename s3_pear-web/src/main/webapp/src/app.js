@@ -12,9 +12,10 @@
         'semanaModule',
         'diaModule',
         'personaModule',
-        'quejasModule',
-        'calificacionesModule',
+        'comentarioModule',
+        'calificacionModule',
         'comidaModule',
+        'weekModule',
         'loginModule'
     ]);
 

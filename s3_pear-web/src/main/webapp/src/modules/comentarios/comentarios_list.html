@@ -1,0 +1,59 @@
+
+
+<div class="ui comments" style="margin-top: 40px;">
+
+    <!-- TODO ng-repeat="com in quejasRecords" -->
+
+    <div class="comment">
+
+        <a class="avatar">
+            <img src="https://semantic-ui.com/images/avatar/small/matt.jpg">
+        </a>
+        <div class="content">
+            <a class="author">Usuario</a>
+            <div class="metadata">
+                <span class="date">queja</span>
+            </div>
+            <div class="text">
+                este es un comentario
+            </div>
+        </div>
+
+    </div>
+
+    
+    
+    <!-- BORRAR desde aqui -->
+    <div class="comment">
+        <a class="avatar">
+            <img src="https://semantic-ui.com/images/avatar/small/matt.jpg">
+        </a>
+        <div class="content">
+            <a class="author">Usuario</a>
+            <div class="metadata">
+                <span class="date">recomendacion</span>
+            </div>
+            <div class="text">
+                este es otro comentario
+            </div>
+        </div>
+    </div>
+    <!-- HASTA AQUI -->
+
+</div>
+
+
+<div class="row">
+    <div>&nbsp;</div>
+    <div class="inline field">
+
+        <a ui-sref='dietas' class="ui orange basic button">
+            Volver
+        </a>
+
+        <a ui-sref='dieta_specs.comentario_post({ id_dieta: dieta })' class="ui positive basic button" style="float: right; margin: 0em 10px;">
+            Agregar Comentario
+        </a>
+
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<!--
+<div class="ui container" ng-if="isAuthenticated() && !hasPermissions()">
+
+    <div class="row">
+        <h1>403 Forbidden</h1>
+        <h4>You do not have permission for this action.</h4>
+        <p>Contact the administrator to obtain permission.</p>
+    </div>
+
+</div>
+-->
+
+
+<style>
+    * {
+        overflow: hidden;
+    }
+
+    div.back {
+        height: 100vh;
+        background-color: white;
+    }
+
+    div.backimg {
+        height: 25vh;
+        background-attachment: fixed;
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+</style>
+
+
+
+
+
+<div class="back" ng-app="dietaModule" ng-controller="dietasController">
+
+
+    <div class="backimg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.30)), url('{{dieta.imagen}}');">
+        <div class="ui three column centered grid" style="color: whitesmoke;">
+            <div class="row">&nbsp;</div><div class="row">&nbsp;</div>
+            <div class="column">&nbsp;</div>
+            <div class="column" style="text-align: center;"><h1 style="font-size: 40px; font-family: 'Roboto'; font-weight: 100;">{{dieta.name}}</h1></div>
+            <div class="column">&nbsp;</div>
+        </div>
+    </div>
+
+
+    <div class="ui container" style="width: 70%; padding: 2em 6em;">
+
+        <div class="row">
+            <div class="ui five item menu">
+                <a ui-sref='.dieta_specs_id({ id: dieta.id})' class="item">Detalles</a>
+                <a ui-sref='.comidas({ id_dieta: dieta.id })' class="item">Comidas</a>
+                <a ui-sref='.weeks({ id_dieta: dieta.id })' class="item">Weeks</a>
+                <a ui-sref='.comentarios({ id_dieta: dieta.id })' class="item">Comentarios</a>
+                <a ui-sref='.calificaciones({ id_dieta: dieta.id })' class="item">Calificaciones</a>
+            </div>
+        </div>
+
+
+        <div ui-view='dieta_spec'></div>
+
+
+
+
+
+
+    </div>
+
+</div>
+
+<script>
+    $('.ui .item').on('click', function () {
+        $('.ui .item').removeClass('active');
+        $(this).addClass('active');
+    });
+</script>

@@ -1,144 +1,94 @@
-<!--
-<div class="ui container" ng-if="isAuthenticated() && !hasPermissions()">
 
-    <div class="row">
-        <h1>403 Forbidden</h1>
-        <h4>You do not have permission for this action.</h4>
-        <p>Contact the administrator to obtain permission.</p>
+
+<table class="ui padded very basic table" style="margin-top: 20px;">
+
+    <tbody>
+
+        <tr>
+            <td>
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">ID</div>
+                </div>
+            </td>
+            <td>
+                {{id_dieta}}
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">Nombre</div>
+                </div>
+            </td>
+            <td>
+                <p>{{dieta.name}}</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">Descripcion</div>
+                </div>
+            </td>
+            <td>
+                <p>{{dieta.descripcion}}</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">Objetivos</div>
+                </div>
+            </td>
+            <td>
+                <p>{{dieta.objetivo}}</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">Estrellas</div>
+                </div>
+            </td>
+            <td>
+                <i ng-repeat="s in []| range:dieta.stars" class="ion-android-star">&nbsp;</i>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">Imagen</div>
+                </div>
+            </td>
+            <td>
+                <p>{{dieta.imagen}}"</p>
+            </td>
+        </tr>
+
+    </tbody>
+
+</table>
+
+
+
+
+
+<div class="row">
+    <div>&nbsp;</div>
+    <div class="inline field">
+
+        <a ui-sref='dietas' class="ui orange basic button">
+            Volver
+        </a>
+
+        <a ui-sref='dieta_update({ id: dieta.id })' class="ui positive basic button" style="float: right; margin: 0em 10px;">
+            Actualizar
+        </a>
+
     </div>
-
-</div>
--->
-
-
-
-<div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;" ng-app="dietaModule" ng-controller="dietasController">
-
-    <div class="row">
-        <div class="column">
-            <div class="inline field">
-                <h1 class="ui dividing header" style="font-weight: 300; color: gray;"> <i ui-sref="dietas" class="ion-chevron-left"></i> &nbsp; Detalles Dieta</h1>
-            </div>
-            <hr/>
-        </div>
-    </div>
-
-
-
-
-    <table class="ui very basic table">
-
-        <thead>
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-
-        <tbody>
-
-            <tr>
-                <td>
-                    <div class="inline field" style="overflow-y: hidden;">
-                        <div class="ui horizontal large label">ID</div>
-                    </div>
-                </td>
-                <td>
-                    {{id_dieta}}
-                </td>
-                <td>
-
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="inline field" style="overflow-y: hidden;">
-                        <div class="ui horizontal large label">Nombre</div>
-                    </div>
-                </td>
-                <td>
-                    <input ng-model="new_nombre" placeholder="{{dieta.name}}">
-                </td>
-                <td>
-
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="inline field" style="overflow-y: hidden;">
-                        <div class="ui horizontal large label">Descripcion</div>
-                    </div>
-                </td>
-                <td>
-                    <input ng-model="new_descripcion" placeholder="{{dieta.descripcion}}">
-                </td>
-                <td>
-
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <div class="inline field" style="overflow-y: hidden;">
-                        <div class="ui horizontal large label">Objetivos</div>
-                    </div>
-                </td>
-                <td>
-                    <input ng-model="new_objetivo" placeholder="{{dieta.objetivo}}">
-                </td>
-                <td>
-
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <div class="inline field" style="overflow-y: hidden;">
-                        <div class="ui horizontal large label">Estrellas</div>
-                    </div>
-                </td>
-                <td>
-                    <input ng-model="new_stars" placeholder="{{dieta.stars}}">
-                </td>
-                <td>
-
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <div class="inline field" style="overflow-y: hidden;">
-                        <div class="ui horizontal large label">Imagen</div>
-                    </div>
-                </td>
-                <td>
-                    <input ng-model="new_imagen" placeholder="{{dieta.imagen}}">
-                </td>
-                <td>
-
-                </td>
-            </tr>
-
-        </tbody>
-
-    </table>
-
-
-
-
-
-    <div class="row">
-        <div>&nbsp;</div>
-        <div class="inline field">
-            <a ng-click="actualizar_dieta()" class="ui positive basic button">
-                Actualizar
-            </a>
-        </div>
-    </div>
-
-
-
-
-
 </div>

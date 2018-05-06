@@ -1,121 +1,61 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 (function (ng) {
 
     var mod = ng.module("comidaModule", ['ui.router']);
 
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise("/dietas");
+            $urlRouterProvider.otherwise("/dietas");
 
-        $stateProvider
-            .state('comidas', {
-                url: "/comidas",
-                templateUrl: "src/modules/comidas/comida_list.html",
-                controller: 'comidasController'
-            })
+            $stateProvider
 
-            .state('detail_comida', {
-                url: "/comida/:id/detail",
-                param: {
-                    id: null
-                },
-                templateUrl: "src/modules/comidas/comida.html",
-                controller: 'comidasController'
-            })
+                    .state('dieta_specs.comidas', {
+                        url: "/dieta/:id_dieta/specs/comidas",
+                        param: {
+                            id_dieta: null
+                        },
+                        views: {
+                            'dieta_spec': {
+                                templateUrl: 'src/modules/comidas/comidas_list.html',
+                                controller: 'comidaController'
+                            }
+                        }
+                    })
+                    
+                    .state('dieta_specs.comida_post', {
+                        url: "/dieta/:id_dieta/specs/comida/post",
+                        param: {
+                            id_dieta: null
+                        },
+                        views: {
+                            'dieta_spec': {
+                                templateUrl: 'src/modules/comidas/comida_post.html',
+                                controller: 'comidaController'
+                            }
+                        }
+                    })
 
-        ;
-    }]);
+                    ;
+        }]);
 
 })(window.angular);
 
 (function (ng) {
 
     var mod = ng.module("comidaModule");
-    mod.constant("comidasContext", "api/comidas");
-    
-    mod.filter('range', function() {
-        return function(input, total) {
-          total = parseInt(total);
-          for (var i=0; i<total; i++)
-            input.push(i);
-          return input;
-        };
-      });
+    mod.constant("comidaContext", "api/comidas");
 
-    mod.controller('comidasController', ['$scope', '$http', 'comidasContext', '$state',
 
-        function ($scope, $http, comidasContext, $state) {
-            //http://localhost:8080/s3_pear-web/api/comidas
-            // src/modules/comidas/comidas.json
+    mod.controller('comidaController', ['$scope', '$http', 'comidaContext', '$state', '$rootScope',
 
-            // TODO Descomentar
-            $http.get('http://localhost:8080/s3_pear-web/api/comidas').then(function (response) {
-                $scope.comidas = response.data;
-            });
+        function ($scope, $http, comidaContext, $state, $rootScope) {
+            
 
-            if ($state.params.id !== null && $state.params.id !== undefined) {
-                $scope.id_comida = $state.params.id;
+            if ($state.params.id_dieta !== null && $state.params.id_dieta !== undefined) {
+                $scope.dieta = $state.params.id_dieta;
 
-                // TODO Descomentar
-                $http.get('http://localhost:8080/s3_pear-web/api/comidas/' + $state.params.id ).then(function (response) {
-                    $scope.comida = response.data;
-                });
             }
 
-            $scope.enviar_comida = function () {
-
-                let data = {
-                    alimentos: $scope.alimentos,
-                    cantidad: $scope.cantidad,
-                    TIPO: $scope.TIPO,
-                   // image: $scope.image
-                };
-
-                console.log(data);
-
-                // DIRECCION HTTP 
-                $http.post('http://localhost:8080/s3_pear-web/api/comidas', data).then(function (response) {
-                    $scope.post_data = response.data;
-                });
-            };
-
-
-            $scope.eliminar_comida = function (id) {
-                console.log(id + ' < Se va a eliminar la comida');
-
-                // DIRECCION HTTP 
-                $http.delete('http://localhost:8080/s3_pear-web/api/comidas/' + id).then(function (response) {
-                    $scope.post_data = response.data;
-                    $state.reload();
-                });
-            };
-
-
-            $scope.actualizar_comida = function () {
-                console.log($scope.id_comida + " < Se va a actualizar la comida.");
-                
-                let data = {
-                    alimentos: $scope.new_alimentos,
-                    cantidad: $scope.new_cantidad,
-                    TIPO: $scope.new_TIPO
-                   // image: $scope.new_image
-                };
-                
-                //http://localhost:8080/s3_pear-web/api/comidas/3
-                $http.put('http://localhost:8080/s3_pear-web/api/comidas/' + $scope.id_comida, data).then(function (response) {
-                    $scope.put_data = response.data;
-                    $state.go($state.current, {}, {reload: true});
-                    $state.go('comidas', {}, {reload: true});
-                });
-            };
-
-        }
-
+            
+        } // END FUNCTION CONTROLLER
     ]);
 })(window.angular);
-
-

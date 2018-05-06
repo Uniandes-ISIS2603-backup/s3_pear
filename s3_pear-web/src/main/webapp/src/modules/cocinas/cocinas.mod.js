@@ -18,8 +18,25 @@
                         param: {
                             id: null
                         },
-                        templateUrl: "src/modules/cocinas/cocina_detail.html",
-                        controller: 'cocinasController'
+                        views: {
+                            'post': {
+                                templateUrl: 'src/modules/cocinas/cocina_detail.html',
+                                controller: 'cocinasController'
+                            }
+                        }
+                    })
+
+                    .state('cocina_update', {
+                        url: "/cocina/:id/update",
+                        param: {
+                            id: null
+                        },
+                        views: {
+                            'post': {
+                                templateUrl: 'src/modules/cocinas/cocina_update.html',
+                                controller: 'cocinasController'
+                            }
+                        }
                     })
 
                     .state('post_cocina', {
@@ -92,7 +109,7 @@
 
 
             $scope.actualizar_cocina = function () {
-                
+
 
                 let data = {
                     name: $scope.new_nombre,
@@ -100,7 +117,7 @@
                     capacidad: $scope.new_capacidad,
                     imagen: $scope.new_imagen
                 };
-                
+
                 console.log($scope.id_cocina + " < Se va a actualizar la cocina.");
                 console.log(cocina);
 

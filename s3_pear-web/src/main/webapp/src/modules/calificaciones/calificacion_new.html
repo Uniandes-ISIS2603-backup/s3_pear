@@ -1,0 +1,61 @@
+
+<style>
+    
+    input.place {
+        text-decoration: none; 
+        border:none; 
+        border-bottom:1px solid dimgray !important;
+    }
+    
+</style>
+
+
+
+<table class="ui very basic table" style="margin-top: 40px;">
+
+    <thead>
+        <tr>
+            <th class="center aligned">
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">Puntuacion</div>
+                </div>
+            </th>
+            
+        </tr>
+    </thead>
+
+
+    <tbody style="text-align: center;">
+
+                
+        <tr>
+            <td>
+                <input class="place" ng-model="new_calificacion" type='number' placeholder='1-5'>
+            </td>
+        
+        </tr>
+
+        
+        
+    </tbody>
+
+</table>
+
+
+
+
+
+<div class="row">
+    <div>&nbsp;</div>
+    <div class="inline field">
+
+        <a ui-sref='dieta_specs.calificaciones({ id_dieta: dieta })' class="ui orange basic button">
+            Cancelar
+        </a>
+
+        <a ng-click='calificacion_post()' class="ui positive basic button" style="float: right; margin: 0em 10px;">
+            Agregar Calificacion
+        </a>
+
+    </div>
+</div>
