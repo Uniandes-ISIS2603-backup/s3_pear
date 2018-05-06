@@ -1,0 +1,94 @@
+
+
+<table class="ui padded very basic table" style="margin-top: 20px;">
+
+    <tbody>
+
+        <tr>
+            <td>
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">ID</div>
+                </div>
+            </td>
+            <td>
+                {{id_dieta}}
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">Nombre</div>
+                </div>
+            </td>
+            <td>
+                <p>{{dieta.name}}</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">Descripcion</div>
+                </div>
+            </td>
+            <td>
+                <p>{{dieta.descripcion}}</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">Objetivos</div>
+                </div>
+            </td>
+            <td>
+                <p>{{dieta.objetivo}}</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">Estrellas</div>
+                </div>
+            </td>
+            <td>
+                <i ng-repeat="s in []| range:dieta.stars" class="ion-android-star">&nbsp;</i>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">Imagen</div>
+                </div>
+            </td>
+            <td>
+                <p>{{dieta.imagen}}"</p>
+            </td>
+        </tr>
+
+    </tbody>
+
+</table>
+
+
+
+
+
+<div class="row">
+    <div>&nbsp;</div>
+    <div class="inline field">
+
+        <a ui-sref='dietas' class="ui orange basic button">
+            Volver
+        </a>
+
+        <a ui-sref='dieta_update({ id: dieta.id })' class="ui positive basic button" style="float: right; margin: 0em 10px;">
+            Actualizar
+        </a>
+
+    </div>
+</div>

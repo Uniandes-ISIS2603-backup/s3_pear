@@ -32,125 +32,38 @@
 </style>
 
 
+
+
+
 <div class="back" ng-app="dietaModule" ng-controller="dietasController">
 
 
-    <div class="backimg" style="background-image: url('{{dieta.imagen}}'); float: bottom;">
+    <div class="backimg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.30)), url('{{dieta.imagen}}');">
+        <div class="ui three column centered grid" style="color: whitesmoke;">
+            <div class="row">&nbsp;</div><div class="row">&nbsp;</div>
+            <div class="column">&nbsp;</div>
+            <div class="column" style="text-align: center;"><h1 style="font-size: 40px; font-family: 'Roboto'; font-weight: 100;">{{dieta.name}}</h1></div>
+            <div class="column">&nbsp;</div>
+        </div>
     </div>
 
 
     <div class="ui container" style="width: 70%; padding: 2em 6em;">
 
         <div class="row">
-            <div class="column">
-                <div class="inline field">
-                    <h1 class="ui dividing header" style="font-weight: 300; color: gray;">{{dieta.name}}</h1>
-                </div>
-                <hr/>
+            <div class="ui five item menu">
+                <a ui-sref='.dieta_specs_id({ id: dieta.id})' class="item">Detalles</a>
+                <a ui-sref='.comidas({ id_dieta: dieta.id })' class="item">Comidas</a>
+                <a ui-sref='.weeks({ id_dieta: dieta.id })' class="item">Weeks</a>
+                <a ui-sref='.comentarios({ id_dieta: dieta.id })' class="item">Comentarios</a>
+                <a ui-sref='.calificaciones({ id_dieta: dieta.id })' class="item">Calificaciones</a>
             </div>
         </div>
 
 
+        <div ui-view='dieta_spec'></div>
 
 
-        <table class="ui padded very basic table">
-
-            <tbody>
-
-                <tr>
-                    <td>
-                        <div class="inline field" style="overflow-y: hidden;">
-                            <div class="ui horizontal large label">ID</div>
-                        </div>
-                    </td>
-                    <td>
-                        {{id_dieta}}
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td>
-                        <div class="inline field" style="overflow-y: hidden;">
-                            <div class="ui horizontal large label">Nombre</div>
-                        </div>
-                    </td>
-                    <td>
-                        <p>{{dieta.name}}</p>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td>
-                        <div class="inline field" style="overflow-y: hidden;">
-                            <div class="ui horizontal large label">Descripcion</div>
-                        </div>
-                    </td>
-                    <td>
-                        <p>{{dieta.descripcion}}</p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="inline field" style="overflow-y: hidden;">
-                            <div class="ui horizontal large label">Objetivos</div>
-                        </div>
-                    </td>
-                    <td>
-                        <p>{{dieta.objetivo}}</p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="inline field" style="overflow-y: hidden;">
-                            <div class="ui horizontal large label">Estrellas</div>
-                        </div>
-                    </td>
-                    <td>
-                        <i ng-repeat="s in []| range:dieta.stars" class="ion-android-star">&nbsp;</i>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="inline field" style="overflow-y: hidden;">
-                            <div class="ui horizontal large label">Imagen</div>
-                        </div>
-                    </td>
-                    <td>
-                        <p>{{dieta.imagen}}"</p>
-                    </td>
-                </tr>
-
-            </tbody>
-
-        </table>
-
-
-
-
-
-        <div class="row">
-            <div>&nbsp;</div>
-            <div class="inline field">
-                
-                <a ui-sref='dietas' class="ui olive basic button">
-                    Volver
-                </a>
-
-                <a ui-sref='comentarios' class="ui teal basic button">
-                    Comentarios
-                </a>
-                <a ui-sref='semana' class="ui teal basic button">
-                    Semanas
-                </a>
-                <a ui-sref='dieta_update({ id: dieta.id })' class="ui teal basic button">
-                    Actualizar
-                </a>
-
-            </div>
-        </div>
 
 
 
@@ -158,3 +71,10 @@
     </div>
 
 </div>
+
+<script>
+    $('.ui .item').on('click', function () {
+        $('.ui .item').removeClass('active');
+        $(this).addClass('active');
+    });
+</script>

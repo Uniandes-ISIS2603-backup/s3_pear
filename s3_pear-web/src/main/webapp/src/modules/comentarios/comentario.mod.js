@@ -1,6 +1,6 @@
 (function (ng) {
 
-    var mod = ng.module("comidaModule", ['ui.router']);
+    var mod = ng.module("comentarioModule", ['ui.router']);
 
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
@@ -8,28 +8,28 @@
 
             $stateProvider
 
-                    .state('dieta_specs.comidas', {
-                        url: "/dieta/:id_dieta/specs/comidas",
+                    .state('dieta_specs.comentarios', {
+                        url: "/dieta/:id_dieta/specs/comentarios",
                         param: {
                             id_dieta: null
                         },
                         views: {
                             'dieta_spec': {
-                                templateUrl: 'src/modules/comidas/comidas_list.html',
-                                controller: 'comidaController'
+                                templateUrl: 'src/modules/comentarios/comentarios_list.html',
+                                controller: 'comentarioController'
                             }
                         }
                     })
                     
-                    .state('dieta_specs.comida_post', {
-                        url: "/dieta/:id_dieta/specs/comida/post",
+                    .state('dieta_specs.comentario_post', {
+                        url: "/dieta/:id_dieta/specs/comentarios/post",
                         param: {
                             id_dieta: null
                         },
                         views: {
                             'dieta_spec': {
-                                templateUrl: 'src/modules/comidas/comida_post.html',
-                                controller: 'comidaController'
+                                templateUrl: 'src/modules/comentarios/comentario_new.html',
+                                controller: 'comentarioController'
                             }
                         }
                     })
@@ -41,13 +41,13 @@
 
 (function (ng) {
 
-    var mod = ng.module("comidaModule");
-    mod.constant("comidaContext", "api/comidas");
+    var mod = ng.module("comentarioModule");
+    mod.constant("comentarioContext", "api/comentarios");
 
 
-    mod.controller('comidaController', ['$scope', '$http', 'comidaContext', '$state', '$rootScope',
+    mod.controller('comentarioController', ['$scope', '$http', 'comentarioContext', '$state', '$rootScope',
 
-        function ($scope, $http, comidaContext, $state, $rootScope) {
+        function ($scope, $http, comentarioContext, $state, $rootScope) {
             
 
             if ($state.params.id_dieta !== null && $state.params.id_dieta !== undefined) {

@@ -35,22 +35,25 @@
 <div class="back" ng-app="cocinaModule" ng-controller="cocinasController">
 
 
-    <div class="backimg" style="background-image: url('{{cocina.imagen}}'); float: bottom;">
+    <div class="backimg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.30)), url('{{cocina.imagen}}');">
+        <div class="ui three column centered grid" style="color: whitesmoke;">
+            <div class="row">&nbsp;</div><div class="row">&nbsp;</div>
+            <div class="column">&nbsp;</div>
+            <div class="column" style="text-align: center;"><h1 style="font-size: 40px; font-family: 'Roboto'; font-weight: 100;">{{cocina.name}}</h1></div>
+            <div class="column">&nbsp;</div>
+        </div>
     </div>
-
 
     <div class="ui container" style="width: 70%; padding: 2em 6em;">
 
         <div class="row">
-            <div class="column">
-                <div class="inline field">
-                    <h1 class="ui dividing header" style="font-weight: 300; color: gray;">{{cocina.name}}</h1>
-                </div>
-                <hr/>
+            <div class="ui two item menu">
+                <a ui-sref='cocina_detail({ id: cocina.id})' class="item active">Detalles</a>
+                 <a ui-sref='dietas' class="item">Dietas</a>
             </div>
         </div>
 
-
+        <div ui-view='cocina_spec'></div>
 
 
         <table class="ui padded very basic table">
@@ -67,7 +70,7 @@
                         {{id_cocina}}
                     </td>
                 </tr>
-                
+
                 <tr>
                     <td>
                         <div class="inline field" style="overflow-y: hidden;">
@@ -78,7 +81,7 @@
                         <p>{{cocina.name}}</p>
                     </td>
                 </tr>
-                
+
                 <tr>
                     <td>
                         <div class="inline field" style="overflow-y: hidden;">
@@ -123,18 +126,13 @@
         <div class="row">
             <div>&nbsp;</div>
             <div class="inline field">
-                
+
                 <a ui-sref='cocinas' class="ui olive basic button">
                     Volver
                 </a>
 
-                <a ui-sref='comentarios' class="ui teal basic button">
-                    Comentarios
-                </a>
-                <a ui-sref='dietas' class="ui teal basic button">
-                    Dietas
-                </a>
-                <a ui-sref='cocina_update({ id: cocina.id })' class="ui teal basic button">
+                
+                <a ui-sref='cocina_update({ id: cocina.id })' class="ui teal basic button" style="float: right;">
                     Actualizar
                 </a>
 
@@ -143,7 +141,6 @@
 
 
 
-
     </div>
-
 </div>
+

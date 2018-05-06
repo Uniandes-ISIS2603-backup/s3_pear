@@ -1,0 +1,60 @@
+
+
+<table class="ui very basic table" style="margin-top: 40px;">
+
+    <thead>
+        <tr>
+            <th class="center aligned">
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">Puntuacion</div>
+                </div>
+            </th>
+            
+            <th class="center aligned">
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">Porcentaje</div>
+                </div>
+            </th>
+        </tr>
+    </thead>
+
+
+    <tbody style="text-align: center;">
+
+        
+        <!-- TODO ng-repeat sobre las calificaciones de una dieta -->
+        
+        <tr>
+            <td>
+                <p>4</p>
+            </td>
+        
+            <td>
+                <p>50%</p>
+            </td>
+        </tr>
+
+        
+        
+    </tbody>
+
+</table>
+
+
+
+
+
+<div class="row">
+    <div>&nbsp;</div>
+    <div class="inline field">
+
+        <a ui-sref='dietas' class="ui orange basic button">
+            Volver
+        </a>
+
+        <a ui-sref='dieta_specs.calificacion_post({ id_dieta: dieta })' class="ui positive basic button" style="float: right; margin: 0em 10px;">
+            Agregar Calificacion
+        </a>
+
+    </div>
+</div>

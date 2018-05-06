@@ -48,6 +48,24 @@
                 //                    roles: ['admin', 'user']
                 //                }
             })
+            
+            .state('dieta_specs.dieta_specs_id', {
+                url: "/dieta/:id/specs/detail",
+                param: {
+                    id: null
+                },
+                views: {
+                    'dieta_spec': {
+                        templateUrl: 'src/modules/dietas/dieta_detail.html',
+                        controller: 'dietasController'
+                    }
+                }
+                //            ,
+                //                data: {
+                //                    requiereLogin: true,
+                //                    roles: ['admin', 'user']
+                //                }
+            })
 
             .state('post_dieta', {
                 url: '/dietas/post',
