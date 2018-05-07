@@ -28,6 +28,12 @@ public class CuentaCobroDTO {
     // TODO DONE: el ditpo debe ser Double e igualmente en el set/get
     private Double valorAPagar;
 
+    private Integer cantidadProductos;
+    
+    private Integer numeroFacturaDeVenta;
+    
+    
+    
     /**
      * Contructor por defecto
      */
@@ -47,7 +53,9 @@ public class CuentaCobroDTO {
         if(entity!= null){
         
         this.valorAPagar = entity.getValorAPagar();
-        this.id = entity.getId();
+        this.id = entity.getId(); 
+        this.cantidadProductos = entity.getCantidadProductos(); 
+        this.numeroFacturaDeVenta = entity.getNumeroFacturaDeVenta(); 
         }
     }
 
@@ -88,8 +96,37 @@ public class CuentaCobroDTO {
         CuentaCobroEntity entidad = new CuentaCobroEntity();
         entidad.setId(this.id);
         entidad.setValorAPagar(this.valorAPagar);
-
+        entidad.setNumeroFacturaDeVenta(this.numeroFacturaDeVenta);
+        entidad.setCantidadProductos(this.cantidadProductos);
         return entidad;
+    }
+
+    /**
+     * @return the cantidadProductos
+     */
+    public Integer getCantidadProductos() {
+        return cantidadProductos;
+    }
+
+    /**
+     * @param cantidadProductos the cantidadProductos to set
+     */
+    public void setCantidadProductos(Integer cantidadProductos) {
+        this.cantidadProductos = cantidadProductos;
+    }
+
+    /**
+     * @return the numeroFacturaDeVenta
+     */
+    public Integer getNumeroFacturaDeVenta() {
+        return numeroFacturaDeVenta;
+    }
+
+    /**
+     * @param numeroFacturaDeVenta the numeroFacturaDeVenta to set
+     */
+    public void setNumeroFacturaDeVenta(Integer numeroFacturaDeVenta) {
+        this.numeroFacturaDeVenta = numeroFacturaDeVenta;
     }
 
 }

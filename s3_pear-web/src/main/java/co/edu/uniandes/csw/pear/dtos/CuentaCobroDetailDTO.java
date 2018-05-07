@@ -31,8 +31,6 @@ public class CuentaCobroDetailDTO extends CuentaCobroDTO {
     
     
     private PagoDTO pago; 
-    
-    private FacturaDTO factura;
        
     private DietaTipoDTO dieta;
        
@@ -61,15 +59,7 @@ public class CuentaCobroDetailDTO extends CuentaCobroDTO {
         else {
             this.pago = null; 
         }
-        
-        if(entidad.getFacturaEntity() != null)
-        {
-            this.factura = new FacturaDTO(entidad.getFacturaEntity()); 
-        }else
-        {
-            this.factura = null;
-        }
-        
+      
           if(entidad.getDieta()!= null)
         {
             this.dieta = new DietaTipoDTO(entidad.getDieta()); 
@@ -82,7 +72,7 @@ public class CuentaCobroDetailDTO extends CuentaCobroDTO {
     }
     
     
-      /**
+    /**
      * 
      * @return pagoDTO
      */
@@ -113,11 +103,7 @@ public class CuentaCobroDetailDTO extends CuentaCobroDTO {
         {
             entidad.setPagoEntity(getPago().toEntity());
         }
-        
-        if(this.getFactura() != null)
-        {
-            entidad.setFacturaEntity(getFactura().toEntity());
-        }
+    
         
         if(this.dieta != null)
         {
@@ -126,21 +112,7 @@ public class CuentaCobroDetailDTO extends CuentaCobroDTO {
         
         return entidad;
     }
-
-    /**
-     * @return the factura
-     */
-    public FacturaDTO getFactura() {
-        return factura;
-    }
-
-    /**
-     * @param factura the factura to set
-     */
-    public void setFactura(FacturaDTO factura) {
-        this.factura = factura;
-    }
-
+  
     /**
      * @return the dieta
      */
