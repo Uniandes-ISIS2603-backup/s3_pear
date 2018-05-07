@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.resources;
 
 import co.edu.uniandes.csw.pear.dtos.DietaTipoDetailDTO;
+import co.edu.uniandes.csw.pear.dtos.SemanaDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.CuentaCobroLogic;
 import co.edu.uniandes.csw.pear.ejb.DietaTipoLogic;
 import co.edu.uniandes.csw.pear.ejb.SemanaLogic;
@@ -201,21 +202,50 @@ public class DietaTipoResource {
         try {
             DietaTipoEntity dieta = logic.getDieta(id);
             SemanaEntity semana = logic_sem.getSemana(id_semana);
+
             dieta.add_semana(semana);
-            return new DietaTipoDetailDTO(dieta);
+
+            semana.setDieta(dieta);
+            
+            logic_sem.updateSemana(semana.getId(), semana);
+
+            return new DietaTipoDetailDTO(logic.updateDieta(dieta.getId(), dieta));
+
         } catch (BusinessLogicException e) {
             return null;
         }
     }
 
     /**
-     * Conexión con el servicio de calificaciones para una dieta. {@link CalificacionResource}
-     * 
-     * Este método conecta la ruta de /dietas con las rutas de /calificaciones que dependen
-     * del libro, es una redirección al servicio que maneja el segmento de la 
-     * URL que se encarga de las reseñas.
-     * 
-     * @param dietasId El ID del libro con respecto al cual se accede al servicio.
+     *
+     * @param id
+     * @return
+     */
+    @GET
+    @Path("/{id_dieta: \\d+}/semanas")
+    public List<SemanaDetailDTO> getSemanas_Dieta(@PathParam("id_dieta") Long id) {
+
+        DietaTipoEntity dieta = logic.getDieta(id);
+
+        List<SemanaDetailDTO> dtos = new ArrayList<>();
+        dieta.getSemanas().forEach(semana -> {
+            dtos.add(new SemanaDetailDTO(semana));
+        });
+
+        return dtos;
+
+    }
+
+    /**
+     * Conexión con el servicio de calificaciones para una dieta.
+     * {@link CalificacionResource}
+     *
+     * Este método conecta la ruta de /dietas con las rutas de /calificaciones
+     * que dependen del libro, es una redirección al servicio que maneja el
+     * segmento de la URL que se encarga de las reseñas.
+     *
+     * @param dietasId El ID del libro con respecto al cual se accede al
+     * servicio.
      * @return El servicio de calificaciones para esa dieta en paricular.
      */
     @Path("{idDieta: \\d+}/calificaciones")
@@ -226,14 +256,17 @@ public class DietaTipoResource {
         }
         return CalificacionResource.class;
     }
+
     /**
-     * Conexión con el servicio de calificaciones para una dieta. {@link CalificacionResource}
-     * 
-     * Este método conecta la ruta de /dietas con las rutas de /calificaciones que dependen
-     * del libro, es una redirección al servicio que maneja el segmento de la 
-     * URL que se encarga de las reseñas.
-     * 
-     * @param dietasId El ID del libro con respecto al cual se accede al servicio.
+     * Conexión con el servicio de calificaciones para una dieta.
+     * {@link CalificacionResource}
+     *
+     * Este método conecta la ruta de /dietas con las rutas de /calificaciones
+     * que dependen del libro, es una redirección al servicio que maneja el
+     * segmento de la URL que se encarga de las reseñas.
+     *
+     * @param dietasId El ID del libro con respecto al cual se accede al
+     * servicio.
      * @return El servicio de calificaciones para esa dieta en paricular.
      */
     @Path("{idDieta: \\d+}/quejasyreclamos")
@@ -244,6 +277,5 @@ public class DietaTipoResource {
         }
         return QuejasyReclamosResource.class;
     }
-    
 
 }
