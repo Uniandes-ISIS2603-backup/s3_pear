@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.pear.entities;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.*;
@@ -27,15 +26,17 @@ public class CuentaCobroEntity implements Serializable {
     
     
     private Double valorAPagar;
+    
+    
+    private Integer cantidadProductos;
+    
+    private Integer numeroFacturaDeVenta;
   
     @PodamExclude
     @OneToOne(cascade = CascadeType.PERSIST, orphanRemoval = true)
     private PagoEntity pago;
     
-    @PodamExclude
-    @OneToOne(cascade = CascadeType.PERSIST , orphanRemoval = true)
-    private FacturaEntity factura;
-    
+
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -92,20 +93,6 @@ public class CuentaCobroEntity implements Serializable {
     }
 
     /**
-     * @return the factura
-     */
-    public FacturaEntity getFacturaEntity() {
-        return factura;
-    }
-
-    /**
-     * @param factura the factura to set
-     */
-    public void setFacturaEntity(FacturaEntity factura) {
-        this.factura = factura;
-    }
-
-    /**
      * @return the dieta
      */
     public DietaTipoEntity getDieta() {
@@ -117,6 +104,34 @@ public class CuentaCobroEntity implements Serializable {
      */
     public void setDieta(DietaTipoEntity dieta) {
         this.dieta = dieta;
+    }
+
+    /**
+     * @return the cantidadProductos
+     */
+    public Integer getCantidadProductos() {
+        return cantidadProductos;
+    }
+
+    /**
+     * @param cantidadProductos the cantidadProductos to set
+     */
+    public void setCantidadProductos(Integer cantidadProductos) {
+        this.cantidadProductos = cantidadProductos;
+    }
+
+    /**
+     * @return the numeroFacturaDeVenta
+     */
+    public Integer getNumeroFacturaDeVenta() {
+        return numeroFacturaDeVenta;
+    }
+
+    /**
+     * @param numeroFacturaDeVenta the numeroFacturaDeVenta to set
+     */
+    public void setNumeroFacturaDeVenta(Integer numeroFacturaDeVenta) {
+        this.numeroFacturaDeVenta = numeroFacturaDeVenta;
     }
     
     

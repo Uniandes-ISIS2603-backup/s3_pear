@@ -30,16 +30,16 @@ delete from CasoExitoEntity;
 /*Persona con la factura 45*/
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (1, 'Pablo', 'Suarez', 20, 'Cll. 127D #19-93', 'pa.suarezm@uniandes.edu.co', 0, '201632293');
 
-/*La factura 45*/
+
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(45, 3, 200418,1);
 
 /*Dieta de la cuenta*/
 INSERT INTO DIETATIPOENTITY (NUMSEMANAS, PRECIO , DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID, ID) 
 	VALUES (2,100, 'Enterprise-wide coherent access', 'https://images.pexels.com/photos/248444/pexels-photo-248444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Japonesa', 'Versatile tangible task-force', 1, NULL, 1);
 /*cuenta de la persona id 1*/ 
-insert into CuentaCobroEntity(id, valorAPagar, factura_id ) values (1, 20.000, 45);
 
-/*update personaEntity set cuenta_id = 1; */
+
+
 
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (2, 'Camilo', 'Bedoya', 20, 'Cll. 151 #9-26', 'jc.bedoya@uniandes.edu.co', 0, '201631591');
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (3, 'Carol', 'Trujillo', 19, 'Cra. 53 #127-43', 'cv.trujillo@uniandes.edu.co', 0, '201618005');
@@ -59,14 +59,10 @@ insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_i
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(48, 2, 100518,4);
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(49, 1, 200518,5);
 
-
+insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta) values (1, 20.000, 7, 200218);
 insert into PagoEntity(id, montoInicial, montoFinal) values (2, 10, 10);
-
-
-
-
-
-
+/*relacion cuenta a dieta*/
+update personaEntity set cuenta_id = 1 where id = 1;
 
 INSERT INTO COCINAENTITY (ID,CAPACIDAD, IMAGEN, "NAME", UBICACION) 
 	VALUES (1,'2008', 'https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'La Gran Cocina', '8871 Merry Point');
