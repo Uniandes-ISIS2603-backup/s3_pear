@@ -41,6 +41,7 @@
 
             if ($state.params.id_dieta !== null && $state.params.id_dieta !== undefined) {
                 $scope.dieta = $state.params.id_dieta;
+                
 
             }
 

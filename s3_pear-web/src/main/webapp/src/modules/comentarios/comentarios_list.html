@@ -4,7 +4,7 @@
 
     <!-- TODO ng-repeat="com in quejasRecords" -->
 
-    <div class="comment">
+    <div class="comment" ng-repeat="queja in dieta.quejas">
 
         <a class="avatar">
             <img src="https://semantic-ui.com/images/avatar/small/matt.jpg">
@@ -12,10 +12,10 @@
         <div class="content">
             <a class="author">Usuario</a>
             <div class="metadata">
-                <span class="date">queja</span>
+                <span class="date">{{queja.asunto}}</span>
             </div>
             <div class="text">
-                este es un comentario
+                {{queja.comentario}}
             </div>
         </div>
 
@@ -23,23 +23,7 @@
 
     
     
-    <!-- BORRAR desde aqui -->
-    <div class="comment">
-        <a class="avatar">
-            <img src="https://semantic-ui.com/images/avatar/small/matt.jpg">
-        </a>
-        <div class="content">
-            <a class="author">Usuario</a>
-            <div class="metadata">
-                <span class="date">recomendacion</span>
-            </div>
-            <div class="text">
-                este es otro comentario
-            </div>
-        </div>
-    </div>
-    <!-- HASTA AQUI -->
-
+   
 </div>
 
 

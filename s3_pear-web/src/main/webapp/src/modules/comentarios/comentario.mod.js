@@ -42,17 +42,31 @@
 (function (ng) {
 
     var mod = ng.module("comentarioModule");
-    mod.constant("comentarioContext", "api/comentarios");
 
 
-    mod.controller('comentarioController', ['$scope', '$http', 'comentarioContext', '$state', '$rootScope',
+    mod.controller('comentarioController', ['$scope', '$http', '$state', '$rootScope',
 
-        function ($scope, $http, comentarioContext, $state, $rootScope) {
+        function ($scope, $http, $state, $rootScope) {
             
 
             if ($state.params.id_dieta !== null && $state.params.id_dieta !== undefined) {
                 $scope.dieta = $state.params.id_dieta;
 
+            }
+            
+            $scope.comentario_post = function () {
+                
+                let data = {
+                    asunto: $scope.asunto,
+                    comentario: $scope.comentario
+                    
+                };
+                console.log(data);
+                $http.post('http://localhost:8080/s3_pear-web/api/dietas/' + $scope.dieta+ '/quejasyreclamos', data).then(function (response) {
+                    $scope.post_data = response.data;
+                    $state.go('dieta_specs.comentario_post({ id_dieta: $scope.dieta })', {}, {reload: true});
+                });
+                
             }
 
             
