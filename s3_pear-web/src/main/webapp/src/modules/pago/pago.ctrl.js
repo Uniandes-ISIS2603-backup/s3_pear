@@ -101,7 +101,7 @@
                 var retorno = '';
                 if($scope.cuentaActual!== null && $scope.cuentaActual !== undefined)
                 {
-                    if($scope.cuentaActual.pago === undefined)
+                    if($scope.cuentaActual.pago === 0)
                     {
                        retorno =  "Pagar:  " + $scope.cuentaActual.valorAPagar/2 +  '.000 COP';
                     }else
@@ -179,8 +179,11 @@
                     
                 }
                
-               
-                $state.go('pago', {}, {reload: true});
+               setTimeout(function()
+               {
+                   $state.go('pago', {}, {reload: true});
+               }, 500); 
+                
                 
             }; 
             

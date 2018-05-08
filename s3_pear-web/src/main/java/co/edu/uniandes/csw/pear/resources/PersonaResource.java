@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.pear.resources;
 
+import co.edu.uniandes.csw.pear.dtos.CuentaCobroDetailDTO;
 import co.edu.uniandes.csw.pear.dtos.DietaTipoDetailDTO;
 import co.edu.uniandes.csw.pear.dtos.PersonaDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.DietaTipoLogic;
@@ -146,6 +147,44 @@ public class PersonaResource {
 
     }
 
+    
+    /**
+     * <h1>GET /api/personas/{id}/cuenta _ Obtener persona por id.</h1>
+     *
+     * <pre>Busca la persona con el id asociado recibido en la URL y la
+     * devuelve.
+     *
+     * Códigos de respuesta:<br>
+     * <code style="color:mediumseagreen; background-color: #eaffe0;">
+     * 200 OK Devuelve la persona correspondiente al id.
+     * </code>
+     * </pre>
+     *
+     * @param id Identificador de la persona que se está buscando. Este debe ser
+     * una cadena de dígitos.
+     * @return JSON {@link PersonaDetailDTO} - La persona buscada
+     */
+    @GET
+    @Path("{id: \\d+}/cuenta")
+    public CuentaCobroDetailDTO getCuenta(@PathParam("id") Long id) {
+        PersonaEntity buscado = logic.getPersona(id);
+        if (buscado == null) {
+            throw new WebApplicationException("El recurso /personas/" + id + " no existe.", 404);
+        }
+        CuentaCobroDetailDTO cuenta = null; 
+        if(buscado.getCuenta() !=null)
+        {
+             cuenta = new CuentaCobroDetailDTO(buscado.getCuenta());
+        } 
+        if(cuenta == null)
+        {
+            throw new WebApplicationException("El usuario no tiene una cuenta"); 
+        }
+
+        return cuenta;
+
+    }
+    
     /**
      * <h1>GET /api/personas/{id} _ Obtener persona por id.</h1>
      *
