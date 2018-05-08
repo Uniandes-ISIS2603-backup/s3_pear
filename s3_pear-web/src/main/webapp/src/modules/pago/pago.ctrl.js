@@ -180,7 +180,7 @@
                 }
                
                
-               
+                $state.go('pago', {}, {reload: true});
                 
             }; 
             
