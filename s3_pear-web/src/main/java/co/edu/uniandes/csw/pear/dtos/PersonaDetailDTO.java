@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.pear.dtos;
 
+import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.entities.FacturaEntity;
 import co.edu.uniandes.csw.pear.entities.PersonaEntity;
 import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
@@ -21,12 +22,12 @@ public class PersonaDetailDTO extends PersonaDTO {
     //-----------------------------------------------------------
     private CalificacionDTO calificacion;
 
-    private DietaTipoDTO dieta;
+    private List<DietaTipoDTO> dietas;
 
     private List<QuejasyReclamosDTO> quejas;
 
     private List<FacturaDTO> facturas;
-    
+
     private CuentaCobroDTO cuenta;
 
     //-----------------------------------------------------------
@@ -39,27 +40,34 @@ public class PersonaDetailDTO extends PersonaDTO {
     public PersonaDetailDTO(PersonaEntity entidad) {
         //DONE: Sin terminar 
         super(entidad);
-        if(entidad != null){
-           quejas = new ArrayList<QuejasyReclamosDTO>();
-           for(QuejasyReclamosEntity qyr: entidad.getQuejas()){
-               if(qyr != null)
-                   quejas.add(new QuejasyReclamosDTO(qyr));
-           }
-           
-           facturas = new ArrayList<FacturaDTO>();
-           for(FacturaEntity f: entidad.getFacturas()){
-               if(f != null)
-                   facturas.add(new FacturaDTO(f));
-           }
-           
-           if(entidad.getCuenta() != null)
-           {
-               this.cuenta = new CuentaCobroDTO(entidad.getCuenta());
-           }else
-           {
-               this.cuenta = null;
-           }
-           
+        if (entidad != null) {
+            quejas = new ArrayList<QuejasyReclamosDTO>();
+            for (QuejasyReclamosEntity qyr : entidad.getQuejas()) {
+                if (qyr != null) {
+                    quejas.add(new QuejasyReclamosDTO(qyr));
+                }
+            }
+
+            facturas = new ArrayList<FacturaDTO>();
+            for (FacturaEntity f : entidad.getFacturas()) {
+                if (f != null) {
+                    facturas.add(new FacturaDTO(f));
+                }
+            }
+
+            if (entidad.getCuenta() != null) {
+                this.cuenta = new CuentaCobroDTO(entidad.getCuenta());
+            } else {
+                this.cuenta = null;
+            }
+            
+            if (entidad.getDietas() != null) {
+            dietas = new ArrayList<>();
+            for (DietaTipoEntity dieta : entidad.getDietas()) {
+                dietas.add(new DietaTipoDTO(dieta));
+            }
+        }
+
         }
     }
 
@@ -95,17 +103,19 @@ public class PersonaDetailDTO extends PersonaDTO {
     }
 
     /**
-     * @return dieta asignada a la persona
+     *
+     * @return
      */
-    public DietaTipoDTO getDieta() {
-        return dieta;
+    public List<DietaTipoDTO> getDietas() {
+        return dietas;
     }
 
     /**
-     * @param pDieta nueva dieta asignada para la persona
+     *
+     * @param dietas
      */
-    public void setDieta(DietaTipoDTO pDieta) {
-        dieta = pDieta;
+    public void setDietas(List<DietaTipoDTO> dietas) {
+        this.dietas = dietas;
     }
 
     /**
@@ -125,38 +135,43 @@ public class PersonaDetailDTO extends PersonaDTO {
     @Override
     public PersonaEntity toEntity() {
         PersonaEntity entidad = super.toEntity();
-        if(entidad != null){
-            if(dieta != null)
-                entidad.setDieta(dieta.toEntity());
-            
+        if (entidad != null) {
+
+            if (this.getDietas() != null) {
+                List<DietaTipoEntity> ds = new ArrayList<>();
+                this.getDietas().forEach(dieta -> {
+                    ds.add(dieta.toEntity());
+                });
+                entidad.setDieta(ds);
+            }
+
             List<QuejasyReclamosEntity> qyrE = new ArrayList<QuejasyReclamosEntity>();
-            
-            if(quejas != null){
-                for(QuejasyReclamosDTO qyr: quejas){
-                    if(qyr != null)
+
+            if (quejas != null) {
+                for (QuejasyReclamosDTO qyr : quejas) {
+                    if (qyr != null) {
                         qyrE.add(qyr.toEntity());
+                    }
                 }
             }
             entidad.setQuejas(qyrE);
-            
+
             List<FacturaEntity> fE = new ArrayList<FacturaEntity>();
-            
-            if(facturas != null){
-                for(FacturaDTO f: facturas){
-                    if(f != null)
+
+            if (facturas != null) {
+                for (FacturaDTO f : facturas) {
+                    if (f != null) {
                         fE.add(f.toEntity());
+                    }
                 }
             }
-        
+
             entidad.setFacturas(fE);
-            
-            
-            if(getCuenta() != null)
-            {
+
+            if (getCuenta() != null) {
                 entidad.setCuenta(getCuenta().toEntity());
             }
-            
-            
+
         }
         return entidad;
     }
@@ -174,5 +189,7 @@ public class PersonaDetailDTO extends PersonaDTO {
     public void setCuenta(CuentaCobroDTO cuenta) {
         this.cuenta = cuenta;
     }
+    
+    
 
 }

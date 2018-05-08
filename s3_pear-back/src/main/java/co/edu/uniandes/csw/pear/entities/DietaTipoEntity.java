@@ -47,6 +47,10 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @ManyToOne( cascade = CascadeType.PERSIST)
     private CocinaEntity cocina;
+    
+    @PodamExclude
+    @ManyToMany (cascade = CascadeType.PERSIST)
+    private List<PersonaEntity> personas;
    
     //-----------------------------------------------------------
     //Metodos
@@ -189,6 +193,29 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
      */
     public Integer getNumSemanas() {
         return numSemanas;
+    }
+
+    /**
+     * 
+     * @return 
+     */
+    public List<PersonaEntity> getPersonas() {
+        return personas;
+    }
+
+    /**
+     * 
+     * @param personas 
+     */
+    public void setPersonas(List<PersonaEntity> personas) {
+        this.personas = personas;
+    }
+    
+    /**
+     * 
+     */
+    public void addPersona ( PersonaEntity persona ) {
+        this.personas.add(persona);
     }
     
     

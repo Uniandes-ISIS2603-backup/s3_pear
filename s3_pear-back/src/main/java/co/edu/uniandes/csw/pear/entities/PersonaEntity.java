@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
@@ -42,8 +43,8 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     private CalificacionEntity calificacion;
     
     @PodamExclude
-    @OneToOne (cascade = CascadeType.PERSIST, orphanRemoval = true)
-    private DietaTipoEntity dieta;
+    @ManyToMany (cascade = CascadeType.PERSIST)
+    private List<DietaTipoEntity> dietas;
     
     @PodamExclude
     @OneToOne (cascade = CascadeType.PERSIST, orphanRemoval = true)
@@ -192,15 +193,15 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     /**
      * @return dieta asignada para la persona
      */
-    public DietaTipoEntity getDieta(){
-        return dieta;
+    public List<DietaTipoEntity> getDietas(){
+        return dietas;
     }
     
     /**
      * @param pDieta nueva dieta asignada a la persona
      */
-    public void setDieta(DietaTipoEntity pDieta){
-        dieta = pDieta;
+    public void setDieta(List<DietaTipoEntity> pDietas){
+        dietas = pDietas;
     }
     
     /**
@@ -230,4 +231,11 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     public void setCuenta(CuentaCobroEntity cuenta) {
         this.cuenta = cuenta;
     }
+    
+    
+    public void addDieta ( DietaTipoEntity dieta ) {
+        this.dietas.add(dieta);
+    }
+    
+    
 }
