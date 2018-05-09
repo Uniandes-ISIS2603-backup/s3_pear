@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.dtos;
 import co.edu.uniandes.csw.pear.entities.DiaEntity;
 import co.edu.uniandes.csw.pear.entities.SemanaEntity;
+import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class SemanaDetailDTO extends SemanaDTO {
     //-----------------------------------------------------------
     private List<DiaDTO> dias;
     
-    private DietaTipoDTO dieta;
+    private List<DietaTipoDTO> dietas;
     //-----------------------------------------------------------
     //Constructor
     //-----------------------------------------------------------
@@ -38,9 +39,9 @@ public class SemanaDetailDTO extends SemanaDTO {
     public SemanaDetailDTO(SemanaEntity entity){
         super(entity);
         if(entity != null){
-            if(entity.getListaDias() != null){
+            if(entity.getDias() != null){
             dias =  new ArrayList<>();
-            entity.getListaDias().forEach(di -> {
+            entity.getDias().forEach(di -> {
                 dias.add(new DiaDTO(di));
             });
             
@@ -48,13 +49,18 @@ public class SemanaDetailDTO extends SemanaDTO {
         else{
             dias = new ArrayList<>();
             }
-            
-          if(entity.getDieta()!= null){
-              dieta  = new DietaTipoDTO( entity.getDieta());
-          }
-          else dieta  =  null;
-         
-        } 
+        if(entity != null){
+            if(entity.getDietas() != null){
+            dietas =  new ArrayList<>();
+            entity.getDietas().forEach(di -> {
+                dietas.add(new DietaTipoDTO(di));
+            });  
+        }
+        else{
+            dietas = new ArrayList<>();
+            }
+        }
+      }
     }
     
     public SemanaDetailDTO(){
@@ -67,23 +73,23 @@ public class SemanaDetailDTO extends SemanaDTO {
      * Determina los dias que contiene la semana, esta lista siempre tiene que tener 7 elementos. 
      * @param lista de los dias
      */
-    public void setListaDias(List<DiaDTO> lista){
+    public void setDias(List<DiaDTO> lista){
        dias = lista;
     }
     
     /**
      * @return lista de los dias que componen la semana
      */
-    public List<DiaDTO> getListaDias(){
+    public List<DiaDTO> getDias(){
         return dias;
     }
     
-    public void setDieta(DietaTipoDTO di){
-        dieta = di;
+    public void setDietas(List<DietaTipoDTO> di){
+        dietas = di;
     }
     
-    public DietaTipoDTO getDieta(){
-        return dieta;
+    public List<DietaTipoDTO> getDietas(){
+        return dietas;
     }
     
     
@@ -92,15 +98,19 @@ public class SemanaDetailDTO extends SemanaDTO {
     public SemanaEntity toEntity(){
         
         SemanaEntity entity = super.toEntity();
-        if(this.getListaDias()!= null){
-            List<DiaEntity> listaDias = new ArrayList<>();
-            this.getListaDias().forEach(di -> {
-                listaDias.add(di.toEntity());
+        if(this.getDias()!= null){
+            List<DiaEntity> dias = new ArrayList<>();
+            this.getDias().forEach(di -> {
+                dias.add(di.toEntity());
             });
-            entity.setListaDias(listaDias);
+            entity.setDias(dias);
         }
-        if(this.getDieta()!= null){
-            entity.setDieta(this.getDieta().toEntity());
+        if(this.getDietas()!= null){
+            List<DietaTipoEntity> dietas = new ArrayList<>();
+            this.getDietas().forEach(dit -> {
+                dietas.add(dit.toEntity());
+            });
+            entity.setDietas(dietas);
         }
         return entity;
     }  

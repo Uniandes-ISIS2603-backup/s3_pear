@@ -74,7 +74,7 @@ public class SemanaLogic {
      */
     public List<DiaEntity> getDiasSemana(Long id) throws BusinessLogicException{
       LOGGER.log(Level.INFO, "Inicia proceso de consultar todas los dias de la semana con id = {0}", id);
-      return this.getSemana(id).getListaDias();
+      return this.getSemana(id).getDias();
     }
     
     
@@ -86,7 +86,7 @@ public class SemanaLogic {
      */
     public DiaEntity getDiaSemana(Long idDia, Long idSemana) throws BusinessLogicException{
          LOGGER.log(Level.INFO, "Inicia proceso de consultar el Dia con id = {0} de la Semana con id = {1}", new Object[]{idDia, idSemana});           
-         List<DiaEntity> listaDias =this.getSemana(idSemana).getListaDias();
+         List<DiaEntity> listaDias =this.getSemana(idSemana).getDias();
          DiaEntity dia = new DiaEntity();
          dia.setId(idDia);
          int index = listaDias.indexOf(dia);
@@ -145,7 +145,7 @@ public class SemanaLogic {
         LOGGER.log(Level.INFO, "Inicia proceso de asociar un Dia con id = {0} con una Semana con id = {1}", new Object[] {idDia, idSemana});
         DiaEntity di = new DiaEntity();
         di.setId(idDia);
-        this.getSemana(idSemana).getListaDias().add(di);
+        this.getSemana(idSemana).getDias().add(di);
         return this.getDiaSemana(idDia, idSemana);
         }
     /**

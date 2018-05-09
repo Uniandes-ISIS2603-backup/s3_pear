@@ -26,14 +26,14 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     private Integer stars;
     /*Actuaizacion Ciclo 2*/
     
-    /*ACtualizacion ciclo 3*/
+    /*Actualizacion ciclo 3*/
     private double precio;
     private Integer numSemanas;
-    /*ACtualizacion ciclo 3*/
+    /*Actualizacion ciclo 3*/
  
     
     @PodamExclude
-    @OneToMany( mappedBy = "dieta", cascade = CascadeType.PERSIST)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     private List<SemanaEntity> semanas = new ArrayList<>();
     
     @PodamExclude

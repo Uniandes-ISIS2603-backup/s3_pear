@@ -201,12 +201,12 @@ public class DietaTipoResource {
     public DietaTipoDetailDTO addSemana_toDieta(@PathParam("id_dieta") Long id, @PathParam("id_semana") Long id_semana) {
         try {
             DietaTipoEntity dieta = logic.getDieta(id);
+            ArrayList<DietaTipoEntity> listaDieta = new ArrayList<>();
+            listaDieta.add(dieta);
             SemanaEntity semana = logic_sem.getSemana(id_semana);
 
             dieta.add_semana(semana);
-
-            semana.setDieta(dieta);
-            
+            semana.setDietas(listaDieta);    
             logic_sem.updateSemana(semana.getId(), semana);
 
             return new DietaTipoDetailDTO(logic.updateDieta(dieta.getId(), dieta));
