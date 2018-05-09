@@ -40,7 +40,7 @@ public class SemanaPersistence {
      * @return  la primer semana que se encuentra.
      */
     public SemanaEntity findByName(String name) {
-        LOGGER.log(Level.INFO, "Consultando la dieta con name = ", name);
+        LOGGER.log(Level.INFO, "Consultando la semana con nombre = ", name);
         TypedQuery<SemanaEntity> q = em.createQuery("select u from SemanaEntity u where u.name = :name", SemanaEntity.class);
         q = q.setParameter("name", name);
         return q.getSingleResult();
@@ -67,7 +67,6 @@ public class SemanaPersistence {
     public SemanaEntity create(SemanaEntity entity){
         LOGGER.info("Creando una semana nueva");
         em.persist(entity);
-        LOGGER.info("Creando una semana nueva");
         return entity;
     }
 
