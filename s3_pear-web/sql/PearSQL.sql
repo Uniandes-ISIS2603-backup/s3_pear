@@ -3,7 +3,12 @@ UPDATE CUENTACOBROENTITY SET DIETA_ID = NULL;
 UPDATE FACTURAENTITY SET PERSONA_ID = NULL;
 UPDATE PERSONAENTITY SET CUENTA_ID = NULL; 
 
-delete from cocinaEntity_dietaTipoEntity;
+/*delete from CocinaEntity_DietaTipoEntity;*/
+delete from DietaTipoEntity_PersonaEntity;
+delete from PersonaEntity_DietaTipoEntity;
+delete from DietaTipoEntity_SemanaEntity;
+delete from SemanaEntity_DietaTipoEntity;
+
 delete from CuentaCobroEntity;
 delete from DietaTipoEntity;
 delete from CocinaEntity;
@@ -31,7 +36,7 @@ delete from CasoExitoEntity;
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (100, 'Pablo', 'Suarez', 20, 'Cll. 127D #19-93', 'pa.suarezm@uniandes.edu.co', 0, '201632293');
 
 
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4500, 3, 200418,1);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4500, 3, 200418,100);
 
 /*Dieta de la cuenta*/
 INSERT INTO DIETATIPOENTITY (NUMSEMANAS, PRECIO , DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID, ID) 
@@ -54,10 +59,10 @@ insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscr
 
 
 
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4600, 7, 300418,2);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4700, 8, 400418,3);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4800, 2, 100518,4);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4900, 1, 200518,5);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4600, 7, 300418,200);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4700, 8, 400418,300);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4800, 2, 100518,400);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4900, 1, 200518,500);
 
 insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta) values (100, 20.000, 7, 200218);
 insert into PagoEntity(id, montoInicial, montoFinal) values (200, 10, 10);
@@ -129,13 +134,13 @@ insert into MedioPagoEntity(id, medioPagoActual) values (100, 'Baloto');
 insert into MedioPagoEntity(id, medioPagoActual) values (200, 'Efectivo');
 insert into MedioPagoEntity(id, medioPagoActual) values (300, 'Credito');
 
-insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (100, 7, 1);
-insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (200, 4,1);
-insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (300, 8,1);
-insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (400, 6,2);
-insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (500, 10,2);
-insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (600, 2,3);
-insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (700, 0,3);
+insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (100, 7, 100);
+insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (200, 4,100);
+insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (300, 8,100);
+insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (400, 6,200);
+insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (500, 10,200);
+insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (600, 2,300);
+insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (700, 0,300);
 
 
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (100,'queja', 'La comida llego fria',400);
