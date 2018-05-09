@@ -218,5 +218,12 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
         this.personas.add(persona);
     }
     
+    public void deletePersona ( Long persona_id ) {
+        this.personas.forEach( persona -> {
+            if ( persona.getId() == persona_id )
+                this.personas.remove(persona);
+        });
+    }
+    
     
 }
