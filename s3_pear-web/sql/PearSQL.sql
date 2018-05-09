@@ -3,10 +3,9 @@ UPDATE CUENTACOBROENTITY SET DIETA_ID = NULL;
 UPDATE FACTURAENTITY SET PERSONA_ID = NULL;
 UPDATE PERSONAENTITY SET CUENTA_ID = NULL; 
 
+delete from cocinaEntity_dietaTipoEntity;
 delete from CuentaCobroEntity;
 delete from DietaTipoEntity;
-
-
 delete from CocinaEntity;
 
 delete from ComidaEntity;
@@ -17,6 +16,7 @@ delete from SemanaEntity;
 delete from MedioPagoEntity; 
 delete from PagoEntity; 
  
+delete from PersonaEntity_QuejasyReclamosEntity;
 
 delete from PersonaEntity;
 delete from FacturaEntity;
