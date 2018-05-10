@@ -126,6 +126,8 @@
                 var flag = false;
                 for (let item in $scope.usuarios) {
 
+                console.log($scope.data);
+                console.log($scope.usuarios[item]);
 
                     if ($scope.usuarios[item].user == $scope.data.username &&
                             $scope.usuarios[item].password == $scope.data.password &&

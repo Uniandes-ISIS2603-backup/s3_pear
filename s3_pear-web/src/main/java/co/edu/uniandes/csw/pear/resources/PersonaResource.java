@@ -237,57 +237,6 @@ public class PersonaResource {
     }
     
     /**
-     * <h1>GET /api/personas/{id} _ Obtener persona por id.</h1>
-     *
-     * <pre>Busca la persona con el id asociado recibido en la URL y la
-     * devuelve.
-     *
-     * Códigos de respuesta:<br>
-     * <code style="color:mediumseagreen; background-color: #eaffe0;">
-     * 200 OK Devuelve la persona correspondiente al id.
-     * </code>
-     * </pre>
-     *
-     * @param id Identificador de la persona que se está buscando. Este debe ser
-     * una cadena de dígitos.
-     * @return JSON {@link PersonaDetailDTO} - La persona buscada
-     */
-    @DELETE
-    @Path("{id_persona: \\d+}/dietas/{id_dieta: \\d+}")
-    public PersonaDetailDTO cancelar_suscripcion(@PathParam("id_persona") Long id_persona, @PathParam("id_dieta") Long id_dieta) {
-
-        /*SE OBTIENEN LAS ENTIDADDES A BUSCAR*/
-        PersonaEntity persona = logic.getPersona(id_persona);
-        DietaTipoEntity dieta = logic_dieta.getDieta(id_dieta);
-
-        if (persona == null) {
-            throw new WebApplicationException("El recurso /personas/" + id_persona + " no existe.", 404);
-        }
-
-        if (dieta == null) {
-            throw new WebApplicationException("El recurso /dietas/" + id_dieta + " no existe.", 404);
-        }
-
-        persona.deleteDieta(id_dieta);
-        dieta.deletePersona(id_persona);
-
-        try {
-
-            /*ACTUALIZA LOS VALORES EN LA BASE DE DATOS*/
-            this.updatePersona(id_dieta, new PersonaDetailDTO(persona));
-            logic_dieta.updateDieta(id_dieta, dieta);
-
-            /*RETORNA LA PERSONA ACTUALIZADA*/
-            return new PersonaDetailDTO(persona);
-
-        } catch (BusinessLogicException ex) {
-            Logger.getLogger(PersonaResource.class.getName()).log(Level.SEVERE, null, ex);
-            throw new WebApplicationException("El recurso /persona/" + id_persona + " no existe.", 404);
-        }
-
-    }
-
-    /**
      * <h1>PUT /api/personas/{id} : Actualizar persona con el id dado.</h1>
      * <pre> Cuerpo de petición: JSON {@link PersonaDetailDTO}.
      *

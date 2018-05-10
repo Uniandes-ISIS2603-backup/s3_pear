@@ -19,14 +19,12 @@
     </thead>
 
 
-    <tbody style="text-align: center;">
+    <tbody style="text-align: center;" ng-app="calificacionModule" ng-controller="calificacionController">
 
-        
-        <!-- TODO ng-repeat sobre las calificaciones de una dieta -->
-        
-        <tr>
-            <td>
-                <p>4</p>
+                
+        <tr ng-repeat="cal in calificaciones" class="center aligned">
+            <td class="center aligned">
+                <p>{{cal.puntuacion}}</p>
             </td>
         
             <td>
@@ -34,6 +32,10 @@
             </td>
         </tr>
 
+    <div ng-if="calificaciones.length < 1" style="text-align: center; color: dimgray;">
+            <h1>NO HAY CALIFICACIONES</h1>
+            <p>pero puedes agregar una</p>
+        </div>
         
         
     </tbody>

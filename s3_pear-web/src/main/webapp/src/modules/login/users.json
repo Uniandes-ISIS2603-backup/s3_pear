@@ -9,6 +9,24 @@
     }
     ,
     {
+        "id": 12,
+        "name": "user",
+        "user": "user",
+        "password": "user",
+        "rol": "user",
+        "token": 24
+    }
+    ,
+    {
+        "id": 13,
+        "name": "admin",
+        "user": "admin",
+        "password": "admin",
+        "rol": "admin",
+        "token": 524
+    }
+    ,
+    {
         "id": 2,
         "name": "Rubby",
         "user": "rubby",
