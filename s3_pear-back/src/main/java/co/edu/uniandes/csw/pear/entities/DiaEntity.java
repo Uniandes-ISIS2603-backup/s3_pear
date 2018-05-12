@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -35,7 +37,11 @@ public class DiaEntity extends BaseEntity implements Serializable {
     private List<ComidaEntity> comidas;
     
     @PodamExclude
-    @ManyToOne( cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinTable(name="DIAS_SEMANAS", 
+        joinColumns=@JoinColumn(name="diaID"),
+        inverseJoinColumns=@JoinColumn(name="semanaId")
+    )
     private SemanaEntity semana;
     
     //-----------------------------------------------------------

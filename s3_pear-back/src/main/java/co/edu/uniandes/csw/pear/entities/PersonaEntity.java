@@ -28,13 +28,13 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     
     private String apellido;
     
-    private Integer edad;
-    
     private String direccion;
     
     private String correo;
     
     private Boolean subscrito;
+    
+    private Integer edad;
     
     private String identificacion;
     
@@ -52,11 +52,10 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<QuejasyReclamosEntity> quejas;
-   
     
     @PodamExclude
-    @OneToMany(mappedBy = "persona", cascade = CascadeType.PERSIST)
-    List<FacturaEntity> facturas;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "persona")
+    private List<FacturaEntity> facturas;
     
     //-----------------------------------------------------------
     //Metodos
@@ -236,5 +235,6 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     public void addDieta ( DietaTipoEntity dieta ) {
         this.dietas.add(dieta);
     }
+    
     
 }

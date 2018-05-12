@@ -1,4 +1,3 @@
-
 UPDATE CUENTACOBROENTITY SET DIETA_ID = NULL;
 UPDATE FACTURAENTITY SET PERSONA_ID = NULL;
 UPDATE PERSONAENTITY SET CUENTA_ID = NULL; 
@@ -43,9 +42,6 @@ INSERT INTO DIETATIPOENTITY (NUMSEMANAS, PRECIO , DESCRIPCION, IMAGEN, "NAME", O
 	VALUES (2,100, 'Enterprise-wide coherent access', 'https://images.pexels.com/photos/248444/pexels-photo-248444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Japonesa', 'Versatile tangible task-force', 1, NULL, 100);
 /*cuenta de la persona id 1*/ 
 
-
-
-
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (200, 'Camilo', 'Bedoya', 20, 'Cll. 151 #9-26', 'jc.bedoya@uniandes.edu.co', 0, '201631591');
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (300, 'Carol', 'Trujillo', 19, 'Cra. 53 #127-43', 'cv.trujillo@uniandes.edu.co', 0, '201618005');
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (400, 'Mariana', 'Moreno', 20, 'Cll. 76 #7-83', 'mi.morenoa@uniandes.edu.co', 0, '201698416');
@@ -55,9 +51,6 @@ insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscr
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (800, 'Gustavo', 'Quijano', 63, 'Cra. 7 #116-56', 'g.quijano@uniandes.edu.co', 0, '201632297');
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (900, 'Ana', 'Suarez', 65, 'Cll. 151 #9-66', 'ae.suarezb@uniamdes.edu.co', 0, '201632298');
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (1000, 'Luisa', 'Estrada', 20, 'Cll. 131 #19-86', 'l.estradap@uniandes.edu.co', 0, '201712345');
-
-
-
 
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4600, 7, 300418,200);
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4700, 8, 400418,300);
@@ -184,14 +177,18 @@ insert into SemanaEntity(id, fechaLunes) values (222,'02/04/2018');
 insert into SemanaEntity(id, fechaLunes) values (223,'09/04/2018');
 
 
-insert into DiaEntity(id, recomendacion, fecha, seenvia, semana_id) values (100, '', '26/03/2018', 1,221);
-insert into DiaEntity(id, recomendacion, fecha, seenvia, semana_id) values (200, '','27/03/2018', 1,221);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (300, '', '28/03/2018', 1,221);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (400, 'No consumir azucar refinada','29/03/2018', 0,221);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (500, 'Una harina diaria','30/03/2018', 0,221);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (600, 'Tomar 2 litros de agua','31/03/2018', 0,221);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (700, '','01/04/2018', 1,221);
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (100, '', '26/03/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (200, '','27/03/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (300, '', '28/03/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (400, 'No consumir azucar refinada','29/03/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (500, 'Una harina diaria','30/03/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (600, 'Tomar 2 litros de agua','31/03/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (700, '','01/04/2018', 1);
 
+
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (100,221);
+
+/* 
 insert into DiaEntity(id, recomendacion, fecha, seenvia, semana_id) values (800, 'Una harina diaria', '02/04/2018', 0,222);
 insert into DiaEntity(id, recomendacion, fecha, seenvia, semana_id) values (900, 'Consumir arroz integral', '03/04/2018', 0,222);
 insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (1000,'Consumir 5 porciones de vegetales', '04/04/2018', 0,222);
@@ -207,4 +204,4 @@ insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (1800
 insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (1900, 'Consumir arroz integral','13/04/2018', 0,223);
 insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (2000, 'Una harina diaria','14/04/2018', 0,223);
 insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (2100, 'Una harina diaria','15/04/2018', 0, 223);
-
+*/

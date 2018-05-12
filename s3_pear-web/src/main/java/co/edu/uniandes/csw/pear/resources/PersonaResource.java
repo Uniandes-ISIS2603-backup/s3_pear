@@ -235,7 +235,7 @@ public class PersonaResource {
         }
 
     }
-    
+
     /**
      * <h1>PUT /api/personas/{id} : Actualizar persona con el id dado.</h1>
      * <pre> Cuerpo de petición: JSON {@link PersonaDetailDTO}.

@@ -155,14 +155,14 @@ public class PersonaDTO {
     /**
      * @return edad de la personam
      */
-    public int getEdad(){
+    public Integer getEdad(){
         return edad;
     }
     
     /**
      * @param pEdad nueva edad para asignar
      */
-    public void setEdad(int pEdad){
+    public void setEdad(Integer pEdad){
         edad = pEdad;
     }
     

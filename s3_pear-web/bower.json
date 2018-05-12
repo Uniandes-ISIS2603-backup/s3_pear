@@ -1,7 +1,7 @@
 {
   "name": "cities",
   "version": "1.0.0",
-  "main": "src/main/webapp/src/intro.html",
+  "main": "src/main/webapp/index.html",
   "dependencies": {
     "angular": "^1.5.8",
     "semantic-ui": "2.3.1",

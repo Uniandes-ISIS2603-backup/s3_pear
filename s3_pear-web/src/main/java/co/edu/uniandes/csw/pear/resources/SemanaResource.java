@@ -119,6 +119,9 @@ public class SemanaResource {
     @GET
     public List<SemanaDetailDTO> getSemanas() {
          List<SemanaDetailDTO> dtos = new ArrayList<>();
+         List<SemanaEntity> x = logic.getSemanas();
+         
+         
         logic.getSemanas().forEach( sem -> { 
             dtos.add(new SemanaDetailDTO(sem));
         });

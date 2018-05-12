@@ -75,14 +75,16 @@
             
             //POST
             $scope.post_bill = function () {
-                
+                console.log($scope);
                 let data = {
-                    cantidadProductos: $scope.cantidadProductos,
-                    numeroFacturaDeVenta: $scope.numeroFacturaDeVenta,
+                    cantidadDeProductos: $scope.cantidadProductos,
+                    numeroFactura: $scope.numeroFacturaDeVenta,
+                    id: 0,
+                    persona: {
+                        id: $scope.persona
+                    }
                 };
-                
-                console.log(data);
-                
+                                
                 $http.post(billsContext, data).then(function (response) {
                     $scope.post_data = response.data;
                     $state.go('bills', {}, {reload: true});

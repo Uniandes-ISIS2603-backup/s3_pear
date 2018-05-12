@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -28,14 +30,16 @@ public class FacturaEntity extends BaseEntity implements Serializable{
     //-----------------------------------------------------------
     
 
-    @PodamExclude
-    @ManyToOne( cascade = CascadeType.PERSIST)
-    private PersonaEntity persona;
+
 
     private Integer cantidadProductos = 0;
     
     private Integer numeroFacturaDeVenta = 0;
-    
+
+
+    @PodamExclude
+    @ManyToOne(cascade = CascadeType.MERGE)
+    private PersonaEntity persona;
     
     //-----------------------------------------------------------
     //Metodos
@@ -45,18 +49,12 @@ public class FacturaEntity extends BaseEntity implements Serializable{
      * Determina de que persona es la factura generada
      * @param p persona nueva asignada
      */
-    public void setPersona(PersonaEntity p){
-        persona = p;
-    }
    
     /**
      * 
      * @return persona responsable de la factura
      */
-    public  PersonaEntity getPersona(){
-        return persona;
-    }
-  
+
 /**
      * Determina la cantidad de productos que se estan facturando
      * @param am cantidad
@@ -85,6 +83,20 @@ public class FacturaEntity extends BaseEntity implements Serializable{
      */
     public Integer getNumeroFactura(){
         return numeroFacturaDeVenta;
+    }
+
+    /**
+     * @return the persona
+     */
+    public PersonaEntity getPersona() {
+        return persona;
+    }
+
+    /**
+     * @param persona the persona to set
+     */
+    public void setPersona(PersonaEntity persona) {
+        this.persona = persona;
     }
  }
  

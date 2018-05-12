@@ -29,7 +29,7 @@ public class SemanaEntity  extends BaseEntity implements Serializable{
     private String fechaLunes;
     
     @PodamExclude
-    @OneToMany( mappedBy = "semana", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @OneToMany(mappedBy = "semana", cascade = CascadeType.ALL)//, orphanRemoval = true)
     private List<DiaEntity> dias;
     
     @PodamExclude

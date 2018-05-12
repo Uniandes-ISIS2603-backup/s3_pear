@@ -10,6 +10,7 @@
  
     <modules>
         <module>s3_pear-back</module>
+        <module>s3_pear-web</module>
     </modules>
     <repositories>
         <repository>

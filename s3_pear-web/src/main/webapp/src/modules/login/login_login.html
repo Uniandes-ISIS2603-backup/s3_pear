@@ -49,9 +49,9 @@
 
 </style>
 
-<div id="head" ng-app="loginModule">
+<div id="head">
 
-    <div class="ui container" ng-controller="loginController">
+    <div class="ui container">
 
         <div class="ui text container" style="margin-top: 2em;">
             <div class="ui form" style="width: 100%">
@@ -63,32 +63,35 @@
 
 
                 <div class="field">
-                    <input required="true" autofocus="" ng-model="name" type="text" placeholder="USUARIO" style="margin-right: 1em;"> 
+                    <input required="" autofocus="" ng-model="data.username" type="text" placeholder="NOMBRE" style="margin-right: 1em;">
                 </div>
 
                 <div class="field">
-                    <input required="true" ng-model="pass" style="margin-right: 1em;" type="password" placeholder="CONTRASEÑA">
+                    <input required="" ng-model="data.password" style="margin-right: 1em;" type="password" placeholder="CONTRASEÑA">
                 </div>
 
                 <p>&nbsp;</p>
                 <div class="field">
-                    <div  class="ui checkbox">
-                        <input  ng-model="user" required="true" type="checkbox" ng-click="soyUser()">
+                    <div class="ui checkbox"> <!-- ng-model="data.rol" required="true" -->
+                        <input ng-if="user" type="checkbox" ng-click="soyUser()" checked>
+                        <input ng-if="!user" type="checkbox" ng-click="soyUser()">
                         <label style="color: dimgray; font-size: 18px">Soy Usuario</label>
                     </div>
                 </div>
 
                 <div class="field">
                     <div class="ui checkbox">
-                        <input ng-model="admin"  type="checkbox" ng-click="soyAdmin()">
+                        <input ng-if="admin" type="checkbox" ng-click="soyAdmin()" checked>
+                        <input ng-if="!admin" type="checkbox" ng-click="soyAdmin()">
                         <label style="color: dimgray; font-size: 18px">Soy Administrador</label>
                     </div>
                 </div>
 
                 <p>&nbsp;</p>
                 <div class="inline field">
-                    <a ng-click="autenticar()" class="large ui positive basic button">Enviar</a>
-                    <a class="large ui black basic button" style="text-decoration: none; color: white" href="s3_pear-web/src/intro.html">Cancelar</a>
+                    <!-- ng-click="autenticar()" -->
+                    <a ui-sref="dietas" class="large ui positive basic button">Enviar</a>
+                    <a class="large ui black basic button" style="text-decoration: none; color: white" href="../../intro.html">Cancelar</a>
                 </div>
 
             </div>

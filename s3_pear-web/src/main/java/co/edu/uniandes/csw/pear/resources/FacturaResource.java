@@ -97,7 +97,10 @@ public class FacturaResource {
      */
     @POST
     public FacturaDetailDTO createFactura(FacturaDetailDTO factura) throws BusinessLogicException{
-        return new FacturaDetailDTO(logic.createFactura(factura.toEntity()));
+        FacturaEntity fc = factura.toEntity();
+        FacturaEntity fc2 = logic.createFactura(fc);
+        FacturaDetailDTO x = new FacturaDetailDTO(fc2);
+        return x;
     }
     
     
