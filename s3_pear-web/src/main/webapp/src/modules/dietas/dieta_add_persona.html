@@ -1,0 +1,65 @@
+
+<style>
+    * {
+        overflow: hidden;
+    }
+
+    div.back {
+        height: 100vh;
+        background-color: white;
+    }
+
+    div.backimg {
+        height: 25vh;
+        background-attachment: fixed;
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+
+<div class="back ui container" ng-app="dietaModule" ng-controller="dietasController" style="overflow: scroll; padding: 5em;">
+
+
+    <div class="inline field">
+        <h1 style="font-weight: 300; color: gray; float: left;">Dietas Disponibles</h1>
+
+    </div>
+    <hr/>
+    <br/>
+    <br/>
+
+    <div class="ui four stackable cards">
+
+
+        <div  class="ui raised link fluid card" ng-repeat="dieta in dietas| orderBy : '-id'">
+            <div class="fluid image">
+                <img id="im_dieta" src="{{dieta.imagen}}">
+            </div>
+            <div class="content">
+                <div class="header">{{dieta.name}}</div>
+                <div class="meta"><a>Activa</a></div>
+                <div class="inline field"><a style="text-decoration: none;"><i ng-repeat="s in []| range:dieta.stars" class="ion-android-star">&nbsp;</i></a></div>
+                <div class="description">{{dieta.descripcion}}</div>
+                <div class="description">{{dieta.objetivo}}</div>
+            </div>
+            <div class="extra content">
+                <div class="inline field">
+                    <span class="field left floated">
+                        <a ui-sref="dieta_specs.dieta_specs_id({ id: dieta.id })" style="text-decoration: none; color: dimgray;">
+                            <i class="ion-more" style="font-size: 20px;"></i>
+                        </a>
+                    </span>
+
+                    <span ng-click="addDieta_toPersona( dieta.id )" class="field right floated">Suscribirse</span>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+

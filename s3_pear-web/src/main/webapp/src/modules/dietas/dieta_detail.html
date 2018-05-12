@@ -83,8 +83,12 @@
     <div>&nbsp;</div>
     <div class="inline field">
 
-        <a ui-sref='dietas' class="ui orange basic button">
+        <a ng-if="!agregando" ui-sref='dietas' class="ui orange basic button">
             Volver
+        </a>
+        
+        <a ng-if="agregando" ui-sref='dietas' class="ui orange basic button">
+            asadasd
         </a>
 
         <a ng-if="admin" ui-sref='dieta_update({ id: dieta.id })' class="ui positive basic button" style="float: right; margin: 0em 10px;">
