@@ -4,75 +4,75 @@
 
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise("/login");
+            $urlRouterProvider.otherwise("/login");
 
-        $stateProvider
+            $stateProvider
 
-            .state('login', {
-                url: '/login',
-                data: {
-                    requiereLogin: false
-                },
-                views: {
-                    'post': {
-                        templateUrl: 'src/modules/login/login.html',
-                        controller: 'loginController'
-                    }
-                }
-            })
+                    .state('login', {
+                        url: '/login',
+                        data: {
+                            requiereLogin: false
+                        },
+                        views: {
+                            'post': {
+                                templateUrl: 'src/modules/login/login.html',
+                                controller: 'loginController'
+                            }
+                        }
+                    })
 
-            .state('login_rol', {
-                url: '/login/rol',
-                data: {
-                    requiereLogin: false
-                },
-                views: {
-                    'post': {
-                        templateUrl: 'src/modules/login/rol.html',
-                        controller: 'loginController'
-                    }
-                }
-            })
+                    .state('login_rol', {
+                        url: '/login/rol',
+                        data: {
+                            requiereLogin: false
+                        },
+                        views: {
+                            'post': {
+                                templateUrl: 'src/modules/login/rol.html',
+                                controller: 'loginController'
+                            }
+                        }
+                    })
 
-            .state('login_register', {
-                url: '/login/register',
-                data: {
-                    requiereLogin: false
-                },
-                views: {
-                    'post': {
-                        templateUrl: 'src/modules/login/register.html',
-                        controller: 'loginController'
-                    }
-                }
-            })
+                    .state('login_register', {
+                        url: '/login/register',
+                        data: {
+                            requiereLogin: false
+                        },
+                        views: {
+                            'post': {
+                                templateUrl: 'src/modules/login/register.html',
+                                controller: 'loginController'
+                            }
+                        }
+                    })
 
-            .state('login_sesion', {
-                url: '/login/sesion',
-                data: {
-                    requiereLogin: false
-                },
-                views: {
-                    'post': {
-                        templateUrl: 'src/modules/login/login_login.html',
-                        controller: 'loginController'
-                    }
-                }
-            })
+                    .state('login_sesion', {
+                        url: '/login/sesion',
+                        data: {
+                            requiereLogin: false
+                        },
+                        views: {
+                            'post': {
+                                templateUrl: 'src/modules/login/login_login.html',
+                                controller: 'loginController'
+                            }
+                        }
+                    })
 
-            .state('logout', {
-                url: '/logout',
-                data: {
-                    requiereLogin: false,
-                    roles: []
-                },
-                views: {
-                    'post': {
-                        templateUrl: 'src/modules/login/logout.html',
-                        controller: 'logoutController'
-                    }
-                }
-            });
+                    .state('logout', {
+                        url: '/logout',
+                        data: {
+                            requiereLogin: false,
+                            roles: []
+                        },
+                        views: {
+                            'post': {
+                                templateUrl: 'src/modules/login/logout.html',
+                                controller: 'logoutController'
+                            }
+                        }
+                    });
 
 
         }]);
@@ -92,58 +92,73 @@
         function ($scope, $http, $state, $rootScope) {
 
             $rootScope.user = false;
-            $rootScope.admin = false;
+            $rootScope.admin = true;
 
             $rootScope.soyUser = function () {
-                console.log('Soy User');
                 $rootScope.user = true;
                 $rootScope.admin = false;
-            }
+                console.log('SOY USER');
+            };
 
             $rootScope.soyAdmin = function () {
-                console.log('Soy Admin');
-                $rootScope.user = false;
                 $rootScope.admin = true;
-            }
+                $rootScope.user = false;
+                console.log('SOY ADMIN');
+            };
 
 
-//            $scope.usuario = {}; /*para asignar los datos del usuario*/
-//            $scope.data = {}; /*para recoger cada uno de los valores ingresados en el formulario de login*/
-//
-//            $http.get('src/modules/login/users.json').then(function (response) {
-//                $scope.usuarios = response.data;
-//            });
-//
-//
-//            /* El método $scope.autenticar nos ayudará a validar la información que tenemos desde el formulario contra nuestra colección de usuarios. */
-//            $scope.autenticar = function () {
-//                var flag = false;
-//                for (let item in $scope.usuarios) {
-//                    if ($scope.usuarios[item].user == $scope.data.username &&
-//                        $scope.usuarios[item].password == $scope.data.password &&
-//                        $scope.usuarios[item].rol == $scope.data.rol) {
-//                        flag = true;
-//                        $scope.usuario = $scope.usuarios[item];
-//                        $state.go('dietas', {}, {
-//                            reload: true
-//                        });
-//                        break;
-//                    }
-//                }
-//                if (!flag) {
-//                    $rootScope.alerts.push({
-//                        type: "danger",
-//                        msg: "Incorrect username or password."
-//                    });
-//                } else {
-//                    /*Hacemos uso del sessionStorage para almacenar allí los valores del usuario*/
-//                    sessionStorage.token = $scope.usuario.token;
-//                    sessionStorage.setItem("username", $scope.usuario.user);
-//                    sessionStorage.setItem("name", $scope.usuario.name);
-//                    sessionStorage.setItem("rol", $scope.usuario.rol);
-//                    $rootScope.currentUser = $scope.usuario.name;
-//                }
-//            };
+            $http.get('src/modules/login/users.json').then(function (response) {
+                $scope.usuarios = response.data;
+            });
+
+
+            /* El método $scope.autenticar nos ayudará a validar la información que tenemos desde el formulario contra nuestra colección de usuarios. */
+            $scope.autenticar = function () {
+
+                $scope.data = {
+                    username: $scope.name,
+                    password: $scope.pass,
+                    rol: $rootScope.user ? 'user' : 'admin'
+                }; /*para recoger cada uno de los valores ingresados en el formulario de login*/
+
+
+
+                var flag = false;
+                for (let item in $scope.usuarios) {
+
+                console.log($scope.data);
+                console.log($scope.usuarios[item]);
+
+                    if ($scope.usuarios[item].user == $scope.data.username &&
+                            $scope.usuarios[item].password == $scope.data.password &&
+                            $scope.usuarios[item].rol == $scope.data.rol) {
+                        flag = true;
+                        
+                        $rootScope.usuario = $scope.usuarios[item];
+                        
+                        $rootScope.id_persona = $rootScope.usuario.id;
+                        
+                        $state.go('dietas', {}, {
+                            reload: true
+                        });
+                        break;
+                    }
+
+                }
+                if (!flag) {
+                    $rootScope.alerts.push({
+                        type: "danger",
+                        msg: "Incorrect username or password."
+                    });
+                } else {
+                    /*Hacemos uso del sessionStorage para almacenar allí los valores del usuario*/
+                    sessionStorage.token = $scope.usuario.token;
+                    sessionStorage.setItem("username", $scope.usuario.user);
+                    sessionStorage.setItem("name", $scope.usuario.name);
+                    sessionStorage.setItem("rol", $scope.usuario.rol);
+                    $rootScope.currentUser = $scope.usuario.name;
+                }
+            };
 
         } // End Function Controller
 
@@ -161,13 +176,13 @@
     var mod = ng.module("loginModule");
     mod.controller('logoutController', ['$rootScope', '$state',
 
-     // TODO
+        // TODO
 
         function ($rootScope, $state) {
-           /* if (sessionStorage.getItem("username")) {
-                 sessionStorage.clear();
+            /* if (sessionStorage.getItem("username")) {
+             sessionStorage.clear();
              } else {
-                // $state.go('dietas', {}, {reload: true});
+             // $state.go('dietas', {}, {reload: true});
              }
              */
         }
