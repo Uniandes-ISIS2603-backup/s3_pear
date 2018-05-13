@@ -54,13 +54,38 @@ insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscr
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (900, 'Ana', 'Suarez', 65, 'Cll. 151 #9-66', 'ae.suarezb@uniamdes.edu.co', 0, '201632298');
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (1000, 'Luisa', 'Estrada', 20, 'Cll. 131 #19-86', 'l.estradap@uniandes.edu.co', 0, '201712345');
 
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4600, 7, 300418,200);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4700, 8, 400418,300);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4800, 2, 100518,400);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4900, 1, 200518,500);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4600, 7, 210418,200);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4700, 8, 220418,300);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4800, 2, 230418,400);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4900, 1, 240418,500);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5000, 7, 250418,600);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5100, 8, 260418,700);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5200, 2, 270418,800);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5300, 1, 280418,900);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5400, 1, 290418,1000);
+
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5500, 7, 300418,200);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5600, 8, 310418,300);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5700, 2, 320418,400);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5800, 1, 330418,500);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5900, 7, 340418,600);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6000, 8, 350418,700);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6100, 2, 360418,800);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6200, 1, 370418,900);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6300, 1, 380418,1000);
+
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6400, 7, 390418,200);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6500, 2, 400418,400);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6600, 7, 410418,600);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6700, 2, 420418,800);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6800, 1, 430418,1000);
+
+SELECT * FROM FACTURAENTITY;
 
 insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta) values (100, 20.000, 7, 200218);
 insert into PagoEntity(id, montoInicial, montoFinal) values (200, 10, 10);
+select * from cuentacobroentity;
+select * from personaENTITY;
 /*relacion cuenta a dieta*/
 update personaEntity set cuenta_id = 100 where id = 100;
 
