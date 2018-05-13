@@ -46,6 +46,10 @@
         border: none;
         border-bottom: 2px solid red;
     }
+    
+    input.warning {
+        border: 1px solid red;
+    }
 
 </style>
 
@@ -63,11 +67,17 @@
 
 
                 <div class="field">
+                    <div class="medium ui pointing red basic label" ng-if="not_logged">
+                        El usuario no se encuentra registrado.
+                    </div>
+                    <div class="medium ui pointing red basic label" ng-if="incorrect" >
+                        Incorrect username or password.
+                    </div>
                     <input required="true" autofocus="" ng-model="name" type="text" placeholder="USUARIO" style="margin-right: 1em;"> 
                 </div>
 
                 <div class="field">
-                    <input required="true" ng-model="pass" style="margin-right: 1em;" type="password" placeholder="CONTRASEÑA">
+                    <input required="true" ng-model="pass" style="margin-right: 1em;" type="password" placeholder="CONTRASEÑA" >
                 </div>
 
                 <p>&nbsp;</p>
@@ -85,10 +95,13 @@
                     </div>
                 </div>
 
+                
+
                 <p>&nbsp;</p>
                 <div class="inline field">
                     <a ng-click="autenticar()" class="large ui positive basic button">Enviar</a>
-                    <a class="large ui black basic button" style="text-decoration: none; color: white" href="s3_pear-web/src/intro.html">Cancelar</a>
+
+                    <a class="large ui black basic button" style="text-decoration: none; color: white" href="http://localhost:8080/s3_pear-web/src/intro.html">Cancelar</a>
                 </div>
 
             </div>

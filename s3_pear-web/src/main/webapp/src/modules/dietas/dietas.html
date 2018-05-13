@@ -17,9 +17,22 @@
         <br/>
 
         <div class="ui two stackable cards" ng-controller="dietasController">
+            <div ng-if="persona.dietas.length < 1">
+                <div>
+                    <h1 style="color: dimgray; font-family: 'Roboto'; font-weight: 300;">No te encuentras suscripto a ningún plan de dieta. <br/> ¿Qué estas esperando? </h1>
+                    <div class="row">
+                        <div>&nbsp;</div>
+                        <div class="inline field">
 
-           
-            
+                            <a ui-sref='add_dieta' class="large ui positive basic button">
+                                Empieza ahora
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div ng-if="user"  class="ui raised link fluid card" ng-repeat="dieta in persona.dietas| orderBy : '-id'">
                 <div class="fluid image">
                     <img id="im_dieta" src="{{dieta.imagen}}">
@@ -34,19 +47,19 @@
                 <div class="extra content">
                     <div class="inline field">
                         <span class="field left floated">
-                            <a ui-sref="dieta_specs({ id: dieta.id })" style="text-decoration: none; color: dimgray;">
+                            <a ui-sref="dieta_specs.dieta_specs_id({ id: dieta.id })" style="text-decoration: none; color: dimgray;">
                                 <i class="ion-more" style="font-size: 20px;"></i>
                             </a>
                         </span>
-                      <!--  <span ng-if="user" class="field right floated">Pausar</span> -->
-                      <!-- ng-click="cancelar_dieta(dieta.id)" -->
+                        <!--  <span ng-if="user" class="field right floated">Pausar</span> -->
+                        <!-- ng-click="cancelar_dieta(dieta.id)" -->
                         <span ng-if="user" class="field right floated"><a style="text-decoration: none;">Cancelar Suscripción</a>&nbsp; &nbsp;</span>
                         <span ng-if="admin" class="field right floated" ng-click="eliminar_dieta(dieta.id)"><a style="text-decoration: none;">Eliminar</a>&nbsp; &nbsp;</span>
                     </div>
                 </div>
-          
+
             </div>
-            
+
             <div ng-if="admin"  class="ui raised link fluid card" ng-repeat="dieta in dietas| orderBy : '-id'">
                 <div class="fluid image">
                     <img id="im_dieta" src="{{dieta.imagen}}">
@@ -70,10 +83,10 @@
                         <span ng-if="admin" class="field right floated" ng-click="eliminar_dieta(dieta.id)"><a style="text-decoration: none;">Eliminar</a>&nbsp; &nbsp;</span>
                     </div>
                 </div>
-          
+
             </div>
-            
-           
+
+
 
 
         </div>

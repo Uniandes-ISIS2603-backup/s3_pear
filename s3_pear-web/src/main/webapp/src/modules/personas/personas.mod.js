@@ -4,7 +4,7 @@
 
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-            $urlRouterProvider.otherwise("/dietas");
+            $urlRouterProvider.otherwise("/login");
 
             $stateProvider
                     .state('personas', {
@@ -55,9 +55,9 @@
 
     mod.constant("personasContext", "api/personas");
 
-    mod.controller('personasController', ['$scope', '$http', 'personasContext', '$state',
+    mod.controller('personasController', ['$scope', '$http', 'personasContext', '$state', '$rootScope',
 
-        function ($scope, $http, personasContext, $state) {
+        function ($scope, $http, personasContext, $state, $rootScope) {
             
             //GET
             $http.get('http://localhost:8080/s3_pear-web/api/personas').then(function (response) {
@@ -90,7 +90,9 @@
                 
                 $http.post(personasContext, data).then(function (response) {
                     $scope.post_data = response.data;
-                    $state.go('personas', {}, {reload: true});
+                    console.log( $scope.post_data.id );
+                    $rootScope.id_persona = $scope.post_data.id;
+                    $state.go('dietas', {}, {reload: true});
                 });
 
             };

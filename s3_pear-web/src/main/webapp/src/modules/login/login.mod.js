@@ -93,6 +93,8 @@
 
             $rootScope.user = false;
             $rootScope.admin = true;
+            $rootScope.not_logged = false;
+            $rootScope.incorrect = false;
 
             $rootScope.soyUser = function () {
                 $rootScope.user = true;
@@ -121,31 +123,60 @@
                     rol: $rootScope.user ? 'user' : 'admin'
                 }; /*para recoger cada uno de los valores ingresados en el formulario de login*/
 
-
+console.log($scope.data);
 
                 var flag = false;
                 for (let item in $scope.usuarios) {
-
-                console.log($scope.data);
-                console.log($scope.usuarios[item]);
+                    
+                    console.log($scope.usuarios[item]);
 
                     if ($scope.usuarios[item].user == $scope.data.username &&
                             $scope.usuarios[item].password == $scope.data.password &&
                             $scope.usuarios[item].rol == $scope.data.rol) {
                         flag = true;
-                        
+
                         $rootScope.usuario = $scope.usuarios[item];
-                        
+
                         $rootScope.id_persona = $rootScope.usuario.id;
-                        
-                        $state.go('dietas', {}, {
-                            reload: true
-                        });
+
+                        if ($rootScope.usuario.rol === 'user') {
+
+                            $http.get('http://localhost:8080/s3_pear-web/api/personas/' + $rootScope.id_persona).then(function (response) {
+                               
+                                $state.go('dietas', {}, {
+                                    reload: true
+                                });
+
+                            }),
+                                    function (response) {
+                                        console.log('USUARIO NO REGISTRADO :: ' + response.status);
+                                    };
+
+                        } else {
+                            $state.go('dietas', {}, {
+                                    reload: true
+                                });
+                        }
+                        ;
+
+
                         break;
                     }
 
-                }
+                } /*END FOR*/
                 if (!flag) {
+                    
+                    
+                    if ( $scope.usuarios[item].user == $scope.data.username ) {
+                        $rootScope.incorrect = true;
+                       
+                    }
+                    /*LOS CREDENCIALES NO CUADRAN*/
+                    else {
+                        $rootScope.not_logged = true;
+                      
+                    }
+                    
                     $rootScope.alerts.push({
                         type: "danger",
                         msg: "Incorrect username or password."
@@ -179,12 +210,12 @@
         // TODO
 
         function ($rootScope, $state) {
-            /* if (sessionStorage.getItem("username")) {
-             sessionStorage.clear();
-             } else {
-             // $state.go('dietas', {}, {reload: true});
-             }
-             */
+            if (sessionStorage.getItem("username")) {
+                sessionStorage.clear();
+            } else {
+                $state.go('login', {}, {reload: true});
+            }
+
         }
     ]);
 })(window.angular);

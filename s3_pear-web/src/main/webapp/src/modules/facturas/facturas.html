@@ -1,6 +1,6 @@
 <style>
 
-.boton {
+    .boton {
         height: 50px;
         width: 200px;
         background-color: #145705;
@@ -15,98 +15,109 @@
         line-height: 65px;
     }
 
-	hr {
-		display: block;
-		height: 2px;
-		border: 0;
-		border-top: 1px solid gray;
-		margin-top: -1em;
-		width: 8em;
-		color: black;
-		margin-bottom: 1em;
-	}
+    hr {
+        display: block;
+        height: 2px;
+        border: 0;
+        border-top: 1px solid gray;
+        margin-top: -1em;
+        width: 8em;
+        color: black;
+        margin-bottom: 1em;
+    }
 
-	.lista {
-		margin: 4em auto 6em auto;
-		width: 70%;
-		padding: 2em 4em;
-		background-color: white;
-		border-radius: 0.3em;
-	}
+    .lista {
+        margin: 4em auto 6em auto;
+        width: 70%;
+        padding: 2em 4em;
+        background-color: white;
+        border-radius: 0.3em;
+    }
 
-	.lbl {
-		position: relative;
-	}
+    .lbl {
+        position: relative;
+    }
 
-	.template {
-		margin: auto auto auto auto;
-		width: 100%;
-		border-radius: 0.5em;
-	}
+    .template {
+        margin: auto auto auto auto;
+        width: 100%;
+        border-radius: 0.5em;
+    }
 
-	table {
-		border-collapse: collapse;
-		width: 100%;
-		margin: auto;
-		color: gray;
-	}
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: auto;
+        color: gray;
+    }
 
-	td,
-	th {
-		text-align: left;
-		padding: 8px;
-	}
+    td,
+    th {
+        text-align: left;
+        padding: 8px;
+    }
 
-	tr:nth-child(even) {
-		background-color: #dddddd;
-	}
-	
-	
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
 
-	
+
+
+
 
 </style>
 
 <!-- FACTURAS -->
 
-<div class="lista">
-     <div class="inline field">
+<div >
+
+    <div class="ui raised segment" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;">
+
+        <div class="inline field">
             <h1 style="font-weight: 300; color: gray; float: left;">Facturas</h1>
             
-
-     </div>
-        <table>
-            
-        <thead>
-            <tr> 
-             <th>Identificador</th> 
-             <th>Cantidad de productos</th> 
-             <th>Numero de factura</th> 
-             <th>Persona </th>
-             <th> </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="factura in facturas">
-                    <td>{{ factura.id }}</td>
-                <td>{{ factura.cantidadDeProductos }}</td>
-                <td>{{ factura.numeroFactura }}</td>
-                <td><div class="inline field">
-                        <span class="field"><a ui-sref="personas({ id: factura.persona.id })" style="text-decoration: none;"> Acreedor </a> &nbsp; &nbsp;</span>
-                        <span class="field right floated" ng-click="eliminar_factura(factura.id)"><a style="text-decoration: none; color:red">Eliminar</a>&nbsp; &nbsp;</span>
-                </div></td>
-                <td><p style="color: gray" ui-sref="detailFactura({ id: factura.id })">Actualizar</p></td>
-            </tr>
-        </tbody>
-    </table>  
+        </div>
  
-     <div class="boton" style="margin-top: 70px">
-        <!--Aqui va la referencia de la página de agregar-->
-        <a href="src/modules/facturas/facturas_add.html" style="font-size: 20px; color:floralwhite; text-align: center">Nueva Factura</a>
+        
+        <br/>
+       
+        <hr style="width: 100%"/>
+        
+        <br/>
+        <br/>
 
+        <table>
+
+            <thead>
+                <tr> 
+                    <th>Identificador</th> 
+                    <th>Cantidad de productos</th> 
+                    <th>Numero de factura</th> 
+                    <th>Persona </th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="factura in facturas">
+                    <td>{{ factura.id}}</td>
+                    <td>{{ factura.cantidadDeProductos}}</td>
+                    <td>{{ factura.numeroFactura}}</td>
+                    <td><div class="inline field">
+                            <span class="field"><a ui-sref="personas({ id: factura.persona.id })" style="text-decoration: none;"> Acreedor </a> &nbsp; &nbsp;</span>
+                            <span class="field right floated" ng-click="eliminar_factura(factura.id)"><a style="text-decoration: none; color:red">Eliminar</a>&nbsp; &nbsp;</span>
+                        </div></td>
+                    <td><p style="color: gray" ui-sref="detailFactura({ id: factura.id })">Actualizar</p></td>
+                </tr>
+            </tbody>
+        </table>  
+
+        <div style="margin-top: 70px">
+            <!--Aqui va la referencia de la página de agregar-->
+            <a class="large ui positive basic button" href="src/modules/facturas/facturas_add.html">Nueva Factura</a>
+
+        </div>
     </div>
+
+
 </div>
-
-
-
 
