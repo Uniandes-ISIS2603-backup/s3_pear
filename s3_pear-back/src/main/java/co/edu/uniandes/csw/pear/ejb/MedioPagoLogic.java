@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.pear.ejb;
 
 import co.edu.uniandes.csw.pear.entities.MedioPagoEntity;
-import co.edu.uniandes.csw.pear.entities.PersonaEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.MedioPagoPersistence;
 import java.util.List;

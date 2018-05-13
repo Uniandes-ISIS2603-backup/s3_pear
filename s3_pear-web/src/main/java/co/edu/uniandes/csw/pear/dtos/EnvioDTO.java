@@ -8,7 +8,6 @@ package co.edu.uniandes.csw.pear.dtos;
 import co.edu.uniandes.csw.pear.entities.ComidaEntity;
 import co.edu.uniandes.csw.pear.entities.EnvioEntity;
 import co.edu.uniandes.csw.pear.entities.PersonaEntity;
-import javax.persistence.OneToOne;
 
 /**
  *
@@ -39,15 +38,12 @@ import javax.persistence.OneToOne;
  */
 public class EnvioDTO {
 
-    //TODO:DONE estos tipos deben ser Integer y Boolean. cambiar también los set/get
     public Integer duracion;
 
     public Boolean recibido;
 
     public Long id;
-
-    //TODO:DONE Estas anotaciones son de los entity no de los DTO
-   
+    
     public ComidaEntity comida;
     
     public PersonaEntity persona;
@@ -88,7 +84,7 @@ public class EnvioDTO {
     /**
      * Cambia la direccion del envio
      *
-     * @param la nueva direccion
+     * @param pDireccion nueva direccion
      */
     public void setDireccion(String pDireccion) {
         direccion = pDireccion;
@@ -121,7 +117,7 @@ public class EnvioDTO {
     /**
      * Cambia la duracion
      *
-     * @param la nueva duraciòn.
+     * @param pDuracion nueva duraciòn.
      */
     public void setDuracion(Integer pDuracion) {
         duracion = pDuracion;
@@ -144,7 +140,7 @@ public class EnvioDTO {
     /**
      * Cambia la comida
      *
-     * @param la nueva comida
+     * @param pComida nueva comida
      */
     public void setComida(ComidaEntity pComida) {
         comida = pComida;

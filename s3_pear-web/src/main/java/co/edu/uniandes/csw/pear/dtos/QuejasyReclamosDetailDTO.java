@@ -15,20 +15,17 @@ import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
  *      "Comentario": string,
  *   }
  *  Por ejemplo una queja y reclamo  se representa asi:<br>
- * 
+ * </pre>
  * <pre>
- * 
  *   {
  *      "Asunto": "Queja",
  *      "Comentario": "Mas puntual con la entrega"
  *   }
- *
  * </pre>
  * @author ga.bejarano10
  */
 public class QuejasyReclamosDetailDTO extends QuejasyReclamosDTO
 {
-//TODO: Si la clase no tiene atributos no debería existir
     /**
      * generado por defecto
      */
@@ -41,7 +38,7 @@ public class QuejasyReclamosDetailDTO extends QuejasyReclamosDTO
     /**
      * Constructor para transformar un Entity a un DTO
      *
-     * @param entity La entidad de ciudad a partir de la cual se construye el objeto
+     * @param entidad La entidad de ciudad a partir de la cual se construye el objeto
      */
     public QuejasyReclamosDetailDTO(QuejasyReclamosEntity entidad) {
         super(entidad);

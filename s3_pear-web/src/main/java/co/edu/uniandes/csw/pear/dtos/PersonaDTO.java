@@ -43,7 +43,6 @@ import co.edu.uniandes.csw.pear.entities.PersonaEntity;
  *                      }
  *                    ]
  * }
- *  //TODO *******ACTUALIZAR A MEDIDA QUE ESTEN HECHAS LAS DEMAS CLASES********
  * @author pa.suarezm
  */
 public class PersonaDTO {
@@ -57,13 +56,13 @@ public class PersonaDTO {
     private String nombre;
     
     private String apellido;
-    //DONE: debe ser Integer 
+    
     private Integer edad;
     
     private String direccion;
     
     private String correo;
-    //DONE: debe se Boolean
+   
     private Boolean subscrito;
     
     private String identificacion;
@@ -79,7 +78,6 @@ public class PersonaDTO {
     
     public PersonaDTO(PersonaEntity entidad){
         
-        //DONE: entity puede ser null
         if(entidad != null){
             id = entidad.getId();
         

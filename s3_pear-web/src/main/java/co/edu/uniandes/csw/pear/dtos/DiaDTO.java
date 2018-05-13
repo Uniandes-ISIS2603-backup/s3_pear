@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.dtos;
-
 import co.edu.uniandes.csw.pear.entities.DiaEntity;
 
 /**
@@ -40,7 +39,6 @@ public class DiaDTO {
      * @param entity entidad a apartir de la cual se construye el dto
      */
     public DiaDTO(DiaEntity entity) {
-        //TODO: DONE entity puede ser  null
         if(entity != null){
         seEnvia = entity.getSeEnvia();
         recomendacion = entity.getRecomendacion();

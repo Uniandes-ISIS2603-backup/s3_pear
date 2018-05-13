@@ -17,7 +17,7 @@ import co.edu.uniandes.csw.pear.entities.EnvioEntity;
  *      "direccio":String
  *   }
  *  Por ejemplo un envio  se representa asi:<br>
- * 
+ * </pre>
  * <pre>
  * 
  *   {
@@ -30,8 +30,7 @@ import co.edu.uniandes.csw.pear.entities.EnvioEntity;
  * @author js.cabra
  */
 public class EnvioDetailDTO extends EnvioDTO{
-    
-    //TODO: si no hay atributos esta clase no se necesita
+ 
     /**
      * Constructor vacio
      */
@@ -44,7 +43,7 @@ public class EnvioDetailDTO extends EnvioDTO{
         /**
      * Constructor para transformar un Entity a un DTO
      *
-     * @param entity La entidad de Envio a partir de la cual se construye el objeto
+     * @param entidad La entidad de Envio a partir de la cual se construye el objeto
      */
     
     public EnvioDetailDTO(EnvioEntity entidad) {

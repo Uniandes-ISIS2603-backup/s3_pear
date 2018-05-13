@@ -5,13 +5,12 @@
  */
 package co.edu.uniandes.csw.pear.ejb;
 
-import co.edu.uniandes.csw.pear.entities.CityEntity;
+
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.QuejasyReclamosPersistence;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;

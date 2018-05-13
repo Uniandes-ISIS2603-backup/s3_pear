@@ -20,6 +20,7 @@ import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
  *   }
  *  Por ejemplo una queja y reclamo  se representa asi:<br>
  *
+ * </pre>
  * <pre>
  *
  *   {
@@ -35,7 +36,6 @@ public class QuejasyReclamosDTO {
 
     private String comentario;
     private String asunto;
-    //TODO: debe ser Long 
     private Long id;
 
     /**
@@ -59,10 +59,11 @@ public class QuejasyReclamosDTO {
      * @param entidad: Es la entidad que se va a convertir a DTO
      */
     public QuejasyReclamosDTO(QuejasyReclamosEntity entidad) {
-        //TODO: entity puede ser null 
+        if(entidad != null){
         this.comentario = entidad.getComentario();
         this.asunto = entidad.getAsunto();
         this.id = entidad.getId();
+        }
     }
 
     /**
@@ -73,7 +74,7 @@ public class QuejasyReclamosDTO {
     }
 
     /**
-     * @param nuevo comentario
+     * @param comentario comentario
      */
     public void setComentario(String comentario) {
         this.comentario = comentario;
@@ -88,7 +89,7 @@ public class QuejasyReclamosDTO {
     }
 
     /**
-     * @param nuevo asunto
+     * @param asunto nuevo
      */
     public void setAsunto(String asunto) {
         this.asunto = asunto;

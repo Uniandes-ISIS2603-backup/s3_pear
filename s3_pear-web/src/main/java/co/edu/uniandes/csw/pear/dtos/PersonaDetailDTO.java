@@ -38,17 +38,16 @@ public class PersonaDetailDTO extends PersonaDTO {
     }
 
     public PersonaDetailDTO(PersonaEntity entidad) {
-        //DONE: Sin terminar 
         super(entidad);
         if (entidad != null) {
-            quejas = new ArrayList<QuejasyReclamosDTO>();
+            quejas = new ArrayList<>();
             for (QuejasyReclamosEntity qyr : entidad.getQuejas()) {
                 if (qyr != null) {
                     quejas.add(new QuejasyReclamosDTO(qyr));
                 }
             }
 
-            facturas = new ArrayList<FacturaDTO>();
+            facturas = new ArrayList<>();
             for (FacturaEntity f : entidad.getFacturas()) {
                 if (f != null) {
                     facturas.add(new FacturaDTO(f));
@@ -145,7 +144,7 @@ public class PersonaDetailDTO extends PersonaDTO {
                 entidad.setDieta(ds);
             }
 
-            List<QuejasyReclamosEntity> qyrE = new ArrayList<QuejasyReclamosEntity>();
+            List<QuejasyReclamosEntity> qyrE = new ArrayList<>();
 
             if (quejas != null) {
                 for (QuejasyReclamosDTO qyr : quejas) {
@@ -156,7 +155,7 @@ public class PersonaDetailDTO extends PersonaDTO {
             }
             entidad.setQuejas(qyrE);
 
-            List<FacturaEntity> fE = new ArrayList<FacturaEntity>();
+            List<FacturaEntity> fE = new ArrayList<>();
 
             if (facturas != null) {
                 for (FacturaDTO f : facturas) {
@@ -189,7 +188,4 @@ public class PersonaDetailDTO extends PersonaDTO {
     public void setCuenta(CuentaCobroDTO cuenta) {
         this.cuenta = cuenta;
     }
-    
-    
-
 }

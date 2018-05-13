@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.dtos;
-//TODO: DONE Borrar lo simport que no se usan
-
 import co.edu.uniandes.csw.pear.entities.SemanaEntity;
 
 
@@ -47,7 +45,6 @@ public class SemanaDTO {
       * @param entity entidad a partir de la cual se construira el dto
       */
      public SemanaDTO(SemanaEntity entity){
-         //TODO: DONE entity puede ser null
          if (entity != null){
              fechaLunes = entity.getFechaLunes();
              id = entity.getId(); 
