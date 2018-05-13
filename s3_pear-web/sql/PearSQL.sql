@@ -14,6 +14,8 @@ delete from CocinaEntity;
 
 delete from ComidaEntity;
 delete from EnvioEntity;
+
+delete from Dias_Semanas;
 delete from DiaEntity;
 delete from SemanaEntity;
 
@@ -187,21 +189,44 @@ insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (700, '','01/04/
 
 
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (100,221);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (200,221);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (300,221);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (400,221);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (500,221);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (600,221);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (700,221);
 
-/* 
-insert into DiaEntity(id, recomendacion, fecha, seenvia, semana_id) values (800, 'Una harina diaria', '02/04/2018', 0,222);
-insert into DiaEntity(id, recomendacion, fecha, seenvia, semana_id) values (900, 'Consumir arroz integral', '03/04/2018', 0,222);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (1000,'Consumir 5 porciones de vegetales', '04/04/2018', 0,222);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (1100, '','05/04/2018', 1, 222);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (1200, '','06/04/2018', 1, 222);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (1300, '','07/04/2018', 1, 222);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (1400, 'Una harina diaria','08/04/2018', 0, 222);
 
-insert into DiaEntity(id, recomendacion, fecha, seenvia, semana_id) values (1500, '', '09/04/2018', 1,223);
-insert into DiaEntity(id, recomendacion, fecha, seenvia, semana_id) values (1600, '', '10/04/2018', 1,223);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (1700, '', '11/04/2018', 1,223);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (1800, 'Una harina diaria','12/04/2018', 0,223);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (1900, 'Consumir arroz integral','13/04/2018', 0,223);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (2000, 'Una harina diaria','14/04/2018', 0,223);
-insert into DiaEntity(id, recomendacion, fecha, seEnvia, semana_id) values (2100, 'Una harina diaria','15/04/2018', 0, 223);
-*/
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (800, 'Una harina diaria', '02/04/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (900, 'Consumir arroz integral', '03/04/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1000,'Consumir 5 porciones de vegetales', '04/04/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1100, '','05/04/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1200, '','06/04/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1300, '','07/04/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1400, 'Una harina diaria','08/04/2018', 0);
+
+
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (800,222);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (900,222);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (1000,222);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (1100,222);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (1200,222);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (1300,222);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (1400,222);
+
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (1500, '', '09/04/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (1600, '', '10/04/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1700, '', '11/04/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1800, 'Una harina diaria','12/04/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1900, 'Consumir arroz integral','13/04/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2000, 'Una harina diaria','14/04/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2100, 'Una harina diaria','15/04/2018', 0);
+
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (1500,223);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (1600,223);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (1700,223);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (1800,223);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (1900,223);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2000,223);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2100,223);
+
