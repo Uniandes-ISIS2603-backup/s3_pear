@@ -16,6 +16,7 @@
         'calificacionModule',
         'comidaModule',
         'weekModule',
+        'cuentaModule',
         'loginModule'
     ]);
 

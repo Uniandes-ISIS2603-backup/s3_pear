@@ -1,0 +1,167 @@
+
+<style>
+    div.backimg {
+        height: 20vh;
+        background-attachment: fixed;
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+        border-radius: 0.5em;
+        position: relative;
+    }
+</style>
+
+
+
+
+<div class="ui container" style="width: 100%" ng-app="cuentaModule" ng-controller="cuentaController">
+
+    <div class="ui raised segment" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;">
+
+        <div class="inline field">
+            <h1 style="font-weight: 300; color: gray; float: left;">Cuenta de Cobro</h1>
+
+        </div>
+          
+        <hr style="margin-top: 0.5em;"/>
+        <br/>
+        <br/>
+
+        <!--
+                {{persona.cuenta}}
+        
+                <br/>
+        
+                {{cuenta_personal}}
+        -->
+
+        <div class="ui two column centered grid">
+            <div class="sixteen column centered row">
+
+                <div class="seven wide column">
+
+                    <table class="ui padded very basic table">
+
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <div class="inline field" style="overflow-y: hidden;">
+                                        <div class="ui horizontal large label">ID</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    {{persona.cuenta.id}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="inline field" style="overflow-y: hidden;">
+                                        <div class="ui horizontal large label">Cantidad de productos</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p>{{persona.cuenta.cantidadProductos}}</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="inline field" style="overflow-y: hidden;">
+                                        <div class="ui horizontal large label">Número factura de venta</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p>{{persona.cuenta.numeroFacturaDeVenta}}</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="inline field" style="overflow-y: hidden;">
+                                        <div class="ui horizontal large label">Valor a pagar</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h1 style="color: dimgray;font-family: 'Roboto'; font-weight: 300; font-size: 25px;">{{persona.cuenta.valorAPagar| currency}} USD</h1>
+                                </td>
+                            </tr>
+
+
+
+                        </tbody>
+
+                    </table>
+
+
+
+                    <div class="row">
+                        <div>&nbsp;</div>
+                        <div class="inline field">
+                            <select>
+                                <option value="" selected disabled hidden>Selecciona un medio de pago</option>
+                                <option value="efectivo">Efectivo</option>
+                                <option value="pse">PSE</option>
+                            </select>
+                        </div>
+                        <div>&nbsp;</div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div>&nbsp;</div>
+                        <div class="inline field">
+
+                            <a class="ui positive basic button">
+                                Pagar
+                            </a>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+                
+                <div class="one wide column">
+                    <div style="border:0.5px solid #a3a2a2; height: 20em; width: 1px; margin-left: 0.6em"></div>
+                </div>
+
+                <div class="seven wide column">
+                    <div class="row">
+                        <h1 style="color: dimgray;font-family: 'Roboto'; font-weight: 300; font-size: 25px;">Suscripción</h1>
+                    </div>
+
+                    <div class="row">&nbsp;</div>
+
+
+                    <div class="backimg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.30)), url('{{cuenta_personal.dieta.imagen}}');">
+                        <div class="ui three column centered grid" style="color: whitesmoke;">
+                            <div class="row">&nbsp;</div>
+
+                            <div class="row" style="position: absolute; bottom: 1em;">
+                                <div style="text-align: center;">
+                                    <h1 style="font-size: 40px; font-family: 'Roboto'; font-weight: 100;">{{cuenta_personal.dieta.name}}</h1>
+                                </div>
+
+                                <div style="text-align: center;">
+                                    <h1 style="font-size: 20px; font-family: 'Roboto'; font-weight: 300;">{{cuenta_personal.dieta.precio| currency}} USD</h1>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

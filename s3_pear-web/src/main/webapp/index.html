@@ -76,7 +76,7 @@
 			<a ng-if="admin" class="item" style="color: white; font-size: 20px" ui-sref="personas">Usuarios</a>
 			<a class="item" style="color: white; font-size: 20px" ui-sref="dietas">Dietas</a>
 			<a ng-if="admin" class="item" style="color: white; font-size: 20px" ui-sref="facturas">Facturas</a>
-			<a ng-if="admin" class="item" style="color: white; font-size: 20px" ui-sref="pago">Pago</a>
+			<a ng-if="!admin" class="item" style="color: white; font-size: 20px" ui-sref="cuenta">Pago</a>
 			<a ng-if="admin" class="item" style="color: white; font-size: 20px" ui-sref="cocinas">Cocinas</a>
 			<a ng-if="admin" class="item" style="color: white; font-size: 20px" ui-sref="semanas">Programación Semanal</a>
 			<a ng-if="admin" class="item" style="color: white; font-size: 20px" ui-sref="dias">Dias</a>
@@ -135,6 +135,9 @@
 
 		<!-- COMIDAS -->
 		<script src="src/modules/comidas/comida.mod.js" type="text/javascript"></script>
+                
+                <!-- CUENTA -->
+		<script src="src/modules/cuentas/cuenta.mod.js" type="text/javascript"></script>
 
 		<!-- LOGIN -->
 		<script src="src/modules/login/login.mod.js" type="text/javascript"></script>
