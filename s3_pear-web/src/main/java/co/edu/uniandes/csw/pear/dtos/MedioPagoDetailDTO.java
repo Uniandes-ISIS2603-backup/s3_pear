@@ -5,9 +5,6 @@
  */
 package co.edu.uniandes.csw.pear.dtos;
 import co.edu.uniandes.csw.pear.entities.MedioPagoEntity;
-import co.edu.uniandes.csw.pear.entities.PersonaEntity;
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -75,8 +72,6 @@ public class MedioPagoDetailDTO extends MedioPagoDTO{
      */
     public MedioPagoDetailDTO(MedioPagoEntity entity) {
         super(entity);
-        //TODO DONE: entity puede ser null
-
     }
 
     /**
@@ -87,8 +82,6 @@ public class MedioPagoDetailDTO extends MedioPagoDTO{
     @Override
     public MedioPagoEntity toEntity() {
         MedioPagoEntity entity = super.toEntity();
-        
-        
         return entity;
     }
 

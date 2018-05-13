@@ -9,6 +9,7 @@ import co.edu.uniandes.csw.pear.entities.SemanaEntity;
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  El formato JSON de este objeto es el siguiente:
@@ -41,27 +42,23 @@ public class SemanaDetailDTO extends SemanaDTO {
         if(entity != null){
             if(entity.getDias() != null){
             dias =  new ArrayList<>();
-            
             for(DiaEntity y: entity.getDias()) {
                 dias.add(new DiaDTO(y));
             }
-        }
-        else{
-            dias = new ArrayList<>();
             }
-        if(entity != null){
+            else dias = new ArrayList<>();
             if(entity.getDietas() != null){
             dietas =  new ArrayList<>();
-            entity.getDietas().forEach(di -> {
-                dietas.add(new DietaTipoDTO(di));
-            });  
-        }
-        else{
-            dietas = new ArrayList<>();
+            for(DietaTipoEntity y: entity.getDietas()) {
+                dietas.add(new DietaTipoDTO(y));
+            }
             }
         }
+            else{
+            dietas = new ArrayList<>();
+            }
       }
-    }
+    
     
     public SemanaDetailDTO(){
         super();

@@ -4,12 +4,9 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.dtos;
-//TODO: Borrar lo que no se usa
-
-import co.edu.uniandes.csw.pear.entities.BaseEntity;
 import co.edu.uniandes.csw.pear.entities.ComidaEntity;
 import co.edu.uniandes.csw.pear.entities.DiaEntity;
-import java.io.Serializable;
+
 
 /**
  *
@@ -43,7 +40,7 @@ import java.io.Serializable;
  *
  * @author js.cabra
  */
-public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer. cambiarlo e igualmente el set/get
+public class ComidaDTO {
 
     public Integer cantidad;
 
@@ -55,7 +52,6 @@ public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer.
     
     public DiaEntity dia;
     
-   // public String image;
 
     /**
      * Constructor ComidaDTO a partir de la Entity
@@ -71,7 +67,6 @@ public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer.
 
         TIPO = entidad.getTipo();
         
-       // image = entidad.getImage();
         }
     }
 
@@ -101,7 +96,7 @@ public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer.
 
     /**
      *
-     * @param la nueva cantidad.
+     * @param pCantidad nueva cantidad.
      */
     public void setCantidad(Integer pCantidad) {
         cantidad = pCantidad;
@@ -118,7 +113,7 @@ public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer.
 
     /**
      *
-     * @param los nuevos alimentos.
+     * @param pAlimentos nuevos alimentos.
      */
     public void setAlimentos(String pAlimentos) {
         alimentos = pAlimentos;
@@ -134,7 +129,7 @@ public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer.
 
     /**
      *
-     * @param el nuevo tipo.
+     * @param pTipo nuevo tipo.
      */
     public void setTIPO(String pTipo) {
         TIPO = pTipo;
@@ -146,7 +141,7 @@ public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer.
     }
     /**
      * Cambia el dia de la comdia
-     * @param pTipo
+     * @param pDia
      */
     public void setDia(DiaEntity pDia)
     {
@@ -163,8 +158,6 @@ public class ComidaDTO {//TODO:DONE Esto no puede ser tipo int debe ser Integer.
     }
     /**
      * Cambia la imagen de la comida
-     * @param pImage
-     
     public void setImage(String pImage)
     {
         image = pImage;

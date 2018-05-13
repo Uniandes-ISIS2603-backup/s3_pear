@@ -22,7 +22,7 @@ import javax.persistence.TypedQuery;
 public class PagoPersistence {
     
         
-     private static final Logger LOGGER = Logger.getLogger(CityPersistence.class.getName());
+     private static final Logger LOGGER = Logger.getLogger(PagoPersistence.class.getName());
 
     @PersistenceContext(unitName = "PearPU")
     protected EntityManager em;

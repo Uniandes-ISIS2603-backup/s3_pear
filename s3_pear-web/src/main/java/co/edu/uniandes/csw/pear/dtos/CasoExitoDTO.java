@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.CasoExitoEntity;
-//DONE: Borrar si no se usa
 
 /**
  * CasoExitoDTO modela el objeto que se transfiere entre el cliente y el
@@ -24,7 +23,6 @@ import co.edu.uniandes.csw.pear.entities.CasoExitoEntity;
  *                              "valor a pagar": double
  *                             }
  * }
- *  //TODO *******ACTUALIZAR A MEDIDA QUE ESTEN HECHAS LAS DEMAS CLASES********
  * @author pa.suarezm
  */
 public class CasoExitoDTO {

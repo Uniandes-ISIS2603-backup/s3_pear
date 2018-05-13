@@ -8,7 +8,6 @@ package co.edu.uniandes.csw.pear.dtos;
 import co.edu.uniandes.csw.pear.entities.CocinaEntity;
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import java.util.ArrayList;
-//TODO: DONE borrar lo que no se usa
 import java.util.List;
 
 /**

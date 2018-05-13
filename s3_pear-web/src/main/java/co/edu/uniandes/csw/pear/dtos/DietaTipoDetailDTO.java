@@ -4,7 +4,6 @@
 * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.dtos;
-//TODO: DONE borrar loque no se necesita
 
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.entities.SemanaEntity;

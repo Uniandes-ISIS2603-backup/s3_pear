@@ -6,7 +6,7 @@
 package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.CocinaEntity;
-//TODO: DONE borrar lo que no se usa
+
 
 
 /**
@@ -63,7 +63,6 @@ public class CocinaDTO {
     
     /**
      * Constructor de tipo CocinaDTO
-     * @param entidad 
      */
     public CocinaDTO( ) {
         
@@ -74,7 +73,6 @@ public class CocinaDTO {
      * @param entity 
      */
     public CocinaDTO( CocinaEntity entity ) {
-        //TODO: DONE entity podría ser null
         if ( entity != null ) {
             this.capacidad = entity.getCapacidad();
             this.ubicacion = entity.getUbicacion();

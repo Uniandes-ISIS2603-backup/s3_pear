@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.csw.pear.dtos;
 
-
 import co.edu.uniandes.csw.pear.entities.FacturaEntity;
 
 /*
@@ -65,7 +64,6 @@ public class FacturaDetailDTO extends FacturaDTO{
      */
     public FacturaDetailDTO(FacturaEntity entity){
         super(entity);
-        //TODO: DONE entity puede ser null
         if(entity != null){
         if(entity.getPersona() != null){
             persona = new PersonaDTO(entity.getPersona());

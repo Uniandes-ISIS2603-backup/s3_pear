@@ -80,7 +80,6 @@ insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_i
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6700, 2, 420418,800);
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6800, 1, 430418,1000);
 
-SELECT * FROM FACTURAENTITY;
 
 insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta) values (100, 20.000, 7, 200218);
 insert into PagoEntity(id, montoInicial, montoFinal) values (200, 10, 10);

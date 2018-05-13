@@ -9,7 +9,6 @@ import co.edu.uniandes.csw.pear.entities.CocinaEntity;
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.CocinaPersistence;
-import com.sun.xml.internal.rngom.ast.builder.BuildException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

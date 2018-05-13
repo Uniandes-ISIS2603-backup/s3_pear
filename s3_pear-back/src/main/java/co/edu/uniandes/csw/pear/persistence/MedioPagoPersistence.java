@@ -23,7 +23,7 @@ import javax.persistence.TypedQuery;
 public class MedioPagoPersistence {
     
        
-     private static final Logger LOGGER = Logger.getLogger(CityPersistence.class.getName());
+     private static final Logger LOGGER = Logger.getLogger(MedioPagoPersistence.class.getName());
 
     @PersistenceContext(unitName = "PearPU")
     protected EntityManager em;

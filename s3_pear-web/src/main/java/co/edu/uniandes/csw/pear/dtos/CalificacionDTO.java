@@ -18,7 +18,7 @@ import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
  *      "puntuacion": double
  *   }
  *  Por ejemplo una calificaion se representa asi:<br>
- *
+ * </pre>
  * <pre>
  *
  *   {
@@ -31,12 +31,12 @@ import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
  */
 public class CalificacionDTO {
 
-    //TODO: este tipo no puede ser long, debe ser Long 
+ 
     private Long id;
-//TODO: este tipo no puede ser double, debe ser Double 
-    private double puntuacion;
 
-    //TODO Cambiar los tipos y los set/get correspondientes
+    private Double puntuacion;
+
+
     /**
      * Constructor por defecto.
      */
@@ -67,15 +67,15 @@ public class CalificacionDTO {
      *
      * @return la puntuacion
      */
-    public double getPuntuacion() {
+    public Double getPuntuacion() {
         return puntuacion;
     }
 
     /**
      *
-     * @param la nueva puntuacion
+     * @param puntuacion nueva puntuacion
      */
-    public void setPuntuacion(double puntuacion) {
+    public void setPuntuacion(Double puntuacion) {
         this.puntuacion = puntuacion;
     }
 

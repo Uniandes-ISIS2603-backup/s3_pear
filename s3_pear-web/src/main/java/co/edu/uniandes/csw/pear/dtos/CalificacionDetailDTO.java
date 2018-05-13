@@ -15,7 +15,7 @@ import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
  *      "dieta": {@link DietaTipoDTO}
  *   }
  *  Por ejemplo una calificaion se representa asi:<br>
- * 
+ * </pre>
  * <pre>
  * 
  *   {
@@ -39,7 +39,7 @@ public class CalificacionDetailDTO extends CalificacionDTO
      /**
      * Constructor para transformar un Entity a un DTO
      *
-     * @param entity La entidad de ciudad a partir de la cual se construye el objeto
+     * @param entidad La entidad de ciudad a partir de la cual se construye el objeto
      */
     public CalificacionDetailDTO(CalificacionEntity entidad) {
         super(entidad);

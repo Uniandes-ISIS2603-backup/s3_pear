@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
-//TODO: DONE Borrar lo que no se usa
 
 /**
  * DietaTipoDTO modela el objeto que se transfiere entre el cliente y el
@@ -52,7 +51,6 @@ public class DietaTipoDTO {
      * @param entity entidad a partir de la cual se construira el dto
      */
     public DietaTipoDTO(DietaTipoEntity entity) {
-        //TODO: DONE entity puede ser null
         if (entity != null) {
             this.objetivo = entity.getObjetivo();
             this.descripcion = entity.getDescripcion();

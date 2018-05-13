@@ -6,9 +6,6 @@
 package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.CuentaCobroEntity;
-//TODO DONE: borrar lo que no se necesita
-
-
 /**
  * CuentaCobroDTO modela el objeto que se transfiere entre el cliente y el
  * servidor en formato JSON.
@@ -24,8 +21,7 @@ public class CuentaCobroDTO {
     //Atributos
     //-----------------------------------------------------------
     private Long id;
-
-    // TODO DONE: el ditpo debe ser Double e igualmente en el set/get
+    
     private Double valorAPagar;
 
     private Integer cantidadProductos;
@@ -48,8 +44,6 @@ public class CuentaCobroDTO {
      * objeto
      */
     public CuentaCobroDTO(CuentaCobroEntity entity) {
-
-        //TODO DONE: entity puede ser null
         if(entity!= null){
         
         this.valorAPagar = entity.getValorAPagar();

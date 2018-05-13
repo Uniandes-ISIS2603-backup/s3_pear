@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.pear.persistence;
 
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
-import java.time.Clock;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

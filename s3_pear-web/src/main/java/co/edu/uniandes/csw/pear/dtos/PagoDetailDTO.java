@@ -56,7 +56,6 @@ public class PagoDetailDTO extends PagoDTO{
      */
     public PagoDetailDTO(PagoEntity entity) {
         super(entity);
-        //TODO DONE: entity puede ser null
         if(entity != null){
         if(entity.getMedioPagoEntity() != null)
         {

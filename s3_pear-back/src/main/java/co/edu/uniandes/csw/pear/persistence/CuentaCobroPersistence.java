@@ -24,7 +24,7 @@ import javax.persistence.TypedQuery;
 public class CuentaCobroPersistence {
     
     
-     private static final Logger LOGGER = Logger.getLogger(CityPersistence.class.getName());
+     private static final Logger LOGGER = Logger.getLogger(CuentaCobroPersistence.class.getName());
 
     @PersistenceContext(unitName = "PearPU")
     protected EntityManager em;

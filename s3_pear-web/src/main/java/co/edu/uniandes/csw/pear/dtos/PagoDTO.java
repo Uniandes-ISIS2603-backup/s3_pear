@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.dtos;
-//TODO DONE: borrar si no se usa
 
 import co.edu.uniandes.csw.pear.entities.PagoEntity;
 
@@ -23,7 +22,6 @@ import co.edu.uniandes.csw.pear.entities.PagoEntity;
 public class PagoDTO {
 
     private Long id;
-    //TODO DONE: debe ser Double y no double. Cambiar los set/get también
     private Double montoInicial;
     private Double montoFinal;
 
