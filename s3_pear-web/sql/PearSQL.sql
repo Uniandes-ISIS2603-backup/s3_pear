@@ -121,11 +121,11 @@ INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME",
 INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
 	VALUES (1300,5, 200, 'ntegrated multimedia initiative', 'https://images.pexels.com/photos/629093/pexels-photo-629093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta de Crudos', 'Multi-layered explicit circu', 3, NULL);
 INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (1400,10, 400,  'dieta basada en ensaladas o algo asi', 'https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Nutricional', 'el objetivo de la dieta es desintoxicarse', 3, NULL);
+	VALUES (1400,3, 400,  'dieta basada en ensaladas o algo asi', 'https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Nutricional', 'el objetivo de la dieta es desintoxicarse', 3, NULL);
 INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
 	VALUES (1500,3, 110, 'una dieta basada en proteinas', 'https://images.pexels.com/photos/76093/pexels-photo-76093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Deportiva', 'el objetivo de la dieta es obtener masa muscular', 5, NULL);
 INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID ) 
-	VALUES (1600,8, 800, 'dieta basada en alimentos del mar', 'https://images.pexels.com/photos/36768/food-salmon-teriyaki-cooking.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Pacifica', 'el objetivo de la dieta es alejarse de las carnes rojas', 4, NULL);
+	VALUES (1600,6, 800, 'dieta basada en alimentos del mar', 'https://images.pexels.com/photos/36768/food-salmon-teriyaki-cooking.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Pacifica', 'el objetivo de la dieta es alejarse de las carnes rojas', 4, NULL);
 
 
 
@@ -230,6 +230,12 @@ insert into EnvioEntity (id,duracion,direccion,recibido) values (800,80,'ejemplo
 insert into SemanaEntity(id, fechaLunes) values (221,'26/03/2018');
 insert into SemanaEntity(id, fechaLunes) values (222,'02/04/2018');
 insert into SemanaEntity(id, fechaLunes) values (223,'09/04/2018');
+insert into SemanaEntity(id, fechaLunes) values (224,'16/04/2018');
+insert into SemanaEntity(id, fechaLunes) values (225,'23/04/2018');
+insert into SemanaEntity(id, fechaLunes) values (226,'30/04/2018');
+insert into SemanaEntity(id, fechaLunes) values (227,'07/05/2018');
+insert into SemanaEntity(id, fechaLunes) values (228,'14/05/2018');
+insert into SemanaEntity(id, fechaLunes) values (229,'21/05/2018');
 
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (100, '', '26/03/2018', 1);
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (200, '','27/03/2018', 1);
@@ -279,6 +285,174 @@ insert into DIAS_SEMANAS(DIAID, SEMANAID) values (1900,223);
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2000,223);
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2100,223);
 
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (2200, '', '16/04/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (2300, '', '17/04/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2400, '', '18/04/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2500, 'Una harina diaria','19/04/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2600, '','20/04/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2700, 'No consumir azucar refinada','21/04/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2800, '','22/04/2018', 1);
+
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2200,224);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2300,224);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2400,224);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2500,224);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2600,224);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2700,224);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2800,224);
+
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (2900, '', '23/04/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (3000, '', '24/04/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (3100, '', '25/04/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (3200, '','26/04/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (3300, '','27/04/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (3400, '','28/04/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (3500, '','29/04/2018', 1);
+
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2900,225);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (3000,225);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (3100,225);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (3200,225);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (3300,225);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (3400,225);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (3500,225);
+
+
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (3600, '', '30/04/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (3700, '', '01/05/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (3800, '', '02/05/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (3900, 'Una harina diaria','03/05/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (4000, 'Consumir arroz integral','04/05/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (4100, 'Una harina diaria','05/05/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (4200, 'Una harina diaria','06/05/2018', 0);
+
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (3600,226);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (3700,226);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (3800,226);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (3900,226);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (4000,226);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (4100,226);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (4200,226);
+
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (4300, '', '07/05/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (4400, '', '08/05/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (4500, '', '09/05/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (4600, 'Una harina diaria','10/05/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (4700, '','11/05/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (4800, 'No consumir azucar refinada','12/05/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (4900, '','13/05/2018', 1);
+
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (4300,227);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (4400,227);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (4500,227);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (4600,227);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (4700,227);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (4800,227);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (4900,227);
+
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (5000, '', '14/05/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (5100, '', '15/05/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (5200, '', '16/05/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (5300, '', '17/05/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (5400, '', '18/05/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (5500, '', '19/05/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (5600, '', '20/05/2018', 1);
+
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (5000,228);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (5100,228);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (5200,228);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (5300,228);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (5400,228);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (5500,228);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (5600,228);
+
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (5700, '', '21/05/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seenvia) values (5800, '','22/05/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (5900, '', '23/05/2018', 1);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (6000, 'No consumir azucar refinada','24/05/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (6100, 'Una harina diaria','25/05/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (6200, 'Tomar 2 litros de agua','26/05/2018', 0);
+insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (6300, '','27/05/2018', 1);
+
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (5700,229);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (5800,229);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (5900,229);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (6000,229);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (6100,229);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (6200,229);
+insert into DIAS_SEMANAS(DIAID, SEMANAID) values (6300,229);
+
+
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (221,100);
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (222,100);
 
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (223,200);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (224,200);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (225,200);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (226,200);
+
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (225,300);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (226,300);
+
+
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (221,400);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (222,400);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (223,400);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (224,400);
+
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (224,500);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (225,500);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (226,500);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (227,500);
+
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (223,600);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (224,600);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (225,600);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (226,600);
+
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (226,700);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (227,700);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (228,700);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (229,700);
+
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (221,800);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (222,800);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (223,800);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (224,800);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (225,800);
+
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (226,900);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (227,900);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (228,900);
+
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (222,1000);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (223,1000);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (224,1000);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (225,1000);
+
+
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (223,1100);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (224,1100);
+
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (229,1200);
+
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (224,1300);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (225,1300);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (226,1300);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (227,1300);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (228,1300);
+
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (227,1400);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (228,1400);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (229,1400);
+
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (225,1500);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (226,1500);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (227,1500);
+
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (222,1600);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (223,1600);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (224,1600);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (225,1600);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (226,1600);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (227,1600);
