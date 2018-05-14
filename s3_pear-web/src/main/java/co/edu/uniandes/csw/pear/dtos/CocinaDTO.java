@@ -65,7 +65,7 @@ public class CocinaDTO {
      * Constructor de tipo CocinaDTO
      */
     public CocinaDTO( ) {
-        
+        //Constructor para propositos de persistencia
     }
     
     /**

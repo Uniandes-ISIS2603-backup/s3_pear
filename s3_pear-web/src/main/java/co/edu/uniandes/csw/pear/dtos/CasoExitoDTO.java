@@ -60,7 +60,7 @@ public class CasoExitoDTO {
      * Constructor vacío para propósitos de persistencia
      */
     public CasoExitoDTO(){
-        
+        //Constructor para propositos de persistencia
     }
     
     //-----------------------------------------------------------

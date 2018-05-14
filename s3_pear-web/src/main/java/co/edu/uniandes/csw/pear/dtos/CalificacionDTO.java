@@ -41,6 +41,21 @@ public class CalificacionDTO {
      * Constructor por defecto.
      */
     public CalificacionDTO() {
+      //Constructor vacio  
+    }
+    
+    
+    /**
+     * Conviertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
+     * la entidad que viene de argumento.
+     *
+     * @param entidad: Es la entidad que se va a convertir a DTO
+     */
+    public CalificacionDTO(CalificacionEntity entidad) {
+        if(entidad != null){
+            this.puntuacion = entidad.getPuntuacion();
+            this.id = entidad.getId();  
+        }
     }
 
     public Long getId() {
@@ -51,17 +66,7 @@ public class CalificacionDTO {
         this.id = id;
     }
 
-    /**
-     * Conviertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
-     * la entidad que viene de argumento.
-     *
-     * @param entidad: Es la entidad que se va a convertir a DTO
-     */
-    public CalificacionDTO(CalificacionEntity entidad) {
-        //TODO: hay qu e verificar que entity no se null
-        this.puntuacion = entidad.getPuntuacion();
-        this.id = entidad.getId();
-    }
+
 
     /**
      *
