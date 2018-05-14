@@ -58,14 +58,9 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     @PodamExclude
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "persona")
     private List<FacturaEntity> facturas;
-    
-    
-     @PodamExclude
-    @OneToMany( cascade = CascadeType.PERSIST)
-        @JoinTable(name="PERSONAS_ENVIOS", 
-        joinColumns=@JoinColumn(name="personaId"),
-        inverseJoinColumns=@JoinColumn(name="envioId")
-    )
+
+    @PodamExclude
+    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
     private List<EnvioEntity> envios;
     
     
