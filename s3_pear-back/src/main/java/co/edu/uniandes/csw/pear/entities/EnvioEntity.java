@@ -8,6 +8,8 @@ package co.edu.uniandes.csw.pear.entities;
 import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -24,11 +26,19 @@ public class EnvioEntity extends BaseEntity implements Serializable{
     
     @PodamExclude
     @OneToOne( cascade = CascadeType.PERSIST, orphanRemoval = true)
+        @JoinTable(name="ENVIOS_PERSONAS", 
+        joinColumns=@JoinColumn(name="envioId"),
+        inverseJoinColumns=@JoinColumn(name="personaId")
+    )
     private PersonaEntity persona;
     
     private boolean recibido;
     @PodamExclude
     @OneToOne( cascade = CascadeType.PERSIST, orphanRemoval = true)
+        @JoinTable(name="ENVIOS_COMIDAS", 
+        joinColumns=@JoinColumn(name="envioId"),
+        inverseJoinColumns=@JoinColumn(name="comidaId")
+    )
     private ComidaEntity comida;
     
     /**

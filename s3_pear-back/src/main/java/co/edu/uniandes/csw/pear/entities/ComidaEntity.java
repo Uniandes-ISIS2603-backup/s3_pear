@@ -8,6 +8,8 @@ package co.edu.uniandes.csw.pear.entities;
 import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 /**
@@ -24,6 +26,10 @@ public class ComidaEntity extends BaseEntity implements Serializable
     
     @PodamExclude
     @ManyToOne(cascade = CascadeType.PERSIST)
+        @JoinTable(name="DIAS_COMIDAS", 
+        joinColumns=@JoinColumn(name="comidaId"),
+        inverseJoinColumns=@JoinColumn(name="diaId")
+    )
     private DiaEntity dia;
     
  /**
