@@ -9,7 +9,6 @@ import co.edu.uniandes.csw.pear.entities.SemanaEntity;
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 /**
  El formato JSON de este objeto es el siguiente:

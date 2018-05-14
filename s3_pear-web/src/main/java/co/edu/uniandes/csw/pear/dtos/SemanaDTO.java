@@ -56,7 +56,7 @@ public class SemanaDTO {
       * Contructor de la clase SemanaDTO
       */
     public SemanaDTO(){
-        
+        //Constructor para propositos de persistencia
     }
     
     //-----------------------------------------------------------

@@ -21,14 +21,6 @@ import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
  *  Por ejemplo una queja y reclamo  se representa asi:<br>
  *
  * </pre>
- * <pre>
- *
- *   {
- *      "Asunto": "Queja",
- *      "Comentario": "Mas puntual con la entrega"
- *   }
- *
- * </pre>
  *
  * @author ga.bejarano10
  */
@@ -42,14 +34,7 @@ public class QuejasyReclamosDTO {
      * Constructor por defecto
      */
     public QuejasyReclamosDTO() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+       //Constructor para propositos de persistencia
     }
 
     /**
@@ -64,6 +49,14 @@ public class QuejasyReclamosDTO {
         this.asunto = entidad.getAsunto();
         this.id = entidad.getId();
         }
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     /**
@@ -97,7 +90,6 @@ public class QuejasyReclamosDTO {
 
     /**
      * Convertir DTO a Entity
-     *
      * @return un entity con los valores de DTO
      */
     public QuejasyReclamosEntity toEntity() {

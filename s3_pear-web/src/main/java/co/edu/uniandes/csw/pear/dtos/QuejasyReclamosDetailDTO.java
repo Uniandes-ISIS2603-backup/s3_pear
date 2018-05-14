@@ -26,13 +26,14 @@ import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
  */
 public class QuejasyReclamosDetailDTO extends QuejasyReclamosDTO
 {
+    
+    private DietaTipoDTO dieta;
+    
     /**
      * generado por defecto
      */
-    
-    
-    private DietaTipoDTO dieta;
-    public QuejasyReclamosDetailDTO() {
+    public QuejasyReclamosDetailDTO() { 
+        super();
     }
 
     /**

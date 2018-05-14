@@ -18,15 +18,6 @@ import co.edu.uniandes.csw.pear.entities.EnvioEntity;
  *   }
  *  Por ejemplo un envio  se representa asi:<br>
  * </pre>
- * <pre>
- * 
- *   {
- *      "duracion": 1hora,
- *      "recibido": true,
- *      "direccion": UnaDireccion
- *   }
- *
- * </pre>
  * @author js.cabra
  */
 public class EnvioDetailDTO extends EnvioDTO{
