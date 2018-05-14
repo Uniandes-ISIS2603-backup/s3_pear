@@ -41,29 +41,6 @@ public class MedioPagoPersistence {
     }
 
     /**
-     * Busca si hay algun medio de pago con el nombre que se envía de argumento
-     *
-     * @param name: Nombre del medio de pago que se está buscando
-     * @return null si no existe ningun medio de pago con el nombre del argumento. Si
-     * existe alguna devuelve la primera.
-     */
-    public MedioPagoEntity findByName(String name) {
-        LOGGER.log(Level.INFO, "Consultando cuenta por nombre ", name);
-
-        // Se crea un query para buscar mediosDePagos con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From MedioPagoEntity e where e.name = :name", MedioPagoEntity.class);
-        // Se remplaza el placeholder ":name" con el valor del argumento 
-        query = query.setParameter("name", name);
-        // Se invoca el query se obtiene la lista resultado
-        List<MedioPagoEntity> sameName = query.getResultList();
-        if (sameName.isEmpty()) {
-            return null;
-        } else {
-            return sameName.get(0);
-        }
-    }
-
-    /**
      * 
      * @return Devuelve todos los medios de pago
      */

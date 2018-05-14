@@ -15,7 +15,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author jp.campos
  */
 @Entity
-public class CuentaCobroEntity implements Serializable {
+public class CuentaCobroEntity extends BaseEntity implements Serializable {
     
     
     

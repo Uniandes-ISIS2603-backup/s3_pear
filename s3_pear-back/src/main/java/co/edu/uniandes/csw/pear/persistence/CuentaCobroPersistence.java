@@ -42,28 +42,7 @@ public class CuentaCobroPersistence {
         return entity;
     }
 
-    /**
-     * Busca si hay alguna cuentaCobro con el nombre que se envía de argumento
-     *
-     * @param name: Nombre de la cuenta de cobro que se está buscando
-     * @return null si no existe ninguna city con el nombre del argumento. Si
-     * existe alguna devuelve la primera.
-     */
-    public CuentaCobroEntity findByName(String name) {
-        LOGGER.log(Level.INFO, "Consultando cuenta por nombre ", name);
-
-        // Se crea un query para buscar cuentas de cobro con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From CuentaCobroEntity e where e.name = :name", CuentaCobroEntity.class);
-        // Se remplaza el placeholder ":name" con el valor del argumento 
-        query = query.setParameter("name", name);
-        // Se invoca el query se obtiene la lista resultado
-        List<CuentaCobroEntity> sameName = query.getResultList();
-        if (sameName.isEmpty()) {
-            return null;
-        } else {
-            return sameName.get(0);
-        }
-    }
+ 
 
     /**
      * 
