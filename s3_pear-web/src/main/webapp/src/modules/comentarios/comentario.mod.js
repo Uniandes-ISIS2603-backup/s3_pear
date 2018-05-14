@@ -62,12 +62,15 @@
                     
                 };
                 console.log(data);
-                $http.post('http://localhost:8080/s3_pear-web/api/dietas/' + $scope.dieta+ '/quejasyreclamos', data).then(function (response) {
+                $http.post('http://localhost:8080/s3_pear-web/api/dietas/' + $scope.dieta.id + '/quejasyreclamos', data).then(function (response) {
                     $scope.post_data = response.data;
-                    $state.go('dieta_specs.comentario_post({ id_dieta: $scope.dieta })', {}, {reload: true});
+                   $state.go('^.comentarios', {}, {
+                        reload: true
+                    });
+                    
                 });
                 
-            }
+            };
 
             
         } // END FUNCTION CONTROLLER
