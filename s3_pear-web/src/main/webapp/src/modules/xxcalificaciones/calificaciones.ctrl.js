@@ -12,8 +12,6 @@
         };
     });
     mod.controller('calificacionesCtrl', ['$scope', '$http', 'calificacionesContext', '$state', 'dietasContext',
-
-        
         function ($scope, $http, calificacionesContext, $state, dietasContext) {
 
             var cero=0;
@@ -28,36 +26,23 @@
                 var puntajeTotal=0;
                 $scope.calificacionesRecords = response.data;
                 
-               
-          
-                
-
                 for (var i = 0; i < a.length; i++) {
-                    if (a[i].puntuacion == 0 || a[i].puntuacion == 1) {
+                    if (a[i].puntuacion === 0 || a[i].puntuacion === 1)
                         cero++;
-                    }
-                    if (a[i].puntuacion == 2 || a[i].puntuacion == 3) {
+                    if (a[i].puntuacion === 2 || a[i].puntuacion === 3)
                         uno++;
-                    }
-                    if (a[i].puntuacion == 4 || a[i].puntuacion == 5) {
+                    if (a[i].puntuacion === 4 || a[i].puntuacion === 5)
                         dos++;
-                    }
-                    if (a[i].puntuacion == 6 || a[i].puntuacion == 7) {
+                    if (a[i].puntuacion === 6 || a[i].puntuacion === 7)
                         tres++;
-                    }
-                    if (a[i].puntuacion == 8 || a[i].puntuacion == 9) {
+                    if (a[i].puntuacion === 8 || a[i].puntuacion === 9)
                         cuatro++;
-                    }
-                    if (a[i].puntuacion == 10) {
-                        cinco++;
-                    }
-                    if(a[i].dieta.id==$state.params.dietaId){
+                    if (a[i].puntuacion === 10)
+                        cinco++;      
+                    if(a[i].dieta.id === $state.params.dietaId)
                         dieta = a[i].dieta.id;
-                    }
+
                     
-                     
-                     
-                   
                     
                     puntajeTotal+= a[i].puntuacion;
                 }
@@ -76,8 +61,7 @@
                 $scope.porcentajeTres= (tres*100)/total;
                 $scope.porcentajeCuatro= (cuatro*100)/total;
                 $scope.porcentajeCinco= (cinco*100)/total;
-                $scope.promedio= puntajeTotal/a.length;
-                
+                $scope.promedio= puntajeTotal/a.length;        
             });
 
             if ($state.params.calificacionesId !== null && $state.params.calificacionesId !== undefined) {
@@ -85,7 +69,6 @@
                
                 $http.get(dietasContext+ '/' + $state.params.idDieta + '/'+calificacionesContext + "/" + $state.params.calificacionesId).then(function (response) {
                     $scope.calificacion = response.data;
-                    console.log(response.data);
                 });
             }
             $scope.enviar_calificacion = function () {
@@ -93,11 +76,7 @@
                 let data = {
                     puntuacion: $scope.puntuacion
                     
-                };
-
-                console.log(data);
-
-      
+                };  
                 $http.post(calificacionesContext, data).then(function (response) {
                     $scope.post_data = response.data;
                     $state.go('calificacionesList', {}, {reload: true});
@@ -106,11 +85,10 @@
             $scope.actualizar_calificacion = function () {
               
                 let data = {
-                    puntuacion: $scope.newPuntuacion
-                    
+                    puntuacion: $scope.newPuntuacion    
                 };
 
-                var dieta=1;
+                dieta = 1;
                 $http.put(dietasContext+ '/' + $state.params.idDieta + '/'+calificacionesContext + "/" + $scope.id_calificacion, data).then(function (response) {
                     
                     $scope.put_data = response.data;
@@ -118,7 +96,6 @@
                     $state.go('calificacionesList({dietaId:dieta})', {}, {reload: true});
                 });
             };
-
         }
     ]);
 }
