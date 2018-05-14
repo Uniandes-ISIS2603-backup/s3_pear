@@ -159,7 +159,7 @@ $(document).ready( function() {
     
     
     
-    /* GOOGLE MAPS */
+    /* GOOGLE MAPS 
     
      let map = new GMaps({
         div: '.map', 
@@ -175,7 +175,7 @@ $(document).ready( function() {
         title: 'Dieta Facil Central',
     });
     
-
+*/
     
 } );
 
