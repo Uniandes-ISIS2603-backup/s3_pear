@@ -2,10 +2,11 @@
 
 <div ng-app="calificacionModule" ng-controller="calificacionController" >
     
-    <h1>VUELVE A OPRIMIR EL BOTON DE CALIFICACIONES</h1>
+    <h1 style="color: rebeccapurple; font-size: 15px">VUELVE A OPRIMIR EL BOTON DE CALIFICACIONES -- MIENTRAS SE HACE EL ATRIBUTO CALIFICACIONES DESD DIETAS</h1>
     
+    {{calificaciones_dieta.length}}
     
-    <div ng-if="calificaciones_dieta.length < 1">
+    <div ng-if="calificaciones_dieta.length < 2">
         <h1 style="color: dimgray; font-family: 'Roboto'; font-weight: 300;">Esta dieta no tiene calificaciones. <br/> Pero tú puedes ser el primero en calificar. </h1>
     </div>
 

@@ -9,6 +9,7 @@ import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.CalificacionPersistence;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
@@ -48,10 +49,10 @@ public class CalificacionLogic {
         LOGGER.info("Inicia proceso de consultar todas las calificaciones");
         DietaTipoEntity dieta = dietaLogic.getDieta(idDieta);
         if(dieta.getCalificaciones()==null){
-             throw new BusinessLogicException("La dieta que consulta aún no tiene calificaciones");
+             return new ArrayList<>();
         }
         if(dieta.getCalificaciones().isEmpty()){
-             throw new BusinessLogicException("La dieta que consulta aún no tiene calificaciones");
+             return new ArrayList<>();
         }
         return persistence.findAll(idDieta);
     }

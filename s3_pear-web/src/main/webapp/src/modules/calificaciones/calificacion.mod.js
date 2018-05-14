@@ -64,8 +64,16 @@
                 console.log('Buscando calificaciones de la dieta con id : ' + dieta);
                 $http.get('http://localhost:8080/s3_pear-web/api/dietas/' + dieta + '/calificaciones').then(function (response) {
                     $scope.calificaciones_dieta = response.data;
-
-                });
+                    
+                    console.log('status >> ' + response.status);
+                    
+                    if ( response.status === 412 ) {
+                        console.log('QUE PUTAS');
+                    }
+                }), function ( response ) {
+                    console.log('que hago aqui');
+                }
+                ;
             };
 
             $scope.percentaje = function (value, data) {
