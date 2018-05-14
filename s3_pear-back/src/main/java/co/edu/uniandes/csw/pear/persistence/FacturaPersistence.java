@@ -39,18 +39,7 @@ public class FacturaPersistence {
         return entity;
     }
     
-      /**
-     * Busca si hay alguna factura con el nombre que entra por parametro
-     *
-     * @param name: Nombre de la factura que se está buscando
-     * @return la primera factura
-     */
-    public FacturaEntity findByName(String name) {
-       LOGGER.log(Level.INFO, "Consultando la factura con name= ", name);
-        TypedQuery<FacturaEntity> q = em.createQuery("select u from FacturaEntity u where u.name = :name", FacturaEntity.class);
-        q = q.setParameter("name", name);
-        return q.getSingleResult();
-    }
+   
     /**
      * Busca todas las facturas de tipo FacturaEntity
      * @return lista con todas las facturas

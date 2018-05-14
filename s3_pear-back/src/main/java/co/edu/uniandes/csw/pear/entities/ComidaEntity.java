@@ -62,7 +62,7 @@ public class ComidaEntity extends BaseEntity implements Serializable
     }
     /**
      * Cambia alimentos de la comida
-     * @param pAlimetos
+     * @param pAlimentos
      */
     public void setAlimentos(String pAlimentos)
     {

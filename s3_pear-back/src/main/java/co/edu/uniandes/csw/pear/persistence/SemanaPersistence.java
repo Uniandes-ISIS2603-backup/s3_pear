@@ -33,18 +33,7 @@ public class SemanaPersistence {
         LOGGER.log(Level.INFO, "Consultando semana con id = {0}", id);
         return em.find(SemanaEntity.class, id);
     }
-        
-    /**
-     * Busca si hay alguna semana con el nombre que entra por parametro
-     * @param name Nombre de la semana que se está buscando
-     * @return  la primer semana que se encuentra.
-     */
-    public SemanaEntity findByName(String name) {
-        LOGGER.log(Level.INFO, "Consultando la semana con nombre = ", name);
-        TypedQuery<SemanaEntity> q = em.createQuery("select u from SemanaEntity u where u.name = :name", SemanaEntity.class);
-        q = q.setParameter("name", name);
-        return q.getSingleResult();
-    }
+    
     
     /**
      * Busca todos las semanas de tipo SemanaEntity

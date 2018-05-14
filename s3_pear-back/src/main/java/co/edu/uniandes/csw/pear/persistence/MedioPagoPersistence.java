@@ -8,7 +8,6 @@ package co.edu.uniandes.csw.pear.persistence;
 import co.edu.uniandes.csw.pear.entities.MedioPagoEntity;
 
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

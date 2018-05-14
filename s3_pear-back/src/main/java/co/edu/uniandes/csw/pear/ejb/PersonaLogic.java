@@ -39,9 +39,7 @@ public class PersonaLogic {
                 || entity.getDireccion() == null || entity.getEdad() == null){
             throw new BusinessLogicException("La persona no puede tener atributos nulos");
         }
-        else if(persistence.findByName(entity.getNombre()) != null){
-            throw new BusinessLogicException("La persona ya existe");
-        }
+       
         // Invoca la persistencia para crear el caso exito
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de persona");
