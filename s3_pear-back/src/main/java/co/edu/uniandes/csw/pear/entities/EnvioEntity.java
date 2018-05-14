@@ -10,6 +10,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -25,7 +26,7 @@ public class EnvioEntity extends BaseEntity implements Serializable{
     private String direccion;
     
     @PodamExclude
-    @OneToOne( cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @ManyToOne( cascade = CascadeType.PERSIST)
         @JoinTable(name="ENVIOS_PERSONAS", 
         joinColumns=@JoinColumn(name="envioId"),
         inverseJoinColumns=@JoinColumn(name="personaId")

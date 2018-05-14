@@ -33,7 +33,7 @@
 
             if ($rootScope.persona !== undefined && $rootScope.persona !== null) {
                 $http.get('http://localhost:8080/s3_pear-web/api/cuentascobro/' + $rootScope.persona.cuenta.id).then(function (response) {
-                    $scope.cuenta_personal = response.data;
+                    $rootScope.cuenta_personal = response.data;
                 });
             }
 

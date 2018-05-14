@@ -134,9 +134,20 @@
 
 
             if ($rootScope.user) {
-                
-               $http.get('http://localhost:8080/s3_pear-web/api/personas/' + $rootScope.id_persona ).then(function (response) {
+
+                $http.get('http://localhost:8080/s3_pear-web/api/personas/' + $rootScope.id_persona).then(function (response) {
+                    
                     $rootScope.persona = response.data;
+                    
+                    $http.get('http://localhost:8080/s3_pear-web/api/cuentascobro/' + $rootScope.persona.cuenta.id).then(function (response) {
+                        $rootScope.cuenta_personal = response.data;
+                    });
+                    
+                    if ( $rootScope.cuenta_personal.cuenta.id === null || $rootScope.cuenta_personal.cuenta.id === undefined  )
+                        $rootScope.definitivamente_no_tiene_dietas = true;
+                    else
+                        $rootScope.definitivamente_no_tiene_dietas = false;
+                    
                 });
 
             }
@@ -175,21 +186,21 @@
                     });
                 });
             };
-            
-            
-            $scope.addDieta_toPersona = function ( dieta_id ) {
-                
-                $http.put('http://localhost:8080/s3_pear-web/api/personas/' + $rootScope.id_persona + '/dietas/' + dieta_id ).then(function (response) {
+
+
+            $scope.addDieta_toPersona = function (dieta_id) {
+
+                $http.put('http://localhost:8080/s3_pear-web/api/personas/' + $rootScope.id_persona + '/dietas/' + dieta_id).then(function (response) {
                     $state.go('dietas', {}, {
                         reload: true
                     });
                 });
-                
+
             };
-            
-            $scope.cancelar_dieta = function( dieta_id ) {
-                
-                $http.delete('http://localhost:8080/s3_pear-web/api/personas/' + $rootScope.id_persona + '/dietas/' + dieta_id ).then(function (response) {
+
+            $scope.cancelar_dieta = function (dieta_id) {
+
+                $http.delete('http://localhost:8080/s3_pear-web/api/personas/' + $rootScope.id_persona + '/dietas/' + dieta_id).then(function (response) {
                     $state.go('dietas', {}, {
                         reload: true
                     });

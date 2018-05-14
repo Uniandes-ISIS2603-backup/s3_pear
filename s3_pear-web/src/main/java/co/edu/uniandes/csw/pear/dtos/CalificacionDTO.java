@@ -15,7 +15,7 @@ import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
  * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
  * <pre>
  *   {
- *      "puntuacion": double
+ *      "puntuacion": int
  *   }
  *  Por ejemplo una calificaion se representa asi:<br>
  * </pre>
@@ -34,7 +34,7 @@ public class CalificacionDTO {
  
     private Long id;
 
-    private Double puntuacion;
+    private int puntuacion;
 
 
     /**
@@ -72,7 +72,7 @@ public class CalificacionDTO {
      *
      * @return la puntuacion
      */
-    public Double getPuntuacion() {
+    public int getPuntuacion() {
         return puntuacion;
     }
 
@@ -80,7 +80,7 @@ public class CalificacionDTO {
      *
      * @param puntuacion nueva puntuacion
      */
-    public void setPuntuacion(Double puntuacion) {
+    public void setPuntuacion(int puntuacion) {
         this.puntuacion = puntuacion;
     }
 

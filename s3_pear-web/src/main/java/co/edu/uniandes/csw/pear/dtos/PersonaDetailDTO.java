@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.dtos;
 
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
+import co.edu.uniandes.csw.pear.entities.EnvioEntity;
 import co.edu.uniandes.csw.pear.entities.FacturaEntity;
 import co.edu.uniandes.csw.pear.entities.PersonaEntity;
 import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
@@ -29,6 +30,8 @@ public class PersonaDetailDTO extends PersonaDTO {
     private List<FacturaDTO> facturas;
 
     private CuentaCobroDTO cuenta;
+    
+    private List<EnvioDTO> envios;
 
     //-----------------------------------------------------------
     //Constructor
@@ -53,7 +56,12 @@ public class PersonaDetailDTO extends PersonaDTO {
                     facturas.add(new FacturaDTO(f));
                 }
             }
-
+               for (EnvioEntity envio : entidad.getEnvios()) {
+                if (envio != null) {
+                    envios.add(new EnvioDTO(envio));
+                }
+            }
+            
             if (entidad.getCuenta() != null) {
                 this.cuenta = new CuentaCobroDTO(entidad.getCuenta());
             } else {
@@ -130,6 +138,20 @@ public class PersonaDetailDTO extends PersonaDTO {
     public void setQuejas(List<QuejasyReclamosDTO> pQuejas) {
         quejas = pQuejas;
     }
+    
+       /**
+     * @return lista de envios
+     */
+    public List<EnvioDTO> getEnvios(){
+        return envios;
+    }
+    
+    /**
+     * @param list lista de envios
+     */
+    public void setEnvios(List<EnvioDTO> list){
+        envios = list;
+    }
 
     @Override
     public PersonaEntity toEntity() {
@@ -153,8 +175,20 @@ public class PersonaDetailDTO extends PersonaDTO {
                     }
                 }
             }
+            
             entidad.setQuejas(qyrE);
-
+            
+            
+             List<EnvioEntity> qEnvio = new ArrayList<>();
+             if (envios != null) {
+                for (EnvioDTO qyr : envios) {
+                    if (qyr != null) {
+                        qEnvio.add(qyr.toEntity());
+                    }
+                }
+            }
+             entidad.setEnvios(qEnvio);
+             
             List<FacturaEntity> fE = new ArrayList<>();
 
             if (facturas != null) {

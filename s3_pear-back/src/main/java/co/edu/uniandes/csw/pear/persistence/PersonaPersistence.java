@@ -37,26 +37,7 @@ public class PersonaPersistence {
         return entity;
     }
     
-    /**
-     * Busca si hay alguna persona con el nombre que se envía de argumento
-     * 
-     * @param nombre: Nombre de la persona
-     * @return null si no existe ninguna persona con ese nombre asociado
-     * Si existe, devuelve la primera persona que encuentre
-     */
-    public CasoExitoEntity findByName(String nombre){
-        LOGGER.log(Level.INFO, "Consultando persona por nombre", nombre);
-        
-        TypedQuery query = em.createQuery("Select e From PersonaEntity e where e.nombre = :nombre", PersonaEntity.class);
-    
-        query = query.setParameter("nombre", nombre);
-        
-        List<CasoExitoEntity> samePerson = query.getResultList();
-        if (samePerson.isEmpty())
-            return null;
-        else
-            return samePerson.get(0);
-    }
+
     
     /**
      * Recupera todas las personas dentro del sistema

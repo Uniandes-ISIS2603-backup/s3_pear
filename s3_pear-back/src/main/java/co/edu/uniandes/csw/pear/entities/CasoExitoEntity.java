@@ -25,19 +25,32 @@ public class CasoExitoEntity extends BaseEntity implements Serializable{
     
     private String testimonio;
     
+    private String fotoAntesyDespues;
+    
+    
     @PodamExclude
     @OneToOne(cascade = CascadeType.PERSIST)
     private DietaTipoEntity dieta;
+
     
-    
+
     //-----------------------------------------------------------
     //Metodos
     //-----------------------------------------------------------
+    public String getFotoAntesyDespues(){
+        return fotoAntesyDespues;
+    }
+
+    public void setFotoAntesyDespues(String fotoAntesyDespues) {
+        this.fotoAntesyDespues = fotoAntesyDespues;
+    }
+
     
+
     /**
      * @return El comentario asociado al caso
      */
-    public String getComentario(){
+    public String getComentario() {
         return comentario;
     }
     

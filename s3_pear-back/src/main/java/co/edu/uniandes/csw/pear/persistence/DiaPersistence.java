@@ -38,17 +38,6 @@ public class DiaPersistence {
         return entity;
     }
     
-      /**
-     * Busca si hay algun dia con el nombre que entra por parametro
-     * @param name: Nombre del dia que se está buscando
-     * @return  el primer dia que se encuentra.
-     */
-    public DiaEntity findByName(String name) {
-        LOGGER.log(Level.INFO, "Consultando la semana con name = ", name);
-        TypedQuery<DiaEntity> q = em.createQuery("select u from DiaEntity u where u.name = :name", DiaEntity.class);
-        q = q.setParameter("name", name);
-        return q.getSingleResult();
-    }
     /**
      * Busca todos los dias de tipo DiaEntity
      * @return lista con todas los dias

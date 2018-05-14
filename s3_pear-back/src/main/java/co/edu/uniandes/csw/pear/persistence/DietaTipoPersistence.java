@@ -59,9 +59,9 @@ public class DietaTipoPersistence {
     public List<DietaTipoEntity> findAll( ) {
         LOGGER.info("Consultando todas las dietas");
         Query q = em.createQuery("select u from DietaTipoEntity u");
-        System.out.println(q.getResultList());
+        LOGGER.info(q.getResultList().toString());
         return q.getResultList();
-        
+       
     }
     
     /**

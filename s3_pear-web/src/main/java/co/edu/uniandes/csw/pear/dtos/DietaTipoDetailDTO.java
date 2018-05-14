@@ -57,11 +57,12 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
         else calificaciones = new ArrayList<>();
         if (entity.getQuejas() != null) {
             quejas = new ArrayList<>();
-            for (QuejasyReclamosEntity entityQueja : entity.getQuejas()) {
-                quejas.add(new QuejasyReclamosDTO(entityQueja));
+            for (QuejasyReclamosEntity entityCalificacion : entity.getQuejas()) {
+                quejas.add(new QuejasyReclamosDTO(entityCalificacion));
             }
         }
         else quejas = new ArrayList<>();
+
         if (entity.getPersonas()!= null) {
             personas = new ArrayList<>();
             for (PersonaEntity persona : entity.getPersonas()) {
@@ -75,12 +76,14 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
     public DietaTipoEntity toEntity() {
         DietaTipoEntity en = super.toEntity();
 
-        if (this.getCalificaciones() != null) {
+        if (calificaciones!= null) {
             List<CalificacionEntity> calificacionesEntity = new ArrayList<>();
-            for (CalificacionDTO dtoCalificacion : getCalificaciones()) {
+            for (CalificacionDTO dtoCalificacion : calificaciones) {
                 calificacionesEntity.add(dtoCalificacion.toEntity());
             }
             en.setCalificaciones(calificacionesEntity);
+            System.out.println("valer");
+            System.out.println(en.getCalificaciones());
         }
         if (quejas != null) {
             List<QuejasyReclamosEntity> quejasEntity = new ArrayList<>();

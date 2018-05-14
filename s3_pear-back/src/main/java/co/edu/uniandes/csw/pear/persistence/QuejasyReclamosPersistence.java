@@ -57,7 +57,7 @@ public class QuejasyReclamosPersistence
 
         } else if (results.isEmpty()) {
             queja= null;
-        } else if (results.size() >= 1) {
+        } else if (!results.isEmpty()) {
             queja = results.get(0);
         }
 
