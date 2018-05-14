@@ -127,9 +127,9 @@ public class CalificacionPersistenceTest
         for (int i = 0; i < 3; i++) {
             CalificacionEntity entity = factory.manufacturePojo(CalificacionEntity.class);
 
-            if (i == 0) {
-                entity.setDieta(dataDieta.get(0));
-            }
+            
+            entity.setDieta(dataDieta.get(0));
+            
             em.persist(entity);
             data.add(entity);
         }
@@ -163,7 +163,7 @@ public class CalificacionPersistenceTest
     public void getCalificacionesTest() {
         
         
-        List<CalificacionEntity> list = calificacionPersistence.findAll(dataDieta.get(1).getId());
+        List<CalificacionEntity> list = calificacionPersistence.findAll(dataDieta.get(0).getId());
         Assert.assertEquals(data.size(), list.size());
         for (CalificacionEntity ent : list) {
             boolean found = false;
@@ -188,6 +188,11 @@ public class CalificacionPersistenceTest
         int nuevaPuntuacion = (int) newEntity.getPuntuacion();
         int puntuacion = (int) entity.getPuntuacion();
         Assert.assertEquals(nuevaPuntuacion, puntuacion);
+        
+        newEntity = calificacionPersistence.find(new Long(2), new Long(3)); 
+        
+        Assert.assertEquals(newEntity, null);
+        
     }
     @Test
     public void deleteCalificacionTest() {

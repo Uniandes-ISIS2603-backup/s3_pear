@@ -4,6 +4,12 @@
 
     <!-- TODO ng-repeat="com in quejasRecords" -->
 
+    <div ng-if="dieta.quejas.length < 1">
+        <div>
+            <h1 style="color: dimgray; font-family: 'Roboto'; font-weight: 300;">Esta dieta no tiene comentarios. <br/> Pero tú puedes ser el primero en comentar. </h1>
+        </div>
+    </div>
+
     <div class="comment" ng-repeat="queja in dieta.quejas">
 
         <a class="avatar">
@@ -21,9 +27,9 @@
 
     </div>
 
-    
-    
-   
+
+
+
 </div>
 
 

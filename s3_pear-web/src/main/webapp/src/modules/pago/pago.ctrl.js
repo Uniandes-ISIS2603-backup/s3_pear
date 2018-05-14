@@ -26,7 +26,7 @@
             });  
            
            //Aca poner el parámetro de la persona actual.
-              $http.get('http://localhost:8080/s3_pear-web/api/cuentascobro/' + 1).then(function (response) {
+              $http.get('http://localhost:8080/s3_pear-web/api/cuentascobro/' + 100).then(function (response) {
          
                 $scope.cuentaActual = response.data;
                 $scope.pagoActual = $scope.cuentaActual.pagoActual;

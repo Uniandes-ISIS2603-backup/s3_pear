@@ -4,9 +4,8 @@ UPDATE PERSONAENTITY SET CUENTA_ID = NULL;
 
 delete from DietaTipoEntity_PersonaEntity;
 delete from PersonaEntity_DietaTipoEntity;
-delete from DietaTipoEntity_SemanaEntity;
 delete from SemanaEntity_DietaTipoEntity;
-
+delete from Semanas_Dietas;
 delete from CuentaCobroEntity;
 delete from DietaTipoEntity;
 delete from CocinaEntity;
@@ -279,4 +278,7 @@ insert into DIAS_SEMANAS(DIAID, SEMANAID) values (1800,223);
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (1900,223);
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2000,223);
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2100,223);
+
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (221,100);
+insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (222,100);
 

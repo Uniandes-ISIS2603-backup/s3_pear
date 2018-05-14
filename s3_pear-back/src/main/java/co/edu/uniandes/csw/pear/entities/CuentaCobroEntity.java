@@ -36,7 +36,6 @@ public class CuentaCobroEntity extends BaseEntity implements Serializable {
     @OneToOne(cascade = CascadeType.PERSIST, orphanRemoval = true)
     private PagoEntity pago;
     
-    
      /**
      * Devuelve el valor a pagar
      * @return valorAPagar

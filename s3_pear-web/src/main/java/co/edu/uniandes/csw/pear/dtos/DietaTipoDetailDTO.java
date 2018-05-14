@@ -46,29 +46,34 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
             for (SemanaEntity semana : entity.getSemanas()) {
                 semanas.add(new SemanaDTO(semana));
             }
-
         }
+        else semanas =  new ArrayList<>();
         if (entity.getCalificaciones() != null) {
             calificaciones = new ArrayList<>();
             for (CalificacionEntity entityCalificacion : entity.getCalificaciones()) {
                 calificaciones.add(new CalificacionDTO(entityCalificacion));
             }
         }
+        else calificaciones = new ArrayList<>();
         if (entity.getQuejas() != null) {
             quejas = new ArrayList<>();
             for (QuejasyReclamosEntity entityCalificacion : entity.getQuejas()) {
                 quejas.add(new QuejasyReclamosDTO(entityCalificacion));
             }
         }
+<<<<<<< HEAD
         
         
+=======
+        else quejas = new ArrayList<>();
+>>>>>>> cccabdf805176a829e569b73b181b87d85c6af4c
         if (entity.getPersonas()!= null) {
             personas = new ArrayList<>();
             for (PersonaEntity persona : entity.getPersonas()) {
                 personas.add(new PersonaDTO(persona));
             }
         }
-
+        else personas =  new ArrayList<>();
     }
 
     @Override
@@ -140,8 +145,6 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
 
     public void setPersonas(List<PersonaDTO> personas) {
         this.personas = personas;
-    }
-    
-    
+    }   
 
 }

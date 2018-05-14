@@ -32,19 +32,23 @@ public class SemanaEntity  extends BaseEntity implements Serializable{
     private List<DiaEntity> dias;
     
     @PodamExclude
-    @ManyToMany( cascade = CascadeType.PERSIST)
-    private List<DietaTipoEntity> dietas;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinTable(name="SEMANAS_DIETAS", 
+        joinColumns=@JoinColumn(name="semanaID"),
+        inverseJoinColumns=@JoinColumn(name="dietaId")
+    )
+    private DietaTipoEntity dieta;
    
     //-----------------------------------------------------------
     // Metodos
     //-----------------------------------------------------------
    
-    public void setDietas(List<DietaTipoEntity> diet ){
-        dietas = diet;
+    public void setDieta(DietaTipoEntity diet ){
+        dieta = diet;
     }
     
-    public List<DietaTipoEntity>getDietas(){
-        return dietas;
+    public DietaTipoEntity getDieta(){
+        return dieta;
     }
     /**
      * Determina la fecha inicial de la semana

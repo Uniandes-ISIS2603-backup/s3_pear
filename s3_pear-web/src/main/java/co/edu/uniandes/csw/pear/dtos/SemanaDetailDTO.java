@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.pear.dtos;
 import co.edu.uniandes.csw.pear.entities.DiaEntity;
 import co.edu.uniandes.csw.pear.entities.SemanaEntity;
-import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +30,7 @@ public class SemanaDetailDTO extends SemanaDTO {
     //-----------------------------------------------------------
     private List<DiaDTO> dias;
     
-    private List<DietaTipoDTO> dietas;
+    private DietaTipoDTO dieta;
     //-----------------------------------------------------------
     //Constructor
     //-----------------------------------------------------------
@@ -46,18 +45,14 @@ public class SemanaDetailDTO extends SemanaDTO {
             }
             }
             else dias = new ArrayList<>();
-            if(entity.getDietas() != null){
-            dietas =  new ArrayList<>();
-            for(DietaTipoEntity y: entity.getDietas()) {
-                dietas.add(new DietaTipoDTO(y));
+            if(entity.getDieta() != null){
+            dieta =  new DietaTipoDTO(entity.getDieta());
             }
-            }
-        }
             else{
-            dietas = new ArrayList<>();
+            dieta = null;
             }
+         }    
       }
-    
     
     public SemanaDetailDTO(){
         super();
@@ -80,34 +75,32 @@ public class SemanaDetailDTO extends SemanaDTO {
         return dias;
     }
     
-    public void setDietas(List<DietaTipoDTO> di){
-        dietas = di;
+    public void setDieta(DietaTipoDTO di){
+        dieta = di;
     }
     
-    public List<DietaTipoDTO> getDietas(){
-        return dietas;
+    public DietaTipoDTO getDieta(){
+        return dieta;
     }
     
     
     
     @Override
-    public SemanaEntity toEntity(){
+ public SemanaEntity toEntity(){
         
         SemanaEntity entity = super.toEntity();
-        if(this.getDias()!= null){
-            List<DiaEntity> dias = new ArrayList<>();
+        if(entity != null){
+            if(this.getDias()!= null){
+            List<DiaEntity> days = new ArrayList<>();
             this.getDias().forEach(di -> {
-                dias.add(di.toEntity());
+               days.add(di.toEntity());
             });
-            entity.setDias(dias);
+            entity.setDias(days);
         }
-        if(this.getDietas()!= null){
-            List<DietaTipoEntity> dietas = new ArrayList<>();
-            this.getDietas().forEach(dit -> {
-                dietas.add(dit.toEntity());
-            });
-            entity.setDietas(dietas);
+        if(this.getDieta()!= null){
+            entity.setDieta(this.getDieta().toEntity());
         }
+       }
         return entity;
     }  
 }

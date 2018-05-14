@@ -1,47 +1,50 @@
 
 
-<table class="ui very basic table" style="margin-top: 40px;">
+<div ng-app="calificacionModule" ng-controller="calificacionController" >
+    
+    <h1>VUELVE A OPRIMIR EL BOTON DE CALIFICACIONES</h1>
+    
+    
+    <div ng-if="calificaciones_dieta.length < 1">
+        <h1 style="color: dimgray; font-family: 'Roboto'; font-weight: 300;">Esta dieta no tiene calificaciones. <br/> Pero tú puedes ser el primero en calificar. </h1>
+    </div>
 
-    <thead>
-        <tr>
-            <th class="center aligned">
-                <div class="inline field" style="overflow-y: hidden;">
-                    <div class="ui horizontal large label">Puntuacion</div>
-                </div>
-            </th>
-            
-            <th class="center aligned">
-                <div class="inline field" style="overflow-y: hidden;">
-                    <div class="ui horizontal large label">Porcentaje</div>
-                </div>
-            </th>
-        </tr>
-    </thead>
+    <table class="ui very basic table" style="margin-top: 40px;">
+        <thead>
+            <tr>
+                <th class="center aligned">
+                    <div class="inline field" style="overflow-y: hidden;">
+                        <div class="ui horizontal large label">Puntuacion</div>
+                    </div>
+                </th>
+
+                <th class="center aligned">
+                    <div class="inline field" style="overflow-y: hidden;">
+                        <div class="ui horizontal large label">Porcentaje</div>
+                    </div>
+                </th>
+            </tr>
+        </thead>
 
 
-    <tbody style="text-align: center;" ng-app="calificacionModule" ng-controller="calificacionController">
+        <tbody style="text-align: center;">
 
-                
-        <tr ng-repeat="cal in calificaciones" class="center aligned">
-            <td class="center aligned">
-                <p>{{cal.puntuacion}}</p>
-            </td>
-        
-            <td>
-                <p>50%</p>
-            </td>
-        </tr>
 
-    <div ng-if="calificaciones.length < 1" style="text-align: center; color: dimgray;">
-            <h1>NO HAY CALIFICACIONES</h1>
-            <p>pero puedes agregar una</p>
-        </div>
-        
-        
-    </tbody>
+            <tr ng-repeat="cal in calificaciones_dieta" class="center aligned">
+                <td class="center aligned">
+                    <p>{{cal.puntuacion}}</p>
+                </td>
 
-</table>
+                <td>
+                    <p>50%</p>
+                </td>
+            </tr>
 
+        </tbody>
+
+    </table>
+
+</div>
 
 
 

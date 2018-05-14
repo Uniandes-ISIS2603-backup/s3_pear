@@ -33,15 +33,15 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
  
     
     @PodamExclude
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    private List<SemanaEntity> semanas = new ArrayList<>();
+    @OneToMany(mappedBy = "dieta", cascade = CascadeType.ALL)
+    private List<SemanaEntity> semanas;
     
     @PodamExclude
-    @OneToMany(mappedBy = "dieta", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "dieta", cascade = CascadeType.ALL)
     private List<CalificacionEntity> calificaciones= new ArrayList<>();
     
     @PodamExclude
-    @OneToMany(mappedBy = "dieta", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "dieta", cascade = CascadeType.ALL)
     private List<QuejasyReclamosEntity> quejas = new ArrayList<>() ;
     
     @PodamExclude
@@ -71,7 +71,6 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     public void setObjetivo(String objetivo) {
         this.objetivo = objetivo;
     }
-
     /**
      * Descripcion detallada de la dieta (calorias, alimentos, semanas, etc)
      * @return descripcion
@@ -79,16 +78,13 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     public String getDescripcion() {
         return descripcion;
     }
-
     /**
      * Cambia la descripcion de la dieta
      * @param descripcion 
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    
+    }   
 
     /**
      * Semanas, duracion de la dieta
@@ -142,7 +138,6 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     public List<CalificacionEntity> getCalificaciones() {
         return calificaciones;
     }
- 
 
     /**
      * Modifica las calificaciones de una dieta.
@@ -212,7 +207,7 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     }
     
     /**
-     * 
+     * @param persona
      */
     public void addPersona ( PersonaEntity persona ) {
         this.personas.add(persona);

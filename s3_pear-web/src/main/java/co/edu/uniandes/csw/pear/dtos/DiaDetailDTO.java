@@ -48,13 +48,13 @@ public class DiaDetailDTO extends DiaDTO{
         if(entity!= null){
         if(entity.getComidas() != null){
             comidas = new ArrayList<>();
-            entity.getComidas().forEach(com -> {
-                comidas.add(new ComidaDTO(com));
-            });
+        for(ComidaEntity y : entity.getComidas()){
+            comidas.add(new ComidaDTO(y));
+        }
         }
         else{
             comidas = new ArrayList<>();
-            }
+        }
         if(entity.getSemana() != null){
             semana =  new SemanaDTO(entity.getSemana());
         }
@@ -101,7 +101,8 @@ public class DiaDetailDTO extends DiaDTO{
     @Override
     public DiaEntity toEntity(){
         DiaEntity entity = super.toEntity();
-        if(this.getComidas() != null){
+        if(entity != null){
+            if(this.getComidas() != null){
             List<ComidaEntity> listaComidas = new ArrayList<>();
             this.getComidas().forEach(comi -> {
              listaComidas.add(comi.toEntity());
@@ -110,6 +111,7 @@ public class DiaDetailDTO extends DiaDTO{
         }
         if(this.getSemana() != null){
             entity.setSemana(this.getSemana().toEntity());
+         }
         }
         return entity;
     }

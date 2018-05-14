@@ -1,34 +1,40 @@
 
 
-<div class="ui container" style="margin-top: 40px;">
+<div ng-app="comentarioModule" ng-controller="comentarioController">
+    <div class="ui container" style="margin-top: 40px;">
 
-    <div class="ui form">
-        
-        <div class="field">
-            <input ng-model="asunto" placeholder="ASUNTO">
+        <div class="ui form">
+
+            <div class="field">
+                <select ng-model="asunto">
+                    <option value="" selected disabled hidden>ASUNTO</option>
+                    <option value="queja">Queja</option>
+                    <option value="recomendacion">Recomendacion</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <textarea ng-model="comentario" rows="3" placeholder="COMENTARIO"></textarea>
+            </div>
+
+
         </div>
-        
-        <div class="field">
-            <textarea ng-model="comentario" rows="3" placeholder="COMENTARIO"></textarea>
-        </div>
-        
-        
+
     </div>
 
-</div>
 
+    <div class="row">
+        <div>&nbsp;</div>
+        <div class="inline field">
 
-<div class="row">
-    <div>&nbsp;</div>
-    <div class="inline field">
+            <a ui-sref='dieta_specs.comentarios({ id_dieta: dieta })' class="ui orange basic button">
+                Cancelar
+            </a>
 
-        <a ui-sref='dieta_specs.comentarios({ id_dieta: dieta })' class="ui orange basic button">
-            Cancelar
-        </a>
+            <a ng-click='comentario_post()' class="ui positive basic button" style="float: right; margin: 0em 10px;">
+                Agregar Calificacion
+            </a>
 
-        <a ng-click='comentario_post()' class="ui positive basic button" style="float: right; margin: 0em 10px;">
-            Agregar Calificacion
-        </a>
-
+        </div>
     </div>
 </div>
