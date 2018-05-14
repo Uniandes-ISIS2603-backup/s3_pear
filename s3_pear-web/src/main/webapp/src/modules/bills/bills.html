@@ -1,4 +1,5 @@
 <div class="ui container" style="width: 100%" ng-app="billModule">
+    
 
     <div class="ui raised segment" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;" ng-controller="billsController">
 
@@ -25,7 +26,21 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
+            
+            <tbody ng-if="user">
+
+                <tr ng-repeat="factura in persona.facturas">
+                    <td>{{ factura.id }}</td>
+                    <td>{{ factura.cantidadDeProductos }}</td>
+                    <td>{{ factura.numeroFactura }}</td>
+                    <td>{{ factura.persona.id }}</td>
+                    <td><p style="gray" ui-sref="actualizar_bill({ id: factura.id })">Actualizar</p></td>
+                    <td><p style="color: gray" ui-sref="detailBill({ id: factura.id })">Detalles</p></td>
+                </tr>
+
+            </tbody>
+            
+            <tbody ng-if="admin">
 
                 <tr ng-repeat="factura in bills">
                     <td>{{ factura.id }}</td>
@@ -37,6 +52,7 @@
                 </tr>
 
             </tbody>
+            
         </table>
 
 
