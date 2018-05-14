@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.pear.test.logic;
 
 import co.edu.uniandes.csw.pear.ejb.CuentaCobroLogic;
 import co.edu.uniandes.csw.pear.entities.CuentaCobroEntity;
+import co.edu.uniandes.csw.pear.entities.PagoEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.CuentaCobroPersistence;
 import java.util.ArrayList;
@@ -48,7 +49,9 @@ public class CuentaCobroLogicTest {
 
     private List<CuentaCobroEntity> data = new ArrayList<CuentaCobroEntity>();
     
-      @Deployment
+    private PagoEntity pagoEntity; 
+    
+    @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
                 .addPackage(CuentaCobroEntity.class.getPackage())
@@ -91,7 +94,7 @@ public class CuentaCobroLogicTest {
      */
     private void clearData() {
         em.createQuery("delete from CuentaCobroEntity").executeUpdate();
-      //  em.createQuery("delete from PersonaEntity").executeUpdate();
+        em.createQuery("delete from PagoEntity").executeUpdate();
     }
 
     /**
@@ -102,12 +105,21 @@ public class CuentaCobroLogicTest {
      */
     private void insertData() {
 
+        pagoEntity = factory.manufacturePojo(PagoEntity.class);
+        
         for (int i = 0; i < 3; i++) {
             CuentaCobroEntity entity = factory.manufacturePojo(CuentaCobroEntity.class);
-            em.persist(entity);
-            data.add(entity);
+            
+            if(i == 0)
+            {
+                entity.setPagoEntity(pagoEntity);
+            } 
+            
+           em.persist(entity);
+           data.add(entity);
             
         }
+         
 
     }
 
@@ -126,6 +138,9 @@ public class CuentaCobroLogicTest {
         Assert.assertEquals(newEntity.getId(), entity.getId());
         Assert.assertEquals(newEntity.getName(), entity.getName());
         Assert.assertEquals(newEntity.getValorAPagar(),entity.getValorAPagar(), 0.1 );
+        Assert.assertEquals(newEntity.getCantidadProductos(),entity.getCantidadProductos());
+        Assert.assertEquals(newEntity.getNumeroFacturaDeVenta(), entity.getNumeroFacturaDeVenta());
+        Assert.assertEquals(newEntity.getDieta(), entity.getDieta()); 
         Assert.assertEquals(newEntity.getPagoEntity(),entity.getPagoEntity());
         
         } catch (BusinessLogicException ex) {
@@ -155,19 +170,33 @@ public class CuentaCobroLogicTest {
         }
     }
 
+    @Test
+    public void getPagoTest()
+    {
+        Assert.assertEquals(pagoEntity, cuentaCobroLogic.getPago(data.get(0).getId()));
+    }
+    
+    @Test
+    public void addPagoTest()
+    {
+        CuentaCobroEntity cuenta = data.get(1); 
+        
+        PagoEntity pago =  cuentaCobroLogic.addPago(cuenta.getId(), pagoEntity); 
+        
+        Assert.assertEquals(pago, pagoEntity);
+    }
+    
+
+    
     /**
      * Prueba para consultar una cuenta
-     *
      *
      */
     @Test
     public void getCuentaTest() {
         CuentaCobroEntity entity = data.get(0);
         CuentaCobroEntity resultEntity = cuentaCobroLogic.getCuenta(entity.getId());
-        Assert.assertNotNull(resultEntity);
-        
-        
-      
+        Assert.assertNotNull(resultEntity); 
     }
 
     /**

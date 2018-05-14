@@ -115,14 +115,34 @@ public class CalificacionLogicTest {
      */
     @Test
     public void createCalificacionTest() throws BusinessLogicException {
+        
         CalificacionEntity newEntity = factory.manufacturePojo(CalificacionEntity.class);
+        newEntity.setPuntuacion(11);
+        try{
+            calificacionLogic.createCalificacion(data.get(0).getDieta().getId(), newEntity);
+        }catch(BusinessLogicException e )
+        {
+            Assert.assertEquals("la calificación no puede ser más de 10, si consideras que obtuvo un gran servicio puedes compartir tu historia en caso exito", e.getMessage());
+        }  
+        
+        newEntity.setPuntuacion(-1);
+         try{
+            calificacionLogic.createCalificacion(data.get(0).getDieta().getId(), newEntity);
+        }catch(BusinessLogicException e )
+        {
+            Assert.assertEquals("La calificación no puede ser menos de 0, si considera que obtuvo un mal servicio puedes realizar tus quejas y reclamos", e.getMessage());
+        }  
+        
+        newEntity.setPuntuacion(8);
         CalificacionEntity result = calificacionLogic.createCalificacion(data.get(0).getDieta().getId(), newEntity);
         Assert.assertNotNull(result);
         CalificacionEntity entity = em.find(CalificacionEntity.class, result.getId());
         Assert.assertEquals(newEntity.getId(), entity.getId());
         int puntuacionNueva =(int) newEntity.getPuntuacion();
         int puntuacion = (int)  entity.getPuntuacion();
-        Assert.assertEquals(puntuacionNueva, puntuacion);
+        Assert.assertEquals(puntuacionNueva, puntuacion);        
+        
+    
     }
     /**
      * Prueba para consultar la lista de calificaciones

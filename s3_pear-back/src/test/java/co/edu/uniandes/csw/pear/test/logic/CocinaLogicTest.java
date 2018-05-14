@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.pear.test.logic;
 
 import co.edu.uniandes.csw.pear.ejb.CocinaLogic;
 import co.edu.uniandes.csw.pear.entities.CocinaEntity;
+import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.CocinaPersistence;
 import java.util.ArrayList;
@@ -43,6 +44,8 @@ public class CocinaLogicTest {
     
     private List<CocinaEntity> data = new ArrayList<>();
       
+    private DietaTipoEntity dieta;
+    
     @Inject 
     private CocinaLogic logic;
     
@@ -94,6 +97,9 @@ public class CocinaLogicTest {
             em.persist(entity);
             data.add(entity);
         }
+        
+        dieta = factory.manufacturePojo(DietaTipoEntity.class); 
+        em.persist(dieta);
     }
     
     /**
@@ -134,6 +140,12 @@ public class CocinaLogicTest {
     @Test
     public void getCocinaTest() {
         CocinaEntity entity = data.get(0);
+        
+        
+        CocinaEntity pruebaNull = logic.getCocina(new Long (89399));
+        Assert.assertNull(pruebaNull); 
+            
+            
         CocinaEntity resultEntity = logic.getCocina(entity.getId());
         Assert.assertNotNull(resultEntity);
         Assert.assertEquals(entity.getId(), resultEntity.getId());
@@ -150,6 +162,20 @@ public class CocinaLogicTest {
         logic.delete(entity.getId());
         CocinaEntity deleted = em.find(CocinaEntity.class, entity.getId());
         Assert.assertNull(deleted);
+    }
+    
+    @Test
+    public void addDieta()
+    {
+        CocinaEntity entity = data.get(0); 
+        
+        
+        logic.addDieta(entity.getId(), dieta); 
+        
+        entity = logic.getCocina(entity.getId());
+        List<DietaTipoEntity> dietas = logic.getDietasDeCocina(entity.getId()); 
+        
+        Assert.assertEquals(dietas.get(0), dieta);  
     }
     
     /**

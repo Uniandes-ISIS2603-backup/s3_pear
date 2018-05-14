@@ -123,11 +123,11 @@
                     rol: $rootScope.user ? 'user' : 'admin'
                 }; /*para recoger cada uno de los valores ingresados en el formulario de login*/
 
-console.log($scope.data);
+                console.log($scope.data);
 
                 var flag = false;
                 for (let item in $scope.usuarios) {
-                    
+
                     console.log($scope.usuarios[item]);
 
                     if ($scope.usuarios[item].user === $scope.data.username &&
@@ -142,7 +142,7 @@ console.log($scope.data);
                         if ($rootScope.usuario.rol === 'user') {
 
                             $http.get('http://localhost:8080/s3_pear-web/api/personas/' + $rootScope.id_persona).then(function (response) {
-                               
+
                                 $state.go('dietas', {}, {
                                     reload: true
                                 });
@@ -154,8 +154,8 @@ console.log($scope.data);
 
                         } else {
                             $state.go('dietas', {}, {
-                                    reload: true
-                                });
+                                reload: true
+                            });
                         }
                         ;
 
@@ -165,18 +165,8 @@ console.log($scope.data);
 
                 } /*END FOR*/
                 if (!flag) {
-                    
-                    
-                    if ( $scope.usuarios[item].user === $scope.data.username ) {
-                        $rootScope.incorrect = true;
-                       
-                    }
-                    /*LOS CREDENCIALES NO CUADRAN*/
-                    else {
-                        $rootScope.not_logged = true;
-                      
-                    }
-                    
+                    $rootScope.incorrect = true;
+
                     $rootScope.alerts.push({
                         type: "danger",
                         msg: "Incorrect username or password."

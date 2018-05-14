@@ -143,10 +143,12 @@
                         $rootScope.cuenta_personal = response.data;
                     });
                     
-                    if ( $rootScope.cuenta_personal.cuenta.id === null || $rootScope.cuenta_personal.cuenta.id === undefined  )
-                        $rootScope.definitivamente_no_tiene_dietas = true;
-                    else
-                        $rootScope.definitivamente_no_tiene_dietas = false;
+                     if ($rootScope.cuenta_personal !== null && $rootScope.cuenta_personal !== undefined)
+                        if ($rootScope.cuenta_personal.cuenta !== null && $rootScope.cuenta_personal.cuenta !== undefined)
+                            if ($rootScope.cuenta_personal.cuenta.id === null || $rootScope.cuenta_personal.cuenta.id === undefined)
+                                $rootScope.definitivamente_no_tiene_dietas = true;
+                            else
+                                $rootScope.definitivamente_no_tiene_dietas = false;
                     
                 });
 

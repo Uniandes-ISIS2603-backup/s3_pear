@@ -67,13 +67,13 @@ public class CocinaLogic {
     
     /**
      * Retorna la dieta que se agrefgó a la cocina
-     * @param cocina_id
+     * @param cocinaId
      * @param dieta
      * @return 
      */
-    public DietaTipoEntity add_dieta ( Long cocina_id, DietaTipoEntity dieta ) {
-        LOGGER.log(Level.INFO, "Inicia proceso de insertar una dieta de la Cocina con id = {0}", cocina_id);
-        this.getCocina(cocina_id).add_dieta(dieta);
+    public DietaTipoEntity addDieta ( Long cocinaId, DietaTipoEntity dieta ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de insertar una dieta de la Cocina con id = {0}", cocinaId);
+        this.getCocina(cocinaId).addDieta(dieta);
         return dieta;
     }
     
@@ -81,27 +81,27 @@ public class CocinaLogic {
 
     /**
      * Retorna colection de instancias de Dietas asociadas a una Cocina por id
-     * @param cocina_id
+     * @param cocinaId
      * @return 
      */
-    public List<DietaTipoEntity> getDietasDeCocina ( Long cocina_id ) {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar las dietas de la Cocina con id = {0}", cocina_id);
-        return this.getCocina(cocina_id).getDietas();
+    public List<DietaTipoEntity> getDietasDeCocina ( Long cocinaId ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar las dietas de la Cocina con id = {0}", cocinaId);
+        return this.getCocina(cocinaId).getDietas();
     }
     
     /**
      * Retorna una Dieta por id asociada a una Cocina por id
-     * @param dieta_id
-     * @param cocina_id
+     * @param dietaId
+     * @param cocinaId
      * @return 
      */
-    public DietaTipoEntity getDietaDeCocina ( Long dieta_id, Long cocina_id ) {
-        LOGGER.log(Level.INFO, "Incia consulta de Dieta con id = {0} de la Cocina con id = {1}", new Object[]{dieta_id, cocina_id});
+    public DietaTipoEntity getDietaDeCocina ( Long dietaId, Long cocinaId ) {
+        LOGGER.log(Level.INFO, "Incia consulta de Dieta con id = {0} de la Cocina con id = {1}", new Object[]{dietaId, cocinaId});
         DietaTipoEntity dieta = new DietaTipoEntity();
-        dieta.setId(dieta_id);
-        int index = this.getCocina(cocina_id).getDietas().indexOf(dieta);
+        dieta.setId(dietaId);
+        int index = this.getCocina(cocinaId).getDietas().indexOf(dieta);
         if ( index >= 0 )
-            return this.getCocina(cocina_id).getDietas().get(index);
+            return this.getCocina(cocinaId).getDietas().get(index);
         return null;
     }
     
@@ -132,16 +132,16 @@ public class CocinaLogic {
     
     /**
      * Agrega una instancia de Dieta existente a una Cocina por id
-     * @param dieta_id
-     * @param cocina_id
+     * @param dietaId
+     * @param cocinaId
      * @return 
      */
-    public DietaTipoEntity addDietaToCocina( Long dieta_id, Long cocina_id ) {
-        LOGGER.log(Level.INFO, "Inicia proceso de asociar una Dieta con id = {0} a una Cocina con id = {1}", new Object[]{dieta_id, cocina_id});              
+    public DietaTipoEntity addDietaToCocina( Long dietaId, Long cocinaId ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de asociar una Dieta con id = {0} a una Cocina con id = {1}", new Object[]{dietaId, cocinaId});              
         DietaTipoEntity dieta = new DietaTipoEntity();
-        dieta.setId(dieta_id);
-        this.getCocina(cocina_id).add_dieta(dieta);
-        return this.getDietaDeCocina(dieta_id, cocina_id);
+        dieta.setId(dietaId);
+        this.getCocina(cocinaId).addDieta(dieta);
+        return this.getDietaDeCocina(dietaId, cocinaId);
     }
     
     /**
@@ -162,13 +162,13 @@ public class CocinaLogic {
     /**
      * Reemplaza la dietas de la cocina por id
      * @param dietas
-     * @param cocina_id
+     * @param cocinaId
      * @return lista actualizada de dietas
      */
-     public List<DietaTipoEntity> updateSemanasDeDieta( List<DietaTipoEntity> dietas, long cocina_id ) {
-        LOGGER.log(Level.INFO, "Inicia proceso de reemplazar la lista de dietas de Cocina con id = {0}", new Object[] { cocina_id});
-        this.getCocina(cocina_id).setDietas(dietas);
-        return this.getCocina(cocina_id).getDietas();
+     public List<DietaTipoEntity> updateSemanasDeDieta( List<DietaTipoEntity> dietas, long cocinaId ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de reemplazar la lista de dietas de Cocina con id = {0}", new Object[] { cocinaId});
+        this.getCocina(cocinaId).setDietas(dietas);
+        return this.getCocina(cocinaId).getDietas();
     }
     
     /**
@@ -183,14 +183,14 @@ public class CocinaLogic {
     
     /**
      * Elimina una Dieta por id de una Cocina por id
-     * @param dieta_id
-     * @param cocina_id 
+     * @param dietaId
+     * @param cocinaId 
      */
-    public void deleteDietaDeCocina( Long dieta_id, Long cocina_id ) {
-        LOGGER.log(Level.INFO, "Inicia proceso de eliminar la Dieta con id = {0} de la Cocina con id = {1}", new Object[]{dieta_id,cocina_id});
+    public void deleteDietaDeCocina( Long dietaId, Long cocinaId ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de eliminar la Dieta con id = {0} de la Cocina con id = {1}", new Object[]{dietaId,cocinaId});
         DietaTipoEntity dieta = new DietaTipoEntity();
-        dieta.setId(dieta_id);
-        this.getCocina(cocina_id).getDietas().remove(dieta);
+        dieta.setId(dietaId);
+        this.getCocina(cocinaId).getDietas().remove(dieta);
     }
     
 }
