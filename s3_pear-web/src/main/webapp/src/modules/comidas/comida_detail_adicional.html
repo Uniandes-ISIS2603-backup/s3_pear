@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<h1>DETAIL DE LA COMIDA AQUI ADICIONAL</h1>
+
+
+<div class="ui two stackable link cards" style="margin-top: 40px;">
+    <div class="ui fluid card" ng-repeat="comida in comidas| orderBy : 'id'">
+        <div class="image">
+            <!-- <img src="{{comida.image}}">-->
+        </div>
+        <div class="content">
+            <div class="header">ID:{{comida.id}}</div>
+            <div class="meta"><a>Alimentos: {{comida.alimentos}}</a></div>
+            <div class="description">Cantidad: {{comida.cantidad}} <br/> Tipo de comida: {{comida.TIPO}}</div>
+        </div>
+        <div class="extra content">
+            <div class="inline flief">
+                <span class="field right floated"><a ng-click="eliminar_comida(comida.id)" style="text-decoration: none;">Eliminar</a></span>
+                <span class="field right floated"><a ui-sref="comida_detail({ id: comida.id })">Actualizar</a> &nbsp; &nbsp;</span>
+            </div>
+        </div>
+    </div>
+</div>
