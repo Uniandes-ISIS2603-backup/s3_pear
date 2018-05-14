@@ -33,29 +33,11 @@ public class CasoExitoPersistence {
     public CasoExitoEntity create(CasoExitoEntity entity){
         LOGGER.info("Creando un nuevo caso exito");
         em.persist(entity);
-        LOGGER.info("Se creó un nuevo caso");        return entity;
+        LOGGER.info("Se creó un nuevo caso");       
+        return entity;
     }
     
-    /**
-     * Busca si hay algun caso con el nombre que se envía de argumento
-     * 
-     * @param dieta: Nombre de la dieta relacionada al caso
-     * @return null si no existe ningún caso con esa dieta asociada
-     * Si existe, devuelve la primera
-     */
-    public CasoExitoEntity findByName(String dieta){
-        LOGGER.log(Level.INFO, "Consultando caso por dieta", dieta);
-        
-        TypedQuery query = em.createQuery("Select e from CasoExitoEntity e where e.dieta = :dieta", CasoExitoEntity.class);
-    
-        query = query.setParameter("dieta", dieta);
-        
-        List<CasoExitoEntity> sameDiet = query.getResultList();
-        if (sameDiet.isEmpty())
-            return null;
-        else
-            return sameDiet.get(0);
-    }
+  
     
     /**
      * Recupera todos los casos dentro del sistema

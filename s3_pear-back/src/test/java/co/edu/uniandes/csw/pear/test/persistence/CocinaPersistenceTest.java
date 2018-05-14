@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.test.persistence;
 
 import co.edu.uniandes.csw.pear.entities.CocinaEntity;
+import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.persistence.CocinaPersistence;
 import java.util.ArrayList;
 import java.util.List;
@@ -116,7 +117,11 @@ public class CocinaPersistenceTest {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
             CocinaEntity entity = factory.manufacturePojo(CocinaEntity.class);
-
+            DietaTipoEntity dietaEntity = factory.manufacturePojo(DietaTipoEntity.class); 
+            ArrayList <DietaTipoEntity> dietas = new ArrayList<>(); 
+            dietas.add(dietaEntity);
+            entity.setDietas(dietas);
+            
             em.persist(entity);
             data.add(entity);
         }
@@ -172,6 +177,7 @@ public class CocinaPersistenceTest {
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
     }
+
 
     /**
      * Prueba para eliminar una Cocina.

@@ -134,6 +134,7 @@ public class CasoExitoPersistenceTest {
         }
     }
     
+  
     /**
      * Prueba para consultar un CasoExito.
      */
