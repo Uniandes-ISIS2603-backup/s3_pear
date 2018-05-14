@@ -50,7 +50,7 @@
 
             if ($state.params.id_dieta !== null && $state.params.id_dieta !== undefined) {
                 $scope.dieta = $state.params.id_dieta;
-                
+
                 $http.get('http://localhost:8080/s3_pear-web/api/dietas/' + $scope.dieta.id + '/calificaciones').then(function (response) {
                     $scope.calificaciones_dieta = response.data;
 
@@ -66,6 +66,35 @@
                     $scope.calificaciones_dieta = response.data;
 
                 });
+            };
+
+            $scope.percentaje = function (value, data) {
+                let total = 0;
+            
+                for(var x of data ) {
+                   total += x.puntuacion;
+                }
+
+                let significativo = (value / total ) * 100;
+
+                return significativo;
+            };
+
+            $scope.calificacion_post = function () {
+
+                let data = {
+                    puntuacion: $scope.puntuacion
+                };
+                console.log(data);
+
+                $http.post('http://localhost:8080/s3_pear-web/api/dietas/' + $scope.dieta.id + '/calificaciones', data).then(function (response) {
+                    $scope.post_data = response.data;
+                    $state.go('^.calificaciones', {}, {
+                        reload: true
+                    });
+
+                });
+
             };
 
         } // END FUNCTION CONTROLLER

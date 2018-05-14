@@ -1,61 +1,30 @@
+<div ng-app="calificacionModule" ng-controller="calificacionController">
+    <div class="ui container" style="margin-top: 40px;">
 
-<style>
-    
-    input.place {
-        text-decoration: none; 
-        border:none; 
-        border-bottom:1px solid dimgray !important;
-    }
-    
-</style>
+        <div class="ui form">
+
+            <div class="field">
+                <input ng-model="puntuacion" placeholder="CALIFIFCACION DE 1 A 10">
+            </div>
 
 
+        </div>
 
-<table class="ui very basic table" style="margin-top: 40px;">
-
-    <thead>
-        <tr>
-            <th class="center aligned">
-                <div class="inline field" style="overflow-y: hidden;">
-                    <div class="ui horizontal large label">Puntuacion</div>
-                </div>
-            </th>
-            
-        </tr>
-    </thead>
+    </div>
 
 
-    <tbody style="text-align: center;">
+    <div class="row">
+        <div>&nbsp;</div>
+        <div class="inline field">
 
-                
-        <tr>
-            <td>
-                <input class="place" ng-model="new_calificacion" type='number' placeholder='1-5'>
-            </td>
-        
-        </tr>
+            <a ui-sref='dieta_specs.calificaciones({ id_dieta: dieta })' class="ui orange basic button">
+                Cancelar
+            </a>
 
-        
-        
-    </tbody>
+            <a ng-click='calificacion_post()' class="ui positive basic button" style="float: right; margin: 0em 10px;">
+                Agregar Calificacion
+            </a>
 
-</table>
-
-
-
-
-
-<div class="row">
-    <div>&nbsp;</div>
-    <div class="inline field">
-
-        <a ui-sref='dieta_specs.calificaciones({ id_dieta: dieta })' class="ui orange basic button">
-            Cancelar
-        </a>
-
-        <a ng-click='calificacion_post()' class="ui positive basic button" style="float: right; margin: 0em 10px;">
-            Agregar Calificacion
-        </a>
-
+        </div>
     </div>
 </div>

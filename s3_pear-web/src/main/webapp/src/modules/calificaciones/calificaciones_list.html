@@ -35,8 +35,8 @@
                     <p>{{cal.puntuacion}}</p>
                 </td>
 
-                <td>
-                    <p>50%</p>
+                <td style="text-align: center !important">
+                    <p>{{percentaje( cal.puntuacion, calificaciones_dieta ) | number : 0}} %</p>
                 </td>
             </tr>
 
