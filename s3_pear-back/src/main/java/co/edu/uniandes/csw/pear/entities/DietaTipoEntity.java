@@ -34,7 +34,7 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     
     @PodamExclude
     @OneToMany(mappedBy = "dieta", cascade = CascadeType.ALL)
-    private List<SemanaEntity> semanas = new ArrayList<>();
+    private List<SemanaEntity> semanas;
     
     @PodamExclude
     @OneToMany(mappedBy = "dieta", cascade = CascadeType.ALL)

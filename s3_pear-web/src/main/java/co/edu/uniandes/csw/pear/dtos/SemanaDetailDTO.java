@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.pear.dtos;
 import co.edu.uniandes.csw.pear.entities.DiaEntity;
 import co.edu.uniandes.csw.pear.entities.SemanaEntity;
-import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +54,6 @@ public class SemanaDetailDTO extends SemanaDTO {
          }    
       }
     
-    
     public SemanaDetailDTO(){
         super();
     }
@@ -88,19 +86,21 @@ public class SemanaDetailDTO extends SemanaDTO {
     
     
     @Override
-    public SemanaEntity toEntity(){
+ public SemanaEntity toEntity(){
         
         SemanaEntity entity = super.toEntity();
-        if(this.getDias()!= null){
-            List<DiaEntity> dias = new ArrayList<>();
+        if(entity != null){
+            if(this.getDias()!= null){
+            List<DiaEntity> days = new ArrayList<>();
             this.getDias().forEach(di -> {
-                dias.add(di.toEntity());
+               days.add(di.toEntity());
             });
-            entity.setDias(dias);
+            entity.setDias(days);
         }
         if(this.getDieta()!= null){
             entity.setDieta(this.getDieta().toEntity());
         }
+       }
         return entity;
     }  
 }

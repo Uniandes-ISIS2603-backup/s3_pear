@@ -280,3 +280,4 @@ insert into DIAS_SEMANAS(DIAID, SEMANAID) values (1900,223);
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2000,223);
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2100,223);
 
+select * from semanas_dietas;

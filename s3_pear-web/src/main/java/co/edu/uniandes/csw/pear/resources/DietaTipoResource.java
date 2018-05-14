@@ -208,6 +208,7 @@ public class DietaTipoResource {
             return new DietaTipoDetailDTO(logic.updateDieta(dieta.getId(), dieta));
 
         } catch (BusinessLogicException e) {
+            e.getMessage();
             return null;
         }
     }
