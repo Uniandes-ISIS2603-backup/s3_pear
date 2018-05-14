@@ -164,19 +164,6 @@ public class CocinaLogicTest {
         Assert.assertNull(deleted);
     }
     
-    @Test
-    public void addDieta()
-    {
-        CocinaEntity entity = data.get(0); 
-        
-        
-        logic.addDieta(entity.getId(), dieta); 
-        
-        entity = logic.getCocina(entity.getId());
-        List<DietaTipoEntity> dietas = logic.getDietasDeCocina(entity.getId()); 
-        
-        Assert.assertEquals(dietas.get(0), dieta);  
-    }
     
     /**
      * Prueba para actualizar una Cocina
