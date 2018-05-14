@@ -1,6 +1,6 @@
 
 /*
-* ODIGO JAVASCRIPT PARA MOVIMIENTOS DEL TEMPLATE
+* CODIGO JAVASCRIPT PARA MOVIMIENTOS DEL TEMPLATE
 */
 
 
@@ -173,9 +173,6 @@ $(document).ready( function() {
         lng: -74.065583, 
         draggable: false,
         title: 'Dieta Facil Central',
-        click: function(event) {
-            alert('Hope to see you soon!');
-        }
     });
     
 

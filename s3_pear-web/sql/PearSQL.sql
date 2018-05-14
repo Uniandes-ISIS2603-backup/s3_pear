@@ -33,17 +33,10 @@ delete from QuejasyReclamosEntity;
 delete from CasoExitoEntity;
 
 
-/*Persona con la factura 45*/
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (100, 'Pablo', 'Suarez', 20, 'Cll. 127D #19-93', 'pa.suarezm@uniandes.edu.co', 0, '201632293');
-
-
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4500, 3, 200418,100);
-
-/*Dieta de la cuenta*/
 INSERT INTO DIETATIPOENTITY (NUMSEMANAS, PRECIO , DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID, ID) 
-	VALUES (2,100, 'Enterprise-wide coherent access', 'https://images.pexels.com/photos/248444/pexels-photo-248444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Japonesa', 'Versatile tangible task-force', 1, NULL, 100);
-/*cuenta de la persona id 1*/ 
+	VALUES (2,100, 'Enterprise-wide coherent access', 'https://images.pexels.com/photos/248444/pexels-photo-248444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Japonesa', 'Versatile tangible task-force', 1, NULL, 100); 
 
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (100, 'Pablo', 'Suarez', 20, 'Cll. 127D #19-93', 'pa.suarezm@uniandes.edu.co', 0, '201632293');
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (200, 'Camilo', 'Bedoya', 20, 'Cll. 151 #9-26', 'jc.bedoya@uniandes.edu.co', 0, '201631591');
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (300, 'Carol', 'Trujillo', 19, 'Cra. 53 #127-43', 'cv.trujillo@uniandes.edu.co', 0, '201618005');
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (400, 'Mariana', 'Moreno', 20, 'Cll. 76 #7-83', 'mi.morenoa@uniandes.edu.co', 0, '201698416');
@@ -54,6 +47,7 @@ insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscr
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (900, 'Ana', 'Suarez', 65, 'Cll. 151 #9-66', 'ae.suarezb@uniamdes.edu.co', 0, '201632298');
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (1000, 'Luisa', 'Estrada', 20, 'Cll. 131 #19-86', 'l.estradap@uniandes.edu.co', 0, '201712345');
 
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4500, 3, 200418,100);
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4600, 7, 210418,200);
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4700, 8, 220418,300);
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4800, 2, 230418,400);
@@ -65,28 +59,22 @@ insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_i
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5400, 1, 290418,1000);
 
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5500, 7, 300418,200);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5600, 8, 310418,300);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5700, 2, 320418,400);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5800, 1, 330418,500);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5900, 7, 340418,600);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6000, 8, 350418,700);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6100, 2, 360418,800);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6200, 1, 370418,900);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6300, 1, 380418,1000);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5600, 2, 310418,400);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5700, 7, 320418,600);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5800, 2, 330418,800);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(5900, 1, 340418,1000);
 
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6400, 7, 390418,200);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6500, 2, 400418,400);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6600, 7, 410418,600);
-insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6700, 2, 420418,800);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6000, 7, 350418,200);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6100, 8, 360418,300);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6200, 2, 370418,400);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6300, 1, 380418,500);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6400, 7, 390418,600);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6500, 8, 400418,700);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6600, 2, 410418,800);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6700, 1, 420418,900);
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6800, 1, 430418,1000);
+insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(6900, 7, 440418,100);
 
-
-insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta) values (100, 20.000, 7, 200218);
-insert into PagoEntity(id, montoInicial, montoFinal) values (200, 10, 10);
-select * from cuentacobroentity;
-select * from personaENTITY;
-/*relacion cuenta a dieta*/
-update personaEntity set cuenta_id = 100 where id = 100;
 
 INSERT INTO COCINAENTITY (ID,CAPACIDAD, IMAGEN, "NAME", UBICACION) 
 	VALUES (100,'2008', 'https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'La Gran Cocina', '8871 Merry Point');
@@ -96,7 +84,6 @@ INSERT INTO COCINAENTITY (ID,CAPACIDAD, IMAGEN, "NAME", UBICACION)
 	VALUES (300,'2308', 'https://images.pexels.com/photos/225448/pexels-photo-225448.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Central del Norte', '652 Lukken Junction');
 INSERT INTO COCINAENTITY (ID,CAPACIDAD, IMAGEN, "NAME", UBICACION) 
 	VALUES (400,'208', 'https://images.pexels.com/photos/2755/restaurant.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Cocina Bogota', '15 Hoepker Plaza');
-
 
 
 INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
@@ -111,8 +98,9 @@ INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", 
 	VALUES (600,4,150,'dieta basada en ensaladas o algo asi', 'https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Nutricional', 'el objetivo de la dieta es desintoxicarse', 3, NULL);
 INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
 	VALUES (700,4,150,'una dieta basada en proteinas', 'https://images.pexels.com/photos/76093/pexels-photo-76093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Deportiva', 'el objetivo de la dieta es obtener masa muscular', 5, NULL);
-INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID ) 
+INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
 	VALUES (800,5,200,'dieta basada en alimentos del mar', 'https://images.pexels.com/photos/36768/food-salmon-teriyaki-cooking.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Pacifica', 'el objetivo de la dieta es alejarse de las carnes rojas', 4, NULL);
+
 
 INSERT INTO COCINAENTITY (CAPACIDAD, IMAGEN, "NAME", UBICACION) 
 	VALUES ('2008', 'https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'La Gran Cocina', '8871 Merry Point');
@@ -126,7 +114,6 @@ INSERT INTO COCINAENTITY (CAPACIDAD, IMAGEN, "NAME", UBICACION)
 
 INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
 	VALUES (900,3, 200, 'Vision-oriented intermediate matrix', 'https://images.pexels.com/photos/628777/pexels-photo-628777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Verde', 'Ergonomic solution-oriented support', 2, NULL);
-
 INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
 	VALUES (1000,4, 350, 'Operative motivating strategy', 'https://images.pexels.com/photos/660282/pexels-photo-660282.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Anti Dieta', 'Balanced tertiary strategy', 5, NULL);
 INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
@@ -144,9 +131,57 @@ INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME",
 
 
 
+insert into PagoEntity(id, montoInicial, montoFinal) values (200, 10, 10);
+insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (100, 20.000, 7, 350418, 200, 100);
 
-UPDATE CUENTACOBROENTITY SET DIETA_ID = 100;
 
+insert into PagoEntity(id, montoInicial, montoFinal) values (300, 15, 15);
+insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (200, 30.000, 8, 360418, 300, 200);
+
+
+insert into PagoEntity(id, montoInicial, montoFinal) values (400, 10, 10);
+insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (300, 20.000, 2, 370418, 400, 300);
+
+
+insert into PagoEntity(id, montoInicial, montoFinal) values (500, 5, 5);
+insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (400, 10.000, 1, 380418, 500, 400);
+
+
+insert into PagoEntity(id, montoInicial, montoFinal) values (600, 15, 15);
+insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (500, 30.000, 7, 390418, 600, 500);
+
+
+insert into PagoEntity(id, montoInicial, montoFinal) values (700, 20, 20);
+insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (600, 40.000, 8, 400418, 700, 600);
+
+
+insert into PagoEntity(id, montoInicial, montoFinal) values (800, 5, 5);
+insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (700, 10.000, 2, 410418, 800, 700);
+
+
+insert into PagoEntity(id, montoInicial, montoFinal) values (900, 5, 5);
+insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (800, 10.000, 1, 420418, 900, 800);
+
+
+insert into PagoEntity(id, montoInicial, montoFinal) values (1000, 10, 10);
+insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (900, 20.000, 1, 430418, 1000, 900);
+
+
+insert into PagoEntity(id, montoInicial, montoFinal) values (1100, 25, 25);
+insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (1000, 50.000, 7, 440418, 1100, 1000);
+
+
+/*relacion persona - cuenta*/
+update personaEntity set cuenta_id = 100 where id = 100;
+update personaEntity set cuenta_id = 200 where id = 200;
+update personaEntity set cuenta_id = 300 where id = 300;
+update personaEntity set cuenta_id = 400 where id = 400;
+update personaEntity set cuenta_id = 500 where id = 500;
+update personaEntity set cuenta_id = 600 where id = 600;
+update personaEntity set cuenta_id = 700 where id = 700;
+update personaEntity set cuenta_id = 800 where id = 800;
+update personaEntity set cuenta_id = 900 where id = 900;
+update personaEntity set cuenta_id = 1000 where id = 1000;
 
 
 insert into MedioPagoEntity(id, medioPagoActual) values (100, 'Baloto');
@@ -179,10 +214,6 @@ insert into CasoExitoEntity (id, comentario, testimonio) values (800, 'Comentari
 insert into CasoExitoEntity (id, comentario, testimonio) values (900, 'Comentario 9', 'Testimonio 9');
 insert into CasoExitoEntity (id, comentario, testimonio) values (1000, 'Comentario 10', 'Testimonio 10');
 
-
-
-
-
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (100,10,'ejemplo1','desayuno'/**,'https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'*/);
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (200,187,'ejemplo2','almuerzo'/**,'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'*/);
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (300,93,'ejemplo3','adicional'/**,'https://images.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg?cs=srgb&dl=close-up-cooking-dinner-46239.jpg&fm=jpg'*/);
@@ -202,7 +233,6 @@ insert into SemanaEntity(id, fechaLunes) values (221,'26/03/2018');
 insert into SemanaEntity(id, fechaLunes) values (222,'02/04/2018');
 insert into SemanaEntity(id, fechaLunes) values (223,'09/04/2018');
 
-
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (100, '', '26/03/2018', 1);
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (200, '','27/03/2018', 1);
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (300, '', '28/03/2018', 1);
@@ -210,7 +240,6 @@ insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (400, 'No consum
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (500, 'Una harina diaria','30/03/2018', 0);
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (600, 'Tomar 2 litros de agua','31/03/2018', 0);
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (700, '','01/04/2018', 1);
-
 
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (100,221);
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (200,221);
@@ -220,7 +249,6 @@ insert into DIAS_SEMANAS(DIAID, SEMANAID) values (500,221);
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (600,221);
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (700,221);
 
-
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (800, 'Una harina diaria', '02/04/2018', 0);
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (900, 'Consumir arroz integral', '03/04/2018', 0);
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1000,'Consumir 5 porciones de vegetales', '04/04/2018', 0);
@@ -228,7 +256,6 @@ insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1100, '','05/04
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1200, '','06/04/2018', 1);
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1300, '','07/04/2018', 1);
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1400, 'Una harina diaria','08/04/2018', 0);
-
 
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (800,222);
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (900,222);
