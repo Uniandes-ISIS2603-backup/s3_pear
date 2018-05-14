@@ -221,7 +221,7 @@ public class CalificacionPersistenceTest
   
         
         int nuevaPuntuacion = (int) newEntity.getPuntuacion();
-        int puntuacion = (int) entity.getPuntuacion();
+        int puntuacion = (int) resp.getPuntuacion();
         Assert.assertEquals(nuevaPuntuacion, puntuacion);
         
     }
