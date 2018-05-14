@@ -5,7 +5,9 @@
  */
 package co.edu.uniandes.csw.pear.dtos;
 
+import co.edu.uniandes.csw.pear.entities.ComidaEntity;
 import co.edu.uniandes.csw.pear.entities.EnvioEntity;
+import co.edu.uniandes.csw.pear.entities.PersonaEntity;
 
 /**
 /**
@@ -22,6 +24,10 @@ import co.edu.uniandes.csw.pear.entities.EnvioEntity;
  */
 public class EnvioDetailDTO extends EnvioDTO{
  
+    
+        private ComidaDTO comida;
+    
+    private PersonaDTO persona;
     /**
      * Constructor vacio
      */
@@ -39,6 +45,26 @@ public class EnvioDetailDTO extends EnvioDTO{
     
     public EnvioDetailDTO(EnvioEntity entidad) {
         super(entidad);
+        if(entidad!=null)
+        {
+        if(entidad.getComida()!=null)
+        {
+            comida = new ComidaDTO(entidad.getComida());
+        
+        }
+        else
+        {
+            comida = new ComidaDTO();
+        }
+        if (entidad.getPersona()!=null)
+        {
+            persona = new PersonaDTO(entidad.getPersona());
+        }
+        else
+        {
+            persona = new PersonaDTO();
+        }
+        }
     }
     
       /**
@@ -50,8 +76,51 @@ public class EnvioDetailDTO extends EnvioDTO{
     public EnvioEntity toEntity() {
         EnvioEntity en = super.toEntity();
         
-           
+        if(this.getComida()!=null)
+        {
+            en.setComida(comida.toEntity());
+        }
+        if(this.getPersona()!=null)
+        {
+            en.setPersona(persona.toEntity());
+        }
         
         return en;
+    }
+    
+    
+        /**
+     *
+     * @return la comida que se va a entregar.
+     */
+    public ComidaDTO getComida() {
+        return comida;
+    }
+    
+     /**
+     * Cambia la comida
+     *
+     * @param pComida nueva comida
+     */
+    public void setComida(ComidaDTO pComida) {
+        comida = pComida;
+    }
+
+    /**
+     * persona de entrega
+     *
+     * @return persona
+     */
+    public PersonaDTO getPersona() {
+        return persona;
+    }
+
+    /**
+     * Cambia la persona de el envio
+     *
+     * @param pPersona
+     */
+    public void setPersona(PersonaDTO pPersona) {
+        persona = pPersona;
     }
 }

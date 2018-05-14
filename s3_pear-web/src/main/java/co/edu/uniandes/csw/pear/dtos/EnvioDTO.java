@@ -33,9 +33,7 @@ public class EnvioDTO {
 
     private Long id;
     
-    private ComidaEntity comida;
-    
-    private PersonaEntity persona;
+
 
     private String direccion;
 
@@ -95,13 +93,7 @@ public class EnvioDTO {
         return recibido;
     }
 
-    /**
-     *
-     * @return la comida que se va a entregar.
-     */
-    public ComidaEntity getComida() {
-        return comida;
-    }
+
 
     /**
      * Cambia la duracion
@@ -126,32 +118,7 @@ public class EnvioDTO {
         recibido = true;
     }
 
-    /**
-     * Cambia la comida
-     *
-     * @param pComida nueva comida
-     */
-    public void setComida(ComidaEntity pComida) {
-        comida = pComida;
-    }
-
-    /**
-     * persona de entrega
-     *
-     * @return persona
-     */
-    public PersonaEntity getPersona() {
-        return persona;
-    }
-
-    /**
-     * Cambia la persona de el envio
-     *
-     * @param pPersona
-     */
-    public void setPersona(PersonaEntity pPersona) {
-        persona = pPersona;
-    }
+   
 
     public Long getId() {
         return id;
@@ -163,10 +130,10 @@ public class EnvioDTO {
 
     public EnvioEntity toEntity() {
         EnvioEntity en = new EnvioEntity();
-        en.setComida(comida);
+        
         en.setDireccion(direccion);
         en.setDuracion(duracion);
-        en.setPersona(persona);
+        
         if (recibido) {
             en.setRecibidoVerdadero();
         }

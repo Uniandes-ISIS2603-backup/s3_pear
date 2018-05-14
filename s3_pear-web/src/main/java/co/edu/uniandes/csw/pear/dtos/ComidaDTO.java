@@ -37,7 +37,7 @@ public class ComidaDTO {
 
     private Long id;
     
-    private DiaEntity dia;
+   
     
 
     /**
@@ -118,19 +118,8 @@ public class ComidaDTO {
         Tipo = pTipo;
     }
     
-     public DiaEntity getDia()
-    {
-        return dia;
-    }
-    /**
-     * Cambia el dia de la comdia
-     * @param pDia
-     */
-    public void setDia(DiaEntity pDia)
-    {
-        dia = pDia;
-    }
-
+  
+ 
     public ComidaEntity toEntity() {
         ComidaEntity en = new ComidaEntity();
         en.setAlimentos(this.alimentos);
@@ -147,7 +136,7 @@ public class ComidaDTO {
         } else if ("adicional".equalsIgnoreCase(Tipo)) {
             en.setTIPO("adicional");
         }
-        en.setDia(this.dia);
+       
        
         return en;
     }
