@@ -101,12 +101,42 @@ public class CasoExitoLogicTest {
     @Test
     public void createTest() throws BusinessLogicException {
         CasoExitoEntity newEntity = factory.manufacturePojo(CasoExitoEntity.class);
+        newEntity.setComentario(null);
+        newEntity.setDieta(null);
+        
+        try {
+            logic.createCasoExito(newEntity);
+        }catch (BusinessLogicException e)
+        {
+            Assert.assertEquals("El caso exito no puede tener atributos nulos", e.getMessage());
+        }
+        
+        
+        newEntity.setComentario("");
+          try {
+            logic.createCasoExito(newEntity);
+        }catch (BusinessLogicException e)
+        {
+            Assert.assertEquals("El caso exito no puede tener comentarios ni testimonios vacíos", e.getMessage());
+        }
+        
+        newEntity.setComentario("Un comentario sobre esta dieta");
         CasoExitoEntity result = logic.createCasoExito(newEntity);
         Assert.assertNotNull(result);
         CasoExitoEntity entity = em.find(CasoExitoEntity.class, result.getId());
         Assert.assertEquals(newEntity.getId(), entity.getId());
         Assert.assertEquals(newEntity.getComentario(), entity.getComentario());
         Assert.assertEquals(newEntity.getTestimonio(), entity.getTestimonio());
+        Assert.assertEquals(newEntity.getFotoAntesyDespues(), entity.getFotoAntesyDespues());
+        
+        try{
+            logic.createCasoExito(newEntity); 
+        }catch(BusinessLogicException e)
+        {
+            Assert.assertEquals("Ya existe un caso exito con el id " + newEntity.getId(), e.getMessage()); 
+        }
+        
+        
     }
     
     /**
@@ -138,6 +168,7 @@ public class CasoExitoLogicTest {
         Assert.assertEquals(resultEntity.getId(), entity.getId());
         Assert.assertEquals(resultEntity.getComentario(), entity.getComentario());
         Assert.assertEquals(resultEntity.getTestimonio(), entity.getTestimonio());
+        Assert.assertEquals(resultEntity.getFotoAntesyDespues(), entity.getFotoAntesyDespues());
     }
     
     /**
@@ -155,18 +186,28 @@ public class CasoExitoLogicTest {
      * Prueba para actualizar un Caso
      */
     @Test
-    public void updateBookTest() throws BusinessLogicException{
+    public void updateCasoExitoTest() throws BusinessLogicException{
         CasoExitoEntity entity = data.get(0);
         CasoExitoEntity pojoEntity = factory.manufacturePojo(CasoExitoEntity.class);
 
-        pojoEntity.setId(entity.getId());
-
+        pojoEntity.setId(new Long(265));
+        
+        try{
+            logic.updateCasoExito(pojoEntity); 
+        }catch(BusinessLogicException e )
+        {
+            Assert.assertEquals("El caso que se quiere actualizar no existe", e.getMessage()); 
+        }
+        
+        pojoEntity.setId(entity.getId()); 
         logic.updateCasoExito(pojoEntity);
-
         CasoExitoEntity resp = em.find(CasoExitoEntity.class, entity.getId());
 
         Assert.assertEquals(pojoEntity.getId(), resp.getId());
         Assert.assertEquals(pojoEntity.getComentario(), resp.getComentario());
         Assert.assertEquals(pojoEntity.getTestimonio(), resp.getTestimonio());
+        
+        
+        
     }
 }

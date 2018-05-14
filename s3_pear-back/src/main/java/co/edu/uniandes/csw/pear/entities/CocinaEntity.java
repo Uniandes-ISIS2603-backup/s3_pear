@@ -77,7 +77,7 @@ public class CocinaEntity extends BaseEntity implements Serializable {
      * Agrega una entitdad de dieta a la cocina
      * @param dieta 
      */
-    public void add_dieta ( DietaTipoEntity dieta ) {
+    public void addDieta ( DietaTipoEntity dieta ) {
         this.dietas.add(dieta);
     }
 

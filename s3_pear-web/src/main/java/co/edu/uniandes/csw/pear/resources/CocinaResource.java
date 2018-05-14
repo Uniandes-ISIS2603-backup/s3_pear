@@ -136,7 +136,7 @@ public class CocinaResource {
     public CocinaDetailDTO putDieta_enCocina ( @PathParam("dieta_id") Long dieta_id, @PathParam("cocina_id") Long cocina_id ) {
         DietaTipoEntity dieta = logic_dieta.getDieta(dieta_id);
         CocinaEntity cocina = logic.getCocina(cocina_id);
-        cocina.add_dieta(dieta);
+        cocina.addDieta(dieta);
         return new CocinaDetailDTO(cocina);
     }
     

@@ -50,7 +50,7 @@ public class CuentaCobroLogic {
         List<CuentaCobroEntity> todascuentasCobro =  persistence.findAll();
         List<CuentaCobroEntity> cuentasCobro = new ArrayList<>();
         for (CuentaCobroEntity cuentaCobroEntity : todascuentasCobro) {
-            System.out.println("cuenta " + cuentaCobroEntity.getValorAPagar());
+           
             
             if ( cuentaCobroEntity.getValorAPagar() != null);
             {
@@ -84,26 +84,13 @@ public class CuentaCobroLogic {
      */
     public CuentaCobroEntity createCuenta( CuentaCobroEntity entity ) throws BusinessLogicException{
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de una cuenta de cobro con id = {0}", entity.getId());
-        verificarCuenta(entity);
         persistence.create(entity); 
-        System.out.println("ENTIDAD cuenta valor a pagar" + entity.getValorAPagar());
         LOGGER.log(Level.INFO, "Termina proceso de creacion de una cuenta de cobro con id = {0}", entity.getId());
         return entity;
     } 
     
     
-    public void verificarCuenta(CuentaCobroEntity entity) throws BusinessLogicException
-    {
-        if(entity.getValorAPagar() == null)
-        {
-            throw new BusinessLogicException("El valor a pagar es nulo");
-        }
-        if( entity.getValorAPagar() < 0)
-        {
-            throw new BusinessLogicException("El valor a pagar es negativo");
-        }
-        
-    }
+
     
     /**
      * Actualiza una cuenta de cobro por id
@@ -118,11 +105,11 @@ public class CuentaCobroLogic {
     }
     
     
-        /**
-     * Asocia un Author existente a un Book
+      /**
+     * Asocia un pago existente a una cuenta
      *
      * @param cuentaId Identificador de la instancia de libro
-     * @param pagoId Identificador de la instancia de autor
+     * @param pagoEntity Identificador de la instancia de autor
      * @return Instancia de AuthorEntity que fue asociada a Book
      * 
      */
@@ -141,7 +128,6 @@ public class CuentaCobroLogic {
     public PagoEntity getPago(Long cuentaId)
     {
         CuentaCobroEntity cuentaEntity = getCuenta(cuentaId);
-        
         return cuentaEntity.getPagoEntity();
                 
     }
@@ -156,9 +142,7 @@ public class CuentaCobroLogic {
         LOGGER.log( Level.INFO, "Cuenta con id = {0} eliminada. ", id );
     }
 
-    public void setId(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
     
     
     
