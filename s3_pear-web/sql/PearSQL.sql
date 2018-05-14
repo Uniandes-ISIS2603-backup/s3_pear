@@ -201,16 +201,16 @@ insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (300
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (400,'queja', 'el domiciliario fue grosero',700);
 
 
-insert into CasoExitoEntity (id, comentario, testimonio) values (100, 'Comentario 1', 'Testimonio 1');
-insert into CasoExitoEntity (id, comentario, testimonio) values (200, 'Comentario 2', 'Testimonio 2');
-insert into CasoExitoEntity (id, comentario, testimonio) values (300, 'Comentario 3', 'Testimonio 3');
-insert into CasoExitoEntity (id, comentario, testimonio) values (400, 'Comentario 4', 'Testimonio 4');
-insert into CasoExitoEntity (id, comentario, testimonio) values (500, 'Comentario 5', 'Testimonio 5');
-insert into CasoExitoEntity (id, comentario, testimonio) values (600, 'Comentario 6', 'Testimonio 6');
-insert into CasoExitoEntity (id, comentario, testimonio) values (700, 'Comentario 7', 'Testimonio 7');
-insert into CasoExitoEntity (id, comentario, testimonio) values (800, 'Comentario 8', 'Testimonio 8');
-insert into CasoExitoEntity (id, comentario, testimonio) values (900, 'Comentario 9', 'Testimonio 9');
-insert into CasoExitoEntity (id, comentario, testimonio) values (1000, 'Comentario 10', 'Testimonio 10');
+insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) values (100, 'Comentario 1', 'Testimonio 1','https://rolloid.net/wp-content/uploads/2017/05/20-fotos-increibles-de-perdida-de-peso-antes-y-despues-de-las-cuales-no-creeras-que-sean-de-la-misma-persona-1494409922.jpg');
+insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) values (200, 'Comentario 2', 'Testimonio 2','https://rolloid.net/wp-content/uploads/2017/05/20-fotos-increibles-de-perdida-de-peso-antes-y-despues-de-las-cuales-no-creeras-que-sean-de-la-misma-persona-1494410051.jpg');
+insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) values (300, 'Comentario 3', 'Testimonio 3','https://rolloid.net/wp-content/uploads/2017/05/20-fotos-increibles-de-perdida-de-peso-antes-y-despues-de-las-cuales-no-creeras-que-sean-de-la-misma-persona-1494410226.jpg' );
+insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) values (400, 'Comentario 4', 'Testimonio 4','https://rolloid.net/wp-content/uploads/2017/05/20-fotos-increibles-de-perdida-de-peso-antes-y-despues-de-las-cuales-no-creeras-que-sean-de-la-misma-persona-1494410282.jpg');
+insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) values (500, 'Comentario 5', 'Testimonio 5','https://rolloid.net/wp-content/uploads/2017/05/20-fotos-increibles-de-perdida-de-peso-antes-y-despues-de-las-cuales-no-creeras-que-sean-de-la-misma-persona-1494410581.jpg');
+insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) values (600, 'Comentario 6', 'Testimonio 6', 'https://rolloid.net/wp-content/uploads/2017/05/20-fotos-increibles-de-perdida-de-peso-antes-y-despues-de-las-cuales-no-creeras-que-sean-de-la-misma-persona-1494410714.jpg');
+insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) values (700, 'Comentario 7', 'Testimonio 7', 'https://rolloid.net/wp-content/uploads/2017/05/20-fotos-increibles-de-perdida-de-peso-antes-y-despues-de-las-cuales-no-creeras-que-sean-de-la-misma-persona-1494410793.jpg');
+insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) values (800, 'Comentario 8', 'Testimonio 8', 'https://rolloid.net/wp-content/uploads/2017/05/20-fotos-increibles-de-perdida-de-peso-antes-y-despues-de-las-cuales-no-creeras-que-sean-de-la-misma-persona-1494410793.jpg');
+insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) values (900, 'Comentario 9', 'Testimonio 9','https://rolloid.net/wp-content/uploads/2017/05/20-fotos-increibles-de-perdida-de-peso-antes-y-despues-de-las-cuales-no-creeras-que-sean-de-la-misma-persona-1494409694.jpg');
+insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) values (1000, 'Comentario 10', 'Testimonio 10','https://rolloid.net/wp-content/uploads/2017/05/20-fotos-increibles-de-perdida-de-peso-antes-y-despues-de-las-cuales-no-creeras-que-sean-de-la-misma-persona-1494409764.jpg');
 
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (100,10,'ejemplo1','desayuno'/**,'https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'*/);
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (200,187,'ejemplo2','almuerzo'/**,'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'*/);

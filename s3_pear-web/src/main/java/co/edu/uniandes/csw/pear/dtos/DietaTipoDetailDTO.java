@@ -61,12 +61,8 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
                 quejas.add(new QuejasyReclamosDTO(entityCalificacion));
             }
         }
-<<<<<<< HEAD
-        
-        
-=======
         else quejas = new ArrayList<>();
->>>>>>> cccabdf805176a829e569b73b181b87d85c6af4c
+
         if (entity.getPersonas()!= null) {
             personas = new ArrayList<>();
             for (PersonaEntity persona : entity.getPersonas()) {
