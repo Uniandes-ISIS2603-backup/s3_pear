@@ -10,11 +10,9 @@ import co.edu.uniandes.csw.pear.dtos.SemanaDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.CuentaCobroLogic;
 import co.edu.uniandes.csw.pear.ejb.DietaTipoLogic;
 import co.edu.uniandes.csw.pear.ejb.SemanaLogic;
-import co.edu.uniandes.csw.pear.entities.CuentaCobroEntity;
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.entities.SemanaEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
-//TODO: DONE borrar lo que no se usa 
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -201,12 +199,10 @@ public class DietaTipoResource {
     public DietaTipoDetailDTO addSemana_toDieta(@PathParam("id_dieta") Long id, @PathParam("id_semana") Long id_semana) {
         try {
             DietaTipoEntity dieta = logic.getDieta(id);
-            ArrayList<DietaTipoEntity> listaDieta = new ArrayList<>();
-            listaDieta.add(dieta);
             SemanaEntity semana = logic_sem.getSemana(id_semana);
 
             dieta.add_semana(semana);
-            semana.setDietas(listaDieta);    
+            semana.setDieta(dieta);    
             logic_sem.updateSemana(semana.getId(), semana);
 
             return new DietaTipoDetailDTO(logic.updateDieta(dieta.getId(), dieta));

@@ -43,11 +43,11 @@ public class SemanaEntity  extends BaseEntity implements Serializable{
     // Metodos
     //-----------------------------------------------------------
    
-    public void setDietas(DietaTipoEntity diet ){
+    public void setDieta(DietaTipoEntity diet ){
         dieta = diet;
     }
     
-    public DietaTipoEntity getDietas(){
+    public DietaTipoEntity getDieta(){
         return dieta;
     }
     /**
