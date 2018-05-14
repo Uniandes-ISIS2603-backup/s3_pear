@@ -41,7 +41,7 @@ public class ComidaEntity extends BaseEntity implements Serializable
     )
     private EnvioEntity envio;
     
-98
+
     
  /**
      * Cantidad de la comida 
