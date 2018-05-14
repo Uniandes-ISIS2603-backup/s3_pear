@@ -124,9 +124,7 @@ public class DiaLogic {
     public DiaEntity updateDia( Long id, DiaEntity entity ) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion del dia con id = {0} " , id);
-        if(persistence.findByName(entity.getName()) != null){
-            throw new BusinessLogicException("El nombre no es valido");
-        }
+     
         if(persistence.find(id) == null ){
             throw new BusinessLogicException("No existe un dia con ese identificador");
         }

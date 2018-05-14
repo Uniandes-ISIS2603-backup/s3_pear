@@ -171,6 +171,20 @@ public class DietaTipoPersistenceTest {
         Assert.assertEquals(entity.getName(), newEntity.getName());
     }
 
+     /**
+     * Prueba para consultar una Dieta.
+     *
+     *
+     */
+    @Test
+    public void getDietaByNameTest() {
+        DietaTipoEntity entity = data.get(0);
+        DietaTipoEntity newEntity = persistence.findByName(entity.getName());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getName(), newEntity.getName());
+    }
+    
+    
     /**
      * Prueba para eliminar una Dieta.
      *

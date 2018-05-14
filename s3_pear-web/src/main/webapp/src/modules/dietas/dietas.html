@@ -15,9 +15,12 @@
         <hr/>
         <br/>
         <br/>
+        
+        
 
         <div class="ui two stackable cards" ng-controller="dietasController">
-            <div ng-if="persona.dietas.length < 1">
+            
+            <div ng-if="persona.dietas.length < 1 && definitivamente_no_tiene_dietas">
                 <div>
                     <h1 style="color: dimgray; font-family: 'Roboto'; font-weight: 300;">No te encuentras suscripto a ningún plan de dieta. <br/> ¿Qué estas esperando? </h1>
                     <div class="row">
@@ -48,6 +51,33 @@
                     <div class="inline field">
                         <span class="field left floated">
                             <a ui-sref="dieta_specs.dieta_specs_id({ id: dieta.id })" style="text-decoration: none; color: dimgray;">
+                                <i class="ion-more" style="font-size: 20px;"></i>
+                            </a>
+                        </span>
+                        <!--  <span ng-if="user" class="field right floated">Pausar</span> -->
+                        <!-- ng-click="cancelar_dieta(dieta.id)" -->
+                        <span ng-if="user" class="field right floated"><a style="text-decoration: none;">Cancelar Suscripción</a>&nbsp; &nbsp;</span>
+                        <span ng-if="admin" class="field right floated" ng-click="eliminar_dieta(dieta.id)"><a style="text-decoration: none;">Eliminar</a>&nbsp; &nbsp;</span>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div ng-if="user"  class="ui raised link fluid card">
+                <div class="fluid image">
+                    <img id="im_dieta" src="{{cuenta_personal.dieta.imagen}}">
+                </div>
+                <div class="content">
+                    <div class="header">{{cuenta_personal.dieta.name}}</div>
+                    <div class="meta"><a>Activa</a></div>
+                    <div class="inline field"><a style="text-decoration: none;"><i ng-repeat="s in []| range:cuenta_personal.dieta.stars" class="ion-android-star">&nbsp;</i></a></div>
+                    <div class="description">{{cuenta_personal.dieta.descripcion}}</div>
+                    <div class="description">{{cuenta_personal.dieta.objetivo}}</div>
+                </div>
+                <div class="extra content">
+                    <div class="inline field">
+                        <span class="field left floated">
+                            <a ui-sref="dieta_specs.dieta_specs_id({ id: cuenta_personal.dieta.id })" style="text-decoration: none; color: dimgray;">
                                 <i class="ion-more" style="font-size: 20px;"></i>
                             </a>
                         </span>
