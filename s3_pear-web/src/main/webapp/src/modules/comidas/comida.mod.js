@@ -22,7 +22,7 @@
                     })
                     
                     .state('dieta_specs.comida_detail_almuerzo', {
-                        url: "/comida/detail",
+                        url: "/comida/detail/almuerzo",
                         param: {
                             id_dieta: null
                         },
@@ -34,7 +34,7 @@
                         }
                     })
                      .state('dieta_specs.comida_detail_cena', {
-                        url: "/comida/detail",
+                        url: "/comida/detail/cena",
                         param: {
                             id_dieta: null
                         },
@@ -46,7 +46,7 @@
                         }
                     })
                      .state('dieta_specs.comida_detail_desayuno', {
-                        url: "/comida/detail",
+                        url: "/comida/detail/desayuno",
                         param: {
                             id_dieta: null
                         },
@@ -58,7 +58,7 @@
                         }
                     })
                      .state('dieta_specs.comida_detail_adicional', {
-                        url: "/comida/detail",
+                        url: "/comida/detail/adicional",
                         param: {
                             id_dieta: null
                         },
