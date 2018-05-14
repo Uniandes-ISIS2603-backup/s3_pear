@@ -48,17 +48,13 @@ public class CalificacionLogic {
     public List<CalificacionEntity> getCalificaciones(Long idDieta) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de consultar todas las calificaciones");
         DietaTipoEntity dieta = dietaLogic.getDieta(idDieta);
-<<<<<<< HEAD
-       
-        
-=======
+
         if(dieta.getCalificaciones()==null){
              return new ArrayList<>();
         }
         if(dieta.getCalificaciones().isEmpty()){
              return new ArrayList<>();
         }
->>>>>>> be1d1340aceadd70a92e1665a1bd642fb68b70ea
         return persistence.findAll(idDieta);
     }
 

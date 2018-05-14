@@ -18,7 +18,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class CalificacionEntity extends BaseEntity implements Serializable
 {
-    private int puntuacion;
+    private Integer puntuacion;
 
     @PodamExclude
     @ManyToOne(cascade = CascadeType.PERSIST)
@@ -27,7 +27,7 @@ public class CalificacionEntity extends BaseEntity implements Serializable
      * 
      * @return puntuacion. 
      */
-    public int getPuntuacion() {
+    public Integer getPuntuacion() {
         return puntuacion;
     }
 
@@ -35,7 +35,7 @@ public class CalificacionEntity extends BaseEntity implements Serializable
      * 
      * @param puntuacion 
      */
-    public void setPuntuacion(int puntuacion)
+    public void setPuntuacion(Integer puntuacion)
     {
         this.puntuacion = puntuacion;
     }

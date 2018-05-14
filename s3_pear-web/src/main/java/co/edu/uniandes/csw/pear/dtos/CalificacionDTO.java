@@ -34,7 +34,7 @@ public class CalificacionDTO {
  
     private Long id;
 
-    private int puntuacion;
+    private Integer puntuacion;
 
 
     /**
@@ -72,7 +72,7 @@ public class CalificacionDTO {
      *
      * @return la puntuacion
      */
-    public int getPuntuacion() {
+    public Integer getPuntuacion() {
         return puntuacion;
     }
 
@@ -80,7 +80,7 @@ public class CalificacionDTO {
      *
      * @param puntuacion nueva puntuacion
      */
-    public void setPuntuacion(int puntuacion) {
+    public void setPuntuacion(Integer puntuacion) {
         this.puntuacion = puntuacion;
     }
 

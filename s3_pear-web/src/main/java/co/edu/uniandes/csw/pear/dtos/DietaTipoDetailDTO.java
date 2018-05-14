@@ -123,10 +123,10 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
         return calificaciones;
     }
 
-    public void setCalificacon(List<CalificacionDTO> calificaciones) {
+    public void setCalificaciones(List<CalificacionDTO> calificaciones) {
         this.calificaciones = calificaciones;
     }
-
+    
     public List<QuejasyReclamosDTO> getQuejas() {
         return quejas;
     }

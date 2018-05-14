@@ -114,18 +114,18 @@ public class CasoExitoDTO {
     public void setTestimonio(String pTestimonio){
         testimonio = pTestimonio;
     }
-    
-    public String getFotoAntesDespues(){
+
+    public String getFotoAntesyDespues() {
         return fotoAntesyDespues;
     }
-    
-    public void setFotoAntes(String pFotoAntesyDespues){
-        fotoAntesyDespues = pFotoAntesyDespues;
-        
+
+    public void setFotoAntesyDespues(String fotoAntesyDespues) {
+        this.fotoAntesyDespues = fotoAntesyDespues;
     }
+    
    
-    
-    
+   
+  
     /**
      * Convierte este objeto DTO a una entidad
      * @return Un nuevo entity con los valores del DTO

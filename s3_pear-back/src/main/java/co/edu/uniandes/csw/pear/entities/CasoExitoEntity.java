@@ -37,13 +37,15 @@ public class CasoExitoEntity extends BaseEntity implements Serializable{
     //-----------------------------------------------------------
     //Metodos
     //-----------------------------------------------------------
-    public String getFotoAntesyDespues(){
+
+    public String getFotoAntesyDespues() {
         return fotoAntesyDespues;
     }
 
     public void setFotoAntesyDespues(String fotoAntesyDespues) {
         this.fotoAntesyDespues = fotoAntesyDespues;
     }
+    
 
     
 
