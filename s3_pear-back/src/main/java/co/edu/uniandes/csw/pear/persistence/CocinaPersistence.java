@@ -37,17 +37,6 @@ public class CocinaPersistence {
         return em.find(CocinaEntity.class, id);
     }
     
-    /**
-     * Busca una CocinaEntity dado su nombre
-     * @param name de tipo string
-     * @return cocina de tipo entity
-     */
-    public CocinaEntity findByName( String name ) {
-        LOGGER.log(Level.INFO, "Consultando la cocina con name= ", name);
-        TypedQuery<CocinaEntity> q = em.createQuery("select u from CocinaEntity u where u.name = :name", CocinaEntity.class);
-        q = q.setParameter("name", name);
-        return q.getSingleResult();
-    }
     
     /**
      * Busca todas las cocinas de tipo CocinaEntity
@@ -60,20 +49,6 @@ public class CocinaPersistence {
     }
     
     
-    
-    /**
-     * Retorna los IDs de las Dietas que se prpeparan en la cocina
-     * @param id
-     * @return 
-     */
-    public List<Integer> get_dietas_cocinaID ( Long id ) {
-        
-        LOGGER.log(Level.INFO, "Consultando las dietas de la cocina por id = {0}", id);
-        Query q;
-        String stm = "SELECT C.DIETAS_ID FROM COCINAENTITY_DIETATIPOENTITY C WHERE COCINAENTITY_ID = " + id;
-        q = em.createQuery( stm );
-        return q.getResultList();
-    }
     
     
     /**

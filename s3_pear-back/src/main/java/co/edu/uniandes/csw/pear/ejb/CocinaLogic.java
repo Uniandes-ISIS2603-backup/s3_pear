@@ -78,20 +78,7 @@ public class CocinaLogic {
     }
     
     
-    /**
-     * Retorna los IDs de las Dietas que se reaqlizan en la Cocina por ID
-     * @param id
-     * @return 
-     */
-    public List<Integer> get_dietas_cocinaID ( Long id ) {
-        LOGGER.log(Level.INFO, "Inicia consulta de dietas de la cocina con id = {0}", id);
-        List<Integer> dietas = persistence.get_dietas_cocinaID(id);
-        if ( dietas ==  null )
-            LOGGER.log(Level.INFO, "No existen Dietas en una Cocina con el id = {0}", id);
-        LOGGER.log(Level.INFO, "Termina la consulta de deitas de la  cocina con id = {0}", id);
-        return dietas;
-    } 
-    
+
     /**
      * Retorna colection de instancias de Dietas asociadas a una Cocina por id
      * @param cocina_id
