@@ -47,12 +47,8 @@ public class CalificacionLogic {
     public List<CalificacionEntity> getCalificaciones(Long idDieta) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de consultar todas las calificaciones");
         DietaTipoEntity dieta = dietaLogic.getDieta(idDieta);
-        if(dieta.getCalificaciones()==null){
-             throw new BusinessLogicException("La dieta que consulta aún no tiene calificaciones");
-        }
-        if(dieta.getCalificaciones().isEmpty()){
-             throw new BusinessLogicException("La dieta que consulta aún no tiene calificaciones");
-        }
+       
+        
         return persistence.findAll(idDieta);
     }
 
