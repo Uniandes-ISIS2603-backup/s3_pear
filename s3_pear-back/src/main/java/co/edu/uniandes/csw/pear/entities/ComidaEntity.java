@@ -106,7 +106,7 @@ public class ComidaEntity extends BaseEntity implements Serializable
     }
     /**
      * Cambia el dia de la comdia
-     * @param pTipo
+     * @param pDia
      */
     public void setDia(DiaEntity pDia)
     {

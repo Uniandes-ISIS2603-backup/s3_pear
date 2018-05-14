@@ -104,9 +104,9 @@ public class DiaDetailDTO extends DiaDTO{
         if(entity != null){
             if(this.getComidas() != null){
             List<ComidaEntity> listaComidas = new ArrayList<>();
-            this.getComidas().forEach(comi -> {
-             listaComidas.add(comi.toEntity());
-            });
+            for(ComidaEntity y: entity.getComidas()){
+                listaComidas.add(y);
+            }
             entity.setComidas(listaComidas);
         }
         if(this.getSemana() != null){

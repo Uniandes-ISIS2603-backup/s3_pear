@@ -5,8 +5,6 @@
  */
 package co.edu.uniandes.csw.pear.dtos;
 import co.edu.uniandes.csw.pear.entities.ComidaEntity;
-import co.edu.uniandes.csw.pear.entities.DiaEntity;
-
 
 /**
  *
@@ -33,7 +31,7 @@ public class ComidaDTO {
 
     private String alimentos;
 
-    private String Tipo;
+    private String tipo;
 
     private Long id;
     
@@ -49,7 +47,7 @@ public class ComidaDTO {
         if(entidad != null) {
         cantidad = entidad.getCantidad();
         alimentos = entidad.getAlimentos();
-        Tipo = entidad.getTipo();
+        tipo = entidad.getTipo();
         
         }
     }
@@ -107,7 +105,7 @@ public class ComidaDTO {
      * @return el tipo de comida.
      */
     public String getTipo() {
-        return Tipo;
+        return tipo;
     }
 
     /**
@@ -115,7 +113,7 @@ public class ComidaDTO {
      * @param pTipo nuevo tipo.
      */
     public void setTIPO(String pTipo) {
-        Tipo = pTipo;
+        tipo = pTipo;
     }
     
   
@@ -125,15 +123,15 @@ public class ComidaDTO {
         en.setAlimentos(this.alimentos);
         en.setCantidad(this.cantidad);
         en.setId(this.id);
-        if ("desayuno".equalsIgnoreCase(Tipo)) {
+        if ("desayuno".equalsIgnoreCase(tipo)) {
             en.setTIPO("desayuno");
         } 
-        else if ("almuerzo".equalsIgnoreCase(Tipo)) {
+        else if ("almuerzo".equalsIgnoreCase(tipo)) {
             en.setTIPO("almuerzo");
         } 
-        else if ("cena".equalsIgnoreCase(Tipo)) {
+        else if ("cena".equalsIgnoreCase(tipo)) {
             en.setTIPO("cena");
-        } else if ("adicional".equalsIgnoreCase(Tipo)) {
+        } else if ("adicional".equalsIgnoreCase(tipo)) {
             en.setTIPO("adicional");
         }
        
