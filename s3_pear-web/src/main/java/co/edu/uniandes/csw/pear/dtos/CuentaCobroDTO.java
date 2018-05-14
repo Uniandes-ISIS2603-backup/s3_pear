@@ -34,7 +34,7 @@ public class CuentaCobroDTO {
      * Contructor por defecto
      */
     public CuentaCobroDTO() {
-
+       //Constructor para propositos de persistencia
     }
 
     /**

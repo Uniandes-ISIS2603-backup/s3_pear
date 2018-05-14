@@ -10,7 +10,7 @@ import co.edu.uniandes.csw.pear.entities.DiaEntity;
 
 /**
  *
- *  * ComidaDTO Objeto de transferencia de datos de comidas. Los DTO contienen
+ * Objeto de transferencia de datos de comidas. Los DTO contienen
  * las represnetaciones de los JSON que se transfieren entre el cliente y el
  * servidor.
  *
@@ -24,20 +24,7 @@ import co.edu.uniandes.csw.pear.entities.DiaEntity;
  *      "image": String
  *
  *   }
- * </pre> Por ejemplo una comida se representa asi:<br>
- *
- * <pre>
- *
- *   {
- *      "cantidad": 360 gramos,
- *       "alimentos":"arroz intregra 100 gramos, 200 gramos de carne de rez y aguacate 60 gramos",
- *      "direccion: "Bogota DC, calle 106 # 19-20 casa 120",
- *      "tipo": "desayuno",
- *      "image": "https://images.pexels.com/photos/8500/food-dinner-pasta-spaghetti-8500.jpg?cs=srgb&dl=basil-dinner-food-8500.jpg&fm=jpg"
- *   }
- *
- * </pre>
- *
+ * </pre> 
  * @author js.cabra
  */
 public class ComidaDTO {
@@ -71,7 +58,7 @@ public class ComidaDTO {
      * Constructor vacio
      */
     public ComidaDTO() {
-
+        //Constructor para propositos de persistencia
     }
 
     public Long getId() {
@@ -88,7 +75,6 @@ public class ComidaDTO {
      */
     public Integer getCantidad() {
         return cantidad;
-
     }
 
     /**
@@ -144,35 +130,21 @@ public class ComidaDTO {
     {
         dia = pDia;
     }
-       
-        /**
-     * Imagen de la comida 
-     * @return image
-     
-    public String getImage()
-    {
-        return image;
-    }
-    /**
-     * Cambia la imagen de la comida
-    public void setImage(String pImage)
-    {
-        image = pImage;
-    }*/
 
     public ComidaEntity toEntity() {
         ComidaEntity en = new ComidaEntity();
         en.setAlimentos(this.alimentos);
         en.setCantidad(this.cantidad);
         en.setId(this.id);
-       // en.setImage(this.image);
-        if (Tipo.equalsIgnoreCase("desayuno")) {
+        if ("desayuno".equalsIgnoreCase(Tipo)) {
             en.setTIPO("desayuno");
-        } else if (Tipo.equalsIgnoreCase("almuerzo")) {
+        } 
+        else if ("almuerzo".equalsIgnoreCase(Tipo)) {
             en.setTIPO("almuerzo");
-        } else if (Tipo.equalsIgnoreCase("cena")) {
+        } 
+        else if ("cena".equalsIgnoreCase(Tipo)) {
             en.setTIPO("cena");
-        } else if (Tipo.equalsIgnoreCase("adicional")) {
+        } else if ("adicional".equalsIgnoreCase(Tipo)) {
             en.setTIPO("adicional");
         }
         en.setDia(this.dia);

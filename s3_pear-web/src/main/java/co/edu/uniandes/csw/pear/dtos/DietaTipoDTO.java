@@ -42,7 +42,7 @@ public class DietaTipoDTO {
      * Contructor de DietaTipoDTO
      */
     public DietaTipoDTO() {
-
+        //Constructor para propositos de persistencia
     }
 
     /**

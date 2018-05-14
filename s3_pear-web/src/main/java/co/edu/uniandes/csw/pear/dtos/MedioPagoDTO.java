@@ -31,7 +31,7 @@ public class MedioPagoDTO {
      */
     public MedioPagoDTO()
     {
-        
+        //Constructor para propositos de persistencia
     }
     
     

@@ -85,7 +85,7 @@ public class FacturaDTO {
      * Constructor de la clase
      */
     public FacturaDTO(){
-        
+        //Constructor para propositos de persistencia
     }
     
     //-----------------------------------------------------------
