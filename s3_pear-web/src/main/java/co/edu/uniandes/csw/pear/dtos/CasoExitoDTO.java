@@ -14,7 +14,8 @@ import co.edu.uniandes.csw.pear.entities.CasoExitoEntity;
  * El formato JSON de este objeto es el siguiente:
  * {
  *  "comentario": String,
- *  "fotos": List,
+ *  "fotoAntes": String,
+ *  "fotoDespues":String,
  *  "testimonio": String,
  *  "dieta": {
  *            "objetivo": String,
@@ -37,6 +38,8 @@ public class CasoExitoDTO {
     
     private String testimonio;
     
+    private String fotoAntesyDespues;
+    
     //-----------------------------------------------------------
     //Constructor
     //-----------------------------------------------------------
@@ -53,6 +56,9 @@ public class CasoExitoDTO {
             comentario = entidad.getComentario();
         
             testimonio = entidad.getTestimonio();
+            
+            fotoAntesyDespues= entidad.getFotoAntesyDespues();
+        
         }
     }
     
@@ -109,7 +115,16 @@ public class CasoExitoDTO {
         testimonio = pTestimonio;
     }
     
+    public String getFotoAntesDespues(){
+        return fotoAntesyDespues;
+    }
+    
+    public void setFotoAntes(String pFotoAntesyDespues){
+        fotoAntesyDespues = pFotoAntesyDespues;
+        
+    }
    
+    
     
     /**
      * Convierte este objeto DTO a una entidad
@@ -121,6 +136,8 @@ public class CasoExitoDTO {
         entidad.setId(id);
         entidad.setComentario(comentario);
         entidad.setTestimonio(testimonio);
+        entidad.setFotoAntesyDespues(fotoAntesyDespues);
+      
         
         return entidad;
     }
