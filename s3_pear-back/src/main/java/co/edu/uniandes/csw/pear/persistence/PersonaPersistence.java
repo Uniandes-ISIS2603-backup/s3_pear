@@ -18,7 +18,7 @@ import javax.persistence.TypedQuery;
 /**
  * @author pa.suarezm
  */
-@Stateless //(?)
+@Stateless 
 public class PersonaPersistence {
     
     private static final Logger LOGGER = Logger.getLogger(PersonaPersistence.class.getName());

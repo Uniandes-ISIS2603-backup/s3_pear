@@ -93,8 +93,6 @@ public class DietaTipoPersistence {
     public void delete( Long id ) {
         LOGGER.log(Level.INFO, "Borrando la dieta con id={0}", id);
         DietaTipoEntity entity = em.find(DietaTipoEntity.class, id);
-        System.out.println(String.format("Eliminandola entitad de Dieta con ID = { %s } donde la lista tiene < %d > elementos", new Object[]{entity.getId().toString(), this.findAll().size()}));
         em.remove(entity);
-        System.out.println( String.format("Ahora la lista debria tener un elemento menos. La lista tiene < %d > elementos ", this.findAll().size()) );
-    }
+        }
 }

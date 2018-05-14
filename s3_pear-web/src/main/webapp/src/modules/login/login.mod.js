@@ -130,9 +130,9 @@ console.log($scope.data);
                     
                     console.log($scope.usuarios[item]);
 
-                    if ($scope.usuarios[item].user == $scope.data.username &&
-                            $scope.usuarios[item].password == $scope.data.password &&
-                            $scope.usuarios[item].rol == $scope.data.rol) {
+                    if ($scope.usuarios[item].user === $scope.data.username &&
+                            $scope.usuarios[item].password === $scope.data.password &&
+                            $scope.usuarios[item].rol === $scope.data.rol) {
                         flag = true;
 
                         $rootScope.usuario = $scope.usuarios[item];
@@ -167,7 +167,7 @@ console.log($scope.data);
                 if (!flag) {
                     
                     
-                    if ( $scope.usuarios[item].user == $scope.data.username ) {
+                    if ( $scope.usuarios[item].user === $scope.data.username ) {
                         $rootScope.incorrect = true;
                        
                     }
