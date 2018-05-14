@@ -13,7 +13,7 @@ import co.edu.uniandes.csw.pear.entities.FacturaEntity;
  * {
  *      "cantidadDeProductos": Integer,
  *      "numeroFactura": Integer,
-        "persona":  [ {
+ *      "persona":  [ {
  *                   "nombre": String,
  *                   "apellido": String,
  *                   "edad": int,
@@ -43,7 +43,7 @@ import co.edu.uniandes.csw.pear.entities.FacturaEntity;
  *                       "comentario": string,
  *                      }
  *                    ]
- * }
+ *   }
  * }
  * @author v.chacon
  */

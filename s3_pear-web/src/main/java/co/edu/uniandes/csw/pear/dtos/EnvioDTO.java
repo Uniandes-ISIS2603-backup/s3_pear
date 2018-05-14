@@ -10,8 +10,7 @@ import co.edu.uniandes.csw.pear.entities.EnvioEntity;
 import co.edu.uniandes.csw.pear.entities.PersonaEntity;
 
 /**
- *
- *  * EnvioDTO Objeto de transferencia de datos de Envios. Los DTO contienen las
+ * EnvioDTO Objeto de transferencia de datos de Envios. Los DTO contienen las
  * represnetaciones de los JSON que se transfieren entre el cliente y el
  * servidor.
  *
@@ -22,39 +21,29 @@ import co.edu.uniandes.csw.pear.entities.PersonaEntity;
  *      "recibidio": boolean,
  *      "direccio":String
  *   }
- * </pre> Por ejemplo un envio se representa asi:<br>
- *
- * <pre>
- *
- *   {
- *      "duracion": 1hora,
- *      "recibido": true,
- *      "comida": UnaComida
- *   }
- *
- * </pre>
+ * </pre> 
  *
  * @author js.cabra
  */
 public class EnvioDTO {
 
-    public Integer duracion;
+    private Integer duracion;
 
-    public Boolean recibido;
+    private Boolean recibido;
 
-    public Long id;
+    private Long id;
     
-    public ComidaEntity comida;
+    private ComidaEntity comida;
     
-    public PersonaEntity persona;
+    private PersonaEntity persona;
 
-    public String direccion;
+    private String direccion;
 
     /**
      * Constructor vacio
      */
     public EnvioDTO() {
-
+        //Constructor para propositos de persistencia
     }
 
     /**
@@ -62,7 +51,7 @@ public class EnvioDTO {
      *
      * @param entidad
      */
-    public EnvioDTO(EnvioEntity entidad) {//TODO:DONE entity puede ser null
+    public EnvioDTO(EnvioEntity entidad) {
         if(entidad!=null)
         {
         duracion = entidad.getDuracion();
@@ -178,12 +167,11 @@ public class EnvioDTO {
         en.setDireccion(direccion);
         en.setDuracion(duracion);
         en.setPersona(persona);
-        if (recibido == false) {
-            en.setRecibidoFalso();
-        }
-
-        if (recibido == true) {
+        if (recibido) {
             en.setRecibidoVerdadero();
+        }
+        else{
+            en.setRecibidoFalso();
         }
         en.setId(this.id);
 

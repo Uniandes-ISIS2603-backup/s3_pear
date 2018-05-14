@@ -51,7 +51,7 @@ public class DiaDTO {
      * Constructor de la clase DiaDTO
      */
     public DiaDTO() {
-
+        //Constructor para propositos de persistencia
     }
     //-----------------------------------------------------------
     // Metodos
