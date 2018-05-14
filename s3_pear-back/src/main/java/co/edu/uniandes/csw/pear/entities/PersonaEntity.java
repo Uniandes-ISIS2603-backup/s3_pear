@@ -9,7 +9,10 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -56,6 +59,16 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "persona")
     private List<FacturaEntity> facturas;
     
+    
+     @PodamExclude
+    @OneToMany( cascade = CascadeType.PERSIST)
+        @JoinTable(name="PERSONAS_ENVIOS", 
+        joinColumns=@JoinColumn(name="personaId"),
+        inverseJoinColumns=@JoinColumn(name="envioId")
+    )
+    private List<EnvioEntity> envios;
+    
+    
     //-----------------------------------------------------------
     //Metodos
     //-----------------------------------------------------------
@@ -75,6 +88,21 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     }
     
  
+        
+    /**
+     * @return lista de envios
+     */
+    public List<EnvioEntity> getEnvios(){
+        return envios;
+    }
+    
+    /**
+     * @param list lista de envios
+     */
+    public void setEnvios(List<EnvioEntity> list){
+        envios = list;
+    }
+    
     
     /**
      * @return nombre de la persona
