@@ -14,16 +14,16 @@
         $stateProvider
             .state('envios', {
                 url: "/envios",
-                templateUrl: "src/modules/envios/envios.html",
+                templateUrl: "src/modules/envios/envio_list.html",
                 controller: 'enviosController'
             })
 
-            .state('detail', {
+            .state('envioDetail', {
                 url: "/envio/:id/detail",
                 param: {
                     id: null
                 },
-                templateUrl: "src/modules/envios/envio.html",
+                templateUrl: "src/modules/envios/envio_detail.html",
                 controller: 'enviosController'
             })
 
