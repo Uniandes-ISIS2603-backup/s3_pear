@@ -1,9 +1,9 @@
 (function (ng) {
     var mod = ng.module("pagoModule");
     mod.constant("pagoContext", "api/pagos");
-    mod.controller('pagoController', ['$scope', '$http', 'pagoContext','$state', '$filter', 
+    mod.controller('pagoController', ['$scope', '$http', 'pagoContext','$state', 
         
-        function ($scope, $http, pagoContext, $state, $filter) {
+        function ($scope, $http, pagoContext, $state) {
             
             $scope.medioActual = null;
            
@@ -32,12 +32,6 @@
                 $scope.pagoActual = $scope.cuentaActual.pagoActual;
             });
             
-             
-            
-            
-            
-              
-            
             $scope.get_cuentaid = function ()
             {
                      $http.get('http://localhost:8080/s3_pear-web/api/cuentascobro/' + 1).then(function (response) {
@@ -52,10 +46,8 @@
                     medioPagoActual: $scope.medioPagoAgregar
                 };
 
-                console.log(data.medioPagoActual);
-
                 // DIRECCION HTTP 
-                $http.post('http://localhost:8080/s3_pear-web/api/mediopagos', data).then(function (response) {
+                $http.post('http://localhost:8080/s3_pear-web/api/mediopagos', data).then(function () {
                  $state.go('pago', {}, {reload: true})   ;
                    
                 });
@@ -65,18 +57,16 @@
             $scope.delete_medio = function()
             {
                  if ($state.params.medioPagoId !== null && $state.params.medioPagoId !== undefined){
-                     $http.delete('http://localhost:8080/s3_pear-web/api/mediopagos/' + $state.params.medioPagoId).then(function (response) {
+                     $http.delete('http://localhost:8080/s3_pear-web/api/mediopagos/' + $state.params.medioPagoId).then(function () {
                  $state.go('pago', {}, {reload: true});
                  });
                  }
                 
             };
-            
-            
-            
+
             $scope.mostrar_inicial = function()
             {  
-                var retorno = '';
+                var retorno;
                 
                 if($scope.cuentaActual!== null && $scope.cuentaActual !== undefined)
                 {
@@ -90,8 +80,9 @@
                     }
               
                  
-              }else{
-                  retorno ='Algo salio mal. Haga clean and build'
+              }
+              else{
+                  retorno ='Algo salio mal. Haga clean and build';
               }
                  return retorno;
             };
@@ -126,7 +117,6 @@
                  
                  $scope.medioActual = response.data;
                  });       
-                     //$state.go('pago', {}, {reload: true});
            };   
             
             $scope.hacer_pago = function ()
@@ -150,10 +140,8 @@
                      
                      setTimeout(function(){
                         if($scope.pagoActual !== undefined)
-                        {
-                           console.log('Entra a ahcer el put del pago')
-                            
-                            $http.put('localhost:8080/s3_pear-web/api/pagos/'+ $scope.pagoActual.id + '/medio/' + $scope.medioActual.id).then(function (response) {
+                        {   
+                            $http.put('localhost:8080/s3_pear-web/api/pagos/'+ $scope.pagoActual.id + '/medio/' + $scope.medioActual.id).then(function () {
                      });  
                         };
                         }, 500);
@@ -171,7 +159,7 @@
                                 montoFinal : $scope.pagoActual.montoInicial
                           }; 
                     
-                    $http.put('http://localhost:8080/s3_pear-web/api/pagos/' + $scope.pagoActual.id, data).then(function (response) {
+                    $http.put('http://localhost:8080/s3_pear-web/api/pagos/' + $scope.pagoActual.id, data).then(function (){
                  
                      });
                      
@@ -202,13 +190,7 @@
                         
                      });
         }
-        
-        
-        
-        } 
+      } 
     ]);
-}
-       
-        
-        
+}  
 )(window.angular);
