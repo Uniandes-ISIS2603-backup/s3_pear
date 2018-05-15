@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.test.logic;
 
 import co.edu.uniandes.csw.pear.ejb.SemanaLogic;
+import co.edu.uniandes.csw.pear.entities.DiaEntity;
 import co.edu.uniandes.csw.pear.entities.SemanaEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.SemanaPersistence;
@@ -48,6 +49,8 @@ public class SemanaLogicTest {
     
     private List<SemanaEntity> data = new ArrayList<>();
    
+    private List<DiaEntity> dias = new ArrayList<>(); 
+    
     @Inject
     private SemanaLogic logic;
     
@@ -91,8 +94,20 @@ public class SemanaLogicTest {
      * pruebas.
      */
     private void insertData() {
+        
+        for(int i = 0; i< 3; i++)
+        {
+            DiaEntity dia = factory.manufacturePojo(DiaEntity.class); 
+            
+            dias.add(dia ); 
+        }
         for (int i = 0; i < 3; i++) {
             SemanaEntity entity = factory.manufacturePojo(SemanaEntity.class);
+           if(i == 0)
+           {
+               entity.setDias(dias);
+           }
+            
             em.persist(entity);
             data.add(entity);
         }
@@ -110,7 +125,10 @@ public class SemanaLogicTest {
         SemanaEntity entity = em.find(SemanaEntity.class, result.getId());
         Assert.assertEquals(newEntity.getName(),entity.getName());
         Assert.assertEquals(newEntity.getId(),entity.getId());
+        Assert.assertEquals(newEntity.getDieta(),entity.getDieta());
+        Assert.assertEquals(newEntity.getFechaLunes(), entity.getFechaLunes());
     }
+    
     
     /**
      * Prueba para consultar las semanas
@@ -140,6 +158,7 @@ public class SemanaLogicTest {
         Assert.assertNotNull(resultEntity);
         Assert.assertEquals(entity.getId(), resultEntity.getId());
         Assert.assertEquals(entity.getName(), resultEntity.getName());
+      
     }
     
     /**
