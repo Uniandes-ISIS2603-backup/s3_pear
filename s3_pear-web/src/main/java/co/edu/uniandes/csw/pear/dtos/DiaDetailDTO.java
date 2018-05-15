@@ -103,8 +103,8 @@ public class DiaDetailDTO extends DiaDTO{
         if(entity != null){
             if(this.getEnvios() != null){
             List<EnvioEntity> listaEnvios = new ArrayList<>();
-            for(EnvioEntity y: entity.getEnvios()){
-                listaEnvios.add(y);
+            for(EnvioDTO y: envios){
+                listaEnvios.add(y.toEntity());
             }
             entity.setEnvios(listaEnvios);
         }

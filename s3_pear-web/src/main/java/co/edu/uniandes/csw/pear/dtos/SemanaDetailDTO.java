@@ -92,9 +92,9 @@ public class SemanaDetailDTO extends SemanaDTO {
         if(entity != null){
             if(this.getDias()!= null){
             List<DiaEntity> days = new ArrayList<>();
-            this.getDias().forEach(di -> {
-               days.add(di.toEntity());
-            });
+            for(DiaDTO y: dias){
+                days.add(y.toEntity());
+            }
             entity.setDias(days);
         }
         if(this.getDieta()!= null){

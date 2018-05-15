@@ -57,9 +57,7 @@ public class CocinaDetailDTO extends CocinaDTO {
             } else {
                 this.dietas = new ArrayList<>();
             }
-
         }
-
     }
 
     public List<DietaTipoDTO> getDietas() {
@@ -73,16 +71,15 @@ public class CocinaDetailDTO extends CocinaDTO {
     @Override
     public CocinaEntity toEntity() {
         CocinaEntity en = super.toEntity();
-
-        if (this.getDietas() != null) {
-
-            List<DietaTipoEntity> dts = new ArrayList<>();
-            this.getDietas().forEach(dieta -> {
-                dts.add(dieta.toEntity());
-            });
-            en.setDietas(dts);
+        if(en != null){
+            if(this.getDietas() !=  null){
+                List<DietaTipoEntity> dts = new ArrayList<>();
+                for(DietaTipoEntity y: en.getDietas()){
+                    dts.add(y);
+                }
+                en.setDietas(dts);
+            }
         }
         return en;
     }
-
 }

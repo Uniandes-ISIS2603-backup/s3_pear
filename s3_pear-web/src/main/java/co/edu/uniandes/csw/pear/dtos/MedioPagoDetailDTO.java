@@ -52,16 +52,11 @@ import co.edu.uniandes.csw.pear.entities.MedioPagoEntity;
  */
 
 public class MedioPagoDetailDTO extends MedioPagoDTO{
-    
-    
-    
-    
      /**
      * Constructor por defecto
      */
-    public MedioPagoDetailDTO() {
-        
-        
+    public MedioPagoDetailDTO() {    
+     //Constructor vacio para propositos de persistencia
     }
       
     
@@ -83,8 +78,5 @@ public class MedioPagoDetailDTO extends MedioPagoDTO{
     public MedioPagoEntity toEntity() {
         MedioPagoEntity entity = super.toEntity();
         return entity;
-    }
-
-    
-    
+    }      
 }

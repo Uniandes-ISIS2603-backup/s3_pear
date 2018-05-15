@@ -82,8 +82,6 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
                 calificacionesEntity.add(dtoCalificacion.toEntity());
             }
             en.setCalificaciones(calificacionesEntity);
-            System.out.println("valer");
-            System.out.println(en.getCalificaciones());
         }
         if (quejas != null) {
             List<QuejasyReclamosEntity> quejasEntity = new ArrayList<>();
@@ -94,17 +92,17 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
         }
         if (this.getSemanas() != null) {
             List<SemanaEntity> sems = new ArrayList<>();
-            this.getSemanas().forEach(semanita -> {
-                sems.add(semanita.toEntity());
-            });
+            for(SemanaDTO y: semanas){
+                sems.add(y.toEntity());
+            }
             en.setSemanas(sems);
         }
         
         if (this.getPersonas()!= null) {
             List<PersonaEntity> pers = new ArrayList<>();
-            this.getPersonas().forEach(persona -> {
-                pers.add(persona.toEntity());
-            });
+            for(PersonaDTO y: personas){
+                pers.add(y.toEntity());
+            }
             en.setPersonas(pers);
         }
         

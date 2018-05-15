@@ -27,7 +27,6 @@ public class ComidaDetailDTO extends ComidaDTO
     
         /**
      * Constructor para transformar un Entity a un DTO
-     *
      * @param entidad La entidad de Envio a partir de la cual se construye el objeto
      */
     
@@ -58,9 +57,7 @@ public class ComidaDetailDTO extends ComidaDTO
         if(this.getDia()!=null)
         {
             en.setDia(dia.toEntity());
-        }
-           
-        
+        }  
         return en;
     }
     
@@ -80,8 +77,5 @@ public class ComidaDetailDTO extends ComidaDTO
      */
     public void setDia(DiaDTO pDia) {
         dia = pDia;
-    }
-
-
-    
+    }    
 }

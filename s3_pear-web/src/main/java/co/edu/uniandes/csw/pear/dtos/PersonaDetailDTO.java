@@ -49,7 +49,6 @@ public class PersonaDetailDTO extends PersonaDTO {
                     quejas.add(new QuejasyReclamosDTO(qyr));
                 }
             }
-
             facturas = new ArrayList<>();
             for (FacturaEntity f : entidad.getFacturas()) {
                 if (f != null) {
@@ -70,12 +69,12 @@ public class PersonaDetailDTO extends PersonaDTO {
             
             if (entidad.getDietas() != null) {
             dietas = new ArrayList<>();
-            for (DietaTipoEntity dieta : entidad.getDietas()) {
+            for (DietaTipoEntity dieta : entidad.getDietas()){
                 dietas.add(new DietaTipoDTO(dieta));
             }
+          
         }
-
-        }
+      }
     }
 
     //-----------------------------------------------------------

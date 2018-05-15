@@ -33,7 +33,7 @@ public class CalificacionDetailDTO extends CalificacionDTO
      * Constructor por defecto
      */
     public CalificacionDetailDTO(){
-        //Constructor por defecto
+        //Constructor para propositos de persistencia
     }
 
      /**
