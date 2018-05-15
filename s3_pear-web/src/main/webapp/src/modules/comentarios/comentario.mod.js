@@ -48,27 +48,22 @@
 
         function ($scope, $http, $state, $rootScope) {
             
-
             if ($state.params.id_dieta !== null && $state.params.id_dieta !== undefined) {
                 $rootScope.dieta = $state.params.id_dieta;
             }
             
             $scope.comentario_post = function () {
-                
                 let data = {
                     asunto: $scope.asunto,
                     comentario: $scope.comentario
                     
                 };
-                console.log(data);
                 $http.post('http://localhost:8080/s3_pear-web/api/dietas/' + $scope.dieta.id + '/quejasyreclamos', data).then(function (response) {
                     $scope.post_data = response.data;
                    $state.go('^.comentarios', {}, {
                         reload: true
-                    });
-                    
+                    });                    
                 });
-                
             };
 
             

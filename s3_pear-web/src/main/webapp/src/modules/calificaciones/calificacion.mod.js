@@ -17,10 +17,6 @@
                                 controller: 'calificacionController'
                             }
                         }
-                        ,
-                        onEnter: function ($stateParams, $rootScope) {
-
-                        }
                     })
 
                     .state('dieta_specs.calificacion_post', {
@@ -47,33 +43,17 @@
 
         function ($scope, $http, calificacionesContext, $state, $rootScope) {
 
-
             if ($state.params.id_dieta !== null && $state.params.id_dieta !== undefined) {
                 $scope.dieta = $state.params.id_dieta;
-
                 $http.get('http://localhost:8080/s3_pear-web/api/dietas/' + $scope.dieta.id + '/calificaciones').then(function (response) {
                     $scope.calificaciones_dieta = response.data;
-
                 });
-            }
-            ;
-
+            };
 
             $rootScope.cargarCalificaciones = function (dieta) {
-
-                console.log('Buscando calificaciones de la dieta con id : ' + dieta);
                 $http.get('http://localhost:8080/s3_pear-web/api/dietas/' + dieta + '/calificaciones').then(function (response) {
                     $scope.calificaciones_dieta = response.data;
-                    
-                    console.log('status >> ' + response.status);
-                    
-                    if ( response.status === 412 ) {
-                        console.log('QUE PUTAS');
-                    }
-                }), function ( response ) {
-                    console.log('que hago aqui');
-                }
-                ;
+                });
             };
 
             $scope.percentaje = function (value, data) {

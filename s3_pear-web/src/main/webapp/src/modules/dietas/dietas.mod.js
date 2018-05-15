@@ -178,8 +178,6 @@
                     stars: $scope.stars
                 };
 
-                console.log(data);
-
                 // DIRECCION HTTP 
                 $http.post('http://localhost:8080/s3_pear-web/api/dietas', data).then(function (response) {
                     $scope.post_data = response.data;
@@ -212,8 +210,6 @@
 
             $scope.eliminar_dieta = function (id) {
 
-                console.log(id + " < Se va a eliminar la dieta");
-
                 // DIRECCION HTTP 
                 $http.delete('http://localhost:8080/s3_pear-web/api/dietas/' + id).then(function (response) {
                     $scope.delete_data = response.data;
@@ -223,7 +219,6 @@
 
 
             $scope.actualizar_dieta = function () {
-                console.log($scope.id_dieta + " < Se va a actualizar la dieta.");
 
                 let data = {};
 
@@ -241,9 +236,6 @@
 
                 if ($scope.new_imagen !== undefined || $scope.new_imagen !== null)
                     data.imagen = $scope.new_imagen;
-
-
-                console.log(data);
 
                 //http://localhost:8080/s3_pear-web/api/dietas/3
 //                $http.put('http://localhost:8080/s3_pear-web/api/dietas/' + $scope.id_dieta, data).then(function (response) {

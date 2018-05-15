@@ -99,13 +99,11 @@
             $rootScope.soyUser = function () {
                 $rootScope.user = true;
                 $rootScope.admin = false;
-                console.log('SOY USER');
             };
 
             $rootScope.soyAdmin = function () {
                 $rootScope.admin = true;
                 $rootScope.user = false;
-                console.log('SOY ADMIN');
             };
 
 
@@ -123,44 +121,41 @@
                     rol: $rootScope.user ? 'user' : 'admin'
                 }; /*para recoger cada uno de los valores ingresados en el formulario de login*/
 
-                console.log($scope.data);
+
+                let auth_persona = function ( persona_id ) {
+                    $http.get('http://localhost:8080/s3_pear-web/api/personas/' + persona_id ).then(function (response) {
+                        $state.go('dietas', {}, {
+                            reload: true
+                        });
+                    });
+                };
 
                 var flag = false;
+
                 for (let item in $scope.usuarios) {
 
-                    console.log($scope.usuarios[item]);
+                    if (item !== null && item !== undefined) {
 
-                    if ($scope.usuarios[item].user === $scope.data.username &&
-                            $scope.usuarios[item].password === $scope.data.password &&
-                            $scope.usuarios[item].rol === $scope.data.rol) {
-                        flag = true;
+                        if ($scope.usuarios[item].user === $scope.data.username &&
+                                $scope.usuarios[item].password === $scope.data.password &&
+                                $scope.usuarios[item].rol === $scope.data.rol) {
+                            
+                            flag = true;
 
-                        $rootScope.usuario = $scope.usuarios[item];
+                            $rootScope.usuario = $scope.usuarios[item];
 
-                        $rootScope.id_persona = $rootScope.usuario.id;
+                            $rootScope.id_persona = $rootScope.usuario.id;
 
-                        if ($rootScope.usuario.rol === 'user') {
-
-                            $http.get('http://localhost:8080/s3_pear-web/api/personas/' + $rootScope.id_persona).then(function (response) {
-
+                            if ($rootScope.usuario.rol === 'user') {
+                                auth_persona( $rootScope.id_persona );
+                            } else {
                                 $state.go('dietas', {}, {
                                     reload: true
                                 });
-
-                            }),
-                                    function (response) {
-                                        console.log('USUARIO NO REGISTRADO :: ' + response.status);
-                                    };
-
-                        } else {
-                            $state.go('dietas', {}, {
-                                reload: true
-                            });
+                            };
+                            break;
                         }
-                        ;
 
-
-                        break;
                     }
 
                 } /*END FOR*/

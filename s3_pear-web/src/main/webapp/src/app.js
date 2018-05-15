@@ -24,14 +24,14 @@
     
     // Resuelve problemas de las promesas
     
-//    app.config(['$qProvider', function ($qProvider) {
-//            $qProvider.errorOnUnhandledRejections(false);
-//        }]);
-//    
-//    
-//    
-//
-//    /* Hacer uso del bloque de run que nos permite ejecutar fragmentos de código al iniciar la aplicación.  */
+    app.config(['$qProvider', function ($qProvider) {
+            $qProvider.errorOnUnhandledRejections(false);
+        }]);
+    
+    
+    
+
+    /* Hacer uso del bloque de run que nos permite ejecutar fragmentos de código al iniciar la aplicación.  */
 //    app.run(['$rootScope', '$transitions', function ($rootScope, $transitions) {
 
 //        $transitions.onSuccess({
