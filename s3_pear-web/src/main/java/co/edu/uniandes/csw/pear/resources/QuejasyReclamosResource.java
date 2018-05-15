@@ -131,7 +131,7 @@ public class QuejasyReclamosResource {
     public QuejasyReclamosDetailDTO getQuejayReclamo(@PathParam("idDieta") Long idDieta,@PathParam("id") Long id) throws BusinessLogicException {
         QuejasyReclamosEntity entidad = logica.getQuejayReclamo(idDieta,id);
         if (entidad == null) {
-            //TODO: Si el recurso no existe debe disparar WebApplicationException
+         
             throw new BusinessLogicException("la queja o reclamo no existe");
         }
         return new QuejasyReclamosDetailDTO(entidad);
@@ -167,7 +167,7 @@ public class QuejasyReclamosResource {
         quejayreclamo.setId(id);
         QuejasyReclamosEntity entidad = logica.getQuejayReclamo(idDieta,id);
         if (entidad == null) {
-        //TODO: Si el recurso no existe debe disparar WebApplicationException
+      
             throw new BusinessLogicException("La queja o reclamo que desea actualizar no existe");
         }
         return new QuejasyReclamosDetailDTO(logica.updateQuejayReclamo(idDieta,quejayreclamo.toEntity()));
@@ -194,7 +194,7 @@ public class QuejasyReclamosResource {
     public void deleteQuejayReclamo(@PathParam("idDieta") Long idDieta,@PathParam("id") Long id) throws BusinessLogicException {
         QuejasyReclamosEntity entidad = logica.getQuejayReclamo(idDieta,id);
         if (entidad == null) {
-            //TODO: Si el recurso no existe debe disparar WebApplicationException
+         
             throw new BusinessLogicException("no se encontro la queja o reclamo que desea eliminar");
         }
         logica.deleteQuejayReclamo(idDieta,id);

@@ -37,6 +37,8 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     
     private String identificacion;
     
+    private Integer puntosFidelidad;
+    
     @PodamExclude
     @OneToOne (cascade = CascadeType.PERSIST)
     private CalificacionEntity calificacion;
@@ -233,6 +235,20 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     
     public void addDieta ( DietaTipoEntity dieta ) {
         this.dietas.add(dieta);
+    }
+
+    /**
+     * @return the puntosFidelidad
+     */
+    public Integer getPuntosFidelidad() {
+        return puntosFidelidad;
+    }
+
+    /**
+     * @param puntosFidelidad the puntosFidelidad to set
+     */
+    public void setPuntosFidelidad(Integer puntosFidelidad) {
+        this.puntosFidelidad = puntosFidelidad;
     }
     
     

@@ -198,7 +198,7 @@
 
             };
 
-            $scope.cancelar_dieta = function (dieta_id) {
+            $scope.cancelar_subs = function (dieta_id) {
 
                 $http.delete('http://localhost:8080/s3_pear-web/api/personas/' + $rootScope.id_persona + '/dietas/' + dieta_id).then(function (response) {
                     $state.go('dietas', {}, {
