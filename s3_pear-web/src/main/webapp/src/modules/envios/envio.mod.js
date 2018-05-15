@@ -62,7 +62,7 @@
             }
 
             $scope.enviar_envio = function () {
-                let data = {
+                const data = {
                     direccion: $scope.direccion,
                     duracion: $scope.duracion,
                     recibido: $scope.recibido
@@ -82,7 +82,7 @@
 
 
             $scope.actualizar_envio = function () {                
-                let data = {
+                const data = {
                     direccion: $scope.new_direccion,
                     duracion: $scope.new_duracion,
                     recibido: $scope.new_recibido
