@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.dtos;
+import co.edu.uniandes.csw.pear.entities.ComidaEntity;
 import co.edu.uniandes.csw.pear.entities.DiaEntity;
 import co.edu.uniandes.csw.pear.entities.EnvioEntity;
 import java.util.ArrayList;
@@ -32,6 +33,8 @@ public class DiaDetailDTO extends DiaDTO{
     //-----------------------------------------------------------
     
     private List<EnvioDTO> envios;
+    
+    private List<ComidaDTO> comidas;
 
     private SemanaDTO semana;
     //-----------------------------------------------------------
@@ -53,6 +56,15 @@ public class DiaDetailDTO extends DiaDTO{
         }
         else{
             envios = new ArrayList<>();
+        }
+        if(entity.getComidas() != null){
+            comidas = new ArrayList<>();
+        for(ComidaEntity y : entity.getComidas()){
+            comidas.add(new ComidaDTO(y));
+        }
+        }
+        else{
+            comidas = new ArrayList<>();
         }
         if(entity.getSemana() != null){
             semana =  new SemanaDTO(entity.getSemana());
@@ -97,6 +109,21 @@ public class DiaDetailDTO extends DiaDTO{
         return envios;
     }
     
+    /**
+     * Determina las comidas para ese dia
+     * @param pComidas envios programadas
+     */
+    public void setComidas(List<ComidaDTO> pComidas){
+        comidas = pComidas;
+    }
+    
+    /**
+     * @return los envios programadas ese dia para el cliente
+     */
+    public List<ComidaDTO> getComidas(){
+        return comidas;
+    }
+    
     @Override
     public DiaEntity toEntity(){
         DiaEntity entity = super.toEntity();
@@ -107,7 +134,14 @@ public class DiaDetailDTO extends DiaDTO{
                 listaEnvios.add(y.toEntity());
             }
             entity.setEnvios(listaEnvios);
-        }
+            }
+            if(this.getComidas() != null){
+            List<ComidaEntity> listaComidas = new ArrayList<>();
+            for(ComidaDTO y: comidas){
+                listaComidas.add(y.toEntity());
+            }
+            entity.setComidas(listaComidas);
+            }
         if(this.getSemana() != null){
             entity.setSemana(this.getSemana().toEntity());
          }

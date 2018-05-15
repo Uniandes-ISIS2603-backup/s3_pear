@@ -41,7 +41,7 @@ public class ComidaDetailDTO extends ComidaDTO
             }
             else 
             {
-                dia = new DiaDTO();
+                dia = null;
             }
         }
     }
@@ -54,9 +54,9 @@ public class ComidaDetailDTO extends ComidaDTO
     @Override
     public ComidaEntity toEntity() {
         ComidaEntity en = super.toEntity();
-        if(this.getDia()!=null)
+        if(this.getDia()!= null)
         {
-            en.setDia(dia.toEntity());
+            en.setDia(this.getDia().toEntity());
         }  
         return en;
     }

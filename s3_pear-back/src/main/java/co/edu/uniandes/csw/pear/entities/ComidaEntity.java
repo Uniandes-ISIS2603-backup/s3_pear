@@ -21,7 +21,7 @@ public class ComidaEntity extends BaseEntity implements Serializable
 {
     private int cantidad;
     private String alimentos;
-    private  String TIPO;
+    private  String tipo;
 
     
     @PodamExclude
@@ -32,7 +32,6 @@ public class ComidaEntity extends BaseEntity implements Serializable
     )
     private DiaEntity dia;
        
-    
  /**
      * Cantidad de la comida 
      * @return cantidad
@@ -75,7 +74,7 @@ public class ComidaEntity extends BaseEntity implements Serializable
      */
     public String getTipo()
     {
-        return TIPO;
+        return tipo;
     }
     /**
      * Cambia el tipo de la comida
@@ -83,7 +82,7 @@ public class ComidaEntity extends BaseEntity implements Serializable
      */
     public void setTIPO(String pTipo)
     {
-        TIPO = pTipo;
+        tipo = pTipo;
     }
    
     /**

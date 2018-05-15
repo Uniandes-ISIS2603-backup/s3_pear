@@ -6,7 +6,6 @@ delete from DietaTipoEntity_PersonaEntity;
 delete from PersonaEntity_DietaTipoEntity;
 delete from Semanas_Dietas;
 delete from Envios_Dias;
-delete from Envios_Comidas;
 delete from Dias_Comidas;
 delete from CuentaCobroEntity;
 delete from DietaTipoEntity;
@@ -31,6 +30,8 @@ delete from FacturaEntity;
 delete from CalificacionEntity;
 delete from QuejasyReclamosEntity;
 delete from CasoExitoEntity;
+
+
 
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (100, 'Pablo', 'Suarez', 20, 'Cll. 127D #19-93', 'pa.suarezm@uniandes.edu.co', 0, '201632293');
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (200, 'Camilo', 'Bedoya', 20, 'Cll. 151 #9-26', 'jc.bedoya@uniandes.edu.co', 0, '201631591');
@@ -107,10 +108,8 @@ INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", 
 insert into PagoEntity(id, montoInicial, montoFinal) values (200, 10, 10);
 insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (100, 20.000, 7, 350418, 200, 100);
 
-
 insert into PagoEntity(id, montoInicial, montoFinal) values (300, 15, 15);
 insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (200, 30.000, 8, 360418, 300, 200);
-
 
 insert into PagoEntity(id, montoInicial, montoFinal) values (400, 10, 10);
 insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (300, 20.000, 2, 370418, 400, 300);
@@ -297,7 +296,7 @@ insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (2700,200,'Queso Cot
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (2800,10,'Queso y Uvas','Desayuno');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (2900,187,'Esparragos y Pollo','Almuerzo');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (3000,93,'Carne','Cena');
-insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (31000,87,'Cereal y Almendras','Desayuno');
+insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (3100,87,'Cereal y Almendras','Desayuno');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (3200,98,'Arroz con pollo','Almuerzo');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (3300,200,'Queso Cottage','Cena');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (3400,10,'Queso y Uvas','Desayuno');
@@ -307,7 +306,7 @@ insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (3700,87,'Leche y fr
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (3800,98,'Pescado','Almuerzo');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (3900,200,'Queso Cottage','Cena');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (4000,10,'Queso y Uvas','Desayuno');
-insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (41000,187,'Esparragos y Pollo','Almuerzo');
+insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (4100,187,'Esparragos y Pollo','Almuerzo');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (4200,93,'Carne Asada','Cena');
 
 insert into DIAS_COMIDAS(DIAID, COMIDAID)values(800,2200);
@@ -357,7 +356,7 @@ insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (4800,200,'Queso Cot
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (4900,10,'Huevo y Jamón','Desayuno');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (5000,187,'Esparragos y Pollo','Almuerzo');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (5100,93,'Carne','Cena');
-insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (52000,87,'Leche y fresas','Desayuno');
+insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (5200,87,'Leche y fresas','Desayuno');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (5300,98,'Pescado','Almuerzo');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (5400,200,'Queso Cottage','Cena');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (5500,10,'Huevo y Jamón','Desayuno');
@@ -417,7 +416,7 @@ insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (6900,200,'Queso Cot
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (7000,10,'Queso y Uvas','Desayuno');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (7100,187,'Esparragos y Pollo','Almuerzo');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (7200,93,'Carne','Cena');
-insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (73000,87,'Cereal y Almendras','Desayuno');
+insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (7300,87,'Cereal y Almendras','Desayuno');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (7400,98,'Arroz con pollo','Almuerzo');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (7500,200,'Queso Cottage','Cena');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (7600,10,'Queso y Uvas','Desayuno');
@@ -427,7 +426,7 @@ insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (7900,87,'Leche y fr
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (8000,98,'Pescado','Almuerzo');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (8100,200,'Queso Cottage','Cena');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (8200,10,'Queso y Uvas','Desayuno');
-insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (83000,187,'Esparragos y Pollo','Almuerzo');
+insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (8300,187,'Esparragos y Pollo','Almuerzo');
 insert into ComidaEntity(id,cantidad,alimentos,TIPO) values (8400,93,'Carne Asada','Cena');
 
 insert into DIAS_COMIDAS(DIAID, COMIDAID)values(2200,6400);
@@ -496,7 +495,7 @@ insert into DIAS_COMIDAS(DIAID, COMIDAID)values(2900,8700);
 insert into DIAS_COMIDAS(DIAID, COMIDAID)values(3000,8800);
 insert into DIAS_COMIDAS(DIAID, COMIDAID)values(3000,8900);
 insert into DIAS_COMIDAS(DIAID, COMIDAID)values(3000,9000);
-insert into DIAS_COMIDAS(DIAID, COMIDAID)values(3100,91000);
+insert into DIAS_COMIDAS(DIAID, COMIDAID)values(3100,9100);
 insert into DIAS_COMIDAS(DIAID, COMIDAID)values(3100,9200);
 insert into DIAS_COMIDAS(DIAID, COMIDAID)values(3100,9300);
 insert into DIAS_COMIDAS(DIAID, COMIDAID)values(3200,9400);
