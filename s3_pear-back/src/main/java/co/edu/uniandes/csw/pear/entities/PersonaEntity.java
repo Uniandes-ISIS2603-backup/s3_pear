@@ -56,9 +56,6 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "persona")
     private List<FacturaEntity> facturas;
 
-    @PodamExclude
-    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
-    private List<EnvioEntity> envios;
     
     
     //-----------------------------------------------------------
@@ -78,23 +75,6 @@ public class PersonaEntity extends BaseEntity implements Serializable{
     public void setFacturas(List<FacturaEntity> list){
         facturas = list;
     }
-    
- 
-        
-    /**
-     * @return lista de envios
-     */
-    public List<EnvioEntity> getEnvios(){
-        return envios;
-    }
-    
-    /**
-     * @param list lista de envios
-     */
-    public void setEnvios(List<EnvioEntity> list){
-        envios = list;
-    }
-    
     
     /**
      * @return nombre de la persona
