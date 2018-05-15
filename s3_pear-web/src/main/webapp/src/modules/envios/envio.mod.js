@@ -14,6 +14,9 @@
         $stateProvider
             .state('envios', {
                 url: "/envios",
+                param: {
+                    id_dia:null
+                },
                 templateUrl: "src/modules/envios/envio_list.html",
                 controller: 'enviosController'
             })
