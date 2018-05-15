@@ -138,8 +138,7 @@ public class EnvioPersistenceTest {
         Assert.assertEquals(newEntity.getName(), entity.getName());
         Assert.assertEquals(newEntity.getDireccion(), entity.getDireccion());
         Assert.assertEquals(newEntity.getDuracion(), entity.getDuracion());
-        Assert.assertEquals(newEntity.getComida(), entity.getComida());
-        Assert.assertEquals(newEntity.getPersona(), entity.getPersona());
+
     }
 
     /**

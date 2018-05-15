@@ -155,7 +155,7 @@ public class PersonaLogicTest {
         Assert.assertEquals(resultEntity.getIdentificacion(),entity.getIdentificacion());
         Assert.assertEquals(resultEntity.getCalificacion(),entity.getCalificacion());
         Assert.assertEquals(resultEntity.getDietas() ,entity.getDietas());  
-        Assert.assertEquals(resultEntity.getEnvios(),entity.getEnvios()); 
+
     }
     
     /**
