@@ -17,6 +17,7 @@
         'comidaModule',
         'weekModule',
         'cuentaModule',
+        'envioModule',
         'loginModule'
     ]);
 

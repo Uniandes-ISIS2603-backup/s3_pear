@@ -12,8 +12,11 @@
         $urlRouterProvider.otherwise("/envios");
 
         $stateProvider
-            .state('envios', {
+            .state('dieta_specs.envios', {
                 url: "/envios",
+                param: {
+                    id_dia:null
+                },
                 templateUrl: "src/modules/envios/envio_list.html",
                 controller: 'enviosController'
             })
