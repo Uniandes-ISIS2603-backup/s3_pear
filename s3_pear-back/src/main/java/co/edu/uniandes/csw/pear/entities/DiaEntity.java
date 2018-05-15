@@ -32,9 +32,10 @@ public class DiaEntity extends BaseEntity implements Serializable {
     
     private String fecha;
     
+    
     @PodamExclude
-    @OneToMany( mappedBy = "dia", cascade = CascadeType.PERSIST, orphanRemoval = true)
-    private List<ComidaEntity> comidas;
+    @OneToMany(mappedBy = "dia", cascade = CascadeType.ALL)
+    private List<EnvioEntity> envios;
     
     @PodamExclude
     @ManyToOne(cascade = CascadeType.ALL)
@@ -85,17 +86,17 @@ public class DiaEntity extends BaseEntity implements Serializable {
     
     /**
      * Determina las comidas programadas para ese dia
-     * @param pComidas comidas programadas
+     * @param pEnvios comidas programadas
      */
-    public void setComidas(List<ComidaEntity> pComidas){
-        comidas = pComidas;
+    public void setEnvios(List<EnvioEntity> pEnvios){
+        envios = pEnvios;
     }
     
     /**
      * @return las comidas programadas ese dia para el cliente
      */
-    public List<ComidaEntity> getComidas(){
-        return comidas;
+    public List<EnvioEntity> getEnvios(){
+        return envios;
     } 
     
     /**

@@ -42,6 +42,29 @@ public class EnvioEntity extends BaseEntity implements Serializable{
     )
     private ComidaEntity comida;
     
+    
+    @PodamExclude
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinTable(name="ENVIOS_DIAS", 
+        joinColumns=@JoinColumn(name="envioID"),
+        inverseJoinColumns=@JoinColumn(name="diaId")
+    )
+    private DiaEntity dia;
+    
+    
+    //-----------------------------------------------------------
+    // Metodos
+    //-----------------------------------------------------------
+    
+    
+    
+    public DiaEntity getDia(){
+        return dia;
+    }
+    
+    public void setDia(DiaEntity pDia){
+        dia = pDia;
+    }
     /**
      * persona de entrega
      * @return persona
@@ -101,7 +124,7 @@ public class EnvioEntity extends BaseEntity implements Serializable{
     }
     /**
      * Cambia la comida de el envio
-     * @param ubicacion 
+     * @param pComida 
      */
     public void setComida(ComidaEntity pComida)
     {
@@ -119,7 +142,7 @@ public class EnvioEntity extends BaseEntity implements Serializable{
     
     /**
      * Cambia la direccion de el envio
-     * @param ubicacion 
+     * @param pDireccion 
      */
     public void setDireccion(String pDireccion)
     {

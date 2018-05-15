@@ -4,9 +4,8 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.ejb;
-
-import co.edu.uniandes.csw.pear.entities.ComidaEntity;
 import co.edu.uniandes.csw.pear.entities.DiaEntity;
+import co.edu.uniandes.csw.pear.entities.EnvioEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.DiaPersistence;
 import java.util.List;
@@ -72,25 +71,25 @@ public class DiaLogic {
      * @param idDia identificador del dia que tiene la informacion deseada
      * @return lista con las ComidaEntity del dia buscado
      */
-    public List<ComidaEntity> getComidasPorDia(Long idDia) throws BusinessLogicException{
-        LOGGER.log(Level.INFO,"Inicia el proceso de consultar todas las comidas del dia con id = {0}",idDia);
-        return this.getDia(idDia).getComidas();
+    public List<EnvioEntity> getEnviosPorDia(Long idDia) throws BusinessLogicException{
+        LOGGER.log(Level.INFO,"Inicia el proceso de consultar todos los envios del dia con id = {0}",idDia);
+        return this.getDia(idDia).getEnvios();
     }
     
     /**
      * Retorna una intancia comida en un dia especifico
-     * @param idComida identificador de la comida que se busca
+     * @param idEnvio identificador del envio que se busca
      * @param idDia dia en el que se quiere buscar la comida
      * @return comida con el identificador dado en el dia dado
      */
-    public ComidaEntity getComidaDeDia(Long idComida, Long idDia) throws BusinessLogicException{
-        LOGGER.log(Level.INFO, "Inicia proceso de consulta del Dia con id = {0} de la comida con id = {1}",new Object[]{idDia, idComida});
-        List<ComidaEntity> listaComidas = this.getDia(idDia).getComidas();
-        ComidaEntity comida = new ComidaEntity();
-        comida.setId(idDia);
-        int index = listaComidas.indexOf(comida);
+    public EnvioEntity getEnvioDeDia(Long idEnvio, Long idDia) throws BusinessLogicException{
+        LOGGER.log(Level.INFO, "Inicia proceso de consulta del Dia con id = {0} del envio con id = {1}",new Object[]{idDia, idEnvio});
+        List<EnvioEntity> listaEnvios = this.getDia(idDia).getEnvios();
+        EnvioEntity envio = new EnvioEntity();
+        envio.setId(idEnvio);
+        int index = listaEnvios.indexOf(envio);
         if(index >= 0){
-            return listaComidas.get(index); 
+            return listaEnvios.get(index); 
         }
         return null;
     }
@@ -103,9 +102,6 @@ public class DiaLogic {
      */
     public DiaEntity createDia( DiaEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de un dia con id = {0}", entity.getId());
-//        if(persistence.findByName(entity.getName())!= null){
-//            throw new BusinessLogicException("El nombre no es valido");
-//        }
         if(persistence.find(entity.getId())!= null){
             throw new BusinessLogicException("Ya existe un dia con ese identificador");
         }
@@ -135,17 +131,16 @@ public class DiaLogic {
     
     /**
      * Agrega una comida a un dia
-     * @param idComida identificador de la comida
+     * @param idEnvio identificador del envio
      * @param idDia identificador del dia
      * @return Comida que se agrego al dia
      */
-    public ComidaEntity addComidaToDia(Long idComida, Long idDia) throws BusinessLogicException{
-        LOGGER.log(Level.INFO, "Inicia proceso de asociar una Comida con id = {0} a un Dia con id = {1}", new Object[]{idComida, idDia});
-        ComidaEntity comid = new ComidaEntity();
-        comid.setId(idComida);
-        this.getDia(idDia).getComidas().add(comid);
-        
-        return this.getComidaDeDia(idComida, idDia);     
+    public EnvioEntity addEnvioToDia(Long idEnvio, Long idDia) throws BusinessLogicException{
+        LOGGER.log(Level.INFO, "Inicia proceso de asociar un envio con id = {0} a un Dia con id = {1}", new Object[]{idEnvio, idDia});
+        EnvioEntity comid = new EnvioEntity();
+        comid.setId(idEnvio);
+        this.getDia(idDia).getEnvios().add(comid);
+        return this.getEnvioDeDia(idEnvio, idDia);     
     }
     /**
      * Elimina una dia segun su identificador
@@ -163,13 +158,13 @@ public class DiaLogic {
     
     /**
      * Elimina una comida dada de la semana que tiene el identificador que entra por parametro
-     * @param idComida identificador de la comida que se quiere eliminar
+     * @param idEnvio identificador de la comida que se quiere eliminar
      * @param idDia identificador del dia al que se le eliminara una comida
      */
-    public void deleteComidaFromDia(Long idComida, Long idDia) throws BusinessLogicException{
-        LOGGER.log(Level.INFO, "Inicia proceso de eliminar la Comida con id = {0} del Dia con id = {1}", new Object[]{idComida,idDia});
-        ComidaEntity entity = new ComidaEntity();
-        entity.setId(idComida);
-        this.getDia(idDia).getComidas().remove(entity);
+    public void deleteEnvioFromDia(Long idEnvio, Long idDia) throws BusinessLogicException{
+        LOGGER.log(Level.INFO, "Inicia proceso de eliminar el envio con id = {0} del Dia con id = {1}", new Object[]{idEnvio,idDia});
+        EnvioEntity entity = new EnvioEntity();
+        entity.setId(idEnvio);
+        this.getDia(idDia).getEnvios().remove(entity);
     }
 }

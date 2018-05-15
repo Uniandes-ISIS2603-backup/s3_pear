@@ -4,9 +4,8 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.pear.dtos;
-
-import co.edu.uniandes.csw.pear.entities.ComidaEntity;
 import co.edu.uniandes.csw.pear.entities.DiaEntity;
+import co.edu.uniandes.csw.pear.entities.EnvioEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +31,7 @@ public class DiaDetailDTO extends DiaDTO{
     //Atributos
     //-----------------------------------------------------------
     
-    private List<ComidaDTO> comidas;
+    private List<EnvioDTO> envios;
 
     private SemanaDTO semana;
     //-----------------------------------------------------------
@@ -46,14 +45,14 @@ public class DiaDetailDTO extends DiaDTO{
     public DiaDetailDTO(DiaEntity entity){
         super(entity);
         if(entity!= null){
-        if(entity.getComidas() != null){
-            comidas = new ArrayList<>();
-        for(ComidaEntity y : entity.getComidas()){
-            comidas.add(new ComidaDTO(y));
+        if(entity.getEnvios() != null){
+            envios = new ArrayList<>();
+        for(EnvioEntity y : entity.getEnvios()){
+            envios.add(new EnvioDTO(y));
         }
         }
         else{
-            comidas = new ArrayList<>();
+            envios = new ArrayList<>();
         }
         if(entity.getSemana() != null){
             semana =  new SemanaDTO(entity.getSemana());
@@ -84,30 +83,30 @@ public class DiaDetailDTO extends DiaDTO{
         return semana;
     }
     /**
-     * Determina las comidas programadas para ese dia
-     * @param pComidas comidas programadas
+     * Determina los envios programados para ese dia
+     * @param pEnvios envios programadas
      */
-    public void setComidas(List<ComidaDTO> pComidas){
-        comidas = pComidas;
+    public void setEnvios(List<EnvioDTO> pEnvios){
+        envios = pEnvios;
     }
     
     /**
-     * @return las comidas programadas ese dia para el cliente
+     * @return los envios programadas ese dia para el cliente
      */
-    public List<ComidaDTO> getComidas(){
-        return comidas;
+    public List<EnvioDTO> getEnvios(){
+        return envios;
     }
     
     @Override
     public DiaEntity toEntity(){
         DiaEntity entity = super.toEntity();
         if(entity != null){
-            if(this.getComidas() != null){
-            List<ComidaEntity> listaComidas = new ArrayList<>();
-            for(ComidaEntity y: entity.getComidas()){
-                listaComidas.add(y);
+            if(this.getEnvios() != null){
+            List<EnvioEntity> listaEnvios = new ArrayList<>();
+            for(EnvioEntity y: entity.getEnvios()){
+                listaEnvios.add(y);
             }
-            entity.setComidas(listaComidas);
+            entity.setEnvios(listaEnvios);
         }
         if(this.getSemana() != null){
             entity.setSemana(this.getSemana().toEntity());

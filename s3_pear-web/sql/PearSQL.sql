@@ -4,8 +4,9 @@ UPDATE PERSONAENTITY SET CUENTA_ID = NULL;
 
 delete from DietaTipoEntity_PersonaEntity;
 delete from PersonaEntity_DietaTipoEntity;
-delete from SemanaEntity_DietaTipoEntity;
 delete from Semanas_Dietas;
+delete from Envios_Dias;
+delete from Envios_Comidas;
 delete from CuentaCobroEntity;
 delete from DietaTipoEntity;
 delete from CocinaEntity;
@@ -490,3 +491,7 @@ insert into ENVIOS_PERSONAS(ENVIOID,PERSONAID) VALUES(500,300);
 insert into ENVIOS_PERSONAS(ENVIOID,PERSONAID) VALUES(400,100);
 insert into ENVIOS_PERSONAS(ENVIOID,PERSONAID) VALUES(300,200);
 insert into ENVIOS_PERSONAS(ENVIOID,PERSONAID) VALUES(200,100);
+
+
+/*@Sebastian Cabra Completar información en esta tabla y en tabla de envios*/
+insert into envios_dias(envioid, diaid) values(100,2900);
