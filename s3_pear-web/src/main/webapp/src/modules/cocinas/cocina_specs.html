@@ -1,0 +1,78 @@
+<!--
+<div class="ui container" ng-if="isAuthenticated() && !hasPermissions()">
+
+    <div class="row">
+        <h1>403 Forbidden</h1>
+        <h4>You do not have permission for this action.</h4>
+        <p>Contact the administrator to obtain permission.</p>
+    </div>
+
+</div>
+-->
+
+
+<style>
+    * {
+        overflow: hidden;
+    }
+
+    div.back {
+        height: 100vh;
+        background-color: white;
+    }
+
+    div.backimg {
+        height: 25vh;
+        background-attachment: fixed;
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+</style>
+
+
+<div class="back" ng-app="cocinaModule" ng-controller="cocinasController">
+
+
+    <div class="backimg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.30)), url('{{cocina.imagen}}');">
+        <div class="ui three column centered grid" style="color: whitesmoke;">
+            <div class="row">&nbsp;</div><div class="row">&nbsp;</div>
+            <div class="column">&nbsp;</div>
+            <div class="column" style="text-align: center;"><h1 style="font-size: 40px; font-family: 'Roboto'; font-weight: 100;">{{cocina.name}}</h1></div>
+            <div class="column">&nbsp;</div>
+        </div>
+    </div>
+
+    <div class="ui container" style="width: 70%; padding: 2em 6em;">
+
+        <div class="row">
+            <div class="ui two item menu">
+                <a ui-sref='.cocina_detail({ id: cocina.id})' class="item">Detalles</a>
+                 <a ui-sref='.cocina_dietas({ id: cocina.id })' class="item">Dietas</a>
+            </div>
+        </div>
+
+        <div ui-view='cocina_spec'></div>
+
+        <div class="row">
+            <div>&nbsp;</div>
+            <div class="inline field">
+
+                <a ui-sref='cocinas' class="ui olive basic button">
+                    Volver
+                </a>
+
+                
+                <a ui-sref='cocina_update({ id: cocina.id })' class="ui teal basic button" style="float: right;">
+                    Actualizar
+                </a>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+

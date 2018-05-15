@@ -1,0 +1,24 @@
+
+<div ng-app="cocinaModule" ng-controller="cocinasController">
+
+    <div ng-if="cocina.dietas.length < 1">
+        <div class="row">&nbsp;</div>
+        <h1 style="color: dimgray; font-family: 'Roboto'; font-weight: 300;">Esta cocina no tiene dietas.</h1>
+    </div>
+
+   
+    <div class="ui cards" style="padding: 1em;">
+            
+        <div class="card" ng-repeat="dieta in cocina.dietas" style="background-image: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.30)), url('{{dieta.imagen}}'); background-size: cover; background-position: top;">
+                <div class="content">
+                    <div style="color: white;"><h1 style="font-size: 18px; font-family: 'Roboto'; font-weight: 300;">{{dieta.name}}</h1></div>
+                    <div class="meta"><a style="text-decoration: none;"><i ng-repeat="s in []| range:dieta.stars" class="ion-android-star" style="color: whitesmoke">&nbsp;</i></a></div>
+                    <div class="description" style="color: white; font-size: 14px; font-family: 'Roboto'; font-weight: 400;">
+                        {{dieta.precio * 1000 | currency}}
+                    </div>
+                </div>
+            </div>
+            
+    </div>
+
+</div>

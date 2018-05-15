@@ -1,146 +1,62 @@
-<!--
-<div class="ui container" ng-if="isAuthenticated() && !hasPermissions()">
+<table class="ui padded very basic table">
 
-    <div class="row">
-        <h1>403 Forbidden</h1>
-        <h4>You do not have permission for this action.</h4>
-        <p>Contact the administrator to obtain permission.</p>
-    </div>
+    <tbody>
 
-</div>
--->
+        <tr>
+            <td>
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">ID</div>
+                </div>
+            </td>
+            <td>
+                {{id_cocina}}
+            </td>
+        </tr>
 
+        <tr>
+            <td>
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">Nombre</div>
+                </div>
+            </td>
+            <td>
+                <p>{{cocina.name}}</p>
+            </td>
+        </tr>
 
-<style>
-    * {
-        overflow: hidden;
-    }
+        <tr>
+            <td>
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">Ubicación</div>
+                </div>
+            </td>
+            <td>
+                <p>{{cocina.ubicacion}}</p>
+            </td>
+        </tr>
 
-    div.back {
-        height: 100vh;
-        background-color: white;
-    }
+        <tr>
+            <td>
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">Capacidad</div>
+                </div>
+            </td>
+            <td>
+                <p>{{cocina.capacidad}}</p>
+            </td>
+        </tr>
 
-    div.backimg {
-        height: 25vh;
-        background-attachment: fixed;
-        background-position: left;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+        <tr>
+            <td>
+                <div class="inline field" style="overflow-y: hidden;">
+                    <div class="ui horizontal large label">Imagen</div>
+                </div>
+            </td>
+            <td>
+                <p>{{cocina.imagen}}"</p>
+            </td>
+        </tr>
 
-</style>
+    </tbody>
 
-
-<div class="back" ng-app="cocinaModule" ng-controller="cocinasController">
-
-
-    <div class="backimg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.30)), url('{{cocina.imagen}}');">
-        <div class="ui three column centered grid" style="color: whitesmoke;">
-            <div class="row">&nbsp;</div><div class="row">&nbsp;</div>
-            <div class="column">&nbsp;</div>
-            <div class="column" style="text-align: center;"><h1 style="font-size: 40px; font-family: 'Roboto'; font-weight: 100;">{{cocina.name}}</h1></div>
-            <div class="column">&nbsp;</div>
-        </div>
-    </div>
-
-    <div class="ui container" style="width: 70%; padding: 2em 6em;">
-
-        <div class="row">
-            <div class="ui two item menu">
-                <a ui-sref='cocina_detail({ id: cocina.id})' class="item active">Detalles</a>
-                 <a ui-sref='dietas' class="item">Dietas</a>
-            </div>
-        </div>
-
-        <div ui-view='cocina_spec'></div>
-
-
-        <table class="ui padded very basic table">
-
-            <tbody>
-
-                <tr>
-                    <td>
-                        <div class="inline field" style="overflow-y: hidden;">
-                            <div class="ui horizontal large label">ID</div>
-                        </div>
-                    </td>
-                    <td>
-                        {{id_cocina}}
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="inline field" style="overflow-y: hidden;">
-                            <div class="ui horizontal large label">Nombre</div>
-                        </div>
-                    </td>
-                    <td>
-                        <p>{{cocina.name}}</p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="inline field" style="overflow-y: hidden;">
-                            <div class="ui horizontal large label">Ubicación</div>
-                        </div>
-                    </td>
-                    <td>
-                        <p>{{cocina.ubicacion}}</p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="inline field" style="overflow-y: hidden;">
-                            <div class="ui horizontal large label">Capacidad</div>
-                        </div>
-                    </td>
-                    <td>
-                        <p>{{cocina.capacidad}}</p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="inline field" style="overflow-y: hidden;">
-                            <div class="ui horizontal large label">Imagen</div>
-                        </div>
-                    </td>
-                    <td>
-                        <p>{{cocina.imagen}}"</p>
-                    </td>
-                </tr>
-
-            </tbody>
-
-        </table>
-
-
-
-
-
-        <div class="row">
-            <div>&nbsp;</div>
-            <div class="inline field">
-
-                <a ui-sref='cocinas' class="ui olive basic button">
-                    Volver
-                </a>
-
-                
-                <a ui-sref='cocina_update({ id: cocina.id })' class="ui teal basic button" style="float: right;">
-                    Actualizar
-                </a>
-
-            </div>
-        </div>
-
-
-
-    </div>
-</div>
-
+</table>

@@ -13,14 +13,40 @@
                         controller: 'cocinasController'
                     })
 
-                    .state('cocina_detail', {
-                        url: "/cocina/:id/detail",
+                    .state('cocina_specs', {
+                        url: "/cocinas",
                         param: {
                             id: null
                         },
                         views: {
                             'post': {
+                                templateUrl: "src/modules/cocinas/cocina_specs.html",
+                                controller: 'cocinasController'
+                            }
+                        }  
+                    })
+
+                    .state('cocina_specs.cocina_detail', {
+                        url: "/:id/detail",
+                        param: {
+                            id: null
+                        },
+                        views: {
+                            'cocina_spec': {
                                 templateUrl: 'src/modules/cocinas/cocina_detail.html',
+                                controller: 'cocinasController'
+                            }
+                        }
+                    })
+
+                    .state('cocina_specs.cocina_dietas', {
+                        url: "/:id/dietas",
+                        param: {
+                            id: null
+                        },
+                        views: {
+                            'cocina_spec': {
+                                templateUrl: 'src/modules/cocinas/cocina_dietas_list.html',
                                 controller: 'cocinasController'
                             }
                         }
@@ -60,12 +86,12 @@
     var mod = ng.module("cocinaModule");
     mod.constant("cocinasContext", "api/cocinas");
 
-    mod.controller('cocinasController', ['$scope', '$http', 'cocinasContext', '$state',
+    mod.controller('cocinasController', ['$scope', '$http', 'cocinasContext', '$state', '$rootScope',
 
-        function ($scope, $http, cocinasContext, $state) {
-            
+        function ($scope, $http, cocinasContext, $state, $rootScope) {
+
             $http.get('http://localhost:8080/s3_pear-web/api/cocinas').then(function (response) {
-                $scope.cocinas = response.data;
+                $rootScope.cocinas = response.data;
             });
 
             $scope.enviar_cocina = function () {
@@ -85,7 +111,7 @@
             if ($state.params.id !== null && $state.params.id !== undefined) {
                 $scope.id_cocina = $state.params.id;
                 $http.get('http://localhost:8080/s3_pear-web/api/cocinas/' + $state.params.id).then(function (response) {
-                    $scope.cocina = response.data;
+                    $rootScope.cocina = response.data;
                 });
             }
             ;
