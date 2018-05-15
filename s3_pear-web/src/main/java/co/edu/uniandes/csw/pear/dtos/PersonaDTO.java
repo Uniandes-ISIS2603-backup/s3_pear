@@ -67,6 +67,9 @@ public class PersonaDTO {
     
     private String identificacion;
     
+    private Integer puntosFidelidad; 
+    
+    
     //-----------------------------------------------------------
     //Constructor
     //-----------------------------------------------------------
@@ -94,6 +97,9 @@ public class PersonaDTO {
             subscrito = entidad.isSubscrito();
         
             identificacion = entidad.getIdentificacion();
+            
+            puntosFidelidad = entidad.getPuntosFidelidad(); 
+            
         }
     }
     
@@ -239,7 +245,22 @@ public class PersonaDTO {
         entidad.setEdad(edad);
         entidad.setIdentificacion(identificacion);
         entidad.setSubscrito(subscrito);
-        
+        entidad.setPuntosFidelidad(puntosFidelidad); 
+                
         return entidad;
+    }
+
+    /**
+     * @return the puntosFidelidad
+     */
+    public Integer getPuntosFidelidad() {
+        return puntosFidelidad;
+    }
+
+    /**
+     * @param puntosFidelidad the puntosFidelidad to set
+     */
+    public void setPuntosFidelidad(Integer puntosFidelidad) {
+        this.puntosFidelidad = puntosFidelidad;
     }
 }

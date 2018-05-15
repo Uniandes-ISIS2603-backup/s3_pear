@@ -11,7 +11,6 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -26,18 +25,8 @@ public class EnvioEntity extends BaseEntity implements Serializable{
     private String direccion;
     
     @PodamExclude
-    @ManyToOne( cascade = CascadeType.PERSIST)
-        @JoinTable(name="ENVIOS_PERSONAS", 
-        joinColumns=@JoinColumn(name="envioId"),
-        inverseJoinColumns=@JoinColumn(name="personaId")
-    )
-    private PersonaEntity persona;
-    
-    private boolean recibido;
-    @PodamExclude
-     @OneToOne( mappedBy = "envio", cascade = CascadeType.ALL)
-    private ComidaEntity comida;
-    
+  
+    private boolean recibido;   
     
     @PodamExclude
     @ManyToOne(cascade = CascadeType.ALL)
@@ -61,15 +50,7 @@ public class EnvioEntity extends BaseEntity implements Serializable{
     public void setDia(DiaEntity pDia){
         dia = pDia;
     }
-    /**
-     * persona de entrega
-     * @return persona
-     */
-    public PersonaEntity getPersona()
-    {
-        return persona;
-    }
-    
+
     /**
      * duracion de entrega
      * @return duracion
@@ -85,14 +66,6 @@ public class EnvioEntity extends BaseEntity implements Serializable{
     public boolean getRecibido()
     {
         return recibido;
-    }
-    /**
-     * Comida de la entrega
-     * @return comida
-     */
-    public ComidaEntity getComida()
-    {
-        return comida;
     }
     
     
@@ -118,15 +91,7 @@ public class EnvioEntity extends BaseEntity implements Serializable{
     {
         recibido = true;
     }
-    /**
-     * Cambia la comida de el envio
-     * @param pComida 
-     */
-    public void setComida(ComidaEntity pComida)
-    {
-        comida = pComida;
-    }
-    
+
     /**
      * direccion de entrega
      * @return ubicacion
@@ -144,12 +109,5 @@ public class EnvioEntity extends BaseEntity implements Serializable{
     {
         direccion = pDireccion;
     }
-        /**
-     * Cambia la persona de el envio
-     * @param pPersona 
-     */
-    public void setPersona(PersonaEntity pPersona)
-    {
-        persona = pPersona;
-    }
+
 }

@@ -185,6 +185,13 @@ public class PersonaResource {
 
     }
     
+    @DELETE
+    @Path("{idPersona: \\d+}/dietas/{idDieta: \\d+}")
+    public PersonaDetailDTO deleteDietaPersona(@PathParam("idPersona")Long idPersona, @PathParam("idDieta")Long idDieta)
+    {
+        return new PersonaDetailDTO(logic.eliminarDietaPersona(idPersona,idDieta));
+    }
+    
     /**
      * <h1>GET /api/personas/{id} _ Obtener persona por id.</h1>
      *

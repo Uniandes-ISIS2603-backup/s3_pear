@@ -11,7 +11,6 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 /**
  *
@@ -32,15 +31,7 @@ public class ComidaEntity extends BaseEntity implements Serializable
         inverseJoinColumns=@JoinColumn(name="diaId")
     )
     private DiaEntity dia;
-    
-    @PodamExclude
-        @OneToOne( cascade = CascadeType.PERSIST, orphanRemoval = true)
-        @JoinTable(name="ENVIOS_COMIDAS", 
-        joinColumns=@JoinColumn(name="envioId"),
-        inverseJoinColumns=@JoinColumn(name="comidaId")
-    )
-    private EnvioEntity envio;
-    
+        
 
     
  /**

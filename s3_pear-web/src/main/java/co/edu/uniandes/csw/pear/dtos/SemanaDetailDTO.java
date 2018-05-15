@@ -99,8 +99,8 @@ public class SemanaDetailDTO extends SemanaDTO {
         }
         if(this.getDieta()!= null){
             entity.setDieta(this.getDieta().toEntity());
-        }
+         }
        }
-        return entity;
+       return entity;
     }  
 }
