@@ -30,8 +30,11 @@
     <div class="ui container">
 
         <div class="inline field">
+            
             <h1 style="font-weight: 300; color: gray; float: left;">Dietas Disponibles</h1>
 
+            <input ng-model="search" style="font-weight: 300; color: gray; float: right; border: none; border-bottom: 1px solid black" placeholder="buscar">
+            
         </div>
         <hr/>
         <br/>
@@ -40,7 +43,7 @@
         <div class="ui four stackable cards">
 
 
-            <div  class="ui raised link fluid card" ng-repeat="dieta in dietas| orderBy : '-id'">
+            <div  class="ui raised link fluid card" ng-repeat="dieta in dietas| orderBy : '-id' | filter:search">
                 <div class="fluid image">
                     <img id="im_dieta" src="{{dieta.imagen}}">
                 </div>
