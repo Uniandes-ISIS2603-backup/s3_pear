@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.pear.test.logic;
 
 import co.edu.uniandes.csw.pear.ejb.DietaTipoLogic;
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
+import co.edu.uniandes.csw.pear.entities.SemanaEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.DietaTipoPersistence;
 import java.util.ArrayList;
@@ -108,6 +109,9 @@ public class DietaTipoLogicTest {
         Assert.assertEquals(newEntity.getId(), entity.getId());
         Assert.assertEquals(newEntity.getName(), entity.getName());
         Assert.assertEquals(newEntity.getObjetivo(), entity.getObjetivo());
+   
+        
+    
     }
     
     /**
@@ -141,6 +145,8 @@ public class DietaTipoLogicTest {
         Assert.assertEquals(entity.getName(), resultEntity.getName());
     }
     
+    
+ 
     
     /**
      * Prueba para eliminar una Dieta

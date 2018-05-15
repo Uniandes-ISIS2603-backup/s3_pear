@@ -169,6 +169,18 @@ public class DietaTipoPersistenceTest {
         DietaTipoEntity newEntity = persistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
+        Assert.assertEquals(entity.getCalificaciones(), newEntity.getCalificaciones());
+        Assert.assertEquals(entity.getCocina(), newEntity.getCocina());
+        Assert.assertEquals(entity.getDescripcion(), newEntity.getDescripcion());
+        Assert.assertEquals(entity.getImagen(), newEntity.getImagen());
+        Assert.assertEquals(entity.getNumSemanas(), newEntity.getNumSemanas());
+        Assert.assertEquals(entity.getObjetivo(), newEntity.getObjetivo());
+        Assert.assertEquals(entity.getPersonas(), newEntity.getPersonas());
+        Assert.assertEquals(entity.getPrecio(), newEntity.getPrecio(), 0.1);
+        Assert.assertEquals(entity.getQuejas(), newEntity.getQuejas());
+        Assert.assertEquals(entity.getSemanas(), newEntity.getSemanas());
+        Assert.assertEquals(entity.getStars(), newEntity.getStars());;
+        
     }
 
      /**

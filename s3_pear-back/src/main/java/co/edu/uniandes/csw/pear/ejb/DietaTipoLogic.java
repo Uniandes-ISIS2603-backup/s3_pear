@@ -79,15 +79,15 @@ public class DietaTipoLogic {
     
     /**
      * Retorna una instancia de Semana por Id asociada a una Dieta por Id
-     * @param semana_id
-     * @param dieta_id
+     * @param semanaId
+     * @param dietaId
      * @return semana entity por id asociada a la dieta por id
      */
-    public SemanaEntity getSemanaDeDieta( Long semana_id, Long dieta_id ) {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar la Semana con id = {0} de la Dieta con id = {1}", new Object[]{semana_id, dieta_id});           
-        List<SemanaEntity> list = this.getDieta(dieta_id).getSemanas();
+    public SemanaEntity getSemanaDeDieta( Long semanaId, Long dietaId ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar la Semana con id = {0} de la Dieta con id = {1}", new Object[]{semanaId, dietaId});           
+        List<SemanaEntity> list = this.getDieta(dietaId).getSemanas();
         SemanaEntity semana = new SemanaEntity();
-        semana.setId(semana_id);
+        semana.setId(semanaId);
         int index = list.indexOf(semana);
         if (index >= 0) 
             return list.get(index);
@@ -121,16 +121,16 @@ public class DietaTipoLogic {
     
     /**
      * Asocia una Semana existente a una Dieta
-     * @param semana_id
-     * @param dieta_id
+     * @param semanaId
+     * @param dietaId
      * @return 
      */
-    public SemanaEntity addSemanaToDieta ( Long semana_id, Long dieta_id ) {
-        LOGGER.log(Level.INFO, "Inicia proceso de asociar una Semana con id = {0} con una Dieta con id = {1}", new Object[] {semana_id, dieta_id});
+    public SemanaEntity addSemanaToDieta ( Long semanaId, Long dietaId ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de asociar una Semana con id = {0} con una Dieta con id = {1}", new Object[] {semanaId, dietaId});
         SemanaEntity semanita = new SemanaEntity();
-        semanita.setId(semana_id);
-        this.getDieta(dieta_id).getSemanas().add(semanita);
-        return this.getSemanaDeDieta(semana_id, dieta_id);
+        semanita.setId(semanaId);
+        this.getDieta(dietaId).getSemanas().add(semanita);
+        return this.getSemanaDeDieta(semanaId, dietaId);
     }
     
    
@@ -164,13 +164,13 @@ public class DietaTipoLogic {
     /**
      * Reemplaza la lista de semanas de una dieta por la que entra como parametro
      * @param semanas
-     * @param dieta_id
+     * @param dietaId
      * @return 
      */
-    public List<SemanaEntity> updateSemanasDeDieta( List<SemanaEntity> semanas, long dieta_id ) {
-        LOGGER.log(Level.INFO, "Inicia proceso de reemplazar la lista de semanas de Dieta con id = {0}", new Object[] { dieta_id});
-        this.getDieta(dieta_id).setSemanas(semanas);
-        return this.getDieta(dieta_id).getSemanas();
+    public List<SemanaEntity> updateSemanasDeDieta( List<SemanaEntity> semanas, long dietaId ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de reemplazar la lista de semanas de Dieta con id = {0}", new Object[] { dietaId});
+        this.getDieta(dietaId).setSemanas(semanas);
+        return this.getDieta(dietaId).getSemanas();
     }
     
   
@@ -193,14 +193,14 @@ public class DietaTipoLogic {
     
     /**
      * Elimina una Semana por id de la Dieta por id
-     * @param semana_id
-     * @param dieta_id 
+     * @param semanaId
+     * @param dietaId 
      */
-    public void deleteSemanaDeDieta( Long semana_id, Long dieta_id ) {
-        LOGGER.log(Level.INFO, "Inicia proceso de eliminar la Semana con id = {0} de la Dieta con id = {1}", new Object[]{semana_id,dieta_id});
+    public void deleteSemanaDeDieta( Long semanaId, Long dietaId ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de eliminar la Semana con id = {0} de la Dieta con id = {1}", new Object[]{semanaId,dietaId});
         SemanaEntity semana = new SemanaEntity();
-        semana.setId(semana_id);
-        this.getDieta(dieta_id).getSemanas().remove(semana);
+        semana.setId(semanaId);
+        this.getDieta(dietaId).getSemanas().remove(semana);
     }
     
     

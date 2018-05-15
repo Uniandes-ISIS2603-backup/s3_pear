@@ -21,7 +21,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class EnvioEntity extends BaseEntity implements Serializable{
     
-    private int duracion;
+    private Integer duracion;
     
     private String direccion;
     
@@ -35,11 +35,7 @@ public class EnvioEntity extends BaseEntity implements Serializable{
     
     private boolean recibido;
     @PodamExclude
-    @OneToOne( cascade = CascadeType.PERSIST, orphanRemoval = true)
-        @JoinTable(name="ENVIOS_COMIDAS", 
-        joinColumns=@JoinColumn(name="envioId"),
-        inverseJoinColumns=@JoinColumn(name="comidaId")
-    )
+     @OneToOne( mappedBy = "envio", cascade = CascadeType.ALL)
     private ComidaEntity comida;
     
     
@@ -78,7 +74,7 @@ public class EnvioEntity extends BaseEntity implements Serializable{
      * duracion de entrega
      * @return duracion
      */
-    public int getDuracion()
+    public Integer getDuracion()
     {
         return duracion;
     }
@@ -104,7 +100,7 @@ public class EnvioEntity extends BaseEntity implements Serializable{
      * Cambia la duracion de la entrega
      * @param pDuracion 
      */
-    public void setDuracion(int pDuracion)
+    public void setDuracion(Integer pDuracion)
     {
         duracion = pDuracion;
     }

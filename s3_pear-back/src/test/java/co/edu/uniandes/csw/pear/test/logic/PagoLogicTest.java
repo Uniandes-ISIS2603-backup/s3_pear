@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.pear.test.logic;
 
 
 import co.edu.uniandes.csw.pear.ejb.PagoLogic;
+import co.edu.uniandes.csw.pear.entities.MedioPagoEntity;
 import co.edu.uniandes.csw.pear.entities.PagoEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.PagoPersistence;
@@ -51,6 +52,7 @@ public class PagoLogicTest {
 
     private List<PagoEntity> data = new ArrayList<PagoEntity>();
     
+    private MedioPagoEntity medioPago;
       @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
@@ -105,8 +107,15 @@ public class PagoLogicTest {
      */
     private void insertData() {
 
+        medioPago = factory.manufacturePojo(MedioPagoEntity.class); 
         for (int i = 0; i < 3; i++) {
             PagoEntity entity = factory.manufacturePojo(PagoEntity.class);
+               
+            if(i == 0)
+            {
+                entity.setMedioPagoEntity(medioPago);
+            } 
+            
             em.persist(entity);
             data.add(entity);
          
@@ -139,6 +148,8 @@ public class PagoLogicTest {
       
     }
 
+    
+  
     /**
      * Prueba para consultar la lista de pagos
      *

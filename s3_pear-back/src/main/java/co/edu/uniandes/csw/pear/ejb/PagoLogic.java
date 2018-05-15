@@ -76,14 +76,14 @@ public class PagoLogic {
     }
     
     
-    public PagoEntity asociarMedioDePago(Long idPago, Long idMedio)
+    public MedioPagoEntity asociarMedioDePago(Long idPago, Long idMedio)
     {
         MedioPagoEntity pMedio = new MedioPagoEntity(); 
         pMedio.setId(idMedio);
         PagoEntity pago = getPago(idPago); 
         pago.setMedioPagoEntity(pMedio);
         
-        return pago;
+        return pMedio;
     }
     
     /**
@@ -94,7 +94,8 @@ public class PagoLogic {
     public PagoEntity createPago( PagoEntity entity ) throws BusinessLogicException{
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de un pago con id = {0}", entity.getId());
      
-        System.out.println("montoIncial" + entity.getMontoInicial() + "montoFinal " + entity.getMontoFinal());
+        validarPago(entity.getMontoFinal(), entity.getMontoInicial()); 
+        
         persistence.create(entity);
         
       
@@ -120,7 +121,6 @@ public class PagoLogic {
     
     /**
      * Actualiza una Pago por id
-     * @param id de tipo Long, representa la pago que se va a actualizar
      * @param entity de pago con los cambios deseados
      * @return la entidad de pago luego de ser actualizada
      */

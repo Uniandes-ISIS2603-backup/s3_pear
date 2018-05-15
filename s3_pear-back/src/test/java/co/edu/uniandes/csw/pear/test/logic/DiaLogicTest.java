@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.test.logic;
 
 import co.edu.uniandes.csw.pear.ejb.DiaLogic;
+import co.edu.uniandes.csw.pear.entities.ComidaEntity;
 import co.edu.uniandes.csw.pear.entities.DiaEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.DiaPersistence;
@@ -44,6 +45,7 @@ public class DiaLogicTest {
    
     private List<DiaEntity> data = new ArrayList<DiaEntity>();
     
+    private List<ComidaEntity> comidas = new ArrayList<>();
     
     @Inject
     private DiaLogic logic;
@@ -83,6 +85,7 @@ public class DiaLogicTest {
      */
     private void clearData() {
         em.createQuery("delete from DiaEntity").executeUpdate();
+        em.createQuery("delete from ComidaEntity").executeUpdate(); 
     }
     
     /**
@@ -90,8 +93,17 @@ public class DiaLogicTest {
      * pruebas.
      */
     private void insertData() {
+        
+        ComidaEntity comidaEntity = factory.manufacturePojo(ComidaEntity.class);
+        comidas.add(comidaEntity);
         for (int i = 0; i < 3; i++) {
             DiaEntity entity = factory.manufacturePojo(DiaEntity.class);
+            if(i == 0)
+            {
+                entity.setComidas(comidas);
+            }
+            
+            em.persist(comidaEntity); 
             em.persist(entity);
             data.add(entity);
         }
@@ -103,7 +115,7 @@ public class DiaLogicTest {
      * @throws BusinessLogicException
      */
     @Test
-    public void createTest() throws BusinessLogicException {
+    public void createDiaTest() throws BusinessLogicException {
         DiaEntity newEntity = factory.manufacturePojo(DiaEntity.class);
         DiaEntity result = logic.createDia(newEntity);
         Assert.assertNotNull(result);
@@ -113,7 +125,18 @@ public class DiaLogicTest {
         Assert.assertEquals(newEntity.getFecha(), entity.getFecha());
         Assert.assertEquals(newEntity.getRecomendacion(),entity.getRecomendacion());
         Assert.assertEquals(newEntity.getSeEnvia(),entity.getSeEnvia());
-        //Assert.assertEquals(newEntity.getComidas(), entity.getComidas());
+        Assert.assertEquals(newEntity.getSemana(), entity.getSemana());
+        Assert.assertEquals(newEntity.getComidas(), entity.getComidas());
+        
+     
+        try 
+        {
+            logic.createDia(data.get(0)); 
+        }catch( BusinessLogicException e)
+        {
+            Assert.assertEquals("Ya existe un dia con ese identificador", e.getMessage());
+        }
+        
     }
     
     /**
@@ -147,10 +170,19 @@ public class DiaLogicTest {
         Assert.assertEquals(entity.getFecha(), resultEntity.getFecha());
         Assert.assertEquals(entity.getRecomendacion(),resultEntity.getRecomendacion());
         Assert.assertEquals(entity.getSeEnvia(),resultEntity.getSeEnvia());
-        //Assert.assertEquals(entity.getComidas(), resultEntity.getComidas());
- 
+        
+        try 
+        {
+            logic.getDia(new Long(12)); 
+        }catch(BusinessLogicException e )
+        {
+            Assert.assertEquals("no existe un dia con ese identificador", e.getMessage()); 
+        }
     }
     
+    
+   
+ 
     
     /**
      * Prueba para eliminar un Dia
@@ -182,7 +214,7 @@ public class DiaLogicTest {
         Assert.assertEquals(pojoEntity.getFecha(), resp.getFecha());
         Assert.assertEquals(pojoEntity.getRecomendacion(),resp.getRecomendacion());
         Assert.assertEquals(pojoEntity.getSeEnvia(),resp.getSeEnvia());
-       // Assert.assertEquals(pojoEntity.getComidas(), resp.getComidas());
+        Assert.assertEquals(pojoEntity.getComidas(), resp.getComidas());
         
     }
 }
