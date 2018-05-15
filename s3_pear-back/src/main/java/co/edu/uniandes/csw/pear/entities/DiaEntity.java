@@ -38,6 +38,11 @@ public class DiaEntity extends BaseEntity implements Serializable {
     private List<EnvioEntity> envios;
     
     @PodamExclude
+    @OneToMany(mappedBy = "dia", cascade = CascadeType.ALL)
+    private List<ComidaEntity> comidas;
+    
+    
+    @PodamExclude
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinTable(name="DIAS_SEMANAS", 
         joinColumns=@JoinColumn(name="diaID"),
@@ -85,8 +90,8 @@ public class DiaEntity extends BaseEntity implements Serializable {
     }
     
     /**
-     * Determina las comidas programadas para ese dia
-     * @param pEnvios comidas programadas
+     * Determina los envios programados para ese dia
+     * @param pEnvios envios programados
      */
     public void setEnvios(List<EnvioEntity> pEnvios){
         envios = pEnvios;
@@ -98,6 +103,21 @@ public class DiaEntity extends BaseEntity implements Serializable {
     public List<EnvioEntity> getEnvios(){
         return envios;
     } 
+    
+    /**
+     * Determina las comidas programadas para ese dia
+     * @param pComidas comidas programadas
+     */
+    public void setComidas(List<ComidaEntity> pComidas){
+        comidas = pComidas;
+    }
+    
+    /**
+     * @return las comidas programadas ese dia para el cliente
+     */
+    public List<ComidaEntity> getComidas(){
+        return comidas;
+    }
     
     /**
      * Determina la fecha de este dia
