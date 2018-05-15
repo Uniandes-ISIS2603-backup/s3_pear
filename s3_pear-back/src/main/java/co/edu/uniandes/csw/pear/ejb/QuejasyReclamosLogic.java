@@ -55,7 +55,6 @@ public class QuejasyReclamosLogic
     //seguir desde aqui
     public List<QuejasyReclamosEntity> getQuejasyReclamos(Long idDieta) {
         LOGGER.info("Inicia proceso de consultar todas las quejas y reclamos");
-        DietaTipoEntity dieta = dietaLogic.getDieta(idDieta);
         LOGGER.info("Termina proceso de consultar todas las quejas y reclamos");
         return persistence.findAll(idDieta);
     }

@@ -143,7 +143,7 @@ public class PersonaLogicTest {
      */
     @Test
     public void getPersonaTest() {
-        PersonaEntity entity = data.get(0);
+      PersonaEntity entity = data.get(0);
         PersonaEntity resultEntity = logic.getPersona(entity.getId());
         Assert.assertNotNull(resultEntity);
         Assert.assertEquals(resultEntity.getNombre(), entity.getNombre());
@@ -154,7 +154,8 @@ public class PersonaLogicTest {
         Assert.assertEquals(resultEntity.isSubscrito(),entity.isSubscrito());
         Assert.assertEquals(resultEntity.getIdentificacion(),entity.getIdentificacion());
         Assert.assertEquals(resultEntity.getCalificacion(),entity.getCalificacion());
-        //Assert.assertEquals(resultEntity.getDieta(),entity.getDieta());  
+        Assert.assertEquals(resultEntity.getDietas() ,entity.getDietas());  
+        Assert.assertEquals(resultEntity.getEnvios(),entity.getEnvios()); 
     }
     
     /**

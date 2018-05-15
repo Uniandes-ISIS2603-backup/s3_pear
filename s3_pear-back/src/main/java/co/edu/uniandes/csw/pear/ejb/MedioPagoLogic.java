@@ -96,8 +96,6 @@ public class MedioPagoLogic {
     
   
     
-
-    
     /**
      * Elimina el medio de pago con el id dado
      * @param id 

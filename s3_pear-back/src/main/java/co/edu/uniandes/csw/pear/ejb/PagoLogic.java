@@ -76,14 +76,14 @@ public class PagoLogic {
     }
     
     
-    public MedioPagoEntity asociarMedioDePago(Long idPago, Long idMedio)
+    public PagoEntity asociarMedioDePago(Long idPago, Long idMedio)
     {
         MedioPagoEntity pMedio = new MedioPagoEntity(); 
         pMedio.setId(idMedio);
         PagoEntity pago = getPago(idPago); 
         pago.setMedioPagoEntity(pMedio);
         
-        return pMedio;
+        return pago;
     }
     
     /**

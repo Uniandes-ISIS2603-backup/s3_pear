@@ -120,6 +120,33 @@ public class QuejasyReclamosLogicTest {
         Assert.assertEquals(newEntity.getId(), entity.getId());
         Assert.assertEquals(newEntity.getAsunto(), entity.getAsunto());
         Assert.assertEquals(newEntity.getComentario(), entity.getComentario());
+        
+        newEntity.setAsunto("reclamo");
+          try {
+            quejasLogic.createQuejasyReclamos(data.get(0).getDieta().getId(), newEntity); 
+        }catch(BusinessLogicException e )
+        {
+            Assert.assertEquals("El asunto no corresponde a los 2 unicos disponibles : recomendacion o queja", e.getMessage() );
+        }
+        
+        newEntity.setAsunto(""); 
+        newEntity.setAsunto("queja");
+        try {
+            quejasLogic.createQuejasyReclamos(data.get(0).getDieta().getId(), newEntity); 
+        }catch(BusinessLogicException e )
+        {
+            Assert.assertEquals("El asunto no puede estar vacio", e.getMessage() );
+        }
+        
+        newEntity.setComentario("");
+        
+        
+        try {
+            quejasLogic.createQuejasyReclamos(data.get(0).getDieta().getId(), newEntity); 
+        }catch(BusinessLogicException e )
+        {
+            Assert.assertEquals("El comentario no puede estar vacio", e.getMessage() );
+        }
     }
     /**
      * Prueba para consultar la lista de quejas y reclamos

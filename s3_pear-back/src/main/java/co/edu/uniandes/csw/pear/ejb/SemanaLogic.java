@@ -104,9 +104,7 @@ public class SemanaLogic {
     public SemanaEntity createSemana( SemanaEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de una semana con id = {0}", entity.getId());
 
-//        if(entity.getListaDias().size()!= 7){
-//            throw new BusinessLogicException("No pueden haber mas de 7 dias en una semana");
-//        }
+
         if(persistence.find(entity.getId())!= null){
             throw new BusinessLogicException("Ya existe una semana con ese identificador");
         }
@@ -129,9 +127,7 @@ public class SemanaLogic {
     public SemanaEntity updateSemana( Long id, SemanaEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la semana con id = {0} " , id);
 
-//        if(entity.getListaDias().size()== 7){
-//            throw new BusinessLogicException("Ya hay 7 dias en la semana");
-//        }
+
         if(persistence.find(id) == null || entity.getId() == null){
             throw new BusinessLogicException("No existe una semana con ese identificador");
         }
