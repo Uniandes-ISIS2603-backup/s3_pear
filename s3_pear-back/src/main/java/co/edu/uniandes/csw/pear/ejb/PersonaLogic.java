@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.pear.ejb;
 
+import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.entities.PersonaEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.PersonaPersistence;
@@ -78,6 +79,34 @@ public class PersonaLogic {
             throw new BusinessLogicException("La persona que se quiere actualizar no existe");
         }
         return persistence.update(entity);
+    }
+    
+    /**
+     * Elimina la relacion a una dieta data por id
+     * @param personaId
+     * @param dietaId
+     * @return 
+     */
+    public PersonaEntity eliminarDietaPersona(Long personaId, Long dietaId)
+    {
+        PersonaEntity entity = getPersona(personaId); 
+        
+        List<DietaTipoEntity> dietas = entity.getDietas(); 
+        
+        
+        for(int i = 0; i < dietas.size(); i++)
+        {
+            if(dietas.get(i).getId().equals(dietaId))
+            {
+                dietas.remove(i);
+            }
+            
+        }
+        
+        entity.setDieta(dietas);
+        persistence.update(entity); 
+        
+        return entity; 
     }
     
     /**
