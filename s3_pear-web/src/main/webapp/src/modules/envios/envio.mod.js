@@ -62,15 +62,12 @@
             }
 
             $scope.enviar_envio = function () {
-
                 let data = {
                     direccion: $scope.direccion,
                     duracion: $scope.duracion,
                     recibido: $scope.recibido
                     
                 };
-
-                // DIRECCION HTTP 
                 $http.post('http://localhost:8080/s3_pear-web/api/envios', data).then(function (response) {
                     $scope.post_data = response.data;
                 });
@@ -78,17 +75,13 @@
 
 
             $scope.eliminar_envio = function (id) {
-
-                // DIRECCION HTTP 
                 $http.delete('http://localhost:8080/s3_pear-web/api/envios/' + id).then(function (response) {
                     $scope.delete_data = response.data;
                 });
             };
 
 
-            $scope.actualizar_envio = function () {
-                console.log($scope.id_envio + " < Se va a actualizar la envio.");
-                
+            $scope.actualizar_envio = function () {                
                 let data = {
                     direccion: $scope.new_direccion,
                     duracion: $scope.new_duracion,
@@ -98,9 +91,7 @@
                     $scope.put_data = response.data;
                 });
             };
-
         }
-
     ]);
 })(window.angular);
 

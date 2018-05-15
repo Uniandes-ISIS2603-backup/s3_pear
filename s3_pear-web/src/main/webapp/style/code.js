@@ -14,8 +14,8 @@ function change() {
         const nuevo = random_piker(im_arr.length);
         if (nuevo !== prev) {
             im_arr[nuevo].innerHTML = `<img src="../style/resources/${random_piker_im(14)}.jpg" alt="food">`;
+            prev = nuevo;
         }
-        prev = nuevo;
     }
 
 }
