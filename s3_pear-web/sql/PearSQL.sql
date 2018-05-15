@@ -31,10 +31,6 @@ delete from CalificacionEntity;
 delete from QuejasyReclamosEntity;
 delete from CasoExitoEntity;
 
-
-INSERT INTO DIETATIPOENTITY (NUMSEMANAS, PRECIO , DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID, ID) 
-	VALUES (2,100, 'Enterprise-wide coherent access', 'https://images.pexels.com/photos/248444/pexels-photo-248444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Japonesa', 'Versatile tangible task-force', 1, NULL, 100); 
-
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (100, 'Pablo', 'Suarez', 20, 'Cll. 127D #19-93', 'pa.suarezm@uniandes.edu.co', 0, '201632293');
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (200, 'Camilo', 'Bedoya', 20, 'Cll. 151 #9-26', 'jc.bedoya@uniandes.edu.co', 0, '201631591');
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (300, 'Carol', 'Trujillo', 19, 'Cra. 53 #127-43', 'cv.trujillo@uniandes.edu.co', 0, '201618005');
@@ -83,51 +79,28 @@ INSERT INTO COCINAENTITY (ID,CAPACIDAD, IMAGEN, "NAME", UBICACION)
 	VALUES (300,'2308', 'https://images.pexels.com/photos/225448/pexels-photo-225448.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Central del Norte', '652 Lukken Junction');
 INSERT INTO COCINAENTITY (ID,CAPACIDAD, IMAGEN, "NAME", UBICACION) 
 	VALUES (400,'208', 'https://images.pexels.com/photos/2755/restaurant.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Cocina Bogota', '15 Hoepker Plaza');
+INSERT INTO COCINAENTITY (ID,CAPACIDAD, IMAGEN, "NAME", UBICACION) 
+	VALUES (500,'2008','https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'La Gran Cocina', '8871 Merry Point');
+INSERT INTO COCINAENTITY (ID,CAPACIDAD, IMAGEN, "NAME", UBICACION) 
+	VALUES (600,'232', 'https://images.pexels.com/photos/159991/pexels-photo-159991.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Cocina de las Aguas', '7303 Troy Placet');
 
 
+INSERT INTO DIETATIPOENTITY (NUMSEMANAS, PRECIO , DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID, ID) 
+	VALUES (2,100, 'Enterprise-wide coherent access', 'https://images.pexels.com/photos/248444/pexels-photo-248444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Japonesa', 'Versatile tangible task-force', 1, 100, 100); 
 INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (200,4,50,'Operative motivating strategy', 'https://images.pexels.com/photos/660282/pexels-photo-660282.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Anti Dieta', 'Balanced tertiary strategy', 5, NULL);
+	VALUES (200,4,50,'Operative motivating strategy', 'https://images.pexels.com/photos/660282/pexels-photo-660282.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Anti Dieta', 'Balanced tertiary strategy', 5, 200);
 INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (300,2,150,'Digitized real-time implementation', 'https://images.pexels.com/photos/628776/pexels-photo-628776.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Oriental', 'Enterprise-wide global architecture', 4, NULL);
+	VALUES (300,2,150,'Digitized real-time implementation', 'https://images.pexels.com/photos/628776/pexels-photo-628776.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Oriental', 'Enterprise-wide global architecture', 4,300);
 INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (400,5,200,'De-engineered multi-state info-mediaries', 'https://images.pexels.com/photos/546945/pexels-photo-546945.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Italiana', 'Multi-tiered cohesive contingency', 4, NULL);
+	VALUES (400,4,200,'De-engineered multi-state info-mediaries', 'https://images.pexels.com/photos/546945/pexels-photo-546945.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Italiana', 'Multi-tiered cohesive contingency', 4, 200);
 INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (500,4,150,'ntegrated multimedia initiative', 'https://images.pexels.com/photos/629093/pexels-photo-629093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta de Crudos', 'Multi-layered explicit circu', 3, NULL);
+	VALUES (500,3,150,'ntegrated multimedia initiative', 'https://images.pexels.com/photos/629093/pexels-photo-629093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta de Crudos', 'Multi-layered explicit circu', 3, 400);
 INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (600,4,150,'dieta basada en ensaladas o algo asi', 'https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Nutricional', 'el objetivo de la dieta es desintoxicarse', 3, NULL);
+	VALUES (600,4,150,'dieta basada en ensaladas o algo asi', 'https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Nutricional', 'el objetivo de la dieta es desintoxicarse', 3, 100);
 INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (700,4,150,'una dieta basada en proteinas', 'https://images.pexels.com/photos/76093/pexels-photo-76093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Deportiva', 'el objetivo de la dieta es obtener masa muscular', 5, NULL);
+	VALUES (700,3,150,'una dieta basada en proteinas', 'https://images.pexels.com/photos/76093/pexels-photo-76093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Deportiva', 'el objetivo de la dieta es obtener masa muscular', 5,500);
 INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO,DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (800,5,200,'dieta basada en alimentos del mar', 'https://images.pexels.com/photos/36768/food-salmon-teriyaki-cooking.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Pacifica', 'el objetivo de la dieta es alejarse de las carnes rojas', 4, NULL);
-
-
-INSERT INTO COCINAENTITY (CAPACIDAD, IMAGEN, "NAME", UBICACION) 
-	VALUES ('2008', 'https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'La Gran Cocina', '8871 Merry Point');
-INSERT INTO COCINAENTITY (CAPACIDAD, IMAGEN, "NAME", UBICACION) 
-	VALUES ('232', 'https://images.pexels.com/photos/159991/pexels-photo-159991.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Cocina de las Aguas', '7303 Troy Placet');
-INSERT INTO COCINAENTITY (CAPACIDAD, IMAGEN, "NAME", UBICACION) 
-	VALUES ('2308', 'https://images.pexels.com/photos/225448/pexels-photo-225448.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Central del Norte', '652 Lukken Junction');
-INSERT INTO COCINAENTITY (CAPACIDAD, IMAGEN, "NAME", UBICACION) 
-	VALUES ('208', 'https://images.pexels.com/photos/2755/restaurant.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Cocina Bogota', '15 Hoepker Plaza');
-
-
-INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (900,3, 200, 'Vision-oriented intermediate matrix', 'https://images.pexels.com/photos/628777/pexels-photo-628777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Verde', 'Ergonomic solution-oriented support', 2, NULL);
-INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (1000,4, 350, 'Operative motivating strategy', 'https://images.pexels.com/photos/660282/pexels-photo-660282.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Anti Dieta', 'Balanced tertiary strategy', 5, NULL);
-INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (1100,2, 100, 'Digitized real-time implementation', 'https://images.pexels.com/photos/628776/pexels-photo-628776.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Oriental', 'Enterprise-wide global architecture', 4, NULL);
-INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (1200,1, 40, 'De-engineered multi-state info-mediaries', 'https://images.pexels.com/photos/546945/pexels-photo-546945.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'Dieta Italiana', 'Multi-tiered cohesive contingency', 4, NULL);
-INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (1300,5, 200, 'ntegrated multimedia initiative', 'https://images.pexels.com/photos/629093/pexels-photo-629093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta de Crudos', 'Multi-layered explicit circu', 3, NULL);
-INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (1400,3, 400,  'dieta basada en ensaladas o algo asi', 'https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Nutricional', 'el objetivo de la dieta es desintoxicarse', 3, NULL);
-INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID) 
-	VALUES (1500,3, 110, 'una dieta basada en proteinas', 'https://images.pexels.com/photos/76093/pexels-photo-76093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Deportiva', 'el objetivo de la dieta es obtener masa muscular', 5, NULL);
-INSERT INTO DIETATIPOENTITY (ID,NUMSEMANAS, PRECIO, DESCRIPCION, IMAGEN, "NAME", OBJETIVO, STARS, COCINA_ID ) 
-	VALUES (1600,6, 800, 'dieta basada en alimentos del mar', 'https://images.pexels.com/photos/36768/food-salmon-teriyaki-cooking.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Pacifica', 'el objetivo de la dieta es alejarse de las carnes rojas', 4, NULL);
-
+	VALUES (800,5,200,'dieta basada en alimentos del mar', 'https://images.pexels.com/photos/36768/food-salmon-teriyaki-cooking.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Dieta Pacifica', 'el objetivo de la dieta es alejarse de las carnes rojas', 4, 600);
 
 
 insert into PagoEntity(id, montoInicial, montoFinal) values (200, 10, 10);
@@ -141,30 +114,23 @@ insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaD
 insert into PagoEntity(id, montoInicial, montoFinal) values (400, 10, 10);
 insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (300, 20.000, 2, 370418, 400, 300);
 
-
 insert into PagoEntity(id, montoInicial, montoFinal) values (500, 5, 5);
 insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (400, 10.000, 1, 380418, 500, 400);
-
 
 insert into PagoEntity(id, montoInicial, montoFinal) values (600, 15, 15);
 insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (500, 30.000, 7, 390418, 600, 500);
 
-
 insert into PagoEntity(id, montoInicial, montoFinal) values (700, 20, 20);
 insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (600, 40.000, 8, 400418, 700, 600);
-
 
 insert into PagoEntity(id, montoInicial, montoFinal) values (800, 5, 5);
 insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (700, 10.000, 2, 410418, 800, 700);
 
-
 insert into PagoEntity(id, montoInicial, montoFinal) values (900, 5, 5);
 insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (800, 10.000, 1, 420418, 900, 800);
 
-
 insert into PagoEntity(id, montoInicial, montoFinal) values (1000, 10, 10);
 insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (900, 20.000, 1, 430418, 1000, 900);
-
 
 insert into PagoEntity(id, montoInicial, montoFinal) values (1100, 25, 25);
 insert into CuentaCobroEntity(id, valorAPagar, cantidadProductos, numeroFacturaDeVenta,pago_id,dieta_id) values (1000, 50.000, 7, 440418, 1100, 1000);
@@ -200,26 +166,22 @@ insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (1000, 10,400);
 insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (1100, 6,500);
 insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (1200, 9,500);
 insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (1300, 8,600);
-insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (1400, 10,600);
-insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (1500, 7,700);
-insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (1600, 8,700);
-insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (1700, 6,800);
-
-
+insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (1400, 10, 600);
+insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (1500, 7,  700);
+insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (1600, 8, 700);
+insert into CalificacionEntity (id, puntuacion, DIETA_ID) values (1700, 6, 800);
 
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (100,'queja', 'La comida llego fria',400);
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (200,'recomendacion', 'Llamar al cliente cuando el envio este cerca',500);
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (300,'recomendacion', 'Contratar domiciliarios más amables',600);
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (400,'queja', 'el domiciliario fue grosero',800);
-insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (500,'queja', 'el domiciliario fue grosero',900);
-insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (600,'queja', 'el domiciliario fue grosero',1000);
-insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (700,'queja', 'el domiciliario fue grosero',1100);
-insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (800,'queja', 'el domiciliario fue grosero',1200);
-insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (900,'queja', 'el domiciliario fue grosero',300);
-insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1000,'queja', 'el domiciliario fue grosero',200);
-insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1100,'queja', 'el domiciliario fue grosero',100);
-insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1200,'queja', 'el domiciliario fue grosero',700);
-
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (500,'queja', 'el domiciliario fue grosero',100);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (600,'queja', 'el domiciliario fue grosero',200);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (700,'queja', 'el domiciliario fue grosero',300);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (800,'queja', 'el domiciliario fue grosero',400);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (900,'queja', 'el domiciliario fue grosero',500);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1000,'queja', 'el domiciliario fue grosero',600);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1100,'queja', 'el domiciliario fue grosero',700);
 
 insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) values (100, 'Comentario 1', 'Testimonio 1','https://rolloid.net/wp-content/uploads/2017/05/20-fotos-increibles-de-perdida-de-peso-antes-y-despues-de-las-cuales-no-creeras-que-sean-de-la-misma-persona-1494409922.jpg');
 insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) values (200, 'Comentario 2', 'Testimonio 2','https://rolloid.net/wp-content/uploads/2017/05/20-fotos-increibles-de-perdida-de-peso-antes-y-despues-de-las-cuales-no-creeras-que-sean-de-la-misma-persona-1494410051.jpg');
@@ -414,13 +376,11 @@ insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (226,200);
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (225,300);
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (226,300);
 
-
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (221,400);
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (222,400);
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (223,400);
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (224,400);
 
-insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (224,500);
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (225,500);
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (226,500);
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (227,500);
@@ -433,7 +393,6 @@ insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (226,600);
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (226,700);
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (227,700);
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (228,700);
-insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (229,700);
 
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (221,800);
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (222,800);
