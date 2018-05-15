@@ -139,7 +139,7 @@ public class CocinaLogicTest {
      */
     @Test
     public void getCocinaTest() {
-        CocinaEntity entity = data.get(0);
+        CocinaEntity entity = data.get(0); 
         
         
         CocinaEntity pruebaNull = logic.getCocina(new Long (89399));
@@ -163,7 +163,6 @@ public class CocinaLogicTest {
         CocinaEntity deleted = em.find(CocinaEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
-    
     
     /**
      * Prueba para actualizar una Cocina

@@ -103,9 +103,7 @@ public class DiaLogic {
      */
     public DiaEntity createDia( DiaEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de un dia con id = {0}", entity.getId());
-//        if(persistence.findByName(entity.getName())!= null){
-//            throw new BusinessLogicException("El nombre no es valido");
-//        }
+
         if(persistence.find(entity.getId())!= null){
             throw new BusinessLogicException("Ya existe un dia con ese identificador");
         }

@@ -77,7 +77,6 @@ public class MedioPagoLogic {
      */
     public MedioPagoEntity createMedioPago( MedioPagoEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de un medio pago con id = {0}", entity.getId());
-        System.out.println("EN LOGIC " + entity.getMedioPagoActual());
         persistence.create(entity);
         LOGGER.log(Level.INFO, "Termina proceso de creacion de un medio pago con id = {0}", entity.getId());
         return entity;
@@ -85,7 +84,6 @@ public class MedioPagoLogic {
     
     /**
      * Actualiza un medio Pago por id
-     * @param id de tipo Long, representa el medio de pago que se va a actualizar
      * @param entity de medio de  pago con los cambios deseados
      * @return la entidad de medio de pago luego de ser actualizada
      */
@@ -96,15 +94,7 @@ public class MedioPagoLogic {
         return actualizado;
     }
     
-    public boolean verificarMedioPago(String medioPago)
-    {
-        if(medioPago.equals("Crédito")||medioPago.equals("Débito")||medioPago.equals("Efectivo")||medioPago.equals("Baloto"))
-        {
-            return true; 
-        }
-        
-        return false; 
-    }
+  
     
 
     

@@ -128,10 +128,11 @@ public class MedioPagoLogicTest {
         Assert.assertEquals(newEntity.getName(), entity.getName());
         Assert.assertEquals(newEntity.getMedioPagoActual(),entity.getMedioPagoActual() );
         
-        
         } catch (BusinessLogicException ex) {
             Logger.getLogger(PagoLogicTest.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+     
         
       
     }
@@ -167,7 +168,9 @@ public class MedioPagoLogicTest {
         MedioPagoEntity resultEntity = medioPagoLogic.getMedioPago(entity.getId());
         Assert.assertNotNull(resultEntity);
         
-        
+        Assert.assertNull (medioPagoLogic.getMedioPago(new Long (32)));
+            
+     
       
     }
 
