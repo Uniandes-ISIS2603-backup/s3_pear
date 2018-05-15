@@ -61,7 +61,7 @@
     mod.controller('diasController', ['$scope', '$http', 'diasContext', '$state',
 
         function ($scope, $http, diasContext, $state) {
-            //http://localhost:8080/s3_pear-web/api/dias
+      
 
             $http.get('http://localhost:8080/s3_pear-web/api/dias').then(function (response) {
                 $scope.dias = response.data;
@@ -83,9 +83,6 @@
                     seEnvia: $scope.seEnvia,
                     semana: $scope.semana
                 };
-
-                console.log(data);
-
                 $http.post('http://localhost:8080/s3_pear-web/api/dias', data).then(function (response) {
                     $scope.post_data = response.data;
                     $state.go('dias', {}, {reload: true});
@@ -94,9 +91,6 @@
 
 
             $scope.eliminar_dia = function (id) {
-
-                console.log(id + " < Se va a eliminar el dia");
-
                 $http.delete('http://localhost:8080/s3_pear-web/api/dias/' + id).then(function (response) {
                     $scope.delete_data = response.data;
                     $state.reload();
@@ -105,14 +99,10 @@
 
 
             $scope.actualizar_dia = function () {
-                console.log($scope.id_dia + " < Se va a actualizar el dia.");
-
                 let data = {
                     recomendacion: $scope.new_recomendacion,
                     seEnvia: $scope.new_seEnvia
                 };
-
-                //http://localhost:8080/s3_pear-web/api/dias/3
                 $http.put('http://localhost:8080/s3_pear-web/api/dias/' + $scope.id_dia, data).then(function (response) {
                     $scope.put_data = response.data;
                     $state.go($state.current, {}, {reload: true});

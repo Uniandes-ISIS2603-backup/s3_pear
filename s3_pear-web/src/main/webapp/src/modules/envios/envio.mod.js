@@ -49,10 +49,6 @@
     mod.controller('enviosController', ['$scope', '$http', 'enviosContext', '$state',
 
         function ($scope, $http, enviosContext, $state) {
-            //http://localhost:8080/s3_pear-web/api/envios
-            // src/modules/envios/envios.json
-
-            // TODO Descomentar
             $http.get('http://localhost:8080/s3_pear-web/api/envios').then(function (response) {
                 $scope.envios = response.data;
             });
@@ -60,7 +56,6 @@
             if ($state.params.id !== null && $state.params.id !== undefined) {
                 $scope.id_envio = $state.params.id;
 
-                // TODO Descomentar
                 $http.get('http://localhost:8080/s3_pear-web/api/envios/' + $state.params.id ).then(function (response) {
                     $scope.envio = response.data;
                 });
@@ -75,8 +70,6 @@
                     
                 };
 
-                console.log(data);
-
                 // DIRECCION HTTP 
                 $http.post('http://localhost:8080/s3_pear-web/api/envios', data).then(function (response) {
                     $scope.post_data = response.data;
@@ -85,8 +78,6 @@
 
 
             $scope.eliminar_envio = function (id) {
-
-                console.log(id + " < Se va a eliminar la envio");
 
                 // DIRECCION HTTP 
                 $http.delete('http://localhost:8080/s3_pear-web/api/envios/' + id).then(function (response) {
@@ -103,8 +94,6 @@
                     duracion: $scope.new_duracion,
                     recibido: $scope.new_recibido
                 };
-                
-                //http://localhost:8080/s3_pear-web/api/envios/3
                 $http.put('http://localhost:8080/s3_pear-web/api/envios/' + id, data).then(function (response) {
                     $scope.put_data = response.data;
                 });

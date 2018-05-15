@@ -22,10 +22,9 @@
             $http.get(dietasContext + '/' + $state.params.dietaId + '/'+quejasContext).then(function (response) {
 
                 $scope.quejasRecords = response.data;
-                console.log(response.data);
 
             }).then(function (response) {
-                console.log('FAILED GET COMENTARIOS ' + response);
+                response;
             });
             
             if ($state.params.quejasId !== null && $state.params.quejasId !== undefined) {
@@ -34,7 +33,6 @@
                 $http.get(dietasContext + '/' + $state.params.idDieta + '/'+ quejasContext + "/" +$state.params.quejasId ).then(function (response) {
                     $scope.queja = response.data;
                     $scope.dietaId= $state.params.idDieta;
-                    console.log($state.params.dietaId);
                 });
             }
 
@@ -44,11 +42,7 @@
                     asunto: $scope.asunto,
                     comentario: $scope.comentario
                     
-                };
-
-                console.log(data);
-
-      
+                };      
                 $http.post(quejasContext, data).then(function (response) {
                     $scope.post_data = response.data;
                     $state.go('quejasList', {}, {reload: true});
@@ -61,18 +55,12 @@
                     comentario: $scope.newComentario
                     
                 };
-
-               
                 $http.put(dietasContext + '/' + $state.params.dietaId+ '/'+ quejasContext + "/" + $scope.id_queja, data).then(function (response) {
                     $scope.put_data = response.data;
                     $state.go($state.current, {}, {reload: true});
                     $state.go('quejasList', {}, {reload: true});
                 });
             };
-            
-
-
-
         }
 
     ]);

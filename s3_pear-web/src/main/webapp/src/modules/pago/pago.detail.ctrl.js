@@ -7,10 +7,7 @@
      
      
      
-        function ($scope, $http, pagoContext, $state) {  
-            
-           console.log('entra al otro controller');
-            
+        function ($scope, $http, pagoContext, $state) {     
             if (($state.params.medioPagoId !== undefined)&& ($state.params.medioPagoId !== null)) {
            
              

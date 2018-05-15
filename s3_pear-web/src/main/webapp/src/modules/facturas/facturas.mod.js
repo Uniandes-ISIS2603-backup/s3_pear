@@ -46,8 +46,6 @@
 	mod.controller('facturasController', ['$scope', '$http', 'facturaContext', '$state',
 
         function ($scope, $http, facturasContext, $state) {
-			//http://localhost:8080/s3_pear-web/api/facturas
-                        //src/modules/facturas/facturas.json
 	         $http.get('http://localhost:8080/s3_pear-web/api/facturas').then(function (response) {
 		     $scope.facturas = response.data;
 	         });
@@ -67,9 +65,6 @@
                     numeroFacturaDeVenta: $scope.numeroFacturaDeVenta,
                     persona: $scope.persona_id
                 };
-                
-                console.log(data);
-                
                  $http.post('http://localhost:8080/s3_pear-web/api/facturas', data).then(function (response) {
                     $scope.post_data = response.data;
                     $state.go('facturas', {}, {reload: true});
@@ -77,9 +72,6 @@
            };
            
              $scope.eliminar_factura = function (id) {
-
-                console.log(id + " < Se va a eliminar la factura");
-
                 // DIRECCION HTTP 
                 $http.delete('http://localhost:8080/s3_pear-web/api/facturas/' + id).then(function (response) {
                     $scope.delete_data = response.data;
@@ -88,15 +80,11 @@
             };
             
              $scope.actualizar_factura = function () {
-                console.log($scope.id_factura + " < Se va a actualizar la dieta.");
-
                 let data = {
                     cantidadProductos: $scope.new_cantidadProductos,
                     numeroFacturaDeVenta: $scope.new_numeroFacturaDeVenta,
                     persona: $scope.new_persona
                 };
-
-                //http://localhost:8080/s3_pear-web/api/facturas/46
                 $http.put('http://localhost:8080/s3_pear-web/api/facturas/' + $scope.id_factura, data).then(function (response) {
                     $scope.put_data = response.data;
                     $state.go($state.current, {}, {reload: true});
