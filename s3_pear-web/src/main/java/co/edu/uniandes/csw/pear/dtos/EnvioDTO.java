@@ -5,9 +5,9 @@
  */
 package co.edu.uniandes.csw.pear.dtos;
 
-import co.edu.uniandes.csw.pear.entities.ComidaEntity;
+
 import co.edu.uniandes.csw.pear.entities.EnvioEntity;
-import co.edu.uniandes.csw.pear.entities.PersonaEntity;
+
 
 /**
  * EnvioDTO Objeto de transferencia de datos de Envios. Los DTO contienen las

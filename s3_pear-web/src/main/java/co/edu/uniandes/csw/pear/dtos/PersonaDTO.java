@@ -103,11 +103,13 @@ public class PersonaDTO {
         }
     }
     
+    
+    
     /**
      * Constructor vacío para propósitos de persistencia
      */
     public PersonaDTO(){
-        
+        //prueba
     }
     
     //-----------------------------------------------------------
