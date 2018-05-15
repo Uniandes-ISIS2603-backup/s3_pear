@@ -42,7 +42,7 @@ public class CocinaDetailDTO extends CocinaDTO {
     public CocinaDetailDTO(CocinaEntity entity) {
         super(entity);
 
-        if (entity != null) {
+        if (entity != null ) {
 
             if (entity.getDietas() != null) {
 
@@ -71,14 +71,13 @@ public class CocinaDetailDTO extends CocinaDTO {
     @Override
     public CocinaEntity toEntity() {
         CocinaEntity en = super.toEntity();
-        if(en != null){
-            if(this.getDietas() !=  null){
+        if(en != null && this.getDietas() !=  null){
+            
                 List<DietaTipoEntity> dts = new ArrayList<>();
                 for(DietaTipoEntity y: en.getDietas()){
                     dts.add(y);
                 }
                 en.setDietas(dts);
-            }
         }
         return en;
     }

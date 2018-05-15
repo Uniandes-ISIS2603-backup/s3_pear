@@ -29,7 +29,7 @@ public class PagoDTO {
      * Contructor por defecto
      */
     public PagoDTO() {
-
+         //constructor por defecto.
     }
 
     public PagoDTO(PagoEntity entity) {
