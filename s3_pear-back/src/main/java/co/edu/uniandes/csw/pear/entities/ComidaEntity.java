@@ -22,17 +22,16 @@ public class ComidaEntity extends BaseEntity implements Serializable
     private int cantidad;
     private String alimentos;
     private  String TIPO;
-    //private String image;
+
     
     @PodamExclude
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
         @JoinTable(name="DIAS_COMIDAS", 
         joinColumns=@JoinColumn(name="comidaId"),
         inverseJoinColumns=@JoinColumn(name="diaId")
     )
     private DiaEntity dia;
-        
-
+       
     
  /**
      * Cantidad de la comida 
