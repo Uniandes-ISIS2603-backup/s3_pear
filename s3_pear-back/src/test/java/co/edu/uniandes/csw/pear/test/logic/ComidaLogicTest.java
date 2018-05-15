@@ -15,6 +15,11 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.NotSupportedException;
+import javax.transaction.RollbackException;
+import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -42,7 +47,7 @@ public class ComidaLogicTest {
     @Inject
     private UserTransaction utx;
     
-    private List<ComidaEntity> data = new ArrayList<ComidaEntity>();
+    private List<ComidaEntity> data = new ArrayList<>();
       
     @Inject 
     private ComidaLogic logic;
@@ -68,12 +73,10 @@ public class ComidaLogicTest {
             clearData();
             insertData();
             utx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IllegalStateException | SecurityException | HeuristicMixedException | HeuristicRollbackException | NotSupportedException | RollbackException | SystemException e) {
             try {
                 utx.rollback();
-            } catch (Exception e1) {
-                e1.printStackTrace();
+            } catch (IllegalStateException | SecurityException | SystemException e1) {
             }
         }
     }
@@ -99,6 +102,7 @@ public class ComidaLogicTest {
 
     /**
      * Prueba para crear una Comida con tipo desayuno
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @Test
     public void createDesayunoTest() throws BusinessLogicException {
@@ -113,6 +117,7 @@ public class ComidaLogicTest {
     
       /**
      * Prueba para crear una Comida con tipo almuerzo
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @Test
     public void createAlmuerzoTest() throws BusinessLogicException {
@@ -127,6 +132,7 @@ public class ComidaLogicTest {
     
       /**
      * Prueba para crear una Comida con tipo cena
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @Test
     public void createCenaTest() throws BusinessLogicException {
@@ -141,6 +147,7 @@ public class ComidaLogicTest {
     
       /**
      * Prueba para crear una Comida con tipo adicional
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @Test
     public void createAdicionalTest() throws BusinessLogicException {
@@ -185,6 +192,7 @@ public class ComidaLogicTest {
     
     /**
      * Prueba para eliminar una Comida
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @Test
     public void deleteComidaTest() throws BusinessLogicException
@@ -197,6 +205,7 @@ public class ComidaLogicTest {
     
     /**
      * Prueba para actualizar una Comida
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @Test
     public void updateComidaTest() throws BusinessLogicException 

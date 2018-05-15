@@ -14,6 +14,11 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.NotSupportedException;
+import javax.transaction.RollbackException;
+import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -41,7 +46,7 @@ public class SemanaLogicTest {
     @Inject
     private UserTransaction utx;
     
-    private List<SemanaEntity> data = new ArrayList<SemanaEntity>();
+    private List<SemanaEntity> data = new ArrayList<>();
    
     @Inject
     private SemanaLogic logic;
@@ -56,7 +61,7 @@ public class SemanaLogicTest {
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
     
-    /**
+    /*
      * Configuración inicial de la prueba.
      */
     @Before
@@ -66,17 +71,15 @@ public class SemanaLogicTest {
             clearData();
             insertData();
             utx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IllegalStateException | SecurityException | HeuristicMixedException | HeuristicRollbackException | NotSupportedException | RollbackException | SystemException e) {
             try {
                 utx.rollback();
-            } catch (Exception e1) {
-                e1.printStackTrace();
+            } catch (IllegalStateException | SecurityException | SystemException e1) {
             }
         }
     }
     
-       /**
+    /*
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
@@ -126,10 +129,9 @@ public class SemanaLogicTest {
             Assert.assertTrue(found);
         }
     }
-    
-    
      /**
      * Prueba para consultar una Semana
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @Test
     public void getSemanaTest() throws BusinessLogicException {
@@ -142,6 +144,7 @@ public class SemanaLogicTest {
     
     /**
      * Prueba para eliminar una Semana
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @Test
     public void deleteSemanaTest() throws BusinessLogicException {
@@ -154,6 +157,7 @@ public class SemanaLogicTest {
     
     /**
      * Prueba para actualizar una semana
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @Test
     public void updateSemanaTest() throws BusinessLogicException {
@@ -168,7 +172,5 @@ public class SemanaLogicTest {
 
         Assert.assertEquals(pojoEntity.getId(), resp.getId());
         Assert.assertEquals(pojoEntity.getName(), resp.getName());
- 
     }
-    
 }

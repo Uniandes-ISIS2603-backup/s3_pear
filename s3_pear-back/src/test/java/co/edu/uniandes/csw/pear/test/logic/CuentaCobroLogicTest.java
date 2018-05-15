@@ -17,6 +17,11 @@ import java.util.logging.Logger;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.NotSupportedException;
+import javax.transaction.RollbackException;
+import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -47,7 +52,7 @@ public class CuentaCobroLogicTest {
     @Inject
     private UserTransaction utx;
 
-    private List<CuentaCobroEntity> data = new ArrayList<CuentaCobroEntity>();
+    private List<CuentaCobroEntity> data = new ArrayList<>();
     
     private PagoEntity pagoEntity; 
     
@@ -76,12 +81,10 @@ public class CuentaCobroLogicTest {
             clearData();
             insertData();
             utx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IllegalStateException | SecurityException | HeuristicMixedException | HeuristicRollbackException | NotSupportedException | RollbackException | SystemException e) {
             try {
                 utx.rollback();
-            } catch (Exception e1) {
-                e1.printStackTrace();
+            } catch (IllegalStateException | SecurityException | SystemException e1) {
             }
         }
     }
@@ -227,8 +230,6 @@ public class CuentaCobroLogicTest {
         cuentaCobroLogic.updateCuenta( pojoEntity);
 
         CuentaCobroEntity resp = em.find(CuentaCobroEntity.class, entity.getId());
-        resp = em.find(CuentaCobroEntity.class, entity.getId());
-
         Assert.assertEquals(pojoEntity.getId(), resp.getId());
         Assert.assertEquals(pojoEntity.getName(), resp.getName());
        

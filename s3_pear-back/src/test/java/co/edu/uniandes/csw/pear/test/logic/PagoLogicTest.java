@@ -19,6 +19,11 @@ import java.util.logging.Logger;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.NotSupportedException;
+import javax.transaction.RollbackException;
+import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 import org.junit.Assert;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -50,7 +55,7 @@ public class PagoLogicTest {
     @Inject
     private UserTransaction utx;
 
-    private List<PagoEntity> data = new ArrayList<PagoEntity>();
+    private List<PagoEntity> data = new ArrayList<>();
     
     private MedioPagoEntity medioPago;
       @Deployment
@@ -78,12 +83,10 @@ public class PagoLogicTest {
             clearData();
             insertData();
             utx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IllegalStateException | SecurityException | HeuristicMixedException | HeuristicRollbackException | NotSupportedException | RollbackException | SystemException e) {
             try {
                 utx.rollback();
-            } catch (Exception e1) {
-                e1.printStackTrace();
+            } catch (IllegalStateException | SecurityException | SystemException e1) {
             }
         }
     }
@@ -143,9 +146,7 @@ public class PagoLogicTest {
         Assert.assertEquals(newEntity.getMedioPagoEntity(), entity.getMedioPagoEntity());
         } catch (BusinessLogicException ex) {
             Logger.getLogger(PagoLogicTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-      
+        }  
     }
 
     
@@ -180,9 +181,6 @@ public class PagoLogicTest {
         PagoEntity entity = data.get(0);
         PagoEntity resultEntity = pagoLogic.getPago(entity.getId());
         Assert.assertNotNull(resultEntity);
-        
-        
-      
     }
 
     /**
@@ -213,12 +211,8 @@ public class PagoLogicTest {
         pagoLogic.updatePago( pojoEntity);
 
         PagoEntity resp = em.find(PagoEntity.class, entity.getId());
-        resp = em.find(PagoEntity.class, entity.getId());
 
         Assert.assertEquals(pojoEntity.getId(), resp.getId());
         Assert.assertEquals(pojoEntity.getName(), resp.getName());
-       
-    }
-    
-    
+    } 
 }

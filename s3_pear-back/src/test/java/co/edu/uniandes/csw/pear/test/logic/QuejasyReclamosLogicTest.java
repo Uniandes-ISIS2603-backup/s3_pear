@@ -15,6 +15,11 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.NotSupportedException;
+import javax.transaction.RollbackException;
+import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -42,8 +47,8 @@ public class QuejasyReclamosLogicTest {
     @Inject
     private UserTransaction utx;
     
-     private List<QuejasyReclamosEntity> data = new ArrayList<QuejasyReclamosEntity>();
-     private List<DietaTipoEntity> dataDieta = new ArrayList<DietaTipoEntity>();
+     private List<QuejasyReclamosEntity> data = new ArrayList<>();
+     private List<DietaTipoEntity> dataDieta = new ArrayList<>();
      
      
     @Deployment
@@ -57,8 +62,6 @@ public class QuejasyReclamosLogicTest {
     }
     /**
      * Configuración inicial de la prueba.
-     *
-     *
      */
     @Before
     public void configTest() {
@@ -67,20 +70,16 @@ public class QuejasyReclamosLogicTest {
             clearData();
             insertData();
             utx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IllegalStateException | SecurityException | HeuristicMixedException | HeuristicRollbackException | NotSupportedException | RollbackException | SystemException e) {
             try {
                 utx.rollback();
-            } catch (Exception e1) {
-                e1.printStackTrace();
+            } catch (IllegalStateException | SecurityException | SystemException e1) {
             }
         }
     }
 
     /**
      * Limpia las tablas que están implicadas en la prueba.
-     *
-     *
      */
     private void clearData() {
         em.createQuery("delete from QuejasyReclamosEntity").executeUpdate();
@@ -89,8 +88,6 @@ public class QuejasyReclamosLogicTest {
     /**
      * Inserta los datos iniciales para el correcto funcionamiento de las
      * pruebas.
-     *
-     *
      */
     private void insertData() {
 
@@ -111,8 +108,7 @@ public class QuejasyReclamosLogicTest {
     }
      /**
      * Prueba para crear una queja y reclamo
-     *
-     *
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @Test
     public void createQuejayReclamoTest() throws BusinessLogicException {
@@ -127,8 +123,6 @@ public class QuejasyReclamosLogicTest {
     }
     /**
      * Prueba para consultar la lista de quejas y reclamos
-     *
-     *
      */
     @Test
     public void getQuejasyReclamosTest() {
@@ -146,8 +140,6 @@ public class QuejasyReclamosLogicTest {
     }
     /**
      * Prueba para consultar una queja y reclamo
-     *
-     *
      */
     @Test
     public void getQuejayReclamoTest() {
@@ -161,8 +153,7 @@ public class QuejasyReclamosLogicTest {
     }
      /**
      * Prueba para eliminar una queja y reclamo
-     *
-     *
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @Test
     public void deleteQuejayReclamoTest() throws BusinessLogicException {
@@ -173,8 +164,7 @@ public class QuejasyReclamosLogicTest {
     }
     /**
      * Prueba para actualizar una queja y reclamo
-     *
-     *
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @Test
     public void updateQuejayReclamoTest() throws BusinessLogicException {
@@ -190,6 +180,5 @@ public class QuejasyReclamosLogicTest {
         Assert.assertEquals(pojoEntity.getId(), resp.getId());
         Assert.assertEquals(pojoEntity.getAsunto(), resp.getAsunto());
         Assert.assertEquals(pojoEntity.getComentario(), resp.getComentario());
-    }
-    
+    } 
 }

@@ -14,6 +14,11 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.NotSupportedException;
+import javax.transaction.RollbackException;
+import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -40,7 +45,7 @@ public class CasoExitoLogicTest {
     @Inject
     private UserTransaction utx;
     
-    private List<CasoExitoEntity> data = new ArrayList<CasoExitoEntity>();
+    private List<CasoExitoEntity> data = new ArrayList<>();
       
     @Inject 
     private CasoExitoLogic logic;
@@ -65,12 +70,10 @@ public class CasoExitoLogicTest {
             clearData();
             insertData();
             utx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IllegalStateException | SecurityException | HeuristicMixedException | HeuristicRollbackException | NotSupportedException | RollbackException | SystemException e) {
             try {
                 utx.rollback();
-            } catch (Exception e1) {
-                e1.printStackTrace();
+            } catch (IllegalStateException | SecurityException | SystemException e1) {
             }
         }
     }
@@ -184,6 +187,7 @@ public class CasoExitoLogicTest {
     
     /**
      * Prueba para actualizar un Caso
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @Test
     public void updateCasoExitoTest() throws BusinessLogicException{

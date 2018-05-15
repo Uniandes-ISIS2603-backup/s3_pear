@@ -6,8 +6,8 @@
 package co.edu.uniandes.csw.pear.test.logic;
 
 import co.edu.uniandes.csw.pear.ejb.DiaLogic;
-import co.edu.uniandes.csw.pear.entities.ComidaEntity;
 import co.edu.uniandes.csw.pear.entities.DiaEntity;
+import co.edu.uniandes.csw.pear.entities.EnvioEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.DiaPersistence;
 import java.util.ArrayList;
@@ -15,6 +15,11 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.NotSupportedException;
+import javax.transaction.RollbackException;
+import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -43,9 +48,9 @@ public class DiaLogicTest {
     @Inject
     private UserTransaction utx;
    
-    private List<DiaEntity> data = new ArrayList<DiaEntity>();
+    private List<DiaEntity> data = new ArrayList<>();
     
-    private List<ComidaEntity> comidas = new ArrayList<>();
+    private List<EnvioEntity> envios = new ArrayList<>();
     
     @Inject
     private DiaLogic logic;
@@ -70,12 +75,10 @@ public class DiaLogicTest {
             clearData();
             insertData();
             utx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IllegalStateException | SecurityException | HeuristicMixedException | HeuristicRollbackException | NotSupportedException | RollbackException | SystemException e) {
             try {
                 utx.rollback();
-            } catch (Exception e1) {
-                e1.printStackTrace();
+            } catch (IllegalStateException | SecurityException | SystemException e1) {
             }
         }
     }
@@ -85,7 +88,7 @@ public class DiaLogicTest {
      */
     private void clearData() {
         em.createQuery("delete from DiaEntity").executeUpdate();
-        em.createQuery("delete from ComidaEntity").executeUpdate(); 
+        em.createQuery("delete from EnvioEntity").executeUpdate(); 
     }
     
     /**
@@ -94,16 +97,16 @@ public class DiaLogicTest {
      */
     private void insertData() {
         
-        ComidaEntity comidaEntity = factory.manufacturePojo(ComidaEntity.class);
-        comidas.add(comidaEntity);
+        EnvioEntity envioEntity = factory.manufacturePojo(EnvioEntity.class);
+        envios.add(envioEntity);
         for (int i = 0; i < 3; i++) {
             DiaEntity entity = factory.manufacturePojo(DiaEntity.class);
             if(i == 0)
             {
-                entity.setComidas(comidas);
+                entity.setEnvios(envios);
             }
             
-            em.persist(comidaEntity); 
+            em.persist(envioEntity); 
             em.persist(entity);
             data.add(entity);
         }
@@ -126,7 +129,7 @@ public class DiaLogicTest {
         Assert.assertEquals(newEntity.getRecomendacion(),entity.getRecomendacion());
         Assert.assertEquals(newEntity.getSeEnvia(),entity.getSeEnvia());
         Assert.assertEquals(newEntity.getSemana(), entity.getSemana());
-        Assert.assertEquals(newEntity.getComidas(), entity.getComidas());
+        Assert.assertEquals(newEntity.getEnvios(), entity.getEnvios());
         
      
         try 
@@ -159,6 +162,7 @@ public class DiaLogicTest {
     
      /**
      * Prueba para consultar un Dia
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @Test
     public void getDiaTest() throws BusinessLogicException {
@@ -186,6 +190,7 @@ public class DiaLogicTest {
     
     /**
      * Prueba para eliminar un Dia
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @Test
     public void deleteDiaTest() throws BusinessLogicException {
@@ -197,6 +202,7 @@ public class DiaLogicTest {
     
     /**
      * Prueba para actualizar un Dia
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @Test
     public void updateDiaTest() throws BusinessLogicException {
@@ -214,7 +220,6 @@ public class DiaLogicTest {
         Assert.assertEquals(pojoEntity.getFecha(), resp.getFecha());
         Assert.assertEquals(pojoEntity.getRecomendacion(),resp.getRecomendacion());
         Assert.assertEquals(pojoEntity.getSeEnvia(),resp.getSeEnvia());
-        Assert.assertEquals(pojoEntity.getComidas(), resp.getComidas());
-        
+        Assert.assertEquals(pojoEntity.getEnvios(), resp.getEnvios());  
     }
 }
