@@ -36,7 +36,7 @@
                 </div>
             </div>
 
-            <div ng-if="user"  class="ui raised link fluid card" ng-repeat="dieta in persona.dietas| orderBy : '-id'">
+            <div ng-if="user"  class="ui raised link fluid card" ng-repeat="dieta in persona.dietas| orderBy : 'id'">
                 <div class="fluid image">
                     <img id="im_dieta" src="{{dieta.imagen}}">
                 </div>
@@ -88,7 +88,7 @@
 
             </div>
 
-            <div ng-if="admin"  class="ui raised link fluid card" ng-repeat="dieta in dietas| orderBy : '-id'">
+            <div ng-if="admin"  class="ui raised link fluid card" ng-repeat="dieta in dietas| orderBy : 'id'">
                 <div class="fluid image">
                     <img id="im_dieta" src="{{dieta.imagen}}">
                 </div>

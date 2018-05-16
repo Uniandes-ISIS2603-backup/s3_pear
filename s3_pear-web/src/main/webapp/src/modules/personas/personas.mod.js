@@ -12,7 +12,7 @@
                         templateUrl: "src/modules/personas/personas.html",
                         controller: 'personasController'
                     })
-                    
+
                     .state('detailPersona', {
                         url: "/personas/:id/detail",
                         param: {
@@ -21,7 +21,7 @@
                         templateUrl: "src/modules/personas/persona_detail.html",
                         controller: 'personasController'
                     })
-                    
+
                     .state('post_persona', {
                         url: '/persona/post',
                         views: {
@@ -31,18 +31,24 @@
                             }
                         }
                     })
-                    
+
                     .state('actualizar_persona', {
                         url: '/personas/:id/put',
                         param: {
                             id: null
                         },
-                        templateUrl: "src/modules/personas/persona_update.html",
-                        controller: 'personasController'
+                        views: {
+                            'post': {
+                                templateUrl: "src/modules/personas/persona_update.html",
+                                controller: 'personasController'
+                            }
+                        }
+
+
                     })
-            
-                    
-            ;
+
+
+                    ;
 
         }]);
 })(window.angular);
@@ -58,12 +64,12 @@
     mod.controller('personasController', ['$scope', '$http', 'personasContext', '$state', '$rootScope',
 
         function ($scope, $http, personasContext, $state, $rootScope) {
-            
+
             //GET
             $http.get('http://localhost:8080/s3_pear-web/api/personas').then(function (response) {
                 $scope.personas = response.data;
             });
-            
+
             //GET DETAIL
             if ($state.params.id !== null && $state.params.id !== undefined) {
                 $scope.id_persona = $state.params.id;
@@ -72,10 +78,10 @@
                     $scope.persona = response.data;
                 });
             }
-            
+
             //POST
             $scope.post_persona = function () {
-                
+
                 let data = {
                     nombre: $scope.nombre,
                     apellido: $scope.apellido,
@@ -84,22 +90,22 @@
                     correo: $scope.correo,
                     subscrito: true
                 };
-                
+
                 console.log('Se va a crear la siguiente persona');
                 console.log(data);
-                
+
                 $http.post(personasContext, data).then(function (response) {
                     $scope.post_data = response.data;
-                    console.log( $scope.post_data.id );
+                    console.log($scope.post_data.id);
                     $rootScope.id_persona = $scope.post_data.id;
                     $state.go('dietas', {}, {reload: true});
                 });
 
             };
-            
+
             //DELETE
             $scope.eliminar_persona = function (id) {
-                $http.delete(personasContext + '/' + id,).then(function (response) {
+                $http.delete(personasContext + '/' + id, ).then(function (response) {
                     $scope.delete_data = response.data;
                     $state.reload();
                 });
@@ -120,10 +126,10 @@
                 };
 
                 //http://localhost:8080/s3_pear-web/api/personas/3
-                
-                
+
+
                 console.log($scope.id_persona + " < Se va a actualizar la persona");
-                
+
                 $http.put('http://localhost:8080/s3_pear-web/api/personas/' + data.id, data).then(function (response) {
                     $scope.put_data = response.data;
                     $state.go('personas', {}, {reload: true});
