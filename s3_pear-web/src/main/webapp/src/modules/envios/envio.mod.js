@@ -62,8 +62,17 @@
                 $http.get('http://localhost:8080/s3_pear-web/api/envios/' + $state.params.id ).then(function (response) {
                     $scope.envio = response.data;
                 });
-            }
-
+            };
+            
+            $rootScope.getDia_2 = function ( id_dia ) {
+                
+                $http.get('http://localhost:8080/s3_pear-web/api/dias/' + id_dia).then(function (response) {
+                    $rootScope.dia = response.data;
+                    console.log($scope.dia);
+                });
+                
+            };
+            
             $scope.enviar_envio = function () {
                 const data = {
                     direccion: $scope.direccion,

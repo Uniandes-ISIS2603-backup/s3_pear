@@ -101,27 +101,6 @@ public class DietaTipoResource {
         return dtos;
     }
 
-    
-    @GET
-    @Path("/ordenadas")
-    public List<DietaTipoDetailDTO> getDietasOrdenadasPuntuacion()
-    {
-        
-        List<DietaTipoDetailDTO> dtos = new ArrayList<>();
-        List<DietaTipoEntity> entities = logic.getDietas(); 
-         entities = logic.getDietasOrdenadasPuntuacion(entities);
-        
-        for( int i = 0; i < entities.size(); i++)
-        {
-            dtos.add( new DietaTipoDetailDTO (entities.get(i))); 
-            
-        }
-        
-        
-       return dtos; 
-        
-    }
-    
     /**
      * <h1>GET /api/dietas/{id} : Obtener dieta por id.</h1>
      *

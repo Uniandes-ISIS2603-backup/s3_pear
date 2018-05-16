@@ -100,7 +100,21 @@
             
             if ($state.params.id_dieta !== null && $state.params.id_dieta !== undefined) {
                 $scope.dieta = $state.params.id_dieta;
-            }           
+            }          
+            
+            
+            
+            $rootScope.getDia = function ( id_dia ) {
+                
+                $http.get('http://localhost:8080/s3_pear-web/api/dias/' + id_dia).then(function (response) {
+                    $rootScope.dia = response.data;
+                    console.log($scope.dia);
+                });
+                
+            };
+            
+            
+            
         } 
     ]);
 })(window.angular);

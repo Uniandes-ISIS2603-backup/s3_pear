@@ -5,12 +5,10 @@
  */
 package co.edu.uniandes.csw.pear.ejb;
 
-import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.entities.SemanaEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.persistence.DietaTipoPersistence;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -51,32 +49,6 @@ public class DietaTipoLogic {
         LOGGER.info("Termina la consulta de todas las dietas");
         return dietas;
     }
-    
-    /**
-     * Retorna las dietas más populares
-     * @param dietas
-     * @return las 3 dietas más populares
-     */
-    public List<DietaTipoEntity> getDietasOrdenadasPuntuacion(List <DietaTipoEntity> dietas)
-    {
-   
-        
-        
-        for (int i = 0; i < dietas.size()-1; i++)
-        {for (int j = 0; j < dietas.size()-i-1; j++)
-                if (dietas.get(j).compareTo(dietas.get(j+1)) < 0)
-                {
-                    
-                    DietaTipoEntity temp = dietas.get(j);
-                    dietas.set(j, dietas.get(j+1));
-                    dietas.set(j+1, temp);
-                }
-        }
-        return dietas;
-    }
-    
-    
-  
     
     /**
      * Retorna una Dieta Entity  

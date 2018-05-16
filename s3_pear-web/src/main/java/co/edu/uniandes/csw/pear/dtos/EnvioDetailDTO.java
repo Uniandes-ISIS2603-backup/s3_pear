@@ -23,47 +23,30 @@ import co.edu.uniandes.csw.pear.entities.EnvioEntity;
  * @author js.cabra
  */
 public class EnvioDetailDTO extends EnvioDTO{
-    
-    private DiaDTO dia;
  
     
       /**
      * Constructor vacio
-     * @param entity
      */
     
-    public EnvioDetailDTO(EnvioEntity entity)
+    public EnvioDetailDTO()
     {
-        super(entity);
-        if(entity != null){
-            if(entity.getDia() != null){
-                dia  = new DiaDTO(entity.getDia());
-            }
-            else{
-                dia = null;
-            }
-        }
+        super();
     }
     
         /**
      * Constructor para transformar un Entity a un DTO
      *
+     * @param entidad La entidad de Envio a partir de la cual se construye el objeto
      */
     
-    public EnvioDetailDTO() {
-        super();
+    public EnvioDetailDTO(EnvioEntity entidad) {
+        super(entidad);
+        if(entidad!=null)
+        {
+        
+        }
     }
-    //-----------------------------------------------------------
-    //Metodos
-    //-----------------------------------------------------------
-    
-    public void setDia(DiaDTO di){
-         dia = di;
-    }
-    
-    public DiaDTO getDia(){
-        return dia;
-    }           
     
       /**
      * Transformar un DTO a un Entity
@@ -73,11 +56,10 @@ public class EnvioDetailDTO extends EnvioDTO{
     @Override
     public EnvioEntity toEntity() {
         EnvioEntity en = super.toEntity();
-        if(en != null){
-           if(this.getDia() != null) {
-               en.setDia(this.getDia().toEntity());
-           }  
-        }
+        
+
+        
         return en;
-    } 
+    }
+    
 }

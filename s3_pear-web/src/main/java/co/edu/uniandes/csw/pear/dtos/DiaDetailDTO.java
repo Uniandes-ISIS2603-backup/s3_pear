@@ -36,7 +36,7 @@ public class DiaDetailDTO extends DiaDTO{
     
     private List<ComidaDetailDTO> comidas;
 
-    private SemanaDetailDTO semana;
+    private SemanaDTO semana;
     //-----------------------------------------------------------
     //Constructor
     //-----------------------------------------------------------
@@ -67,7 +67,7 @@ public class DiaDetailDTO extends DiaDTO{
             comidas = new ArrayList<>();
         }
         if(entity.getSemana() != null){
-            semana =  new SemanaDetailDTO(entity.getSemana());
+            semana =  new SemanaDTO(entity.getSemana());
         }
         else{
             semana = null;
@@ -87,11 +87,11 @@ public class DiaDetailDTO extends DiaDTO{
     //Metodos
     //-----------------------------------------------------------
     
-    public void setSemana(SemanaDetailDTO sem){
+    public void setSemana(SemanaDTO sem){
         semana = sem;
     }
     
-    public SemanaDetailDTO getSemana(){
+    public SemanaDTO getSemana(){
         return semana;
     }
     /**

@@ -1,6 +1,5 @@
 
 <style>
-    
     * {box-sizing: border-box;}
     ul {list-style-type: none;}
     body {font-family: 'Roboto', sans-serif;}
@@ -83,11 +82,11 @@
         .weekdays li, .days li {width: 12.2%;}
     }
 </style>
-<div style =" overflow: scroll">
 
-<div class="row" style="margin-top: 20px;  ">
 
-    <div class="row" ng-repeat="semana in dieta.semanas" style="margin-top: 20px;">
+<div class="row" style="margin-top: 20px;">
+
+    <div class="row" ng-repeat="semana in dieta.semanas" style="margin-top: 20px; overflow: show">
         <p style="font-family: 'Roboto'; font-weight: 100; font-size: 20px; margin-bottom: -1px;">{{semana.fechaLunes}}</p>
     
        <ul class="weekdays" >
@@ -103,7 +102,7 @@
       
 
         <ul class="days" > 
-           <li ng-repeat="dia in semana.dias"> {{dia.fecha}} <br> <a ui-sref='dieta_specs.comidas({ id_dia: dia.id })' class="item">Comidas</a> <br ><a ui-sref=' ^.envios({ id_dia: dia.id })' class="item">Envios</a></li> 
+            <li ng-repeat="dia in semana.dias"> {{dia.fecha}} <br> <a ng-click="getDia(dia.id)" ui-sref='dieta_specs.comidas({ id_dia: dia.id })' class="item">Comidas</a> <br ><a ng-click="getDia_2(dia.id)" ui-sref='^.envios({ id_dia: dia.id })' class="item">Envios</a></li> 
             
         </ul>
 
@@ -112,7 +111,7 @@
 
 </div>
 
-</div>
+
 
 
 
