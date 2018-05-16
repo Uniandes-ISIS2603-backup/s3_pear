@@ -107,7 +107,7 @@ public class ComidaLogicTest {
     @Test
     public void createDesayunoTest() throws BusinessLogicException {
         ComidaEntity newEntity = factory.manufacturePojo(ComidaEntity.class);
-        newEntity.setTIPO("desayuno");
+        newEntity.setTipo("desayuno");
         ComidaEntity result = logic.createComida(newEntity);
         Assert.assertNotNull(result);
         ComidaEntity entity = em.find(ComidaEntity.class, result.getId());
@@ -122,7 +122,7 @@ public class ComidaLogicTest {
     @Test
     public void createAlmuerzoTest() throws BusinessLogicException {
         ComidaEntity newEntity = factory.manufacturePojo(ComidaEntity.class);
-        newEntity.setTIPO("almuerzo");
+        newEntity.setTipo("almuerzo");
         ComidaEntity result = logic.createComida(newEntity);
         Assert.assertNotNull(result);
         ComidaEntity entity = em.find(ComidaEntity.class, result.getId());
@@ -137,7 +137,7 @@ public class ComidaLogicTest {
     @Test
     public void createCenaTest() throws BusinessLogicException {
         ComidaEntity newEntity = factory.manufacturePojo(ComidaEntity.class);
-        newEntity.setTIPO("cena");
+        newEntity.setTipo("cena");
         ComidaEntity result = logic.createComida(newEntity);
         Assert.assertNotNull(result);
         ComidaEntity entity = em.find(ComidaEntity.class, result.getId());
@@ -152,7 +152,7 @@ public class ComidaLogicTest {
     @Test
     public void createAdicionalTest() throws BusinessLogicException {
         ComidaEntity newEntity = factory.manufacturePojo(ComidaEntity.class);
-        newEntity.setTIPO("adicional");
+        newEntity.setTipo("adicional");
         ComidaEntity result = logic.createComida(newEntity);
         Assert.assertNotNull(result);
         ComidaEntity entity = em.find(ComidaEntity.class, result.getId());

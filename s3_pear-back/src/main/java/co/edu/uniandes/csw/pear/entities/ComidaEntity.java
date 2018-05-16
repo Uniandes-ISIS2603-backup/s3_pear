@@ -21,7 +21,7 @@ public class ComidaEntity extends BaseEntity implements Serializable
 {
     private int cantidad;
     private String alimentos;
-    private  String tipo;
+   private String tipo;
 
     
     @PodamExclude
