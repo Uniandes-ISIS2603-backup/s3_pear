@@ -159,8 +159,8 @@ public class QuejasyReclamosPersistenceTest
      */
     @Test
     public void getQuejasyReclamosTest() {
-        List<QuejasyReclamosEntity> list = quejasyreclamosPersistence.findAll();
-        Assert.assertEquals(data.size(), list.size());
+        List<QuejasyReclamosEntity> list = quejasyreclamosPersistence.findAll(dataDieta.get(0).getId());
+        
         for (QuejasyReclamosEntity ent : list) {
             boolean found = false;
             for (QuejasyReclamosEntity entity : data) {
@@ -179,7 +179,7 @@ public class QuejasyReclamosPersistenceTest
     @Test
     public void getQuejayReclamoTest() {
         QuejasyReclamosEntity entity = data.get(0);
-        QuejasyReclamosEntity newEntity = quejasyreclamosPersistence.find(entity.getId());
+        QuejasyReclamosEntity newEntity = quejasyreclamosPersistence.find(dataDieta.get(0).getId(),entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getAsunto(), newEntity.getAsunto());
         Assert.assertEquals(entity.getComentario(), newEntity.getComentario());

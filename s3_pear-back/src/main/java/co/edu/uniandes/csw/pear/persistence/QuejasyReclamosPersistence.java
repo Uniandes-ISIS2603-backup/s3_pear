@@ -31,9 +31,10 @@ public class QuejasyReclamosPersistence
         LOGGER.info("queja y/o reclamo creado");
         return entity;
     }
-    public List<QuejasyReclamosEntity> findAll() {
-        LOGGER.info("Consultando todas las calificaciones");
-        TypedQuery query = em.createQuery("select u from QuejasyReclamosEntity u", QuejasyReclamosEntity.class);
+    public List<QuejasyReclamosEntity> findAll(Long dietaid) {
+        LOGGER.info("Consultando todas las quejas");
+        TypedQuery query = em.createQuery("select u from QuejasyReclamosEntity u where (u.dieta.id=:dietaid)", QuejasyReclamosEntity.class);
+        query.setParameter("dietaid", dietaid);
         return query.getResultList();
     }
     public QuejasyReclamosEntity update(QuejasyReclamosEntity entity) {
@@ -45,8 +46,20 @@ public class QuejasyReclamosPersistence
         QuejasyReclamosEntity entity = em.find(QuejasyReclamosEntity.class, id);
         em.remove(entity);
     }
-    public  QuejasyReclamosEntity find( Long id){
-        LOGGER.log(Level.INFO,"Consultando la queja y/o reclamo con id = {0}", id);
-        return em.find(QuejasyReclamosEntity.class,id);
+    public  QuejasyReclamosEntity find(Long dietaid, Long id){
+        TypedQuery<QuejasyReclamosEntity> q = em.createQuery("select p from QuejasyReclamosEntity p where (p.dieta.id = :dietaid) and (p.id = :id)", QuejasyReclamosEntity.class);
+        q.setParameter("dietaid", dietaid);
+        q.setParameter("id", id);
+        List<QuejasyReclamosEntity> results = q.getResultList();
+        QuejasyReclamosEntity queja = null;
+        if (results == null) {
+            queja = null;
+        } else if (results.isEmpty()) {
+            queja= null;
+        } else if (!results.isEmpty()) {
+            queja = results.get(0);
+        }
+
+        return queja;
     }   
 }
