@@ -76,7 +76,6 @@ public class MedioPagoDetailDTO extends MedioPagoDTO{
      */
     @Override
     public MedioPagoEntity toEntity() {
-        MedioPagoEntity entity = super.toEntity();
-        return entity;
+        return super.toEntity();
     }      
 }
