@@ -133,7 +133,6 @@
                 for (let item in $scope.usuarios) {
 
                     if (item !== null && item !== undefined) {
-
                         if ($scope.usuarios[item].user === $scope.data.username &&
                                 $scope.usuarios[item].password === $scope.data.password &&
                                 $scope.usuarios[item].rol === $scope.data.rol) {
@@ -154,7 +153,6 @@
                             break;
                         }
                     }
-
                 } /*END FOR*/
                 if (!flag) {
                     $rootScope.incorrect = true;

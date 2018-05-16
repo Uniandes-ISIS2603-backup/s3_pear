@@ -114,8 +114,6 @@
             
             if ($state.params.id !== null && $state.params.id !== undefined) {
                 $scope.id_comida = $state.params.id;
-
-                // TODO Descomentar
                 $http.get('http://localhost:8080/s3_pear-web/api/comidas/' + $state.params.id ).then(function (response) {
                     $scope.comida = response.data;
                 });
@@ -126,12 +124,9 @@
                 let data = {
                     alimentos: $scope.alimentos,
                     cantidad: $scope.cantidad,
-                    TIPO: $scope.TIPO,
-                   // image: $scope.image
+                    TIPO: $scope.TIPO
                 };
-
-
-                // DIRECCION HTTP 
+ 
                 $http.post('http://localhost:8080/s3_pear-web/api/comidas', data).then(function (response) {
                     $scope.post_data = response.data;
                 });
@@ -139,7 +134,6 @@
 
 
             $scope.eliminar_comida = function (id) {
-                // DIRECCION HTTP 
                 $http.delete('http://localhost:8080/s3_pear-web/api/comidas/' + id).then(function (response) {
                     $scope.post_data = response.data;
                     $state.reload();
@@ -152,19 +146,13 @@
                     alimentos: $scope.new_alimentos,
                     cantidad: $scope.new_cantidad,
                     TIPO: $scope.new_TIPO
-                   // image: $scope.new_image
                 };
-                
-                //http://localhost:8080/s3_pear-web/api/comidas/3
                 $http.put('http://localhost:8080/s3_pear-web/api/comidas/' + $scope.id_comida, data).then(function (response) {
                     $scope.put_data = response.data;
                     $state.go($state.current, {}, {reload: true});
                     $state.go('comidas', {}, {reload: true});
                 });
-            };
-            
-            
-            
+            };            
         } 
     ]);
 })(window.angular);
