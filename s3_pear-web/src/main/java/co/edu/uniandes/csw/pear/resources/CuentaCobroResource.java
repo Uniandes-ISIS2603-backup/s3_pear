@@ -63,7 +63,7 @@ public class CuentaCobroResource {
      */
     @POST
     public CuentaCobroDetailDTO createCuentaDeCobro(CuentaCobroDetailDTO cuenta) throws BusinessLogicException {
-        System.out.println("En resource valor a pagar " + cuenta.getValorAPagar());
+       
         return new CuentaCobroDetailDTO(logic.createCuenta(cuenta.toEntity()));
     }
 

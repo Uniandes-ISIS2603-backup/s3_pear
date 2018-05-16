@@ -145,9 +145,11 @@ public class DiaResource {
     @GET
     @Path("{id: \\d+}")
     public DiaDetailDTO getDia(@PathParam("id") Long id) throws BusinessLogicException {
+        String constante1= "El recurso /dias/";
+        String constante2=  " no existe.";
         DiaEntity buscado = logic.getDia(id);
         if ( buscado == null ) 
-            throw new WebApplicationException("El recurso /dias/" + id + " no existe.", 404);
+            throw new WebApplicationException( constante1+ id +constante2, 404);
         return new DiaDetailDTO(buscado);
     }
     

@@ -60,7 +60,7 @@ public class MedioPagoResource {
      */
     @POST
     public MedioPagoDetailDTO createMedioPago(MedioPagoDetailDTO medioPago) throws BusinessLogicException {
-        System.out.println("EN RESOURCE " + medioPago.getMedioPagoActual());
+     
         return new MedioPagoDetailDTO(logic.createMedioPago(medioPago.toEntity()));
     }
 

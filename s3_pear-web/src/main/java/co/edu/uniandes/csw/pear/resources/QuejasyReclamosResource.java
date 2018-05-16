@@ -5,10 +5,9 @@
  */
 package co.edu.uniandes.csw.pear.resources;
 
-import co.edu.uniandes.csw.pear.dtos.CalificacionDetailDTO;
 import co.edu.uniandes.csw.pear.dtos.QuejasyReclamosDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.QuejasyReclamosLogic;
-import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
+
 import co.edu.uniandes.csw.pear.entities.QuejasyReclamosEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.mappers.BusinessLogicExceptionMapper;

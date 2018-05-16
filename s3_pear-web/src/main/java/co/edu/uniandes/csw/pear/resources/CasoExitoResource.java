@@ -94,9 +94,11 @@ public class CasoExitoResource {
     @GET
     @Path("{id: \\d+}")
     public CasoExitoDetailDTO getCaso(@PathParam("id") Long id){
+        String constante1="El recurso /casos/";
+        String constante2=" no existe.";
         CasoExitoEntity buscado = logic.getCasoExito(id);
         if(buscado == null)
-            throw new WebApplicationException("El recurso /casos/" + id + " no existe.", 404);
+            throw new WebApplicationException( constante1+id+constante2, 404);
         return new CasoExitoDetailDTO(buscado);
     }
     

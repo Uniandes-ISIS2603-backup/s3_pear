@@ -143,9 +143,11 @@ public class FacturaResource {
     @GET
     @Path("{id: \\d+}")
     public FacturaDetailDTO getFactura(@PathParam("id") Long id) {
+        String constante1= "El recurso /facturas/";
+        String constante2= " no existe.";
         FacturaEntity buscado = logic.getFactura(id);
         if ( buscado == null ) 
-            throw new WebApplicationException("El recurso /facturas/" + id + " no existe.", 404);
+            throw new WebApplicationException(constante1 + id +constante2 , 404);
         return new FacturaDetailDTO(buscado);
     }
     

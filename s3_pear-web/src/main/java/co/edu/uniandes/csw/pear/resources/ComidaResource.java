@@ -112,9 +112,11 @@ public class ComidaResource {
     @GET
     @Path("{id: \\d+}")
     public ComidaDetailDTO getComida (@PathParam("id") Long id) {
+        String constante1 ="El recurso /comidas/";
+        String constante2=" no existe.";
         ComidaEntity buscado = logic.getComida(id);
         if ( buscado == null ) 
-            throw new WebApplicationException("El recurso /comidas/" + id + " no existe.", 404);
+            throw new WebApplicationException(constante1 + id + constante2, 404);
         return new ComidaDetailDTO(buscado);
     }
     

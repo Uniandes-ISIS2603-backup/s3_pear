@@ -108,9 +108,11 @@ public class EnvioResource {
     @GET
      @Path("{id: \\d+}")
     public EnvioDetailDTO getEnvio (@PathParam("id") Long id) {
+        String constante1= "El recurso /envios/";
+        String constante2= " no existe.";
         EnvioEntity buscado = logic.getEnvio(id);
         if ( buscado == null ) 
-            throw new WebApplicationException("El recurso /envios/" + id + " no existe.", 404);
+            throw new WebApplicationException(constante1 + id +constante2 , 404);
         return new EnvioDetailDTO(buscado);
     }
     

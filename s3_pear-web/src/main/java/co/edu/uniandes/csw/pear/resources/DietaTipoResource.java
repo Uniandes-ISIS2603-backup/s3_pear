@@ -45,10 +45,10 @@ public class DietaTipoResource {
     DietaTipoLogic logic;
 
     @Inject
-    SemanaLogic logic_sem;
+    SemanaLogic logicsem;
 
     @Inject
-    CuentaCobroLogic logic_cuenta;
+    CuentaCobroLogic logiccuenta;
 
     /**
      * <h1>POST /api/dietas : Crear una dieta.</h1>
@@ -215,11 +215,11 @@ public class DietaTipoResource {
     public DietaTipoDetailDTO addSemana_toDieta(@PathParam("id_dieta") Long id, @PathParam("id_semana") Long id_semana) {
         try {
             DietaTipoEntity dieta = logic.getDieta(id);
-            SemanaEntity semana = logic_sem.getSemana(id_semana);
+            SemanaEntity semana = logicsem.getSemana(id_semana);
 
             dieta.addsemana(semana);
             semana.setDieta(dieta);    
-            logic_sem.updateSemana(semana.getId(), semana);
+            logicsem.updateSemana(semana.getId(), semana);
 
             return new DietaTipoDetailDTO(logic.updateDieta(dieta.getId(), dieta));
 

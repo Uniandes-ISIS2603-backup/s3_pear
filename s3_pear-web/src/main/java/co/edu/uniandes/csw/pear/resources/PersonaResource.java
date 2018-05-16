@@ -210,7 +210,7 @@ public class PersonaResource {
      */
     @PUT
     @Path("{id_persona: \\d+}/dietas/{id_dieta: \\d+}")
-    public PersonaDetailDTO add_Dieta_toPersona(@PathParam("id_persona") Long id_persona, @PathParam("id_dieta") Long id_dieta) {
+    public PersonaDetailDTO addDietatoPersona(@PathParam("id_persona") Long id_persona, @PathParam("id_dieta") Long id_dieta) {
 
         /*SE OBTIENEN LAS ENTIDADDES A BUSCAR*/
         PersonaEntity persona = logic.getPersona(id_persona);
