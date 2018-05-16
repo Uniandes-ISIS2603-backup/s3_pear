@@ -34,7 +34,7 @@ public class ComidaPersistence {
      * @param id de tipo long
      * @return comida de tipo entity
      */
-    public ComidaEntity find( Long id ) {
+    public ComidaEntity find( long id ) {
         LOGGER.log(Level.INFO, "Consultando comida con id={0}", id);
         return em.find(ComidaEntity.class, id);
         
@@ -77,7 +77,7 @@ public class ComidaPersistence {
      * Elimina una comida dado su ID
      * @param id de tipo Long
      */
-    public void delete( Long id ) {
+    public void delete( long id ) {
         LOGGER.log(Level.INFO, "Borrando la comida con id={0}", id);
         ComidaEntity entity = em.find(ComidaEntity.class, id);
         em.remove(entity);

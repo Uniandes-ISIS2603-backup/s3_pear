@@ -55,7 +55,7 @@ public class ComidaLogic {
      * @param id
      * @return 
      */
-    public ComidaEntity getComida( Long id ) {
+    public ComidaEntity getComida( long id ) {
         LOGGER.log(Level.INFO, "Inicia consulta de comida con id = {0}", id);
         ComidaEntity comida = persistence.find(id);
         if ( comida ==  null )
@@ -73,14 +73,14 @@ public class ComidaLogic {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de una comida con id = {0}", entity.getId());
         if(getComida(entity.getId())==null)
         {
-            if(entity.getTipo().equalsIgnoreCase("desayuno") || entity.getTipo().equalsIgnoreCase("almuerzo") ||entity.getTipo().equalsIgnoreCase("cena" )||entity.getTipo().equalsIgnoreCase("adicional"))
+           // if(entity.getTipo().equalsIgnoreCase("desayuno") || entity.getTipo().equalsIgnoreCase("almuerzo") ||entity.getTipo().equalsIgnoreCase("cena" )||entity.getTipo().equalsIgnoreCase("adicional"))
                 
             {
         persistence.create(entity);
             }
-            else
+           // else
             {
-                 throw new BusinessLogicException ("esta comida no tiene un tipo valido");
+             //    throw new BusinessLogicException ("esta comida no tiene un tipo valido");
             }
         }
         
@@ -98,7 +98,7 @@ public class ComidaLogic {
      * @param entity de Comida con los cambios deseados
      * @return la entidad de Comida luego de ser actualizada
      */
-    public ComidaEntity updateComida( Long id, ComidaEntity entity ) throws BusinessLogicException {
+    public ComidaEntity updateComida( long id, ComidaEntity entity ) throws BusinessLogicException {
         ComidaEntity actualizado = null;
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la comida con id = {0} " , id);
         if(entity.getId() == id)
@@ -117,7 +117,7 @@ public class ComidaLogic {
      * Elimina una Comida por id
      * @param id 
      */
-    public void delete( Long id ) throws BusinessLogicException {
+    public void delete( long id ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia eliminacion de la comida con id = {0} " , id);
         if(getComida(id)!=null)
         {
