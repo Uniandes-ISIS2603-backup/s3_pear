@@ -20,8 +20,8 @@
         <div class="ui fluid card" ng-repeat="envio in dia.envios| orderBy : 'id'">         
             <div class="content">
                 <div class="header">{{envio.id}}</div>
-                <div class="meta"><a>ID: {{envio.direccion}}</a></div>
-                <div class="description">Duracion {{envio.duracion}} <br/> Ubicacion: {{envio.recibido}}</div>
+                <div class="meta"><a>Direccion: {{envio.direccion}}</a></div>
+                <div class="description">Duracion {{envio.duracion}} <br/> Recibido {{envio.recibido}}</div>
             </div>
             <div class="extra content">
                 <div class="inline flief">
