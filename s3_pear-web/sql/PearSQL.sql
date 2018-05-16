@@ -175,13 +175,18 @@ insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (100
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (200,'recomendacion', 'Llamar al cliente cuando el envio este cerca',500);
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (300,'recomendacion', 'Contratar domiciliarios más amables',600);
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (400,'queja', 'el domiciliario fue grosero',800);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1600,'recomendacion', 'llegar con anticipacion',100);
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (500,'queja', 'el domiciliario fue grosero',100);
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (600,'queja', 'el domiciliario fue grosero',200);
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (700,'queja', 'el domiciliario fue grosero',300);
-insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (800,'queja', 'el domiciliario fue grosero',400);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (800,'queja', 'el domiciliario fue grosero',300);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1500,'recomendacion', 'Traer la comida ma fresca',200);
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (900,'queja', 'el domiciliario fue grosero',500);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1400,'recomendacion', 'contratar domiciliarios mas amables',500);
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1000,'queja', 'el domiciliario fue grosero',600);
-insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1100,'queja', 'el domiciliario fue grosero',700);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1100,'recomendacion', 'Seguir asi de bien',600);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1200,'queja', 'el domiciliario fue grosero',700);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1300,'recomendacion', 'Llegar más rapido',700);
 
 insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) values (100, 'Comentario 1', 'Testimonio 1','https://rolloid.net/wp-content/uploads/2017/05/20-fotos-increibles-de-perdida-de-peso-antes-y-despues-de-las-cuales-no-creeras-que-sean-de-la-misma-persona-1494409922.jpg');
 insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) values (200, 'Comentario 2', 'Testimonio 2','https://rolloid.net/wp-content/uploads/2017/05/20-fotos-increibles-de-perdida-de-peso-antes-y-despues-de-las-cuales-no-creeras-que-sean-de-la-misma-persona-1494410051.jpg');
