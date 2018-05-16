@@ -15,6 +15,8 @@ import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -54,7 +56,7 @@ public class CocinaResource {
      */
     @Inject
     private CocinaLogic logic;
-    
+
     @Inject
     private DietaTipoLogic logic_dieta;
 
@@ -107,7 +109,7 @@ public class CocinaResource {
         });
         return dtos;
     }
-    
+
     /**
      *
      * @param id
@@ -115,7 +117,7 @@ public class CocinaResource {
      */
     @GET
     @Path("{id: \\d+}/dietas")
-    public List<DietaTipoDetailDTO> getDietasCocina ( @PathParam("id") Long id ) {
+    public List<DietaTipoDetailDTO> getDietasCocina(@PathParam("id") Long id) {
         CocinaEntity cocina = logic.getCocina(id);
         List<DietaTipoEntity> dietas = cocina.getDietas();
         List<DietaTipoDetailDTO> ds = new ArrayList<>();
@@ -124,24 +126,43 @@ public class CocinaResource {
         });
         return ds;
     }
-    
+
     /**
-     * 
+     *
      * @param dieta_id
      * @param cocina_id
-     * @return 
+     * @return
      */
     @PUT
     @Path("/{cocina_id: \\d+}/dietas/{dieta_id: \\d+}")
-    public CocinaDetailDTO putDieta_enCocina ( @PathParam("dieta_id") Long dieta_id, @PathParam("cocina_id") Long cocina_id ) {
+    public CocinaDetailDTO putDieta_enCocina(@PathParam("dieta_id") Long dieta_id, @PathParam("cocina_id") Long cocina_id) {
         DietaTipoEntity dieta = logic_dieta.getDieta(dieta_id);
         CocinaEntity cocina = logic.getCocina(cocina_id);
+
+        if (dieta == null) {
+            throw new WebApplicationException("El recurso /personas/" + dieta_id + " no existe.", 404);
+        }
+
+        if (cocina == null) {
+            throw new WebApplicationException("El recurso /dietas/" + cocina_id + " no existe.", 404);
+        }
+
         cocina.addDieta(dieta);
-        return new CocinaDetailDTO(cocina);
+        dieta.setCocina(cocina);
+
+        try {
+            
+            updateCocina(cocina_id, new CocinaDetailDTO(cocina));
+            logic_dieta.updateDieta(dieta_id, dieta);
+
+            return new CocinaDetailDTO(cocina);
+            
+        } catch (BusinessLogicException ex) {
+            Logger.getLogger(CocinaResource.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
     }
-    
-    
-    
 
     /**
      * <h1>GET /api/cocinas/{id} : Obtener cocina por id.</h1>
