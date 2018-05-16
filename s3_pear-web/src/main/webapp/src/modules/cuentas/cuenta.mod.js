@@ -27,16 +27,12 @@
     var mod = ng.module("cuentaModule");
 
     mod.controller('cuentaController', ['$scope', '$http', '$state', '$rootScope',
-
         function ($scope, $http, $state, $rootScope) {
-
-
             if ($rootScope.persona !== undefined && $rootScope.persona !== null) {
                 $http.get('http://localhost:8080/s3_pear-web/api/cuentascobro/' + $rootScope.persona.cuenta.id).then(function (response) {
                     $rootScope.cuenta_personal = response.data;
                 });
             }
-
         }
     ]);
 })(window.angular);

@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.pear.resources;
 
 import co.edu.uniandes.csw.pear.dtos.CocinaDetailDTO;
-import co.edu.uniandes.csw.pear.dtos.DietaTipoDTO;
 import co.edu.uniandes.csw.pear.dtos.DietaTipoDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.CocinaLogic;
 import co.edu.uniandes.csw.pear.ejb.DietaTipoLogic;
@@ -58,7 +57,7 @@ public class CocinaResource {
     private CocinaLogic logic;
 
     @Inject
-    private DietaTipoLogic logic_dieta;
+    private DietaTipoLogic logicDieta;
 
     /**
      * <h1>POST /api/cocinas : Crear una cocina.</h1>
@@ -135,16 +134,17 @@ public class CocinaResource {
      */
     @PUT
     @Path("/{cocina_id: \\d+}/dietas/{dieta_id: \\d+}")
-    public CocinaDetailDTO putDieta_enCocina(@PathParam("dieta_id") Long dieta_id, @PathParam("cocina_id") Long cocina_id) {
-        DietaTipoEntity dieta = logic_dieta.getDieta(dieta_id);
+    public CocinaDetailDTO putDietaEnCocina(@PathParam("dieta_id") Long dieta_id, @PathParam("cocina_id") Long cocina_id) {
+        DietaTipoEntity dieta = logicDieta.getDieta(dieta_id);
         CocinaEntity cocina = logic.getCocina(cocina_id);
+        String noEsta = " no existe.";
 
         if (dieta == null) {
-            throw new WebApplicationException("El recurso /personas/" + dieta_id + " no existe.", 404);
+            throw new WebApplicationException("El recurso /personas/" + dieta_id + noEsta, 404);
         }
 
         if (cocina == null) {
-            throw new WebApplicationException("El recurso /dietas/" + cocina_id + " no existe.", 404);
+            throw new WebApplicationException("El recurso /dietas/" + cocina_id + noEsta, 404);
         }
 
         cocina.addDieta(dieta);
@@ -153,7 +153,7 @@ public class CocinaResource {
         try {
             
             updateCocina(cocina_id, new CocinaDetailDTO(cocina));
-            logic_dieta.updateDieta(dieta_id, dieta);
+            logicDieta.updateDieta(dieta_id, dieta);
 
             return new CocinaDetailDTO(cocina);
             
