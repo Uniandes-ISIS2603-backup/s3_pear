@@ -1,216 +1,169 @@
-<!DOCTYPE html>
-<html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<style>
+    * {
+        overflow-x: hidden;
+        font-family: 'Roboto';
+    }
 
-    <title> Dieta Facil </title>
-	
-	<!-- ANGULAR UI ROUTER -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-    <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
-    
-    <!-- SEMANTIC UI -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
+    header {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.30)), url('https://images.pexels.com/photos/164005/pexels-photo-164005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        width: 100%;
+    }
 
-    <!-- fonts importa fonst de google fonts :: Merriweather y Roboto -->
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+    hr {
+        float: left;
+        display: block;
+        height: 2px;
+        border: 1px solid white;
+        width: 22em;
+        color: white;
+    }
 
-    <style>
-        * {
-            overflow-x: hidden;
-            font-family: 'Roboto';
-        }
+    .tittle {
+        margin-bottom: -1px;
+        font-size: 30pt;
+        color: white;
+        font-family: 'Roboto';
+    }
 
-        header {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.30)), url(../../../style/resources/wood.jpg);
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-            width: 100%;
-        }
+    .field {
+        margin-top: 30px;
+        color: green;
+        margin-bottom: 15px;
+    }
 
-        hr {
-            float: left;
-            display: block;
-            height: 2px;
-            border: 1px solid white;
-            width: 22em;
-            color: white;
-        }
+    .lbl {
+        color: white;
+    }
 
-        .tittle {
-            margin-bottom: -1px;
-            font-size: 30pt;
-            color: white;
-            font-family: 'Roboto';
-        }
-
-        .field {
-            margin-top: 30px;
-            color: green;
-            margin-bottom: 15px;
-        }
-
-        .lbl {
-            color: white;
-        }
-
-    </style>
-
-</head>
-
-<body>
-
-    <header ng-app="dietaModule">
-
-        <div class="ui text container" style="margin-top: 5em;" ng-controller="dietasController">
-            <div class="ui form" style="width: 100%">
-
-                <h1 class="tittle">Nueva Semana</h1>
-
-                <hr/>
-                <p>&nbsp;</p>
-
-                <div class="field">
-                    <label style="color: cornsilk; font-size: 25px">Fecha Lunes</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Fecha del  dia lunes eg: 18-03-2018">
-                </div>
-
-                <div class="field">
-                     <h2 style="color:cornsilk">Dias de la Semana</h2>
-                    
-                    <label style="color: white ; font-size: 21px; text-align: center;">Lunes</label>
-                    <label style="color: white ; font-size: 21px;">Fecha</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Fecha del  dia lunes eg: 18-03-2018">
-                    
-                    <label style="color: white ; font-size: 21px"> Se envia la comida</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="True o False">
-                    
-                    <label style="color: white ; font-size: 21px"> Recomendación</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Si la respuesta anterior es false ingrese una recomendación">
-                </div>
-                
-                <div class="field">
-                    
-                    <label style="color: white ; font-size: 21px; text-align: center; margin-top: 65px">Martes</label>
-                    <label style="color: white ; font-size: 21px;">Fecha</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Fecha del  dia lunes eg: 18-03-2018">
-                    
-                    <label style="color: white ; font-size: 21px"> Se envia la comida</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="True o False">
-                    
-                    <label style="color: white ; font-size: 21px"> Recomendación</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Si la respuesta anterior es false ingrese una recomendación">
-                </div>
-                
-                
-                <div class="field">
-                    
-                    <label style="color: white ; font-size: 21px; text-align: center; margin-top: 65px">Miércoles</label>
-                    <label style="color: white ; font-size: 21px;">Fecha</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Fecha del  dia lunes eg: 18-03-2018">
-                    
-                    <label style="color: white ; font-size: 21px"> Se envia la comida</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="True o False">
-                    
-                    <label style="color: white ; font-size: 21px"> Recomendación</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Si la respuesta anterior es false ingrese una recomendación">
-                </div>
-                
-                
-                <div class="field">
-                    
-                    <label style="color: white ; font-size: 21px; text-align: center; margin-top: 65px ">Jueves</label>
-                    <label style="color: white ; font-size: 21px;">Fecha</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Fecha del  dia lunes eg: 18-03-2018">
-                    
-                    <label style="color: white ; font-size: 21px"> Se envia la comida</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="True o False">
-                    
-                    <label style="color: white ; font-size: 21px"> Recomendación</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Si la respuesta anterior es false ingrese una recomendación">
-                </div>
-                
-                <div class="field">
-                    
-                    <label style="color: white ; font-size: 21px; text-align: center; margin-top: 65px">Viernes</label>
-                    <label style="color: white ; font-size: 21px;">Fecha</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Fecha del  dia lunes eg: 18-03-2018">
-                    
-                    <label style="color: white ; font-size: 21px"> Se envia la comida</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="True o False">
-                    
-                    <label style="color: white ; font-size: 21px"> Recomendación</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Si la respuesta anterior es false ingrese una recomendación">
-                </div>
-                
-                <div class="field">
-                    
-                    <label style="color: white ; font-size: 21px; text-align: center; margin-top: 65px">Sábado</label>
-                    <label style="color: white ; font-size: 21px;">Fecha</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Fecha del  dia lunes eg: 18-03-2018">
-                    
-                    <label style="color: white ; font-size: 21px"> Se envia la comida</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="True o False">
-                    
-                    <label style="color: white ; font-size: 21px"> Recomendación</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Si la respuesta anterior es false ingrese una recomendación">
-                </div>
-                
-                <div class="field">
-                    
-                    <label style="color: white ; font-size: 21px; text-align: center; margin-top: 65px">Domingo</label>
-                    <label style="color: white ; font-size: 21px;">Fecha</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Fecha del  dia lunes eg: 18-03-2018">
-                    
-                    <label style="color: white ; font-size: 21px"> Se envia la comida</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="True o False">
-                    
-                    <label style="color: white ; font-size: 21px"> Recomendación</label>
-                    <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Si la respuesta anterior es false ingrese una recomendación">
-                </div>
+</style>
 
 
-                <p>&nbsp;</p>
-                <div class="inline field">
-                    <button ng-click="enviar_semana()" class="ui inverted olive basic button">Enviar</button>
-                    <button class="ui inverted teal basic button"><a style="text-decoration: none; color: white" href="../../../index.html">Cancelar</a></button>
-                </div>
+<header ng-app="dietaModule">
 
+    <div class="ui text container" style="margin-top: 5em;" ng-controller="dietasController">
+        <div class="ui form" style="width: 100%">
+
+            <h1 class="tittle">Nueva Semana</h1>
+
+            <hr/>
+            <p>&nbsp;</p>
+
+            <div class="field">
+                <label style="color: cornsilk; font-size: 25px">Fecha Lunes</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Fecha del  dia lunes eg: 18-03-2018">
+            </div>
+
+            <div class="field">
+                <h1 style="color:cornsilk">Dias de la Semana</h1>
+
+                <label style="color: white ; font-size: 21px; text-align: center;">Lunes</label>
+                <label style="color: white ; font-size: 21px;">Fecha</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Fecha del  dia lunes eg: 18-03-2018">
+
+                <label style="color: white ; font-size: 21px"> Se envia la comida</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="True o False">
+
+                <label style="color: white ; font-size: 21px"> Recomendación</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Si la respuesta anterior es false ingrese una recomendación">
+            </div>
+
+            <div class="field">
+
+                <label style="color: white ; font-size: 21px; text-align: center; margin-top: 65px">Martes</label>
+                <label style="color: white ; font-size: 21px;">Fecha</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Fecha del  dia lunes eg: 18-03-2018">
+
+                <label style="color: white ; font-size: 21px"> Se envia la comida</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="True o False">
+
+                <label style="color: white ; font-size: 21px"> Recomendación</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Si la respuesta anterior es false ingrese una recomendación">
+            </div>
+
+
+            <div class="field">
+
+                <label style="color: white ; font-size: 21px; text-align: center; margin-top: 65px">Miércoles</label>
+                <label style="color: white ; font-size: 21px;">Fecha</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Fecha del  dia lunes eg: 18-03-2018">
+
+                <label style="color: white ; font-size: 21px"> Se envia la comida</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="True o False">
+
+                <label style="color: white ; font-size: 21px"> Recomendación</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Si la respuesta anterior es false ingrese una recomendación">
+            </div>
+
+
+            <div class="field">
+
+                <label style="color: white ; font-size: 21px; text-align: center; margin-top: 65px ">Jueves</label>
+                <label style="color: white ; font-size: 21px;">Fecha</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Fecha del  dia lunes eg: 18-03-2018">
+
+                <label style="color: white ; font-size: 21px"> Se envia la comida</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="True o False">
+
+                <label style="color: white ; font-size: 21px"> Recomendación</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Si la respuesta anterior es false ingrese una recomendación">
+            </div>
+
+            <div class="field">
+
+                <label style="color: white ; font-size: 21px; text-align: center; margin-top: 65px">Viernes</label>
+                <label style="color: white ; font-size: 21px;">Fecha</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Fecha del  dia lunes eg: 18-03-2018">
+
+                <label style="color: white ; font-size: 21px"> Se envia la comida</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="True o False">
+
+                <label style="color: white ; font-size: 21px"> Recomendación</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Si la respuesta anterior es false ingrese una recomendación">
+            </div>
+
+            <div class="field">
+
+                <label style="color: white ; font-size: 21px; text-align: center; margin-top: 65px">Sábado</label>
+                <label style="color: white ; font-size: 21px;">Fecha</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Fecha del  dia lunes eg: 18-03-2018">
+
+                <label style="color: white ; font-size: 21px"> Se envia la comida</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="True o False">
+
+                <label style="color: white ; font-size: 21px"> Recomendación</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Si la respuesta anterior es false ingrese una recomendación">
+            </div>
+
+            <div class="field">
+
+                <label style="color: white ; font-size: 21px; text-align: center; margin-top: 65px">Domingo</label>
+                <label style="color: white ; font-size: 21px;">Fecha</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Fecha del  dia lunes eg: 18-03-2018">
+
+                <label style="color: white ; font-size: 21px"> Se envia la comida</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="True o False">
+
+                <label style="color: white ; font-size: 21px"> Recomendación</label>
+                <input ng-model="nombre" style="margin-right: 1em;" type="text" placeholder="Si la respuesta anterior es false ingrese una recomendación">
+            </div>
+
+
+            <p>&nbsp;</p>
+            <div class="inline field">
+                <button ng-click="enviar_semana()" class="ui inverted olive basic button">Enviar</button>
+                <button class="ui inverted teal basic button"><a style="text-decoration: none; color: white" ui-sref="dietas">Cancelar</a></button>
             </div>
 
         </div>
 
-
-    </header>
-
-   
-    <!-- DIETAS -->
-    <script src="dietas.mod.js" type="text/javascript"></script>
-
-    <!-- COCINAS -->
-    <script src="../cocinas/cocinas.mod.js" type="text/javascript"></script>
-
-    <!-- CUENTAS DE COBRO -->
-    <script src="../cuentadecobro/pago.mod.js" type="text/javascript"></script>
-
-    <!-- FACTURAS -->
-    <script src="../facturas/facturas.mod.js" type="text/javascript"></script>
-
-    <!--PERSONAS-->
-     <script src="../personas/personas.mod.js" type="text/javascript"></script>
-
-    <!-- DECLARACION DE DEPENDENCIAS -->
-    <script src="../../app.js"></script>
-    <script src="../../http-interceptor.factory.js" type="text/javascript"></script>
+    </div>
 
 
-</body>
+</header>
 
-</html>

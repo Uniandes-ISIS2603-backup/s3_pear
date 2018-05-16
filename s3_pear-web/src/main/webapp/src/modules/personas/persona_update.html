@@ -52,11 +52,11 @@
                 <hr/>
                 <p>&nbsp;</p>
 
-
+<p ng-model="id_persona">Identificador: {{ persona.id }}</p>
+                        <p ng-model="identificacion">Código: {{ persona.identificacion }}</p>
                 <div class="field">
                     <div class="inline fluid field">
-                        <p ng-model="id_persona">Identificador: {{ persona.id }}</p>
-                        <p ng-model="identificacion">Código: {{ persona.identificacion }}</p>
+                        
                         <input ng-model="new_nombre" style="margin-right: 1em;" type="text" placeholder="NOMBRE">
                         <input ng-model="new_apellido" style="margin-right: 1em;" type="text" placeholder="APELLIDO">
                         <input ng-model="new_edad" style="margin-right: 1em;" type="number" placeholder="EDAD">
