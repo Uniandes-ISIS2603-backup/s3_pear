@@ -32,9 +32,9 @@ public class DiaDetailDTO extends DiaDTO{
     //Atributos
     //-----------------------------------------------------------
     
-    private List<EnvioDTO> envios;
+    private List<EnvioDetailDTO> envios;
     
-    private List<ComidaDTO> comidas;
+    private List<ComidaDetailDTO> comidas;
 
     private SemanaDTO semana;
     //-----------------------------------------------------------
@@ -51,7 +51,7 @@ public class DiaDetailDTO extends DiaDTO{
         if(entity.getEnvios() != null){
             envios = new ArrayList<>();
         for(EnvioEntity y : entity.getEnvios()){
-            envios.add(new EnvioDTO(y));
+            envios.add(new EnvioDetailDTO(y));
         }
         }
         else{
@@ -60,7 +60,7 @@ public class DiaDetailDTO extends DiaDTO{
         if(entity.getComidas() != null){
             comidas = new ArrayList<>();
         for(ComidaEntity y : entity.getComidas()){
-            comidas.add(new ComidaDTO(y));
+            comidas.add(new ComidaDetailDTO(y));
         }
         }
         else{
@@ -98,14 +98,14 @@ public class DiaDetailDTO extends DiaDTO{
      * Determina los envios programados para ese dia
      * @param pEnvios envios programadas
      */
-    public void setEnvios(List<EnvioDTO> pEnvios){
+    public void setEnvios(List<EnvioDetailDTO> pEnvios){
         envios = pEnvios;
     }
     
     /**
      * @return los envios programadas ese dia para el cliente
      */
-    public List<EnvioDTO> getEnvios(){
+    public List<EnvioDetailDTO> getEnvios(){
         return envios;
     }
     
@@ -113,14 +113,14 @@ public class DiaDetailDTO extends DiaDTO{
      * Determina las comidas para ese dia
      * @param pComidas envios programadas
      */
-    public void setComidas(List<ComidaDTO> pComidas){
+    public void setComidas(List<ComidaDetailDTO> pComidas){
         comidas = pComidas;
     }
     
     /**
      * @return los envios programadas ese dia para el cliente
      */
-    public List<ComidaDTO> getComidas(){
+    public List<ComidaDetailDTO> getComidas(){
         return comidas;
     }
     
