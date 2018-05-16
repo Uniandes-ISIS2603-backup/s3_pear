@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.pear.resources;
 
 
 import co.edu.uniandes.csw.pear.dtos.ComidaDTO;
+import co.edu.uniandes.csw.pear.dtos.ComidaDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.ComidaLogic;
 import co.edu.uniandes.csw.pear.entities.ComidaEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
@@ -67,9 +68,9 @@ public class ComidaResource {
      * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
      @POST
-     public ComidaDTO crearComida(ComidaDTO comida)throws BusinessLogicException
+     public ComidaDetailDTO crearComida(ComidaDetailDTO comida)throws BusinessLogicException
      {
-         return new ComidaDTO(logic.createComida(comida.toEntity()));
+         return new ComidaDetailDTO(logic.createComida(comida.toEntity()));
      }
              
      /**
@@ -84,10 +85,10 @@ public class ComidaResource {
      * @return JSONArray {@link ComidaDetailDTO} - Las dietas encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET   
-    public List<ComidaDTO> getComidas() {
-        List<ComidaDTO> dtos = new ArrayList<>();
+    public List<ComidaDetailDTO> getComidas() {
+        List<ComidaDetailDTO> dtos = new ArrayList<>();
         logic.getComidas().forEach( comida -> { 
-            dtos.add(new ComidaDTO(comida));
+            dtos.add(new ComidaDetailDTO(comida));
         });
         return dtos;
     }
@@ -110,11 +111,11 @@ public class ComidaResource {
      */
     @GET
     @Path("{id: \\d+}")
-    public ComidaDTO getComida (@PathParam("id") Long id) {
+    public ComidaDetailDTO getComida (@PathParam("id") Long id) {
         ComidaEntity buscado = logic.getComida(id);
         if ( buscado == null ) 
             throw new WebApplicationException("El recurso /comidas/" + id + " no existe.", 404);
-        return new ComidaDTO(buscado);
+        return new ComidaDetailDTO(buscado);
     }
     
     
@@ -138,10 +139,10 @@ public class ComidaResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public ComidaDTO updateComida(@PathParam("id") Long id, ComidaDTO comida)throws BusinessLogicException {
+    public ComidaDetailDTO updateComida(@PathParam("id") Long id, ComidaDTO comida)throws BusinessLogicException {
         if ( logic.getComida(id) == null ) 
             throw new WebApplicationException("El recurso /comidas/" + id + " no existe.", 404);
-        return new ComidaDTO(logic.updateComida(id, comida.toEntity()));
+        return new ComidaDetailDTO(logic.updateComida(id, comida.toEntity()));
     }
     
     

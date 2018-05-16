@@ -80,7 +80,7 @@ public class ComidaEntity extends BaseEntity implements Serializable
      * Cambia el tipo de la comida
      * @param pTipo
      */
-    public void setTIPO(String pTipo)
+    public void setTipo(String pTipo)
     {
         tipo = pTipo;
     }

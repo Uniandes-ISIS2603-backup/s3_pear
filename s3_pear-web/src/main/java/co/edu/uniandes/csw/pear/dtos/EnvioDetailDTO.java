@@ -24,7 +24,7 @@ import co.edu.uniandes.csw.pear.entities.EnvioEntity;
  */
 public class EnvioDetailDTO extends EnvioDTO{
  
-    
+    private DiaDTO dia;
       /**
      * Constructor vacio
      */
@@ -44,7 +44,14 @@ public class EnvioDetailDTO extends EnvioDTO{
         super(entidad);
         if(entidad!=null)
         {
-        
+           if(entidad.getDia()!=null)
+            {
+                dia = new DiaDTO(entidad.getDia());
+            }
+            else 
+            {
+                dia = null;
+            }
         }
     }
     
@@ -56,10 +63,29 @@ public class EnvioDetailDTO extends EnvioDTO{
     @Override
     public EnvioEntity toEntity() {
         EnvioEntity en = super.toEntity();
-        
+         if(this.getDia()!= null)
+        {
+            en.setDia(this.getDia().toEntity());
+        }  
 
         
         return en;
     }
+         /**
+     *
+     * @return el dia en que se va a entregar la comida.
+     */
+    public DiaDTO getDia() {
+        return dia;
+    }
+    
+     /**
+     * Cambia la comida
+     *
+     * @param pDia nuevo dia
+     */
+    public void setDia(DiaDTO pDia) {
+        dia = pDia;
+    }  
     
 }

@@ -124,7 +124,7 @@ public class ComidaDTO {
         en.setAlimentos(this.alimentos);
         en.setCantidad(this.cantidad);
         en.setId(this.id);
-        en.setTIPO(this.tipo);
+        en.setTipo(this.tipo);
 
         return en;
     }
