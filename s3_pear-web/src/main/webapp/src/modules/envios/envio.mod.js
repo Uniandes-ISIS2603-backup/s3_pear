@@ -64,10 +64,10 @@
                 });
             };
             
-            $rootScope.getDia_2 = function ( id_dia ) {
+            $scope.getDia_2 = function ( id_dia ) {
                 
                 $http.get('http://localhost:8080/s3_pear-web/api/dias/' + id_dia).then(function (response) {
-                    $rootScope.dia = response.data;
+                    $scope.dia = response.data;
                     console.log($scope.dia);
                 });
                 
