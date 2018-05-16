@@ -28,7 +28,7 @@ public class SemanaDetailDTO extends SemanaDTO {
     //-----------------------------------------------------------
     //Atributos
     //-----------------------------------------------------------
-    private List<DiaDTO> dias;
+    private List<DiaDetailDTO> dias;
     
     private DietaTipoDTO dieta;
     //-----------------------------------------------------------
@@ -41,7 +41,7 @@ public class SemanaDetailDTO extends SemanaDTO {
             if(entity.getDias() != null){
             dias =  new ArrayList<>();
             for(DiaEntity y: entity.getDias()) {
-                dias.add(new DiaDTO(y));
+                dias.add(new DiaDetailDTO(y));
             }
             }
             else dias = new ArrayList<>();
@@ -64,14 +64,14 @@ public class SemanaDetailDTO extends SemanaDTO {
      * Determina los dias que contiene la semana, esta lista siempre tiene que tener 7 elementos. 
      * @param lista de los dias
      */
-    public void setDias(List<DiaDTO> lista){
+    public void setDias(List<DiaDetailDTO> lista){
        dias = lista;
     }
     
     /**
      * @return lista de los dias que componen la semana
      */
-    public List<DiaDTO> getDias(){
+    public List<DiaDetailDTO> getDias(){
         return dias;
     }
     
