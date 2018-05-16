@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.test.logic;
 
 import co.edu.uniandes.csw.pear.ejb.DietaTipoLogic;
+import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
 import co.edu.uniandes.csw.pear.entities.SemanaEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
@@ -93,7 +94,7 @@ public class DietaTipoLogicTest {
      * pruebas.
      */
     private void insertData() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             DietaTipoEntity entity = factory.manufacturePojo(DietaTipoEntity.class);
             em.persist(entity);
             data.add(entity);
@@ -150,7 +151,48 @@ public class DietaTipoLogicTest {
     }
     
     
- 
+    @Test 
+    public void testPuntuacion()
+    {
+        CalificacionEntity cali1 = new CalificacionEntity(); 
+        cali1.setPuntuacion(10);
+        
+        CalificacionEntity cali2 = new CalificacionEntity(); 
+        cali2.setPuntuacion(10);
+        
+        CalificacionEntity cali3 = new CalificacionEntity(); 
+        cali3.setPuntuacion(5);
+        
+        
+        List<CalificacionEntity> calis1 = new ArrayList<>();
+        calis1.add(cali1);
+        calis1.add(cali2); //queda con 20
+        
+        List<CalificacionEntity> calis2 = new ArrayList<>();
+        calis2.add(cali2); 
+        calis2.add(cali3); //queda con 15
+        
+        List<CalificacionEntity> calis3 = new ArrayList<>();
+        calis3.add(cali3); //queda con 5
+        
+        List<CalificacionEntity> calis4 = new ArrayList<>();
+        calis4.add(cali1); //queda con 10
+        
+        data.get(0).setCalificaciones(calis3);
+        data.get(1).setCalificaciones(calis2);
+        data.get(2).setCalificaciones(calis1);
+        data.get(3).setCalificaciones(calis4);
+        
+        
+        List<DietaTipoEntity> dietasOrdenadas = logic.getDietasOrdenadasPuntuacion(data); 
+        
+        
+        for(int i = 0; i < dietasOrdenadas.size() -1; i++)
+        {
+            Assert.assertTrue(dietasOrdenadas.get(i).compareTo(dietasOrdenadas.get(i+1)) > 0 );
+        }
+        
+    }
     
     /**
      * Prueba para eliminar una Dieta

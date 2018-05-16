@@ -17,7 +17,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author js.garcial1
  */
 @Entity
-public class DietaTipoEntity extends BaseEntity implements Serializable {
+public class DietaTipoEntity extends BaseEntity implements Serializable, Comparable<DietaTipoEntity> {
     
     private String objetivo;
     private String descripcion;
@@ -211,6 +211,33 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
      */
     public void addPersona ( PersonaEntity persona ) {
         this.personas.add(persona);
+    }
+
+    @Override
+    public int compareTo(DietaTipoEntity o) {
+       
+        int puntosThis = 0; 
+        int puntosThat = 0; 
+        
+        for (CalificacionEntity calificacion : calificaciones) {
+            puntosThis += calificacion.getPuntuacion();
+        }
+        
+        for (CalificacionEntity calificacione : o.getCalificaciones()) {
+            puntosThat  += calificacione.getPuntuacion(); 
+        }
+        
+        
+        if(puntosThis == puntosThat)
+        {
+            return 0; 
+        }else if(puntosThis > puntosThat)
+        {
+            return 1; 
+        }
+        
+        
+        return -1; 
     }
     
     
