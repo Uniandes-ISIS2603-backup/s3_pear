@@ -217,7 +217,7 @@ public class DietaTipoResource {
             DietaTipoEntity dieta = logic.getDieta(id);
             SemanaEntity semana = logic_sem.getSemana(id_semana);
 
-            dieta.add_semana(semana);
+            dieta.addsemana(semana);
             semana.setDieta(dieta);    
             logic_sem.updateSemana(semana.getId(), semana);
 
