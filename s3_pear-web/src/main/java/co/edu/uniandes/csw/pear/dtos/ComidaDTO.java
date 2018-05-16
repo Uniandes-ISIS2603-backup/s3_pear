@@ -33,7 +33,7 @@ public class ComidaDTO {
 
     private String tipo;
 
-    private Long id;
+    private long id;
     
    
     
@@ -48,6 +48,7 @@ public class ComidaDTO {
         cantidad = entidad.getCantidad();
         alimentos = entidad.getAlimentos();
         tipo = entidad.getTipo();
+        id = entidad.getId();
         
         }
     }
@@ -59,11 +60,11 @@ public class ComidaDTO {
         //Constructor para propositos de persistencia
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long pId) {
+    public void setId(long pId) {
         id = pId;
     }
 
@@ -123,19 +124,8 @@ public class ComidaDTO {
         en.setAlimentos(this.alimentos);
         en.setCantidad(this.cantidad);
         en.setId(this.id);
-        if ("desayuno".equalsIgnoreCase(tipo)) {
-            en.setTIPO("desayuno");
-        } 
-        else if ("almuerzo".equalsIgnoreCase(tipo)) {
-            en.setTIPO("almuerzo");
-        } 
-        else if ("cena".equalsIgnoreCase(tipo)) {
-            en.setTIPO("cena");
-        } else if ("adicional".equalsIgnoreCase(tipo)) {
-            en.setTIPO("adicional");
-        }
-       
-       
+        en.setTIPO(this.tipo);
+
         return en;
     }
 }
