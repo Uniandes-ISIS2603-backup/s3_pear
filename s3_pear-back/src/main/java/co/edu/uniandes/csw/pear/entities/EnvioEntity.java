@@ -80,17 +80,11 @@ public class EnvioEntity extends BaseEntity implements Serializable{
     /**
      * Cambia el recibidio a falso
      */
-    public void setRecibidoFalso()
+    public void setRecibido(boolean pRecibido)
     {
-        this.recibido = false;
+        this.recibido = pRecibido;
     }
-    /**
-     * Cambia el recibidio a verdadero
-     */
-    public void setRecibidoVerdadero()
-    {
-        this.recibido = true;
-    }
+
 
     /**
      * direccion de entrega

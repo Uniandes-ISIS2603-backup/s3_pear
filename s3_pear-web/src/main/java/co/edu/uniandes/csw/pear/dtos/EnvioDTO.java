@@ -111,16 +111,11 @@ public class EnvioDTO {
     /**
      * Cambia a falso sì fue recibido
      */
-    public void setRecibidoFalso() {
-        recibido = false;
+    public void setRecibido(boolean pRecibido) {
+        recibido = pRecibido;
     }
 
-    /**
-     * Cambia a verdadero sì fue recibido
-     */
-    public void setRecibidoVerdadero() {
-        recibido = true;
-    }
+
 
    
 
@@ -138,13 +133,7 @@ public class EnvioDTO {
         en.setDireccion(this.getDireccion());
         en.setDuracion(this.getDuracion());
         en.setId(this.getId());
-        
-        if (recibido) {
-            en.setRecibidoVerdadero();
-        }
-        else{
-            en.setRecibidoFalso();
-        }
+        en.setRecibido(this.getRecibido());
         
 
         return en;
