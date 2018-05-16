@@ -102,7 +102,7 @@
       
 
         <ul class="days" > <!-- poner ng-app=" nombre exacto del modulo de ENVIO " y ng-controller=""  y esto con spcoe normal ng-click="getDia_2(dia.id)" -->
-            <li ng-repeat="dia in semana.dias"> {{dia.fecha}} <br> <a ng-click="getDia(dia.id)" ui-sref='dieta_specs.comidas({ id_dia: dia.id })' class="item">Comidas</a> <br ><a  ui-sref='dieta_specs.envios({ id_dia: dia.id })' class="item">Envios</a></li> 
+            <li ng-repeat="dia in semana.dias"> {{dia.fecha}} <br> <a ng-click="getDia(dia.id)" ui-sref='dieta_specs.comidas({ id_dia: dia.id })' class="item">Comidas</a> <br ><a ng-click="getDia(dia.id)"  ui-sref='dieta_specs.envios({ id_dia: dia.id })' class="item">Envios</a></li> 
             
         </ul>
 
