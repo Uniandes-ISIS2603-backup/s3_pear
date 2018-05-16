@@ -33,7 +33,7 @@ delete from CasoExitoEntity;
 
 
 
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion, puntosfidelidad) values (100, 'Pablo', 'Suarez', 20, 'Cll. 127D #19-93', 'pa.suarezm@uniandes.edu.co', 0, '201632293', 13);
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion, puntosfidelidad) values (100, 'Pablo', 'Suarez', 20, 'Cll. 127D #19-93', 'pa.suarezm@uniandes.edu.co', 0, '201632293', 14);
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion, puntosfidelidad) values (200, 'Camilo', 'Bedoya', 20, 'Cll. 151 #9-26', 'jc.bedoya@uniandes.edu.co', 0, '201631591', 7);
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion, puntosfidelidad) values (300, 'Carol', 'Trujillo', 19, 'Cra. 53 #127-43', 'cv.trujillo@uniandes.edu.co', 0, '201618005',24);
 insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion, puntosfidelidad) values (400, 'Mariana', 'Moreno', 20, 'Cll. 76 #7-83', 'mi.morenoa@uniandes.edu.co', 0, '201698416', 12);

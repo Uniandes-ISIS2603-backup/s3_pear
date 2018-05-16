@@ -11,7 +11,13 @@
                         url: "/cuenta",
                         templateUrl: "src/modules/cuentas/cuenta.html",
                         controller: 'cuentaController'
+                    },).state('pagado',
+                    {
+                        url: "/cuenta",
+                        templateUrl: "src/modules/cuentas/pagado.html",
+                        controller: 'cuentaController'
                     })
+                    
 
                     ;
         }]);
@@ -38,8 +44,12 @@
 
          $scope.hacer_pago = function()
          {
-            $http.get('http://localhost:8080/s3_pear-web/api/personas/' + $rootScope.persona.id + '/aumentarpuntos'); 
-         }
+            $http.put('http://localhost:8080/s3_pear-web/api/personas/' + $rootScope.persona.id + '/aumentar'); 
+            $state.go('pagado', {}, {
+                        reload: true
+                    });
+            
+         }; 
         }
     ]);
 })(window.angular);

@@ -85,7 +85,9 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <h1 style="color: dimgray;font-family: 'Roboto'; font-weight: 300; font-size: 18px;">{{cuenta_personal.dieta.precio * 1000| currency}} COP</h1>
+                                    <h1 ng-if="persona.puntosFidelidad < 15"  style="color: dimgray;font-family: 'Roboto'; font-weight: 300; font-size: 18px;">{{cuenta_personal.dieta.precio * 1000| currency}} COP</h1>
+                                    <h1 ng-if = "persona.puntosFidelidad > 14" style="color: dimgray;font-family: 'Roboto'; font-weight: 300; font-size: 18px;">{{cuenta_personal.dieta.precio*1000 - (cuenta_personal.dieta.precio * 100)| currency}} COP</h1>
+                                    <h1 ng-if = "persona.puntosFidelidad > 14" style="color: dimgray;font-family: 'Roboto'; font-weight: 300; font-size: 14px;">Tienes un 10% de descuento por ser un cliente frecuente!!</h1>
                                 </td>
                             </tr>
 
@@ -115,7 +117,7 @@
                         <div>&nbsp;</div>
                         <div class="inline field">
 
-                            <a class="ui positive basic button">
+                            <a ng-click="hacer_pago()"class="ui positive basic button">
                                 Pagar
                             </a>
 
