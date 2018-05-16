@@ -1,4 +1,17 @@
 
+    <div class="row">
+        <div class="column">
+            <div class="inline field">
+                <h1 style="font-weight: 300; color: gray; float: left;">Almuerzo</h1>
+                <a href="src/modules/comidas/comida_add.html" style="text-decoration: none; color: #525252;"><i style="float: right; font-size: 30pt;" class="ion-plus-round"></i></a>
+            </div>
+
+            <hr/>
+
+        </div>
+    </div>
+
+
 <div style="padding: 0em 3em 1em 3em;">
 <div class="ui one stackable link cards" style="margin-top: 40px;">
     <div class="ui fluid card" ng-repeat="comida in dia.comidas| orderBy:'id'">
@@ -6,9 +19,15 @@
             <!-- <img src="{{comida.image}}">-->
         </div>
         <div class="content">
+             <div class="header">{{comida.id}}</div>
             <div class="meta"><a>Alimentos: {{comida.alimentos}}</a></div>
             <div class="description">Cantidad: {{comida.cantidad | number:1}} gramos</div>
         </div>
+        <div class="extra content">
+                <div class="inline flief">
+                    <span class="field right floated"><a ng-click="eliminar_comida(comida.id)" style="text-decoration: none;">Eliminar</a></span>
+                    <span class="field right floated"><a ui-sref="comida_act({ id: comida.id })">Actualizar</a> &nbsp; &nbsp;</span>
+                </div>
         
     </div>
 </div>

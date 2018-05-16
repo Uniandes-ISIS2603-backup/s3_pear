@@ -113,6 +113,61 @@
                 
             };
             
+            if ($state.params.id !== null && $state.params.id !== undefined) {
+                $scope.id_comida = $state.params.id;
+
+                // TODO Descomentar
+                $http.get('http://localhost:8080/s3_pear-web/api/comidas/' + $state.params.id ).then(function (response) {
+                    $scope.comida = response.data;
+                });
+            }
+
+            $scope.enviar_comida = function () {
+
+                let data = {
+                    alimentos: $scope.alimentos,
+                    cantidad: $scope.cantidad,
+                    TIPO: $scope.TIPO,
+                   // image: $scope.image
+                };
+
+                console.log(data);
+
+                // DIRECCION HTTP 
+                $http.post('http://localhost:8080/s3_pear-web/api/comidas', data).then(function (response) {
+                    $scope.post_data = response.data;
+                });
+            };
+
+
+            $scope.eliminar_comida = function (id) {
+                console.log(id + ' < Se va a eliminar la comida');
+
+                // DIRECCION HTTP 
+                $http.delete('http://localhost:8080/s3_pear-web/api/comidas/' + id).then(function (response) {
+                    $scope.post_data = response.data;
+                    $state.reload();
+                });
+            };
+
+
+            $scope.actualizar_comida = function () {
+                console.log($scope.id_comida + " < Se va a actualizar la comida.");
+                
+                let data = {
+                    alimentos: $scope.new_alimentos,
+                    cantidad: $scope.new_cantidad,
+                    TIPO: $scope.new_TIPO
+                   // image: $scope.new_image
+                };
+                
+                //http://localhost:8080/s3_pear-web/api/comidas/3
+                $http.put('http://localhost:8080/s3_pear-web/api/comidas/' + $scope.id_comida, data).then(function (response) {
+                    $scope.put_data = response.data;
+                    $state.go($state.current, {}, {reload: true});
+                    $state.go('comidas', {}, {reload: true});
+                });
+            };
             
             
             

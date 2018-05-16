@@ -164,8 +164,10 @@ public class ComidaResource {
     @Path("{id: \\d+}")
      public void deleteComida(@PathParam("id") Long id)throws BusinessLogicException {
         if ( logic.getComida(id) == null )
+        {
             throw new WebApplicationException("El recurso /comidas/" + id + " no existe.", 404);
-        else
+        }
+       
         logic.delete(id);
 
     }

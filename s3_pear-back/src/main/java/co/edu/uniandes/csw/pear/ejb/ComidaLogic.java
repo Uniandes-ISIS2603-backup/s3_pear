@@ -117,15 +117,15 @@ public class ComidaLogic {
      * Elimina una Comida por id
      * @param id 
      */
-    public void delete( long id ) throws BusinessLogicException {
+    public void delete( Long id ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia eliminacion de la comida con id = {0} " , id);
-        if(getComida(id)!=null)
+        if(persistence.find(id)!=null)
         {
             persistence.delete(id);
         }
-         else
+       else
         {
-            throw new BusinessLogicException ("este no existe");
+           throw new BusinessLogicException ("este no existe");
         }
         LOGGER.log( Level.INFO, "Comida con id = {0} eliminada. ", id );
     }

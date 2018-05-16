@@ -112,7 +112,7 @@ public class EnvioLogic {
      */
     public void delete( Long id ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia eliminacion de el envio con id = {0} " , id);
-        if(getEnvio(id)!=null)
+        if(persistence.find(id)!=null)
         {
         persistence.delete(id);
         }
