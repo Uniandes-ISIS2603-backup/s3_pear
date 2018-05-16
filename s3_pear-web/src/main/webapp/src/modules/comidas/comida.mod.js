@@ -115,7 +115,7 @@
             if ($state.params.id !== null && $state.params.id !== undefined) {
                 $scope.id_comida = $state.params.id;
 
-                // TODO Descomentar
+                
                 $http.get('http://localhost:8080/s3_pear-web/api/comidas/' + $state.params.id ).then(function (response) {
                     $scope.comida = response.data;
                 });

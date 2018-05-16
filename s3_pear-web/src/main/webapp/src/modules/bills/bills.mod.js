@@ -75,7 +75,7 @@
             
             //POST
             $scope.post_bill = function () {
-                const data = {
+                let data = {
                     cantidadDeProductos: $scope.cantidadProductos,
                     numeroFactura: $scope.numeroFacturaDeVenta,
                     id: 0,
@@ -102,7 +102,7 @@
             //PUT
             $scope.actualizar_bill = function () {
 
-                const data = {
+                let data = {
                     //Solo se pueden actualizar estas caracteristicas de una factura
                     cantidadProductos: $scope.new_cantidadProductos,
                     numeroFacturaDeVenta: $scope.new_numeroFacturaDeVenta
