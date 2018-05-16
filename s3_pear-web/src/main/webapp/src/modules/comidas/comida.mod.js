@@ -114,11 +114,6 @@
             
             if ($state.params.id !== null && $state.params.id !== undefined) {
                 $scope.id_comida = $state.params.id;
-<<<<<<< HEAD
-=======
-
-                
->>>>>>> 86fa4a81308ef243a8dc09948cd8f2defcde64a2
                 $http.get('http://localhost:8080/s3_pear-web/api/comidas/' + $state.params.id ).then(function (response) {
                     $scope.comida = response.data;
                 });
