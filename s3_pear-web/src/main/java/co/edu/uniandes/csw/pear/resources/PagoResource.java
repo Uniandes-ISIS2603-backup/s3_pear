@@ -142,7 +142,15 @@ CuentaCobroLogic cuentaLogic;
     public List<PagoDetailDTO> getPagos() {
         return listEntity2DTO(logic.getPagos());
     }
+  
     
+    
+    @GET 
+    @Path("/total")
+    public PagoDetailDTO getRecaudoTotal()
+    {
+        return new PagoDetailDTO( logic.getRecaudoTotal()); 
+    }
     
     /**
      * <h1>GET /api/pagos/{id} : Obtener pago por id.</h1>
