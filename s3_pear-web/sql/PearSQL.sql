@@ -33,16 +33,16 @@ delete from CasoExitoEntity;
 
 
 
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (100, 'Pablo', 'Suarez', 20, 'Cll. 127D #19-93', 'pa.suarezm@uniandes.edu.co', 0, '201632293');
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (200, 'Camilo', 'Bedoya', 20, 'Cll. 151 #9-26', 'jc.bedoya@uniandes.edu.co', 0, '201631591');
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (300, 'Carol', 'Trujillo', 19, 'Cra. 53 #127-43', 'cv.trujillo@uniandes.edu.co', 0, '201618005');
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (400, 'Mariana', 'Moreno', 20, 'Cll. 76 #7-83', 'mi.morenoa@uniandes.edu.co', 0, '201698416');
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (500, 'Juan', 'Suarez', 23, 'Cll. 127D #19-93', 'jm.suarezm@uniandes.edu.co', 0, '201632294');
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (600, 'Elsa', 'Murillo', 54, 'Cll. 127D #19-93', 'ev.murilloa@uniandes.edu.co', 0, '201632295');
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (700, 'Antonio', 'Suarez', 55, 'Cll. 127D #19-93', 'aj.suarezb@uniandes.edu.co', 0, '201632296');
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (800, 'Gustavo', 'Quijano', 63, 'Cra. 7 #116-56', 'g.quijano@uniandes.edu.co', 0, '201632297');
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (900, 'Ana', 'Suarez', 65, 'Cll. 151 #9-66', 'ae.suarezb@uniamdes.edu.co', 0, '201632298');
-insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion) values (1000, 'Luisa', 'Estrada', 20, 'Cll. 131 #19-86', 'l.estradap@uniandes.edu.co', 0, '201712345');
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion, puntosfidelidad) values (100, 'Pablo', 'Suarez', 20, 'Cll. 127D #19-93', 'pa.suarezm@uniandes.edu.co', 0, '201632293', 13);
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion, puntosfidelidad) values (200, 'Camilo', 'Bedoya', 20, 'Cll. 151 #9-26', 'jc.bedoya@uniandes.edu.co', 0, '201631591', 7);
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion, puntosfidelidad) values (300, 'Carol', 'Trujillo', 19, 'Cra. 53 #127-43', 'cv.trujillo@uniandes.edu.co', 0, '201618005',24);
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion, puntosfidelidad) values (400, 'Mariana', 'Moreno', 20, 'Cll. 76 #7-83', 'mi.morenoa@uniandes.edu.co', 0, '201698416', 12);
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion, puntosfidelidad) values (500, 'Juan', 'Suarez', 23, 'Cll. 127D #19-93', 'jm.suarezm@uniandes.edu.co', 0, '201632294', 2);
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion, puntosfidelidad) values (600, 'Elsa', 'Murillo', 54, 'Cll. 127D #19-93', 'ev.murilloa@uniandes.edu.co', 0, '201632295', 4);
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion, puntosfidelidad) values (700, 'Antonio', 'Suarez', 55, 'Cll. 127D #19-93', 'aj.suarezb@uniandes.edu.co', 0, '201632296', 30);
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion, puntosfidelidad) values (800, 'Gustavo', 'Quijano', 63, 'Cra. 7 #116-56', 'g.quijano@uniandes.edu.co', 0, '201632297', 1);
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion, puntosfidelidad) values (900, 'Ana', 'Suarez', 65, 'Cll. 151 #9-66', 'ae.suarezb@uniamdes.edu.co', 0, '201632298', 0);
+insert into PersonaEntity (id, nombre, apellido, edad, direccion, correo, subscrito, identificacion, puntosfidelidad) values (1000, 'Luisa', 'Estrada', 20, 'Cll. 131 #19-86', 'l.estradap@uniandes.edu.co', 0, '201712345', 26);
 
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4500, 3, 200418,100);
 insert into FacturaEntity(id, cantidadProductos, numeroFacturaDeVenta, persona_id) values(4600, 7, 210418,200);
@@ -175,13 +175,18 @@ insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (100
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (200,'recomendacion', 'Llamar al cliente cuando el envio este cerca',500);
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (300,'recomendacion', 'Contratar domiciliarios más amables',600);
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (400,'queja', 'el domiciliario fue grosero',800);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1600,'recomendacion', 'llegar con anticipacion',100);
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (500,'queja', 'el domiciliario fue grosero',100);
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (600,'queja', 'el domiciliario fue grosero',200);
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (700,'queja', 'el domiciliario fue grosero',300);
-insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (800,'queja', 'el domiciliario fue grosero',400);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (800,'queja', 'el domiciliario fue grosero',300);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1500,'recomendacion', 'Traer la comida ma fresca',200);
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (900,'queja', 'el domiciliario fue grosero',500);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1400,'recomendacion', 'contratar domiciliarios mas amables',500);
 insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1000,'queja', 'el domiciliario fue grosero',600);
-insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1100,'queja', 'el domiciliario fue grosero',700);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1100,'recomendacion', 'Seguir asi de bien',600);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1200,'queja', 'el domiciliario fue grosero',700);
+insert into QuejasyReclamosEntity (id, asunto, comentario, DIETA_ID) values (1300,'recomendacion', 'Llegar más rapido',700);
 
 insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) values (100, 'Comentario 1', 'Testimonio 1','https://rolloid.net/wp-content/uploads/2017/05/20-fotos-increibles-de-perdida-de-peso-antes-y-despues-de-las-cuales-no-creeras-que-sean-de-la-misma-persona-1494409922.jpg');
 insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) values (200, 'Comentario 2', 'Testimonio 2','https://rolloid.net/wp-content/uploads/2017/05/20-fotos-increibles-de-perdida-de-peso-antes-y-despues-de-las-cuales-no-creeras-que-sean-de-la-misma-persona-1494410051.jpg');

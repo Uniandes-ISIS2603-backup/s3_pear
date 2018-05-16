@@ -10,6 +10,7 @@ import co.edu.uniandes.csw.pear.entities.EnvioEntity;
 import co.edu.uniandes.csw.pear.persistence.EnvioPersistence;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
@@ -69,6 +70,7 @@ public class EnvioLogic {
      * Crea un Envio y la guarda en la base de datos
      * @param entity de envio a persistir
      * @return entidad de envio persistida
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     public EnvioEntity createEnvio( EnvioEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de un envio con id = {0}", entity.getId());
@@ -89,12 +91,13 @@ public class EnvioLogic {
      * @param id de tipo Long, representa el envio que se va a actualizar
      * @param entity de Envio con los cambios deseados
      * @return la entidad de Envio luego de ser actualizada
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     public EnvioEntity updateEnvio( Long id, EnvioEntity entity ) throws BusinessLogicException {
 
         EnvioEntity actualizado = null;
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de un envio con id = {0} " , id);
-        if(id == entity.getId())
+        if(Objects.equals(id, entity.getId()))
         {
          actualizado = persistence.update(entity);
         }
@@ -109,11 +112,15 @@ public class EnvioLogic {
     /**
      * Elimina un Envio por id
      * @param id 
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException 
      */
-    public void delete( Long id ) {
+    public void delete( Long id ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia eliminacion de el Envio con id = {0} " , id);
+        if(persistence.find(id)== null){
+            throw new BusinessLogicException("No existe un envio con ese identificador");
+        }
         persistence.delete(id);
-        LOGGER.log( Level.INFO, "Enviop con id = {0} eliminada. ", id );
+        LOGGER.log( Level.INFO, "Envio con id = {0} fue eliminado. ", id );
     }
     
 }

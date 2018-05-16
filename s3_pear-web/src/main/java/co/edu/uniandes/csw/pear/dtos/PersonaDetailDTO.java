@@ -144,9 +144,9 @@ public class PersonaDetailDTO extends PersonaDTO {
 
             if (this.getDietas() != null) {
                 List<DietaTipoEntity> ds = new ArrayList<>();
-                this.getDietas().forEach(dieta -> {
-                    ds.add(dieta.toEntity());
-                });
+                for(DietaTipoDTO y: dietas){
+                    ds.add(y.toEntity());
+                }
                 entidad.setDieta(ds);
             }
 
@@ -154,25 +154,16 @@ public class PersonaDetailDTO extends PersonaDTO {
 
             if (quejas != null) {
                 for (QuejasyReclamosDTO qyr : quejas) {
-                    if (qyr != null) {
                         qyrE.add(qyr.toEntity());
-                    }
                 }
             }
-            
             entidad.setQuejas(qyrE);
-            
-            
-           
-             
-             
+              
             List<FacturaEntity> fE = new ArrayList<>();
 
             if (facturas != null) {
-                for (FacturaDTO f : facturas) {
-                    if (f != null) {
+                for (FacturaDTO f : facturas) {    
                         fE.add(f.toEntity());
-                    }
                 }
             }
 

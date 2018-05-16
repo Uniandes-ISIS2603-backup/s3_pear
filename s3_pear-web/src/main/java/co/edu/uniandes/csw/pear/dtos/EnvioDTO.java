@@ -110,8 +110,9 @@ public class EnvioDTO {
 
     /**
      * Cambia a falso sì fue recibido
+     * @param pRecibido 
      */
-    public void setRecibido(boolean pRecibido) {
+    public void setRecibido(Boolean pRecibido) {
         recibido = pRecibido;
     }
 
@@ -134,8 +135,6 @@ public class EnvioDTO {
         en.setDuracion(this.getDuracion());
         en.setId(this.getId());
         en.setRecibido(this.getRecibido());
-        
-
         return en;
     }
 }

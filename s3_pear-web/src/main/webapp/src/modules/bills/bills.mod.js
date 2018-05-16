@@ -75,7 +75,6 @@
             
             //POST
             $scope.post_bill = function () {
-                console.log($scope);
                 let data = {
                     cantidadDeProductos: $scope.cantidadProductos,
                     numeroFactura: $scope.numeroFacturaDeVenta,
@@ -94,7 +93,7 @@
             
             //DELETE
             $scope.eliminar_bill= function (id) {
-                $http.delete(billsContext + '/' + id,).then(function (response) {
+                $http.delete(billsContext + '/' + id).then(function (response) {
                     $scope.delete_data = response.data;
                     $state.reload();
                 });
@@ -108,11 +107,6 @@
                     cantidadProductos: $scope.new_cantidadProductos,
                     numeroFacturaDeVenta: $scope.new_numeroFacturaDeVenta
                 };
-
-                //http://localhost:8080/s3_pear-web/api/facturas/3
-                
-                
-                console.log($scope.id_persona + " < Se va a actualizar la factura");
                 
                 $http.put('http://localhost:8080/s3_pear-web/api/facturas/' + data.id, data).then(function (response) {
                     $scope.put_data = response.data;

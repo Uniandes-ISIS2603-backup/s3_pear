@@ -26,7 +26,7 @@ public class EnvioEntity extends BaseEntity implements Serializable{
     
     @PodamExclude
   
-    private boolean recibido;   
+    private Boolean recibido;   
     
     @PodamExclude
     @ManyToOne(cascade = CascadeType.ALL)
@@ -79,8 +79,9 @@ public class EnvioEntity extends BaseEntity implements Serializable{
     }
     /**
      * Cambia el recibidio a falso
+     * @param pRecibido
      */
-    public void setRecibido(boolean pRecibido)
+    public void setRecibido(Boolean pRecibido)
     {
         this.recibido = pRecibido;
     }

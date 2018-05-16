@@ -33,23 +33,6 @@ public class PagoDetailDTO extends PagoDTO{
     }
     
     /**
-    * 
-    * @return medioPago
-    */
-   public MedioPagoDTO getMedioPago()
-   {
-       return medioPago; 
-   }
-   
-   /**
-    * Cambia el medio de pago
-    * @param pMedioPago 
-    */
-   public void setMedioPago(MedioPagoDTO pMedioPago)
-   {
-       medioPago = pMedioPago; 
-   }
-    /**
      * Constructor para transformar un Entity a un DTO
      *
      * @param entity La entidad de pago a partir de la cual se construye el objeto
@@ -66,6 +49,24 @@ public class PagoDetailDTO extends PagoDTO{
         }
        }
     }
+    
+    /**
+    * 
+    * @return medioPago
+    */
+   public MedioPagoDTO getMedioPago()
+   {
+       return medioPago; 
+   }
+   
+   /**
+    * Cambia el medio de pago
+    * @param pMedioPago 
+    */
+   public void setMedioPago(MedioPagoDTO pMedioPago)
+   {
+       medioPago = pMedioPago; 
+   }
 
     /**
      * Transformar un DTO a un Entity

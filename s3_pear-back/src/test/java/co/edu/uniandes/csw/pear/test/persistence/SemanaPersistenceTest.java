@@ -12,6 +12,11 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.NotSupportedException;
+import javax.transaction.RollbackException;
+import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -70,8 +75,6 @@ public class SemanaPersistenceTest {
 
     /**
      * Configuración inicial de la prueba.
-     *
-     *
      */
     @Before
     public void setUp() {
@@ -81,20 +84,16 @@ public class SemanaPersistenceTest {
             clearData();
             insertData();
             utx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IllegalStateException | SecurityException | HeuristicMixedException | HeuristicRollbackException | NotSupportedException | RollbackException | SystemException e) {
             try {
                 utx.rollback();
-            } catch (Exception e1) {
-                e1.printStackTrace();
+            } catch (IllegalStateException | SecurityException | SystemException e1) {
             }
         }
     }
 
     /**
      * Limpia las tablas que están implicadas en la prueba.
-     *
-     *
      */
     private void clearData() {
         em.createQuery("delete from SemanaEntity").executeUpdate();
@@ -108,14 +107,11 @@ public class SemanaPersistenceTest {
     /**
      * Inserta los datos iniciales para el correcto funcionamiento de las
      * pruebas.
-     *
-     *
      */
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
             SemanaEntity entity = factory.manufacturePojo(SemanaEntity.class);
-
             em.persist(entity);
             data.add(entity);
         }
@@ -123,8 +119,6 @@ public class SemanaPersistenceTest {
 
     /**
      * Prueba para crear una semana.
-     *
-     *
      */
     @Test
     public void createSemanaTest() {
@@ -141,8 +135,6 @@ public class SemanaPersistenceTest {
 
     /**
      * Prueba para consultar la lista de semanas.
-     *
-     *
      */
     @Test
     public void getSemanasTest() {
@@ -161,8 +153,6 @@ public class SemanaPersistenceTest {
 
     /**
      * Prueba para consultar una semana.
-     *
-     *
      */
     @Test
     public void getSemanaTest() {
@@ -174,8 +164,6 @@ public class SemanaPersistenceTest {
 
     /**
      * Prueba para eliminar una semana.
-     *
-     *
      */
     @Test
     public void deleteSemanaTest() {
@@ -187,8 +175,6 @@ public class SemanaPersistenceTest {
 
     /**
      * Prueba para actualizar una semana.
-     *
-     *
      */
     @Test
     public void updateSemanaTest() {

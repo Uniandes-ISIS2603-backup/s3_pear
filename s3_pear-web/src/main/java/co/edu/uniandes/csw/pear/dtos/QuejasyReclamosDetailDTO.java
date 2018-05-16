@@ -56,10 +56,10 @@ public class QuejasyReclamosDetailDTO extends QuejasyReclamosDTO
      */
     @Override
     public QuejasyReclamosEntity toEntity() {
-        QuejasyReclamosEntity quejasYreclamosE = super.toEntity();
-//        if (this.getDieta() != null) {
-//            quejasYreclamosE.setDieta(this.getDieta().toEntity());
-//        }
+       QuejasyReclamosEntity quejasYreclamosE = super.toEntity();
+       if (this.getDieta() != null) {
+           quejasYreclamosE.setDieta(this.getDieta().toEntity());
+       }
         return quejasYreclamosE;
     }
     /**

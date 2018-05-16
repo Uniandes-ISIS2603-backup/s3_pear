@@ -65,6 +65,30 @@ public class PagoLogic {
         return pago;
     }
     
+    
+    
+    /**
+     * Retorna el recaudoTotal de pagos
+     * @return Pago con el total en el montoIncial.
+     */
+    
+    public PagoEntity  getRecaudoTotal()
+    {
+        List<PagoEntity> todosP = getPagos(); 
+        Double total = 0.0;
+        
+        for (PagoEntity pagoEntity : todosP) {
+            
+            total += ( pagoEntity.getMontoFinal() + pagoEntity.getMontoInicial()) ; 
+            
+        }
+        
+        PagoEntity en = new PagoEntity(); 
+        
+        en.setMontoInicial(total);
+        return en; 
+    }
+    
     /**
      * Retorno el medio de pago entity del pago con el id
      * @param pagoId

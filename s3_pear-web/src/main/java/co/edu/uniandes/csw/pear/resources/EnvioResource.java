@@ -6,8 +6,6 @@
 package co.edu.uniandes.csw.pear.resources;
 
 
-
-
 import co.edu.uniandes.csw.pear.dtos.EnvioDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.EnvioLogic;
 import co.edu.uniandes.csw.pear.entities.EnvioEntity;
@@ -29,8 +27,6 @@ import javax.ws.rs.*;
   
     ]
   }
- 
-
  * 
  * @author js.cabra
  */
@@ -67,9 +63,9 @@ public class EnvioResource {
      * </pre>
      * @param envio {@link EnvioDetailDTO} -El envio que se desea guardar.
      * @return JSON {@link EnvioDetailDTO}  - El envio guardada con el atributo id autogenerado.
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
      @POST
-     
      public EnvioDetailDTO crearEvento(EnvioDetailDTO envio)throws BusinessLogicException
      {
           return new EnvioDetailDTO(logic.createEnvio(envio.toEntity()));
@@ -133,14 +129,17 @@ public class EnvioResource {
      * </code> 
      * </pre>
      * @param id Identificador de el evento que se desea actualizar.Este debe ser una cadena de dígitos.
-     * @param comida {@link EnvioDetailDTO} El evento que se desea guardar.
+     * @param envio {@link EnvioDetailDTO} El evento que se desea guardar.
      * @return JSON {@link EnvioDetailDTO} - El evento guardada.
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @PUT
     @Path("{id: \\d+}")
     public EnvioDetailDTO updateEvento (@PathParam("id") Long id, EnvioDetailDTO envio)throws BusinessLogicException {
         if ( logic.getEnvio(id) == null ) 
             throw new WebApplicationException("El recurso /envios/" + id + " no existe.", 404);
+        
+        envio.setId(id);
         return new EnvioDetailDTO(logic.updateEnvio(id, envio.toEntity()));
     }
     
@@ -158,16 +157,13 @@ public class EnvioResource {
      * </code>
      * </pre>
      * @param id Identificador de la evento que se desea borrar. Este debe ser una cadena de dígitos.
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @DELETE
     @Path("{id: \\d+}")
-     public void deleteEvento(@PathParam("id") Long id) {
+     public void deleteEvento(@PathParam("id") Long id) throws BusinessLogicException {
         if ( logic.getEnvio(id) == null )
-        {
             throw new WebApplicationException("El recurso /envios/" + id + " no existe.", 404);
-        }
-        logic.delete(id);
-
-    }
-    
+              logic.delete(id);
+    }  
 }

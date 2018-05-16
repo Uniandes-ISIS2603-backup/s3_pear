@@ -50,6 +50,18 @@ public class DietaTipoLogic {
         return dietas;
     }
     
+ 
+    
+    /**
+     * Retorna las dietas mas populares
+     * @return
+     */
+    public List<String> getDietasPopu()
+    {
+     return persistence.getDietasMasPopular();
+        
+    }
+    
     /**
      * Retorna una Dieta Entity  
      * @param id
@@ -75,8 +87,6 @@ public class DietaTipoLogic {
         return this.getDieta(dieta_id).getSemanas();
     }
     
-    
-    
     /**
      * Retorna una instancia de Semana por Id asociada a una Dieta por Id
      * @param semanaId
@@ -98,6 +108,7 @@ public class DietaTipoLogic {
      * Crea una Dieta y la guarda en la base de datos
      * @param entity de dieta a persistir
      * @return entidad de dieta persistida
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     public DietaTipoEntity createDieta( DietaTipoEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de una dieta con id = {0}", entity.getId());
@@ -115,9 +126,7 @@ public class DietaTipoLogic {
         if ( entity == null) throw new BusinessLogicException( "Dieta ivalida, es null" );
         if ( entity.getDescripcion().isEmpty() || entity.getDescripcion() == null) throw new BusinessLogicException( "Descripcion de Dieta invalida" );
         if ( entity.getObjetivo().isEmpty() || entity.getObjetivo() == null ) throw new BusinessLogicException( "Objetivo de Dieta invalida" ) ;
-        //if ( !entity.getName().isEmpty() || entity.getName() != null ) throw new BusinessLogicException( "Nombre de Dieta invalida" ) ;
-        //if ( entity.getId() == null ) throw new BusinessLogicException( "El ID de la Dieta NO puede ser NULL" )  ;
-    }
+       }
     
     /**
      * Asocia una Semana existente a una Dieta
