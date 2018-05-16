@@ -110,17 +110,10 @@ public class EnvioLogic {
      * Elimina un Envio por id
      * @param id 
      */
-    public void delete( Long id ) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inicia eliminacion de el envio con id = {0} " , id);
-        if(persistence.find(id)!=null)
-        {
+    public void delete( Long id ) {
+        LOGGER.log(Level.INFO, "Inicia eliminacion de el Envio con id = {0} " , id);
         persistence.delete(id);
-        }
-        else
-        {
-            throw new BusinessLogicException ("este no existe");
-        }
-        LOGGER.log( Level.INFO, "Envio con id = {0} eliminada. ", id );
+        LOGGER.log( Level.INFO, "Enviop con id = {0} eliminada. ", id );
     }
     
 }

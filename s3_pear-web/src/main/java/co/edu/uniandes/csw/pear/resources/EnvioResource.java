@@ -161,7 +161,7 @@ public class EnvioResource {
      */
     @DELETE
     @Path("{id: \\d+}")
-     public void deleteEvento(@PathParam("id") Long id)throws BusinessLogicException {
+     public void deleteEvento(@PathParam("id") Long id) {
         if ( logic.getEnvio(id) == null )
         {
             throw new WebApplicationException("El recurso /envios/" + id + " no existe.", 404);
