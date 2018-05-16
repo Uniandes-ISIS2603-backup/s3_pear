@@ -9,17 +9,22 @@
 
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise("/envios");
+      $urlRouterProvider.otherwise("/dietas");
 
-        $stateProvider
-            .state('dieta_specs.envios', {
-                url: "/envios/dias/:id_dia",
-                param: {
-                    id_dia:null
-                },
-                templateUrl: "src/modules/envios/envio_list.html",
-                controller: 'enviosController'
-            })
+            $stateProvider
+
+                    .state('dieta_specs.envios', {
+                        url: "/envios/dias/:id_dia",
+                        param: {
+                            id_dia: null
+                        },
+                        views: {
+                            'dieta_spec': {
+                                templateUrl: 'src/modules/envios/envio_list.html',
+                                controller: 'comidaController'
+                            }
+                        }
+                    })
 
             .state('envioDetail', {
                 url: "/envio/:id/detail",
