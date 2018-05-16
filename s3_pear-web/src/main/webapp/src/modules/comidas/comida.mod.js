@@ -11,7 +11,7 @@
                     .state('dieta_specs.comidas', {
                         url: "/comidas",
                         param: {
-                            id_dieta: null
+                            id_dia: null
                         },
                         views: {
                             'dieta_spec': {
