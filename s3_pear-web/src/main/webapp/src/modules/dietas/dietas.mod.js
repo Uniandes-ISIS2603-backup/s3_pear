@@ -190,7 +190,7 @@
 
             $scope.addDieta_toPersona = function (dieta_id) {
 
-                $http.put('http://localhost:8080/s3_pear-web/api/personas/' + $rootScope.id_persona + '/dietas/' + dieta_id).then(function (response) {
+                $http.put('http://localhost:8080/s3_pear-web/api/personas/' + $rootScope.id_persona + '/dietas/' + dieta_id).then(function () {
                     $state.go('dietas', {}, {
                         reload: true
                     });
@@ -200,7 +200,7 @@
 
             $scope.cancelar_subs = function (dieta_id) {
 
-                $http.delete('http://localhost:8080/s3_pear-web/api/personas/' + $rootScope.id_persona + '/dietas/' + dieta_id).then(function (response) {
+                $http.delete('http://localhost:8080/s3_pear-web/api/personas/' + $rootScope.id_persona + '/dietas/' + dieta_id).then(function () {
                     $state.go('dietas', {}, {
                         reload: true
                     });
@@ -237,16 +237,7 @@
                 if ($scope.new_imagen !== undefined || $scope.new_imagen !== null)
                     data.imagen = $scope.new_imagen;
 
-                //http://localhost:8080/s3_pear-web/api/dietas/3
-//                $http.put('http://localhost:8080/s3_pear-web/api/dietas/' + $scope.id_dieta, data).then(function (response) {
-//                    $scope.put_data = response.data;
-//                    $state.go($state.current, {}, {
-//                        reload: true
-//                    });
-//                    $state.go('dietas', {}, {
-//                        reload: true
-//                    });
-//                });
+ 
             };
         }
     ]);
