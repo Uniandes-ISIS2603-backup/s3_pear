@@ -91,12 +91,8 @@
                     subscrito: true
                 };
 
-                console.log('Se va a crear la siguiente persona');
-                console.log(data);
-
                 $http.post(personasContext, data).then(function (response) {
                     $scope.post_data = response.data;
-                    console.log($scope.post_data.id);
                     $rootScope.id_persona = $scope.post_data.id;
                     $state.go('dietas', {}, {reload: true});
                 });
@@ -105,7 +101,7 @@
 
             //DELETE
             $scope.eliminar_persona = function (id) {
-                $http.delete(personasContext + '/' + id, ).then(function (response) {
+                $http.delete(personasContext + '/' + id).then(function (response) {
                     $scope.delete_data = response.data;
                     $state.reload();
                 });
@@ -124,19 +120,11 @@
                     telefono: $scope.new_telefono,
                     identificacion: $scope.identificacion
                 };
-
-                //http://localhost:8080/s3_pear-web/api/personas/3
-
-
-                console.log($scope.id_persona + " < Se va a actualizar la persona");
-
                 $http.put('http://localhost:8080/s3_pear-web/api/personas/' + data.id, data).then(function (response) {
                     $scope.put_data = response.data;
                     $state.go('personas', {}, {reload: true});
                 });
             };
-
-
         }
 
     ]);

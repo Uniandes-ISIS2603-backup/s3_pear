@@ -5,13 +5,11 @@
  */
 package co.edu.uniandes.csw.pear.resources;
 
-import co.edu.uniandes.csw.pear.dtos.CalificacionDTO;
 import co.edu.uniandes.csw.pear.dtos.CalificacionDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.CalificacionLogic;
 import co.edu.uniandes.csw.pear.entities.CalificacionEntity;
 import co.edu.uniandes.csw.pear.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.pear.mappers.BusinessLogicExceptionMapper;
-import co.edu.uniandes.csw.pear.persistence.CalificacionPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -54,6 +52,7 @@ public class CalificacionResource
      * 412 Precodition Failed: Ya existe la calificacion.
      * </code>
      * </pre>
+     * @param idDieta
      * @param calificacion {@link CalificacionDetailDTO} - La Calificacion que se desea guardar.
      * @return JSON {@link CalificacionDetailDTO}  - Calificacion guardada con el atributo id autogenerado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la ciudad.
@@ -74,7 +73,9 @@ public class CalificacionResource
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Devuelve todas las calificaciones de la aplicacion.</code> 
      * </pre>
+     * @param idDieta
      * @return JSONArray {@link CalificacionDetailDTO} - Las calificaciones en la aplicación. Si no hay ninguna retorna una lista vacía.
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @GET
     public List<CalificacionDetailDTO> getCalificaciones(@PathParam("idDieta") Long idDieta) throws BusinessLogicException 
@@ -103,8 +104,10 @@ public class CalificacionResource
      * 404 Not Found No existe una calificacion con el id dado.
      * </code> 
      * </pre>
+     * @param idDieta
      * @param id Identificador de la queja y reclamo que se esta buscando. Este debe ser una cadena de dígitos.
      * @return JSON {@link CalificacionDetailDTO} - La ciudad buscada
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @GET
     @Path("{id: \\d+}")
@@ -130,6 +133,7 @@ public class CalificacionResource
      * 404 Not Found. No existe una queja con el id dado.
      * </code> 
      * </pre>
+     * @param idDieta
      * @param id Identificador de la calificacion que se desea actualizar.Este debe ser una cadena de dígitos.
      * @param calificacion {@link CalificacionDetailDTO} La queja que se desea guardar.
      * @return JSON {@link CalificacionDetailDTO} - La queja guardada.
@@ -164,7 +168,9 @@ public class CalificacionResource
      * 404 Not Found. No existe una calificacion con el id dado.
      * </code>
      * </pre>
+     * @param idDieta
      * @param id Identificador de la calificacion que se desea borrar. Este debe ser una cadena de dígitos.
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @DELETE
     @Path("{id: \\d+}")
@@ -175,7 +181,5 @@ public class CalificacionResource
             throw new BusinessLogicException("La calificación que desea eliminar no existe");
         }
         logica.deleteCalificacion(idDieta,id);
-    }
-     
-    
+    }   
 }

@@ -154,9 +154,7 @@ public class PersonaDetailDTO extends PersonaDTO {
 
             if (quejas != null) {
                 for (QuejasyReclamosDTO qyr : quejas) {
-                    if (qyr != null) {
                         qyrE.add(qyr.toEntity());
-                    }
                 }
             }
             entidad.setQuejas(qyrE);
@@ -164,10 +162,8 @@ public class PersonaDetailDTO extends PersonaDTO {
             List<FacturaEntity> fE = new ArrayList<>();
 
             if (facturas != null) {
-                for (FacturaDTO f : facturas) {
-                    if (f != null) {
+                for (FacturaDTO f : facturas) {    
                         fE.add(f.toEntity());
-                    }
                 }
             }
 

@@ -42,7 +42,7 @@ PagoLogic logic;
 CuentaCobroLogic cuentaLogic;
 
     /**
-     * <h1>POST /api/pago : Crea un pagoh1>
+     * <h1>POST /api/pago : Crea un pago </h1>
      * 
      * <pre>Cuerpo de petición: JSON {@link PagoDetailDTO}.
      * 
@@ -69,7 +69,7 @@ CuentaCobroLogic cuentaLogic;
 
     
     /**
-     * <h1>POST /api/pagos/cuenta/id : Crea un pagoh1>
+     * <h1>POST /api/pagos/cuenta/id : Crea un pago </h1>
      * 
      * <pre>Cuerpo de petición: JSON {@link PagoDetailDTO}.
      * 
@@ -103,7 +103,7 @@ CuentaCobroLogic cuentaLogic;
      * Asocia un pago existente con un medio de pago existente 
      * @param pagoId - El id del pago existente
      * @param medioId - El id del medio de pago existente
-     * @return 
+     * @return pago DetailDTO
      */
     @PUT 
     @Path("{pagoId: \\d+}/medio/{medioId: \\d+}")
@@ -204,7 +204,7 @@ CuentaCobroLogic cuentaLogic;
     
     
      /**
-     * <h1>DlaETE /api/pagos/{id} : Borrar pago por id.</h1>
+     * <h1>DELETE /api/pagos/{id} : Borrar pago por id.</h1>
      * 
      * <pre>Borra el pago con la id asociado recibido en la URL.
      * 
@@ -225,6 +225,5 @@ CuentaCobroLogic cuentaLogic;
             throw new WebApplicationException("El author no existe", 404);
         }
         logic.delete(id);
-    }
-    
+    }  
 }
