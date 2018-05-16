@@ -947,3 +947,5 @@ insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (224,800);
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (225,800);
 
 insert into envios_dias(envioid, diaid) values(100,2900);
+
+select * from Comidaentity;
