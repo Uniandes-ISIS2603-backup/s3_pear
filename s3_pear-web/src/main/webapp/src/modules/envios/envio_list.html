@@ -1,29 +1,21 @@
 
 
-
-
-<div class="ui one column grid" style="background-color: white; width: 70%; margin: auto auto 6em auto; padding: 3em 5em; border-radius: 0.5em;">
-
     <div class="row">
-        <div class="column">
             <div class="inline field">
-                <h1 style="font-weight: 300; color: gray; float: left;">Envios</h1>
-                <a href="src/modules/envios/envio_add.html" style="text-decoration: none; color: #525252;"><i style="float: right; font-size: 30pt;" class="ion-plus-round"></i></a>
+                <h1 style="font-weight: 300; color: gray; float: left; margin-top: 20px;">Envios</h1>
+                <a ng-if="admin" href="src/modules/envios/envio_add.html" style="text-decoration: none; color: #525252;"><i style="float: right; font-size: 30pt;" class="ion-plus-round"></i></a>
             </div>
-
             <hr/>
-
-        </div>
     </div>
 
-    <div class="ui one stackable link cards">
+<div class="ui one stackable link cards" style="margin-top: 10px; padding-bottom: 1em;">
         <div class="ui fluid card" ng-repeat="envio in dia.envios| orderBy : 'id'">         
-            <div class="content">
-                <div class="header">{{envio.id}}</div>
-                <div class="meta"><a>Direccion: {{envio.direccion}}</a></div>
-                <div class="description">Duracion {{envio.duracion}} <br/> Recibido {{envio.recibido}}</div>
+            <div class="content">                
+                <div><h1 style="font-family: 'Roboto'; font-size: 18px; color: dimgray; font-weight: 300;">Direccion: {{envio.direccion}}</h1></div>
+                <div ng-if="admin" class="meta">Identficador: {{envio.id}}</div>
+                <div class="description">Duracion {{envio.duracion}} minutos<br/> Recibido {{envio.recibido}}</div>
             </div>
-            <div class="extra content">
+            <div ng-if="admin" class="extra content">
                 <div class="inline flief">
                     <span class="field right floated"><a ng-click="eliminar_envio(envio.id)" style="text-decoration: none;">Eliminar</a></span>
                      <span class="field right floated"><a ui-sref="envio_detail({ id: envio.id })">Actualizar</a> &nbsp; &nbsp;</span>
@@ -33,4 +25,3 @@
     </div>
 
 
-</div>
