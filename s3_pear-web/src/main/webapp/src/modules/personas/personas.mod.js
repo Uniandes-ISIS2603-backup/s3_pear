@@ -4,7 +4,7 @@
 
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-            $urlRouterProvider.otherwise("/login");
+            $urlRouterProvider.otherwise("/personas");
 
             $stateProvider
                     .state('personas', {
@@ -91,12 +91,19 @@
                     subscrito: true
                 };
 
-                $http.post(personasContext, data).then(function (response) {
-                    $scope.post_data = response.data;
-                    $rootScope.id_persona = $scope.post_data.id;
-                    $state.go('dietas', {}, {reload: true});
-                });
-
+                if(!(data.nombre)){
+                    console.log("Error en Nombre");
+                    $state.go('post_persona', {}, {reload: false});
+                    $scope.error_msg = "Por favor ingrese un nombre válido";
+                }
+                else if(data.nombre){
+                    console.log("No debería entrar acá");
+                    $http.post(personasContext, data).then(function (response) {
+                        $scope.post_data = response.data;
+                        $rootScope.id_persona = $scope.post_data.id;
+                        $state.go('dietas', {}, {reload: true});
+                    });
+                }
             };
 
             //DELETE

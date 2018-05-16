@@ -94,12 +94,14 @@
 
                 <p>&nbsp;</p>
                 <div class="inline field">
-                    <a ng-click="post_persona()" class="ui inverted olive basic button" ui-sref="dietas">Enviar</a>
+                    <a ng-click="post_persona()" class="ui inverted olive basic button">Enviar</a>
                     <a class="ui inverted teal basic button" style="text-decoration: none; color: white" ui-sref="dietas">Cancelar</a>
                 </div>
 
             </div>
-
+            <div>
+                <h4 id="error_msg" style="text-decoration: none; color:red">{{ error_msg }}</h4>
+            </div>
         </div>
 
 
