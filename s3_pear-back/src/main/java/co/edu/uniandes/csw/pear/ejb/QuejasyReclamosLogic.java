@@ -34,15 +34,15 @@ public class QuejasyReclamosLogic
         
         LOGGER.info("Inicia proceso de creación de quejas y reclamos");
         
-        if(entity.getComentario().equals(""))
+        if("".equals(entity.getComentario()))
         {
             throw new BusinessLogicException("El comentario no puede estar vacio");
         }
-        if(entity.getAsunto().equals(""))
+        if("".equals(entity.getAsunto()))
         {
            throw new BusinessLogicException("El asunto no puede estar vacio");
         }
-        if(entity.getAsunto().equals("recomendacion")||entity.getAsunto().equals("queja"))
+        if("recomendacion".equals(entity.getAsunto())||"queja".equals(entity.getAsunto()))
         {
           DietaTipoEntity dieta = dietaLogic.getDieta(idDieta);
           entity.setDieta(dieta);

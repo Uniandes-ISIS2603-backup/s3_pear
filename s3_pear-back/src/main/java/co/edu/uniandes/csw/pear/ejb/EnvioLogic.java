@@ -95,7 +95,7 @@ public class EnvioLogic {
      */
     public EnvioEntity updateEnvio( Long id, EnvioEntity entity ) throws BusinessLogicException {
 
-        EnvioEntity actualizado = null;
+        EnvioEntity actualizado;
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de un envio con id = {0} " , id);
         if(Objects.equals(id, entity.getId()))
         {

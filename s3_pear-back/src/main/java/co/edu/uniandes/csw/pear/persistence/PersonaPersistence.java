@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.csw.pear.persistence;
 
-import co.edu.uniandes.csw.pear.entities.CasoExitoEntity;
+
 import co.edu.uniandes.csw.pear.entities.PersonaEntity;
 import java.util.List;
 import java.util.logging.Level;
