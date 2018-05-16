@@ -75,21 +75,21 @@ public class EnvioEntity extends BaseEntity implements Serializable{
      */
     public void setDuracion(Integer pDuracion)
     {
-        duracion = pDuracion;
+        this.duracion = pDuracion;
     }
     /**
      * Cambia el recibidio a falso
      */
     public void setRecibidoFalso()
     {
-        recibido = false;
+        this.recibido = false;
     }
     /**
      * Cambia el recibidio a verdadero
      */
     public void setRecibidoVerdadero()
     {
-        recibido = true;
+        this.recibido = true;
     }
 
     /**

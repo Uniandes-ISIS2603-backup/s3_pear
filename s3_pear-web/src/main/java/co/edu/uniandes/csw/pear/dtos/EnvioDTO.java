@@ -29,9 +29,9 @@ public class EnvioDTO {
 
     private Integer duracion;
 
-    private Boolean recibido;
+    private boolean recibido;
 
-    private Long id;
+    private long id;
     
 
 
@@ -55,6 +55,10 @@ public class EnvioDTO {
         duracion = entidad.getDuracion();
 
         recibido = entidad.getRecibido();
+        
+        direccion = entidad.getDireccion();
+        
+        id = entidad.getId();
         }
 
     }
@@ -89,7 +93,7 @@ public class EnvioDTO {
      *
      * @return recibido el envio.
      */
-    public Boolean getRecibido() {
+    public boolean getRecibido() {
         return recibido;
     }
 
@@ -120,19 +124,20 @@ public class EnvioDTO {
 
    
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long pId) {
+    public void setId(long pId) {
         id = pId;
     }
 
     public EnvioEntity toEntity() {
         EnvioEntity en = new EnvioEntity();
         
-        en.setDireccion(direccion);
-        en.setDuracion(duracion);
+        en.setDireccion(this.getDireccion());
+        en.setDuracion(this.getDuracion());
+        en.setId(this.getId());
         
         if (recibido) {
             en.setRecibidoVerdadero();
@@ -140,7 +145,7 @@ public class EnvioDTO {
         else{
             en.setRecibidoFalso();
         }
-        en.setId(this.id);
+        
 
         return en;
     }
