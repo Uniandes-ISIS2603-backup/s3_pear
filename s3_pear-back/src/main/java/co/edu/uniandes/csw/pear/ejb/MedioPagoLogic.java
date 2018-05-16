@@ -74,6 +74,7 @@ public class MedioPagoLogic {
      * Crea un medio de Pago y la guarda en la base de datos
      * @param entity de pago a persistir
      * @return entidad de pago persistida
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     public MedioPagoEntity createMedioPago( MedioPagoEntity entity ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de un medio pago con id = {0}", entity.getId());

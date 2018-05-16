@@ -177,13 +177,8 @@
             };
 
         } // End Function Controller
-
-
     ]);
 })(window.angular);
-
-
-
 
 
 /* LOGOUT CONTROLLER */
@@ -191,16 +186,12 @@
 (function (ng) {
     var mod = ng.module("loginModule");
     mod.controller('logoutController', ['$rootScope', '$state',
-
-        // TODO
-
         function ($rootScope, $state) {
             if (sessionStorage.getItem("username")) {
                 sessionStorage.clear();
             } else {
                 $state.go('login', {}, {reload: true});
             }
-
         }
     ]);
 })(window.angular);

@@ -125,11 +125,9 @@ public class CuentaCobroLogic {
      * @param cuentaId
      * @return Pago
      */
-    public PagoEntity getPago(Long cuentaId)
-    {
+    public PagoEntity getPago(Long cuentaId){
         CuentaCobroEntity cuentaEntity = getCuenta(cuentaId);
-        return cuentaEntity.getPagoEntity();
-                
+        return cuentaEntity.getPagoEntity();          
     }
     
     /**

@@ -45,7 +45,6 @@ public class CasoExitoLogic {
         else if(getCasoExito(entity.getId()) != null){
             throw new BusinessLogicException("Ya existe un caso exito con el id " + entity.getId());
         }
-        // Invoca la persistencia para crear el caso exito
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de casoExito");
         return entity;
@@ -58,7 +57,6 @@ public class CasoExitoLogic {
      */
     public List<CasoExitoEntity> getCasosExito() {
         LOGGER.info("Inicia proceso de consultar todos los casos");
-        // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
         List<CasoExitoEntity> casos = persistence.findAll();
         LOGGER.info("Termina proceso de consultar todos los casos");
         return casos;

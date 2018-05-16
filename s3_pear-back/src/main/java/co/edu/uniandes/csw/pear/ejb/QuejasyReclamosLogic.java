@@ -25,7 +25,7 @@ public class QuejasyReclamosLogic
    private static final Logger LOGGER = Logger.getLogger(QuejasyReclamosLogic.class.getName());
 
     @Inject
-    private QuejasyReclamosPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
+    private QuejasyReclamosPersistence persistence; 
  
     @Inject 
     private DietaTipoLogic dietaLogic;
@@ -38,12 +38,10 @@ public class QuejasyReclamosLogic
         {
             throw new BusinessLogicException("El comentario no puede estar vacio");
         }
-        if("".equals(entity.getAsunto()))
-        {
+        if("".equals(entity.getAsunto())){
            throw new BusinessLogicException("El asunto no puede estar vacio");
         }
-        if("recomendacion".equals(entity.getAsunto())||"queja".equals(entity.getAsunto()))
-        {
+        if("recomendacion".equals(entity.getAsunto())||"queja".equals(entity.getAsunto())){
           DietaTipoEntity dieta = dietaLogic.getDieta(idDieta);
           entity.setDieta(dieta);
           LOGGER.info("Termina proceso de creación de calificacion");
@@ -52,14 +50,13 @@ public class QuejasyReclamosLogic
         
          throw new BusinessLogicException("El asunto no corresponde a los 2 unicos disponibles : recomendacion o queja"); 
     }
-    //seguir desde aqui
     public List<QuejasyReclamosEntity> getQuejasyReclamos(Long idDieta) {
         LOGGER.info("Inicia proceso de consultar todas las quejas y reclamos");
         LOGGER.info("Termina proceso de consultar todas las quejas y reclamos");
         return persistence.findAll(idDieta);
     }
 
-    public QuejasyReclamosEntity getQuejayReclamo(Long dietaid, Long id) {
+    public QuejasyReclamosEntity getQuejayReclamo(Long dietaid, Long id){
         return persistence.find(dietaid, id);
     }
 

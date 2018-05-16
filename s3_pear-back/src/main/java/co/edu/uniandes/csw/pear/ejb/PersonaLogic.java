@@ -42,8 +42,6 @@ public class PersonaLogic {
         if( entity.getDireccion() == null || entity.getEdad() == null){
               throw new BusinessLogicException("La persona no puede tener atributos nulos");
         }
-       
-        // Invoca la persistencia para crear el caso exito
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de persona");
         return entity;
@@ -55,7 +53,6 @@ public class PersonaLogic {
      */
     public List<PersonaEntity> getPersonas() {
         LOGGER.info("Inicia proceso de consultar todas las personas");
-        // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
         List<PersonaEntity> personas = persistence.findAll();
         LOGGER.info("Termina proceso de consultar todas las personas");
         return personas;
@@ -105,10 +102,8 @@ public class PersonaLogic {
         List<DietaTipoEntity> dietas = entity.getDietas(); 
         
         
-        for(int i = 0; i < dietas.size(); i++)
-        {
-            if(dietas.get(i).getId().equals(dietaId))
-            {
+        for(int i = 0; i < dietas.size(); i++){
+            if(dietas.get(i).getId().equals(dietaId)){
                 dietas.remove(i);
             }
             
