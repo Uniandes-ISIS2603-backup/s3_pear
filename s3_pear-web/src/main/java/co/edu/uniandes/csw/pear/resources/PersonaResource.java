@@ -243,6 +243,24 @@ public class PersonaResource {
 
     }
 
+    @GET
+    @Path("{id_persona: \\d+}/aumentar")
+    public PersonaDetailDTO aumentarPuntos(@PathParam("id_persona") Long id_persona)
+    {
+        
+        PersonaDetailDTO dto = null;
+        try {
+            dto = new PersonaDetailDTO(logic.aumentarPuntos(id_persona));
+        } catch (BusinessLogicException ex) {
+            Logger.getLogger(PersonaResource.class.getName()).log(Level.SEVERE, null, ex);
+            throw new WebApplicationException("El recurso /persona/" + id_persona + " no existe.", 404);
+        }
+        
+        return dto; 
+    }
+    
+    
+    
     /**
      * <h1>PUT /api/personas/{id} : Actualizar persona con el id dado.</h1>
      * <pre> Cuerpo de petición: JSON {@link PersonaDetailDTO}.

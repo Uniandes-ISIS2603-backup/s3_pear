@@ -127,7 +127,7 @@ public class DietaTipoEntity extends BaseEntity implements Serializable {
     }
    
     
-    public void add_semana ( SemanaEntity sem ) {
+    public void addsemana ( SemanaEntity sem ) {
         this.semanas.add(sem);
     }
 

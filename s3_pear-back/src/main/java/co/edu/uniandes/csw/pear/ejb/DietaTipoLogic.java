@@ -50,6 +50,18 @@ public class DietaTipoLogic {
         return dietas;
     }
     
+ 
+    
+    /**
+     * Retorna las dietas mas populares
+     * @return
+     */
+    public List<String> getDietasPopu()
+    {
+     return persistence.getDietasMasPopular();
+        
+    }
+    
     /**
      * Retorna una Dieta Entity  
      * @param id
@@ -70,9 +82,9 @@ public class DietaTipoLogic {
      * @param dieta_id
      * @return lista de semanas tipo entity de la dieta
      */
-    public List<SemanaEntity> getSemanasDeDieta( Long dieta_id ) {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las semanas de la dieta con id = {0}", dieta_id);
-        return this.getDieta(dieta_id).getSemanas();
+    public List<SemanaEntity> getSemanasDeDieta( Long dietaid ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las semanas de la dieta con id = {0}", dietaid);
+        return this.getDieta(dietaid).getSemanas();
     }
     
     /**
@@ -111,9 +123,15 @@ public class DietaTipoLogic {
      * @param entity a verificar
      */
     private void verificaciones( DietaTipoEntity entity) throws BusinessLogicException {
-        if ( entity == null) throw new BusinessLogicException( "Dieta ivalida, es null" );
-        if ( entity.getDescripcion().isEmpty() || entity.getDescripcion() == null) throw new BusinessLogicException( "Descripcion de Dieta invalida" );
-        if ( entity.getObjetivo().isEmpty() || entity.getObjetivo() == null ) throw new BusinessLogicException( "Objetivo de Dieta invalida" ) ;
+        if ( entity == null){
+            throw new BusinessLogicException( "Dieta ivalida, es null" );
+        }
+        if ( entity.getDescripcion().isEmpty() || entity.getDescripcion() == null){
+            throw new BusinessLogicException( "Descripcion de Dieta invalida" );
+        }
+        if ( entity.getObjetivo().isEmpty() || entity.getObjetivo() == null ){
+            throw new BusinessLogicException( "Objetivo de Dieta invalida" ) ;
+        }
        }
     
     /**

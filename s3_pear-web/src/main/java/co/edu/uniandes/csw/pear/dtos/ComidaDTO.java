@@ -27,13 +27,15 @@ import co.edu.uniandes.csw.pear.entities.ComidaEntity;
  */
 public class ComidaDTO {
 
+    
+    private long id;
     private Integer cantidad;
 
     private String alimentos;
 
     private String tipo;
 
-    private long id;
+    
     
    
     
@@ -45,10 +47,11 @@ public class ComidaDTO {
      */
     public ComidaDTO(ComidaEntity entidad) {
         if(entidad != null) {
+            id = entidad.getId();
         cantidad = entidad.getCantidad();
         alimentos = entidad.getAlimentos();
         tipo = entidad.getTipo();
-        id = entidad.getId();
+        
         
         }
     }

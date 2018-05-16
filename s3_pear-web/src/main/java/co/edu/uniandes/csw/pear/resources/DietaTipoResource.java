@@ -130,6 +130,22 @@ public class DietaTipoResource {
         return new DietaTipoDetailDTO(buscado);
     }
 
+    @GET
+    @Path("/ordenadas")
+    public List<DietaTipoDetailDTO> getDietasOrdenas()
+    {    
+        List<String> string = logic.getDietasPopu();
+        List<DietaTipoDetailDTO> dtos = new ArrayList<>(); 
+        for (String string1 : string) {
+            
+            DietaTipoDetailDTO dieta = new DietaTipoDetailDTO();  
+            dieta.setName(string1);
+            dtos.add(dieta); 
+        }
+        
+        return dtos; 
+    }
+    
     /**
      * <h1>PUT /api/dietas/{id} : Actualizar dieta con el id dado.</h1>
      * <pre>Cuerpo de petición: JSON {@link DietaTipoDetailDTO}.
@@ -201,7 +217,7 @@ public class DietaTipoResource {
             DietaTipoEntity dieta = logic.getDieta(id);
             SemanaEntity semana = logic_sem.getSemana(id_semana);
 
-            dieta.add_semana(semana);
+            dieta.addsemana(semana);
             semana.setDieta(dieta);    
             logic_sem.updateSemana(semana.getId(), semana);
 
