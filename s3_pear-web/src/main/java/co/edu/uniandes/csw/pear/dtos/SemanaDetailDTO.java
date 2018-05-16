@@ -30,7 +30,7 @@ public class SemanaDetailDTO extends SemanaDTO {
     //-----------------------------------------------------------
     private List<DiaDTO> dias;
     
-    private DietaTipoDTO dieta;
+    private DietaTipoDetailDTO dieta;
     //-----------------------------------------------------------
     //Constructor
     //-----------------------------------------------------------
@@ -46,7 +46,7 @@ public class SemanaDetailDTO extends SemanaDTO {
             }
             else dias = new ArrayList<>();
             if(entity.getDieta() != null){
-            dieta =  new DietaTipoDTO(entity.getDieta());
+            dieta =  new DietaTipoDetailDTO(entity.getDieta());
             }
             else{
             dieta = null;
@@ -75,7 +75,7 @@ public class SemanaDetailDTO extends SemanaDTO {
         return dias;
     }
     
-    public void setDieta(DietaTipoDTO di){
+    public void setDieta(DietaTipoDetailDTO di){
         dieta = di;
     }
     
@@ -85,7 +85,7 @@ public class SemanaDetailDTO extends SemanaDTO {
     
     
     
-    @Override
+ @Override
  public SemanaEntity toEntity(){
         
         SemanaEntity entity = super.toEntity();
