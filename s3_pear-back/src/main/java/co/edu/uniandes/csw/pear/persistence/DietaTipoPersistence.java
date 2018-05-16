@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.pear.persistence;
 
 import co.edu.uniandes.csw.pear.entities.DietaTipoEntity;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -74,6 +75,30 @@ public class DietaTipoPersistence {
         em.persist(entity);
         LOGGER.info("Dieta creada");
         return entity;
+    }
+    
+    
+    public List<String>  getDietasMasPopular()
+    {
+        LOGGER.info("Empieza a buscar la dieta más popular");
+        List<String> lista = new ArrayList<>(); 
+          String sql =  "SELECT u.name, SUM(c.puntuacion) as s FROM DietaTipoEntity u, CalificacionEntity c WHERE (u.id = c.dieta.id) GROUP BY u.name ORDER BY s DESC"; 
+     
+        TypedQuery q = em.createQuery(sql, Object.class);
+        
+        List<Object[]> resultList = q.getResultList();
+        
+        
+        for (Object[] objects : resultList) {
+            
+            lista.add((String)objects[0] + " - Puntuacion Total: "  + objects[1] ); 
+        }
+        
+        for (String string : lista) {
+            LOGGER.info(string);
+        }
+        
+         return lista;
     }
     
     /**

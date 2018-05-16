@@ -50,6 +50,18 @@ public class DietaTipoLogic {
         return dietas;
     }
     
+ 
+    
+    /**
+     * Retorna las dietas mas populares
+     * @return
+     */
+    public List<String> getDietasPopu()
+    {
+     return persistence.getDietasMasPopular();
+        
+    }
+    
     /**
      * Retorna una Dieta Entity  
      * @param id
