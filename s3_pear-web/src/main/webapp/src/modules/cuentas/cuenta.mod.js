@@ -37,6 +37,15 @@
                 });
             }
 
+
+         $scope.hacerPago = function()
+         {
+             var puntosActuales = $rootScope.persona.
+             
+             
+         }
+
+
         }
     ]);
 })(window.angular);
