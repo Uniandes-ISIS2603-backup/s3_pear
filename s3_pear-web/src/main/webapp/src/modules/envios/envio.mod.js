@@ -73,7 +73,6 @@
                 
                 $http.get('http://localhost:8080/s3_pear-web/api/dias/' + id_dia).then(function (response) {
                     $scope.dia = response.data;
-                    console.log($scope.dia);
                 });
                 
             };

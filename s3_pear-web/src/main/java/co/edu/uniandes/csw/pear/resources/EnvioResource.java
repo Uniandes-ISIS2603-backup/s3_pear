@@ -165,6 +165,5 @@ public class EnvioResource {
         if ( logic.getEnvio(id) == null )
             throw new WebApplicationException("El recurso /envios/" + id + " no existe.", 404);
               logic.delete(id);
-    }
-    
+    }  
 }
