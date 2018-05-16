@@ -211,12 +211,69 @@ insert into SemanaEntity(id, fechaLunes) values (225,'23/04/2018');
 insert into SemanaEntity(id, fechaLunes) values (226,'30/04/2018');
 
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (100, '', '26/03/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (100,10,'Calle 5', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (200,10,'Carrera 6', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (300,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(100,100);
+insert into envios_dias(envioid, diaid) values(200,100);
+insert into envios_dias(envioid, diaid) values(300,100);
+
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (200, '','27/03/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (300,10,'Calle 4', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (400,10,'Carrera 5', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (500,10,'Calle 2', 1);
+insert into envios_dias(envioid, diaid) values(300,200);
+insert into envios_dias(envioid, diaid) values(400,200);
+insert into envios_dias(envioid, diaid) values(500,200);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (300, '', '28/03/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (600,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (700,10,'Carrera 1', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (800,10,'Calle 9', 1);
+insert into envios_dias(envioid, diaid) values(600,300);
+insert into envios_dias(envioid, diaid) values(700,300);
+insert into envios_dias(envioid, diaid) values(800,300);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (400, 'No consumir azucar refinada','29/03/2018', 0);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (900,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (1000,10,'Carrera 1', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (1100,10,'Calle 9', 1);
+insert into envios_dias(envioid, diaid) values(900,400);
+insert into envios_dias(envioid, diaid) values(1000,400);
+insert into envios_dias(envioid, diaid) values(1100,400);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (500, 'Una harina diaria','30/03/2018', 0);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (1200,10,'Calle 13', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (1300,10,'Carrera 4', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (1400,10,'Calle 90', 1);
+insert into envios_dias(envioid, diaid) values(1200,500);
+insert into envios_dias(envioid, diaid) values(1300,500);
+insert into envios_dias(envioid, diaid) values(1400,500);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (600, 'Tomar 2 litros de agua','31/03/2018', 0);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (1500,10,'Calle 4', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (1600,10,'Carrera 4', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (1700,10,'Calle 4', 1);
+insert into envios_dias(envioid, diaid) values(1500,600);
+insert into envios_dias(envioid, diaid) values(1600,600);
+insert into envios_dias(envioid, diaid) values(1700,600);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (700, '','01/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (1800,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (1900,10,'Carrera 49', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (2000,10,'Calle 69', 1);
+insert into envios_dias(envioid, diaid) values(1800,700);
+insert into envios_dias(envioid, diaid) values(1900,700);
+insert into envios_dias(envioid, diaid) values(2000,700);
+
+
 
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (100,221);
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (200,221);
@@ -272,12 +329,67 @@ insert into DIAS_COMIDAS(DIAID, COMIDAID)values(700,2000);
 insert into DIAS_COMIDAS(DIAID, COMIDAID)values(700,2100);
 
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (800, 'Una harina diaria', '02/04/2018', 0);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (2100,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (2200,10,'Carrera 49', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (2300,10,'Calle 69', 1);
+insert into envios_dias(envioid, diaid) values(2100,800);
+insert into envios_dias(envioid, diaid) values(2200,800);
+insert into envios_dias(envioid, diaid) values(2300,800);
+
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (900, 'Consumir arroz integral', '03/04/2018', 0);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (2400,10,'Calle 21', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (2500,10,'Carrera 15', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (2600,10,'Calle 77', 1);
+insert into envios_dias(envioid, diaid) values(2400,900);
+insert into envios_dias(envioid, diaid) values(2500,900);
+insert into envios_dias(envioid, diaid) values(2600,900);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1000,'Consumir 5 porciones de vegetales', '04/04/2018', 0);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (2700,10,'Calle 11', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (2800,10,'Carrera 5', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (2900,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(2700,1000);
+insert into envios_dias(envioid, diaid) values(2800,1000);
+insert into envios_dias(envioid, diaid) values(2900,1000);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1100, '','05/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (3000,10,'Calle 10', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (3100,10,'Carrera 50', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (3200,10,'Calle 18', 1);
+insert into envios_dias(envioid, diaid) values(3000,1100);
+insert into envios_dias(envioid, diaid) values(3100,1100);
+insert into envios_dias(envioid, diaid) values(3200,1100);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1200, '','06/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (3300,10,'Calle 1', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (3400,10,'Carrera 12', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (3500,10,'Calle 19', 1);
+insert into envios_dias(envioid, diaid) values(3300,1200);
+insert into envios_dias(envioid, diaid) values(3400,1200);
+insert into envios_dias(envioid, diaid) values(3500,1200);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1300, '','07/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (3600,10,'Calle 33', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (3700,10,'Carrera 44', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (3800,10,'Calle 55', 1);
+insert into envios_dias(envioid, diaid) values(3600,1300);
+insert into envios_dias(envioid, diaid) values(3700,1300);
+insert into envios_dias(envioid, diaid) values(3800,1300);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1400, 'Una harina diaria','08/04/2018', 0);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (3900,10,'Calle 31', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (4000,10,'Carrera 41', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (4100,10,'Calle 51', 1);
+insert into envios_dias(envioid, diaid) values(3900,1400);
+insert into envios_dias(envioid, diaid) values(4000,1400);
+insert into envios_dias(envioid, diaid) values(4100,1400);
 
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (800,222);
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (900,222);
@@ -332,12 +444,72 @@ insert into DIAS_COMIDAS(DIAID, COMIDAID)values(1400,4100);
 insert into DIAS_COMIDAS(DIAID, COMIDAID)values(1400,4200);
 
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (1500, '', '09/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (4200,10,'Calle 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (4300,10,'Carrera 4', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (4400,10,'Calle 5', 1);
+insert into envios_dias(envioid, diaid) values(4200,1500);
+insert into envios_dias(envioid, diaid) values(4300,1500);
+insert into envios_dias(envioid, diaid) values(4400,1500);
+
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (1600, '', '10/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (4500,10,'Calle 12', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (4600,10,'Carrera 13', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (4700,10,'Calle 17', 1);
+insert into envios_dias(envioid, diaid) values(4500,1600);
+insert into envios_dias(envioid, diaid) values(4600,1600);
+insert into envios_dias(envioid, diaid) values(4700,1600);
+
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1700, '', '11/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (4800,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (4900,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (5000,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(4800,1700);
+insert into envios_dias(envioid, diaid) values(4900,1700);
+insert into envios_dias(envioid, diaid) values(5000,1700);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1800, 'Una harina diaria','12/04/2018', 0);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (5100,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (5200,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (5300,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(5100,1800);
+insert into envios_dias(envioid, diaid) values(5200,1800);
+insert into envios_dias(envioid, diaid) values(5300,1800);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (1900, 'Consumir arroz integral','13/04/2018', 0);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (5400,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (5500,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (5600,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(5400,1900);
+insert into envios_dias(envioid, diaid) values(5500,1900);
+insert into envios_dias(envioid, diaid) values(5600,1900);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2000, 'Una harina diaria','14/04/2018', 0);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (5700,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (5800,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (5900,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(5700,2000);
+insert into envios_dias(envioid, diaid) values(5800,2000);
+insert into envios_dias(envioid, diaid) values(5900,2000);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2100, 'Una harina diaria','15/04/2018', 0);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (6000,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (6100,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (6200,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(6000,2100);
+insert into envios_dias(envioid, diaid) values(6100,2100);
+insert into envios_dias(envioid, diaid) values(6200,2100);
+
+
+/*HASTA AQUI VAN LOS ENVIOS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
 
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (1500,223);
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (1600,223);
@@ -392,12 +564,68 @@ insert into DIAS_COMIDAS(DIAID, COMIDAID)values(2100,6200);
 insert into DIAS_COMIDAS(DIAID, COMIDAID)values(2100,6300);
 
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (2200, '', '16/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (6300,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (6400,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (6500,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(6300,2200);
+insert into envios_dias(envioid, diaid) values(6400,2200);
+insert into envios_dias(envioid, diaid) values(6500,2200);
+
+
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (2300, '', '17/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (6600,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (6700,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (6800,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(6600,2300);
+insert into envios_dias(envioid, diaid) values(6700,2300);
+insert into envios_dias(envioid, diaid) values(6800,2300);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2400, '', '18/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (6900,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (7000,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (71000,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(6900,2400);
+insert into envios_dias(envioid, diaid) values(7000,2400);
+insert into envios_dias(envioid, diaid) values(7100,2400);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2500, 'Una harina diaria','19/04/2018', 0);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (7200,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (7300,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (74000,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(7200,2500);
+insert into envios_dias(envioid, diaid) values(7300,2500);
+insert into envios_dias(envioid, diaid) values(7400,2500);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2600, '','20/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (7500,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (7600,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (77000,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(7500,2600);
+insert into envios_dias(envioid, diaid) values(7600,2600);
+insert into envios_dias(envioid, diaid) values(7700,2600);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2700, 'No consumir azucar refinada','21/04/2018', 0);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (7800,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (7900,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (8000,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(7800,2700);
+insert into envios_dias(envioid, diaid) values(7900,2700);
+insert into envios_dias(envioid, diaid) values(8000,2700);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2800, '','22/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (8100,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (8200,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (8300,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(8100,2800);
+insert into envios_dias(envioid, diaid) values(8200,2800);
+insert into envios_dias(envioid, diaid) values(8300,2800);
 
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2200,224);
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2300,224);
@@ -452,12 +680,67 @@ insert into DIAS_COMIDAS(DIAID, COMIDAID)values(2800,8300);
 insert into DIAS_COMIDAS(DIAID, COMIDAID)values(2800,8400);
 
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (2900, '', '23/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (8400,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (8500,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (8600,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(8400,2900);
+insert into envios_dias(envioid, diaid) values(8500,2900);
+insert into envios_dias(envioid, diaid) values(8600,2900);
+
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (3000, '', '24/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (8700,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (8800,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (8900,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(8700,3000);
+insert into envios_dias(envioid, diaid) values(8800,3000);
+insert into envios_dias(envioid, diaid) values(8900,3000);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (3100, '', '25/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (9000,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (9100,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (9200,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(9000,3100);
+insert into envios_dias(envioid, diaid) values(9100,3100);
+insert into envios_dias(envioid, diaid) values(9200,3100);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (3200, '','26/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (9300,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (9400,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (9500,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(9300,3200);
+insert into envios_dias(envioid, diaid) values(9400,3200);
+insert into envios_dias(envioid, diaid) values(9500,3200);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (3300, '','27/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (9600,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (9700,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (9800,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(9600,3300);
+insert into envios_dias(envioid, diaid) values(9700,3300);
+insert into envios_dias(envioid, diaid) values(9800,3300);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (3400, '','28/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (9900,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (10000,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (10100,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(9900,3400);
+insert into envios_dias(envioid, diaid) values(10000,3400);
+insert into envios_dias(envioid, diaid) values(10100,3400);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (3500, '','29/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (10200,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (10300,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (10400,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(10200,3500);
+insert into envios_dias(envioid, diaid) values(10300,3500);
+insert into envios_dias(envioid, diaid) values(10400,3500);
 
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (2900,225);
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (3000,225);
@@ -512,12 +795,67 @@ insert into DIAS_COMIDAS(DIAID, COMIDAID)values(3500,10400);
 insert into DIAS_COMIDAS(DIAID, COMIDAID)values(3500,10500);
 
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (3600, '', '30/04/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (10500,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (10600,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (10700,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(10500,3600);
+insert into envios_dias(envioid, diaid) values(10600,3600);
+insert into envios_dias(envioid, diaid) values(10700,3600);
+
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (3700, '', '01/05/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (10800,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (10900,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (11000,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(10800,3700);
+insert into envios_dias(envioid, diaid) values(10900,3700);
+insert into envios_dias(envioid, diaid) values(11000,3700);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (3800, '', '02/05/2018', 1);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (11100,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (11200,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (11300,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(11100,3800);
+insert into envios_dias(envioid, diaid) values(11200,3800);
+insert into envios_dias(envioid, diaid) values(11300,3800);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (3900, 'Una harina diaria','03/05/2018', 0);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (11400,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (11500,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (11600,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(11400,3900);
+insert into envios_dias(envioid, diaid) values(11500,3900);
+insert into envios_dias(envioid, diaid) values(11600,3900);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (4000, 'Consumir arroz integral','04/05/2018', 0);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (11700,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (11800,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (11900,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(11700,4000);
+insert into envios_dias(envioid, diaid) values(11800,4000);
+insert into envios_dias(envioid, diaid) values(11900,4000);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (4100, 'Una harina diaria','05/05/2018', 0);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (12000,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (12100,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (12200,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(12000,4100);
+insert into envios_dias(envioid, diaid) values(12100,4100);
+insert into envios_dias(envioid, diaid) values(12200,4100);
+
 insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (4200, 'Una harina diaria','06/05/2018', 0);
+
+insert into EnvioEntity (id,duracion,direccion,recibido) values (12300,10,'Calle 2', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (12400,10,'Carrera 3', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (12500,10,'Calle 7', 1);
+insert into envios_dias(envioid, diaid) values(12300,4200);
+insert into envios_dias(envioid, diaid) values(12400,4200);
+insert into envios_dias(envioid, diaid) values(12500,4200);
 
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (3600,226);
 insert into DIAS_SEMANAS(DIAID, SEMANAID) values (3700,226);
@@ -608,5 +946,4 @@ insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (223,800);
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (224,800);
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (225,800);
 
-/*@Sebastian Cabra Completar información en esta tabla y en tabla de envios*/
 insert into envios_dias(envioid, diaid) values(100,2900);

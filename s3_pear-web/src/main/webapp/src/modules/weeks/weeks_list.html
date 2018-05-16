@@ -86,11 +86,10 @@
 
 <div class="row" style="margin-top: 20px;">
 
-    <div class="row" ng-repeat="semana in dieta.semanas" style="margin-top: 20px;">
+    <div class="row" ng-repeat="semana in dieta.semanas" style="margin-top: 20px; overflow: show">
         <p style="font-family: 'Roboto'; font-weight: 100; font-size: 20px; margin-bottom: -1px;">{{semana.fechaLunes}}</p>
-
-
-        <ul class="weekdays">
+    
+       <ul class="weekdays" >
             <li>Lunes</li>
             <li>Martes</li>
             <li>Miercoles</li>
@@ -98,16 +97,13 @@
             <li>Viernes</li>
             <li>Sabado</li>
             <li>Domingo</li>
-        </ul>
+        </ul> 
+        
+      
 
-        <ul class="days"> <!-- ng-repeat="dia in semana.dias" --> 
-            <li>Dia 1 <br> <a ui-sref='dieta_specs.comidas({ id_dia: dia.id })' class="item">Comidas</a> <br ><a ui-sref=' ^.envios({ id_dia: dia.id })' class="item">Envios</a></li>
-            <li>Dia 2 <br> <a ui-sref='dieta_specs.comidas({ id_dia: dia.id })' class="item">Comidas</a> <br ><a ui-sref=' ^.envios({ id_dia: dia.id })' class="item">Envios</a></li>
-            <li>Dia 3 <br> <a ui-sref='dieta_specs.comidas({ id_dia: dia.id })' class="item">Comidas </a> <br ><a ui-sref=' ^.envios({ id_dia: dia.id })' class="item">Envios</a></li>
-            <li>Dia 4 <br> <a ui-sref='dieta_specs.comidas({ id_dia: dia.id })' class="item">Comidas </a> <br ><a ui-sref=' ^.envios({ id_dia: dia.id })' class="item">Envios</a></li>
-            <li>Dia 5 <br> <a ui-sref='dieta_specs.comidas({ id_dia: dia.id })' class="item">Comidas </a> <br ><a ui-sref=' ^.envios({ id_dia: dia.id })' class="item">Envios</a></li>
-            <li>Dia6 <br> <a ui-sref='dieta_specs.comidas({ id_dia: dia.id })' class="item">Comidas</a> <br ><a ui-sref=' ^.envios({ id_dia: dia.id })' class="item">Envios</a></li>
-            <li>Dia7 <br> <a ui-sref='dieta_specs.comidas({ id_dia: dia.id })' class="item">Comidas </a> <br ><a ui-sref=' ^.envios({ id_dia: dia.id })' class="item">Envios</a></li>
+        <ul class="days" > 
+           <li ng-repeat="dia in semana.dias"> {{dia.fecha}}</li> <!--<br> <a ui-sref='dieta_specs.comidas({ id_dia: dia.id })' class="item">Comidas</a> <br ><a ui-sref=' ^.envios({ id_dia: dia.id })' class="item">Envios</a>-->
+            
         </ul>
 
 

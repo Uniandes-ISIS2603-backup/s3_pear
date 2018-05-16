@@ -9,9 +9,9 @@
             $stateProvider
 
                     .state('dieta_specs.comidas', {
-                        url: "/comidas",
+                        url: "/comidas/dias/:id_dia",
                         param: {
-                            id_dieta: null
+                            id_dia: null
                         },
                         views: {
                             'dieta_spec': {

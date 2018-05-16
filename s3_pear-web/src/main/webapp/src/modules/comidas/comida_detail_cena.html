@@ -2,7 +2,7 @@
 
 
 <div class="ui two stackable link cards" style="margin-top: 40px;">
-    <div class="ui fluid card" ng-repeat="comida in comidas| orderBy : 'id'">
+    <div class="ui fluid card" ng-repeat="comida in comidas| orderBy : 'id'| filter:comida.TIPO === 'cena'">
         <div class="image">
             <!-- <img src="{{comida.image}}">-->
         </div>

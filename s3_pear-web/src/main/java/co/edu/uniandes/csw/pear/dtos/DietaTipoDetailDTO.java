@@ -25,7 +25,7 @@ import java.util.List;
  */
 public class DietaTipoDetailDTO extends DietaTipoDTO {
 
-    private List<SemanaDTO> semanas;
+    private List<SemanaDetailDTO> semanas;
     private List<CalificacionDTO> calificaciones;
     private List<QuejasyReclamosDTO> quejas;
     private List<PersonaDTO> personas;
@@ -44,7 +44,7 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
 
             semanas = new ArrayList<>();
             for (SemanaEntity semana : entity.getSemanas()) {
-                semanas.add(new SemanaDTO(semana));
+                semanas.add(new SemanaDetailDTO(semana));
             }
         }
         else semanas =  new ArrayList<>();
@@ -109,11 +109,11 @@ public class DietaTipoDetailDTO extends DietaTipoDTO {
         return en;
     }
 
-    public List<SemanaDTO> getSemanas() {
+    public List<SemanaDetailDTO> getSemanas() {
         return semanas;
     }
 
-    public void setSemanas(List<SemanaDTO> semanas) {
+    public void setSemanas(List<SemanaDetailDTO> semanas) {
         this.semanas = semanas;
     }
 
