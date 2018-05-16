@@ -68,6 +68,15 @@ public class PersonaLogic {
         return persistence.find(id);
     }
     
+    public PersonaEntity aumentarPuntos(Long id) throws BusinessLogicException
+    {
+        PersonaEntity en = getPersona(id); 
+        en.setPuntosFidelidad(en.getPuntosFidelidad() +1);
+        
+        return updatePersona(en); 
+    }
+    
+    
     /**
      * Actualiza la persona que entra por parametro.
      * @param entity Persona nueva

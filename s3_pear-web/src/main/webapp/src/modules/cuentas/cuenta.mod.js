@@ -38,11 +38,9 @@
             }
 
 
-         $scope.hacerPago = function()
+         $scope.hacer_pago = function()
          {
-             var puntosActuales = $rootScope.persona.
-             
-             
+            $http.get('http://localhost:8080/s3_pear-web/api/personas/' + $rootScope.persona.id + '/aumentarpuntos'); 
          }
 
 
