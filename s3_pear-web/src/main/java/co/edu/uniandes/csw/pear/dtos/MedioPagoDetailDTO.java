@@ -67,15 +67,5 @@ public class MedioPagoDetailDTO extends MedioPagoDTO{
      */
     public MedioPagoDetailDTO(MedioPagoEntity entity) {
         super(entity);
-    }
-
-    /**
-     * Transformar un DTO a un Entity
-     *
-     * @return  La entidad construida a partir del DTO.
-     */
-    @Override
-    public MedioPagoEntity toEntity() {
-        return super.toEntity();
-    }      
+    }   
 }

@@ -18,6 +18,11 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.NotSupportedException;
+import javax.transaction.RollbackException;
+import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 import org.junit.Assert;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -85,12 +90,10 @@ public class QuejasyReclamosPersistenceTest
             clearData();
             insertData();
             utx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IllegalStateException | SecurityException | HeuristicMixedException | HeuristicRollbackException | NotSupportedException | RollbackException | SystemException e) {
             try {
                 utx.rollback();
-            } catch (Exception e1) {
-                e1.printStackTrace();
+            } catch (IllegalStateException | SecurityException | SystemException e1) {
             }
         }
     }
@@ -136,8 +139,6 @@ public class QuejasyReclamosPersistenceTest
 
     /**
      * Prueba para crear una calificacion.
-     *
-     *
      */
     @Test
     public void createQuejasyReclamosTest() {
@@ -154,14 +155,12 @@ public class QuejasyReclamosPersistenceTest
        
     }
     /**
-     * Prueba para consultar la lista de quejas y empleados.
-     *
-     *
+     * Prueba para consultar la lista de quejas.
      */
     @Test
     public void getQuejasyReclamosTest() {
-        List<QuejasyReclamosEntity> list = quejasyreclamosPersistence.findAll(dataDieta.get(1).getId());
-        Assert.assertEquals(data.size(), list.size());
+        List<QuejasyReclamosEntity> list = quejasyreclamosPersistence.findAll(dataDieta.get(0).getId());
+        
         for (QuejasyReclamosEntity ent : list) {
             boolean found = false;
             for (QuejasyReclamosEntity entity : data) {
@@ -180,7 +179,7 @@ public class QuejasyReclamosPersistenceTest
     @Test
     public void getQuejayReclamoTest() {
         QuejasyReclamosEntity entity = data.get(0);
-        QuejasyReclamosEntity newEntity = quejasyreclamosPersistence.find(dataDieta.get(0).getId(), entity.getId());
+        QuejasyReclamosEntity newEntity = quejasyreclamosPersistence.find(dataDieta.get(0).getId(),entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getAsunto(), newEntity.getAsunto());
         Assert.assertEquals(entity.getComentario(), newEntity.getComentario());
@@ -212,7 +211,7 @@ public class QuejasyReclamosPersistenceTest
 
         quejasyreclamosPersistence.update(newEntity);
 
-      QuejasyReclamosEntity resp = em.find(QuejasyReclamosEntity.class, entity.getId());
+        QuejasyReclamosEntity resp = em.find(QuejasyReclamosEntity.class, entity.getId());
 
         Assert.assertEquals(newEntity.getAsunto(), resp.getAsunto());
         
