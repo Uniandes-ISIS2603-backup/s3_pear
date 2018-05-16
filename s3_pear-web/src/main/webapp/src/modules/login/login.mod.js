@@ -73,8 +73,6 @@
                             }
                         }
                     });
-
-
         }]);
 
 })(window.angular);
@@ -123,7 +121,7 @@
 
 
                 let auth_persona = function ( persona_id ) {
-                    $http.get('http://localhost:8080/s3_pear-web/api/personas/' + persona_id ).then(function (response) {
+                    $http.get('http://localhost:8080/s3_pear-web/api/personas/' + persona_id ).then(function () {
                         $state.go('dietas', {}, {
                             reload: true
                         });
@@ -155,7 +153,6 @@
                             };
                             break;
                         }
-
                     }
 
                 } /*END FOR*/
@@ -175,7 +172,6 @@
                     $rootScope.currentUser = $scope.usuario.name;
                 }
             };
-
         } // End Function Controller
     ]);
 })(window.angular);

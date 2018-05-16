@@ -39,12 +39,11 @@ public class PagoLogic {
      * METODOS 
      */
     
-    
     /**
      * Retorna todas los pagos Entities que se encuentran en la base de datos
      * @return 
      */
-    public List<PagoEntity> getPagos() {
+    public List<PagoEntity> getPagos(){
         LOGGER.info("Inicia consulta de todos los pagos");
         List<PagoEntity> pagos =  persistence.findAll();
         LOGGER.info("Termina la consulta de todos los pagos");
@@ -56,7 +55,7 @@ public class PagoLogic {
      * @param id
      * @return 
      */
-    public PagoEntity getPago( Long id ) {
+    public PagoEntity getPago( Long id ){
         LOGGER.log(Level.INFO, "Inicia consulta de un pago con id = {0}", id);
         PagoEntity pago = persistence.find(id);
         if ( pago ==  null )
@@ -72,8 +71,7 @@ public class PagoLogic {
      * @return Pago con el total en el montoIncial.
      */
     
-    public PagoEntity  getRecaudoTotal()
-    {
+    public PagoEntity  getRecaudoTotal(){
         List<PagoEntity> todosP = getPagos(); 
         Double total = 0.0;
         
@@ -126,8 +124,7 @@ public class PagoLogic {
     }
     
     
-    public boolean validarPago(double valorIncial, double valorFinal) throws BusinessLogicException
-    {
+    public boolean validarPago(double valorIncial, double valorFinal) throws BusinessLogicException{
         if(valorIncial < 0){
             throw new BusinessLogicException("El valor inicial es negativo"); 
         }
@@ -158,7 +155,4 @@ public class PagoLogic {
         persistence.delete(id);
         LOGGER.log( Level.INFO, "Pago con id = {0} eliminada. ", id );
     }
-    
-    
-    
 }
