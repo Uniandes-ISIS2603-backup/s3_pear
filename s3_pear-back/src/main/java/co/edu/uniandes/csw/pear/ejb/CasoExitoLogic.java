@@ -39,7 +39,7 @@ public class CasoExitoLogic {
         if (entity.getComentario() == null || entity.getTestimonio() == null) {
             throw new BusinessLogicException("El caso exito no puede tener atributos nulos");
         }
-        else if(entity.getComentario().equals("") || entity.getTestimonio().equals("")){
+        else if("".equals(entity.getComentario()) || "".equals(entity.getTestimonio())){
             throw new BusinessLogicException("El caso exito no puede tener comentarios ni testimonios vacíos");
         }
         else if(getCasoExito(entity.getId()) != null){

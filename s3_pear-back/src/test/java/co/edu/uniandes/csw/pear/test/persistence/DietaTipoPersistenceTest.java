@@ -12,6 +12,11 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.NotSupportedException;
+import javax.transaction.RollbackException;
+import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -80,12 +85,10 @@ public class DietaTipoPersistenceTest {
             clearData();
             insertData();
             utx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IllegalStateException | SecurityException | HeuristicMixedException | HeuristicRollbackException | NotSupportedException | RollbackException | SystemException e) {
             try {
                 utx.rollback();
-            } catch (Exception e1) {
-                e1.printStackTrace();
+            } catch (IllegalStateException | SecurityException | SystemException e1) {
             }
         }
     }
