@@ -54,6 +54,7 @@ public class SemanaLogic {
      * Retorna la SemanaEntity que tiene el identificador que entra como parametro  
      * @param id identificador de la semana que se quiere buscar
      * @return semana con identificador dado
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     public SemanaEntity getSemana( Long id ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia consulta de la semana con id = {0}", id);
@@ -71,6 +72,7 @@ public class SemanaLogic {
      * Retorna una lista con los dias de la semana
      * @param id identificador de la semana
      * @return lista de dias tipo entity de la semana
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     public List<DiaEntity> getDiasSemana(Long id) throws BusinessLogicException{
       LOGGER.log(Level.INFO, "Inicia proceso de consultar todas los dias de la semana con id = {0}", id);
@@ -83,6 +85,7 @@ public class SemanaLogic {
      * @param idDia identificador del dia
      * @param idSemana identificador de la semana
      * @return dia con el id dado que corresponde a la semana dada
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     public DiaEntity getDiaSemana(Long idDia, Long idSemana) throws BusinessLogicException{
          LOGGER.log(Level.INFO, "Inicia proceso de consultar el Dia con id = {0} de la Semana con id = {1}", new Object[]{idDia, idSemana});           
@@ -108,7 +111,7 @@ public class SemanaLogic {
         if(persistence.find(entity.getId())!= null){
             throw new BusinessLogicException("Ya existe una semana con ese identificador");
         }
-        if(entity.getFechaLunes() == null || entity.getFechaLunes() == ""){
+        if(entity.getFechaLunes() == null || "".equals(entity.getFechaLunes())){
             throw new BusinessLogicException("La fecha no puede ser vacia");
         }
         persistence.create(entity);
@@ -157,6 +160,4 @@ public class SemanaLogic {
         persistence.delete(id);
         LOGGER.log( Level.INFO, "La semana con id = {0} fue eliminada. ", id );
     }
-    
-    
 }

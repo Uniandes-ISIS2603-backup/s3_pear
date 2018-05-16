@@ -98,7 +98,6 @@ public class FacturaLogic {
     
     /**
      * Actualiza una Factura segun su identificador
-     * @param id de tipo Long, representa  el id de la factura que se va a actualizar
      * @param entity FacturaEntity con los cambios deseados
      * @return la entidad de factura luego de ser actualizada
      * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
@@ -122,6 +121,7 @@ public class FacturaLogic {
      /**
      * Elimina una factura segun su identificador
      * @param id identificador de la factura que se quiere eliminar
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     public void deleteFactura( Long id ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia el proceso de eliminacion de una factura con id = {0} " , id);

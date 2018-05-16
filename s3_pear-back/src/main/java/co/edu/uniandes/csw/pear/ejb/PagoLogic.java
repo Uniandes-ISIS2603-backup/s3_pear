@@ -77,10 +77,9 @@ public class PagoLogic {
         List<PagoEntity> todosP = getPagos(); 
         Double total = 0.0;
         
-        for (PagoEntity pagoEntity : todosP) {
+        for (PagoEntity pagoEntity : todosP){
             
-            total += ( pagoEntity.getMontoFinal() + pagoEntity.getMontoInicial()) ; 
-            
+            total += ( pagoEntity.getMontoFinal() + pagoEntity.getMontoInicial()) ;  
         }
         
         PagoEntity en = new PagoEntity(); 
@@ -94,14 +93,12 @@ public class PagoLogic {
      * @param pagoId
      * @return medio pago
      */
-    public MedioPagoEntity getMedioPago(Long pagoId)
-    {
+    public MedioPagoEntity getMedioPago(Long pagoId){
         return getPago(pagoId).getMedioPagoEntity(); 
     }
     
     
-    public PagoEntity asociarMedioDePago(Long idPago, Long idMedio)
-    {
+    public PagoEntity asociarMedioDePago(Long idPago, Long idMedio){
         MedioPagoEntity pMedio = new MedioPagoEntity(); 
         pMedio.setId(idMedio);
         PagoEntity pago = getPago(idPago); 
@@ -114,6 +111,7 @@ public class PagoLogic {
      * Crea un Pago y la guarda en la base de datos
      * @param entity de pago a persistir
      * @return entidad de pago persistida
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     public PagoEntity createPago( PagoEntity entity ) throws BusinessLogicException{
         LOGGER.log(Level.INFO, "Inicia proceso de creacion de un pago con id = {0}", entity.getId());
@@ -130,16 +128,12 @@ public class PagoLogic {
     
     public boolean validarPago(double valorIncial, double valorFinal) throws BusinessLogicException
     {
-        if(valorIncial < 0)
-        {
+        if(valorIncial < 0){
             throw new BusinessLogicException("El valor inicial es negativo"); 
         }
-        
-        if(valorFinal < 0)
-        {
+        if(valorFinal < 0){
             throw new BusinessLogicException("El valor final es negativo ");
         }
-        
         return true; 
     }
     

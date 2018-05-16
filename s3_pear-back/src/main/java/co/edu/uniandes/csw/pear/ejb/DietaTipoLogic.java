@@ -79,7 +79,7 @@ public class DietaTipoLogic {
     
     /**
      * Retorna una colection de instancias de Semana asociadas a la Dieta por id
-     * @param dieta_id
+     * @param dietaid
      * @return lista de semanas tipo entity de la dieta
      */
     public List<SemanaEntity> getSemanasDeDieta( Long dietaid ) {
@@ -155,9 +155,11 @@ public class DietaTipoLogic {
      * @param id de tipo Long, representa la dieta que se va a actualizar
      * @param entity de Dieta con los cambios deseados
      * @return la entidad de Dieta luego de ser actualizada
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
-    public DietaTipoEntity updateDieta( Long id, DietaTipoEntity entity ) throws BusinessLogicException {
-        if ( persistence.find(entity.getId()) == null ) throw new BusinessLogicException("la dieta que se piensa eliminar no existe. ID = " + entity.getId());
+    public DietaTipoEntity updateDieta( Long id, DietaTipoEntity entity ) throws BusinessLogicException{
+        if ( persistence.find(entity.getId()) == null ) 
+            throw new BusinessLogicException("la dieta que se piensa eliminar no existe. ID = " + entity.getId());
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la dieta con id = {0} " , id);
         DietaTipoEntity actualizado = persistence.update(entity);
         verificaciones(actualizado);
@@ -217,7 +219,4 @@ public class DietaTipoLogic {
         semana.setId(semanaId);
         this.getDieta(dietaId).getSemanas().remove(semana);
     }
-    
-    
-    
 }

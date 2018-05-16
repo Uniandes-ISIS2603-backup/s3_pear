@@ -75,8 +75,7 @@ public class ComidaLogic {
             if("desayuno".equalsIgnoreCase(entity.getTipo())|| "almuerzo".equalsIgnoreCase(entity.getTipo()) ||"cena".equalsIgnoreCase(entity.getTipo()) || "adicional".equalsIgnoreCase(entity.getTipo())){
                  persistence.create(entity);
             }
-            else
-            {
+            else{
                throw new BusinessLogicException ("esta comida no tiene un tipo valido");
             }
         }
@@ -99,12 +98,10 @@ public class ComidaLogic {
     public ComidaEntity updateComida( Long id, ComidaEntity entity ) throws BusinessLogicException {
         ComidaEntity actualizado = null;
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la comida con id = {0} " , id);
-        if(Objects.equals(entity.getId(), id))
-        {
+        if(Objects.equals(entity.getId(), id)){
          actualizado = persistence.update(entity);
         }
-         else
-        {
+         else{
             throw new BusinessLogicException ("el id no puede ser cambiado");
         }
         LOGGER.log( Level.INFO, "Termina proceso de actualizacion de la comida, id = {0}", entity.getId() );

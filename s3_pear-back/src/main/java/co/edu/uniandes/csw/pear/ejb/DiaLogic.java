@@ -53,6 +53,7 @@ public class DiaLogic {
      * Retorna la DiaEntity que tiene el identificador que entra como parametro  
      * @param id identificador del dia que se quiere buscar
      * @return dia con identificador dado
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     public DiaEntity getDia( Long id ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia consulta del dia con id = {0}", id);
@@ -70,6 +71,7 @@ public class DiaLogic {
      * Retorna una lista de instancias de Comida asociadas al Dia segun el identificador
      * @param idDia identificador del dia que tiene la informacion deseada
      * @return lista con las ComidaEntity del dia buscado
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     public List<EnvioEntity> getEnviosPorDia(Long idDia) throws BusinessLogicException{
         LOGGER.log(Level.INFO,"Inicia el proceso de consultar todos los envios del dia con id = {0}",idDia);
@@ -81,6 +83,7 @@ public class DiaLogic {
      * @param idEnvio identificador del envio que se busca
      * @param idDia dia en el que se quiere buscar la comida
      * @return comida con el identificador dado en el dia dado
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     public EnvioEntity getEnvioDeDia(Long idEnvio, Long idDia) throws BusinessLogicException{
         LOGGER.log(Level.INFO, "Inicia proceso de consulta del Dia con id = {0} del envio con id = {1}",new Object[]{idDia, idEnvio});
@@ -135,6 +138,7 @@ public class DiaLogic {
      * @param idEnvio identificador del envio
      * @param idDia identificador del dia
      * @return Comida que se agrego al dia
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     public EnvioEntity addEnvioToDia(Long idEnvio, Long idDia) throws BusinessLogicException{
         LOGGER.log(Level.INFO, "Inicia proceso de asociar un envio con id = {0} a un Dia con id = {1}", new Object[]{idEnvio, idDia});
@@ -161,6 +165,7 @@ public class DiaLogic {
      * Elimina una comida dada de la semana que tiene el identificador que entra por parametro
      * @param idEnvio identificador de la comida que se quiere eliminar
      * @param idDia identificador del dia al que se le eliminara una comida
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     public void deleteEnvioFromDia(Long idEnvio, Long idDia) throws BusinessLogicException{
         LOGGER.log(Level.INFO, "Inicia proceso de eliminar el envio con id = {0} del Dia con id = {1}", new Object[]{idEnvio,idDia});

@@ -155,7 +155,7 @@ public class CocinaLogic {
      * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     public CocinaEntity updateCocina( Long id, CocinaEntity entity ) throws BusinessLogicException {
-        if ( persistence.find(entity.getId()) == null )
+        if(persistence.find(entity.getId()) == null )
             throw new BusinessLogicException("la cocina que se piensa eliminar no existe. ID = " + entity.getId());
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la dieta con id = {0} " , id);
         CocinaEntity actualizado = persistence.update(entity);
