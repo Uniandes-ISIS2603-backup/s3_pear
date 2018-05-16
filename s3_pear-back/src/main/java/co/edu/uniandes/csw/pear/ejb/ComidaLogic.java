@@ -55,7 +55,7 @@ public class ComidaLogic {
      * @param id
      * @return 
      */
-    public ComidaEntity getComida( long id ) {
+    public ComidaEntity getComida( Long id ) {
         LOGGER.log(Level.INFO, "Inicia consulta de comida con id = {0}", id);
         ComidaEntity comida = persistence.find(id);
         if ( comida ==  null )
@@ -98,7 +98,7 @@ public class ComidaLogic {
      * @param entity de Comida con los cambios deseados
      * @return la entidad de Comida luego de ser actualizada
      */
-    public ComidaEntity updateComida( long id, ComidaEntity entity ) throws BusinessLogicException {
+    public ComidaEntity updateComida( Long id, ComidaEntity entity ) throws BusinessLogicException {
         ComidaEntity actualizado = null;
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de la comida con id = {0} " , id);
         if(entity.getId() == id)

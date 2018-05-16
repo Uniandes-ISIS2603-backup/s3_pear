@@ -31,10 +31,10 @@ public class EnvioPersistence {
     
     /**
      * Busca una EnvioEntity dado su ID
-     * @param id de tipo long
+     * @param id de tipo Long
      * @return envio de tipo entity
      */
-    public EnvioEntity find( long id ) {
+    public EnvioEntity find( Long id ) {
         LOGGER.log(Level.INFO, "Consultando envio con id={0}", id);
         return em.find(EnvioEntity.class, id);
         
@@ -77,7 +77,7 @@ public class EnvioPersistence {
      * Elimina una envio dado su ID
      * @param id de tipo Long
      */
-    public void delete( long id ) {
+    public void delete( Long id ) {
         LOGGER.log(Level.INFO, "Borrando el envio con id={0}", id);
         EnvioEntity entity = em.find(EnvioEntity.class, id);
         em.remove(entity);

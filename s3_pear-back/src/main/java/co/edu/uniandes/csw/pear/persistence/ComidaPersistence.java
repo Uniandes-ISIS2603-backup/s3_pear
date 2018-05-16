@@ -31,10 +31,10 @@ public class ComidaPersistence {
     
     /**
      * Busca una ComidaEntity dado su ID
-     * @param id de tipo long
+     * @param id de tipo Long
      * @return comida de tipo entity
      */
-    public ComidaEntity find( long id ) {
+    public ComidaEntity find( Long id ) {
         LOGGER.log(Level.INFO, "Consultando comida con id={0}", id);
         return em.find(ComidaEntity.class, id);
         

@@ -56,7 +56,7 @@ public class EnvioLogic {
      * @param id
      * @return 
      */
-    public EnvioEntity getEnvio( long id ) {
+    public EnvioEntity getEnvio( Long id ) {
         LOGGER.log(Level.INFO, "Inicia consulta de envios con id = {0}", id);
         EnvioEntity envio = persistence.find(id);
         if ( envio ==  null )
@@ -90,7 +90,7 @@ public class EnvioLogic {
      * @param entity de Envio con los cambios deseados
      * @return la entidad de Envio luego de ser actualizada
      */
-    public EnvioEntity updateEnvio( long id, EnvioEntity entity ) throws BusinessLogicException {
+    public EnvioEntity updateEnvio( Long id, EnvioEntity entity ) throws BusinessLogicException {
 
         EnvioEntity actualizado = null;
         LOGGER.log(Level.INFO, "Inica proceso de actualizacion de un envio con id = {0} " , id);
@@ -110,7 +110,7 @@ public class EnvioLogic {
      * Elimina un Envio por id
      * @param id 
      */
-    public void delete( long id ) throws BusinessLogicException {
+    public void delete( Long id ) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia eliminacion de el envio con id = {0} " , id);
         if(getEnvio(id)!=null)
         {
