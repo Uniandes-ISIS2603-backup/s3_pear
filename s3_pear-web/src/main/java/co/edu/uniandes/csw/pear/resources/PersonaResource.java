@@ -243,7 +243,7 @@ public class PersonaResource {
 
     }
 
-    @GET
+    @PUT
     @Path("{id_persona: \\d+}/aumentar")
     public PersonaDetailDTO aumentarPuntos(@PathParam("id_persona") Long id_persona)
     {
