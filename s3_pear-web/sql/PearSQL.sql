@@ -8,8 +8,8 @@ delete from Semanas_Dietas;
 delete from Envios_Dias;
 delete from Dias_Comidas;
 delete from CuentaCobroEntity;
-delete from DietaTipoEntity;
 delete from CocinaEntity;
+delete from DietaTipoEntity;
 
 delete from ComidaEntity;
 delete from EnvioEntity;
@@ -217,10 +217,10 @@ insert into envios_dias(envioid, diaid) values(300,100);
 
 insert into DiaEntity(id, recomendacion, fecha, seenvia) values (200, '','27/03/2018', 1);
 
-insert into EnvioEntity (id,duracion,direccion,recibido) values (300,10,'Calle 4', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (30000,10,'Calle 4', 1);
 insert into EnvioEntity (id,duracion,direccion,recibido) values (400,10,'Carrera 5', 1);
 insert into EnvioEntity (id,duracion,direccion,recibido) values (500,10,'Calle 2', 1);
-insert into envios_dias(envioid, diaid) values(300,200);
+insert into envios_dias(envioid, diaid) values(30000,200);
 insert into envios_dias(envioid, diaid) values(400,200);
 insert into envios_dias(envioid, diaid) values(500,200);
 
