@@ -199,15 +199,6 @@ insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) value
 insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) values (900, 'Comentario 9', 'Testimonio 9','https://rolloid.net/wp-content/uploads/2017/05/20-fotos-increibles-de-perdida-de-peso-antes-y-despues-de-las-cuales-no-creeras-que-sean-de-la-misma-persona-1494409694.jpg');
 insert into CasoExitoEntity (id, comentario, testimonio,fotoAntesyDespues) values (1000, 'Comentario 10', 'Testimonio 10','https://rolloid.net/wp-content/uploads/2017/05/20-fotos-increibles-de-perdida-de-peso-antes-y-despues-de-las-cuales-no-creeras-que-sean-de-la-misma-persona-1494409764.jpg');
 
-insert into EnvioEntity (id,duracion,direccion,recibido) values (100,10,'ejemplo 1', 1);
-insert into EnvioEntity (id,duracion,direccion,recibido) values (200,20,'ejemplo 2', 0);
-insert into EnvioEntity (id,duracion,direccion,recibido) values (300,30,'ejemplo 3', 0);
-insert into EnvioEntity (id,duracion,direccion,recibido) values (400,40,'ejemplo 4', 0);
-insert into EnvioEntity (id,duracion,direccion,recibido) values (500,50,'ejemplo 5', 1);
-insert into EnvioEntity (id,duracion,direccion,recibido) values (600,60,'ejemplo 6', 0);
-insert into EnvioEntity (id,duracion,direccion,recibido) values (700,70,'ejemplo 8', 0);
-insert into EnvioEntity (id,duracion,direccion,recibido) values (800,80,'ejemplo7', 1);
-
 insert into SemanaEntity(id, fechaLunes) values (221,'26/03/2018');
 insert into SemanaEntity(id, fechaLunes) values (222,'02/04/2018');
 insert into SemanaEntity(id, fechaLunes) values (223,'09/04/2018');
@@ -591,7 +582,7 @@ insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2400, '', '18/0
 
 insert into EnvioEntity (id,duracion,direccion,recibido) values (6900,10,'Calle 2', 1);
 insert into EnvioEntity (id,duracion,direccion,recibido) values (7000,10,'Carrera 3', 1);
-insert into EnvioEntity (id,duracion,direccion,recibido) values (71000,10,'Calle 7', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (7100,10,'Calle 7', 1);
 insert into envios_dias(envioid, diaid) values(6900,2400);
 insert into envios_dias(envioid, diaid) values(7000,2400);
 insert into envios_dias(envioid, diaid) values(7100,2400);
@@ -600,7 +591,7 @@ insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2500, 'Una hari
 
 insert into EnvioEntity (id,duracion,direccion,recibido) values (7200,10,'Calle 2', 1);
 insert into EnvioEntity (id,duracion,direccion,recibido) values (7300,10,'Carrera 3', 1);
-insert into EnvioEntity (id,duracion,direccion,recibido) values (74000,10,'Calle 7', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (7400,10,'Calle 7', 1);
 insert into envios_dias(envioid, diaid) values(7200,2500);
 insert into envios_dias(envioid, diaid) values(7300,2500);
 insert into envios_dias(envioid, diaid) values(7400,2500);
@@ -609,7 +600,7 @@ insert into DiaEntity(id, recomendacion, fecha, seEnvia) values (2600, '','20/04
 
 insert into EnvioEntity (id,duracion,direccion,recibido) values (7500,10,'Calle 2', 1);
 insert into EnvioEntity (id,duracion,direccion,recibido) values (7600,10,'Carrera 3', 1);
-insert into EnvioEntity (id,duracion,direccion,recibido) values (77000,10,'Calle 7', 1);
+insert into EnvioEntity (id,duracion,direccion,recibido) values (7700,10,'Calle 7', 1);
 insert into envios_dias(envioid, diaid) values(7500,2600);
 insert into envios_dias(envioid, diaid) values(7600,2600);
 insert into envios_dias(envioid, diaid) values(7700,2600);
@@ -764,7 +755,7 @@ insert into ComidaEntity(id,cantidad,alimentos,tipo) values (9000,200,'Queso Cot
 insert into ComidaEntity(id,cantidad,alimentos,tipo) values (9100,10,'Huevo y Jamón','desayuno');
 insert into ComidaEntity(id,cantidad,alimentos,tipo) values (9200,187,'Esparragos y Pollo','almuerzo');
 insert into ComidaEntity(id,cantidad,alimentos,tipo) values (9300,93,'Carne','cena');
-insert into ComidaEntity(id,cantidad,alimentos,tipo) values (94000,87,'Leche y fresas','desayuno');
+insert into ComidaEntity(id,cantidad,alimentos,tipo) values (9400,87,'Leche y fresas','desayuno');
 insert into ComidaEntity(id,cantidad,alimentos,tipo) values (9500,98,'Pescado','almuerzo');
 insert into ComidaEntity(id,cantidad,alimentos,tipo) values (9600,200,'Queso Cottage','cena');
 insert into ComidaEntity(id,cantidad,alimentos,tipo) values (9700,10,'Huevo y Jamón','desayuno');
@@ -952,5 +943,3 @@ insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (224,800);
 insert into SEMANAS_DIETAS(SEMANAID, DIETAID) VALUES (225,800);
 
 insert into envios_dias(envioid, diaid) values(100,2900);
-
-select * from Comidaentity;
