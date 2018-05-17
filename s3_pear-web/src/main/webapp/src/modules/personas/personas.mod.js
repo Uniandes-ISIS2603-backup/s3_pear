@@ -92,12 +92,10 @@
                 };
 
                 if(!(data.nombre)){
-                    console.log("Error en Nombre");
                     $state.go('post_persona', {}, {reload: false});
                     $scope.error_msg = "Por favor ingrese un nombre válido";
                 }
                 else if(data.nombre){
-                    console.log("No debería entrar acá");
                     $http.post(personasContext, data).then(function (response) {
                         $scope.post_data = response.data;
                         $rootScope.id_persona = $scope.post_data.id;

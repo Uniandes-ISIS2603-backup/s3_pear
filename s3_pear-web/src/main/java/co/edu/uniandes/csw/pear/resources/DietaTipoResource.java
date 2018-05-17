@@ -72,6 +72,7 @@ public class DietaTipoResource {
      * guardar.
      * @return JSON {@link DietaTipoDetailDTO} - La dieta guardada con el
      * atributo id autogenerado.
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @POST
     public DietaTipoDetailDTO createDietaTipo(DietaTipoDetailDTO dietaTipo) throws BusinessLogicException {
@@ -167,6 +168,7 @@ public class DietaTipoResource {
      * ser una cadena de dígitos.
      * @param dieta {@link DietaTipoDetailDTO} La dieta que se desea guardar.
      * @return JSON {@link DietaTipoDetailDTO} - La dieta guardada.
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @PUT
     @Path("{id: \\d+}")

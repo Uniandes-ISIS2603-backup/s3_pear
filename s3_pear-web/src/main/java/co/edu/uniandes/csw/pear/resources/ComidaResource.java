@@ -5,8 +5,6 @@
  */
 package co.edu.uniandes.csw.pear.resources;
 
-
-
 import co.edu.uniandes.csw.pear.dtos.ComidaDTO;
 import co.edu.uniandes.csw.pear.dtos.ComidaDetailDTO;
 import co.edu.uniandes.csw.pear.ejb.ComidaLogic;
@@ -22,8 +20,7 @@ import javax.ws.rs.*;
 /**
  * El formato JSON de este objeto es el siguiente:
  
- 
-  {
+ [{
   "id": 123,
   "cantidad": 200,
   "alimentos": "Pollo y arroz",

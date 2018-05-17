@@ -28,7 +28,7 @@ public class CasoExitoResource {
     CasoExitoLogic logic;
     
     /**
-     * <h1>POST TODOLaRuta : Crear un caso exitoso.</h1>
+     * <h1>POST: Crear un caso exitoso.</h1>
      * 
      * <pre>Cuerpo de petición: JSON {@link CasoExitoDetailDTO}.
      * 

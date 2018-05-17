@@ -141,6 +141,7 @@ public class SemanaResource {
      * </pre>
      * @param id Identificador de la semana que se esta buscando. Este debe ser una cadena de dígitos.
      * @return JSON {@link SemanaDetailDTO} - La semana buscada
+     * @throws co.edu.uniandes.csw.pear.exceptions.BusinessLogicException
      */
     @GET
     @Path("{id: \\d+}")

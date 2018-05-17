@@ -120,7 +120,7 @@ public class CocinaResource {
         CocinaEntity cocina = logic.getCocina(id);
         List<DietaTipoEntity> dietas = cocina.getDietas();
         List<DietaTipoDetailDTO> ds = new ArrayList<>();
-        dietas.forEach((en) -> {
+        dietas.forEach(en -> {
             ds.add(new DietaTipoDetailDTO(en));
         });
         return ds;
